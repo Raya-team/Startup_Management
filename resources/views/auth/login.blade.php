@@ -10,9 +10,6 @@
                 <!--begin::Wrapper-->
                 <div class="login-content d-flex flex-column pt-lg-0 pt-12">
                     <!--begin::Logo-->
-                    <a href="#" class="login-logo pb-xl-20 pb-15">
-                        <img src="assets/media/logos/logo-4.png" class="max-h-70px" alt="" />
-                    </a>
                     <!--end::Logo-->
                     <!--begin::Signin-->
                     <div class="login-form">
@@ -20,9 +17,9 @@
                         <form class="form" id="kt_login_singin_form" action="">
                             <!--begin::Title-->
                             <div class="pb-5 pb-lg-15">
-                                <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Sign In</h3>
-                                <div class="text-muted font-weight-bold font-size-h4">New Here?
-                                    <a href="custom/pages/login/login-4/signup.html" class="text-primary font-weight-bolder">Create Account</a></div>
+                                <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">ورود</h3>
+                                <div class="text-muted font-weight-bold font-size-h4">تازه وارد شده ام؟
+                                    <a href="custom/pages/login/login-4/signup.html" class="text-primary font-weight-bolder">ثبت نام</a></div>
                             </div>
                             <!--begin::Title-->
                             <!--begin::Form group-->
