@@ -13,9 +13,6 @@
                     <!--begin::Aside Top-->
                     <div class="d-flex flex-column-auto flex-column px-10">
                         <!--begin::Aside header-->
-                        <a href="#" class="login-logo pb-lg-4 pb-10">
-                            <img src="assets/media/logos/logo-4.png" class="max-h-70px" alt="" />
-                        </a>
                         <!--end::Aside header-->
                         <!--begin: Wizard Nav-->
                         <div class="wizard-nav pt-5 pt-lg-15 pb-10">
@@ -29,8 +26,7 @@
                                             <span class="wizard-number">1</span>
                                         </div>
                                         <div class="wizard-label">
-                                            <h3 class="wizard-title">Account</h3>
-                                            <div class="wizard-desc">Account details</div>
+                                            <h3 class="wizard-title">اطلاعات کاربر</h3>
                                         </div>
                                         <span class="svg-icon pl-6">
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -52,8 +48,7 @@
                                             <span class="wizard-number">2</span>
                                         </div>
                                         <div class="wizard-label">
-                                            <h3 class="wizard-title">Address</h3>
-                                            <div class="wizard-desc">Residential address</div>
+                                            <h3 class="wizard-title">اطلاعات استارتاپ</h3>
                                         </div>
                                         <span class="svg-icon pl-6">
 												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -63,24 +58,45 @@
 														<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
 													</g>
 												</svg>
-											</span>
+										</span>
                                     </div>
                                 </div>
                                 <!--end::Wizard Step 2 Nav-->
                                 <!--begin::Wizard Step 3 Nav-->
                                 <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step">
-                                    <div class="wizard-wrapper">
+                                    <div class="wizard-wrapper pr-7">
                                         <div class="wizard-icon">
                                             <i class="wizard-check ki ki-check"></i>
                                             <span class="wizard-number">3</span>
                                         </div>
                                         <div class="wizard-label">
-                                            <h3 class="wizard-title">Complete</h3>
-                                            <div class="wizard-desc">Submit form</div>
+                                            <h3 class="wizard-title">اطلاعات اعضای تیم</h3>
                                         </div>
+                                        <span class="svg-icon pl-6">
+												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<polygon points="0 0 24 0 24 24 0 24" />
+														<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
+														<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
+													</g>
+												</svg>
+										</span>
                                     </div>
                                 </div>
                                 <!--end::Wizard Step 3 Nav-->
+                                <!--begin::Wizard Step 4 Nav-->
+                                <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step">
+                                    <div class="wizard-wrapper">
+                                        <div class="wizard-icon">
+                                            <i class="wizard-check ki ki-check"></i>
+                                            <span class="wizard-number">4</span>
+                                        </div>
+                                        <div class="wizard-label">
+                                            <h3 class="wizard-title">اطلاعات محصول</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Wizard Step 4 Nav-->
                             </div>
                             <!--end::Wizard Steps-->
                         </div>
@@ -95,21 +111,27 @@
                             <div class="" data-wizard-type="step-content" data-wizard-state="current">
                                 <!--begin::Title-->
                                 <div class="pb-10 pb-lg-12">
-                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Create Account</h3>
-                                    <div class="text-muted font-weight-bold font-size-h4">Already have an Account ?
-                                        <a href="custom/pages/login/login-4/signin.html" class="text-primary font-weight-bolder">Sign In</a></div>
+                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">ثبت نام</h3>
+                                    <div class="text-muted font-weight-bold font-size-h4">قبلا ثبت نام کرده ام؟
+                                        <a href="custom/pages/login/login-4/signin.html" class="text-primary font-weight-bolder">ورود</a></div>
                                 </div>
                                 <!--begin::Title-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">First Name</label>
-                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fname" placeholder="First Name" value="" />
+                                    <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری</label>
+                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fname" placeholder="نام کاربری" value="" />
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">Last Name</label>
-                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" placeholder="Last Name" value="" />
+                                    <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
+                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" placeholder="ایمیل" value="" />
+                                </div>
+                                <!--end::Form Group-->
+                                <!--begin::Form Group-->
+                                <div class="form-group">
+                                    <label class="font-size-h6 font-weight-bolder text-dark">رمز عبور</label>
+                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" placeholder="رمز عبور" value="" />
                                 </div>
                                 <!--end::Form Group-->
                             </div>
@@ -117,49 +139,80 @@
                             <!--begin: Wizard Step 2-->
                             <div class="pb-5" data-wizard-type="step-content">
                                 <!--begin::Title-->
-                                <div class="pt-lg-0 pt-5 pb-15">
-                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Address Details</h3>
-                                    <div class="text-muted font-weight-bold font-size-h4">Have a Different Address ?
-                                        <a href="#" class="text-primary font-weight-bolder">Add Address</a></div>
-                                </div>
                                 <!--begin::Title-->
                                 <!--begin::Row-->
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-3">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">Address Line 1</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="address1" placeholder="Address Line 1" value="Address Line 1" />
-                                            <span class="form-text text-muted">Please enter your Address.</span>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team name" placeholder="نام تیم یا شرکت" />
                                         </div>
                                         <!--end::Input-->
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-3">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">Address Line 2</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="address2" placeholder="Address Line 2" value="Address Line 2" />
-                                            <span class="form-text text-muted">Please enter your Address.</span>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام طرح</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project name" placeholder="نام طرح" />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="email" placeholder="ایمیل" />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-3">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="phone" placeholder="شماره تماس" />
                                         </div>
                                         <!--end::Input-->
                                     </div>
                                 </div>
                                 <!--end::Row-->
                                 <!--begin::Row-->
+                                <!--end::Row-->
+                                <!--begin::Row-->
                                 <div class="row">
                                     <div class="col-xl-6">
-                                        <!--begin::Input-->
+                                        <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">State</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="state" placeholder="State" value="VIC" />
-                                            <span class="form-text text-muted">Please enter your State.</span>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت</label>
+                                            <select name="country" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                                <option value="">کشاورزی و دامپروری</option>
+                                                <option value="AF">محصولات غذایی</option>
+                                                <option value="AX">خودرو</option>
+                                                <option value="AL">تجهیزات پزشکی</option>
+                                                <option value="DZ">الکترونیک</option>
+                                                <option value="AS">مواد و نانو</option>
+                                                <option value="AS">تجهیزات صنعتی</option>
+                                                <option value="AS">ICT</option>
+                                                <option value="AS">آموزش</option>
+                                                <option value="AS">اینترنت اشیا</option>
+                                                <option value="AS">آب</option>
+                                                <option value="AS">هوافضا</option>
+                                                <option value="AS">انرژی های تجدید پذیر</option>
+                                                <option value="AS">انرژی های فسیلی</option>
+                                                <option value="AS">آرایشی و بهداشتی</option>
+                                                <option value="AS">معدن</option>
+                                                <option value="AS">دارویی</option>
+                                                <option value="AS">فینتک</option>
+                                                <option value="AS">سلامت</option>
+                                                <option value="AS">دارو</option>
+                                            </select>
                                         </div>
                                         <!--end::Input-->
                                     </div>
                                     <div class="col-xl-6">
                                         <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">Country</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">شرکت ثبت شده</label>
                                             <select name="country" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 <option value="">Select</option>
                                                 <option value="AF">Afghanistan</option>
@@ -505,13 +558,13 @@
             </div>
             <!--begin::Content-->
             <!--begin::Aside-->
-            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right">
+            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="width: 500px;">
                 <div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg);">
                     <!--begin::Aside title-->
-                    <h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
+                {{--<h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
                         <br />A Surprise
                         <br />For You</h3>
-                    <!--end::Aside title-->
+                    <!--end::Aside title-->--}}
                 </div>
             </div>
             <!--end::Aside-->
