@@ -246,15 +246,7 @@
                                 <!--end::Row-->
                             </div>
                             <!--end: Wizard Step 2-->
-
-
                             <!--begin: Wizard Step 3-->
-                            <div class="pb-5" data-wizard-type="step-content">
-                                <input type="text">اینجا را سرچ کن
-                            </div>
-                            <!--end: Wizard Step 3-->
-
-                            <!--begin: Wizard Step 4-->
                             <div class="pb-5" data-wizard-type="step-content">
                                 <!--begin::Title-->
                                 <div class="pt-lg-0 pt-5 pb-15">
@@ -286,7 +278,7 @@
                                 </div>
                                 <!--end::Section-->
                             </div>
-                            <!--end: Wizard Step 4-->
+                            <!--end: Wizard Step 5-->
                             <!--begin: Wizard Actions-->
                             <div class="d-flex justify-content-between pt-7">
                                 <div class="mr-2">
@@ -343,10 +335,10 @@
             <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="width: 500px;">
                 <div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg);">
                     <!--begin::Aside title-->
-                    {{--<h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
-                            <br />A Surprise
-                            <br />For You</h3>
-                        <!--end::Aside title-->--}}
+                {{--<h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
+                        <br />A Surprise
+                        <br />For You</h3>
+                    <!--end::Aside title-->--}}
                 </div>
             </div>
             <!--end::Aside-->
