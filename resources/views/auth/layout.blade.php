@@ -25,6 +25,7 @@
     <link href="assets/css/themes/layout/aside/dark.rtl.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    @yield('css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -43,6 +44,7 @@
 <!--end::Global Theme Bundle-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="assets/js/pages/custom/login/login-4.js"></script>
+@yield('javascript')
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
