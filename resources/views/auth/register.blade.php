@@ -318,10 +318,11 @@
                                             <select name="education" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 <option value="1">سیکل</option>
                                                 <option value="2">دیپلم</option>
-                                                <option value="2">فوق دیپلم</option>
-                                                <option value="2">کارشناسی</option>
-                                                <option value="2">کارشناسی ارشد</option>
-                                                <option value="2">دکترا</option>
+                                                <option value="3">فوق دیپلم</option>
+                                                <option value="4">کارشناسی</option>
+                                                <option value="5">کارشناسی ارشد</option>
+                                                <option value="6">دکترا</option>
+                                                <option value="7">فوق دکترا</option>
                                             </select>
                                         </div>
                                         <!--end::Input-->
