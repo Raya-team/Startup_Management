@@ -118,25 +118,25 @@
                                 <!--begin::Title-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری</label>
+                                    <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری:</label>
                                     <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" placeholder="نام کاربری خود را وارد کنید" required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
+                                    <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
                                     <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="email" placeholder="ایمیل خود را وارد کنید" required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">رمز عبور</label>
+                                    <label class="font-size-h6 font-weight-bolder text-dark">رمز عبور:</label>
                                     <input type="password" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="password" placeholder="رمز عبور خود را وارد کنید" required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">تکرار رمز عبور</label>
+                                    <label class="font-size-h6 font-weight-bolder text-dark">تکرار رمز عبور:</label>
                                     <input type="password" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="password_confirmation" placeholder=" رمز عبور خود را تایید کنید" required/>
                                 </div>
                                 <!--end::Form Group-->
@@ -151,7 +151,7 @@
                                     <div class="col-xl-6">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت:</label>
                                             <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team name" placeholder="نام تیم یا شرکت خود را وارد کنید" required />
                                         </div>
                                         <!--end::Input-->
@@ -159,7 +159,7 @@
                                     <div class="col-xl-6">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام طرح</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
                                             <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project name" placeholder=" نام طرح خود را وارد کنید" required />
                                         </div>
                                         <!--end::Input-->
@@ -171,7 +171,7 @@
                                     <div class="col-xl-6">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
                                             <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team email" placeholder="ایمیل خود را وارد کنید" required />
                                         </div>
                                         <!--end::Input-->
@@ -179,9 +179,9 @@
                                     <div class="col-xl-6">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس:</label>
                                             <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team phone" placeholder="شماره تماس خود را وارد کنید"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-                                            <span class="form-text text-muted">این فیلد اختیاری می باشد</span>
+                                            <span class="form-text text-muted" style="color: red !important" >این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -192,7 +192,7 @@
                                     <div class="col-xl-6">
                                         <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
                                             <select name="activity" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 <option value="1">کشاورزی و دامپروری</option>
                                                 <option value="2">محصولات غذایی</option>
@@ -236,9 +236,9 @@
                                     <div class="col-xl-12">
                                         <!--begin::Input-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">آدرس</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark">آدرس:</label>
                                             <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="address" placeholder="آدرس خود را وارد کنید" />
-                                            <span class="form-text text-muted">این فیلد اختیاری می باشد</span>
+                                            <span class="form-text text-muted" style="color: red !important;">این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -246,14 +246,110 @@
                                 <!--end::Row-->
                             </div>
                             <!--end: Wizard Step 2-->
-
-
                             <!--begin: Wizard Step 3-->
                             <div class="pb-5" data-wizard-type="step-content">
-                                <input type="text">اینجا را سرچ کن
+                                <!--begin::Title-->
+                                <!--begin::Title-->
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام:</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="firstname" placeholder="نام خود را وارد کنید" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی:</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lastname" placeholder=" نام خانوادگی خود را وارد کنید" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="field" placeholder="رشته خود را وارد کنید" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <!--begin::Select-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">سن:</label>
+                                            <select name="age" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                                @for($i = 1300; $i <= 1400; $i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <!--begin::Select-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
+                                            <select name="Responsibility" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                                <option value="1">مسئول فنی</option>
+                                                <option value="2">مسئول بازار</option>
+                                                <option value="3">مسئول مالی</option>
+                                                <option value="4">مسئول مدیریتی و جذب سرمایه</option>
+                                                <option value="5">سرمایه گذار</option>
+                                                <option value="6">مشاور</option>
+                                            </select>
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <!--begin::Select-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">تحصیلات:</label>
+                                            <select name="education" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                                <option value="1">سیکل</option>
+                                                <option value="2">دیپلم</option>
+                                                <option value="2">فوق دیپلم</option>
+                                                <option value="2">کارشناسی</option>
+                                                <option value="2">کارشناسی ارشد</option>
+                                                <option value="2">دکترا</option>
+                                            </select>
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="experience" placeholder="چند سال سابقه کاری دارید؟" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" placeholder="میزان سرمایه خود را وارد کنید" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Row-->
                             </div>
                             <!--end: Wizard Step 3-->
-
                             <!--begin: Wizard Step 4-->
                             <div class="pb-5" data-wizard-type="step-content">
                                 <!--begin::Title-->
@@ -340,7 +436,7 @@
             </div>
             <!--begin::Content-->
             <!--begin::Aside-->
-            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="width: 500px;">
+            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="width: 600px;">
                 <div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg);">
                     <!--begin::Aside title-->
                     {{--<h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
