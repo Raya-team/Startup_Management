@@ -152,7 +152,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team name" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamName" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -160,7 +160,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project name" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="projectName" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -172,7 +172,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                            <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team email" required />
+                                            <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamEmail" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -180,7 +180,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamPhone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                                             <span class="form-text text-muted" style="color: red !important" >این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
@@ -193,7 +193,7 @@
                                         <!--begin::Select-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
-                                            <select name="activity" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <select name="activityField" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 <option value="1">کشاورزی و دامپروری</option>
                                                 <option value="2">محصولات غذایی</option>
                                                 <option value="3">خودرو</option>
@@ -222,7 +222,7 @@
                                         <!--begin::Select-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شرکت ثبت شده؟</label>
-                                            <select name="activity" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <select name="status" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 <option value="1">بله</option>
                                                 <option value="2">خیر</option>
                                             </select>
@@ -256,7 +256,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="firstname" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fName" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -264,7 +264,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lastname" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lName" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -276,7 +276,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="field" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -335,7 +335,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="experience" required />
+                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="resume" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -352,36 +352,42 @@
                             </div>
                             <!--end: Wizard Step 3-->
                             <!--begin: Wizard Step 4-->
-                            <div class="pb-5" data-wizard-type="step-content">
-                                <!--begin::Title-->
-                                <div class="pt-lg-0 pt-5 pb-15">
-                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Complete</h3>
-                                    <div class="text-muted font-weight-bold font-size-h4">Complete Your Signup And Become A Member!</div>
+                            <div id="kt_repeater_1">
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label text-right">Contacts:</label>
+                                    <div data-repeater-list="" class="col-lg-10">
+                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                            <div class="col-md-3">
+                                                <label>Name:</label>
+                                                <input type="email" class="form-control" placeholder="Enter full name" />
+                                                <div class="d-md-none mb-2"></div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label>Number:</label>
+                                                <input type="email" class="form-control" placeholder="Enter contact number" />
+                                                <div class="d-md-none mb-2"></div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="checkbox-inline">
+                                                    <label class="checkbox checkbox-success">
+                                                        <input type="checkbox" name="primary" checked="checked" />
+                                                        <span></span>Primary</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                    <i class="la la-trash-o"></i>Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <!--end::Title-->
-                                <!--begin::Section-->
-                                <h4 class="font-weight-bolder mb-3">Accoun Settings:</h4>
-                                <div class="text-dark-50 font-weight-bold line-height-lg mb-8">
-                                    <div>Nick Stone</div>
-                                    <div>+12233434-34</div>
-                                    <div>nick.stone@gmail.com</div>
+                                <div class="form-group row">
+                                    <label class="col-lg-2 col-form-label text-right"></label>
+                                    <div class="col-lg-4">
+                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                            <i class="la la-plus"></i>Add</a>
+                                    </div>
                                 </div>
-                                <!--end::Section-->
-                                <!--begin::Section-->
-                                <h4 class="font-weight-bolder mb-3">Address Details:</h4>
-                                <div class="text-dark-50 font-weight-bold line-height-lg mb-8">
-                                    <div>Address Line 1</div>
-                                    <div>Address Line 2</div>
-                                    <div>Melbourne 3000, VIC, Australia</div>
-                                </div>
-                                <!--end::Section-->
-                                <!--begin::Section-->
-                                <h4 class="font-weight-bolder mb-3">Support Channels:</h4>
-                                <div class="text-dark-50 font-weight-bold line-height-lg mb-8">
-                                    <div>Overnight Delivery with Regular Packaging</div>
-                                    <div>Preferred Morning (8:00AM - 11:00AM) Delivery</div>
-                                </div>
-                                <!--end::Section-->
                             </div>
                             <!--end: Wizard Step 4-->
                             <!--begin: Wizard Actions-->
