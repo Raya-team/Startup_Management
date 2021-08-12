@@ -126,10 +126,10 @@ var KTLogin = function() {
 						email: {
 							validators: {
 								notEmpty: {
-									message: 'Email is required'
+									message: 'ایمیل اجباری است'
 								},
 								emailAddress: {
-									message: 'The value is not a valid email address'
+									message: 'ایمیل وارد شده معتبر نیست'
 								}
 							}
 						}
@@ -147,7 +147,7 @@ var KTLogin = function() {
 		    )
 		    .on('core.form.valid', function() {
 				// Show loading state on button
-				KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "Please wait");
+				KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید");
 
 				// Simulate Ajax request
 				setTimeout(function() {
@@ -156,10 +156,10 @@ var KTLogin = function() {
 		    })
 			.on('core.form.invalid', function() {
 				Swal.fire({
-					text: "Sorry, looks like there are some errors detected, please try again.",
+					text: "متاسفیم، خطاهایی در اطلاعات وارد شده وجود دارد، لطفا مجددا تلاش فرمایید.",
 					icon: "error",
 					buttonsStyling: false,
-					confirmButtonText: "Ok, got it!",
+					confirmButtonText: "باشه، فهمیدم!",
 					customClass: {
 						confirmButton: "btn font-weight-bold btn-light-primary"
 					}
