@@ -16,7 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Head-->
 <head><base href="../../../../">
     <meta charset="utf-8" />
-    <title>Sign In | Keenthemes</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Singin page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="canonical" href="https://keenthemes.com/metronic" />
@@ -38,6 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="assets/css/themes/layout/aside/dark.rtl.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    @yield('css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -58,6 +59,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Global Theme Bundle-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="assets/js/pages/custom/login/login-3.js"></script>
+@yield('script')
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
