@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Responsibility extends Model
 {
     use HasFactory;
+
+    public function members()
+    {
+        return $this->belongsToMany(TeamMember::class);
+    }
 }
