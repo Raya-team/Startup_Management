@@ -40,16 +40,16 @@
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
-                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" name="username" autocomplete="off" />
+                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" placeholder="ایمیل خود را وارد فرمایید" name="username" autocomplete="off" required />
                             </div>
                             <!--end::Form group-->
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <div class="d-flex justify-content-between mt-n5">
                                     <label class="font-size-h6 font-weight-bolder text-dark pt-5">رمز عبور</label>
+                                    <a href="{{ route('password.request') }}" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5">رمز عبور خود را فراموش کرده اید؟</a>
                                 </div>
-                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="password" name="password" autocomplete="off" />
-                                <a href="{{ route('password.request') }}" class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5">رمز عبور خود را فراموش کرده اید؟</a>
+                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="password" placeholder="رمز عبور خود را وارد فرمایید" name="password" autocomplete="off" required/>
                             </div>
                             <!--end::Form group-->
                             <!--begin::Action-->
