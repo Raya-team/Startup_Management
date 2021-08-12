@@ -1,6 +1,8 @@
 @extends('auth.layout')
 @section('title', 'ورود')
 @section('content')
+    <!--begin::Main-->
+    <div class="d-flex flex-column flex-root">
     <!--begin::Login-->
     <div class="login login-3 wizard d-flex flex-column flex-lg-row flex-column-fluid">
         <!--begin::Aside-->
@@ -87,4 +89,6 @@
         <!--end::Content-->
     </div>
     <!--end::Login-->
+    </div>
+    <!--end::Main-->
 @endsection
