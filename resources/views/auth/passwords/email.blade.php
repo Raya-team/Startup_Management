@@ -29,11 +29,6 @@
                 <div class="d-flex flex-row-fluid flex-center">
                     <!--begin::Forgot-->
                     <div class="login-form">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert" style="color:#000;font-size: 13px">
-                                {{ session('status') }}
-                            </div>
-                        @endif
                         <!--begin::Form-->
                         <form method="POST" class="form" id="kt_login_forgot_form" action="{{ route('password.email') }}">
                             @csrf
