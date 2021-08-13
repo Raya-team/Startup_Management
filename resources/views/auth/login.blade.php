@@ -29,7 +29,8 @@
                     <!--begin::Signin-->
                     <div class="login-form">
                         <!--begin::Form-->
-                        <form class="form" id="kt_login_singin_form" action="">
+                        <form class="form" id="kt_login_singin_form" method="POST" action="{{ route('login') }}">
+                            @csrf
                             <!--begin::Title-->
                             <div class="pb-5 pb-lg-15">
                                 <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">ورود</h3>
@@ -40,7 +41,12 @@
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
-                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" placeholder="ایمیل خود را وارد فرمایید" name="username" autocomplete="off" required />
+                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" placeholder="ایمیل خود را وارد فرمایید" name="username" value="{{ old('email') }}" autocomplete="off" required/>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <!--end::Form group-->
                             <!--begin::Form group-->
