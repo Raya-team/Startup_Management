@@ -17,7 +17,8 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('username');
             $table->string('email')->unique();
-            $table->bigInteger('team_id')->unsigned();
+            $table->boolean('level')->default(0);
+            $table->bigInteger('team_id')->unsigned()->nullable();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
