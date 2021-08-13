@@ -170,8 +170,8 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
                                             <select name="activityField" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                @foreach($activities as $activitiy)
-                                                    <option value="{{$activitiy->id}}">{{$activitiy->nickname}}</option>
+                                                @foreach($activities as $activity)
+                                                    <option value="{{$activity->id}}">{{$activity->nickname}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
