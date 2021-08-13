@@ -73,7 +73,7 @@ class RegisterController extends Controller
         $productTypes = ProductType::all(['id','nickname']);
         $activities = Activity::all(['id','nickname']);
         $responsibilities = Responsibility::all(['id','nickname']);
-        return view('auth.register',compact(['productTypes','activity','responsibility']));
+        return view('auth.register', compact(['productTypes','activities','responsibilities']));
     }
     protected function create(Request $request)
     {
