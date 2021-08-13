@@ -19,7 +19,8 @@ class UserAuthenticated
         if (!$request->user()->Level()){
             return $next($request);
         }else{
-            return redirect('/admin/dashboard');
+            abort(404);
+//            return redirect('/admin/dashboard');
         }
     }
 }
