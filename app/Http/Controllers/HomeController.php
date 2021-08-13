@@ -24,11 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->level){
-            return view('admin.master');
-        }else {
-            return view('user.master');
-        }
-//        return view('home');
+        return view('home');
     }
 }
