@@ -70,10 +70,10 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        $productTypes = ProductType::all(['id','nickname']);
+        $product_types = ProductType::all(['id','nickname']);
         $activities = Activity::all(['id','nickname']);
         $responsibilities = Responsibility::all(['id','nickname']);
-        return view('auth.register', compact(['productTypes','activities','responsibilities']));
+        return view('auth.register', compact(['product_types','activities','responsibilities']));
     }
     protected function create(Request $request)
     {
