@@ -335,12 +335,12 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control" name="productName[]"/>
+                                                        <input type="text" class="form-control" name="productName"/>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label><h5>نوع محصول:</h5></label>
-                                                        <select name="productTypes[]" class="form-control">
+                                                        <select name="productTypes" class="form-control">
                                                             <option value="1">کالا</option>
                                                             <option value="2">خدمات</option>
                                                         </select>

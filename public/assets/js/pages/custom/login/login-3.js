@@ -420,7 +420,7 @@ var KTLogin = function() {
                             }
                         }
                     },
-                    'productTypes[]': {
+                    productTypes: {
                         validators: {
                             notEmpty: {
                                 message: 'نوع محصول الزامی است.'
