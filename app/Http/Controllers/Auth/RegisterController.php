@@ -10,7 +10,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -55,11 +55,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+//        return Validator::make($data, [
+//            'name' => ['required', 'string', 'max:255'],
+//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+//            'password' => ['required', 'string', 'min:8', 'confirmed'],
+//        ]);
     }
 
     /**
@@ -75,8 +75,14 @@ class RegisterController extends Controller
         $responsibilities = Responsibility::all(['id','nickname']);
         return view('auth.register', compact(['product_types','activities','responsibilities']));
     }
-    protected function create(Request $request)
+
+    public function register(Request $request)
     {
         return $request;
     }
+
+//    protected function create(Request $request)
+//    {
+//        return $request;
+//    }
 }
