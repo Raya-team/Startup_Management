@@ -170,26 +170,9 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
                                             <select name="activityField" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">کشاورزی و دامپروری</option>
-                                                <option value="2">محصولات غذایی</option>
-                                                <option value="3">خودرو</option>
-                                                <option value="4">تجهیزات پزشکی</option>
-                                                <option value="5">الکترونیک</option>
-                                                <option value="6">مواد و نانو</option>
-                                                <option value="7">تجهیزات صنعتی</option>
-                                                <option value="8">ICT</option>
-                                                <option value="9">آموزش</option>
-                                                <option value="10">اینترنت اشیا</option>
-                                                <option value="11">آب</option>
-                                                <option value="12">هوافضا</option>
-                                                <option value="13">انرژی های تجدید پذیر</option>
-                                                <option value="14">انرژی های فسیلی</option>
-                                                <option value="15">آرایشی و بهداشتی</option>
-                                                <option value="16">معدن</option>
-                                                <option value="17">دارویی</option>
-                                                <option value="18">فینتک</option>
-                                                <option value="19">سلامت</option>
-                                                <option value="20">دارو</option>
+                                                @foreach($activities as $activitiy)
+                                                    <option value="{{$activitiy->id}}">{{$activitiy->nickname}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <!--end::Input-->
@@ -275,12 +258,9 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
                                             <select name="Responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">مسئول فنی</option>
-                                                <option value="2">مسئول بازار</option>
-                                                <option value="3">مسئول مالی</option>
-                                                <option value="4">مسئول مدیریتی و جذب سرمایه</option>
-                                                <option value="5">سرمایه گذار</option>
-                                                <option value="6">مشاور</option>
+                                                @foreach($responsibilities as $responsibility)
+                                                    <option value="{{$responsibility->id}}">{{$responsibility->nickname}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                         <!--end::Input-->
@@ -341,8 +321,9 @@
                                                     <div class="col-md-4">
                                                         <label><h5>نوع محصول:</h5></label>
                                                         <select name="productTypes" class="form-control">
-                                                            <option value="1">کالا</option>
-                                                            <option value="2">خدمات</option>
+                                                            @foreach($productTypes as $productType)
+                                                                <option value="{{$productType->id}}">{{$productType->nickname}}</option>
+                                                            @endforeach
                                                         </select>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
