@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level'
     ];
 
     /**
@@ -45,5 +46,9 @@ class User extends Authenticatable
     public function team()
     {
         return $this->belongsTo(Team::class);
+    }
+    public function Level()
+    {
+        return $this->level;
     }
 }
