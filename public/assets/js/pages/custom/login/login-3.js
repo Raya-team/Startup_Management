@@ -363,14 +363,14 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    productName: {
+                    'productName[]': {
                         validators: {
                             notEmpty: {
                                 message: 'نام محصول الزامی است.'
                             }
                         }
                     },
-                    productTypes: {
+                    'productTypes[]': {
                         validators: {
                             notEmpty: {
                                 message: 'نوع محصول الزامی است.'
