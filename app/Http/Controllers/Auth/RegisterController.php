@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Activity;
+use App\Models\ProductType;
+use App\Models\Responsibility;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -65,6 +68,13 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
+    public function showRegistrationForm()
+    {
+        $productTypes = ProductType::all();
+        $activity = Activity::all();
+        $responsibility = Responsibility::all();
+        return view('auth.register',compact(['productTypes','activity','responsibility']));
+    }
     protected function create(Request $request)
     {
         return $request;
