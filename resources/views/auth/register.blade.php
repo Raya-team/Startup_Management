@@ -80,12 +80,14 @@
             <!--begin::Aside-->
             <!--begin::Content-->
             <div class="login-content flex-column-fluid d-flex flex-column p-10">
-                <!--begin::Wrapper-->
+            <!--begin::Wrapper-->
                 <div class="d-flex flex-row-fluid flex-center">
                     <!--begin::Signin-->
                     <div class="login-form login-form-signup">
                         <!--begin::Form-->
-                        <form class="form" novalidate="novalidate" id="kt_login_signup_form">
+                        <form class="form" novalidate="novalidate" id="kt_login_signup_form" method="POST" action="{{route('register')}}">
+                            @csrf
+                            @include('errors')
                             <!--begin: Wizard Step 1-->
                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                 <!--begin::Title-->
