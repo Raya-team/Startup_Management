@@ -126,10 +126,10 @@ var KTLogin = function() {
 						email: {
 							validators: {
 								notEmpty: {
-									message: 'Email is required'
+									message: 'ایمیل اجباری است'
 								},
 								emailAddress: {
-									message: 'The value is not a valid email address'
+									message: 'ایمیل وارد شده معتبر نیست'
 								}
 							}
 						}
@@ -147,19 +147,69 @@ var KTLogin = function() {
 		    )
 		    .on('core.form.valid', function() {
 				// Show loading state on button
-				KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "Please wait");
+				KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید");
 
 				// Simulate Ajax request
-				setTimeout(function() {
-					KTUtil.btnRelease(formSubmitButton);
-				}, 2000);
+				// setTimeout(function() {
+				// 	KTUtil.btnRelease(formSubmitButton);
+				// }, 2000);
+                FormValidation.utils.fetch(formSubmitUrl, {
+                    method: 'POST',
+                    dataType: 'json',
+                    params: {
+                        email: form.querySelector('[name="email"]').value,
+                        _token: form.querySelector('[name="_token"]').value,
+                    },
+                }).then(function(response) { // Return valid JSON
+                    // Release button
+                    KTUtil.btnRelease(formSubmitButton);
+                    var message = response;
+					console.log(message);
+                    if (message == "passwords.sent") {
+                        Swal.fire({
+                            text: "پیغام بازیابی رمز عبور برای ایمیل شما ارسال شد.",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشه، فهمیدم",
+                            customClass: {
+                                confirmButton: "btn font-weight-bold btn-light-primary"
+                            }
+                        }).then(function() {
+                            KTUtil.scrollTop();
+                        });
+                    }else if (message == "passwords.user") {
+                        Swal.fire({
+                            text: "کاربری با این ایمیل وجود ندارد.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشه، فهمیدم",
+                            customClass: {
+                                confirmButton: "btn font-weight-bold btn-light-primary"
+                            }
+                        }).then(function() {
+                            KTUtil.scrollTop();
+                        });
+					} else {
+                        Swal.fire({
+                            text: "متاسفانه خطایی رخ داده است لطفا مجددا تلاش فرمایید",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشه، فهمیدم",
+                            customClass: {
+                                confirmButton: "btn font-weight-bold btn-light-primary"
+                            }
+                        }).then(function() {
+                            KTUtil.scrollTop();
+                        });
+                    }
+                });
 		    })
 			.on('core.form.invalid', function() {
 				Swal.fire({
-					text: "Sorry, looks like there are some errors detected, please try again.",
+					text: "متاسفیم، خطاهایی در اطلاعات وارد شده وجود دارد، لطفا مجددا تلاش فرمایید.",
 					icon: "error",
 					buttonsStyling: false,
-					confirmButtonText: "Ok, got it!",
+					confirmButtonText: "باشه، فهمیدم!",
 					customClass: {
 						confirmButton: "btn font-weight-bold btn-light-primary"
 					}

@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level'
     ];
 
     /**
@@ -40,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+    public function Level()
+    {
+        return $this->level;
+    }
 }

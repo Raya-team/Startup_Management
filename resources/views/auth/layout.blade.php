@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <!--
-Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS Admin Dashboard Theme
+Template Name: Metronic - Bootstrap 4 HTML, React, Angular 11 & VueJS admin Dashboard Theme
 Author: KeenThemes
 Website: http://www.keenthemes.com/
 Contact: support@keenthemes.com

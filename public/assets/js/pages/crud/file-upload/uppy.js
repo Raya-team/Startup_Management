@@ -266,7 +266,7 @@ var KTUppy = function () {
 		var id = '#kt_uppy_6';
 		var options = {
 			proudlyDisplayPoweredByUppy: false,
-			target: id + ' .uppy-dashboard',
+			target: id + ' .uppy-admin',
 			inline: false,
 			replaceTargetContent: true,
 			showProgressDetails: true,

@@ -30,7 +30,8 @@
                     <!--begin::Forgot-->
                     <div class="login-form">
                         <!--begin::Form-->
-                        <form class="form" id="kt_login_forgot_form" action="">
+                        <form method="POST" class="form" id="kt_login_forgot_form" action="{{ route('password.email') }}">
+                            @csrf
                             <!--begin::Title-->
                             <div class="pb-5 pb-lg-15">
                                 <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">رمز عبور خود را فراموش کرده‌اید؟</h3>
