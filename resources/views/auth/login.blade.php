@@ -25,6 +25,7 @@
             <!--begin::Content-->
             <div class="login-content flex-row-fluid d-flex flex-column p-10">
                 <!--begin::Wrapper-->
+                @include('errors')
                 <div class="d-flex flex-row-fluid flex-center">
                     <!--begin::Signin-->
                     <div class="login-form">
@@ -41,12 +42,7 @@
                             <!--begin::Form group-->
                             <div class="form-group">
                                 <label class="font-size-h6 font-weight-bolder text-dark">ایمیل</label>
-                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" placeholder="ایمیل خود را وارد فرمایید" name="username" value="{{ old('email') }}" autocomplete="off" required/>
-                                @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <input class="form-control h-auto py-7 px-6 rounded-lg border-0" type="text" placeholder="ایمیل خود را وارد فرمایید" name="email" value="{{ old('email') }}" autocomplete="off" required/>
                             </div>
                             <!--end::Form group-->
                             <!--begin::Form group-->

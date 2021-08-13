@@ -18,7 +18,7 @@ var KTLogin = function() {
                 form,
                 {
                     fields: {
-                        username: {
+                        email: {
                             validators: {
                                 notEmpty: {
                                     message: 'ایمیل الزامی است'
@@ -35,8 +35,8 @@ var KTLogin = function() {
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
-                        submitButton: new FormValidation.plugins.SubmitButton(),
-                        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
+                        // submitButton: new FormValidation.plugins.SubmitButton(),
+                        defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
                         bootstrap: new FormValidation.plugins.Bootstrap({
                             //	eleInvalidClass: '', // Repace with uncomment to hide bootstrap validation icons
                             //	eleValidClass: '',   // Repace with uncomment to hide bootstrap validation icons
