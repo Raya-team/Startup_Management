@@ -41,4 +41,17 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function redirectPath()
+    {
+        if (method_exists($this, 'redirectTo')) {
+            return $this->redirectTo();
+        }
+        if (Auth::user()->level){
+            return property_exists($this, 'redirectToAdmin') ? $this->redirectToAdmin : '/admin/dashboard';
+
+        }else{
+            return property_exists($this, 'redirectToUser') ? $this->redirectToUser : '/user/dashboard';
+        }
+    }
 }
