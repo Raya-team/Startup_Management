@@ -16,7 +16,8 @@ var KTFormRepeater = function() {
 
             hide: function (deleteElement) {                
                 $(this).slideUp(deleteElement);                 
-            }   
+            },
+            isFirstItemUndeletable: true
         });
     }
 

@@ -22,6 +22,9 @@ var KTLogin = function() {
                             validators: {
                                 notEmpty: {
                                     message: 'ایمیل الزامی است'
+                                },
+                                emailAddress: {
+                                    message: 'ایمیل وارد شده معتبر نیست.'
                                 }
                             }
                         },
@@ -284,21 +287,21 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    teamName: {
+                    team_name: {
                         validators: {
                             notEmpty: {
                                 message: 'نام تیم یا شرکت الزامی است.'
                             }
                         }
                     },
-                    projectName: {
+                    project_name: {
                         validators: {
                             notEmpty: {
                                 message: 'نام طرح الزامی است.'
                             }
                         }
                     },
-                    activityField: {
+                    activity_field: {
                         validators: {
                             notEmpty: {
                                 message: 'حوزه فعالیت الزامی است.'
@@ -312,7 +315,7 @@ var KTLogin = function() {
                             }
                         }
                     },
-                    teamEmail: {
+                    team_email: {
                         validators: {
                             notEmpty: {
                                 message: 'ایمیل تیم یا شرکت الزامی است.'
@@ -339,14 +342,14 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    fName: {
+                    fname: {
                         validators: {
                             notEmpty: {
                                 message: 'نام الزامی است.'
                             }
                         }
                     },
-                    lName: {
+                    lname: {
                         validators: {
                             notEmpty: {
                                 message: 'نام خانوادگی الزامی است.'
@@ -367,7 +370,7 @@ var KTLogin = function() {
                             }
                         }
                     },
-                    Responsibility: {
+                    responsibility: {
                         validators: {
                             notEmpty: {
                                 message: 'مسئولیت الزامی است.'
@@ -413,7 +416,7 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    'productName[]': {
+                    productName: {
                         validators: {
                             notEmpty: {
                                 message: 'نام محصول الزامی است.'
@@ -441,7 +444,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 1, // initial active step number
+            startStep: 4, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 

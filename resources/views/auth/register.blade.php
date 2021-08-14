@@ -130,7 +130,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamName" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_name" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -138,7 +138,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="projectName" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project_name" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -150,7 +150,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamEmail" required />
+                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_email" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -158,7 +158,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamPhone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                                             <span class="form-text text-muted" style="color: red !important" >این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
@@ -171,7 +171,7 @@
                                         <!--begin::Select-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
-                                            <select name="activityField" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <select name="activity_field" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 @foreach($activities as $activity)
                                                     <option value="{{$activity->id}}">{{$activity->nickname}}</option>
                                                 @endforeach
@@ -215,7 +215,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fName" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fname" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -223,7 +223,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lName" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -259,7 +259,7 @@
                                         <!--begin::Select-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
-                                            <select name="Responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 @foreach($responsibilities as $responsibility)
                                                     <option value="{{$responsibility->id}}">{{$responsibility->nickname}}</option>
                                                 @endforeach
@@ -317,12 +317,12 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control" name="productName"/>
+                                                        <input type="text" class="form-control" name="product_name"/>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label><h5>نوع محصول:</h5></label>
-                                                        <select name="productTypes" class="form-control">
+                                                        <select name="product_types" class="form-control">
                                                             @foreach($product_types as $product_type)
                                                                 <option value="{{$product_type->id}}">{{$product_type->nickname}}</option>
                                                             @endforeach
