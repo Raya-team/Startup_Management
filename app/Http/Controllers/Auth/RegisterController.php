@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Activity;
+use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Responsibility;
+use App\Models\Team;
+use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -76,9 +79,48 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types','activities','responsibilities']));
     }
 
-    public function register(Request $request)
+    public function register(Request $request, Team $team, User $user, Product $product, TeamMember $member)
     {
         return $request;
+        $this->Team($request, $team);
+        $this->User($request, $team, $user);
+        $member->fname = $request->fname;
+        $member->lname = $request->lname;
+        $member->team_id = $team->id;
+        $member->education = $request->education;
+        return 'done';
+    }
+
+    /**
+     * @param Request $request
+     * @param Team $team
+     */
+    protected function Team(Request $request, Team $team)
+    {
+        $team->name = $request->team_name;
+        $team->project_name = $request->project_name;
+        $team->status = $request->status;
+        $team->activity_id = $request->activity_field;
+        $team->email = $request->team_email;
+        $team->address = $request->address;
+        $team->phone_number = $request->team_phone;
+        $team->save();
+    }
+
+    /**
+     * @param Request $request
+     * @param Team $team
+     * @param User $user
+     */
+    protected function User(Request $request, Team $team, User $user)
+    {
+        $user->username = $request->username;
+        $user->email = $request->email;
+        $user->level = 0;
+        $user->team_id = $team->id;
+        $user->password = Hash::make($request->password);
+        $user->updated_at = null;
+        $user->save();
     }
 
 //    protected function create(Request $request)

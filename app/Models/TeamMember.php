@@ -14,6 +14,11 @@ class TeamMember extends Model
         return $this->belongsTo(Team::class);
     }
 
+    public function education()
+    {
+        return $this->belongsTo(Education::class);
+    }
+
     public function responsibilities()
     {
         return $this->belongsToMany(Responsibility::class);

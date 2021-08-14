@@ -19,7 +19,8 @@ class CreateTeamMembersTable extends Migration
             $table->string('lname');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
-            $table->string('education');
+            $table->bigInteger('education_id')->unsigned();
+            $table->foreign('education_id')->references('id')->on('education')->onDelete('cascade');
             $table->string('major');
             $table->bigInteger('age');
             $table->string('resume');
