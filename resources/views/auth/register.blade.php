@@ -258,7 +258,7 @@
                                     <div class="col-xl-6">
                                         <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
+                                            <label class="font-size-h6 font-weight-bolder text-dark" for="kt_select2_3">مسئولیت:</label><br>
                                             <select name="responsibility[]" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6 select2" id="kt_select2_3" multiple="multiple" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
                                             {{--<select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">--}}
                                                 @foreach($responsibilities as $responsibility)
@@ -407,3 +407,12 @@
     <script src="assets/js/pages/crud/forms/widgets/select2.js"></script>
     <!--end::Page Scripts-->
 @endsection
+@section('css')
+    <style>
+        .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple{
+            height: 66px;
+            width: 310px;
+        }
+    </style>
+@endsection
+{{--     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        --}}
