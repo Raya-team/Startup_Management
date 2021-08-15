@@ -83,26 +83,23 @@ class RegisterController extends Controller
 
     public function register(Request $request, Team $team, User $user, TeamMember $member, Responsibility $responsibility)
     {
+
+        return $request;
+        $this->Team($request, $team);
+        $this->User($request, $team, $user);
+        $this->Member($request, $team, $member);
+        $this->ResponsibilityMember($request, $member);
         $product_name = collect($request->product_name);
         $product_types = collect($request->product_types);
         for ( $i=0; $i<sizeof($request->product_name); $i++)
         {
-            return $product_name[0]['product_name'];
+//            return $product_name[0]['product_name'];
             $product = new Product();
-//            $product->
-
+            $product->name = $product_name[$i]['product_name'];
+            $product->team_id = $team->id;
+            $product->type_id = $product_types[$i]['product_types'];
+            $product->save();
         }
-//        $request->product_type[1]['product_type'];
-        return $request;
-        $x = $request->product_name;
-        $xx = collect($x);
-//        return $xx['product_name'];
-        return $xx[1]['product_name'];
-//        return $request;
-        $this->Team($request, $team);
-        $this->User($request, $team, $user);
-        $this->Member($request, $team, $member);
-        $member->responsibilities()->sync($request->responsibility);
         return 'done';
     }
 
@@ -155,6 +152,15 @@ class RegisterController extends Controller
         $member->investment = $request->investment;
         $member->updated_at = null;
         $member->save();
+    }
+
+    /**
+     * @param Request $request
+     * @param TeamMember $member
+     */
+    protected function ResponsibilityMember(Request $request, TeamMember $member)
+    {
+        $member->responsibilities()->sync($request->responsibility);
     }
 
 //    protected function create(Request $request)

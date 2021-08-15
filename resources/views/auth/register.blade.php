@@ -276,12 +276,6 @@
                                                 @foreach($education as $edu)
                                                 <option value="{{ $edu->id }}">{{ $edu->nickname }}</option>
                                                 @endforeach
-                                                {{--<option value="دیپلم">دیپلم</option>--}}
-                                                {{--<option value="فوق دیپلم">فوق دیپلم</option>--}}
-                                                {{--<option value="کارشناسی">کارشناسی</option>--}}
-                                                {{--<option value="کارشناسی ارشد">کارشناسی ارشد</option>--}}
-                                                {{--<option value="دکترا">دکترا</option>--}}
-                                                {{--<option value="فوق دکترا">فوق دکترا</option>--}}
                                             </select>
                                         </div>
                                         <!--end::Input-->
@@ -316,7 +310,7 @@
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"><h4>محصول:</h4></label>
-                                            <div data-repeater-list="" class="col-lg-10">
+                                            <div data-repeater-list="product" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
