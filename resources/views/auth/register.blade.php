@@ -319,7 +319,7 @@
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label><h5>نوع محصول:</h5></label>
-                                                        <select name="product_types" class="form-control">
+                                                        <select name="product_type" class="form-control">
                                                             @foreach($product_types as $product_type)
                                                                 <option value="{{$product_type->id}}">{{$product_type->nickname}}</option>
                                                             @endforeach

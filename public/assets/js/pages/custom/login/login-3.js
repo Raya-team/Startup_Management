@@ -416,18 +416,11 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    productName: {
+                    product: {
                         validators: {
                             notEmpty: {
                                 message: 'نام محصول الزامی است.'
                             }
-                        }
-                    },
-                    productTypes: {
-                        validators: {
-                            notEmpty: {
-                                message: 'نوع محصول الزامی است.'
-                            },
                         }
                     },
                 },
