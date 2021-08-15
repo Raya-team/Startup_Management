@@ -259,7 +259,8 @@
                                         <!--begin::Select-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
-                                            <select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <select name="responsibility[]" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6 select2" id="kt_select2_3" multiple="multiple" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
+                                            {{--<select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">--}}
                                                 @foreach($responsibilities as $responsibility)
                                                     <option value="{{$responsibility->id}}">{{$responsibility->nickname}}</option>
                                                 @endforeach
@@ -272,13 +273,15 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">تحصیلات:</label>
                                             <select name="education" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">سیکل</option>
-                                                <option value="2">دیپلم</option>
-                                                <option value="3">فوق دیپلم</option>
-                                                <option value="4">کارشناسی</option>
-                                                <option value="5">کارشناسی ارشد</option>
-                                                <option value="6">دکترا</option>
-                                                <option value="7">فوق دکترا</option>
+                                                @foreach($education as $edu)
+                                                <option value="{{ $edu->id }}">{{ $edu->nickname }}</option>
+                                                @endforeach
+                                                {{--<option value="دیپلم">دیپلم</option>--}}
+                                                {{--<option value="فوق دیپلم">فوق دیپلم</option>--}}
+                                                {{--<option value="کارشناسی">کارشناسی</option>--}}
+                                                {{--<option value="کارشناسی ارشد">کارشناسی ارشد</option>--}}
+                                                {{--<option value="دکترا">دکترا</option>--}}
+                                                {{--<option value="فوق دکترا">فوق دکترا</option>--}}
                                             </select>
                                         </div>
                                         <!--end::Input-->
@@ -407,5 +410,6 @@
 @section('script')
     <!--begin::Page Scripts(used by this page)-->
     <script src="assets/js/pages/crud/forms/widgets/form-repeater.js"></script>
+    <script src="assets/js/pages/crud/forms/widgets/select2.js"></script>
     <!--end::Page Scripts-->
 @endsection

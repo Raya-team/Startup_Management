@@ -21,6 +21,6 @@ class TeamMember extends Model
 
     public function responsibilities()
     {
-        return $this->belongsToMany(Responsibility::class);
+        return $this->belongsToMany(Responsibility::class,'responsibility_member','member_id','responsibility_id');
     }
 }
