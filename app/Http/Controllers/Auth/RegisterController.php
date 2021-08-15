@@ -12,6 +12,7 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\Username;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'username' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u',new Username()],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
