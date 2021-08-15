@@ -260,13 +260,21 @@ var KTLogin = function() {
                         validators: {
                             notEmpty: {
                                 message: 'رمز عبور الزامی است.'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 16,
+                                message: 'رمز عبور حداقل باید بین 6 تا 16 کاراکتر باشد.'
                             }
                         }
                     },
                     password_confirmation: {
                         validators: {
-                            notEmpty: {
-                                message: 'تکرار رمز عبور الزامی است.'
+                            identical: {
+                                compare: function() {
+                                    return form.querySelector('[name="password"]').value;
+                                },
+                                message: 'رمز عبور و تأیید آن یکسان نیستند'
                             }
                         }
                     },
