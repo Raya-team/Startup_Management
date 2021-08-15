@@ -59,11 +59,19 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-//        return Validator::make($data, [
-//            'name' => ['required', 'string', 'max:255'],
-//            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-//            'password' => ['required', 'string', 'min:8', 'confirmed'],
-//        ]);
+        return Validator::make($data, [
+            'username' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required_with:password', 'same:password'],
+            'team_name' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'project_name' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'team_email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'team_phone' => ['required','unique:users','regex:/(09)[0-9]{9}/','digits:11','numeric'],
+            'activity_field' => ['required', 'string'],
+//            'status' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+//            'address' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+        ]);
     }
 
     /**

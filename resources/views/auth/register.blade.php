@@ -198,7 +198,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">آدرس:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="address" />
+                                            <input type="text" name="address" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" />
                                             <span class="form-text text-muted" style="color: red !important;">این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
