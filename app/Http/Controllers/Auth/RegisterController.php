@@ -12,6 +12,7 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\Security;
 use App\Rules\Username;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -61,11 +62,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required','unique:users','max:16',new Username()],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required','unique:users','max:16',new Username(),new Security()],
+            'email' => ['required','email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'team_name' => ['required', 'string', 'min:3', 'max:32',new Security()],
             'project_name' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
             'team_email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
             'team_phone' => ['required','unique:users','regex:/(09)[0-9]{9}/','digits:11','numeric'],
@@ -73,6 +74,7 @@ class RegisterController extends Controller
 //            'status' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
 //            'address' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
         ]);
+
     }
 
     /**
