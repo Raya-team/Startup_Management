@@ -32,6 +32,11 @@ var KTLogin = function() {
                             validators: {
                                 notEmpty: {
                                     message: 'پسورد الزامی است'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 16,
+                                    message: 'رمز عبور باید بین 6 تا 16 کاراکتر باشد.'
                                 }
                             }
                         }
@@ -232,7 +237,7 @@ var KTLogin = function() {
         if (!form) {
             return;
         }
-
+        console.log(FormValidation.formValidation());
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         // Step 1
         validations.push(FormValidation.formValidation(
@@ -243,6 +248,10 @@ var KTLogin = function() {
                         validators: {
                             notEmpty: {
                                 message: 'نام کاربری الزامی است.'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_.]+$/,
+                                message: 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد'
                             }
                         }
                     },
@@ -264,7 +273,7 @@ var KTLogin = function() {
                             stringLength: {
                                 min: 6,
                                 max: 16,
-                                message: 'رمز عبور حداقل باید بین 6 تا 16 کاراکتر باشد.'
+                                message: 'رمز عبور باید بین 6 تا 16 کاراکتر باشد.'
                             }
                         }
                     },
@@ -285,7 +294,7 @@ var KTLogin = function() {
                     bootstrap: new FormValidation.plugins.Bootstrap({
                         //eleInvalidClass: '',
                         eleValidClass: '',
-                    })
+                    }),
                 }
             }
         ));
@@ -466,10 +475,10 @@ var KTLogin = function() {
                         KTUtil.scrollTop();
                     } else {
                         Swal.fire({
-                            text: "Sorry, looks like there are some errors detected, please try again.",
+                            text: "متاسفیم، خطاهایی در اطلاعات وارد شده وجود دارد، لطفا مجددا تلاش فرمایید.",
                             icon: "error",
                             buttonsStyling: false,
-                            confirmButtonText: "Ok, got it!",
+                            confirmButtonText: "باشه، فهمیدم",
                             customClass: {
                                 confirmButton: "btn font-weight-bold btn-light"
                             }
