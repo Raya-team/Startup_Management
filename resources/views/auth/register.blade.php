@@ -235,7 +235,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
-                                            <input type="text" name="major"  class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -288,7 +288,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
-                                            <input type="text" name="resume" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="resume" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -296,7 +296,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" name="investment" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -314,7 +314,7 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control" name="product_name"/>
+                                                        <input type="text" class="form-control products" name="product_name"/>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
@@ -412,6 +412,9 @@
         .select2-container--default .select2-selection--single, .select2-container--default .select2-selection--multiple{
             height: 66px;
             width: 310px;
+        }
+        .login.login-3 .login-aside .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title{
+            padding-right: 10px;
         }
     </style>
 @endsection

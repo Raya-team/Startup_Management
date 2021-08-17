@@ -7,7 +7,7 @@ var KTFormRepeater = function() {
             initEmpty: false,
            
             defaultValues: {
-                'text-input': 'foo'
+                'product_type': 1,
             },
              
             show: function () {
