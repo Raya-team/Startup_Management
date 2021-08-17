@@ -17,7 +17,7 @@ return array(
     "active_url"       => "آدرس :attribute معتبر نیست",
     "after"            => ":attribute باید تاریخی بعد از :date باشد.",
     "alpha"            => ":attribute باید شامل حروف الفبا باشد.",
-    "alpha_dash"       => ":attribute باید شامل حروف الفبا و عدد و خظ تیره(-) باشد.",
+    "alpha_dash"       => ":attribute باید شامل حروف الفبا و عدد و خط تیره(-) باشد.",
     "alpha_num"        => ":attribute باید شامل حروف الفبا و عدد باشد.",
     "array"            => ":attribute باید شامل آرایه باشد.",
     "before"           => ":attribute باید تاریخی قبل از :date باشد.",
