@@ -12,7 +12,7 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Rules\Persain;
+use App\Rules\Persian;
 use App\Rules\Security;
 use App\Rules\Username;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -67,21 +67,21 @@ class RegisterController extends Controller
             'email' => ['required','email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required', 'min:3', 'max:255', 'unique:teams', new Persain()],
-            'project_name' => ['required', 'string', 'min:3', 'max:32',new Security()],
-            'team_email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'team_name' => ['required', 'min:3', 'max:32', 'unique:teams', new Persian()],
+            'project_name' => ['required', 'min:3', 'max:32', new Security()],
+            'team_email' =>  ['required', 'email', 'max:255', 'unique:teams'],
             'team_phone' => ['unique:teams', 'numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
-            'address' => ['alpha', 'max:255'],
-            'fname' => ['required', 'unique:team_members', 'max:16', new Persian()],
-            'lname' => ['required', 'unique:team_members', 'max:16', new Persian()],
-            'major' => ['required', 'unique:users', 'max:16', new Username()],
-            'age' => ['required', 'unique:users', 'max:16', new Username()],
-            'responsibility[]' => ['required', 'unique:users', 'max:16', new Username()],
-            'education' => ['required', 'unique:users', 'max:16', new Username()],
+            'address' => ['max:255', 'alpha_num'],
+            'fname' => ['required', 'unique:team_members', 'min:3', 'max:16', new Persian()],
+            'lname' => ['required', 'unique:team_members', 'min:3', 'max:16', new Persian()],
+            'major' => ['required', 'max:32', new Persian()],
+            'age' => ['required',  'max:3', 'numeric'],
+            'responsibility[]' => ['required', new Security()],
+            'education' => ['required', new Security()],
             'resume' => ['required', 'unique:users', 'max:16', new Username()],
-            'investment' => ['required', 'unique:users', 'max:16', new Username()],
+            'investment' => ['required', new Security()],
 
         ]);
 
