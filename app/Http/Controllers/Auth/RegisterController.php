@@ -66,7 +66,7 @@ class RegisterController extends Controller
             'email' => ['required','email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required','email', 'max:255', 'unique:teams'],
+            'team_name' => ['required', 'email', 'max:255', 'unique:teams'],
             'project_name' => ['required', 'string', 'min:3', 'max:32',new Security()],
             'team_email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
             'team_phone' => ['unique:teams', 'numeric'],
