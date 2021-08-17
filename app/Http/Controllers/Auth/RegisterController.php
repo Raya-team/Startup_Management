@@ -73,16 +73,18 @@ class RegisterController extends Controller
             'team_phone' => ['unique:teams', 'numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
-            'address' => ['max:255', 'alpha_num'],
-            'fname' => ['required', 'unique:team_members', 'min:3', 'max:16', new Persian()],
-            'lname' => ['required', 'unique:team_members', 'min:3', 'max:16', new Persian()],
+            'address' => ['max:255', 'alpha_dash'],
+            'fname' => ['required', 'min:3', 'max:16', new Persian()],
+            'lname' => ['required', 'min:3', 'max:16', new Persian()],
             'major' => ['required', 'max:32', new Persian()],
-            'age' => ['required',  'max:3', 'numeric'],
+            'age' => ['required', new Security()],
+            //?
             'responsibility[]' => ['required', new Security()],
             'education' => ['required', new Security()],
-            'resume' => ['required', 'unique:users', 'max:16', new Username()],
-            'investment' => ['required', new Security()],
-
+            //?
+            'resume' => ['required','max:16', new Username()],
+            //?
+            'investment' => ['required','numeric'],
         ]);
 
     }
