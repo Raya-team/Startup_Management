@@ -26,7 +26,6 @@ class Persain implements Rule
     public function passes($attribute, $value)
     {
         return preg_match('/^[ آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/', $value);
-
     }
 
     /**
