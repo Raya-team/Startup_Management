@@ -65,12 +65,13 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'unique:users', 'max:16', new Username()],
             'email' => ['required','email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'max:16', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
             'team_name' => ['required', 'min:3', 'max:32', 'unique:teams', new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'team_email' =>  ['required', 'email', 'max:255', 'unique:teams'],
-            'team_phone' => ['unique:teams', 'numeric'],
+            //?
+            'team_phone' => ['unique:teams','regex:/(09)[0-9]{9}/','digits:11','numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
             'address' => ['max:255', 'alpha_dash'],
