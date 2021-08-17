@@ -13,6 +13,7 @@ use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use App\Rules\Persian;
+use App\Rules\Phone;
 use App\Rules\Security;
 use App\Rules\Username;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -71,7 +72,7 @@ class RegisterController extends Controller
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'team_email' =>  ['required', 'email', 'max:255', 'unique:teams'],
             //?
-            'team_phone' => ['unique:teams','regex:/(09)[0-9]{9}/','digits:11','numeric'],
+            'team_phone' => ['unique:teams',new Phone(),'digits:11','numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
             'address' => ['max:255', 'alpha_dash'],
