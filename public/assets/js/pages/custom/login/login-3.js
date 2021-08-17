@@ -434,10 +434,13 @@ var KTLogin = function() {
             {
                 fields: {
                     product: {
+                        selector: '.products',
+                        row: '.col-md-4',
+
                         validators: {
                             notEmpty: {
                                 message: 'نام محصول الزامی است.'
-                            }
+                            },
                         }
                     },
                 },
@@ -499,32 +502,52 @@ var KTLogin = function() {
 
         // Submit event
         wizardObj.on('submit', function (wizard) {
-            Swal.fire({
-                text: "All is good! Please confirm the form submission.",
-                icon: "success",
-                showCancelButton: true,
-                buttonsStyling: false,
-                confirmButtonText: "Yes, submit!",
-                cancelButtonText: "No, cancel",
-                customClass: {
-                    confirmButton: "btn font-weight-bold btn-primary",
-                    cancelButton: "btn font-weight-bold btn-default"
-                }
-            }).then(function (result) {
-                if (result.value) {
-                    form.submit(); // Submit form
-                } else if (result.dismiss === 'cancel') {
-                    Swal.fire({
-                        text: "Your form has not been submitted!.",
-                        icon: "error",
-                        buttonsStyling: false,
-                        confirmButtonText: "Ok, got it!",
-                        customClass: {
-                            confirmButton: "btn font-weight-bold btn-primary",
-                        }
-                    });
-                }
-            });
+            var validator = validations[wizard.getStep() - 1];
+            if (validator) {
+                validator.validate().then(function (status) {
+                    if (status == 'Valid') {
+                        Swal.fire({
+                            text: "همه اطلاعات را به درستی وارد کرده‌اید؟",
+                            icon: "success",
+                            showCancelButton: true,
+                            buttonsStyling: false,
+                            confirmButtonText: "بله",
+                            cancelButtonText: "خیر",
+                            customClass: {
+                                confirmButton: "btn font-weight-bold btn-primary",
+                                cancelButton: "btn font-weight-bold btn-default"
+                            }
+                        }).then(function (result) {
+                            if (result.value) {
+                                form.submit(); // Submit form
+                            } else if (result.dismiss === 'cancel') {
+                                Swal.fire({
+                                    text: "اطلاعات شما ارسال نشد",
+                                    icon: "error",
+                                    buttonsStyling: false,
+                                    confirmButtonText: "باشه، فهمیدم",
+                                    customClass: {
+                                        confirmButton: "btn font-weight-bold btn-primary",
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        Swal.fire({
+                            text: "متاسفیم، خطاهایی در اطلاعات وارد شده وجود دارد، لطفا مجددا تلاش فرمایید.",
+                            icon: "error",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشه، فهمیدم",
+                            customClass: {
+                                confirmButton: "btn font-weight-bold btn-light"
+                            }
+                        }).then(function () {
+                            KTUtil.scrollTop();
+                        });
+                    }
+                });
+            }
+
         });
     }
 
