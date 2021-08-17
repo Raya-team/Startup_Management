@@ -86,7 +86,7 @@ class RegisterController extends Controller
             //?
             'resume' => ['required','max:16', new Username()],
             //?
-            'investment' => ['required','numeric'],
+            'investment' => ['required','numeric','max:32'],
         ]);
 
     }
