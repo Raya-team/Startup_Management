@@ -62,17 +62,26 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required','unique:users','max:16',new Username()],
+            'username' => ['required', 'unique:users', 'max:16', new Username()],
             'email' => ['required','email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required', 'string', 'min:3', 'max:32',new Security()],
-            'project_name' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'team_name' => ['required','email', 'max:255', 'unique:teams'],
+            'project_name' => ['required', 'string', 'min:3', 'max:32',new Security()],
             'team_email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'team_phone' => ['required','unique:users','regex:/(09)[0-9]{9}/','digits:11','numeric'],
-            'activity_field' => ['required', 'string'],
-//            'status' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
-//            'address' => ['required', 'string', 'max:255', 'regex:/^\S*$/u','regex:/(^([a-zA-Z]+)(\d+)?$)/u'],
+            'team_phone' => ['unique:teams', 'numeric'],
+            'activity_field' => ['required', new Security()],
+            'status' => ['required', new Security()],
+            'address' => ['alpha', 'max:255'],
+            'fname' => ['required', 'unique:team_members', 'max:16', new Persian()],
+            'lname' => ['required', 'unique:team_members', 'max:16', new Security()],
+            'major' => ['required', 'unique:users', 'max:16', new Username()],
+            'age' => ['required', 'unique:users', 'max:16', new Username()],
+            'responsibility[]' => ['required', 'unique:users', 'max:16', new Username()],
+            'education' => ['required', 'unique:users', 'max:16', new Username()],
+            'resume' => ['required', 'unique:users', 'max:16', new Username()],
+            'investment' => ['required', 'unique:users', 'max:16', new Username()],
+
         ]);
 
     }

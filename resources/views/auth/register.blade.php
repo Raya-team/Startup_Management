@@ -235,7 +235,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" required />
+                                            <input type="text" name="major"  class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -288,7 +288,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="resume" required />
+                                            <input type="text" name="resume" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -296,7 +296,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" required />
+                                            <input type="text" name="investment" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
