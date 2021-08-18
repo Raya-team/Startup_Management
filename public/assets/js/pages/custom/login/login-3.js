@@ -254,7 +254,7 @@ var KTLogin = function() {
                                 message: 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-user',
+                                url: 'http://127.0.0.1:8000/check-unique',
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
@@ -273,7 +273,7 @@ var KTLogin = function() {
                                 message: 'ایمیل وارد شده معتبر نیست.'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-user',
+                                url: 'http://127.0.0.1:8000/check-unique',
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
