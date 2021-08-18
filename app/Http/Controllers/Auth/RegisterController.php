@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterRequest;
 use App\Models\Activity;
 use App\Models\Education;
 use App\Models\Product;
@@ -64,31 +65,6 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'username' => ['required', 'unique:users', 'max:16', new Username()],
-            'email' => ['required','email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'max:16', 'confirmed'],
-            'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required', 'min:3', 'max:32', 'unique:teams', new Persian()],
-            'project_name' => ['required', 'min:3', 'max:32', new Security()],
-            'team_email' =>  ['required', 'email', 'max:255', 'unique:teams'],
-            //?
-            'team_phone' => ['unique:teams',new Phone(),'digits:11','numeric'],
-            'activity_field' => ['required', new Security()],
-            'status' => ['required', new Security()],
-            'address' => ['max:255', 'alpha_dash'],
-            'fname' => ['required', 'min:3', 'max:16', new Persian()],
-            'lname' => ['required', 'min:3', 'max:16', new Persian()],
-            'major' => ['required', 'max:32', new Persian()],
-            'age' => ['required', new Security()],
-            //?
-            'responsibility[]' => ['required', new Security()],
-            'education' => ['required', new Security()],
-            //?
-            'resume' => ['required','max:16', new Username()],
-            //?
-            'investment' => ['required','numeric','max:32'],
-        ]);
 
     }
 
@@ -107,7 +83,7 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education']));
     }
 
-    public function register(Request $request, Team $team, User $user, TeamMember $member, Responsibility $responsibility)
+    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
     {
         $this->Team($request, $team);
         $this->User($request, $team, $user);
@@ -121,15 +97,15 @@ class RegisterController extends Controller
      * @param Request $request
      * @param Team $team
      */
-    protected function Team(Request $request, Team $team)
+    protected function Team(RegisterRequest $request, Team $team)
     {
-        $team->name = $request->team_name;
-        $team->project_name = $request->project_name;
-        $team->status = $request->status;
-        $team->activity_id = $request->activity_field;
-        $team->email = $request->team_email;
-        $team->address = $request->address;
-        $team->phone_number = $request->team_phone;
+        $team->name = $request->input('team_name');
+        $team->project_name = $request->input('project_name');
+        $team->status = $request->input('status');
+        $team->activity_id = $request->input('activity_field');
+        $team->email = $request->input('team_email');
+        $team->address = $request->input('address');
+        $team->phone_number = $request->input('team_phone');
         $team->save();
     }
 
@@ -138,13 +114,13 @@ class RegisterController extends Controller
      * @param Team $team
      * @param User $user
      */
-    protected function User(Request $request, Team $team, User $user)
+    protected function User(RegisterRequest $request, Team $team, User $user)
     {
-        $user->username = $request->username;
-        $user->email = $request->email;
+        $user->username = $request->input('username');
+        $user->email = $request->input('email');
         $user->level = 0;
         $user->team_id = $team->id;
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request->input('password'));
         $user->updated_at = null;
         $user->save();
     }
@@ -154,16 +130,16 @@ class RegisterController extends Controller
      * @param Team $team
      * @param TeamMember $member
      */
-    protected function Member(Request $request, Team $team, TeamMember $member)
+    protected function Member(RegisterRequest $request, Team $team, TeamMember $member)
     {
-        $member->fname = $request->fname;
-        $member->lname = $request->lname;
+        $member->fname = $request->input('fname');
+        $member->lname = $request->input('lname');
         $member->team_id = $team->id;
-        $member->education_id = $request->education;
-        $member->major = $request->major;
-        $member->age = $request->age;
-        $member->resume = $request->resume;
-        $member->investment = $request->investment;
+        $member->education_id = $request->input('education');
+        $member->major = $request->input('major');
+        $member->age = $request->input('age');
+        $member->resume = $request->input('resume');
+        $member->investment = $request->input('investment');
         $member->updated_at = null;
         $member->save();
     }
@@ -172,7 +148,7 @@ class RegisterController extends Controller
      * @param Request $request
      * @param TeamMember $member
      */
-    protected function ResponsibilityMember(Request $request, TeamMember $member)
+    protected function ResponsibilityMember(RegisterRequest $request, TeamMember $member)
     {
         $member->responsibilities()->sync($request->responsibility);
     }
@@ -181,7 +157,7 @@ class RegisterController extends Controller
      * @param Request $request
      * @param Team $team
      */
-    protected function Products(Request $request, Team $team)
+    protected function Products(RegisterRequest $request, Team $team)
     {
         $products = collect($request->product);
         for ($i = 0; $i < sizeof($products); $i++) {
