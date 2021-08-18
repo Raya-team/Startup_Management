@@ -244,7 +244,7 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سن:</label>
                                             <select name="age" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                @for($i = 1300; $i <= 1400; $i++)
+                                                @for($i = $this_year-100; $i <= $this_year; $i++)
                                                     <option value="{{$i}}">{{$i}}</option>
                                                 @endfor
                                             </select>

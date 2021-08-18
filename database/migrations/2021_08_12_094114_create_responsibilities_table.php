@@ -17,7 +17,6 @@ class CreateResponsibilitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nickname');
-            $table->timestamps();
         });
     }
 

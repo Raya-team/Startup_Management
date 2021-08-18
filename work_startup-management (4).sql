@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`id`, `name`, `nickname`, `created_at`, `updated_at`) VALUES
-(1, 'keshavarzi', 'کشاورزی و دامپروری', NULL, NULL),
-(2, 'car', 'خودرو', NULL, NULL),
-(3, 'wahter', 'آب', NULL, NULL),
-(4, 'blockchain', 'اینترنت اشیا', NULL, NULL);
+INSERT INTO `activities` (`id`, `name`, `nickname`) VALUES
+(1, 'keshavarzi', 'کشاورزی و دامپروری'),
+(2, 'car', 'خودرو'),
+(3, 'wahter', 'آب'),
+(4, 'blockchain', 'اینترنت اشیا');
 
 --
 -- Dumping data for table `education`
@@ -42,25 +42,25 @@ INSERT INTO `education` (`id`, `name`, `nickname`) VALUES
 -- Dumping data for table `product_types`
 --
 
-INSERT INTO `product_types` (`id`, `name`, `nickname`, `created_at`, `updated_at`) VALUES
-(1, 'commodity', 'کالا', NULL, NULL),
-(2, 'Services', 'خدمات', NULL, NULL);
+INSERT INTO `product_types` (`id`, `name`, `nickname`) VALUES
+(1, 'commodity', 'کالا'),
+(2, 'Services', 'خدمات');
 
 --
 -- Dumping data for table `responsibilities`
 --
 
-INSERT INTO `responsibilities` (`id`, `name`, `nickname`, `created_at`, `updated_at`) VALUES
-(1, 'Technical Assistant', 'مسئول فنی', NULL, NULL),
-(2, 'Responsible for the market', 'مسئول بازار', NULL, NULL),
-(3, 'Consultant', 'مشاور', NULL, NULL);
+INSERT INTO `responsibilities` (`id`, `name`, `nickname`) VALUES
+(1, 'Technical Assistant', 'مسئول فنی'),
+(2, 'Responsible for the market', 'مسئول بازار'),
+(3, 'Consultant', 'مشاور');
 
 --
 -- Dumping data for table `teams`
 --
 
-INSERT INTO `teams` (`id`, `name`, `project_name`, `status`, `activity_id`, `email`, `address`, `phone_number`, `created_at`, `updated_at`) VALUES
-(1, 'asdasd', 'sadasd', 1, 2, 'startup@gmail.com', NULL, NULL, NULL, NULL);
+INSERT INTO `teams` (`id`, `name`, `project_name`, `status`, `activity_id`, `email`, `address`, `phone_number`, `landline`, `created_at`, `updated_at`) VALUES
+(1, 'asdasd', 'sadasd', 1, 2, 'startup@gmail.com', NULL, '09019585040', NULL, NULL, NULL);
 
 --
 -- Dumping data for table `users`

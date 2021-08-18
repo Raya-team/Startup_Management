@@ -23,7 +23,7 @@ class CreateTeamMembersTable extends Migration
             $table->foreign('education_id')->references('id')->on('education')->onDelete('cascade');
             $table->string('major');
             $table->bigInteger('age');
-            $table->string('resume');
+            $table->tinyInteger('resume');
             $table->bigInteger('investment');
             $table->timestamps();
         });

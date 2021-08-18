@@ -15,14 +15,15 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('project_name');
             $table->boolean('status');
             $table->bigInteger('activity_id')->unsigned();
             $table->foreign('activity_id')->references('id')->on('activities')->onDelete('cascade');
             $table->string('email')->unique();
             $table->string('address')->nullable();
-            $table->string('phone_number')->nullable();
+            $table->string('phone_number')->unique();
+            $table->string('landline')->nullable();
             $table->timestamps();
         });
     }

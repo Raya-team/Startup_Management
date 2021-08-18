@@ -76,11 +76,12 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
+        $this_year = jdate(Carbon::now())->format('Y');
         $product_types = ProductType::all(['id','nickname']);
         $activities = Activity::all(['id','nickname']);
         $responsibilities = Responsibility::all(['id','nickname']);
         $education = Education::all(['id', 'nickname']);
-        return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education']));
+        return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
     public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
@@ -167,6 +168,32 @@ class RegisterController extends Controller
             $product->type_id = $products[$i]['product_type'];
             $product->updated_at = null;
             $product->save();
+        }
+    }
+
+    public function unique(Request $request)
+    {
+        switch ($request->type){
+            case 'email' :
+                $emails = User::where('email', $request->email)->first();
+                if($emails) {$isAvailable  = false;}else{$isAvailable = true;}
+                break;
+            case 'username' :
+            default:
+                $users = User::where('username', $request->username)->first();
+                if($users) {$isAvailable  = false;}else{$isAvailable = true;}
+                break;
+        }
+
+
+        if ($isAvailable){
+            echo json_encode(array(
+                'valid' => $isAvailable,
+            ));
+        } else {
+            echo json_encode(array(
+                'valid' => $isAvailable,
+            ));
         }
     }
 
