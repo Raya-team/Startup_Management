@@ -16,6 +16,7 @@ use App\Rules\Persian;
 use App\Rules\Phone;
 use App\Rules\Security;
 use App\Rules\Username;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;

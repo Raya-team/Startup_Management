@@ -252,6 +252,15 @@ var KTLogin = function() {
                             regexp: {
                                 regexp: /^[a-zA-Z0-9_.]+$/,
                                 message: 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد'
+                            },
+                            remote: {
+                                url: 'http://127.0.0.1:8000/check-user',
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'username',
+                                },
+                                message: 'این نام کاربری قبلا انتخاب شده است.'
                             }
                         }
                     },
@@ -262,6 +271,15 @@ var KTLogin = function() {
                             },
                             emailAddress: {
                                 message: 'ایمیل وارد شده معتبر نیست.'
+                            },
+                            remote: {
+                                url: 'http://127.0.0.1:8000/check-user',
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'email',
+                                },
+                                message: 'این ایمیل قبلا انتخاب شده است.'
                             }
                         }
                     },

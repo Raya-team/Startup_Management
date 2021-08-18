@@ -22,4 +22,5 @@ Auth::routes();
 Route::group(['middleware' =>['auth']] , function (){
 //    Route
 });
+Route::get('/check-user',[\App\Http\Controllers\Auth\RegisterController::class, 'users']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
