@@ -36,7 +36,12 @@ INSERT INTO `activities` (`id`, `name`, `nickname`) VALUES
 --
 
 INSERT INTO `education` (`id`, `name`, `nickname`) VALUES
-(5, 'diplom', 'دیپلم');
+(1, 'Diploma', 'دیپلم');
+(2, 'Associate degree', 'فوق دیپلم');
+(3, 'Bachelor’s degree', 'لیسانس');
+(4, 'Master’s degree', 'فوق لیسانس');
+(5, 'Doctoral degree', 'دکتری');
+(6, 'Post doctoral degree', 'فوق دکتری');
 
 --
 -- Dumping data for table `product_types`
