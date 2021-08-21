@@ -198,9 +198,4 @@ class RegisterController extends Controller
             ));
         }
     }
-
-//    protected function create(Request $request)
-//    {
-//        return $request;
-//    }
 }
