@@ -43,8 +43,8 @@ var KTLogin = function() {
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
-                        // submitButton: new FormValidation.plugins.SubmitButton(),
-                        defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        // defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
                         bootstrap: new FormValidation.plugins.Bootstrap({
                             //	eleInvalidClass: '', // Repace with uncomment to hide bootstrap validation icons
                             //	eleValidClass: '',   // Repace with uncomment to hide bootstrap validation icons
@@ -55,11 +55,11 @@ var KTLogin = function() {
             .on('core.form.valid', function() {
                 // Show loading state on button
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید");
-
+                form.submit();
                 // Simulate Ajax request
                 setTimeout(function() {
                     KTUtil.btnRelease(formSubmitButton);
-                }, 2000);
+                }, 10000);
 
                 // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
                 /**
@@ -569,12 +569,97 @@ var KTLogin = function() {
         });
     }
 
+    var _handleSetFormForgot = function() {
+        var form = KTUtil.getById('kt_login_set_forgot_form');
+        var wizardEl = KTUtil.getById('kt_login');
+        var formSubmitUrl = KTUtil.attr(form, 'action');
+        var formSubmitButton = KTUtil.getById('kt_login_set_forgot_form_submit_button');
+
+        if (!form) {
+            return;
+        }
+
+        FormValidation
+            .formValidation(
+                form,
+                {
+                    fields: {
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'ایمیل الزامی است'
+                                },
+                                emailAddress: {
+                                    message: 'ایمیل وارد شده معتبر نیست.'
+                                }
+                            }
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'پسورد الزامی است'
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 16,
+                                    message: 'رمز عبور باید بین 6 تا 16 کاراکتر باشد.'
+                                },
+                            },
+                        },
+                        password_confirmation: {
+                            validators: {
+                                identical: {
+                                    compare: function() {
+                                        return form.querySelector('[name="password"]').value;
+                                    },
+                                    message: 'رمز عبور و تأیید آن یکسان نیستند'
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        // defaultSubmit: new FormValidation.plugins.DefaultSubmit(), // Uncomment this line to enable normal button submit after form validation
+                        bootstrap: new FormValidation.plugins.Bootstrap({
+                            //	eleInvalidClass: '', // Repace with uncomment to hide bootstrap validation icons
+                            //	eleValidClass: '',   // Repace with uncomment to hide bootstrap validation icons
+                        })
+                    }
+                }
+            )
+            .on('core.form.valid', function() {
+                // Show loading state on button
+                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید");
+                form.submit();
+                // Simulate Ajax request
+                setTimeout(function() {
+                    KTUtil.btnRelease(formSubmitButton);
+                },10000);
+
+            })
+            .on('core.form.invalid', function() {
+                Swal.fire({
+                    text: "متاسفیم، خطاهایی در اطلاعات وارد شده وجود دارد، لطفا مجددا تلاش فرمایید.",
+                    icon: "error",
+                    buttonsStyling: false,
+                    confirmButtonText: "باشه، فهمیدم!",
+                    customClass: {
+                        confirmButton: "btn font-weight-bold btn-light-primary"
+                    }
+                }).then(function() {
+                    KTUtil.scrollTop();
+                });
+            });
+    }
+
     // Public Functions
     return {
         init: function() {
             _handleFormSignin();
             _handleFormForgot();
             _handleFormSignup();
+            _handleSetFormForgot();
         }
     };
 }();

@@ -84,8 +84,25 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
-    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
+    public function register(Request $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
     {
+//        return $request;
+        $products = collect($request->product);
+//        return $products;
+        $x = [];
+        for ($i = 0; $i < sizeof($products); $i++) {
+            /*$product = new Product();
+            $product->name = $products[$i]['product_name'];
+            $product->team_id = $team->id;
+            $product->type_id = $products[$i]['product_type'];
+            $product->updated_at = null;
+            $product->save();*/
+
+            array_push($x,[$products[$i]['product_name'], $products[$i]['product_type']]);
+//            return $products[$i]['product_name'];
+        }
+
+        return $x;
         $this->Team($request, $team);
         $this->User($request, $team, $user);
         $this->Member($request, $team, $member);
@@ -162,6 +179,8 @@ class RegisterController extends Controller
     {
         $products = collect($request->product);
         for ($i = 0; $i < sizeof($products); $i++) {
+            if(!isset($products[$i]['product_name']) || !isset($products[$i]['product_type'])){continue;}
+            if($products[$i]['product_name'] == null || $products[$i]['product_type'] == null){continue;}
             $product = new Product();
             $product->name = $products[$i]['product_name'];
             $product->team_id = $team->id;
