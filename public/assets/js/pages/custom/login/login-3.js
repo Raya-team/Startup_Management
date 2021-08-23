@@ -431,12 +431,10 @@ var KTLogin = function() {
                             }
                         }
                     },
-                    responsibility: {
+                    'responsibility[]': {
                         validators: {
-                            choice: {
-                                min:2,
-                                max:5,
-                                message: 'Please select at least 2 and maximum 5 options'
+                            notEmpty: {
+                                message: 'این فیلد اجباری است'
                             }
 
 
