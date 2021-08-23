@@ -180,6 +180,14 @@ class RegisterController extends Controller
                 $emails = User::where('email', $request->email)->first();
                 if($emails) {$isAvailable  = false;}else{$isAvailable = true;}
                 break;
+            case 'team_name' :
+                $team_name = Team::where('name', $request->team_name)->first();
+                if($team_name) {$isAvailable  = false;}else{$isAvailable = true;}
+                break;
+            case 'team_email' :
+                $team_email = Team::where('email', $request->team_email)->first();
+                if($team_email) {$isAvailable  = false;}else{$isAvailable = true;}
+                break;
             case 'username' :
             default:
                 $users = User::where('username', $request->username)->first();

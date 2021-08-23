@@ -326,6 +326,15 @@ var KTLogin = function() {
                         validators: {
                             notEmpty: {
                                 message: 'نام تیم یا شرکت الزامی است.'
+                            },
+                            remote: {
+                                url: 'http://127.0.0.1:8000/check-unique',
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'team_name',
+                                },
+                                message: 'این نام قبلا انتخاب شده است.'
                             }
                         }
                     },
@@ -357,6 +366,15 @@ var KTLogin = function() {
                             },
                             emailAddress: {
                                 message: 'ایمیل وارد شده معتبر نیست.'
+                            },
+                            remote: {
+                                url: 'http://127.0.0.1:8000/check-unique',
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'team_email',
+                                },
+                                message: 'این ایمیل قبلا انتخاب شده است.'
                             }
                         }
                     },
