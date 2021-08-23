@@ -389,7 +389,11 @@ var KTLogin = function() {
                             stringLength: {
                                 max: 11,
                                 message: 'حداکثر باید 11 رقم باشد'
+                            },
+                            digits: {
+                                message: 'باید عدد وارد شود.'
                             }
+
                         }
                     },
                     land_line: {
@@ -402,7 +406,11 @@ var KTLogin = function() {
                                 min:11,
                                 max: 11,
                                 message: ' باید 11 رقم باشد'
+                            },
+                            digits: {
+                                message: 'باید عدد وارد شود.'
                             }
+
                         },
 
                     }
