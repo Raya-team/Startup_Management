@@ -393,6 +393,15 @@ var KTLogin = function() {
                             },
                             digits: {
                                 message: 'باید عدد وارد شود.'
+                            },
+                            remote: {
+                                url: 'http://127.0.0.1:8000/check-unique',
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'team_phone',
+                                },
+                                message: 'این ایمیل قبلا انتخاب شده است.'
                             }
 
                         }
