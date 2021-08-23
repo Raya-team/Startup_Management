@@ -25,7 +25,7 @@ class Landline implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/(051)[0-9]{8}/', $value);
+        return preg_match('/(051)[0-9]/', $value);
     }
 
     /**
