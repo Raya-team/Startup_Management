@@ -389,10 +389,13 @@ var KTLogin = function() {
                         }
                     },
                     land_line: {
-                        regexp: {
-                            regexp: /(051)[0-9]{11}/,
-                            message: 'شماره تلفن باید با 051 شروع شود و 11 رقمی باشد'
+                        validators: {
+                            regexp: {
+                                regexp: /(051)[0-9]{11}/,
+                                message: 'شماره تلفن باید با 051 شروع شود و 11 رقمی باشد'
+                            },
                         },
+
                     }
 
                 },
