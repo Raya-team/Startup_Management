@@ -198,7 +198,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شماره ثابت:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="land_line" placeholder="این فیلد اختیاری می باشد" />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="land_line" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="این فیلد اختیاری می باشد" />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -307,7 +307,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" placeholder="برحسب تومان" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="برحسب تومان" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
