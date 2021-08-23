@@ -84,7 +84,7 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
-    public function register(Request $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
+    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
     {
         $this->Team($request, $team);
         $this->User($request, $team, $user);
@@ -107,6 +107,7 @@ class RegisterController extends Controller
         $team->email = $request->input('team_email');
         $team->address = $request->input('address');
         $team->phone_number = $request->input('team_phone');
+        $team->landline = $request->input('land_line');
         $team->save();
     }
 

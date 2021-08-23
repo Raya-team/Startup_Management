@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Landline;
 use App\Rules\Persian;
 use App\Rules\Phone;
 use App\Rules\Security;
@@ -34,9 +35,9 @@ class RegisterRequest extends FormRequest
             'password_confirmation' => ['required_with:password', 'same:password'],
             'team_name' => ['required', 'min:3', 'max:32', 'unique:teams', new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
-            'team_email' =>  ['required', 'email', 'max:255', 'unique:teams'],
-            //?
-            'team_phone' => ['unique:teams' ,new Phone(), 'digits:11', 'numeric'],
+            'team_email' =>  ['required', 'email', 'max:255', 'unique:teams,email'],
+            'team_phone' => ['required','unique:teams,phone_number' ,new Phone(), 'digits:11', 'numeric'],
+            'land_line' => ['unique:teams,landline' ,new Landline(), 'digits:11', 'numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
             'address' => ['max:255', 'alpha_dash'],
@@ -47,9 +48,7 @@ class RegisterRequest extends FormRequest
             //?
             'responsibility[]' => ['required', new Security()],
             'education' => ['required', new Security()],
-            //?
-            'resume' => ['required','max:16', new Username()],
-            //?
+            'resume' => ['required','numeric','max:2'],
             'investment' => ['required','numeric','max:32'],
         ];
     }

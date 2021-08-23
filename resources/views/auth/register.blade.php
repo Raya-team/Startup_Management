@@ -125,6 +125,7 @@
                             <!--end: Wizard Step 1-->
                             <!--begin: Wizard Step 2-->
                             <div class="pb-5" data-wizard-type="step-content">
+                                <!--begin::Row-->
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <!--begin::Input-->
@@ -139,27 +140,6 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
                                             <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project_name" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_email" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-                                            <span class="form-text text-muted" style="color: red !important" >این فیلد اختیاری می باشد</span>
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -194,12 +174,39 @@
                                 <!--end::Row-->
                                 <!--begin::Row-->
                                 <div class="row">
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
+                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_email" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره همراه:</label>
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                </div>
+                                <!--end::Row-->
+                                <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <!--begin::Input-->
+                                        <div class="form-group">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره ثابت:</label>
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="land_line" placeholder="این فیلد اختیاری می باشد" />
+                                        </div>
+                                        <!--end::Input-->
+                                    </div>
+                                    <div class="col-xl-6">
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">آدرس:</label>
-                                            <input type="text" name="address" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" />
-                                            <span class="form-text text-muted" style="color: red !important;">این فیلد اختیاری می باشد</span>
+                                            <input type="text" name="address" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" placeholder="این فیلد اختیاری می باشد" />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -285,10 +292,14 @@
                                 <!--begin::Row-->
                                 <div class="row">
                                     <div class="col-xl-6">
-                                        <!--begin::Input-->
+                                        <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="resume" required />
+                                            <label class="font-size-h6 font-weight-bolder text-dark">سابقه عضویت در تیم(بر حسب سال):</label>
+                                            <select name="resume" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                                @for($i=1;$i<=20;$i++)
+                                                    <option value="{{$i}}">{{$i}}</option>
+                                                @endfor
+                                            </select>
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -296,7 +307,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" placeholder="برحسب تومان" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>

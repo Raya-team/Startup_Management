@@ -378,6 +378,14 @@ var KTLogin = function() {
                             }
                         }
                     },
+                    team_phone: {
+                        validators: {
+                            notEmpty: {
+                                message: 'شماره همراه تیم الزامی است.'
+                            },
+                        }
+                    },
+
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -425,9 +433,13 @@ var KTLogin = function() {
                     },
                     responsibility: {
                         validators: {
-                            notEmpty: {
-                                message: 'مسئولیت الزامی است.'
+                            choice: {
+                                min:2,
+                                max:5,
+                                message: 'Please select at least 2 and maximum 5 options'
                             }
+
+
                         }
                     },
                     education: {
@@ -448,7 +460,11 @@ var KTLogin = function() {
                         validators: {
                             notEmpty: {
                                 message: 'میزان سرمایه گذاری الزامی است.'
+                            },
+                            digits: {
+                                message: 'باید عدد وارد شود.'
                             }
+
                         }
                     },
 
