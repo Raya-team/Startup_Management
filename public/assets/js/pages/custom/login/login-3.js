@@ -382,8 +382,18 @@ var KTLogin = function() {
                             notEmpty: {
                                 message: 'شماره همراه تیم الزامی است.'
                             },
+                            regexp: {
+                                regexp: /(09)[0-9]{11}/,
+                                message: 'شماره تلفن باید با 09 شروع شود و 11 رقمی باشد'
+                            },
                         }
                     },
+                    land_line: {
+                        regexp: {
+                            regexp: /(051)[0-9]{11}/,
+                            message: 'شماره تلفن باید با 051 شروع شود و 11 رقمی باشد'
+                        },
+                    }
 
                 },
                 plugins: {
@@ -506,7 +516,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 3, // initial active step number
+            startStep: 2, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 
