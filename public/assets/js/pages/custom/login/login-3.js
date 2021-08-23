@@ -383,17 +383,25 @@ var KTLogin = function() {
                                 message: 'شماره همراه تیم الزامی است.'
                             },
                             regexp: {
-                                regexp: /(09)[0-9]{11}/,
-                                message: 'شماره تلفن باید با 09 شروع شود و 11 رقمی باشد'
+                                regexp: /(09)[0-9]/,
+                                message: 'شماره تلفن باید با 09 شروع شود'
                             },
+                            stringLength: {
+                                max: 11,
+                                message: 'حداکثر باید 11 رقم باشد'
+                            }
                         }
                     },
                     land_line: {
                         validators: {
                             regexp: {
-                                regexp: /(051)[0-9]{11}/,
-                                message: 'شماره تلفن باید با 051 شروع شود و 11 رقمی باشد'
+                                regexp: /(051)[0-9]/,
+                                message: 'شماره تلفن باید با 051 شروع شود'
                             },
+                            stringLength: {
+                                max: 11,
+                                message: 'حداکثر باید 11 رقم باشد'
+                            }
                         },
 
                     }
