@@ -45,11 +45,10 @@ class RegisterRequest extends FormRequest
             'lname' => ['required', 'min:3', 'max:16', new Persian()],
             'major' => ['required', 'max:32', new Persian()],
             'age' => ['required', new Security()],
-            //?
-            'responsibility[]' => ['required', new Security()],
+            'responsibility' => ['required'],
             'education' => ['required', new Security()],
-            'resume' => ['required','numeric','max:2'],
-            'investment' => ['required','numeric','max:32'],
+            'resume' => ['required','numeric'],
+            'investment' => ['required','numeric'],
         ];
     }
 }

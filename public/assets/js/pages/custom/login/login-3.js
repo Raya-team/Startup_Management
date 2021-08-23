@@ -73,7 +73,6 @@ var KTLogin = function() {
 		        }).then(function(response) { // Return valid JSON
 					// Release button
 					KTUtil.btnRelease(formSubmitButton);
-
 					if (response && typeof response === 'object' && response.status && response.status == 'success') {
 						Swal.fire({
 			                text: "All is cool! Now you submit this form",
@@ -507,7 +506,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 1, // initial active step number
+            startStep: 3, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 
