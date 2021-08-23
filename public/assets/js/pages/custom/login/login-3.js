@@ -387,8 +387,9 @@ var KTLogin = function() {
                                 message: 'شماره تلفن باید با 09 شروع شود'
                             },
                             stringLength: {
+                                min:11,
                                 max: 11,
-                                message: 'حداکثر باید 11 رقم باشد'
+                                message: 'باید 11 رقم باشد'
                             },
                             digits: {
                                 message: 'باید عدد وارد شود.'
@@ -405,7 +406,7 @@ var KTLogin = function() {
                             stringLength: {
                                 min:11,
                                 max: 11,
-                                message: ' باید 11 رقم باشد'
+                                message: 'باید 11 رقم باشد'
                             },
                             digits: {
                                 message: 'باید عدد وارد شود.'
