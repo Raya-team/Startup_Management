@@ -37,7 +37,7 @@ class RegisterRequest extends FormRequest
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'team_email' =>  ['required', 'email', 'max:255', 'unique:teams,email'],
             'team_phone' => ['required','unique:teams,phone_number' ,new Phone(), 'digits:11', 'numeric'],
-            'land_line' => ['unique:teams,landline' ,new Landline(), 'digits:11', 'numeric'],
+            'land_line' => ['unique:teams,landline', 'digits:11', 'numeric'],
             'activity_field' => ['required', new Security()],
             'status' => ['required', new Security()],
             'address' => ['max:255', 'alpha_dash'],
