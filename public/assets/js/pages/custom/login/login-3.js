@@ -399,8 +399,9 @@ var KTLogin = function() {
                                 message: 'شماره تلفن باید با 051 شروع شود'
                             },
                             stringLength: {
+                                min:11,
                                 max: 11,
-                                message: 'حداکثر باید 11 رقم باشد'
+                                message: ' باید 11 رقم باشد'
                             }
                         },
 
