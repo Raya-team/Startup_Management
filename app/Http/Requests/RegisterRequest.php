@@ -33,7 +33,7 @@ class RegisterRequest extends FormRequest
             'email' => ['required','email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'max:16', 'confirmed'],
             'password_confirmation' => ['required_with:password', 'same:password'],
-            'team_name' => ['required', 'min:3', 'max:32', 'unique:teams', new Persian()],
+            'team_name' => ['required', 'min:3', 'max:32', 'unique:teams,name', new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'team_email' =>  ['required', 'email', 'max:255', 'unique:teams,email'],
             'team_phone' => ['required','unique:teams,phone_number' ,new Phone(), 'digits:11', 'numeric'],
