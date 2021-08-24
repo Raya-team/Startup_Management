@@ -13,10 +13,6 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Rules\Persian;
-use App\Rules\Phone;
-use App\Rules\Security;
-use App\Rules\Username;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +77,7 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
-    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
+    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member)
     {
         $this->ValidationNotRequired($request);
         $this->Team($request, $team);
@@ -89,6 +85,7 @@ class RegisterController extends Controller
         $this->Member($request, $team, $member);
         $this->ResponsibilityMember($request, $member);
         $this->Products($request, $team);
+        $this->guard()->login($user);
         return redirect('login');
     }
 
