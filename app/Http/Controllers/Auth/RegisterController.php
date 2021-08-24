@@ -19,6 +19,7 @@ use App\Rules\Security;
 use App\Rules\Username;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -63,10 +64,6 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-
-    }
 
     /**
      * Create a new user instance after a valid registration.
@@ -86,12 +83,13 @@ class RegisterController extends Controller
 
     public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member, Responsibility $responsibility)
     {
+        $this->ValidationNotRequired($request);
         $this->Team($request, $team);
         $this->User($request, $team, $user);
         $this->Member($request, $team, $member);
         $this->ResponsibilityMember($request, $member);
         $this->Products($request, $team);
-        return 'done';
+        return redirect('login');
     }
 
     /**
@@ -209,6 +207,23 @@ class RegisterController extends Controller
             echo json_encode(array(
                 'valid' => $isAvailable,
             ));
+        }
+    }
+
+    /**
+     * @param RegisterRequest $request
+     */
+    protected function ValidationNotRequired(RegisterRequest $request)
+    {
+        if ($request->input('land_line')) {
+            $request->validate([
+                'land_line' => ['unique:teams,landline', 'digits:11', 'numeric'],
+            ]);
+        }
+        if ($request->input('address')) {
+            $request->validate([
+                'address' => ['max:255', 'alpha_dash'],
+            ]);
         }
     }
 }
