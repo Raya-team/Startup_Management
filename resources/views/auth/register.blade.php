@@ -100,13 +100,13 @@
                                 <!--begin::Form Group-->
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری:</label>
-                                    <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" value="{{ old('username') }}"  required/>
+                                    <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" value="{{ old('username') }}" required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                    <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="email" required/>
+                                    <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="email" value="{{ old('email') }}" required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
@@ -131,7 +131,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_name" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_name" value="{{ old('team_name') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -139,7 +139,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project_name" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="project_name" value="{{ old('project_name') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -178,7 +178,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_email" required />
+                                            <input type="email" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_email" value="{{ old('team_email') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -186,7 +186,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شماره همراه:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="team_phone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" value="{{ old('team_phone') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -222,7 +222,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fname" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fname" value="{{ old('fname') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -230,7 +230,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lname" value="{{ old('lname') }}"  required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -242,15 +242,15 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" value="{{ old('major') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
                                     <div class="col-xl-6">
                                         <!--begin::Select-->
                                         <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">سن:</label>
-                                            <select name="age" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
+                                            <label class="font-size-h6 font-weight-bolder text-dark">سال تولد:</label>
+                                            <select name="age" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6" >
                                                 @for($i = $this_year-100; $i <= $this_year; $i++)
                                                     <option value="{{$i}}">{{$i}}</option>
                                                 @endfor
@@ -307,7 +307,7 @@
                                         <!--begin::Input-->
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="برحسب تومان" required />
+                                            <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="برحسب تومان" value="{{ old('investment') }}" required />
                                         </div>
                                         <!--end::Input-->
                                     </div>
@@ -325,7 +325,7 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control products" name="product_name"/>
+                                                        <input type="text" class="form-control products" name="product_name" value="{{ old('product_name') }}" required />
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">

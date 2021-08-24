@@ -175,7 +175,7 @@ return array(
         'filter' => 'پارامتر',
         'period' => 'بازه زمانی',
         'team_name' => 'نام تیم',
-        'project_name' => 'نام پروژه',
+        'project_name' => 'نام طرح',
         'team_email' => 'ایمیل تیم',
         'team_phone' => 'شماره همراه تیم',
         'land_line' => 'شماره ثابت',
