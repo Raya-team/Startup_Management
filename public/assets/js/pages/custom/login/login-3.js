@@ -228,10 +228,12 @@ var KTLogin = function() {
 
     var _handleFormSignup = function() {
         // Base elements
+        var uniqueUrl = window.unique;
         var wizardEl = KTUtil.getById('kt_login');
         var form = KTUtil.getById('kt_login_signup_form');
         var wizardObj;
         var validations = [];
+        console.log(uniqueUrl);
 
         if (!form) {
             return;
@@ -253,7 +255,7 @@ var KTLogin = function() {
                                 message: 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-unique',
+                                url: uniqueUrl,
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
@@ -272,7 +274,7 @@ var KTLogin = function() {
                                 message: 'ایمیل وارد شده معتبر نیست.'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-unique',
+                                url: uniqueUrl,
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
@@ -327,7 +329,7 @@ var KTLogin = function() {
                                 message: 'نام تیم یا شرکت الزامی است.'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-unique',
+                                url: uniqueUrl,
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
@@ -367,7 +369,7 @@ var KTLogin = function() {
                                 message: 'ایمیل وارد شده معتبر نیست.'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-unique',
+                                url: uniqueUrl,
                                 type: 'GET',
                                 delay: 2000,
                                 data: {
@@ -395,7 +397,7 @@ var KTLogin = function() {
                                 message: 'باید عدد وارد شود.'
                             },
                             remote: {
-                                url: 'http://127.0.0.1:8000/check-unique',
+                                url: uniqueUrl,
                                 type: 'GET',
                                 delay: 2000,
                                 data: {

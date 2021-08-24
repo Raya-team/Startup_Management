@@ -22,5 +22,5 @@ Auth::routes();
 Route::group(['middleware' =>['auth']] , function (){
 //    Route
 });
-Route::get('/check-unique',[\App\Http\Controllers\Auth\RegisterController::class, 'unique']);
+Route::get('/check-unique',[\App\Http\Controllers\Auth\RegisterController::class, 'unique'])->name('unique');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
