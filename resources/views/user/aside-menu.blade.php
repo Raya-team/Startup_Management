@@ -40,8 +40,9 @@
                         <!--end::Svg Icon-->
                     </span>
                     <span class="menu-text">اعضای تیم</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -722,6 +723,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -737,8 +739,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">بوم کسب و کار</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -1155,6 +1158,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
 {{--
             <li class="menu-section">
@@ -1176,8 +1180,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">طرح توجیهی مقدماتی</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -1204,6 +1209,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -1219,8 +1225,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">محاسبه سهام</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -1271,6 +1278,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -1286,8 +1294,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">اطلاعات مالی</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -1346,6 +1355,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
           {{--  <li class="menu-item" aria-haspopup="true">
                 <a target="_blank" href="https://preview.keenthemes.com/metronic/demo1/builder.html" class="menu-link">
@@ -1383,8 +1393,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">ارزش گذاری</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -1815,6 +1826,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -1830,8 +1842,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">سطح امادگی</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -2026,6 +2039,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -2041,8 +2055,9 @@
                                             <!--end::Svg Icon-->
 										</span>
                     <span class="menu-text">توضیحات</span>
-                    <i class="menu-arrow"></i>
+                    {{--<i class="menu-arrow"></i>--}}
                 </a>
+{{--
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
@@ -2315,6 +2330,7 @@
                         </li>
                     </ul>
                 </div>
+--}}
             </li>
           {{--  <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">

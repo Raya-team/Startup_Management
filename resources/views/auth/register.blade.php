@@ -100,7 +100,7 @@
                                 <!--begin::Form Group-->
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری:</label>
-                                    <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" required/>
+                                    <input type="text" class="form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" value="{{ old('username') }}"  required/>
                                 </div>
                                 <!--end::Form Group-->
                                 <!--begin::Form Group-->
