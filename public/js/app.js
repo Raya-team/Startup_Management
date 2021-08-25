@@ -5179,10 +5179,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_Aside__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Aside */ "./resources/js/components/Aside.vue");
-/* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Content */ "./resources/js/components/Content.vue");
-/* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue");
-/* harmony import */ var _components_Team_member_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Team-member/index */ "./resources/js/components/Team-member/index.vue");
+/* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Content */ "./resources/js/components/Content.vue");
+/* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue");
+/* harmony import */ var _components_Team_member_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Team-member/index */ "./resources/js/components/Team-member/index.vue");
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -5192,21 +5191,20 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 
 
-
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
   mode: 'history',
   routes: [{
     path: '/user/dashboard',
     name: 'Dashboard',
-    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__.default
+    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__.default
   }, {
     path: '/page',
     name: 'Page',
-    component: _components_Content__WEBPACK_IMPORTED_MODULE_2__.default
+    component: _components_Content__WEBPACK_IMPORTED_MODULE_1__.default
   }, {
     path: '/team-member',
     name: 'Team',
-    component: _components_Team_member_index__WEBPACK_IMPORTED_MODULE_4__.default
+    component: _components_Team_member_index__WEBPACK_IMPORTED_MODULE_3__.default
   }]
 });
 Vue.component('myAside', __webpack_require__(/*! ./components/Aside.vue */ "./resources/js/components/Aside.vue").default);

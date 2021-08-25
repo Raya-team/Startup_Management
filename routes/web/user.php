@@ -21,4 +21,5 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
         return view('user.master');
     });
     Route::resource('/team-member', \App\Http\Controllers\User\TeamMemberController::class);
+    Route::resource('/key-employees', \App\Http\Controllers\User\KeyEmployeesController::class);
 });
