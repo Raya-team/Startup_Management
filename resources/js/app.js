@@ -2,11 +2,10 @@ import VueRouter from 'vue-router';
 
 require('./bootstrap');
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 window.Vue = require('vue').default;
 
-import Aside from './components/Aside';
 import Page from './components/Content';
 import Dashboard from './components/Dashboard';
 import TeamMember from './components/Team-member/index';
