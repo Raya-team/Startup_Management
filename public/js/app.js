@@ -5183,11 +5183,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Content */ "./resources/js/components/Content.vue");
 /* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue");
 /* harmony import */ var _components_Team_member_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Team-member/index */ "./resources/js/components/Team-member/index.vue");
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
@@ -5197,7 +5192,6 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 
 
- // import router from './router.js'
 
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
   mode: 'history',
@@ -5215,28 +5209,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
     component: _components_Team_member_index__WEBPACK_IMPORTED_MODULE_4__.default
   }]
 });
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
 Vue.component('myAside', __webpack_require__(/*! ./components/Aside.vue */ "./resources/js/components/Aside.vue").default);
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new Vue({
   el: '#app',
-  router: router,
-  created: function created() {}
+  router: router
 });
 
 /***/ }),
