@@ -17,4 +17,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/user/dashboard', function (){
         return view('user.master');
     });
+    Route::get('/page',function (){
+        return view('user.master');
+    });
+    Route::resource('/team-member', \App\Http\Controllers\User\TeamMemberController::class);
 });

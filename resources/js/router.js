@@ -1,7 +1,16 @@
-import VueRouter from 'vue-router';
-
-let routes = [
-    {
-        path : '/'
-    }
-]
+// import Dashboard from './components/Content'
+//
+// const router = new VueRouter({
+//     mode: 'history',
+//     routes: [
+//         {
+//             path: '/user/dashboard',
+//             name: 'Dash',
+//             component: Dashboard
+//         },
+//     ],
+// });
+//
+// export default {
+//     router,
+// }
