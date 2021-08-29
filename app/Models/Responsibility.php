@@ -15,4 +15,8 @@ class Responsibility extends Model
     {
         return $this->belongsToMany(TeamMember::class);
     }
+    public function keyEmployees ()
+    {
+        return $this->belongsToMany(KeyEmployee::class);
+    }
 }

@@ -15,4 +15,8 @@ class Education extends Model
     {
         return $this->hasMany(TeamMember::class);
     }
+    public function keyEmployees()
+    {
+        return $this->hasMany(KeyEmployee::class);
+    }
 }
