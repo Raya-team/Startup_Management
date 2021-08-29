@@ -90,9 +90,11 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--begin::Brand-->
                 <div class="brand flex-column-auto" id="kt_brand">
                     <!--begin::Logo-->
-                    <a href="index.html" class="brand-logo">
-                        <img alt="Logo" src="../assets/media/logos/logo-light.png" />
-                    </a>
+                    <h3>
+                        <a href="#" class="brand-logo">
+                            {{ config('app.name') }}
+                        </a>
+                    </h3>
                     <!--end::Logo-->
                     <!--begin::Toggle-->
                     <button class="brand-toggle btn btn-sm px-0" id="kt_aside_toggle">
@@ -112,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!--end::Brand-->
                 <!--begin::Aside Menu-->
-                {{--<my-aside></my-aside>--}}
+            {{--<my-aside></my-aside>--}}
             @include('user.aside-menu')
             <!--end::Aside Menu-->
             </div>
@@ -840,8 +842,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Subheader-->
-                    @yield('subheader')
-                    <!--end::Subheader-->
+                @yield('subheader')
+                <!--end::Subheader-->
                     <!--begin::Entry-->
                     <div class="d-flex flex-column-fluid">
                         <!--begin::Container-->
