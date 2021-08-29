@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\user\TeamMember;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ShareholderRequest;
 use App\Models\Education;
 use App\Models\Responsibility;
+use App\Models\Team;
+use App\Models\TeamMember;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class shareholderController extends Controller
 {
@@ -39,9 +43,18 @@ class shareholderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ShareholderRequest $request, TeamMember $member)
     {
-        //
+        $member->fname = $request->input('fname');
+        $member->lname = $request->input('lname');
+        $member->team_id = Auth::user()->team_id;
+        $member->education_id = $request->input('education');
+        $member->major = $request->input('major');
+        $member->age = $request->input('age');
+        $member->resume = $request->input('resume');
+        $member->investment = $request->input('investment');
+        $member->updated_at = null;
+        $member->save();
     }
 
     /**

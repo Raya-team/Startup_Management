@@ -27,5 +27,4 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/key-employees', KeyEmployeeController::class);
     Route::resource('/team', TeamController::class);
 });
-Route::get('/test1', [ShareholderController::class, 'create']);
-//Route::get('/test2', [\App\Http\Controllers\User\TeamController::class, 'create']);
+Route::get('/test2', [\App\Http\Controllers\User\TeamController::class, 'create']);

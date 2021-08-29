@@ -6,7 +6,7 @@ use App\Rules\Persian;
 use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TeamMemberRequest extends FormRequest
+class KeyEmployeeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +33,6 @@ class TeamMemberRequest extends FormRequest
             'responsibility' => ['required'],
             'education' => ['required', new Security()],
             'resume' => ['required','numeric'],
-            'investment' => ['required','numeric'],
         ];
     }
 }

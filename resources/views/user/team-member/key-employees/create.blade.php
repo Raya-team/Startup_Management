@@ -1,5 +1,5 @@
 @extends('user.master')
-@section('title', 'افزودن سهامدار')
+@section('title', 'افزودن کارکنان کلیدی')
 @section('subheader')
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
@@ -13,7 +13,7 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{route('shareholders.index')}}" class="text-muted">سهامداران</a>
+                            <a href="{{route('key-employees.index')}}" class="text-muted">کارکنان کلیدی</a>
                         </li>
                         <li class="breadcrumb-item text-muted">
                             <a href="#" class="text-muted">افزودن</a>
@@ -188,16 +188,6 @@
                                                 <option value="{{$i}}">{{$i}}</option>
                                             @endfor
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="investment">سرمایه گذاری:
-                                            <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="investment" placeholder="برحسب تومان"
-                                               name="investment" value="{{ old('investment') }}"
-                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                               required/>
                                     </div>
                                 </div>
                             </div>
