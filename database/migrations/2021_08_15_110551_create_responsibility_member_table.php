@@ -15,7 +15,7 @@ class CreateResponsibilityMemberTable extends Migration
     {
         Schema::create('responsibility_member', function (Blueprint $table) {
             $table->bigInteger('member_id')->unsigned();
-            $table->foreign('member_id')->references('id')->on('team_members')->onDelete('cascade');
+            $table->foreign('member_id')->references('id')->on('team-member')->onDelete('cascade');
             $table->bigInteger('responsibility_id')->unsigned();
             $table->foreign('responsibility_id')->references('id')->on('responsibilities')->onDelete('cascade');
             $table->primary(['member_id' , 'responsibility_id']);

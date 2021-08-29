@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\user\KeyEmployeesController;
-use App\Http\Controllers\User\ShareholderController;
-use App\Http\Controllers\user\TeamController;
+use App\Http\Controllers\user\TeamMember\KeyEmployeeController;
+use App\Http\Controllers\user\TeamMember\shareholderController;
+use App\Http\Controllers\user\TeamMember\TeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +23,9 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/page',function (){
         return view('user.master');
     });
-    Route::resource('/shareholders', ShareholderController::class);
-    Route::resource('/key-employees', KeyEmployeesController::class);
+    Route::resource('/shareholders',shareholderController::class);
+    Route::resource('/key-employees', KeyEmployeeController::class);
     Route::resource('/team', TeamController::class);
 });
-Route::get('/test1', [\App\Http\Controllers\User\ShareholderController::class, 'create']);
-Route::get('/test2', [\App\Http\Controllers\User\TeamController::class, 'create']);
+Route::get('/test1', [ShareholderController::class, 'create']);
+//Route::get('/test2', [\App\Http\Controllers\User\TeamController::class, 'create']);

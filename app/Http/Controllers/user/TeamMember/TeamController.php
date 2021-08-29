@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\user\TeamMember;
 
 use App\Http\Controllers\Controller;
-use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamController extends Controller
@@ -25,8 +24,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $teams = Team::where('id',1)->get();
-        return view('team_member2',compact('teams'));
+        //
     }
 
     /**

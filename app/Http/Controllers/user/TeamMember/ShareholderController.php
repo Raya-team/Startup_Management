@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\user;
+namespace App\Http\Controllers\user\TeamMember;
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
+use App\Models\Responsibility;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class KeyEmployeesController extends Controller
+class shareholderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +27,10 @@ class KeyEmployeesController extends Controller
      */
     public function create()
     {
-        //
+        $this_year = jdate(Carbon::now())->format('Y');
+        $responsibilities = Responsibility::all(['id','nickname']);
+        $education = Education::all(['id', 'nickname']);
+        return view('user.team-member.shareholders.create',compact('this_year','responsibilities','education'));
     }
 
     /**
