@@ -850,7 +850,6 @@ License: You must have a valid license purchased only from themeforest(the above
                             <br>
                             <router-link :to="{ name: 'Team' }">Team-Member</router-link>
                             <router-view></router-view>
-                            <h3>master</h3>
                             <!--end::Dashboard-->
                         </div>
                         <!--end::Container-->
@@ -859,7 +858,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->
-                <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer">
+                <div class="footer bg-white py-4 d-flex flex-lg-column" id="kt_footer" style="margin-top: 100px">
                     <!--begin::Container-->
                     <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <!--begin::Copyright-->
@@ -2469,6 +2468,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="../assets/js/pages/widgets.js"></script>
+{{--<script src="../assets/js/pages/crud/ktdatatable/base/html-table.js"></script>--}}
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->

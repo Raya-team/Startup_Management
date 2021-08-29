@@ -7,8 +7,6 @@ Vue.use(VueRouter);
 window.Vue = require('vue').default;
 
 import Page from './components/Content';
-import Dashboard from './components/Dashboard';
-import TeamMember from './components/Team-member/index';
 
 
 const router = new VueRouter({
@@ -17,7 +15,7 @@ const router = new VueRouter({
         {
             path: '/user/dashboard',
             name: 'Dashboard',
-            component: Dashboard
+            component: require('./components/Dashboard').default
         },
         {
             path: '/page',
@@ -27,7 +25,7 @@ const router = new VueRouter({
         {
             path: '/team-member',
             name: 'Team',
-            component: TeamMember
+            component:  require('./components/Team-member/index').default
         },
     ],
 });
