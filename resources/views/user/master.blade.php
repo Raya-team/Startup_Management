@@ -38,6 +38,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="../assets/css/themes/layout/aside/dark.rtl.css" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
     <link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
+    @yield('css')
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -112,8 +113,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!--end::Brand-->
                 <!--begin::Aside Menu-->
-                <my-aside></my-aside>
-{{--            @include('user.aside-menu')--}}
+                {{--<my-aside></my-aside>--}}
+            @include('user.aside-menu')
             <!--end::Aside Menu-->
             </div>
             <!--end::Aside-->
@@ -844,12 +845,13 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!--begin::Container-->
                         <div class="container">
                             <!--begin::Dashboard-->
-                            <router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>
-                            <br>
-                            <router-link :to="{ name: 'Page' }">Page</router-link>
-                            <br>
-                            <router-link :to="{ name: 'Team' }">Team-Member</router-link>
+                            {{--<router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>--}}
+                            {{--<br>--}}
+                            {{--<router-link :to="{ name: 'Page' }">Page</router-link>--}}
+                            {{--<br>--}}
+                            {{--<router-link :to="{ name: 'Team' }">Team-Member</router-link>--}}
                             <router-view></router-view>
+                            @yield('content')
                             <!--end::Dashboard-->
                         </div>
                         <!--end::Container-->
@@ -2468,7 +2470,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="../assets/js/pages/widgets.js"></script>
-{{--<script src="../assets/js/pages/crud/ktdatatable/base/html-table.js"></script>--}}
+@yield('script')
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
