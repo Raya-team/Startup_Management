@@ -6299,7 +6299,6 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="../assets/js/pages/widgets.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <!--end::Page Scripts-->
 </body>
 <!--end::Body-->
