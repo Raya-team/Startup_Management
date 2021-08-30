@@ -24,3 +24,6 @@ Route::group(['middleware' =>['auth']] , function (){
 });
 Route::get('/check-unique',[\App\Http\Controllers\Auth\RegisterController::class, 'unique'])->name('unique');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/migrate', function (){
+    return \Illuminate\Support\Facades\Artisan::call('migrate');
+});
