@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\user\other\ProductController;
+use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\TeamMember\KeyEmployeeController;
 use App\Http\Controllers\user\TeamMember\shareholderController;
-use App\Http\Controllers\user\TeamMember\TeamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,5 +27,6 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/shareholders',shareholderController::class);
     Route::resource('/key-employees', KeyEmployeeController::class);
     Route::resource('/team', TeamController::class);
+    Route::resource('/product', ProductController::class);
 });
-Route::get('/test2', [\App\Http\Controllers\User\TeamController::class, 'create']);
+Route::get('/test2', [TeamController::class, 'create']);
