@@ -841,24 +841,13 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--end::Header-->
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Subheader-->
-                @yield('subheader')
-                <!--end::Subheader-->
-                    <!--begin::Entry-->
-                    <div class="d-flex flex-column-fluid">
-                        <!--begin::Container-->
-                        <div class="container">
-                            {{--<router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>--}}
-                            {{--<br>--}}
-                            {{--<router-link :to="{ name: 'Page' }">Page</router-link>--}}
-                            {{--<br>--}}
-                            {{--<router-link :to="{ name: 'Team' }">Team-Member</router-link>--}}
-                            <router-view></router-view>
-                            @yield('content')
-                        </div>
-                        <!--end::Container-->
-                    </div>
-                    <!--end::Entry-->
+                    {{--<router-link :to="{ name: 'Dashboard' }">Dashboard</router-link>--}}
+                    {{--<br>--}}
+                    {{--<router-link :to="{ name: 'Page' }">Page</router-link>--}}
+                    {{--<br>--}}
+                    {{--<router-link :to="{ name: 'Team' }">Team-Member</router-link>--}}
+                    <router-view></router-view>
+                    @yield('content')
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->

@@ -1,6 +1,7 @@
 @extends('user.master')
 @section('title', 'لیست سهامداران')
-@section('subheader')
+@section('content')
+    <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
@@ -23,18 +24,20 @@
             <!--end::Info-->
         </div>
     </div>
-@endsection
-
-@section('content')
-    <!--begin::Card-->
-    <div class="card card-custom">
-        <div class="card-header flex-wrap border-0 pt-6 pb-0">
-            <div class="card-title">
-                <h3 class="card-label">لیست سهامداران</h3>
-            </div>
-            <div class="card-toolbar">
-                <!--begin::Button-->
-                <a href="#" class="btn btn-primary font-weight-bolder">
+    <!--end::Subheader-->
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!--begin::Card-->
+            <div class="card card-custom">
+                <div class="card-header flex-wrap border-0 pt-6 pb-0">
+                    <div class="card-title">
+                        <h3 class="card-label">لیست سهامداران</h3>
+                    </div>
+                    <div class="card-toolbar">
+                        <!--begin::Button-->
+                        <a href="#" class="btn btn-primary font-weight-bolder">
                     <span class="svg-icon svg-icon-md">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -46,75 +49,79 @@
                         </svg>
                         <!--end::Svg Icon-->
                     </span>افزودن سهامدار جدید
-                </a>
-                <!--end::Button-->
-            </div>
-        </div>
-        <div class="card-body">
-            <!--begin: Search Form-->
-            <!--begin::Search Form-->
-            <div class="mb-7">
-                <div class="row align-items-center">
-                    <div class="col-lg-9 col-xl-8">
+                        </a>
+                        <!--end::Button-->
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!--begin: Search Form-->
+                    <!--begin::Search Form-->
+                    <div class="mb-7">
                         <div class="row align-items-center">
-                            <div class="col-md-4 my-2 my-md-0">
-                                <div class="input-icon">
-                                    <input type="text" class="form-control" placeholder="جست و جو..." id="kt_datatable_search_query" />
-                                    <span>
+                            <div class="col-lg-9 col-xl-8">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4 my-2 my-md-0">
+                                        <div class="input-icon">
+                                            <input type="text" class="form-control" placeholder="جست و جو..." id="kt_datatable_search_query" />
+                                            <span>
                                         <i class="flaticon2-search-1 text-muted"></i>
                                     </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end::Search Form-->
+                    <!--end: Search Form-->
+                    <!--begin: Datatable-->
+                    <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
+                        <thead>
+                        <tr>
+                            <th title="Field #1">نام</th>
+                            <th title="Field #2">نام خانوادگی</th>
+                            <th title="Field #3">تحصیلات</th>
+                            <th title="Field #4">رشته</th>
+                            <th title="Field #5">سال تولد</th>
+                            <th title="Field #6">رزومه</th>
+                            <th title="Field #7">سرمایه گذاری</th>
+                            <th title="Field #8">عملیات</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($team_members as $member)
+                            <tr>
+                                <td>{{ $member->fname }}</td>
+                                <td>{{ $member->lname }}</td>
+                                <td>{{ $member->education->nickname }}</td>
+                                <td>{{ $member->major }}</td>
+                                <td>{{ $member->age }}</td>
+                                <td>{{ $member->resume }}</td>
+                                <td>{{ $member->investment }}</td>
+                                <td>
+                                    <form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">
+                                        @method('delete')
+                                        @csrf
+                                        <a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
+                                            <i class="icon-md la la-pencil-square-o"></i>
+                                        </a>
+                                        <button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">
+                                            <i class="icon-md la la-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <!--end: Datatable-->
                 </div>
             </div>
-            <!--end::Search Form-->
-            <!--end: Search Form-->
-            <!--begin: Datatable-->
-            <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
-                <thead>
-                <tr>
-                    <th title="Field #1">نام</th>
-                    <th title="Field #2">نام خانوادگی</th>
-                    <th title="Field #3">تحصیلات</th>
-                    <th title="Field #4">رشته</th>
-                    <th title="Field #5">سال تولد</th>
-                    <th title="Field #6">رزومه</th>
-                    <th title="Field #7">سرمایه گذاری</th>
-                    <th title="Field #8">عملیات</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($team_members as $member)
-                    <tr>
-                        <td>{{ $member->fname }}</td>
-                        <td>{{ $member->lname }}</td>
-                        <td>{{ $member->education->nickname }}</td>
-                        <td>{{ $member->major }}</td>
-                        <td>{{ $member->age }}</td>
-                        <td>{{ $member->resume }}</td>
-                        <td>{{ $member->investment }}</td>
-                        <td>
-                            <form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">
-                                @method('delete')
-                                @csrf
-                                <a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
-                                    <i class="icon-md la la-pencil-square-o"></i>
-                                </a>
-                                <button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">
-                                    <i class="icon-md la la-trash-alt"></i>
-                                </button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            <!--end: Datatable-->
+            <!--end::Card-->
         </div>
+        <!--end::Container-->
     </div>
-    <!--end::Card-->
+    <!--end::Entry-->
 @endsection
 
 @section('script')

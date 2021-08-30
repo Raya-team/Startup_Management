@@ -25,7 +25,7 @@ const router = new VueRouter({
         {
             path: '/team-member',
             name: 'Team',
-            component:  require('./components/Team-member/index').default
+            component:  require('./components/team-member/index').default
         },
     ],
 });
