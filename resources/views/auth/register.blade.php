@@ -23,7 +23,7 @@
                                 <div class="wizard-wrapper">
                                     <div class="wizard-icon">
                                         <i class="wizard-check ki ki-check"></i>
-                                        <span class="wizard-number">1</span>
+                                        <span class="wizard-number">۱</span>
                                     </div>
                                     <div class="wizard-label">
                                         <h3 class="wizard-title">اطلاعات کاربر</h3>
@@ -36,7 +36,7 @@
                                 <div class="wizard-wrapper">
                                     <div class="wizard-icon">
                                         <i class="wizard-check ki ki-check"></i>
-                                        <span class="wizard-number">2</span>
+                                        <span class="wizard-number">۲</span>
                                     </div>
                                     <div class="wizard-label">
                                         <h3 class="wizard-title">اطلاعات استارتاپ</h3>
@@ -49,7 +49,7 @@
                                 <div class="wizard-wrapper">
                                     <div class="wizard-icon">
                                         <i class="wizard-check ki ki-check"></i>
-                                        <span class="wizard-number">3</span>
+                                        <span class="wizard-number">۳</span>
                                     </div>
                                     <div class="wizard-label">
                                         <h3 class="wizard-title">اطلاعات اعضای تیم</h3>
@@ -62,7 +62,7 @@
                                 <div class="wizard-wrapper">
                                     <div class="wizard-icon">
                                         <i class="wizard-check ki ki-check"></i>
-                                        <span class="wizard-number">4</span>
+                                        <span class="wizard-number">۴</span>
                                     </div>
                                     <div class="wizard-label">
                                         <h3 class="wizard-title">اطلاعات محصول</h3>
