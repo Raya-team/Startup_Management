@@ -27,6 +27,11 @@ const router = new VueRouter({
             name: 'Team',
             component:  require('./components/team-member/index').default
         },
+        {
+            path: '/shareholders/create',
+            name: 'shareholders-create',
+            component: require('./components/team-member/shareholders/create').default
+        },
     ],
 });
 

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
-    Route::resource('/team-member', \App\Http\Controllers\Api\TeamMemberController::class);
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+//Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
+//    Route::resource('/team-member', \App\Http\Controllers\Api\TeamMemberController::class);
+//});

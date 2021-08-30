@@ -30,3 +30,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/product', ProductController::class);
 });
 Route::get('/test2', [TeamController::class, 'create']);
+
+Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
+    Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class);
+});

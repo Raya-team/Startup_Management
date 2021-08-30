@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\user\TeamMember;
+namespace App\Http\Controllers\Api\TeamMember;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ShareholderRequest;
 use App\Models\Education;
 use App\Models\Responsibility;
-use App\Models\Team;
-use App\Models\TeamMember;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class shareholderController extends Controller
+class ShareholderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,10 +17,7 @@ class shareholderController extends Controller
      */
     public function index()
     {
-        $team_id = Auth::user()->team_id;
-        $team_members = TeamMember::with(['team', 'education'])
-            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
-        return view('user.team-member.shareholders.index', compact('team_members'));
+        //
     }
 
     /**
@@ -34,11 +27,14 @@ class shareholderController extends Controller
      */
     public function create()
     {
-//        $this_year = jdate(Carbon::now())->format('Y');
-//        $responsibilities = Responsibility::all(['id','nickname']);
-//        $education = Education::all(['id', 'nickname']);
-//        return view('user.team-member.shareholders.create',compact(['this_year', 'responsibilities', 'education']));
-        return view('user.master');
+        $this_year = jdate(Carbon::now())->format('Y');
+        $responsibilities = Responsibility::all(['id','nickname']);
+        $education = Education::all(['id', 'nickname']);
+        return response()->json([
+            'this_year' => $this_year,
+            'responsibilities' => $responsibilities,
+            'education' => $education
+        ]);
     }
 
     /**
@@ -47,18 +43,9 @@ class shareholderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ShareholderRequest $request, TeamMember $member)
+    public function store(Request $request)
     {
-        $member->fname = $request->input('fname');
-        $member->lname = $request->input('lname');
-        $member->team_id = Auth::user()->team_id;
-        $member->education_id = $request->input('education');
-        $member->major = $request->input('major');
-        $member->age = $request->input('age');
-        $member->resume = $request->input('resume');
-        $member->investment = $request->input('investment');
-        $member->updated_at = null;
-        $member->save();
+        //
     }
 
     /**
