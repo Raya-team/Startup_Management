@@ -7,6 +7,7 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -37,12 +38,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request, Product $product)
+    public function store(ProductRequest $request)
     {
-        return $request->product['product_name'];
-        $product->name = $request->input('product_name');
-        $product->type_id = $request->input('product_type');
-        $product->save();
+        $products = $request->product;
+        for ($i = 0; $i < sizeof($products); $i++) {
+            $product = new Product();
+            $product->name = $products[$i]['product_name'];
+            $product->team_id = Auth::user()->team_id;
+            $product->type_id = $products[$i]['product_type'];
+            $product->updated_at = null;
+            $product->save();
+        }
     }
 
     /**
