@@ -110,7 +110,9 @@
                 <!--begin::Card-->
                 <div class="card card-custom gutter-b example example-compact">
                     <!--begin::Form-->
-                    <form>
+                    <form method="POST" action="{{route('product.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
+                        @csrf
+                        @include('errors')
                         <div class="card-body">
                             <div id="kt_repeater_1">
                                 <div class="form-group row">

@@ -188,5 +188,7 @@ return array(
         'education' => 'تحصیلات',
         'resume' => 'سابقه',
         'investment' => 'میزان سرمایه گذاری',
+        'product_name' => 'نام محصول',
+        'product_type' => 'نوع محصول',
     ),
 );
