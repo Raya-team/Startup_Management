@@ -22,7 +22,10 @@ class KeyEmployeeController extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $key_employees = KeyEmployee::with(['team', 'education'])
+            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume']);
+        return view('user.team-member.key-employees.index', compact('key_employees'));
     }
 
     /**

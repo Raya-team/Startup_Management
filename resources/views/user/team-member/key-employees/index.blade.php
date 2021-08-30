@@ -1,5 +1,5 @@
 @extends('user.master')
-@section('title', 'لیست سهامداران')
+@section('title', 'لیست کارکنان کلیدی')
 @section('content')
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -14,7 +14,7 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item text-muted">
-                            <a href="#" class="text-muted">سهامداران</a>
+                            <a href="#" class="text-muted">کارکنان کلیدی</a>
                         </li>
                     </ul>
                     <!--end::Breadcrumb-->
@@ -33,7 +33,7 @@
             <div class="card card-custom">
                 <div class="card-header flex-wrap border-0 pt-6 pb-0">
                     <div class="card-title">
-                        <h3 class="card-label">لیست سهامداران</h3>
+                        <h3 class="card-label">لیست کارکنان کلیدی</h3>
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
@@ -48,7 +48,7 @@
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
-                            </span>افزودن سهامدار جدید
+                            </span>افزودن کارمند جدید
                         </a>
                         <!--end::Button-->
                     </div>
@@ -84,30 +84,28 @@
                             <th title="Field #4">رشته</th>
                             <th title="Field #5">سال تولد</th>
                             <th title="Field #6">رزومه</th>
-                            <th title="Field #7">سرمایه گذاری</th>
                             <th title="Field #8">عملیات</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($team_members as $member)
+                        @foreach($key_employees as $employee)
                             <tr>
-                                <td>{{ $member->fname }}</td>
-                                <td>{{ $member->lname }}</td>
-                                <td>{{ $member->education->nickname }}</td>
-                                <td>{{ $member->major }}</td>
-                                <td>{{ $member->age }}</td>
-                                <td>{{ $member->resume }}</td>
-                                <td>{{ $member->investment }}</td>
+                                <td>{{ $employee->fname }}</td>
+                                <td>{{ $employee->lname }}</td>
+                                <td>{{ $employee->education->nickname }}</td>
+                                <td>{{ $employee->major }}</td>
+                                <td>{{ $employee->age }}</td>
+                                <td>{{ $employee->resume }}</td>
                                 <td>
                                     {{--<form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">--}}
-                                        {{--@method('delete')--}}
-                                        {{--@csrf--}}
-                                        {{--<a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">--}}
-                                            {{--<i class="icon-md la la-pencil-square-o"></i>--}}
-                                        {{--</a>--}}
-                                        {{--<button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">--}}
-                                            {{--<i class="icon-md la la-trash-alt"></i>--}}
-                                        {{--</button>--}}
+                                    {{--@method('delete')--}}
+                                    {{--@csrf--}}
+                                    {{--<a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">--}}
+                                    {{--<i class="icon-md la la-pencil-square-o"></i>--}}
+                                    {{--</a>--}}
+                                    {{--<button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">--}}
+                                    {{--<i class="icon-md la la-trash-alt"></i>--}}
+                                    {{--</button>--}}
                                     {{--</form>--}}
 
                                     <a type="button" href="#" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
