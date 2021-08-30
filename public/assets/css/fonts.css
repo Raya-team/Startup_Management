@@ -8,7 +8,10 @@
     font-weight: normal;
     font-display: swap;
   }
-  
+body{
+    font-family: 'Shabnam', Arial, sans-serif;
+    font-weight:normal;
+}
   /* @font-face {
     font-family: Shabnam;
     src: url('Shabnam-Bold.eot');
@@ -19,7 +22,7 @@
     font-weight: bold;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: Shabnam;
     src: url('Shabnam-Thin.eot');
@@ -30,7 +33,7 @@
     font-weight: 100;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: Shabnam;
     src: url('Shabnam-Light.eot');
@@ -41,7 +44,7 @@
     font-weight: 300;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: Shabnam;
     src: url('Shabnam-Medium.eot');
