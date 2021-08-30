@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\user\TeamMember;
+namespace App\Http\Controllers\user\other;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Models\Product;
+use App\Models\ProductType;
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +27,8 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        $product_types = ProductType::all(['id','nickname']);
+        return view('user.other.product.create',compact('product_types'));
     }
 
     /**
@@ -33,9 +37,12 @@ class TeamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request, Product $product)
     {
-        //
+        return $request->product['product_name'];
+        $product->name = $request->input('product_name');
+        $product->type_id = $request->input('product_type');
+        $product->save();
     }
 
     /**
