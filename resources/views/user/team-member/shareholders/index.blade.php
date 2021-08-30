@@ -126,17 +126,30 @@
                     layout: {
                         class: 'datatable-bordered',
                     },
+                    translate: {
+                        records: {
+                            processing: 'لطفا صبر کنید',
+                            noRecords: 'هیچ داده ای یافت نشد',
+                        },
+                        toolbar: {
+                            pagination: {
+                                items: {
+                                    default: {
+                                        first: 'اولین',
+                                        prev: 'قبلی',
+                                        next: 'بعدی',
+                                        last: 'آخرین',
+                                        more: 'صفحات بیشتر',
+                                        input: 'شمراه صفحه',
+                                        select: 'اندازه صفحه را انتخاب کنید',
+                                        all: 'همه',
+                                    },
+{{--                                    info: 'Showing {{start}} - {{end}} of {{total}}',--}}
+                                },
+                            },
+                        },
+                    }
                 });
-
-                $('#kt_datatable_search_status').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Status');
-                });
-
-                $('#kt_datatable_search_type').on('change', function() {
-                    datatable.search($(this).val().toLowerCase(), 'Type');
-                });
-
-                $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
 
             };
 
