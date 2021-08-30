@@ -82,19 +82,32 @@
                     <th title="Field #5">سال تولد</th>
                     <th title="Field #6">رزومه</th>
                     <th title="Field #7">سرمایه گذاری</th>
+                    <th title="Field #8">عملیات</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($team_members as $member)
-                <tr>
-                    <td>{{ $member->fname }}</td>
-                    <td>{{ $member->lname }}</td>
-                    <td>{{ $member->education->nickname }}</td>
-                    <td>{{ $member->major }}</td>
-                    <td>{{ $member->age }}</td>
-                    <td>{{ $member->resume }}</td>
-                    <td>{{ $member->investment }}</td>
-                </tr>
+                    <tr>
+                        <td>{{ $member->fname }}</td>
+                        <td>{{ $member->lname }}</td>
+                        <td>{{ $member->education->nickname }}</td>
+                        <td>{{ $member->major }}</td>
+                        <td>{{ $member->age }}</td>
+                        <td>{{ $member->resume }}</td>
+                        <td>{{ $member->investment }}</td>
+                        <td>
+                            <form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
+                                    <i class="icon-md la la-pencil-square-o"></i>
+                                </a>
+                                <button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">
+                                    <i class="icon-md la la-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
@@ -144,7 +157,7 @@
                                         select: 'اندازه صفحه را انتخاب کنید',
                                         all: 'همه',
                                     },
-{{--                                    info: 'Showing {{start}} - {{end}} of {{total}}',--}}
+                                    {{--                                    info: 'Showing {{start}} - {{end}} of {{total}}',--}}
                                 },
                             },
                         },
