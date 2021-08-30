@@ -47,6 +47,8 @@ class RegisterRequest extends FormRequest
             'education' => ['required', new Security()],
             'resume' => ['required','numeric'],
             'investment' => ['required','numeric'],
+            'product.*.product_name' => ['required'],
+            'product.*.product_type' => ['required'],
         ];
     }
 }

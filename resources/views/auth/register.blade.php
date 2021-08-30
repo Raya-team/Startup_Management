@@ -76,6 +76,9 @@
                     <!--end: Wizard Nav-->
                 </div>
                 <!--end::Aside Top-->
+                <!--begin::Aside Bottom-->
+                <div class="aside-img-wizard d-flex flex-row-fluid bgi-no-repeat bgi-position-y-bottom bgi-position-x-center pt-2 pt-lg-5" style="background-position-y: calc(100% + 3rem); background-image: url(assets/media/svg/illustrations/features.svg)"></div>
+                <!--end::Aside Bottom-->
             </div>
             <!--begin::Aside-->
             <!--begin::Content-->
