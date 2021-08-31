@@ -7,6 +7,8 @@ Vue.use(VueRouter);
 window.Vue = require('vue').default;
 
 import Page from './components/Content';
+import Dashboard from './components/Dashboard';
+import SharehodlerIndex from './components/team-member/shareholders/index';
 
 
 const router = new VueRouter({
@@ -15,7 +17,7 @@ const router = new VueRouter({
         {
             path: '/user/dashboard',
             name: 'Dashboard',
-            component: require('./components/Dashboard').default
+            component: Dashboard
         },
         {
             path: '/page',
@@ -23,19 +25,14 @@ const router = new VueRouter({
             component: Page
         },
         {
-            path: '/team-member',
-            name: 'Team',
-            component:  require('./components/team-member/index').default
-        },
-        {
-            path: '/shareholders/create',
-            name: 'shareholders-create',
-            component: require('./components/team-member/shareholders/create').default
+            path: '/shareholders',
+            name: 'shareholders-index',
+            component: SharehodlerIndex
         },
     ],
 });
 
-Vue.component('myAside', require('./components/Aside.vue').default);
+// Vue.component('myAside', require('./components/Aside.vue').default);
 
 
 const app = new Vue({

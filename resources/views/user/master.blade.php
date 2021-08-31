@@ -115,7 +115,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <!--end::Brand-->
                 <!--begin::Aside Menu-->
-            {{--<my-aside></my-aside>--}}
             @include('user.aside-menu')
             <!--end::Aside Menu-->
             </div>
@@ -847,7 +846,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     {{--<router-link :to="{ name: 'Page' }">Page</router-link>--}}
                     {{--<br>--}}
                     {{--<router-link :to="{ name: 'Team' }">Team-Member</router-link>--}}
-                    <router-view></router-view>
                     @yield('content')
                 </div>
                 <!--end::Content-->

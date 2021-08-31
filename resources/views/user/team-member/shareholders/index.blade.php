@@ -26,6 +26,9 @@
     </div>
     <!--end::Subheader-->
     <!--begin::Entry-->
+    <router-view></router-view>
+    <!--end::Entry-->
+    {{--<!--begin::Entry-->
     <div class="d-flex flex-column-fluid">
         <!--begin::Container-->
         <div class="container">
@@ -99,16 +102,16 @@
                                 <td>{{ $member->resume }}</td>
                                 <td>{{ $member->investment }}</td>
                                 <td>
-                                    {{--<form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">--}}
-                                        {{--@method('delete')--}}
-                                        {{--@csrf--}}
-                                        {{--<a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">--}}
-                                            {{--<i class="icon-md la la-pencil-square-o"></i>--}}
-                                        {{--</a>--}}
-                                        {{--<button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">--}}
-                                            {{--<i class="icon-md la la-trash-alt"></i>--}}
-                                        {{--</button>--}}
-                                    {{--</form>--}}
+                                    --}}{{--<form action="{{ route('shareholders.destroy' , ['shareholder'=> $member->id]) }}" method="POST">--}}{{--
+                                        --}}{{--@method('delete')--}}{{--
+                                        --}}{{--@csrf--}}{{--
+                                        --}}{{--<a type="button" href="{{ route('shareholders.edit', ['shareholder' => $member->id]) }}" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">--}}{{--
+                                            --}}{{--<i class="icon-md la la-pencil-square-o"></i>--}}{{--
+                                        --}}{{--</a>--}}{{--
+                                        --}}{{--<button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">--}}{{--
+                                            --}}{{--<i class="icon-md la la-trash-alt"></i>--}}{{--
+                                        --}}{{--</button>--}}{{--
+                                    --}}{{--</form>--}}{{--
 
                                     <a type="button" href="#" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
                                         <i class="icon-md la la-pencil-square-o"></i>
@@ -128,70 +131,70 @@
         </div>
         <!--end::Container-->
     </div>
-    <!--end::Entry-->
+    <!--end::Entry-->--}}
 @endsection
 
 @section('script')
-    <script>
-        'use strict';
-        // Class definition
+    {{--<script>--}}
+        {{--'use strict';--}}
+        {{--// Class definition--}}
 
-        var KTDatatableHtmlTableDemo = function() {
-            // Private functions
+        {{--var KTDatatableHtmlTableDemo = function() {--}}
+            {{--// Private functions--}}
 
-            // demo initializer
-            var demo = function() {
+            {{--// demo initializer--}}
+            {{--var demo = function() {--}}
 
-                var datatable = $('#kt_datatable').KTDatatable({
-                    data: {
-                        saveState: {cookie: false},
-                    },
-                    search: {
-                        input: $('#kt_datatable_search_query'),
-                        key: 'generalSearch',
-                    },
-                    layout: {
-                        class: 'datatable-bordered',
-                    },
-                    translate: {
-                        records: {
-                            processing: 'لطفا صبر کنید',
-                            noRecords: 'هیچ داده ای یافت نشد',
-                        },
-                        toolbar: {
-                            pagination: {
-                                items: {
-                                    default: {
-                                        first: 'اولین',
-                                        prev: 'قبلی',
-                                        next: 'بعدی',
-                                        last: 'آخرین',
-                                        more: 'صفحات بیشتر',
-                                        input: 'شمراه صفحه',
-                                        select: 'اندازه صفحه را انتخاب کنید',
-                                        all: 'همه',
-                                    },
+                {{--var datatable = $('#kt_datatable').KTDatatable({--}}
+                    {{--data: {--}}
+                        {{--saveState: {cookie: false},--}}
+                    {{--},--}}
+                    {{--search: {--}}
+                        {{--input: $('#kt_datatable_search_query'),--}}
+                        {{--key: 'generalSearch',--}}
+                    {{--},--}}
+                    {{--layout: {--}}
+                        {{--class: 'datatable-bordered',--}}
+                    {{--},--}}
+                    {{--translate: {--}}
+                        {{--records: {--}}
+                            {{--processing: 'لطفا صبر کنید',--}}
+                            {{--noRecords: 'هیچ داده ای یافت نشد',--}}
+                        {{--},--}}
+                        {{--toolbar: {--}}
+                            {{--pagination: {--}}
+                                {{--items: {--}}
+                                    {{--default: {--}}
+                                        {{--first: 'اولین',--}}
+                                        {{--prev: 'قبلی',--}}
+                                        {{--next: 'بعدی',--}}
+                                        {{--last: 'آخرین',--}}
+                                        {{--more: 'صفحات بیشتر',--}}
+                                        {{--input: 'شمراه صفحه',--}}
+                                        {{--select: 'اندازه صفحه را انتخاب کنید',--}}
+                                        {{--all: 'همه',--}}
+                                    {{--},--}}
                                     {{--                                    info: 'Showing {{start}} - {{end}} of {{total}}',--}}
-                                },
-                            },
-                        },
-                    }
-                });
+                                {{--},--}}
+                            {{--},--}}
+                        {{--},--}}
+                    {{--}--}}
+                {{--});--}}
 
-            };
+            {{--};--}}
 
-            return {
-                // Public functions
-                init: function() {
-                    // init dmeo
-                    demo();
-                },
-            };
-        }();
+            {{--return {--}}
+                {{--// Public functions--}}
+                {{--init: function() {--}}
+                    {{--// init dmeo--}}
+                    {{--demo();--}}
+                {{--},--}}
+            {{--};--}}
+        {{--}();--}}
 
-        jQuery(document).ready(function() {
-            KTDatatableHtmlTableDemo.init();
-        });
+        {{--jQuery(document).ready(function() {--}}
+            {{--KTDatatableHtmlTableDemo.init();--}}
+        {{--});--}}
 
-    </script>
+    {{--</script>--}}
 @endsection

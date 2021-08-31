@@ -23,7 +23,6 @@
             </div>
         </div>
         <div class="card-body">
-            <!--begin: Search Form-->
             <!--begin::Search Form-->
             <div class="mb-7">
                 <div class="row align-items-center">
@@ -43,7 +42,6 @@
                 </div>
             </div>
             <!--end::Search Form-->
-            <!--end: Search Form-->
             <!--begin: Datatable-->
             <table id="kt_datatable" class="datatable datatable-bordered datatable-head-custom">
                 <thead>
@@ -72,9 +70,6 @@
                 // ],
                 // test: [],
             }
-        },
-        beforeCreate() {
-
         },
         created() {
             // axios.get('/api/team-member').then(response => {

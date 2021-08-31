@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\TeamMember;
 use App\Http\Controllers\Controller;
 use App\Models\Education;
 use App\Models\Responsibility;
+use App\Models\TeamMember;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShareholderController extends Controller
 {
@@ -17,7 +19,11 @@ class ShareholderController extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $team_members = TeamMember::with(['team', 'education'])
+            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
+//        return datatables()->of($team_members)->tojson();
+        return response()->json($team_members);
     }
 
     /**

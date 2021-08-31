@@ -21,10 +21,10 @@ class shareholderController extends Controller
      */
     public function index()
     {
-        $team_id = Auth::user()->team_id;
-        $team_members = TeamMember::with(['team', 'education'])
-            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
-        return view('user.team-member.shareholders.index', compact('team_members'));
+//        $team_id = Auth::user()->team_id;
+//        $team_members = TeamMember::with(['team', 'education'])
+//            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
+        return view('user.team-member.shareholders.index');
     }
 
     /**
