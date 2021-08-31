@@ -40,6 +40,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+//        return $request;
         $products = $request->product;
         for ($i = 0; $i < sizeof($products); $i++) {
             $product = new Product();

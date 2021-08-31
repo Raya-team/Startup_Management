@@ -3,7 +3,7 @@
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\TeamMember\KeyEmployeeController;
-use App\Http\Controllers\user\TeamMember\shareholderController;
+use App\Http\Controllers\user\TeamMember\ShareholderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +24,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/page',function (){
         return view('user.master');
     });
-    Route::resource('/shareholders',shareholderController::class);
+    Route::resource('/shareholders',ShareholderController::class);
     Route::resource('/key-employees', KeyEmployeeController::class);
     Route::resource('/team', TeamController::class);
     Route::resource('/product', ProductController::class);

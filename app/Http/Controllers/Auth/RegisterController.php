@@ -158,6 +158,8 @@ class RegisterController extends Controller
     {
         $products = collect($request->product);
         for ($i = 0; $i < sizeof($products); $i++) {
+            if(!isset($products[$i]['product_name']) || !isset($products[$i]['product_type'])){continue;}
+            if($products[$i]['product_name'] == null || $products[$i]['product_type'] == null){continue;}
             $product = new Product();
             $product->name = $products[$i]['product_name'];
             $product->team_id = $team->id;
