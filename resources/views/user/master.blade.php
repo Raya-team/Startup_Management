@@ -2445,6 +2445,10 @@ License: You must have a valid license purchased only from themeforest(the above
     </div>
 </div>
 <!--end::Demo Panel-->
+<script>
+    window.Laravel = {};
+    window.Laravel.csrfToken = '{{ csrf_token() }}'
+</script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>
 <!--begin::Global Config(global config for global JS scripts)-->
