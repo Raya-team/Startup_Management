@@ -38,7 +38,7 @@ class shareholderController extends Controller
 //        $responsibilities = Responsibility::all(['id','nickname']);
 //        $education = Education::all(['id', 'nickname']);
 //        return view('user.team-member.shareholders.create',compact(['this_year', 'responsibilities', 'education']));
-        return view('user.master');
+        return view('user.team-member.shareholders.index');
     }
 
     /**
@@ -49,6 +49,7 @@ class shareholderController extends Controller
      */
     public function store(ShareholderRequest $request, TeamMember $member)
     {
+        return response(['عضو مورد نظر با موفقیت ایجاد شد'], 201);
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
@@ -80,7 +81,7 @@ class shareholderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.team-member.shareholders.index');
     }
 
     /**
