@@ -25,7 +25,7 @@ class Username implements Rule
      */
     public function passes($attribute, $value)
     {
-        return preg_match('/(^([a-zA-Z]+)(\d+)?$)/u', $value);
+        return preg_match('/(^([a-zA-Z0-9_.]+)(\d+)?$)/u', $value);
     }
 
     /**
@@ -35,6 +35,6 @@ class Username implements Rule
      */
     public function message()
     {
-        return 'نام کاربری باید فقط شامل حروف انگلیسی و بدون ایجاد فاصله باشد';
+        return 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد.';
     }
 }

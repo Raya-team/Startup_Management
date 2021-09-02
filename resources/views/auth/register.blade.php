@@ -422,7 +422,6 @@
     </script>
     <script src="assets/js/pages/crud/forms/widgets/form-repeater.js"></script>
     <script src="assets/js/pages/crud/forms/widgets/select2.js"></script>
-
     <!--end::Page Scripts-->
 @endsection
 @section('css')

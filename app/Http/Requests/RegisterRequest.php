@@ -31,7 +31,7 @@ class RegisterRequest extends FormRequest
         return [
             'username' => ['required', 'unique:users', 'max:16', new Username()],
             'email' => ['required','email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'max:16', 'confirmed'],
+            'password' => ['required', 'min:6', 'max:16'], 
             'password_confirmation' => ['required_with:password', 'same:password'],
             'team_name' => ['required', 'min:3', 'max:32', 'unique:teams,name', new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],

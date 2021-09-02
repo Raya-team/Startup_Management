@@ -13,6 +13,9 @@ use App\Models\Team;
 use App\Models\TeamMember;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Rules\Landline;
+use App\Rules\Security;
+use App\Rules\Username;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
@@ -168,7 +171,7 @@ class RegisterController extends Controller
             $product->save();
         }
     }
-
+//use:ثبت نام هم زمان دو کاربر
     public function unique(Request $request)
     {
         switch ($request->type){
@@ -187,6 +190,10 @@ class RegisterController extends Controller
             case 'team_phone' :
                 $team_phone = Team::where('email', $request->team_phone)->first();
                 if($team_phone) {$isAvailable  = false;}else{$isAvailable = true;}
+                break;
+            case 'land_line' :
+                $land_line = Team::where('landline', $request->land_line)->first();
+                if($land_line) {$isAvailable  = false;}else{$isAvailable = true;}
                 break;
             case 'username' :
             default:
@@ -214,12 +221,12 @@ class RegisterController extends Controller
     {
         if ($request->input('land_line')) {
             $request->validate([
-                'land_line' => ['unique:teams,landline', 'digits:11', 'numeric'],
+                'land_line' => ['unique:teams,landline', 'digits:11', 'numeric', new Landline()],
             ]);
         }
         if ($request->input('address')) {
             $request->validate([
-                'address' => ['max:255', 'alpha_dash'],
+                'address' => ['max:255', new Security()],
             ]);
         }
     }

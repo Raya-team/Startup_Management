@@ -40,7 +40,6 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-//        return $request;
         $products = $request->product;
         for ($i = 0; $i < sizeof($products); $i++) {
             $product = new Product();
@@ -50,6 +49,7 @@ class ProductController extends Controller
             $product->updated_at = null;
             $product->save();
         }
+//        return view('user.other.product.index');
     }
 
     /**

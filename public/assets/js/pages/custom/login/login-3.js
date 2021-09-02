@@ -254,6 +254,11 @@ var KTLogin = function() {
                                 regexp: /^[a-zA-Z0-9_.]+$/,
                                 message: 'نام کاربری فقط می تواند شامل حروف الفبا لاتین، عدد، نقطه و زیر خط باشد'
                             },
+                            stringLength: {
+                                min:3,
+                                message: 'نام کاربری حداقل باید شامل سه حرف باشد.'
+                            },
+                            //check unique variable
                             remote: {
                                 url: uniqueUrl,
                                 type: 'GET',
@@ -272,6 +277,10 @@ var KTLogin = function() {
                             },
                             emailAddress: {
                                 message: 'ایمیل وارد شده معتبر نیست.'
+                            },
+                            stringLength: {
+                                max:255,
+                                message: 'ایمیل حداکثر باید شامل 255 کاراکتر باشد.'
                             },
                             remote: {
                                 url: uniqueUrl,
@@ -293,7 +302,7 @@ var KTLogin = function() {
                                 min: 6,
                                 max: 16,
                                 message: 'رمز عبور باید بین 6 تا 16 کاراکتر باشد.'
-                            }
+                            },
                         }
                     },
                     password_confirmation: {
@@ -336,13 +345,31 @@ var KTLogin = function() {
                                     type: 'team_name',
                                 },
                                 message: 'این نام قبلا انتخاب شده است.'
-                            }
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 32,
+                                message: 'نام تیم باید بین 3 تا 32 کاراکتر باشد.'
+                            },
+                            regexp: {
+                                regexp: /^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام تیم فقط باید شامل حروف فارسی باشد.'
+                            },
                         }
                     },
                     project_name: {
                         validators: {
                             notEmpty: {
                                 message: 'نام طرح الزامی است.'
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 32,
+                                message: 'نام تیم باید بین 3 تا 32 کاراکتر باشد.'
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام پروژه یک فرمت معتبر نمیباشد.'
                             }
                         }
                     },
@@ -350,13 +377,22 @@ var KTLogin = function() {
                         validators: {
                             notEmpty: {
                                 message: 'حوزه فعالیت الزامی است.'
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'حوزه فعالیت یک فرمت معتبر نمیباشد.'
                             }
+
                         }
                     },
                     status: {
                         validators: {
                             notEmpty: {
                                 message: 'وضعیت ثبت شرکت الزامی است.'
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'وضعیت ثبت شرکت یک فرمت معتبر نمیباشد.'
                             }
                         }
                     },
@@ -376,7 +412,11 @@ var KTLogin = function() {
                                     type: 'team_email',
                                 },
                                 message: 'این ایمیل قبلا انتخاب شده است.'
-                            }
+                            },
+                            stringLength: {
+                                max: 255,
+                                message: 'ایمیل تیم باید حداکثر 255 کاراکتر باشد.'
+                            },
                         }
                     },
                     team_phone: {
@@ -421,12 +461,31 @@ var KTLogin = function() {
                             },
                             digits: {
                                 message: 'باید عدد وارد شود.'
+                            },
+                            remote: {
+                                url: uniqueUrl,
+                                type: 'GET',
+                                delay: 2000,
+                                data: {
+                                    type: 'land_line',
+                                },
+                                message: 'این شماره ثابت قبلا انتخاب شده است.'
                             }
-
                         },
 
-                    }
-
+                    },
+                    address: {
+                        validators: {
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'آدرس یک فرمت معتبر نمیباشد.'
+                            },
+                            stringLength: {
+                                max: 255,
+                                message: 'آدرس باید حداکثر 255 کاراکتر باشد.'
+                            },
+                        },
+                    },
                 },
                 plugins: {
                     trigger: new FormValidation.plugins.Trigger(),
@@ -447,15 +506,33 @@ var KTLogin = function() {
                     fname: {
                         validators: {
                             notEmpty: {
-                                message: 'نام الزامی است.'
-                            }
+                                message: 'نام اعضای تیم الزامی است.'
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 16,
+                                message: 'نام اعضای تیم باید بین 3 تا 16 حرف باشد.'
+                            },
+                            regexp: {
+                                regexp: /^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام اعضای تیم فقط باید شامل حروف فارسی باشد.'
+                            },
                         }
                     },
                     lname: {
                         validators: {
                             notEmpty: {
-                                message: 'نام خانوادگی الزامی است.'
-                            }
+                                message: 'نام خانوادگی اعضای تیم الزامی است.'
+                            },
+                            stringLength: {
+                                min: 3,
+                                max: 16,
+                                message: 'نام خانوادگی اعضای تیم باید بین 3 تا 16 حرف باشد.'
+                            },
+                            regexp: {
+                                regexp: /^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام خانوادگی اعضای تیم فقط باید شامل حروف فارسی باشد.'
+                            },
                         }
                     },
                     major: {
@@ -548,7 +625,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 1, // initial active step number
+            startStep: 3, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 
