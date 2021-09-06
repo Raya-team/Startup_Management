@@ -81,6 +81,10 @@ class shareholderController extends Controller
      */
     public function edit($id)
     {
+        $team_id = Auth::user()->team_id;
+        $member = TeamMember::with(['team', 'education'])
+            ->where('team_id', $team_id)
+            ->where('id', $id)->first();
         return view('user.team-member.shareholders.index');
     }
 

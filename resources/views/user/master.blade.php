@@ -23,21 +23,21 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Page Vendors Styles(used by this page)-->
-    <link href="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css') }}" rel="stylesheet" type="text/css" >
     <!--end::Page Vendors Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
-    <link href="../assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/plugins/custom/prismjs/prismjs.bundle.rtl.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/style.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Theme Styles-->
     <!--begin::Layout Themes(used by all pages)-->
-    <link href="../assets/css/themes/layout/header/base/light.rtl.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/themes/layout/header/menu/light.rtl.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/themes/layout/brand/dark.rtl.css" rel="stylesheet" type="text/css" />
-    <link href="../assets/css/themes/layout/aside/dark.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/themes/layout/header/base/light.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/themes/layout/header/menu/light.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/themes/layout/brand/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/themes/layout/aside/dark.rtl.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Layout Themes-->
-    <link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
-    <link rel="stylesheet" href="../assets/css/fonts.css">
+    <link rel="shortcut icon" href="{{ asset('assets/media/logos/favicon.ico') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/css/fonts.css') }}">
     @yield('css')
 </head>
 <!--end::Head-->
@@ -49,7 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
         <!--begin::Logo-->
         <a href="index.html">
-            <img alt="Logo" src="../assets/media/logos/logo-light.png" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/logo-light.png') }}" />
         </a>
         <!--end::Logo-->
         <!--begin::Toolbar-->
@@ -155,7 +155,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
                                     <form>
                                         <!--begin::Header-->
-                                        <div class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top" style="background-image: url(../assets/media/misc/bg-1.jpg)">
+                                        <div class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top" style="background-image: url({{ asset('assets/media/misc/bg-1.jpg') }})">
                                             <!--begin::Title-->
                                             <h4 class="d-flex flex-center rounded-top">
                                                 <span class="text-white">User Notifications</span>
@@ -613,7 +613,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!--begin::Dropdown-->
                                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
                                     <!--begin:Header-->
-                                    <div class="d-flex flex-column flex-center py-10 bgi-size-cover bgi-no-repeat rounded-top" style="background-image: url(../assets/media/misc/bg-1.jpg)">
+                                    <div class="d-flex flex-column flex-center py-10 bgi-size-cover bgi-no-repeat rounded-top" style="background-image: url({{ asset('assets/media/misc/bg-1.jpg') }})">
                                         <h4 class="text-white font-weight-bold">Quick Actions</h4>
                                         <span class="btn btn-success btn-sm font-weight-bold font-size-sm mt-2">23 tasks pending</span>
                                     </div>
@@ -758,7 +758,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!--begin::Toggle-->
                                 <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
                                     <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
-                                        <img class="h-20px w-20px rounded-sm" src="../assets/media/svg/flags/226-united-states.svg" alt="" />
+                                        <img class="h-20px w-20px rounded-sm" src="{{ asset('assets/media/svg/flags/226-united-states.svg') }}" alt="" />
                                     </div>
                                 </div>
                                 <!--end::Toggle-->
@@ -770,7 +770,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
 													<span class="symbol symbol-20 mr-3">
-														<img src="../assets/media/svg/flags/226-united-states.svg" alt="" />
+                                                        <img src="{{ asset('assets/media/svg/flags/226-united-states.svg') }}" alt="" />
 													</span>
                                                 <span class="navi-text">English</span>
                                             </a>
@@ -780,7 +780,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="navi-item active">
                                             <a href="#" class="navi-link">
 													<span class="symbol symbol-20 mr-3">
-														<img src="../assets/media/svg/flags/128-spain.svg" alt="" />
+                                                        <img src="{{ asset('assets/media/svg/flags/128-spain.svg') }}" alt="" />
 													</span>
                                                 <span class="navi-text">Spanish</span>
                                             </a>
@@ -790,7 +790,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
 													<span class="symbol symbol-20 mr-3">
-														<img src="../assets/media/svg/flags/162-germany.svg" alt="" />
+                                                        <img src="{{ asset('assets/media/svg/flags/162-germany.svg') }}" alt="" />
 													</span>
                                                 <span class="navi-text">German</span>
                                             </a>
@@ -800,7 +800,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
 													<span class="symbol symbol-20 mr-3">
-														<img src="../assets/media/svg/flags/063-japan.svg" alt="" />
+                                                        <img src="{{ asset('assets/media/svg/flags/063-japan.svg') }}" alt="" />
 													</span>
                                                 <span class="navi-text">Japanese</span>
                                             </a>
@@ -810,7 +810,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="navi-item">
                                             <a href="#" class="navi-link">
 													<span class="symbol symbol-20 mr-3">
-														<img src="../assets/media/svg/flags/195-france.svg" alt="" />
+														<img src="{{ asset('assets/media/svg/flags/195-france.svg') }}" alt="" />
 													</span>
                                                 <span class="navi-text">French</span>
                                             </a>
@@ -892,7 +892,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Header-->
             <div class="d-flex align-items-center mt-5">
                 <div class="symbol symbol-100 mr-5">
-                    <div class="symbol-label" style="background-image:url('../assets/media/users/300_21.jpg')"></div>
+                    <div class="symbol-label" style="background-image:url('{{ asset('assets/media/users/300_21.jpg') }}')"></div>
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
@@ -1174,7 +1174,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <a href="#" class="symbol symbol-70 flex-shrink-0">
-                        <img src="../assets/media/stock-600x400/img-1.jpg" title="" alt="" />
+                        <img src="{{ asset('assets/media/stock-600x400/img-1.jpg') }}" title="" alt="" />
                     </a>
                 </div>
                 <!--end::Item-->
@@ -1199,7 +1199,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <a href="#" class="symbol symbol-70 flex-shrink-0">
-                        <img src="../assets/media/stock-600x400/img-2.jpg" title="" alt="" />
+                        <img src="{{ asset('assets/media/stock-600x400/img-2.jpg') }}" title="" alt="" />
                     </a>
                 </div>
                 <!--end::Item-->
@@ -1224,7 +1224,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <a href="#" class="symbol symbol-70 flex-shrink-0">
-                        <img src="../assets/media/stock-600x400/img-3.jpg" title="" alt="" />
+                        <img src="{{ asset('assets/media/stock-600x400/img-3.jpg') }}" title="" alt="" />
                     </a>
                 </div>
                 <!--end::Item-->
@@ -1249,7 +1249,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <a href="#" class="symbol symbol-70 flex-shrink-0">
-                        <img src="../assets/media/stock-600x400/img-4.jpg" title="" alt="" />
+                        <img src="{{ asset('assets/media/stock-600x400/img-4.jpg') }}" title="" alt="" />
                     </a>
                 </div>
                 <!--end::Item-->
@@ -1274,7 +1274,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                     </div>
                     <a href="#" class="symbol symbol-70 flex-shrink-0">
-                        <img src="../assets/media/stock-600x400/img-8.jpg" title="" alt="" />
+                        <img src="{{ asset('assets/media/stock-600x400/img-8.jpg') }}" title="" alt="" />
                     </a>
                 </div>
                 <!--end::Item-->
@@ -1333,7 +1333,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="d-flex align-items-center flex-wrap mb-5">
                             <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="../assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" alt="" />
+                                        <img src="{{ asset('assets/media/svg/misc/006-plurk.svg') }}" class="h-50 align-self-center" alt="" />
 									</span>
                             </div>
                             <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -1347,7 +1347,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="d-flex align-items-center flex-wrap mb-5">
                             <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="../assets/media/svg/misc/015-telegram.svg" class="h-50 align-self-center" alt="" />
+                                        <img src="{{ asset('assets/media/svg/misc/015-telegram.svg') }}" class="h-50 align-self-center" alt="" />
 									</span>
                             </div>
                             <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -1361,7 +1361,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="d-flex align-items-center flex-wrap mb-5">
                             <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="../assets/media/svg/misc/003-puzzle.svg" class="h-50 align-self-center" alt="" />
+                                        <img src="{{ asset('assets/media/svg/misc/003-puzzle.svg') }}" class="h-50 align-self-center" alt="" />
 									</span>
                             </div>
                             <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -1375,7 +1375,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="d-flex align-items-center flex-wrap mb-5">
                             <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="../assets/media/svg/misc/005-bebo.svg" class="h-50 align-self-center" alt="" />
+                                        <img src="{{ asset('assets/media/svg/misc/005-bebo.svg') }}" class="h-50 align-self-center" alt="" />
 									</span>
                             </div>
                             <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -1389,7 +1389,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="d-flex align-items-center flex-wrap">
                             <div class="symbol symbol-50 symbol-light mr-5">
 									<span class="symbol-label">
-										<img src="../assets/media/svg/misc/014-kickstarter.svg" class="h-50 align-self-center" alt="" />
+										<img src="{{ asset('assets/media/svg/misc/014-kickstarter.svg') }}" class="h-50 align-self-center" alt="" />
 									</span>
                             </div>
                             <div class="d-flex flex-column flex-grow-1 mr-2">
@@ -1948,7 +1948,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="../assets/media/users/300_12.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_12.jpg') }}" />
                                         </div>
                                         <div>
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1966,7 +1966,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="../assets/media/users/300_21.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_21.jpg') }}" />
                                         </div>
                                     </div>
                                     <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
@@ -1976,7 +1976,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="../assets/media/users/300_21.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_21.jpg') }}" />
                                         </div>
                                         <div>
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -1994,7 +1994,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="../assets/media/users/300_21.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_21.jpg') }}" />
                                         </div>
                                     </div>
                                     <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">You’ll receive notifications for all issues, pull requests!</div>
@@ -2004,7 +2004,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="../assets/media/users/300_12.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_12.jpg') }}" />
                                         </div>
                                         <div>
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -2023,7 +2023,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="../assets/media/users/300_21.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_21.jpg') }}" />
                                         </div>
                                     </div>
                                     <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Discover what students who viewed Learn Figma - UI/UX Design. Essential Training also viewed</div>
@@ -2033,7 +2033,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="d-flex flex-column mb-5 align-items-start">
                                     <div class="d-flex align-items-center">
                                         <div class="symbol symbol-circle symbol-40 mr-3">
-                                            <img alt="Pic" src="../assets/media/users/300_12.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_12.jpg') }}" />
                                         </div>
                                         <div>
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">Matt Pears</a>
@@ -2051,7 +2051,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <a href="#" class="text-dark-75 text-hover-primary font-weight-bold font-size-h6">You</a>
                                         </div>
                                         <div class="symbol symbol-circle symbol-40 ml-3">
-                                            <img alt="Pic" src="../assets/media/users/300_21.jpg" />
+                                            <img alt="Pic" src="{{ asset('assets/media/users/300_21.jpg') }}" />
                                         </div>
                                     </div>
                                     <div class="mt-2 rounded p-5 bg-light-primary text-dark-50 font-weight-bold font-size-lg text-right max-w-400px">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
@@ -2153,7 +2153,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 1</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo offcanvas-demo-active">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo1.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo1.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo1/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2163,7 +2163,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 2</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo2.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo2.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo2/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2173,7 +2173,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 3</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo3.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo3.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo3/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2183,7 +2183,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 4</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo4.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo4.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo4/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2193,7 +2193,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 5</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo5.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo5.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo5/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2203,7 +2203,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 6</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo6.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo6.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo6/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2213,7 +2213,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 7</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo7.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo7.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo7/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2223,7 +2223,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 8</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo8.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo8.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo8/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2233,7 +2233,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 9</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo9.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo9.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo9/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2243,7 +2243,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 10</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo10.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo10.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo10/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2253,7 +2253,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 11</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo11.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo11.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo11/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2263,7 +2263,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 12</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo12.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo12.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo12/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2273,7 +2273,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 13</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo13.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo13.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="../../demo13/dist" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow" target="_blank">Default</a>
@@ -2283,7 +2283,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 14</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo14.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo14.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2292,7 +2292,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 15</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo15.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo15.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2301,7 +2301,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 16</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo16.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo16.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2310,7 +2310,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 17</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo17.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo17.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2319,7 +2319,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 18</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo18.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo18.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2328,7 +2328,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 19</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo19.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo19.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2337,7 +2337,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 20</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo20.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo20.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2346,7 +2346,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 21</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo21.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo21.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2355,7 +2355,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 22</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo22.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo22.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2364,7 +2364,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 23</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo23.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo23.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2373,7 +2373,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 24</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo24.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo24.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2382,7 +2382,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 25</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo25.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo25.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2391,7 +2391,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 26</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo26.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo26.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2400,7 +2400,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 27</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo27.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo27.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2409,7 +2409,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 28</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo28.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo28.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2418,7 +2418,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 29</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo29.png" alt="" class="w-100" />
+                        <img src="{{ asset('assets/media/demos/demo29.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2427,7 +2427,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <h5 class="font-weight-bold mb-4 text-center">Demo 30</h5>
                 <div class="overlay rounded-lg mb-8 offcanvas-demo">
                     <div class="overlay-wrapper rounded-lg">
-                        <img src="../assets/media/demos/demo30.png" alt="" class="w-100" />
+
+                        <img src="{{ asset('assets/media/demos/demo30.png') }}" alt="" class="w-100" />
                     </div>
                     <div class="overlay-layer">
                         <a href="#" class="btn btn-white btn-text-primary btn-hover-primary font-weight-boldest text-center min-w-75px shadow disabled opacity-90">Coming soon</a>
@@ -2455,15 +2456,15 @@ License: You must have a valid license purchased only from themeforest(the above
 <script>var KTAppSettings = { "breakpoints": { "sm": 576, "md": 768, "lg": 992, "xl": 1200, "xxl": 1400 }, "colors": { "theme": { "base": { "white": "#ffffff", "primary": "#3699FF", "secondary": "#E5EAEE", "success": "#1BC5BD", "info": "#8950FC", "warning": "#FFA800", "danger": "#F64E60", "light": "#E4E6EF", "dark": "#181C32" }, "light": { "white": "#ffffff", "primary": "#E1F0FF", "secondary": "#EBEDF3", "success": "#C9F7F5", "info": "#EEE5FF", "warning": "#FFF4DE", "danger": "#FFE2E5", "light": "#F3F6F9", "dark": "#D6D6E0" }, "inverse": { "white": "#ffffff", "primary": "#ffffff", "secondary": "#3F4254", "success": "#ffffff", "info": "#ffffff", "warning": "#ffffff", "danger": "#ffffff", "light": "#464E5F", "dark": "#ffffff" } }, "gray": { "gray-100": "#F3F6F9", "gray-200": "#EBEDF3", "gray-300": "#E4E6EF", "gray-400": "#D1D3E0", "gray-500": "#B5B5C3", "gray-600": "#7E8299", "gray-700": "#5E6278", "gray-800": "#3F4254", "gray-900": "#181C32" } }, "font-family": "Poppins" };</script>
 <!--end::Global Config-->
 <!--begin::Global Theme Bundle(used by all pages)-->
-<script src="../assets/plugins/global/plugins.bundle.js"></script>
-<script src="../assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
-<script src="../assets/js/scripts.bundle.js"></script>
+<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
+<script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
+<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
 <!--end::Global Theme Bundle-->
 <!--begin::Page Vendors(used by this page)-->
-<script src="../assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 <!--end::Page Vendors-->
 <!--begin::Page Scripts(used by this page)-->
-<script src="../assets/js/pages/widgets.js"></script>
+<script src="{{ asset('assets/js/pages/widgets.js') }}"></script>
 @yield('script')
 <!--end::Page Scripts-->
 </body>

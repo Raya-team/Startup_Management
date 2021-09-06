@@ -5130,6 +5130,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
+//
 var Errors = /*#__PURE__*/function () {
   function Errors() {
     _classCallCheck(this, Errors);
@@ -5171,6 +5172,7 @@ var Errors = /*#__PURE__*/function () {
         lname: '',
         major: '',
         age: '',
+        education: '',
         responsibility: [],
         resume: '',
         investment: ''
@@ -5217,14 +5219,225 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var Errors = /*#__PURE__*/function () {
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+
+  _createClass(Errors, [{
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+  }, {
+    key: "get",
+    value: function get(field) {
+      if (this.errors[field]) {
+        return this.errors[field][0];
+      }
+    }
+  }, {
+    key: "record",
+    value: function record(errors) {
+      this.errors = errors;
+    }
+  }]);
+
+  return Errors;
+}();
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "edit"
+  name: "edit",
+  data: function data() {
+    return {
+      education: [],
+      responsibilities: [],
+      this_year: null,
+      data: {},
+      errors: new Errors()
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/shareholders/".concat(this.$route.params.id, "/edit")).then(function (response) {
+      console.log(response.data);
+      _this.education = response.data.education;
+      _this.responsibilities = response.data.responsibilities;
+      _this.this_year = parseInt(response.data.this_year);
+      _this.data = response.data.member;
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      axios.post('/shareholders', this.data).then(function (response) {
+        console.log(response);
+      })["catch"](function (error) {
+        _this2.errors.record(error.response.data.errors);
+
+        console.log(_this2.errors.record(error.response.data.errors));
+      });
+    },
+    onChangeSite: function onChangeSite(e, age) {
+      console.log(e);
+      console.log(age); // var id = e.target.value;
+      // var name = e.target.options[e.target.options.selectedIndex].text;
+      // console.log('id ',id );
+      // console.log('name ',name );
+    }
+  }
 });
 
 /***/ }),
@@ -5537,6 +5750,12 @@ __webpack_require__.r(__webpack_exports__);
     })["catch"](function (error) {
       return console.log(error);
     });
+  },
+  methods: {
+    deleteShareholder: function deleteShareholder(id) {
+      console.log(id);
+      console.log('deleted');
+    }
   }
 });
 
@@ -53041,14 +53260,668 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("اعضای تیم")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm"
+                      },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: { name: "shareholders-index" } } },
+                              [
+                                _c("a", { staticClass: "text-muted" }, [
+                                  _vm._v("سهامداران")
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0)
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-custom gutter-b example example-compact"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form",
+                    attrs: {
+                      novalidate: "novalidate",
+                      id: "kt_login_signup_form"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.onSubmit.apply(null, arguments)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.fname,
+                                  expression: "data.fname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("fname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "fname",
+                                placeholder: "نام خود را وارد کنید.",
+                                name: "fname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.fname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "fname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("fname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("fname")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.lname,
+                                  expression: "data.lname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("lname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "lname",
+                                placeholder: "نام خانوادگی خود را وارد کنید.",
+                                name: "lname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.lname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "lname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("lname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("lname")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.major,
+                                  expression: "data.major"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("major") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "major",
+                                placeholder: "رشته خود را وارد کنید.",
+                                name: "major",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.major },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "major",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("major")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("major")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.age,
+                                    expression: "data.age"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("age") }
+                                ],
+                                attrs: {
+                                  name: "age",
+                                  id: "age",
+                                  "data-placeholder":
+                                    "سال تولد خود را انتخاب کنید"
+                                },
+                                on: {
+                                  change: [
+                                    function($event) {
+                                      var $$selectedVal = Array.prototype.filter
+                                        .call($event.target.options, function(
+                                          o
+                                        ) {
+                                          return o.selected
+                                        })
+                                        .map(function(o) {
+                                          var val =
+                                            "_value" in o ? o._value : o.value
+                                          return val
+                                        })
+                                      _vm.$set(
+                                        _vm.data,
+                                        "age",
+                                        $event.target.multiple
+                                          ? $$selectedVal
+                                          : $$selectedVal[0]
+                                      )
+                                    },
+                                    function($event) {
+                                      return _vm.onChangeSite(
+                                        $event,
+                                        _vm.data.age
+                                      )
+                                    }
+                                  ]
+                                }
+                              },
+                              _vm._l(100, function(n, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    domProps: { value: _vm.this_year - index }
+                                  },
+                                  [_vm._v(_vm._s(_vm.this_year - index))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("age")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("age")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.education_id,
+                                    expression: "data.education_id"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("education") }
+                                ],
+                                attrs: { name: "education", id: "education" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "education_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(_vm.education, function(edu) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: edu.id } },
+                                  [_vm._v(_vm._s(edu.nickname))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("education")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("education")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control select2",
+                                attrs: {
+                                  name: "responsibility",
+                                  id: "kt_select2_3",
+                                  multiple: "multiple",
+                                  "data-placeholder":
+                                    "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
+                                }
+                              },
+                              _vm._l(_vm.responsibilities, function(
+                                responsibility
+                              ) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: responsibility.id } },
+                                  [_vm._v(_vm._s(responsibility.nickname))]
+                                )
+                              }),
+                              0
+                            )
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(7),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.resume,
+                                    expression: "data.resume"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("resume") }
+                                ],
+                                attrs: { name: "resume", id: "resume" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "resume",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(20, function(n) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: n } },
+                                  [_vm._v(_vm._s(n))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("resume")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("resume")))]
+                                )
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _vm.errors.has("responsibility")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("responsibility"))
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(8),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.investment,
+                                  expression: "data.investment"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("investment") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "investment",
+                                placeholder: "برحسب تومان",
+                                name: "investment",
+                                oninput:
+                                  "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.investment },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "investment",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("investment")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("investment")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(9)
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Welcome to Edit Post")])])
+    return _c("li", { staticClass: "breadcrumb-item text-muted" }, [
+      _c("div", { staticClass: "text-muted" }, [_vm._v("افزودن")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "fname" } }, [
+      _vm._v("نام:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lname" } }, [
+      _vm._v("نام خانوادگی:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "major" } }, [
+      _vm._v("رشته:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "age" } }, [
+      _vm._v("سال تولد:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "education" } }, [
+      _vm._v("تحصیلات:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "kt_select2_3" } }, [
+      _vm._v("مسئولیت:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "resume" } }, [
+      _vm._v(
+        "سابقه عضویت در تیم(بر حسب سال):\n                                                "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "investment" } }, [
+      _vm._v("سرمایه گذاری:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-primary mr-2", attrs: { type: "submit" } },
+        [_vm._v("ثبت")]
+      )
+    ])
   }
 ]
 render._withStripped = true
@@ -53203,12 +54076,15 @@ var render = function() {
                             {
                               attrs: {
                                 to: {
-                                  name: "details",
+                                  name: "shareholders-edit",
                                   params: { id: shareholder.id }
                                 }
                               }
                             },
                             [
+                              _vm._v(
+                                "Go\n                                    "
+                              ),
                               _c(
                                 "a",
                                 {
@@ -53225,7 +54101,24 @@ var render = function() {
                             ]
                           ),
                           _vm._v(" "),
-                          _vm._m(4, true)
+                          _c(
+                            "button",
+                            {
+                              staticClass:
+                                "btn btn-icon btn-circle btn-xs btn-light-danger mr-2",
+                              attrs: { type: "button" },
+                              on: {
+                                click: function($event) {
+                                  return _vm.deleteShareholder(shareholder.id)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass: "icon-md la la-trash-alt"
+                              })
+                            ]
+                          )
                         ],
                         1
                       )
@@ -53361,19 +54254,6 @@ var staticRenderFns = [
         _c("th", { attrs: { title: "Field #8" } }, [_vm._v("عملیات")])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-icon btn-circle btn-xs btn-light-danger mr-2",
-        attrs: { type: "button" }
-      },
-      [_c("i", { staticClass: "icon-md la la-trash-alt" })]
-    )
   }
 ]
 render._withStripped = true

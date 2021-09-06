@@ -73,11 +73,19 @@ class ShareholderController extends Controller
      */
     public function edit($id)
     {
+        $this_year = jdate(Carbon::now())->format('Y');
+        $responsibilities = Responsibility::all(['id','nickname']);
+        $education = Education::all(['id', 'nickname']);
         $team_id = Auth::user()->team_id;
-        $member = TeamMember::with(['team', 'education'])
+        $member = TeamMember::with(['team', 'education', 'responsibility'])
             ->where('team_id', $team_id)
             ->where('id', $id)->first();
-        return response()->json($member);
+        return response()->json([
+            'member' => $member,
+            'this_year' => $this_year,
+            'responsibilities' => $responsibilities,
+            'education' => $education,
+        ]);
     }
 
     /**

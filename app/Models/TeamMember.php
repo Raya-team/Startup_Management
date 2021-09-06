@@ -21,7 +21,7 @@ class TeamMember extends Model
         return $this->belongsTo(Education::class);
     }
 
-    public function responsibilities()
+    public function responsibility()
     {
         return $this->belongsToMany(Responsibility::class,'responsibility_member','member_id','responsibility_id');
     }

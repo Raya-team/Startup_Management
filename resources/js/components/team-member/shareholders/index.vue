@@ -99,12 +99,12 @@
                                 <td>{{ shareholder.resume }}</td>
                                 <td>{{ shareholder.investment }}</td>
                                 <td>
-                                    <router-link :to="{ name: 'details', params: { id: shareholder.id }}">
+                                    <router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">Go
                                         <a type="button" class="btn btn-icon btn-circle btn-xs btn-light-dark mr-2">
                                             <i class="icon-md la la-pencil-square-o"></i>
                                         </a>
                                     </router-link>
-                                    <button type="button" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">
+                                    <button type="button" @click="deleteShareholder(shareholder.id)" class="btn btn-icon btn-circle btn-xs btn-light-danger mr-2">
                                         <i class="icon-md la la-trash-alt"></i>
                                     </button>
                                 </td>
@@ -301,9 +301,13 @@
                     }
                 )
                 .catch(error => console.log(error));
-
-
         },
+        methods: {
+            deleteShareholder(id) {
+                console.log(id);
+                console.log('deleted');
+            }
+        }
     }
 </script>
 

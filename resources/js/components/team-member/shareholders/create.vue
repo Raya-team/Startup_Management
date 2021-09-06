@@ -97,6 +97,7 @@
                                                 <select name="responsibility" v-model="data.responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
                                                     <option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>
                                                 </select>
+
                                             </div>
                                         </div>
                                     </div>
@@ -170,6 +171,7 @@
                     lname: '',
                     major: '',
                     age: '',
+                    education: '',
                     responsibility: [],
                     resume: '',
                     investment: '',
