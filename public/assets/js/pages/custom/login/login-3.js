@@ -538,38 +538,55 @@ var KTLogin = function() {
                     major: {
                         validators: {
                             notEmpty: {
-                                message: 'رشته الزامی است.'
-                            }
+                                message: 'رشته تحصیلی الزامی است.'
+                            },
+                            stringLength: {
+                                max: 32,
+                                message: 'رشته تحصیلی حداکثر باید 32 حرف باشد.'
+                            },
+                            regexp: {
+                                regexp: /^[آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'رشته تحصیلی فقط باید شامل حروف فارسی باشد.'
+                            },
                         }
                     },
                     age: {
                         validators: {
                             notEmpty: {
                                 message: 'سن الزامی است.'
-                            }
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'سن یک فرمت معتبر نمیباشد.'
+                            },
                         }
                     },
                     'responsibility[]': {
                         validators: {
                             notEmpty: {
-                                message: 'این فیلد اجباری است'
+                                message: 'مسئولیت الزامی است.'
                             }
-
-
                         }
                     },
                     education: {
                         validators: {
                             notEmpty: {
                                 message: 'تحصیلات الزامی است.'
-                            }
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'تحصیلات یک فرمت معتبر نمیباشد.'
+                            },
                         }
                     },
                     resume: {
                         validators: {
                             notEmpty: {
                                 message: 'سابقه الزامی است.'
-                            }
+                            },
+                            digits: {
+                                message: 'باید عدد وارد شود.'
+                            },
                         }
                     },
                     investment: {
@@ -601,13 +618,29 @@ var KTLogin = function() {
             form,
             {
                 fields: {
-                    product: {
-                        selector: '.products',
+                    productName: {
+                        selector: '.productName',
                         row: '.col-md-4',
-
                         validators: {
                             notEmpty: {
                                 message: 'نام محصول الزامی است.'
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام محصول یک فرمت معتبر نمیباشد.'
+                            },
+                        }
+                    },
+                    productType: {
+                        selector: '.productType',
+                        row: '.col-sm-4',
+                        validators: {
+                            notEmpty: {
+                                message: 'نام محصول الزامی است.'
+                            },
+                            regexp: {
+                                regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,
+                                message: 'نام محصول یک فرمت معتبر نمیباشد.'
                             },
                         }
                     },
@@ -625,7 +658,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 3, // initial active step number
+            startStep: 4, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 

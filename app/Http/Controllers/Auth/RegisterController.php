@@ -80,7 +80,7 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
-    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member)
+    public function register(Request $request , Team $team, User $user, TeamMember $member)
     {
         $this->ValidationNotRequired($request);
         $this->Team($request, $team);
@@ -91,11 +91,7 @@ class RegisterController extends Controller
         $this->guard()->login($user);
         return redirect('login');
     }
-
-    /**
-     * @param Request $request
-     * @param Team $team
-     */
+    
     protected function Team(RegisterRequest $request, Team $team)
     {
         $team->name = $request->input('team_name');
