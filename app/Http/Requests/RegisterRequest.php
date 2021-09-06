@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Requests;
-
 use App\Rules\Landline;
 use App\Rules\Persian;
 use App\Rules\Phone;
@@ -31,7 +30,7 @@ class RegisterRequest extends FormRequest
         return [
             'username' => ['required', 'unique:users', 'max:16', new Username()],
             'email' => ['required','email', 'max:255', 'unique:users'],
-            'password' => ['required', 'min:6', 'max:16'], 
+            'password' => ['required', 'min:6', 'max:16'],
             'password_confirmation' => ['required_with:password', 'same:password'],
             'team_name' => ['required', 'min:3', 'max:32', 'unique:teams,name', new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
@@ -47,8 +46,8 @@ class RegisterRequest extends FormRequest
             'education' => ['required', new Security()],
             'resume' => ['required','numeric'],
             'investment' => ['required','numeric'],
-            'product.*.product_name' => ['required'],
-            'product.*.product_type' => ['required'],
+            'product.*.product_name' => ['required', new Security()],
+            'product.*.product_type' => ['required', new Security()],
         ];
     }
 }

@@ -83,15 +83,33 @@
             <!--begin::Aside-->
             <!--begin::Content-->
             <div class="login-content flex-column-fluid d-flex flex-column p-10">
-            <!--begin::Wrapper-->
+                <!--begin::Wrapper-->
                 <div class="d-flex flex-row-fluid flex-center">
                     <!--begin::Signin-->
                     <div class="login-form login-form-signup">
                         <!--begin::Form-->
                         <form class="form" novalidate="novalidate" id="kt_login_signup_form" method="POST" action="{{route('register')}}">
                             @csrf
-                            @include('errors')
-                            <!--begin: Wizard Step 1-->
+                            @if(count($errors)>0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @php
+                                            $x = [];
+                                        @endphp
+                                        @foreach($errors->all() as $error)
+                                            @if(! in_array($error, $x ))
+                                                @php
+                                                    array_push($x, $error);
+                                                @endphp
+                                            @else
+                                                @continue
+                                            @endif
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                        @endif
+                        <!--begin: Wizard Step 1-->
                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                 <!--begin::Title-->
                                 <div class="pb-10 pb-lg-15">
@@ -270,7 +288,7 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark" for="kt_select2_3">مسئولیت:</label><br>
                                             <select name="responsibility[]" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6 select2" id="kt_select2_3" multiple="multiple" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
-                                            {{--<select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">--}}
+                                                {{--<select name="responsibility" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">--}}
                                                 @foreach($responsibilities as $responsibility)
                                                     <option value="{{$responsibility->id}}">{{$responsibility->nickname}}</option>
                                                 @endforeach
@@ -284,7 +302,7 @@
                                             <label class="font-size-h6 font-weight-bolder text-dark">تحصیلات:</label>
                                             <select name="education" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
                                                 @foreach($education as $edu)
-                                                <option value="{{ $edu->id }}">{{ $edu->nickname }}</option>
+                                                    <option value="{{ $edu->id }}">{{ $edu->nickname }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -328,12 +346,12 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control products" name="product_name" value="{{ old('product_name') }}" required />
+                                                        <input type="text" class="form-control productName" name="product_name" value="{{ old('product_name') }}" required />
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-sm-4">
                                                         <label><h5>نوع محصول:</h5></label>
-                                                        <select name="product_type" class="form-control">
+                                                        <select name="product_type" class="form-control productType">
                                                             @foreach($product_types as $product_type)
                                                                 <option value="{{$product_type->id}}">{{$product_type->nickname}}</option>
                                                             @endforeach

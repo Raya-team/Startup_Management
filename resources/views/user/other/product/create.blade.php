@@ -93,23 +93,4 @@
 @section('script')
     <script src="../assets/js/pages/crud/forms/widgets/form-repeater.js"></script>
 @endsection
-{{--@if(count($errors)>0)
-    <div class="alert alert-danger">
-        <ul>
-            @dd($errors->all())
-            @php
-                $x = [];
-            @endphp
-            @foreach($errors->all() as $error)
-                @if(! in_array($error, $x ))
-                    @php
-                        array_push($x, $error);
-                    @endphp
-                @else
-                    @continue
-                @endif
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif--}}
+
