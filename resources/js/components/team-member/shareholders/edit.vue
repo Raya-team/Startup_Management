@@ -71,7 +71,7 @@
                                             <div class="form-group">
                                                 <label for="age">سال تولد:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="age" id="age" :class="['form-control', {'is-invalid' : errors.has('age')}]" v-model="data.age" v-on:change="onChangeSite($event, data.age)" data-placeholder="سال تولد خود را انتخاب کنید">
+                                                <select name="age" id="age" :class="['form-control', {'is-invalid' : errors.has('age')}]" v-model="data.age" data-placeholder="سال تولد خود را انتخاب کنید">
                                                     <option v-for="(n, index) in 100" :value="this_year - index">{{ this_year - index }}</option>
                                                 </select>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('age')">{{ errors.get('age') }}</div>
@@ -105,7 +105,7 @@
                                             <div class="form-group">
                                                 <label>مسئولیت:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="responsibility" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
+                                                <select name="responsibility" multiple="multiple" v-model="data.responsibility" class="form-control" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
                                                     <option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>
                                                 </select>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary mr-2">ثبت</button>
+                                    <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -176,39 +176,48 @@
                 education: [],
                 responsibilities: [],
                 this_year: null,
-                data: {},
-                errors: new Errors()
+                data: {
+                    responsibility : []
+                },
+                errors: new Errors(),
             }
         },
         created(){
             axios.get(`/api/shareholders/${this.$route.params.id}/edit`)
                 .then(response => {
-                    console.log(response.data);
                     this.education = response.data.education;
                     this.responsibilities = response.data.responsibilities;
                     this.this_year = parseInt(response.data.this_year);
                     this.data = response.data.member;
+                    for (var i=0; i<response.data.member.responsibility.length; i++){
+                        this.data.responsibility.push(response.data.member.responsibility[i].id)
+                    }
                 })
                 .catch(error => console.log(error));
         },
         methods: {
             onSubmit() {
-                axios.post('/shareholders', this.data)
-                    .then(response => {console.log(response);})
+                axios.put(`/shareholders/${this.$route.params.id}`, this.data)
+                    .then(response => {
+                        // var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                        // var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                        // KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+                        Swal.fire({
+                            title: "اطلاعات سهامدار با موفقیت ویرایش شد",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشد",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                        // this.$router.push({name: 'shareholders-index'});
+                    })
                     .catch(error => {
+                        console.log(error.response.data);
                         this.errors.record(error.response.data.errors);
-                        console.log(this.errors.record(error.response.data.errors));
                     });
             },
-            onChangeSite: function(e, age){
-                console.log(e);
-                console.log(age);
-                // var id = e.target.value;
-                // var name = e.target.options[e.target.options.selectedIndex].text;
-                // console.log('id ',id );
-                // console.log('name ',name );
-            },
-
         },
     }
 </script>

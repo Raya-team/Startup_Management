@@ -44,16 +44,16 @@ class shareholderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ShareholderRequest $request
+     * @param TeamMember $member
      * @return \Illuminate\Http\Response
      */
     public function store(ShareholderRequest $request, TeamMember $member)
     {
-
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
-        $member->education_id = $request->input('education');
+        $member->education_id = $request->input('education_id');
         $member->major = $request->input('major');
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
@@ -93,13 +93,24 @@ class shareholderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param ShareholderRequest $request
+     * @param TeamMember $member
      * @return \Illuminate\Http\Response
      */
-    public function update(ShareholderRequest $request, $id)
+    public function update(ShareholderRequest $request, TeamMember $member)
     {
-        return response(['ویرایش شد'], 201);
+        $member->fname = $request->input('fname');
+        $member->lname = $request->input('lname');
+        $member->team_id = Auth::user()->team_id;
+        $member->education_id = $request->input('education');
+        $member->major = $request->input('major');
+        $member->age = $request->input('age');
+        $member->resume = $request->input('resume');
+        $member->investment = $request->input('investment');
+        $member->save();
+        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
+        $member->responsibility()->sync($request->input('responsibility'));
+//        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 
     /**

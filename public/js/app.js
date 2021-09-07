@@ -5700,7 +5700,7 @@ var Errors = /*#__PURE__*/function () {
           name: 'shareholders-index'
         });
       })["catch"](function (error) {
-        _this2.errors.record(console.log(error.response.data));
+        _this2.errors.record(error.response.data.errors);
       });
     }
   }
@@ -5912,7 +5912,9 @@ var Errors = /*#__PURE__*/function () {
       education: [],
       responsibilities: [],
       this_year: null,
-      data: {},
+      data: {
+        responsibility: []
+      },
       errors: new Errors()
     };
   },
@@ -5920,11 +5922,14 @@ var Errors = /*#__PURE__*/function () {
     var _this = this;
 
     axios.get("/api/shareholders/".concat(this.$route.params.id, "/edit")).then(function (response) {
-      console.log(response.data);
       _this.education = response.data.education;
       _this.responsibilities = response.data.responsibilities;
       _this.this_year = parseInt(response.data.this_year);
       _this.data = response.data.member;
+
+      for (var i = 0; i < response.data.member.responsibility.length; i++) {
+        _this.data.responsibility.push(response.data.member.responsibility[i].id);
+      }
     })["catch"](function (error) {
       return console.log(error);
     });
@@ -5933,20 +5938,24 @@ var Errors = /*#__PURE__*/function () {
     onSubmit: function onSubmit() {
       var _this2 = this;
 
-      axios.post('/shareholders', this.data).then(function (response) {
-        console.log(response);
+      axios.put("/shareholders/".concat(this.$route.params.id), this.data).then(function (response) {
+        // var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+        // var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+        // KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+        Swal.fire({
+          title: "اطلاعات سهامدار با موفقیت ویرایش شد",
+          icon: "success",
+          buttonsStyling: false,
+          confirmButtonText: "باشد",
+          customClass: {
+            confirmButton: "btn btn-primary"
+          }
+        }); // this.$router.push({name: 'shareholders-index'});
       })["catch"](function (error) {
-        _this2.errors.record(error.response.data.errors);
+        console.log(error.response.data);
 
-        console.log(_this2.errors.record(error.response.data.errors));
+        _this2.errors.record(error.response.data.errors);
       });
-    },
-    onChangeSite: function onChangeSite(e, age) {
-      console.log(e);
-      console.log(age); // var id = e.target.value;
-      // var name = e.target.options[e.target.options.selectedIndex].text;
-      // console.log('id ',id );
-      // console.log('name ',name );
     }
   }
 });
@@ -55210,34 +55219,24 @@ var render = function() {
                                     "سال تولد خود را انتخاب کنید"
                                 },
                                 on: {
-                                  change: [
-                                    function($event) {
-                                      var $$selectedVal = Array.prototype.filter
-                                        .call($event.target.options, function(
-                                          o
-                                        ) {
-                                          return o.selected
-                                        })
-                                        .map(function(o) {
-                                          var val =
-                                            "_value" in o ? o._value : o.value
-                                          return val
-                                        })
-                                      _vm.$set(
-                                        _vm.data,
-                                        "age",
-                                        $event.target.multiple
-                                          ? $$selectedVal
-                                          : $$selectedVal[0]
-                                      )
-                                    },
-                                    function($event) {
-                                      return _vm.onChangeSite(
-                                        $event,
-                                        _vm.data.age
-                                      )
-                                    }
-                                  ]
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "age",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
                                 }
                               },
                               _vm._l(100, function(n, index) {
@@ -55336,12 +55335,40 @@ var render = function() {
                             _c(
                               "select",
                               {
-                                staticClass: "form-control select2",
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.responsibility,
+                                    expression: "data.responsibility"
+                                  }
+                                ],
+                                staticClass: "form-control",
                                 attrs: {
                                   name: "responsibility",
                                   multiple: "multiple",
                                   "data-placeholder":
                                     "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "responsibility",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
                                 }
                               },
                               _vm._l(_vm.responsibilities, function(
@@ -55593,8 +55620,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "card-footer" }, [
       _c(
         "button",
-        { staticClass: "btn btn-primary mr-2", attrs: { type: "submit" } },
-        [_vm._v("ثبت")]
+        {
+          staticClass: "btn btn-success mr-2",
+          attrs: { type: "submit", id: "kt_login_singin_form_submit_button" }
+        },
+        [_vm._v("ویرایش")]
       )
     ])
   }

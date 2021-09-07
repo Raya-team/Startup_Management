@@ -29,9 +29,9 @@ class ShareholderRequest extends FormRequest
             'fname' => ['required', 'min:3', 'max:16', new Persian()],
             'lname' => ['required', 'min:3', 'max:16', new Persian()],
             'major' => ['required', 'max:32', new Persian()],
-            'age' => ['required', new Security()],
+            'age' => ['required'],
             'responsibility' => ['required'],
-            'education' => ['required', new Security()],
+            'education_id' => ['required', new Security()],
             'resume' => ['required','numeric'],
             'investment' => ['required','numeric'],
         ];
