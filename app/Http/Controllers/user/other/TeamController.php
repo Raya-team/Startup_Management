@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\other;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TeamRequest;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -38,15 +39,15 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-     /*   $team = Team::where('id',$id)->first();
-
+        $team = Team::where('id',$id)->first();
+        //security
         if(isset($team->id) && Auth::user()->team_id == $team->id)
         {
             return view('user.other.team.edit',compact('team'));
         }
         elseif(! isset($team->id)){
             abort(404);
-        }*/
+        }
     }
 
     /**
@@ -56,9 +57,18 @@ class TeamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TeamRequest $request)
     {
-        //
+        return $request;
+        $team = Team::findorfail($request->id);
+        $team->name = $request->input('team_name');
+        $team->project_name = $request->input('project_name');
+        $team->status = $request->input('status');
+        $team->email = $request->input('team_email');
+        $team->address = $request->input('address');
+        $team->phone_number = $request->input('team_phone');
+        $team->landline = $request->input('land_line');
+        $team->save();
     }
 
 }
