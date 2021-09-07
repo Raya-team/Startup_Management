@@ -199,9 +199,9 @@
             onSubmit() {
                 axios.put(`/shareholders/${this.$route.params.id}`, this.data)
                     .then(response => {
-                        // var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-                        // var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-                        // KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+                        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                         Swal.fire({
                             title: "اطلاعات سهامدار با موفقیت ویرایش شد",
                             icon: "success",
@@ -211,10 +211,9 @@
                                 confirmButton: "btn btn-primary"
                             }
                         });
-                        // this.$router.push({name: 'shareholders-index'});
+                        this.$router.push({name: 'shareholders-index'});
                     })
                     .catch(error => {
-                        console.log(error.response.data);
                         this.errors.record(error.response.data.errors);
                     });
             },

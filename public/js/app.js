@@ -5939,9 +5939,9 @@ var Errors = /*#__PURE__*/function () {
       var _this2 = this;
 
       axios.put("/shareholders/".concat(this.$route.params.id), this.data).then(function (response) {
-        // var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-        // var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-        // KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
         Swal.fire({
           title: "اطلاعات سهامدار با موفقیت ویرایش شد",
           icon: "success",
@@ -5950,10 +5950,12 @@ var Errors = /*#__PURE__*/function () {
           customClass: {
             confirmButton: "btn btn-primary"
           }
-        }); // this.$router.push({name: 'shareholders-index'});
-      })["catch"](function (error) {
-        console.log(error.response.data);
+        });
 
+        _this2.$router.push({
+          name: 'shareholders-index'
+        });
+      })["catch"](function (error) {
         _this2.errors.record(error.response.data.errors);
       });
     }
@@ -6124,9 +6126,23 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    deleteShareholder: function deleteShareholder(id) {
-      console.log(id);
-      console.log('deleted');
+    deleteShareholder: function deleteShareholder(id, index) {
+      var _this2 = this;
+
+      console.log(index);
+      var i = index.parentNode.parentNode.rowIndex;
+      document.getElementById("myTable").deleteRow(i);
+      axios["delete"]("/shareholders/".concat(id)).then(function (response) {
+        console.log(index);
+
+        _this2.$router.push({
+          name: 'shareholders-create'
+        });
+
+        _this2.$router.push({
+          name: 'shareholders-index'
+        });
+      });
     }
   }
 });
@@ -55742,7 +55758,8 @@ var render = function() {
                 "table",
                 {
                   staticClass:
-                    "table table-head-custom table-head-bg table-vertical-center table-borderless"
+                    "table table-head-custom table-head-bg table-vertical-center table-borderless",
+                  attrs: { id: "myTable" }
                 },
                 [
                   _vm.progress
@@ -55757,7 +55774,7 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "tbody",
-                    _vm._l(_vm.shareholders, function(shareholder) {
+                    _vm._l(_vm.shareholders, function(shareholder, index) {
                       return _c("tr", [
                         _c("td", { staticClass: "pl-0 py-0" }, [
                           _c(
@@ -55846,7 +55863,10 @@ var render = function() {
                                 attrs: { type: "button" },
                                 on: {
                                   click: function($event) {
-                                    return _vm.deleteShareholder(shareholder.id)
+                                    return _vm.deleteShareholder(
+                                      shareholder.id,
+                                      $event
+                                    )
                                   }
                                 }
                               },

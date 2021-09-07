@@ -58,7 +58,7 @@
                     <div class="card-body pt-0 pb-3">
                         <!--begin::Table-->
                         <div class="table-responsive">
-                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless">
+                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                 <div class="d-flex align-items-center" v-if="progress">
                                     <div class="mr-2 text-muted">لطفا صبر کنید...</div>
                                     <div class="spinner mr-10"></div>
@@ -76,7 +76,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="shareholder in shareholders">
+                                <tr v-for="(shareholder, index) in shareholders">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
@@ -108,7 +108,7 @@
                                                 <i class="flaticon2-edit"></i>
                                             </a>
                                         </router-link>
-                                        <button type="button" @click="deleteShareholder(shareholder.id)" class="btn btn-icon btn-light-danger btn-sm mr-2">
+                                        <button type="button" @click="deleteShareholder(shareholder.id, $event)" class="btn btn-icon btn-light-danger btn-sm mr-2">
                                             <i class="flaticon2-trash"></i>
                                         </button>
                                     </td>
@@ -148,9 +148,16 @@
                 .catch(error => console.log(error));
         },
         methods: {
-            deleteShareholder(id) {
-                console.log(id);
-                console.log('deleted');
+            deleteShareholder(id, index) {
+                console.log(index);
+                var i = index.parentNode.parentNode.rowIndex;
+                document.getElementById("myTable").deleteRow(i);
+                axios.delete(`/shareholders/${id}`)
+                    .then(response => {
+                        console.log(index);
+                        this.$router.push({name: 'shareholders-create'});
+                        this.$router.push({name: 'shareholders-index'});
+                    })
             }
         }
     }

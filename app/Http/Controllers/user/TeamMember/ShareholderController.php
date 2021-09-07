@@ -53,7 +53,7 @@ class shareholderController extends Controller
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
-        $member->education_id = $request->input('education_id');
+        $member->education_id = $request->input('education');
         $member->major = $request->input('major');
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
@@ -97,19 +97,21 @@ class shareholderController extends Controller
      * @param TeamMember $member
      * @return \Illuminate\Http\Response
      */
-    public function update(ShareholderRequest $request, TeamMember $member)
+    public function update(ShareholderRequest $request)
     {
+        $member = TeamMember::findorfail($request->id);
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
-        $member->education_id = $request->input('education');
+        $member->education_id = $request->input('education_id');
         $member->major = $request->input('major');
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
         $member->investment = $request->input('investment');
         $member->save();
-        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
         $member->responsibility()->sync($request->input('responsibility'));
+        return response(['سهامدار مورد نظر با موفقیت ویرایش شد'], 201);
+
 //        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 
@@ -121,6 +123,8 @@ class shareholderController extends Controller
      */
     public function destroy($id)
     {
-        //
+//        $member = TeamMember::findorfail($id);
+//        $member->delete();
+        return response(["سهامدار مورد نظر با موفقیت ایجاد شد $member->id"], 201);
     }
 }
