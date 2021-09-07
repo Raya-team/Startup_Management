@@ -36,7 +36,7 @@
                             <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
                         </h3>
                         <div class="card-toolbar">
-                            <router-link :to="{ name: 'shareholders-create' }">
+                            <router-link :to="{ name: 'key-employees-index' }">
                                 <a class="btn btn-primary font-weight-bolder">
                                     <span class="svg-icon svg-icon-md">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -72,48 +72,44 @@
                                     <th>سال تولد</th>
                                     <th>رزومه</th>
                                     <th>مسئولیت</th>
-                                    <th>سرمایه گذاری</th>
                                     <th>عملیات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(shareholder, index) in shareholders" :id="'del'+shareholder.id">
+                                <tr v-for="(employe, index) in keyEmployees" :id="'del'+employe.id">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
-                                                {{ shareholder.fname }}
+                                                {{ employe.fname }}
                                             </div>
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ shareholder.lname }}</span>
+                                        <span class="text-dark-75">{{ employe.lname }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ shareholder.education.nickname }}</span>
+                                        <span class="text-dark-75">{{ employe.education.nickname }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-750">{{ shareholder.major }}</span>
+                                        <span class="text-dark-750">{{ employe.major }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ shareholder.age }}</span>
+                                        <span class="text-dark-75">{{ employe.age }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ shareholder.resume }}</span>
+                                        <span class="text-dark-75">{{ employe.resume }}</span>
                                     </td>
                                     <td>
-                                        <div v-for="res in shareholder.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ shareholder.investment }}</span>
+                                        <div v-for="res in employe.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
                                     </td>
                                     <td class="pr-0 text-left">
-                                        <router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">
+                                        <router-link :to="{ name: 'key-employees-edit', params: { id: employe.id }}">
                                             <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                 <i class="flaticon2-edit"></i>
                                             </a>
                                         </router-link>
-                                        <button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>
+                                        <button type="button" @click="deleteShareholder(employe.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
+                                            <i class="flaticon2-trash" :id="'icon'+employe.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -131,7 +127,6 @@
         </div>
         <!--end::Entry-->
     </div>
-
 </template>
 
 <script>
@@ -139,14 +134,14 @@
         name: "index",
         data() {
             return {
-                shareholders: [],
+                keyEmployees: [],
                 progress: true,
             }
         },
         created() {
-            axios.get('/api/shareholders')
+            axios.get('/api/key-employees')
                 .then(response => {
-                    this.shareholders = response.data;
+                    this.keyEmployees = response.data;
                     this.progress = false;
                     console.log(response.data);
                 })

@@ -21,7 +21,7 @@ class KeyEmployee extends Model
         return $this->belongsTo(Education::class);
     }
 
-    public function responsibilities()
+    public function responsibility()
     {
         return $this->belongsToMany(Responsibility::class,'employee_responsibility','employee_id','responsibility_id');
     }

@@ -1,19 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\user\TeamMember;
+namespace App\Http\Controllers\Api\TeamMember;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\KeyEmployeeRequest;
-use App\Models\Education;
 use App\Models\KeyEmployee;
-use App\Models\Responsibility;
-use App\Models\Team;
-use App\Models\TeamMember;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class KeyEmployeeController extends Controller
+class KeyEmployeesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,10 +16,10 @@ class KeyEmployeeController extends Controller
      */
     public function index()
     {
-//        $team_id = Auth::user()->team_id;
-//        $key_employees = KeyEmployee::with(['team', 'education'])
-//            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume']);
-        return view('user.team-member.key-employees.index');
+        $team_id = Auth::user()->team_id;
+        $key_employee = KeyEmployee::with(['team', 'education', 'responsibility'])
+            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume']);
+        return response()->json($key_employee);
     }
 
     /**
@@ -35,10 +29,7 @@ class KeyEmployeeController extends Controller
      */
     public function create()
     {
-        $this_year = jdate(Carbon::now())->format('Y');
-        $responsibilities = Responsibility::all(['id','nickname']);
-        $education = Education::all(['id', 'nickname']);
-        return view('user.team-member.key-employees.create',compact('this_year','responsibilities','education'));
+        //
     }
 
     /**
@@ -47,17 +38,9 @@ class KeyEmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(KeyEmployeeRequest $request, KeyEmployee $keyEmployee)
+    public function store(Request $request)
     {
-        $keyEmployee->fname = $request->input('fname');
-        $keyEmployee->lname = $request->input('lname');
-        $keyEmployee->team_id = Auth::user()->team_id;
-        $keyEmployee->education_id = $request->input('education');
-        $keyEmployee->major = $request->input('major');
-        $keyEmployee->age = $request->input('age');
-        $keyEmployee->resume = $request->input('resume');
-        $keyEmployee->updated_at = null;
-        $keyEmployee->save();
+        //
     }
 
     /**
@@ -104,5 +87,4 @@ class KeyEmployeeController extends Controller
     {
         //
     }
-
 }

@@ -20,7 +20,7 @@ class ShareholderController extends Controller
     public function index()
     {
         $team_id = Auth::user()->team_id;
-        $team_members = TeamMember::with(['team', 'education'])
+        $team_members = TeamMember::with(['team', 'education', 'responsibility'])
             ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
 //        return datatables()->of($team_members)->tojson();
         return response()->json($team_members);

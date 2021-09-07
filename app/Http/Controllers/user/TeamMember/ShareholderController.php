@@ -125,6 +125,6 @@ class shareholderController extends Controller
     {
 //        $member = TeamMember::findorfail($id);
 //        $member->delete();
-        return response(["سهامدار مورد نظر با موفقیت ایجاد شد $member->id"], 201);
+        return response(["deleted"], 201);
     }
 }
