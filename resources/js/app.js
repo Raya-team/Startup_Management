@@ -11,6 +11,9 @@ import Dashboard from './components/Dashboard';
 import SharehodlerIndex from './components/team-member/shareholders/index';
 import SharehodlerCreate from './components/team-member/shareholders/create';
 import SharehodlerEdit from './components/team-member/shareholders/edit';
+import ProductIndex from './components/other/product/index';
+import ProductCreate from './components/other/product/create';
+import ProductEdit from './components/other/product/edit';
 
 
 const router = new VueRouter({
@@ -21,6 +24,9 @@ const router = new VueRouter({
         {path: '/shareholders', name: 'shareholders-index', component: SharehodlerIndex,meta: {title: 'لیست سهامداران'}},
         {path: '/shareholders/create', name: 'shareholders-create', component: SharehodlerCreate, meta: {title: 'ایجاد سهامدار جدید'}},
         {path: '/shareholders/:id/edit', name: 'shareholders-edit', component: SharehodlerEdit, meta: {title: 'ویرایش سهامدار'}},
+        {path: '/product', name: 'product-index', component: ProductIndex, meta: {title: 'محصولات'}},
+        {path: '/product/create', name: 'product-create', component: ProductCreate, meta: {title: 'ایجاد محصول'}},
+        {path: '/product/:id/edit', name: 'product-edit', component: ProductEdit, meta: {title: 'ویرایش محصول'}},
     ],
 });
 router.beforeEach((to, from, next) => {

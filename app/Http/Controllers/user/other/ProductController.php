@@ -18,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        return view('user.other.product.index');
     }
 
     /**
@@ -28,8 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product_types = ProductType::all(['id','nickname']);
-        return view('user.other.product.create',compact('product_types'));
+        return view('user.other.product.index');
     }
 
     /**
@@ -40,6 +39,7 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
+        return response(['ok'], 201);
         $products = $request->product;
         for ($i = 0; $i < sizeof($products); $i++) {
             $product = new Product();

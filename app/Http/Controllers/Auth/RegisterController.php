@@ -146,7 +146,7 @@ class RegisterController extends Controller
      */
     protected function ResponsibilityMember(RegisterRequest $request, TeamMember $member)
     {
-        $member->responsibilities()->sync($request->responsibility);
+        $member->responsibility()->sync($request->responsibility);
     }
 
     /**

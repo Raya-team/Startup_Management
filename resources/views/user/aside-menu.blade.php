@@ -1676,7 +1676,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/themes/header-dark.html" class="menu-link">
+                            <a href="{{ route('product.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>

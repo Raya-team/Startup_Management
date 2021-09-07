@@ -49,7 +49,7 @@ class shareholderController extends Controller
      */
     public function store(ShareholderRequest $request, TeamMember $member)
     {
-        return response(['عضو مورد نظر با موفقیت ایجاد شد'], 201);
+
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
@@ -58,8 +58,10 @@ class shareholderController extends Controller
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
         $member->investment = $request->input('investment');
+        $member->responsibility()->sync($request->input('responsibility'));
         $member->updated_at = null;
         $member->save();
+        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 
     /**
@@ -95,9 +97,9 @@ class shareholderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ShareholderRequest $request, $id)
     {
-        //
+        return response(['ویرایش شد'], 201);
     }
 
     /**

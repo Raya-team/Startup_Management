@@ -90,13 +90,25 @@
                                             </div>
                                         </div>
 
+                                        <!--<div class="col-md-6">-->
+                                            <!--<div class="form-group">-->
+                                                <!--<label for="kt_select2_3">مسئولیت:-->
+                                                    <!--<span class="text-danger">*</span></label>-->
+                                                <!--<select name="responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">-->
+                                                    <!--<option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>-->
+                                                <!--</select>-->
+                                                <!--<div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="kt_select2_3">مسئولیت:
+                                                <label>مسئولیت:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
+                                                <select name="responsibility" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
                                                     <option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +121,6 @@
                                                     <option v-for="n in 20" :value="n">{{n}}</option>
                                                 </select>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('resume')">{{ errors.get('resume') }}</div>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

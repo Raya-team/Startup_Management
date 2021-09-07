@@ -90,14 +90,24 @@
                                             </div>
                                         </div>
 
+                                        <!--<div class="col-md-6">-->
+                                        <!--<div class="form-group">-->
+                                        <!--<label for="kt_select2_3">مسئولیت:-->
+                                        <!--<span class="text-danger">*</span></label>-->
+                                        <!--<select name="responsibility" v-model="data.responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">-->
+                                        <!--<option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>-->
+                                        <!--</select>-->
+                                        <!--</div>-->
+                                        <!--</div>-->
+
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="kt_select2_3">مسئولیت:
+                                                <label>مسئولیت:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="responsibility" v-model="data.responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
+                                                <select name="responsibility" v-model="data.responsibility" :class="['form-control', {'is-invalid' : errors.has('resume')}]" multiple="multiple" class="form-control" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
                                                     <option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>
                                                 </select>
-
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,7 +120,6 @@
                                                     <option v-for="n in 20" :value="n">{{n}}</option>
                                                 </select>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('resume')">{{ errors.get('resume') }}</div>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -123,8 +132,9 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary mr-2">ثبت</button>
+                                    <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -148,7 +158,7 @@
         has(field) {
             return this.errors.hasOwnProperty(field);
         }
-        
+
         get(field) {
             if (this.errors[field]) {
                 return this.errors[field][0]
@@ -176,7 +186,7 @@
                     resume: '',
                     investment: '',
                 },
-                errors: new Errors()
+                errors: new Errors(),
             }
         },
         created(){
@@ -187,16 +197,55 @@
                     this.this_year = parseInt(response.data.this_year);
                 })
                 .catch(error => console.log(error));
+
+            // Class definition
+            var KTSelect2 = function() {
+                // Private functions
+                var demos = function() {
+                    // multi select
+                    $('#kt_select2_3, #kt_select2_3_validate').select2({
+                        placeholder: 'Select a state',
+                    });
+                }
+                // Public functions
+                return {
+                    init: function() {
+                        demos();
+                    }
+                };
+            }();
+
+            // Initialization
+            jQuery(document).ready(function() {
+                KTSelect2.init();
+            });
+
+
+
+
         },
         methods: {
             onSubmit() {
                 axios.post('/shareholders', this.data)
-                    .then(response => {console.log(response);})
+                    .then(response => {
+                        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+                        Swal.fire({
+                            title: "سهامدار با موفیت ایجاد شد",
+                            icon: "success",
+                            buttonsStyling: false,
+                            confirmButtonText: "باشد",
+                            customClass: {
+                                confirmButton: "btn btn-primary"
+                            }
+                        });
+                        this.$router.push({name: 'shareholders-index'});
+                    })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
-                        console.log(this.errors.record(error.response.data.errors));
                     });
-            }
+            },
         },
 
     }
