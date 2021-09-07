@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\user\other;
 
 use App\Http\Controllers\Controller;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeamController extends Controller
 {
@@ -14,12 +17,17 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+
+        $team = Team::where('id', $team_id)->first();
+
+        return view('user.other.team.index',compact('team'));
+
     }
 
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -30,7 +38,15 @@ class TeamController extends Controller
      */
     public function edit($id)
     {
-        //
+     /*   $team = Team::where('id',$id)->first();
+
+        if(isset($team->id) && Auth::user()->team_id == $team->id)
+        {
+            return view('user.other.team.edit',compact('team'));
+        }
+        elseif(! isset($team->id)){
+            abort(404);
+        }*/
     }
 
     /**
