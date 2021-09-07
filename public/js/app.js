@@ -5700,7 +5700,7 @@ var Errors = /*#__PURE__*/function () {
           name: 'shareholders-index'
         });
       })["catch"](function (error) {
-        _this2.errors.record(error.response.data.errors);
+        _this2.errors.record(console.log(error.response.data));
       });
     }
   }

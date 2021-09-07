@@ -58,9 +58,9 @@ class shareholderController extends Controller
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
         $member->investment = $request->input('investment');
-        $member->responsibility()->sync($request->input('responsibility'));
         $member->updated_at = null;
         $member->save();
+        $member->responsibility()->sync($request->input('responsibility'));
         return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 

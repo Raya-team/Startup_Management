@@ -243,7 +243,7 @@
                         this.$router.push({name: 'shareholders-index'});
                     })
                     .catch(error => {
-                        this.errors.record(error.response.data.errors);
+                        this.errors.record(console.log(error.response.data));
                     });
             },
         },
