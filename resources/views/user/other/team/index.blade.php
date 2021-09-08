@@ -38,7 +38,7 @@
                             <span class="card-label font-weight-bold font-size-h4 text-dark-75 mb-3">{{$team->name}}</span>
                         </h3>
                         <div class="card-toolbar">
-                            <a href="{{route('team.edit',['team'=> $team->id])}}" class="btn btn-light-success btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
+                            <a href="{{route('team.edit',['team'=> $team->id])}}" class="btn btn-light-success  btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
                         </div>
                     </div>
                     <!--end::Header-->
