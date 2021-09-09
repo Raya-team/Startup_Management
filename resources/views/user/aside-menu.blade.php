@@ -21,7 +21,16 @@
                 </a>
             </li>
 
-            <li class="menu-item menu-item-submenu {{ in_array(Route::currentRouteName(), ['shareholders.index', 'shareholders.create', 'key-employees.index']) ? 'menu-item-open' : ''}}" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu
+                {{ in_array(Route::currentRouteName(),
+                    [
+                        'shareholders.index',
+                        'shareholders.create',
+                        'shareholders.edit',
+                        'key-employees.index',
+                        'key-employees.create',
+                        'key-employees.edit'
+                    ]) ? 'menu-item-open' : ''}}" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:../assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
@@ -48,7 +57,7 @@
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
-                        <li class="menu-item {{ in_array(Route::currentRouteName(), ['shareholders.index', 'shareholders.create', 'key-employees.index']) ? 'menu-item-active' : ''}}" aria-haspopup="true">
+                        <li class="menu-item {{ in_array(Route::currentRouteName(), ['shareholders.index', 'shareholders.create', 'shareholders.edit']) ? 'menu-item-active' : ''}}" aria-haspopup="true">
                             <a href="{{ route('shareholders.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
@@ -56,7 +65,7 @@
                                 <span class="menu-text">سهامداران</span>
                             </a>
                         </li>
-                        <li class="menu-item {{ Route::currentRouteName() == 'key-employees.index' ? 'menu-item-active' : '' }}" aria-haspopup="true">
+                        <li class="menu-item {{ in_array(Route::currentRouteName(), ['key-employees.index', 'key-employees.create', 'key-employees.edit']) ? 'menu-item-active' : ''}}" aria-haspopup="true">
                             <a href="{{ route('key-employees.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>

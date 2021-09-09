@@ -90,25 +90,14 @@
                                             </div>
                                         </div>
 
-                                        <!--<div class="col-md-6">-->
-                                            <!--<div class="form-group">-->
-                                                <!--<label for="kt_select2_3">مسئولیت:-->
-                                                    <!--<span class="text-danger">*</span></label>-->
-                                                <!--<select name="responsibility" id="kt_select2_3" multiple="multiple" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">-->
-                                                    <!--<option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>-->
-                                                <!--</select>-->
-                                                <!--<div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>مسئولیت:
+                                                <label for="kt_select2_3">مسئولیت:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="responsibility" multiple="multiple" v-model="data.responsibility" class="form-control" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
-                                                    <option v-for="responsibility in responsibilities" :value="responsibility.id">{{ responsibility.nickname }}</option>
+                                                <select name="responsibility" id="kt_select2_3" multiple="multiple" v-model="data.responsibility" class="form-control select2" data-placeholder="با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید">
+                                                    <option v-for="(responsibility, key) in responsibilities" :key="key" :value="responsibility.id">{{ responsibility.nickname }}</option>
                                                 </select>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')">{{ errors.get('responsibility') }}</div>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('responsibility')" style="display: block;">{{errors.get('responsibility') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,25 +139,8 @@
 </template>
 
 <script>
-    class Errors {
-        constructor() {
-            this.errors = {};
-        }
+    import Errors from './../../../Errors'
 
-        has(field) {
-            return this.errors.hasOwnProperty(field);
-        }
-
-        get(field) {
-            if (this.errors[field]) {
-                return this.errors[field][0]
-            }
-        }
-
-        record(errors) {
-            this.errors = errors;
-        }
-    }
     export default {
         name: "edit",
         data(){
@@ -218,6 +190,22 @@
                     });
             },
         },
+        mounted() {
+            var $this = this;
+            $(document).ready(function () {
+                var select = $('.select2').select2();
+                select.on("select2:selecting", (e) => {
+                    var responsibility = $this._data.data.responsibility;
+                    responsibility.push(e.params.args.data.id);
+                    console.log(responsibility);
+                });
+                select.on("select2:unselecting", (e) => {
+                    var responsibility = $this._data.data.responsibility;
+                    responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
+                    console.log(responsibility);
+                });
+            });
+        }
     }
 </script>
 

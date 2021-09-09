@@ -44,21 +44,21 @@
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"><h4>محصول:</h4></label>
                                             <div data-repeater-list="product" class="col-lg-10">
-                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                <div data-repeater-item="" class="form-group row align-items-center" v-for="(product, index) in data.products" :key="index">
                                                     <div class="col-md-4">
                                                         <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control products" name="product_name" v-model="data.product" required />
+                                                        <input type="text" class="form-control products" name="product_name" v-model="product.name" required />
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label><h5>نوع محصول:</h5></label>
-                                                        <select name="product_type" class="form-control">
-                                                            <option v-for="type in productTypes" :value="type.id" v-model="data.product">{{ type.nickname }}</option>
+                                                        <select name="product_type" class="form-control" v-model="product.type">
+                                                            <option v-for="type in productTypes" :value="type.id">{{ type.nickname }}</option>
                                                         </select>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
-                                                    <div class="col-md-4" style="margin-top: 28px">
-                                                        <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                    <div v-if="index != 0" class="col-md-4" style="margin-top: 28px" @click="RemoveField(index)">
+                                                        <a data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                             <i class="la la-trash-o"></i>حذف</a>
                                                     </div>
                                                 </div>
@@ -67,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"></label>
                                             <div class="col-lg-4">
-                                                <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                <a @click="AddField" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                     <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
@@ -90,32 +90,15 @@
 </template>
 
 <script>
-    class Errors {
-        constructor() {
-            this.errors = {};
-        }
+    import Errors from './../../../Errors';
 
-        has(field) {
-            return this.errors.hasOwnProperty(field);
-        }
-
-        get(field) {
-            if (this.errors[field]) {
-                return this.errors[field][0]
-            }
-        }
-
-        record(errors) {
-            this.errors = errors;
-        }
-    }
     export default {
         name: "create",
         data() {
             return {
                 productTypes: [],
                 data: {
-                    product: [],
+                    products: [{ name: '',type: '' }],
                 },
                 errors: new Errors(),
             }
@@ -126,7 +109,7 @@
                     this.productTypes = response.data;
                 })
                 .catch(error => console.log(error));
-            var KTFormRepeater = function() {
+            /*var KTFormRepeater = function() {
 
                 // Private functions
                 var demo1 = function() {
@@ -146,127 +129,35 @@
                         },
                         isFirstItemUndeletable: true
                     });
-                }
-
-                var demo2 = function() {
-                    $('#kt_repeater_2').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'text-input': 'foo'
-                        },
-
-                        show: function() {
-                            $(this).slideDown();
-                        },
-
-                        hide: function(deleteElement) {
-                            if(confirm('Are you sure you want to delete this element?')) {
-                                $(this).slideUp(deleteElement);
-                            }
-                        }
-                    });
-                }
-
-
-                var demo3 = function() {
-                    $('#kt_repeater_3').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'text-input': 'foo'
-                        },
-
-                        show: function() {
-                            $(this).slideDown();
-                        },
-
-                        hide: function(deleteElement) {
-                            if(confirm('Are you sure you want to delete this element?')) {
-                                $(this).slideUp(deleteElement);
-                            }
-                        }
-                    });
-                }
-
-                var demo4 = function() {
-                    $('#kt_repeater_4').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'text-input': 'foo'
-                        },
-
-                        show: function() {
-                            $(this).slideDown();
-                        },
-
-                        hide: function(deleteElement) {
-                            $(this).slideUp(deleteElement);
-                        }
-                    });
-                }
-
-                var demo5 = function() {
-                    $('#kt_repeater_5').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'text-input': 'foo'
-                        },
-
-                        show: function() {
-                            $(this).slideDown();
-                        },
-
-                        hide: function(deleteElement) {
-                            $(this).slideUp(deleteElement);
-                        }
-                    });
-                }
-
-                var demo6 = function() {
-                    $('#kt_repeater_6').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'text-input': 'foo'
-                        },
-
-                        show: function() {
-                            $(this).slideDown();
-                        },
-
-                        hide: function(deleteElement) {
-                            $(this).slideUp(deleteElement);
-                        }
-                    });
-                }
+                };
                 return {
                     // public functions
                     init: function() {
                         demo1();
-                        demo2();
-                        demo3();
-                        demo4();
-                        demo5();
-                        demo6();
                     }
                 };
             }();
 
             jQuery(document).ready(function() {
                 KTFormRepeater.init();
-            });
+            });*/
         },
         methods: {
+            AddField() {
+                this.data.products.push({ name: '',type: '' });
+            },
+            RemoveField(index) {
+                this.data.products.splice(index, 1)
+                console.log(this.data.products);
+            },
             onSubmit() {
-                axios.post('/product', this.data)
-                    .then(response => {console.log(response);})
-                    .catch(error => {
-                        this.errors.record(error.response.data.errors);
-                        console.log(this.errors.record(error.response.data.errors));
-                    });
+                console.log(this.data.products);
+                // axios.post('/product', this.data)
+                //     .then(response => {console.log(response);})
+                //     .catch(error => {
+                //         this.errors.record(error.response.data.errors);
+                //         console.log(this.errors.record(error.response.data.errors));
+                //     });
             }
         },
     }

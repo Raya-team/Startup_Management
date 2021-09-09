@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Api\TeamMember;
 
 use App\Http\Controllers\Controller;
+use App\Models\Education;
 use App\Models\KeyEmployee;
+use App\Models\Responsibility;
+use App\Models\TeamMember;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +33,14 @@ class KeyEmployeesController extends Controller
      */
     public function create()
     {
-        //
+        $this_year = jdate(Carbon::now())->format('Y');
+        $responsibilities = Responsibility::all(['id','nickname']);
+        $education = Education::all(['id', 'nickname']);
+        return response()->json([
+            'this_year' => $this_year,
+            'responsibilities' => $responsibilities,
+            'education' => $education
+        ]);
     }
 
     /**
@@ -62,7 +73,19 @@ class KeyEmployeesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this_year = jdate(Carbon::now())->format('Y');
+        $responsibilities = Responsibility::all(['id','nickname']);
+        $education = Education::all(['id', 'nickname']);
+        $team_id = Auth::user()->team_id;
+        $key_employee = KeyEmployee::with(['team', 'education', 'responsibility'])
+            ->where('team_id', $team_id)
+            ->where('id', $id)->first();
+        return response()->json([
+            'member' => $key_employee,
+            'this_year' => $this_year,
+            'responsibilities' => $responsibilities,
+            'education' => $education,
+        ]);
     }
 
     /**

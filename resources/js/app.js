@@ -1,46 +1,12 @@
-import VueRouter from 'vue-router';
+
 
 require('./bootstrap');
 
-Vue.use(VueRouter);
 
 window.Vue = require('vue').default;
-
-import Page from './components/Content';
-import Dashboard from './components/Dashboard';
-
-import SharehodlerIndex from './components/team-member/shareholders/index';
-import SharehodlerCreate from './components/team-member/shareholders/create';
-import SharehodlerEdit from './components/team-member/shareholders/edit';
-
-import KeyEmployeesIndex from './components/team-member/key-employees/index'
-import KeyEmployeesCreate from './components/team-member/key-employees/create'
-import KeyEmployeesEdit from './components/team-member/key-employees/edit'
-
-import ProductIndex from './components/other/product/index';
-import ProductCreate from './components/other/product/create';
-import ProductEdit from './components/other/product/edit';
+import router from './router';
 
 
-const router = new VueRouter({
-    mode: 'history',
-    routes: [
-        {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
-        {path: '/page', name: 'Page', component: Page},
-
-        {path: '/shareholders', name: 'shareholders-index', component: SharehodlerIndex,meta: {title: 'لیست سهامداران'}},
-        {path: '/shareholders/create', name: 'shareholders-create', component: SharehodlerCreate, meta: {title: 'ایجاد سهامدار جدید'}},
-        {path: '/shareholders/:id/edit', name: 'shareholders-edit', component: SharehodlerEdit, meta: {title: 'ویرایش سهامدار'}},
-
-        {path: '/key-employees', name: 'key-employees-index', component: KeyEmployeesIndex,meta: {title: 'لیست کارکنان کلیدی'}},
-        {path: '/key-employees/create', name: 'key-employees-create', component: KeyEmployeesCreate, meta: {title: 'ایجاد کارمند کلیدی جدید'}},
-        {path: '/key-employees/:id/edit', name: 'key-employees-edit', component: KeyEmployeesEdit, meta: {title: 'ویرایش کارمند کلیدی'}},
-
-        {path: '/product', name: 'product-index', component: ProductIndex, meta: {title: 'محصولات'}},
-        {path: '/product/create', name: 'product-create', component: ProductCreate, meta: {title: 'ایجاد محصول'}},
-        {path: '/product/:id/edit', name: 'product-edit', component: ProductEdit, meta: {title: 'ویرایش محصول'}},
-    ],
-});
 router.beforeEach((to, from, next) => {
     // This goes through the matched routes from last to first, finding the closest route with a title.
     // e.g., if we have `/some/deep/nested/route` and `/some`, `/deep`, and `/nested` have titles,

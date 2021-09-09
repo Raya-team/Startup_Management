@@ -148,7 +148,6 @@
                 .then(response => {
                     this.shareholders = response.data;
                     this.progress = false;
-                    console.log(response.data);
                 })
                 .catch(error => console.log(error));
         },
@@ -157,24 +156,41 @@
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-                axios.delete(`/shareholders/${id}`)
-                    .then(response => {
-                        console.log(response.data[0]);
-                        if(response.data[0] == "deleted"){
-                            var table = document.getElementById(`del${id}`);
-                            console.log(table);
-                            table.remove();
-                        }
-                    })
-                    .then(response => {
-                        Swal.fire({
-                            title: "سهامدار با موفقیت حذف شد",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 3000,
-                        });
+
+                Swal.fire({
+                    title: "از حذف این سهامدار اطمینان دارید؟",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "بله، حذف شود",
+                    cancelButtonText: "لغو",
+                }).then(function(result) {
+                    if (result.value) {
+                        axios.delete(`/shareholders/${id}`)
+                            .then(response => {
+                                if(response.data[0] == "deleted"){
+                                    var table = document.getElementById(`del${id}`);
+                                    table.remove();
+                                    Swal.fire({
+                                        title: "سهامدار با موفقیت حذف شد",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }else if(response.data[0] == "undeleted"){
+                                    Swal.fire({
+                                        title: "حداقل یک سهامدار باید داشته باشید",
+                                        icon: "error",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }
+                            })
+                    } else {
                         KTUtil.btnRelease(formSubmitButton);
-                    });
+                    }
+                });
             },
         }
     }

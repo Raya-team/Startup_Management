@@ -21,9 +21,6 @@ class shareholderController extends Controller
      */
     public function index()
     {
-//        $team_id = Auth::user()->team_id;
-//        $team_members = TeamMember::with(['team', 'education'])
-//            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume', 'investment']);
         return view('user.team-member.shareholders.index');
     }
 
@@ -34,10 +31,6 @@ class shareholderController extends Controller
      */
     public function create()
     {
-//        $this_year = jdate(Carbon::now())->format('Y');
-//        $responsibilities = Responsibility::all(['id','nickname']);
-//        $education = Education::all(['id', 'nickname']);
-//        return view('user.team-member.shareholders.create',compact(['this_year', 'responsibilities', 'education']));
         return view('user.team-member.shareholders.index');
     }
 
@@ -53,7 +46,7 @@ class shareholderController extends Controller
         $member->fname = $request->input('fname');
         $member->lname = $request->input('lname');
         $member->team_id = Auth::user()->team_id;
-        $member->education_id = $request->input('education');
+        $member->education_id = $request->input('education_id');
         $member->major = $request->input('major');
         $member->age = $request->input('age');
         $member->resume = $request->input('resume');
@@ -111,8 +104,6 @@ class shareholderController extends Controller
         $member->save();
         $member->responsibility()->sync($request->input('responsibility'));
         return response(['سهامدار مورد نظر با موفقیت ویرایش شد'], 201);
-
-//        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 
     /**
@@ -123,8 +114,14 @@ class shareholderController extends Controller
      */
     public function destroy($id)
     {
-//        $member = TeamMember::findorfail($id);
-//        $member->delete();
-        return response(["deleted"], 201);
+        $team_id = Auth::user()->team_id;
+        $teamMember = TeamMember::where('team_id', $team_id)->get();
+        if ($teamMember->count() > 1){
+            $member = TeamMember::findorfail($id);
+            $member->delete();
+            return response(["deleted"], 201);
+        }else{
+            return response(["undeleted"], 201);
+        }
     }
 }

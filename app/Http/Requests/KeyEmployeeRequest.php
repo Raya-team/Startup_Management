@@ -31,7 +31,7 @@ class KeyEmployeeRequest extends FormRequest
             'major' => ['required', 'max:32', new Persian()],
             'age' => ['required', new Security()],
             'responsibility' => ['required'],
-            'education' => ['required', new Security()],
+            'education_id' => ['required', new Security()],
             'resume' => ['required','numeric'],
         ];
     }

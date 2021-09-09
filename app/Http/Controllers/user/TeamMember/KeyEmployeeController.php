@@ -7,8 +7,6 @@ use App\Http\Requests\KeyEmployeeRequest;
 use App\Models\Education;
 use App\Models\KeyEmployee;
 use App\Models\Responsibility;
-use App\Models\Team;
-use App\Models\TeamMember;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,9 +20,6 @@ class KeyEmployeeController extends Controller
      */
     public function index()
     {
-//        $team_id = Auth::user()->team_id;
-//        $key_employees = KeyEmployee::with(['team', 'education'])
-//            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume']);
         return view('user.team-member.key-employees.index');
     }
 
@@ -35,29 +30,29 @@ class KeyEmployeeController extends Controller
      */
     public function create()
     {
-        $this_year = jdate(Carbon::now())->format('Y');
-        $responsibilities = Responsibility::all(['id','nickname']);
-        $education = Education::all(['id', 'nickname']);
-        return view('user.team-member.key-employees.create',compact('this_year','responsibilities','education'));
+        return view('user.team-member.key-employees.index');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param KeyEmployeeRequest $request
+     * @param KeyEmployee $keyEmployee
      * @return \Illuminate\Http\Response
      */
-    public function store(KeyEmployeeRequest $request, KeyEmployee $keyEmployee)
+    public function store(KeyEmployeeRequest $request, KeyEmployee $member)
     {
-        $keyEmployee->fname = $request->input('fname');
-        $keyEmployee->lname = $request->input('lname');
-        $keyEmployee->team_id = Auth::user()->team_id;
-        $keyEmployee->education_id = $request->input('education');
-        $keyEmployee->major = $request->input('major');
-        $keyEmployee->age = $request->input('age');
-        $keyEmployee->resume = $request->input('resume');
-        $keyEmployee->updated_at = null;
-        $keyEmployee->save();
+        $member->fname = $request->input('fname');
+        $member->lname = $request->input('lname');
+        $member->team_id = Auth::user()->team_id;
+        $member->education_id = $request->input('education_id');
+        $member->major = $request->input('major');
+        $member->age = $request->input('age');
+        $member->resume = $request->input('resume');
+        $member->updated_at = null;
+        $member->save();
+        $member->responsibility()->sync($request->input('responsibility'));
+        return response(['سهامدار مورد نظر با موفقیت ایجاد شد'], 201);
     }
 
     /**
@@ -79,7 +74,7 @@ class KeyEmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.team-member.key-employees.index');
     }
 
     /**
@@ -89,9 +84,19 @@ class KeyEmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(KeyEmployeeRequest $request, $id)
     {
-        //
+        $member = KeyEmployee::findorfail($request->id);
+        $member->fname = $request->input('fname');
+        $member->lname = $request->input('lname');
+        $member->team_id = Auth::user()->team_id;
+        $member->education_id = $request->input('education_id');
+        $member->major = $request->input('major');
+        $member->age = $request->input('age');
+        $member->resume = $request->input('resume');
+        $member->save();
+        $member->responsibility()->sync($request->input('responsibility'));
+        return response(['سهامدار مورد نظر با موفقیت ویرایش شد'], 201);
     }
 
     /**

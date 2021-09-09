@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">سهامداران</div>
+                                <div class="text-muted">کارکنان کلیدی</div>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -33,10 +33,10 @@
                     <!--begin::Header-->
                     <div class="card-header border-0 py-5">
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
+                            <span class="card-label font-weight-bolder text-dark">لیست کارکنان کلیدی</span>
                         </h3>
                         <div class="card-toolbar">
-                            <router-link :to="{ name: 'key-employees-index' }">
+                            <router-link :to="{ name: 'key-employees-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
                                     <span class="svg-icon svg-icon-md">
                                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -48,7 +48,7 @@
                                             </g>
                                         </svg>
                                         <!--end::Svg Icon-->
-                                    </span>افزودن سهامدار جدید
+                                    </span>افزودن کارمند جدید
                                 </a>
                             </router-link>
                         </div>
@@ -152,24 +152,41 @@
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-                axios.delete(`/shareholders/${id}`)
-                    .then(response => {
-                        console.log(response.data[0]);
-                        if(response.data[0] == "deleted"){
-                            var table = document.getElementById(`del${id}`);
-                            console.log(table);
-                            table.remove();
-                        }
-                    })
-                    .then(response => {
-                        Swal.fire({
-                            title: "سهامدار با موفقیت حذف شد",
-                            icon: "success",
-                            showConfirmButton: false,
-                            timer: 3000,
-                        });
+
+                Swal.fire({
+                    title: "از حذف این سهامدار اطمینان دارید؟",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "بله، حذف شود",
+                    cancelButtonText: "لغو",
+                }).then(function(result) {
+                    if (result.value) {
+                        axios.delete(`/key-employees/${id}`)
+                            .then(response => {
+                                if(response.data[0] == "deleted"){
+                                    var table = document.getElementById(`del${id}`);
+                                    table.remove();
+                                    Swal.fire({
+                                        title: "سهامدار با موفقیت حذف شد",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }else if(response.data[0] == "undeleted"){
+                                    Swal.fire({
+                                        title: "حداقل یک سهامدار باید داشته باشید",
+                                        icon: "error",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }
+                            })
+                    } else {
                         KTUtil.btnRelease(formSubmitButton);
-                    });
+                    }
+                });
             },
         }
     }

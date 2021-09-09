@@ -4984,12 +4984,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
 //
 //
 //
@@ -5081,34 +5076,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
-var Errors = /*#__PURE__*/function () {
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-
-  _createClass(Errors, [{
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }]);
-
-  return Errors;
-}();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "create",
@@ -5116,9 +5083,12 @@ var Errors = /*#__PURE__*/function () {
     return {
       productTypes: [],
       data: {
-        product: []
+        products: [{
+          name: '',
+          type: ''
+        }]
       },
-      errors: new Errors()
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default()
     };
   },
   created: function created() {
@@ -5129,132 +5099,52 @@ var Errors = /*#__PURE__*/function () {
     })["catch"](function (error) {
       return console.log(error);
     });
-
-    var KTFormRepeater = function () {
-      // Private functions
-      var demo1 = function demo1() {
-        $('#kt_repeater_1').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'product_type': 1
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            $(this).slideUp(deleteElement);
-          },
-          isFirstItemUndeletable: true
-        });
-      };
-
-      var demo2 = function demo2() {
-        $('#kt_repeater_2').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'text-input': 'foo'
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            if (confirm('Are you sure you want to delete this element?')) {
-              $(this).slideUp(deleteElement);
+    /*var KTFormRepeater = function() {
+         // Private functions
+        var demo1 = function() {
+            $('#kt_repeater_1').repeater({
+                initEmpty: false,
+                 defaultValues: {
+                    'product_type': 1,
+                },
+                 show: function () {
+                    $(this).slideDown();
+                },
+                 hide: function (deleteElement) {
+                    $(this).slideUp(deleteElement);
+                },
+                isFirstItemUndeletable: true
+            });
+        };
+        return {
+            // public functions
+            init: function() {
+                demo1();
             }
-          }
-        });
-      };
-
-      var demo3 = function demo3() {
-        $('#kt_repeater_3').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'text-input': 'foo'
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            if (confirm('Are you sure you want to delete this element?')) {
-              $(this).slideUp(deleteElement);
-            }
-          }
-        });
-      };
-
-      var demo4 = function demo4() {
-        $('#kt_repeater_4').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'text-input': 'foo'
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            $(this).slideUp(deleteElement);
-          }
-        });
-      };
-
-      var demo5 = function demo5() {
-        $('#kt_repeater_5').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'text-input': 'foo'
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            $(this).slideUp(deleteElement);
-          }
-        });
-      };
-
-      var demo6 = function demo6() {
-        $('#kt_repeater_6').repeater({
-          initEmpty: false,
-          defaultValues: {
-            'text-input': 'foo'
-          },
-          show: function show() {
-            $(this).slideDown();
-          },
-          hide: function hide(deleteElement) {
-            $(this).slideUp(deleteElement);
-          }
-        });
-      };
-
-      return {
-        // public functions
-        init: function init() {
-          demo1();
-          demo2();
-          demo3();
-          demo4();
-          demo5();
-          demo6();
-        }
-      };
+        };
     }();
-
-    jQuery(document).ready(function () {
-      KTFormRepeater.init();
-    });
+     jQuery(document).ready(function() {
+        KTFormRepeater.init();
+    });*/
   },
   methods: {
-    onSubmit: function onSubmit() {
-      var _this2 = this;
-
-      axios.post('/product', this.data).then(function (response) {
-        console.log(response);
-      })["catch"](function (error) {
-        _this2.errors.record(error.response.data.errors);
-
-        console.log(_this2.errors.record(error.response.data.errors));
+    AddField: function AddField() {
+      this.data.products.push({
+        name: '',
+        type: ''
       });
+    },
+    RemoveField: function RemoveField(index) {
+      this.data.products.splice(index, 1);
+      console.log(this.data.products);
+    },
+    onSubmit: function onSubmit() {
+      console.log(this.data.products); // axios.post('/product', this.data)
+      //     .then(response => {console.log(response);})
+      //     .catch(error => {
+      //         this.errors.record(error.response.data.errors);
+      //         console.log(this.errors.record(error.response.data.errors));
+      //     });
     }
   }
 });
@@ -5439,12 +5329,215 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "create"
+  name: "create",
+  data: function data() {
+    return {
+      education: [],
+      responsibilities: [],
+      this_year: null,
+      data: {
+        fname: '',
+        lname: '',
+        major: '',
+        age: '',
+        education_id: '',
+        responsibility: [],
+        resume: ''
+      },
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default()
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/api/key-employees/create').then(function (response) {
+      _this.education = response.data.education;
+      _this.responsibilities = response.data.responsibilities;
+      _this.this_year = parseInt(response.data.this_year);
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      axios.post('/key-employees', this.data).then(function (response) {
+        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+        Swal.fire({
+          title: "کارمند با موفیت ایجاد شد",
+          icon: "success",
+          buttonsStyling: false,
+          confirmButtonText: "باشد",
+          customClass: {
+            confirmButton: "btn btn-primary"
+          }
+        });
+
+        _this2.$router.push({
+          name: 'key-employees-index'
+        });
+      })["catch"](function (error) {
+        _this2.errors.record(error.response.data.errors);
+      });
+    }
+  },
+  mounted: function mounted() {
+    var $this = this;
+    $(document).ready(function () {
+      var select = $('.select2').select2();
+      select.on("select2:selecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.push(e.params.args.data.id);
+      });
+      select.on("select2:unselecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
+      });
+    });
+  }
 });
 
 /***/ }),
@@ -5460,12 +5553,211 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "edit"
+  name: "edit",
+  data: function data() {
+    return {
+      education: [],
+      responsibilities: [],
+      this_year: null,
+      data: {
+        responsibility: []
+      },
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default()
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/key-employees/".concat(this.$route.params.id, "/edit")).then(function (response) {
+      _this.education = response.data.education;
+      _this.responsibilities = response.data.responsibilities;
+      _this.this_year = parseInt(response.data.this_year);
+      _this.data = response.data.member;
+
+      for (var i = 0; i < response.data.member.responsibility.length; i++) {
+        _this.data.responsibility.push(response.data.member.responsibility[i].id);
+      }
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  },
+  methods: {
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      axios.put("/key-employees/".concat(this.$route.params.id), this.data).then(function (response) {
+        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+        Swal.fire({
+          title: "اطلاعات کارمند با موفقیت ویرایش شد",
+          icon: "success",
+          buttonsStyling: false,
+          confirmButtonText: "باشد",
+          customClass: {
+            confirmButton: "btn btn-primary"
+          }
+        });
+
+        _this2.$router.push({
+          name: 'key-employees-index'
+        });
+      })["catch"](function (error) {
+        _this2.errors.record(error.response.data.errors);
+      });
+    }
+  },
+  mounted: function mounted() {
+    var $this = this;
+    $(document).ready(function () {
+      var select = $('.select2').select2();
+      select.on("select2:selecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.push(e.params.args.data.id);
+        console.log(responsibility);
+      });
+      select.on("select2:unselecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
+        console.log(responsibility);
+      });
+    });
+  }
 });
 
 /***/ }),
@@ -5636,22 +5928,38 @@ __webpack_require__.r(__webpack_exports__);
       var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
       var formSubmitButton = KTUtil.getById("icon".concat(id));
       KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-      axios["delete"]("/shareholders/".concat(id)).then(function (response) {
-        console.log(response.data[0]);
-
-        if (response.data[0] == "deleted") {
-          var table = document.getElementById("del".concat(id));
-          console.log(table);
-          table.remove();
+      Swal.fire({
+        title: "از حذف این سهامدار اطمینان دارید؟",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "بله، حذف شود",
+        cancelButtonText: "لغو"
+      }).then(function (result) {
+        if (result.value) {
+          axios["delete"]("/key-employees/".concat(id)).then(function (response) {
+            if (response.data[0] == "deleted") {
+              var table = document.getElementById("del".concat(id));
+              table.remove();
+              Swal.fire({
+                title: "سهامدار با موفقیت حذف شد",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              KTUtil.btnRelease(formSubmitButton);
+            } else if (response.data[0] == "undeleted") {
+              Swal.fire({
+                title: "حداقل یک سهامدار باید داشته باشید",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              KTUtil.btnRelease(formSubmitButton);
+            }
+          });
+        } else {
+          KTUtil.btnRelease(formSubmitButton);
         }
-      }).then(function (response) {
-        Swal.fire({
-          title: "سهامدار با موفقیت حذف شد",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 3000
-        });
-        KTUtil.btnRelease(formSubmitButton);
       });
     }
   }
@@ -5670,12 +5978,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
 //
 //
 //
@@ -5821,40 +6124,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
-//
-//
-//
-//
-//
-//
-var Errors = /*#__PURE__*/function () {
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-
-  _createClass(Errors, [{
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }]);
-
-  return Errors;
-}();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "create",
@@ -5868,12 +6137,12 @@ var Errors = /*#__PURE__*/function () {
         lname: '',
         major: '',
         age: '',
-        education: '',
+        education_id: '',
         responsibility: [],
         resume: '',
         investment: ''
       },
-      errors: new Errors()
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default()
     };
   },
   created: function created() {
@@ -5885,28 +6154,6 @@ var Errors = /*#__PURE__*/function () {
       _this.this_year = parseInt(response.data.this_year);
     })["catch"](function (error) {
       return console.log(error);
-    }); // Class definition
-
-    var KTSelect2 = function () {
-      // Private functions
-      var demos = function demos() {
-        // multi select
-        $('#kt_select2_3, #kt_select2_3_validate').select2({
-          placeholder: 'Select a state'
-        });
-      }; // Public functions
-
-
-      return {
-        init: function init() {
-          demos();
-        }
-      };
-    }(); // Initialization
-
-
-    jQuery(document).ready(function () {
-      KTSelect2.init();
     });
   },
   methods: {
@@ -5934,6 +6181,20 @@ var Errors = /*#__PURE__*/function () {
         _this2.errors.record(error.response.data.errors);
       });
     }
+  },
+  mounted: function mounted() {
+    var $this = this;
+    $(document).ready(function () {
+      var select = $('.select2').select2();
+      select.on("select2:selecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.push(e.params.args.data.id);
+      });
+      select.on("select2:unselecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
+      });
+    });
   }
 });
 
@@ -5950,12 +6211,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
 //
 //
 //
@@ -6096,45 +6352,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var Errors = /*#__PURE__*/function () {
-  function Errors() {
-    _classCallCheck(this, Errors);
-
-    this.errors = {};
-  }
-
-  _createClass(Errors, [{
-    key: "has",
-    value: function has(field) {
-      return this.errors.hasOwnProperty(field);
-    }
-  }, {
-    key: "get",
-    value: function get(field) {
-      if (this.errors[field]) {
-        return this.errors[field][0];
-      }
-    }
-  }, {
-    key: "record",
-    value: function record(errors) {
-      this.errors = errors;
-    }
-  }]);
-
-  return Errors;
-}();
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "edit",
@@ -6146,7 +6363,7 @@ var Errors = /*#__PURE__*/function () {
       data: {
         responsibility: []
       },
-      errors: new Errors()
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default()
     };
   },
   created: function created() {
@@ -6190,6 +6407,22 @@ var Errors = /*#__PURE__*/function () {
         _this2.errors.record(error.response.data.errors);
       });
     }
+  },
+  mounted: function mounted() {
+    var $this = this;
+    $(document).ready(function () {
+      var select = $('.select2').select2();
+      select.on("select2:selecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.push(e.params.args.data.id);
+        console.log(responsibility);
+      });
+      select.on("select2:unselecting", function (e) {
+        var responsibility = $this._data.data.responsibility;
+        responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
+        console.log(responsibility);
+      });
+    });
   }
 });
 
@@ -6356,7 +6589,6 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/shareholders').then(function (response) {
       _this.shareholders = response.data;
       _this.progress = false;
-      console.log(response.data);
     })["catch"](function (error) {
       return console.log(error);
     });
@@ -6366,26 +6598,92 @@ __webpack_require__.r(__webpack_exports__);
       var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
       var formSubmitButton = KTUtil.getById("icon".concat(id));
       KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-      axios["delete"]("/shareholders/".concat(id)).then(function (response) {
-        console.log(response.data[0]);
-
-        if (response.data[0] == "deleted") {
-          var table = document.getElementById("del".concat(id));
-          console.log(table);
-          table.remove();
+      Swal.fire({
+        title: "از حذف این سهامدار اطمینان دارید؟",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "بله، حذف شود",
+        cancelButtonText: "لغو"
+      }).then(function (result) {
+        if (result.value) {
+          axios["delete"]("/shareholders/".concat(id)).then(function (response) {
+            if (response.data[0] == "deleted") {
+              var table = document.getElementById("del".concat(id));
+              table.remove();
+              Swal.fire({
+                title: "سهامدار با موفقیت حذف شد",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              KTUtil.btnRelease(formSubmitButton);
+            } else if (response.data[0] == "undeleted") {
+              Swal.fire({
+                title: "حداقل یک سهامدار باید داشته باشید",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+              });
+              KTUtil.btnRelease(formSubmitButton);
+            }
+          });
+        } else {
+          KTUtil.btnRelease(formSubmitButton);
         }
-      }).then(function (response) {
-        Swal.fire({
-          title: "سهامدار با موفقیت حذف شد",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 3000
-        });
-        KTUtil.btnRelease(formSubmitButton);
       });
     }
   }
 });
+
+/***/ }),
+
+/***/ "./resources/js/Errors.js":
+/*!********************************!*\
+  !*** ./resources/js/Errors.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Errors)
+/* harmony export */ });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Errors = /*#__PURE__*/function () {
+  function Errors() {
+    _classCallCheck(this, Errors);
+
+    this.errors = {};
+  }
+
+  _createClass(Errors, [{
+    key: "has",
+    value: function has(field) {
+      return this.errors.hasOwnProperty(field);
+    }
+  }, {
+    key: "get",
+    value: function get(field) {
+      if (this.errors[field]) {
+        return this.errors[field][0];
+      }
+    }
+  }, {
+    key: "record",
+    value: function record(errors) {
+      this.errors = errors;
+    }
+  }]);
+
+  return Errors;
+}();
+
+
 
 /***/ }),
 
@@ -6397,114 +6695,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Content */ "./resources/js/components/Content.vue");
-/* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue");
-/* harmony import */ var _components_team_member_shareholders_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/team-member/shareholders/index */ "./resources/js/components/team-member/shareholders/index.vue");
-/* harmony import */ var _components_team_member_shareholders_create__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/team-member/shareholders/create */ "./resources/js/components/team-member/shareholders/create.vue");
-/* harmony import */ var _components_team_member_shareholders_edit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/team-member/shareholders/edit */ "./resources/js/components/team-member/shareholders/edit.vue");
-/* harmony import */ var _components_team_member_key_employees_index__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/team-member/key-employees/index */ "./resources/js/components/team-member/key-employees/index.vue");
-/* harmony import */ var _components_team_member_key_employees_create__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/team-member/key-employees/create */ "./resources/js/components/team-member/key-employees/create.vue");
-/* harmony import */ var _components_team_member_key_employees_edit__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/team-member/key-employees/edit */ "./resources/js/components/team-member/key-employees/edit.vue");
-/* harmony import */ var _components_other_product_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/other/product/index */ "./resources/js/components/other/product/index.vue");
-/* harmony import */ var _components_other_product_create__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/other/product/create */ "./resources/js/components/other/product/create.vue");
-/* harmony import */ var _components_other_product_edit__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/other/product/edit */ "./resources/js/components/other/product/edit.vue");
-
-
+/* harmony import */ var _router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./router */ "./resources/js/router.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-Vue.use(vue_router__WEBPACK_IMPORTED_MODULE_0__.default);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
 
-
-
-
-
-
-
-
-
-
-
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__.default({
-  mode: 'history',
-  routes: [{
-    path: '/user/dashboard',
-    name: 'Dashboard',
-    component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_2__.default,
-    meta: {
-      title: 'داشبورد'
-    }
-  }, {
-    path: '/page',
-    name: 'Page',
-    component: _components_Content__WEBPACK_IMPORTED_MODULE_1__.default
-  }, {
-    path: '/shareholders',
-    name: 'shareholders-index',
-    component: _components_team_member_shareholders_index__WEBPACK_IMPORTED_MODULE_3__.default,
-    meta: {
-      title: 'لیست سهامداران'
-    }
-  }, {
-    path: '/shareholders/create',
-    name: 'shareholders-create',
-    component: _components_team_member_shareholders_create__WEBPACK_IMPORTED_MODULE_4__.default,
-    meta: {
-      title: 'ایجاد سهامدار جدید'
-    }
-  }, {
-    path: '/shareholders/:id/edit',
-    name: 'shareholders-edit',
-    component: _components_team_member_shareholders_edit__WEBPACK_IMPORTED_MODULE_5__.default,
-    meta: {
-      title: 'ویرایش سهامدار'
-    }
-  }, {
-    path: '/key-employees',
-    name: 'key-employees-index',
-    component: _components_team_member_key_employees_index__WEBPACK_IMPORTED_MODULE_6__.default,
-    meta: {
-      title: 'لیست کارکنان کلیدی'
-    }
-  }, {
-    path: '/key-employees/create',
-    name: 'key-employees-create',
-    component: _components_team_member_key_employees_create__WEBPACK_IMPORTED_MODULE_7__.default,
-    meta: {
-      title: 'ایجاد کارمند کلیدی جدید'
-    }
-  }, {
-    path: '/key-employees/:id/edit',
-    name: 'key-employees-edit',
-    component: _components_team_member_key_employees_edit__WEBPACK_IMPORTED_MODULE_8__.default,
-    meta: {
-      title: 'ویرایش کارمند کلیدی'
-    }
-  }, {
-    path: '/product',
-    name: 'product-index',
-    component: _components_other_product_index__WEBPACK_IMPORTED_MODULE_9__.default,
-    meta: {
-      title: 'محصولات'
-    }
-  }, {
-    path: '/product/create',
-    name: 'product-create',
-    component: _components_other_product_create__WEBPACK_IMPORTED_MODULE_10__.default,
-    meta: {
-      title: 'ایجاد محصول'
-    }
-  }, {
-    path: '/product/:id/edit',
-    name: 'product-edit',
-    component: _components_other_product_edit__WEBPACK_IMPORTED_MODULE_11__.default,
-    meta: {
-      title: 'ویرایش محصول'
-    }
-  }]
-});
-router.beforeEach(function (to, from, next) {
+_router__WEBPACK_IMPORTED_MODULE_0__.default.beforeEach(function (to, from, next) {
   // This goes through the matched routes from last to first, finding the closest route with a title.
   // e.g., if we have `/some/deep/nested/route` and `/some`, `/deep`, and `/nested` have titles,
   // `/nested`'s will be chosen.
@@ -6549,7 +6745,7 @@ router.beforeEach(function (to, from, next) {
 
 var app = new Vue({
   el: '#app',
-  router: router
+  router: _router__WEBPACK_IMPORTED_MODULE_0__.default
 });
 
 /***/ }),
@@ -6606,6 +6802,126 @@ window.axios.defaults.headers.common = {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/router.js":
+/*!********************************!*\
+  !*** ./resources/js/router.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _components_Content__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Content */ "./resources/js/components/Content.vue");
+/* harmony import */ var _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Dashboard */ "./resources/js/components/Dashboard.vue");
+/* harmony import */ var _components_team_member_shareholders_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/team-member/shareholders/index */ "./resources/js/components/team-member/shareholders/index.vue");
+/* harmony import */ var _components_team_member_shareholders_create__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/team-member/shareholders/create */ "./resources/js/components/team-member/shareholders/create.vue");
+/* harmony import */ var _components_team_member_shareholders_edit__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/team-member/shareholders/edit */ "./resources/js/components/team-member/shareholders/edit.vue");
+/* harmony import */ var _components_team_member_key_employees_index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/team-member/key-employees/index */ "./resources/js/components/team-member/key-employees/index.vue");
+/* harmony import */ var _components_team_member_key_employees_create__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/team-member/key-employees/create */ "./resources/js/components/team-member/key-employees/create.vue");
+/* harmony import */ var _components_team_member_key_employees_edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/team-member/key-employees/edit */ "./resources/js/components/team-member/key-employees/edit.vue");
+/* harmony import */ var _components_other_product_index__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/other/product/index */ "./resources/js/components/other/product/index.vue");
+/* harmony import */ var _components_other_product_create__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/other/product/create */ "./resources/js/components/other/product/create.vue");
+/* harmony import */ var _components_other_product_edit__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/other/product/edit */ "./resources/js/components/other/product/edit.vue");
+
+
+vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
+
+
+
+
+
+
+
+
+
+
+
+var routes = [{
+  path: '/user/dashboard',
+  name: 'Dashboard',
+  component: _components_Dashboard__WEBPACK_IMPORTED_MODULE_3__.default,
+  meta: {
+    title: 'داشبورد'
+  }
+}, {
+  path: '/page',
+  name: 'Page',
+  component: _components_Content__WEBPACK_IMPORTED_MODULE_2__.default
+}, {
+  path: '/shareholders',
+  name: 'shareholders-index',
+  component: _components_team_member_shareholders_index__WEBPACK_IMPORTED_MODULE_4__.default,
+  meta: {
+    title: 'لیست سهامداران'
+  }
+}, {
+  path: '/shareholders/create',
+  name: 'shareholders-create',
+  component: _components_team_member_shareholders_create__WEBPACK_IMPORTED_MODULE_5__.default,
+  meta: {
+    title: 'ایجاد سهامدار جدید'
+  }
+}, {
+  path: '/shareholders/:id/edit',
+  name: 'shareholders-edit',
+  component: _components_team_member_shareholders_edit__WEBPACK_IMPORTED_MODULE_6__.default,
+  meta: {
+    title: 'ویرایش سهامدار'
+  }
+}, {
+  path: '/key-employees',
+  name: 'key-employees-index',
+  component: _components_team_member_key_employees_index__WEBPACK_IMPORTED_MODULE_7__.default,
+  meta: {
+    title: 'لیست کارکنان کلیدی'
+  }
+}, {
+  path: '/key-employees/create',
+  name: 'key-employees-create',
+  component: _components_team_member_key_employees_create__WEBPACK_IMPORTED_MODULE_8__.default,
+  meta: {
+    title: 'ایجاد کارمند کلیدی جدید'
+  }
+}, {
+  path: '/key-employees/:id/edit',
+  name: 'key-employees-edit',
+  component: _components_team_member_key_employees_edit__WEBPACK_IMPORTED_MODULE_9__.default,
+  meta: {
+    title: 'ویرایش کارمند کلیدی'
+  }
+}, {
+  path: '/product',
+  name: 'product-index',
+  component: _components_other_product_index__WEBPACK_IMPORTED_MODULE_10__.default,
+  meta: {
+    title: 'محصولات'
+  }
+}, {
+  path: '/product/create',
+  name: 'product-create',
+  component: _components_other_product_create__WEBPACK_IMPORTED_MODULE_11__.default,
+  meta: {
+    title: 'ایجاد محصول'
+  }
+}, {
+  path: '/product/:id/edit',
+  name: 'product-edit',
+  component: _components_other_product_edit__WEBPACK_IMPORTED_MODULE_12__.default,
+  meta: {
+    title: 'ویرایش محصول'
+  }
+}];
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new vue_router__WEBPACK_IMPORTED_MODULE_1__.default({
+  mode: 'history',
+  routes: routes
+}));
 
 /***/ }),
 
@@ -54204,25 +54520,26 @@ var render = function() {
                               staticClass: "col-lg-10",
                               attrs: { "data-repeater-list": "product" }
                             },
-                            [
-                              _c(
+                            _vm._l(_vm.data.products, function(product, index) {
+                              return _c(
                                 "div",
                                 {
+                                  key: index,
                                   staticClass:
                                     "form-group row align-items-center",
                                   attrs: { "data-repeater-item": "" }
                                 },
                                 [
                                   _c("div", { staticClass: "col-md-4" }, [
-                                    _vm._m(1),
+                                    _vm._m(1, true),
                                     _vm._v(" "),
                                     _c("input", {
                                       directives: [
                                         {
                                           name: "model",
                                           rawName: "v-model",
-                                          value: _vm.data.product,
-                                          expression: "data.product"
+                                          value: product.name,
+                                          expression: "product.name"
                                         }
                                       ],
                                       staticClass: "form-control products",
@@ -54231,15 +54548,15 @@ var render = function() {
                                         name: "product_name",
                                         required: ""
                                       },
-                                      domProps: { value: _vm.data.product },
+                                      domProps: { value: product.name },
                                       on: {
                                         input: function($event) {
                                           if ($event.target.composing) {
                                             return
                                           }
                                           _vm.$set(
-                                            _vm.data,
-                                            "product",
+                                            product,
+                                            "name",
                                             $event.target.value
                                           )
                                         }
@@ -54250,31 +54567,51 @@ var render = function() {
                                   ]),
                                   _vm._v(" "),
                                   _c("div", { staticClass: "col-md-4" }, [
-                                    _vm._m(2),
+                                    _vm._m(2, true),
                                     _vm._v(" "),
                                     _c(
                                       "select",
                                       {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: product.type,
+                                            expression: "product.type"
+                                          }
+                                        ],
                                         staticClass: "form-control",
-                                        attrs: { name: "product_type" }
+                                        attrs: { name: "product_type" },
+                                        on: {
+                                          change: function($event) {
+                                            var $$selectedVal = Array.prototype.filter
+                                              .call(
+                                                $event.target.options,
+                                                function(o) {
+                                                  return o.selected
+                                                }
+                                              )
+                                              .map(function(o) {
+                                                var val =
+                                                  "_value" in o
+                                                    ? o._value
+                                                    : o.value
+                                                return val
+                                              })
+                                            _vm.$set(
+                                              product,
+                                              "type",
+                                              $event.target.multiple
+                                                ? $$selectedVal
+                                                : $$selectedVal[0]
+                                            )
+                                          }
+                                        }
                                       },
                                       _vm._l(_vm.productTypes, function(type) {
                                         return _c(
                                           "option",
-                                          {
-                                            domProps: { value: type.id },
-                                            model: {
-                                              value: _vm.data.product,
-                                              callback: function($$v) {
-                                                _vm.$set(
-                                                  _vm.data,
-                                                  "product",
-                                                  $$v
-                                                )
-                                              },
-                                              expression: "data.product"
-                                            }
-                                          },
+                                          { domProps: { value: type.id } },
                                           [_vm._v(_vm._s(type.nickname))]
                                         )
                                       }),
@@ -54284,14 +54621,52 @@ var render = function() {
                                     _c("div", { staticClass: "d-md-none mb-2" })
                                   ]),
                                   _vm._v(" "),
-                                  _vm._m(3)
+                                  index != 0
+                                    ? _c(
+                                        "div",
+                                        {
+                                          staticClass: "col-md-4",
+                                          staticStyle: { "margin-top": "28px" },
+                                          on: {
+                                            click: function($event) {
+                                              return _vm.RemoveField(index)
+                                            }
+                                          }
+                                        },
+                                        [_vm._m(3, true)]
+                                      )
+                                    : _vm._e()
                                 ]
                               )
-                            ]
+                            }),
+                            0
                           )
                         ]),
                         _vm._v(" "),
-                        _vm._m(4)
+                        _c("div", { staticClass: "form-group row" }, [
+                          _c("label", {
+                            staticClass: "col-lg-2 col-form-label text-right"
+                          }),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "col-lg-4" }, [
+                            _c(
+                              "a",
+                              {
+                                staticClass:
+                                  "btn btn-sm font-weight-bolder btn-light-primary",
+                                attrs: {
+                                  href: "javascript:;",
+                                  "data-repeater-create": ""
+                                },
+                                on: { click: _vm.AddField }
+                              },
+                              [
+                                _c("i", { staticClass: "la la-plus" }),
+                                _vm._v("افزودن")
+                              ]
+                            )
+                          ])
+                        ])
                       ])
                     ]),
                     _vm._v(" "),
@@ -54346,38 +54721,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c(
-      "div",
-      { staticClass: "col-md-4", staticStyle: { "margin-top": "28px" } },
-      [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-sm font-weight-bolder btn-light-danger",
-            attrs: { href: "javascript:;", "data-repeater-delete": "" }
-          },
-          [_c("i", { staticClass: "la la-trash-o" }), _vm._v("حذف")]
-        )
-      ]
+      "a",
+      {
+        staticClass: "btn btn-sm font-weight-bolder btn-light-danger",
+        attrs: { "data-repeater-delete": "" }
+      },
+      [_c("i", { staticClass: "la la-trash-o" }), _vm._v("حذف")]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group row" }, [
-      _c("label", { staticClass: "col-lg-2 col-form-label text-right" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-lg-4" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-sm font-weight-bolder btn-light-primary",
-            attrs: { href: "javascript:;", "data-repeater-create": "" }
-          },
-          [_c("i", { staticClass: "la la-plus" }), _vm._v("افزودن")]
-        )
-      ])
-    ])
   }
 ]
 render._withStripped = true
@@ -54734,302 +55084,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/edit.vue?vue&type=template&id=796a2f32&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/edit.vue?vue&type=template&id=796a2f32&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div")
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/index.vue?vue&type=template&id=14d91e4c&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/index.vue?vue&type=template&id=14d91e4c&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
-/* harmony export */ });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "card card-custom gutter-b" }, [
-          _c("div", { staticClass: "card-header border-0 py-5" }, [
-            _vm._m(1),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-toolbar" },
-              [
-                _c(
-                  "router-link",
-                  { attrs: { to: { name: "key-employees-index" } } },
-                  [
-                    _c(
-                      "a",
-                      { staticClass: "btn btn-primary font-weight-bolder" },
-                      [
-                        _c("span", { staticClass: "svg-icon svg-icon-md" }, [
-                          _c(
-                            "svg",
-                            {
-                              attrs: {
-                                xmlns: "http://www.w3.org/2000/svg",
-                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
-                                width: "24px",
-                                height: "24px",
-                                viewBox: "0 0 24 24",
-                                version: "1.1"
-                              }
-                            },
-                            [
-                              _c(
-                                "g",
-                                {
-                                  attrs: {
-                                    stroke: "none",
-                                    "stroke-width": "1",
-                                    fill: "none",
-                                    "fill-rule": "evenodd"
-                                  }
-                                },
-                                [
-                                  _c("polygon", {
-                                    attrs: { points: "0 0 24 0 24 24 0 24" }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
-                                      fill: "#000000",
-                                      "fill-rule": "nonzero",
-                                      opacity: "0.3"
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("path", {
-                                    attrs: {
-                                      d:
-                                        "M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
-                                      fill: "#000000",
-                                      "fill-rule": "nonzero"
-                                    }
-                                  })
-                                ]
-                              )
-                            ]
-                          )
-                        ]),
-                        _vm._v(
-                          "افزودن سهامدار جدید\n                            "
-                        )
-                      ]
-                    )
-                  ]
-                )
-              ],
-              1
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body pt-0 pb-3" }, [
-            _c("div", { staticClass: "table-responsive" }, [
-              _c(
-                "table",
-                {
-                  staticClass:
-                    "table table-head-custom table-head-bg table-vertical-center table-borderless",
-                  attrs: { id: "myTable" }
-                },
-                [
-                  _vm.progress
-                    ? _c("div", { staticClass: "d-flex align-items-center" }, [
-                        _c("div", { staticClass: "mr-2 text-muted" }, [
-                          _vm._v("لطفا صبر کنید...")
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "spinner mr-10" })
-                      ])
-                    : _c("thead", [_vm._m(2)]),
-                  _vm._v(" "),
-                  _c(
-                    "tbody",
-                    _vm._l(_vm.keyEmployees, function(employe, index) {
-                      return _c("tr", { attrs: { id: "del" + employe.id } }, [
-                        _c("td", { staticClass: "pl-0 py-0" }, [
-                          _c(
-                            "div",
-                            { staticClass: "d-flex align-items-center" },
-                            [
-                              _c("div", { staticClass: "text-dark mb-1" }, [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(employe.fname) +
-                                    "\n                                        "
-                                )
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.lname))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.education.nickname))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-750" }, [
-                            _vm._v(_vm._s(employe.major))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.age))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.resume))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          _vm._l(employe.responsibility, function(res) {
-                            return _c("div", [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "label label-lg label-light-primary label-inline mt-1"
-                                },
-                                [_vm._v(_vm._s(res.nickname))]
-                              ),
-                              _c("br")
-                            ])
-                          }),
-                          0
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "pr-0 text-left" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    name: "key-employees-edit",
-                                    params: { id: employe.id }
-                                  }
-                                }
-                              },
-                              [
-                                _c(
-                                  "a",
-                                  {
-                                    staticClass:
-                                      "btn btn-icon btn-light-success btn-sm mr-2",
-                                    attrs: { href: "#" }
-                                  },
-                                  [_c("i", { staticClass: "flaticon2-edit" })]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-icon btn-light-danger btn-sm mr-2",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteShareholder(
-                                      employe.id,
-                                      index
-                                    )
-                                  }
-                                }
-                              },
-                              [
-                                _c("i", {
-                                  staticClass: "flaticon2-trash",
-                                  attrs: { id: "icon" + employe.id }
-                                })
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("hr")
-                      ])
-                    }),
-                    0
-                  )
-                ]
-              )
-            ])
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
+    _c(
       "div",
       {
         staticClass: "subheader py-2 py-lg-6 subheader-solid",
@@ -55054,7 +55110,7 @@ var staticRenderFns = [
                     _c(
                       "h5",
                       { staticClass: "text-dark font-weight-bold my-1 mr-5" },
-                      [_vm._v("اطلاعات تیم")]
+                      [_vm._v("اعضای تیم")]
                     ),
                     _vm._v(" "),
                     _c(
@@ -55068,11 +55124,22 @@ var staticRenderFns = [
                           "li",
                           { staticClass: "breadcrumb-item text-muted" },
                           [
-                            _c("div", { staticClass: "text-muted" }, [
-                              _vm._v("سهامداران")
-                            ])
-                          ]
-                        )
+                            _c(
+                              "router-link",
+                              {
+                                attrs: { to: { name: "key-employees-index" } }
+                              },
+                              [
+                                _c("a", { staticClass: "text-muted" }, [
+                                  _vm._v("کارکنان کلیدی")
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0)
                       ]
                     )
                   ]
@@ -55082,42 +55149,566 @@ var staticRenderFns = [
           ]
         )
       ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "h3",
-      { staticClass: "card-title align-items-start flex-column" },
-      [
-        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
-          _vm._v("لیست محصولات")
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-custom gutter-b example example-compact"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form",
+                    attrs: {
+                      novalidate: "novalidate",
+                      id: "kt_login_signup_form"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.onSubmit.apply(null, arguments)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.fname,
+                                  expression: "data.fname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("fname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "fname",
+                                placeholder: "نام خود را وارد کنید.",
+                                name: "fname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.fname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "fname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("fname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("fname")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.lname,
+                                  expression: "data.lname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("lname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "lname",
+                                placeholder: "نام خانوادگی خود را وارد کنید.",
+                                name: "lname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.lname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "lname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("lname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("lname")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.major,
+                                  expression: "data.major"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("major") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "major",
+                                placeholder: "رشته خود را وارد کنید.",
+                                name: "major",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.major },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "major",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("major")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("major")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.age,
+                                    expression: "data.age"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("age") }
+                                ],
+                                attrs: {
+                                  name: "age",
+                                  id: "age",
+                                  "data-placeholder":
+                                    "سال تولد خود را انتخاب کنید"
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "age",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(100, function(n, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    domProps: { value: _vm.this_year - index }
+                                  },
+                                  [_vm._v(_vm._s(_vm.this_year - index))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("age")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("age")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.education_id,
+                                    expression: "data.education_id"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  {
+                                    "is-invalid": _vm.errors.has("education_id")
+                                  }
+                                ],
+                                attrs: { name: "education", id: "education" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "education_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(_vm.education, function(edu) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: edu.id } },
+                                  [_vm._v(_vm._s(edu.nickname))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("education_id")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("education_id"))
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group is-invalid" }, [
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control select2",
+                                attrs: {
+                                  name: "responsibility",
+                                  id: "kt_select2_3",
+                                  multiple: "multiple",
+                                  "data-placeholder":
+                                    "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
+                                }
+                              },
+                              _vm._l(_vm.responsibilities, function(
+                                responsibility,
+                                key
+                              ) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: key,
+                                    domProps: { value: responsibility.id }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(responsibility.nickname) +
+                                        "\n                                                "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("responsibility")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid",
+                                    staticStyle: { display: "block" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("responsibility"))
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(7),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.resume,
+                                    expression: "data.resume"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("resume") }
+                                ],
+                                attrs: { name: "resume", id: "resume" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "resume",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(20, function(n) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: n } },
+                                  [_vm._v(_vm._s(n))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("resume")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("resume")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8)
+                  ]
+                )
+              ]
+            )
+          ])
         ])
-      ]
-    )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "breadcrumb-item text-muted" }, [
+      _c("div", { staticClass: "text-muted" }, [_vm._v("افزودن")])
+    ])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "bg-gray-100 text-left" }, [
-      _c("th", { staticClass: "pl-7" }, [_vm._v("نام")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("نام خانوادگی")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("تحصیلات")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("رشته")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("سال تولد")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("رزومه")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("مسئولیت")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("عملیات")])
+    return _c("label", { attrs: { for: "fname" } }, [
+      _vm._v("نام:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lname" } }, [
+      _vm._v("نام خانوادگی:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "major" } }, [
+      _vm._v("رشته:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "age" } }, [
+      _vm._v("سال تولد:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "education" } }, [
+      _vm._v("تحصیلات:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "kt_select2_3" } }, [
+      _vm._v("مسئولیت:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "resume" } }, [
+      _vm._v(
+        "سابقه عضویت در تیم(بر حسب سال):\n                                                "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary mr-2",
+          attrs: { type: "submit", id: "kt_login_singin_form_submit_button" }
+        },
+        [_vm._v("ثبت")]
+      )
     ])
   }
 ]
@@ -55127,10 +55718,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/shareholders/create.vue?vue&type=template&id=15960763&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/shareholders/create.vue?vue&type=template&id=15960763&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/edit.vue?vue&type=template&id=796a2f32&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/edit.vue?vue&type=template&id=796a2f32&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -55185,10 +55776,12 @@ var render = function() {
                           [
                             _c(
                               "router-link",
-                              { attrs: { to: { name: "shareholders-index" } } },
+                              {
+                                attrs: { to: { name: "key-employees-index" } }
+                              },
                               [
                                 _c("a", { staticClass: "text-muted" }, [
-                                  _vm._v("سهامداران")
+                                  _vm._v("کارکنان کلیدی")
                                 ])
                               ]
                             )
@@ -55474,8 +56067,8 @@ var render = function() {
                                   {
                                     name: "model",
                                     rawName: "v-model",
-                                    value: _vm.data.education,
-                                    expression: "data.education"
+                                    value: _vm.data.education_id,
+                                    expression: "data.education_id"
                                   }
                                 ],
                                 class: [
@@ -55496,7 +56089,7 @@ var render = function() {
                                       })
                                     _vm.$set(
                                       _vm.data,
-                                      "education",
+                                      "education_id",
                                       $event.target.multiple
                                         ? $$selectedVal
                                         : $$selectedVal[0]
@@ -55541,13 +56134,10 @@ var render = function() {
                                     expression: "data.responsibility"
                                   }
                                 ],
-                                staticClass: "form-control",
-                                class: [
-                                  "form-control",
-                                  { "is-invalid": _vm.errors.has("resume") }
-                                ],
+                                staticClass: "form-control select2",
                                 attrs: {
                                   name: "responsibility",
+                                  id: "kt_select2_3",
                                   multiple: "multiple",
                                   "data-placeholder":
                                     "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
@@ -55574,11 +56164,15 @@ var render = function() {
                                 }
                               },
                               _vm._l(_vm.responsibilities, function(
-                                responsibility
+                                responsibility,
+                                key
                               ) {
                                 return _c(
                                   "option",
-                                  { domProps: { value: responsibility.id } },
+                                  {
+                                    key: key,
+                                    domProps: { value: responsibility.id }
+                                  },
                                   [_vm._v(_vm._s(responsibility.nickname))]
                                 )
                               }),
@@ -55589,7 +56183,1015 @@ var render = function() {
                               ? _c(
                                   "div",
                                   {
+                                    staticClass: "invalid-feedback is-invalid",
+                                    staticStyle: { display: "block" }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("responsibility"))
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(7),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.resume,
+                                    expression: "data.resume"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("resume") }
+                                ],
+                                attrs: { name: "resume", id: "resume" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "resume",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(20, function(n) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: n } },
+                                  [_vm._v(_vm._s(n))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("resume")
+                              ? _c(
+                                  "div",
+                                  {
                                     staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("resume")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(8)
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "breadcrumb-item text-muted" }, [
+      _c("div", { staticClass: "text-muted" }, [_vm._v("ویرایش")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "fname" } }, [
+      _vm._v("نام:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "lname" } }, [
+      _vm._v("نام خانوادگی:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "major" } }, [
+      _vm._v("رشته:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "age" } }, [
+      _vm._v("سال تولد:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "education" } }, [
+      _vm._v("تحصیلات:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "kt_select2_3" } }, [
+      _vm._v("مسئولیت:\n                                                "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "resume" } }, [
+      _vm._v(
+        "سابقه عضویت در تیم(بر حسب سال):\n                                                "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success mr-2",
+          attrs: { type: "submit", id: "kt_login_singin_form_submit_button" }
+        },
+        [_vm._v("ویرایش")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/index.vue?vue&type=template&id=14d91e4c&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/key-employees/index.vue?vue&type=template&id=14d91e4c&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "card card-custom gutter-b" }, [
+          _c("div", { staticClass: "card-header border-0 py-5" }, [
+            _vm._m(1),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-toolbar" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: { name: "key-employees-create" } } },
+                  [
+                    _c(
+                      "a",
+                      { staticClass: "btn btn-primary font-weight-bolder" },
+                      [
+                        _c("span", { staticClass: "svg-icon svg-icon-md" }, [
+                          _c(
+                            "svg",
+                            {
+                              attrs: {
+                                xmlns: "http://www.w3.org/2000/svg",
+                                "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                                width: "24px",
+                                height: "24px",
+                                viewBox: "0 0 24 24",
+                                version: "1.1"
+                              }
+                            },
+                            [
+                              _c(
+                                "g",
+                                {
+                                  attrs: {
+                                    stroke: "none",
+                                    "stroke-width": "1",
+                                    fill: "none",
+                                    "fill-rule": "evenodd"
+                                  }
+                                },
+                                [
+                                  _c("polygon", {
+                                    attrs: { points: "0 0 24 0 24 24 0 24" }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
+                                      fill: "#000000",
+                                      "fill-rule": "nonzero",
+                                      opacity: "0.3"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d:
+                                        "M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
+                                      fill: "#000000",
+                                      "fill-rule": "nonzero"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]
+                          )
+                        ]),
+                        _vm._v(
+                          "افزودن کارمند جدید\n                            "
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body pt-0 pb-3" }, [
+            _c("div", { staticClass: "table-responsive" }, [
+              _c(
+                "table",
+                {
+                  staticClass:
+                    "table table-head-custom table-head-bg table-vertical-center table-borderless",
+                  attrs: { id: "myTable" }
+                },
+                [
+                  _vm.progress
+                    ? _c("div", { staticClass: "d-flex align-items-center" }, [
+                        _c("div", { staticClass: "mr-2 text-muted" }, [
+                          _vm._v("لطفا صبر کنید...")
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "spinner mr-10" })
+                      ])
+                    : _c("thead", [_vm._m(2)]),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.keyEmployees, function(employe, index) {
+                      return _c("tr", { attrs: { id: "del" + employe.id } }, [
+                        _c("td", { staticClass: "pl-0 py-0" }, [
+                          _c(
+                            "div",
+                            { staticClass: "d-flex align-items-center" },
+                            [
+                              _c("div", { staticClass: "text-dark mb-1" }, [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(employe.fname) +
+                                    "\n                                        "
+                                )
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("span", { staticClass: "text-dark-75" }, [
+                            _vm._v(_vm._s(employe.lname))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("span", { staticClass: "text-dark-75" }, [
+                            _vm._v(_vm._s(employe.education.nickname))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("span", { staticClass: "text-dark-750" }, [
+                            _vm._v(_vm._s(employe.major))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("span", { staticClass: "text-dark-75" }, [
+                            _vm._v(_vm._s(employe.age))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("td", [
+                          _c("span", { staticClass: "text-dark-75" }, [
+                            _vm._v(_vm._s(employe.resume))
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          _vm._l(employe.responsibility, function(res) {
+                            return _c("div", [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "label label-lg label-light-primary label-inline mt-1"
+                                },
+                                [_vm._v(_vm._s(res.nickname))]
+                              ),
+                              _c("br")
+                            ])
+                          }),
+                          0
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          { staticClass: "pr-0 text-left" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: {
+                                  to: {
+                                    name: "key-employees-edit",
+                                    params: { id: employe.id }
+                                  }
+                                }
+                              },
+                              [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass:
+                                      "btn btn-icon btn-light-success btn-sm mr-2",
+                                    attrs: { href: "#" }
+                                  },
+                                  [_c("i", { staticClass: "flaticon2-edit" })]
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass:
+                                  "btn btn-icon btn-light-danger btn-sm mr-2",
+                                attrs: { type: "button" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteShareholder(
+                                      employe.id,
+                                      index
+                                    )
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "flaticon2-trash",
+                                  attrs: { id: "icon" + employe.id }
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c("hr")
+                      ])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("اطلاعات تیم")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm"
+                      },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c("div", { staticClass: "text-muted" }, [
+                              _vm._v("کارکنان کلیدی")
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "h3",
+      { staticClass: "card-title align-items-start flex-column" },
+      [
+        _c("span", { staticClass: "card-label font-weight-bolder text-dark" }, [
+          _vm._v("لیست کارکنان کلیدی")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", { staticClass: "bg-gray-100 text-left" }, [
+      _c("th", { staticClass: "pl-7" }, [_vm._v("نام")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("نام خانوادگی")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("تحصیلات")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("رشته")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("سال تولد")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("رزومه")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("مسئولیت")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("عملیات")])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/shareholders/create.vue?vue&type=template&id=15960763&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/team-member/shareholders/create.vue?vue&type=template&id=15960763&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("اعضای تیم")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm"
+                      },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c(
+                              "router-link",
+                              { attrs: { to: { name: "shareholders-index" } } },
+                              [
+                                _c("a", { staticClass: "text-muted" }, [
+                                  _vm._v("سهامداران")
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0)
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-custom gutter-b example example-compact"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form",
+                    attrs: {
+                      novalidate: "novalidate",
+                      id: "kt_login_signup_form"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.onSubmit.apply(null, arguments)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.fname,
+                                  expression: "data.fname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("fname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "fname",
+                                placeholder: "نام خود را وارد کنید.",
+                                name: "fname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.fname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "fname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("fname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("fname")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(2),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.lname,
+                                  expression: "data.lname"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("lname") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "lname",
+                                placeholder: "نام خانوادگی خود را وارد کنید.",
+                                name: "lname",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.lname },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "lname",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("lname")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("lname")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(3),
+                            _vm._v(" "),
+                            _c("input", {
+                              directives: [
+                                {
+                                  name: "model",
+                                  rawName: "v-model",
+                                  value: _vm.data.major,
+                                  expression: "data.major"
+                                }
+                              ],
+                              class: [
+                                "form-control",
+                                { "is-invalid": _vm.errors.has("major") }
+                              ],
+                              attrs: {
+                                type: "text",
+                                id: "major",
+                                placeholder: "رشته خود را وارد کنید.",
+                                name: "major",
+                                required: ""
+                              },
+                              domProps: { value: _vm.data.major },
+                              on: {
+                                input: function($event) {
+                                  if ($event.target.composing) {
+                                    return
+                                  }
+                                  _vm.$set(
+                                    _vm.data,
+                                    "major",
+                                    $event.target.value
+                                  )
+                                }
+                              }
+                            }),
+                            _vm._v(" "),
+                            _vm.errors.has("major")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("major")) +
+                                        "\n                                            "
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(4),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.age,
+                                    expression: "data.age"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  { "is-invalid": _vm.errors.has("age") }
+                                ],
+                                attrs: {
+                                  name: "age",
+                                  id: "age",
+                                  "data-placeholder":
+                                    "سال تولد خود را انتخاب کنید"
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "age",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(100, function(n, index) {
+                                return _c(
+                                  "option",
+                                  {
+                                    domProps: { value: _vm.this_year - index }
+                                  },
+                                  [_vm._v(_vm._s(_vm.this_year - index))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("age")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [_vm._v(_vm._s(_vm.errors.get("age")))]
+                                )
+                              : _vm._e()
+                          ])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "row" }, [
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group" }, [
+                            _vm._m(5),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.data.education_id,
+                                    expression: "data.education_id"
+                                  }
+                                ],
+                                class: [
+                                  "form-control",
+                                  {
+                                    "is-invalid": _vm.errors.has("education_id")
+                                  }
+                                ],
+                                attrs: { name: "education", id: "education" },
+                                on: {
+                                  change: function($event) {
+                                    var $$selectedVal = Array.prototype.filter
+                                      .call($event.target.options, function(o) {
+                                        return o.selected
+                                      })
+                                      .map(function(o) {
+                                        var val =
+                                          "_value" in o ? o._value : o.value
+                                        return val
+                                      })
+                                    _vm.$set(
+                                      _vm.data,
+                                      "education_id",
+                                      $event.target.multiple
+                                        ? $$selectedVal
+                                        : $$selectedVal[0]
+                                    )
+                                  }
+                                }
+                              },
+                              _vm._l(_vm.education, function(edu) {
+                                return _c(
+                                  "option",
+                                  { domProps: { value: edu.id } },
+                                  [_vm._v(_vm._s(edu.nickname))]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("education_id")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid"
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(_vm.errors.get("education_id"))
+                                    )
+                                  ]
+                                )
+                              : _vm._e()
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "col-md-6" }, [
+                          _c("div", { staticClass: "form-group is-invalid" }, [
+                            _vm._m(6),
+                            _vm._v(" "),
+                            _c(
+                              "select",
+                              {
+                                staticClass: "form-control select2",
+                                attrs: {
+                                  name: "responsibility",
+                                  id: "kt_select2_3",
+                                  multiple: "multiple",
+                                  "data-placeholder":
+                                    "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
+                                }
+                              },
+                              _vm._l(_vm.responsibilities, function(
+                                responsibility,
+                                key
+                              ) {
+                                return _c(
+                                  "option",
+                                  {
+                                    key: key,
+                                    domProps: { value: responsibility.id }
+                                  },
+                                  [
+                                    _vm._v(
+                                      _vm._s(responsibility.nickname) +
+                                        "\n                                                "
+                                    )
+                                  ]
+                                )
+                              }),
+                              0
+                            ),
+                            _vm._v(" "),
+                            _vm.errors.has("responsibility")
+                              ? _c(
+                                  "div",
+                                  {
+                                    staticClass: "invalid-feedback is-invalid",
+                                    staticStyle: { display: "block" }
                                   },
                                   [
                                     _vm._v(
@@ -55790,7 +57392,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
+    return _c("label", { attrs: { for: "kt_select2_3" } }, [
       _vm._v("مسئولیت:\n                                                "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])
@@ -56251,9 +57853,10 @@ var render = function() {
                                     expression: "data.responsibility"
                                   }
                                 ],
-                                staticClass: "form-control",
+                                staticClass: "form-control select2",
                                 attrs: {
                                   name: "responsibility",
+                                  id: "kt_select2_3",
                                   multiple: "multiple",
                                   "data-placeholder":
                                     "با نگه داشتن Ctrl می‌توانید مسئولیت‌های بیشتری را انتخاب کنید"
@@ -56280,11 +57883,15 @@ var render = function() {
                                 }
                               },
                               _vm._l(_vm.responsibilities, function(
-                                responsibility
+                                responsibility,
+                                key
                               ) {
                                 return _c(
                                   "option",
-                                  { domProps: { value: responsibility.id } },
+                                  {
+                                    key: key,
+                                    domProps: { value: responsibility.id }
+                                  },
                                   [_vm._v(_vm._s(responsibility.nickname))]
                                 )
                               }),
@@ -56295,7 +57902,8 @@ var render = function() {
                               ? _c(
                                   "div",
                                   {
-                                    staticClass: "invalid-feedback is-invalid"
+                                    staticClass: "invalid-feedback is-invalid",
+                                    staticStyle: { display: "block" }
                                   },
                                   [
                                     _vm._v(
@@ -56496,7 +58104,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("label", [
+    return _c("label", { attrs: { for: "kt_select2_3" } }, [
       _vm._v("مسئولیت:\n                                                "),
       _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
     ])

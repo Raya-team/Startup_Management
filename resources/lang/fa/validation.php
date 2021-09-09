@@ -187,6 +187,7 @@ return array(
         'fname' => 'نام اعضای تیم',
         'lname' => 'نام خانوادگی اعضای تیم',
         'education' => 'تحصیلات',
+        'education_id' => 'تحصیلات',
         'resume' => 'سابقه',
         'investment' => 'میزان سرمایه گذاری',
         'product.*.product_name' => 'نام محصول',
