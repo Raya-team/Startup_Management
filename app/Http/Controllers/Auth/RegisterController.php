@@ -25,51 +25,17 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
-
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
 //    protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectToAdmin = RouteServiceProvider::ADMIN;
     protected $redirectToUser = RouteServiceProvider::USER;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
     public function showRegistrationForm()
     {
         $this_year = jdate(Carbon::now())->format('Y');
@@ -80,7 +46,7 @@ class RegisterController extends Controller
         return view('auth.register', compact(['product_types', 'activities', 'responsibilities', 'education', 'this_year']));
     }
 
-    public function register(Request $request , Team $team, User $user, TeamMember $member)
+    public function register(RegisterRequest $request , Team $team, User $user, TeamMember $member)
     {
         $this->ValidationNotRequired($request);
         $this->Team($request, $team);
@@ -105,11 +71,6 @@ class RegisterController extends Controller
         $team->save();
     }
 
-    /**
-     * @param Request $request
-     * @param Team $team
-     * @param User $user
-     */
     protected function User(RegisterRequest $request, Team $team, User $user)
     {
         $user->username = $request->input('username');
@@ -121,11 +82,6 @@ class RegisterController extends Controller
         $user->save();
     }
 
-    /**
-     * @param Request $request
-     * @param Team $team
-     * @param TeamMember $member
-     */
     protected function Member(RegisterRequest $request, Team $team, TeamMember $member)
     {
         $member->fname = $request->input('fname');
@@ -140,19 +96,11 @@ class RegisterController extends Controller
         $member->save();
     }
 
-    /**
-     * @param Request $request
-     * @param TeamMember $member
-     */
     protected function ResponsibilityMember(RegisterRequest $request, TeamMember $member)
     {
         $member->responsibility()->sync($request->responsibility);
     }
 
-    /**
-     * @param Request $request
-     * @param Team $team
-     */
     protected function Products(RegisterRequest $request, Team $team)
     {
         $products = collect($request->product);
@@ -167,6 +115,21 @@ class RegisterController extends Controller
             $product->save();
         }
     }
+
+    protected function ValidationNotRequired(RegisterRequest $request)
+    {
+        if ($request->input('land_line')) {
+            $request->validate([
+                'land_line' => ['unique:teams,landline', 'digits:11', 'numeric', new Landline()],
+            ]);
+        }
+        if ($request->input('address')) {
+            $request->validate([
+                'address' => ['max:255', new Security()],
+            ]);
+        }
+    }
+
 //use:ثبت نام هم زمان دو کاربر
     public function unique(Request $request)
     {
@@ -198,7 +161,6 @@ class RegisterController extends Controller
                 break;
         }
 
-
         if ($isAvailable){
             echo json_encode(array(
                 'valid' => $isAvailable,
@@ -207,23 +169,6 @@ class RegisterController extends Controller
             echo json_encode(array(
                 'valid' => $isAvailable,
             ));
-        }
-    }
-
-    /**
-     * @param RegisterRequest $request
-     */
-    protected function ValidationNotRequired(RegisterRequest $request)
-    {
-        if ($request->input('land_line')) {
-            $request->validate([
-                'land_line' => ['unique:teams,landline', 'digits:11', 'numeric', new Landline()],
-            ]);
-        }
-        if ($request->input('address')) {
-            $request->validate([
-                'address' => ['max:255', new Security()],
-            ]);
         }
     }
 }
