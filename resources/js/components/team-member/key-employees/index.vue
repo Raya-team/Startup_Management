@@ -35,6 +35,7 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label font-weight-bolder text-dark">لیست کارکنان کلیدی</span>
                         </h3>
+                        <input type="text" v-model="filterText">
                         <div class="card-toolbar">
                             <router-link :to="{ name: 'key-employees-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
@@ -76,7 +77,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(employe, index) in keyEmployees" :id="'del'+employe.id">
+                                <tr v-for="(employe, index) in keyEmployeesFilter" :id="'del'+employe.id">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
@@ -136,6 +137,7 @@
             return {
                 keyEmployees: [],
                 progress: true,
+                filterText: null
             }
         },
         created() {
@@ -143,7 +145,6 @@
                 .then(response => {
                     this.keyEmployees = response.data;
                     this.progress = false;
-                    console.log(response.data);
                 })
                 .catch(error => console.log(error));
         },
@@ -180,6 +181,28 @@
                     }
                 });
             },
+        },
+        computed: {
+            keyEmployeesFilter() {
+                return this.keyEmployees.filter((element) => {
+                    if(!this.filterText){
+                        return element
+                    }else{
+                        return element.fname.match(this.filterText) ||
+                            element.lname.match(this.filterText) ||
+                            element.education.nickname.match(this.filterText) ||
+                            element.major.match(this.filterText) ||
+                            element.age.toString().match(this.filterText);
+                        // for(var i=0 ; i<element.responsibility.length; i++)
+                        // {
+                        //     element.responsibility[i].nickname.match(this.filterText);
+                        // };
+
+                    }
+
+                    // return element.lname.match('احسان');
+                })
+            }
         }
     }
 </script>

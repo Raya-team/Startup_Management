@@ -35,6 +35,7 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
                         </h3>
+                        <input type="text" v-model="filterText">
                         <div class="card-toolbar">
                             <router-link :to="{ name: 'products-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
@@ -71,7 +72,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(product, index) in products" :key="index" :id="'del'+product.id">
+                                <tr v-for="(product, index) in productFilter" :key="index" :id="'del'+product.id">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
@@ -116,6 +117,7 @@
             return {
                 products: [],
                 progress: true,
+                filterText: null
             }
         },
         created() {
@@ -167,6 +169,18 @@
                     }
                 });
             },
+        },
+        computed: {
+            productFilter() {
+                return this.products.filter((element) => {
+                    if(!this.filterText){
+                        return element
+                    }else{
+                        return element.name.match(this.filterText) ||
+                            element.type.nickname.match(this.filterText);
+                    }
+                })
+            }
         }
     }
 </script>

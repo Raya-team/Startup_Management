@@ -131,12 +131,12 @@
                 this.counter --;
             },
             onSubmit() {
+                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/products', this.data)
                     .then(response => {
                         if(response.data[0] == 'success'){
-                            var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-                            var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-                            KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                             Swal.fire({
                                 title: "محصولات با موفقیت ثبت شدند",
                                 icon: "success",
@@ -152,6 +152,7 @@
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
+                        KTUtil.btnRelease(formSubmitButton);
                     });
             }
         },
