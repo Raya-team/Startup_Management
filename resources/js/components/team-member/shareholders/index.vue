@@ -35,7 +35,15 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label font-weight-bolder text-dark">لیست سهامداران</span>
                         </h3>
-                        <input type="text" v-model="filterText">
+                        <!--<input type="text" v-model="filterText">-->
+                        <div class="card-toolbar my-2 my-md-0">
+                            <div class="input-icon">
+                                <input type="text" class="form-control" placeholder="جستجو..." id="kt_datatable_search_query" />
+                                <span>
+                                <i class="flaticon2-search-1 text-muted"></i>
+                            </span>
+                            </div>
+                        </div>
                         <div class="card-toolbar">
                             <router-link :to="{ name: 'shareholders-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
@@ -132,7 +140,6 @@
         </div>
         <!--end::Entry-->
     </div>
-
 </template>
 
 <script>

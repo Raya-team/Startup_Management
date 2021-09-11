@@ -6746,6 +6746,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "index",
   data: function data() {
@@ -58835,26 +58842,7 @@ var render = function() {
           _c("div", { staticClass: "card-header border-0 py-5" }, [
             _vm._m(1),
             _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.filterText,
-                  expression: "filterText"
-                }
-              ],
-              attrs: { type: "text" },
-              domProps: { value: _vm.filterText },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.filterText = $event.target.value
-                }
-              }
-            }),
+            _vm._m(2),
             _vm._v(" "),
             _c(
               "div",
@@ -58950,7 +58938,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "spinner mr-10" })
                       ])
-                    : _c("thead", [_vm._m(2)]),
+                    : _c("thead", [_vm._m(3)]),
                   _vm._v(" "),
                   _c(
                     "tbody",
@@ -59173,6 +59161,25 @@ var staticRenderFns = [
         ])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-toolbar my-2 my-md-0" }, [
+      _c("div", { staticClass: "input-icon" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            placeholder: "جستجو...",
+            id: "kt_datatable_search_query"
+          }
+        }),
+        _vm._v(" "),
+        _c("span", [_c("i", { staticClass: "flaticon2-search-1 text-muted" })])
+      ])
+    ])
   },
   function() {
     var _vm = this
