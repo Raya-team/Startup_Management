@@ -39,6 +39,8 @@
                         <!--begin::Form-->
                         <form method="POST" action="{{route('team.update',['team'=> $team->id])}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
                             @csrf
+                            @method('PATCH')
+                            {{--{{ method_field('PATCH') }}--}}
                             @include('errors')
                             <div class="card-body">
                                 <div class="row">
@@ -70,9 +72,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="email">ایمیل:
+                                            <label for="team_email">ایمیل:
                                                 <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" id="email" placeholder="ایمیل خود را وارد کنید." name="email" value="{{ old('email', $team->email) }}" required/>
+                                            <input type="text" class="form-control" id="team_email" placeholder="ایمیل خود را وارد کنید." name="team_email" value="{{ old('team_email', $team->email) }}" required/>
                                         </div>
                                     </div>
                                 </div>
