@@ -108,7 +108,7 @@
                                                 <i class="flaticon2-edit"></i>
                                             </a>
                                         </router-link>
-                                        <button type="button" @click="deleteShareholder(employe.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
+                                        <button type="button" @click="deleteKeyEmployee(employe.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
                                             <i class="flaticon2-trash" :id="'icon'+employe.id"></i>
                                         </button>
                                     </td>
@@ -148,13 +148,13 @@
                 .catch(error => console.log(error));
         },
         methods: {
-            deleteShareholder(id, index) {
+            deleteKeyEmployee(id, index) {
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
-                    title: "از حذف این سهامدار اطمینان دارید؟",
+                    title: "از حذف این کارمند اطمینان دارید؟",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonText: "بله، حذف شود",
@@ -167,16 +167,8 @@
                                     var table = document.getElementById(`del${id}`);
                                     table.remove();
                                     Swal.fire({
-                                        title: "سهامدار با موفقیت حذف شد",
+                                        title: "کارمند با موفقیت حذف شد",
                                         icon: "success",
-                                        showConfirmButton: false,
-                                        timer: 3000,
-                                    });
-                                    KTUtil.btnRelease(formSubmitButton);
-                                }else if(response.data[0] == "undeleted"){
-                                    Swal.fire({
-                                        title: "حداقل یک سهامدار باید داشته باشید",
-                                        icon: "error",
                                         showConfirmButton: false,
                                         timer: 3000,
                                     });

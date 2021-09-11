@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">تیم</div>
+                                <div class="text-muted">محصولات</div>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -36,7 +36,7 @@
                             <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
                         </h3>
                         <div class="card-toolbar">
-                            <router-link :to="{ name: 'product-create' }">
+                            <router-link :to="{ name: 'products-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
                             <span class="svg-icon svg-icon-md">
                                 <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Bag2.svg-->
@@ -71,7 +71,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="product in products">
+                                <tr v-for="(product, index) in products" :key="index" :id="'del'+product.id">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
@@ -83,14 +83,14 @@
                                         <span class="text-dark-75">{{ product.type.nickname }}</span>
                                     </td>
                                     <td class="pr-0 text-right" style=".text-right {text-align: right!important;}">
-                                        <router-link :to="{ name: 'product-edit', params: { id: product.id }}">
+                                        <router-link :to="{ name: 'products-edit', params: { id: product.id }}">
                                             <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                 <i class="flaticon2-edit"></i>
                                             </a>
                                         </router-link>
-                                        <a href="#" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash"></i>
-                                        </a>
+                                        <button  @click="deleteProduct(product.id)" class="btn btn-icon btn-light-danger btn-sm mr-2">
+                                            <i class="flaticon2-trash" :id="'icon'+product.id"></i>
+                                        </button>
                                     </td>
                                     <hr>
                                 </tr>
@@ -119,13 +119,55 @@
             }
         },
         created() {
-            axios.get('/api/product')
+            axios.get('/api/products')
                 .then(response => {
                     this.products = response.data;
                     this.progress = false
                 })
                 .catch(error => console.log(error));
         },
+        methods: {
+            deleteProduct(id, index) {
+                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
+                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
+
+                Swal.fire({
+                    title: "از حذف این محصول اطمینان دارید؟",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonText: "بله، حذف شود",
+                    cancelButtonText: "لغو",
+                }).then(function(result) {
+                    if (result.value) {
+                        axios.delete(`/products/${id}`)
+                            .then(response => {
+                                if(response.data[0] == "deleted"){
+                                    var table = document.getElementById(`del${id}`);
+                                    table.remove();
+                                    Swal.fire({
+                                        title: "محصول با موفقیت حذف شد",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }else if(response.data[0] == "undeleted"){
+                                    Swal.fire({
+                                        title: "حداقل یک محصول باید داشته باشید",
+                                        icon: "error",
+                                        showConfirmButton: false,
+                                        timer: 3000,
+                                    });
+                                    KTUtil.btnRelease(formSubmitButton);
+                                }
+                            })
+                    } else {
+                        KTUtil.btnRelease(formSubmitButton);
+                    }
+                });
+            },
+        }
     }
 </script>
 

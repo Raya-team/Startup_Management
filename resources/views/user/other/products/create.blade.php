@@ -14,7 +14,7 @@
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item text-muted">
-                            <a href="{{route('product.index')}}" class="text-muted">محصولات</a>
+                            <a href="{{route('products.index')}}" class="text-muted">محصولات</a>
                         </li>
                         <li class="breadcrumb-item text-muted">
                             <a href="#" class="text-muted">افزودن</a>
@@ -37,7 +37,7 @@
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
                         <!--begin::Form-->
-                        <form method="POST" action="{{route('product.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
+                        <form method="POST" action="{{route('products.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
                             @csrf
                             @include('errors')
                             <div class="card-body">

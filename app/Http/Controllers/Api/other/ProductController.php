@@ -24,4 +24,14 @@ class ProductController extends Controller
         $products = ProductType::all(['id', 'nickname']);
         return $products;
     }
+
+    public function edit($id)
+    {
+        $product = Product::findorfail($id);
+        $product_type = ProductType::all(['id', 'nickname']);
+        return response()->json([
+            'product_types' => $product_type,
+            'product' => $product,
+        ]);
+    }
 }

@@ -107,7 +107,9 @@ class KeyEmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = KeyEmployee::findorfail($id);
+        $member->delete();
+        return response(["deleted"], 201);
     }
 
 }

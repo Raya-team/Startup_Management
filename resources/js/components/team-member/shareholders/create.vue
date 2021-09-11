@@ -186,7 +186,8 @@
                             title: "سهامدار با موفیت ایجاد شد",
                             icon: "success",
                             buttonsStyling: false,
-                            confirmButtonText: "باشد",
+                            showConfirmButton: false,
+                            timer: 3000,
                             customClass: {
                                 confirmButton: "btn btn-primary"
                             }

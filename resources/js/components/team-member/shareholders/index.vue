@@ -33,8 +33,9 @@
                     <!--begin::Header-->
                     <div class="card-header border-0 py-5">
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
+                            <span class="card-label font-weight-bolder text-dark">لیست سهامداران</span>
                         </h3>
+                        <input type="text" v-model="filterText">
                         <div class="card-toolbar">
                             <router-link :to="{ name: 'shareholders-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
@@ -77,7 +78,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(shareholder, index) in shareholders" :id="'del'+shareholder.id">
+                                <tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index">
                                     <td class="pl-0 py-0">
                                         <div class="d-flex align-items-center">
                                             <div class="text-dark mb-1">
@@ -141,6 +142,7 @@
             return {
                 shareholders: [],
                 progress: true,
+                filterText: null,
             }
         },
         created() {
@@ -156,7 +158,6 @@
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-
                 Swal.fire({
                     title: "از حذف این سهامدار اطمینان دارید؟",
                     icon: "warning",
@@ -192,6 +193,32 @@
                     }
                 });
             },
+        },
+        computed: {
+            shareholdersFilter() {
+                return this.shareholders.filter((element) => {
+                    console.log(element.responsibility);
+                    if(!this.filterText){
+                        return element
+                    }else{
+                        return element.fname.match(this.filterText) ||
+                            element.lname.match(this.filterText) ||
+                            element.education.nickname.match(this.filterText) ||
+                            element.major.match(this.filterText) ||
+                            element.age.toString().match(this.filterText) ||
+                            element.responsibility[0].nickname.match(this.filterText);
+                                // for(var i=0 ; i<element.responsibility.length; i++)
+                                // {
+                                //     element.responsibility[i].nickname.match(this.filterText);
+                                // };
+
+                            // element.resume.toString().match(this.filterText);
+
+                    }
+
+                    // return element.lname.match('احسان');
+                })
+            }
         }
     }
 </script>

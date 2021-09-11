@@ -18,7 +18,7 @@
                                 </router-link>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">افزودن</div>
+                                <div class="text-muted">ویرایش</div>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->

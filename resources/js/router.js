@@ -14,9 +14,9 @@ import KeyEmployeesIndex from './components/team-member/key-employees/index'
 import KeyEmployeesCreate from './components/team-member/key-employees/create'
 import KeyEmployeesEdit from './components/team-member/key-employees/edit'
 
-import ProductIndex from './components/other/product/index';
-import ProductCreate from './components/other/product/create';
-import ProductEdit from './components/other/product/edit';
+import ProductsIndex from './components/other/product/index';
+import ProductsCreate from './components/other/product/create';
+import ProductsEdit from './components/other/product/edit';
 
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
@@ -30,9 +30,9 @@ const routes = [
     {path: '/key-employees/create', name: 'key-employees-create', component: KeyEmployeesCreate, meta: {title: 'ایجاد کارمند کلیدی جدید'}},
     {path: '/key-employees/:id/edit', name: 'key-employees-edit', component: KeyEmployeesEdit, meta: {title: 'ویرایش کارمند کلیدی'}},
 
-    {path: '/product', name: 'product-index', component: ProductIndex, meta: {title: 'محصولات'}},
-    {path: '/product/create', name: 'product-create', component: ProductCreate, meta: {title: 'ایجاد محصول'}},
-    {path: '/product/:id/edit', name: 'product-edit', component: ProductEdit, meta: {title: 'ویرایش محصول'}},
+    {path: '/products', name: 'products-index', component: ProductsIndex, meta: {title: 'محصولات'}},
+    {path: '/products/create', name: 'products-create', component: ProductsCreate, meta: {title: 'ایجاد محصول'}},
+    {path: '/products/:id/edit', name: 'products-edit', component: ProductsEdit, meta: {title: 'ویرایش محصول'}},
 ];
 
 export default new VueRouter({

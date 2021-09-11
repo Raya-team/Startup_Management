@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <router-link :to="{name: 'product-index'}">
+                                <router-link :to="{name: 'products-index'}">
                                     <a class="text-muted">محصولات</a>
                                 </router-link>
                             </li>
@@ -44,37 +44,41 @@
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"><h4>محصول:</h4></label>
                                             <div data-repeater-list="product" class="col-lg-10">
-                                                <div data-repeater-item="" class="form-group row align-items-center" v-for="(product, index) in data.products" :key="index">
-                                                    <div class="col-md-4">
-                                                        <label><h5>نام محصول:</h5></label>
-                                                        <input type="text" class="form-control products" name="product_name" v-model="product.name" required />
-                                                        <div class="d-md-none mb-2"></div>
+                                                <transition-group name="slide">
+                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(pro, index) in data.product" :key="index">
+                                                        <div class="col-md-4">
+                                                            <label><h5>نام محصول:</h5></label>
+                                                            <input type="text" class="form-control products" name="product_name" v-model="pro.product_name" :class="['form-control', {'is-invalid' : errors.has(name_error[index])}]" required />
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(name_error[index])" style="display: block;">{{ errors.get(name_error[index]) }}</div>
+                                                            <div class="d-md-none mb-2"></div>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <label><h5>نوع محصول:</h5></label>
+                                                            <select name="product_type" class="form-control" v-model="pro.product_type" :class="['form-control', {'is-invalid' : errors.has(type_error[index])}]">
+                                                                <option v-for="type in productTypes" :value="type.id">{{ type.nickname }}</option>
+                                                            </select>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(type_error[index])" style="display: block;">{{ errors.get(type_error[index]) }}</div>
+                                                            <div class="d-md-none mb-2"></div>
+                                                        </div>
+                                                        <div v-if="index != 0" class="col-md-4" style="margin-top: 28px" @click="RemoveField(index)">
+                                                            <a data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                <i class="la la-trash-o"></i>حذف</a>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <label><h5>نوع محصول:</h5></label>
-                                                        <select name="product_type" class="form-control" v-model="product.type">
-                                                            <option v-for="type in productTypes" :value="type.id">{{ type.nickname }}</option>
-                                                        </select>
-                                                        <div class="d-md-none mb-2"></div>
-                                                    </div>
-                                                    <div v-if="index != 0" class="col-md-4" style="margin-top: 28px" @click="RemoveField(index)">
-                                                        <a data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                            <i class="la la-trash-o"></i>حذف</a>
-                                                    </div>
-                                                </div>
+                                                </transition-group>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"></label>
-                                            <div class="col-lg-4">
-                                                <a @click="AddField" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                            <div @click="AddField" class="col-lg-4">
+                                                <a  href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                     <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success mr-2" @click="onSubmit()">ثبت</button>
+                                    <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -98,71 +102,99 @@
             return {
                 productTypes: [],
                 data: {
-                    products: [{ name: '',type: '' }],
+                    product: [{ product_name: '',product_type: '' }],
                 },
+                counter: 0,
+                name_error: ['product.0.product_name'],
+                type_error: ['product.0.product_type'],
                 errors: new Errors(),
             }
         },
         created() {
-            axios.get('/api/product/create')
+            axios.get('/api/products/create')
                 .then(response => {
                     this.productTypes = response.data;
                 })
                 .catch(error => console.log(error));
-            /*var KTFormRepeater = function() {
-
-                // Private functions
-                var demo1 = function() {
-                    $('#kt_repeater_1').repeater({
-                        initEmpty: false,
-
-                        defaultValues: {
-                            'product_type': 1,
-                        },
-
-                        show: function () {
-                            $(this).slideDown();
-                        },
-
-                        hide: function (deleteElement) {
-                            $(this).slideUp(deleteElement);
-                        },
-                        isFirstItemUndeletable: true
-                    });
-                };
-                return {
-                    // public functions
-                    init: function() {
-                        demo1();
-                    }
-                };
-            }();
-
-            jQuery(document).ready(function() {
-                KTFormRepeater.init();
-            });*/
         },
         methods: {
             AddField() {
-                this.data.products.push({ name: '',type: '' });
+                this.counter ++;
+                this.data.product.push({ product_name: '',product_type: '' });
+                this.name_error.push(`product.${this.counter}.product_name`);
+                this.type_error.push(`product.${this.counter}.product_type`);
             },
             RemoveField(index) {
-                this.data.products.splice(index, 1)
-                console.log(this.data.products);
+                this.data.product.splice(index, 1);
+                this.name_error.pop();
+                this.type_error.pop();
+                this.counter --;
             },
             onSubmit() {
-                console.log(this.data.products);
-                // axios.post('/product', this.data)
-                //     .then(response => {console.log(response);})
-                //     .catch(error => {
-                //         this.errors.record(error.response.data.errors);
-                //         console.log(this.errors.record(error.response.data.errors));
-                //     });
+                axios.post('/products', this.data)
+                    .then(response => {
+                        if(response.data[0] == 'success'){
+                            var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                            var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                            KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+                            Swal.fire({
+                                title: "محصولات با موفقیت ثبت شدند",
+                                icon: "success",
+                                buttonsStyling: false,
+                                showConfirmButton: false,
+                                timer: 3000,
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            });
+                            this.$router.push({name: 'products-index'});
+                        }
+                    })
+                    .catch(error => {
+                        this.errors.record(error.response.data.errors);
+                    });
             }
         },
     }
 </script>
 
 <style scoped>
+    .slide-enter{
+        opacity: 0;
+        /*transform: translateY(20px)*/
+    }
+    .slide-enter-active{
+        animation: slide-in 1s ease-out forwards;
+        transition: opacity .5s;
+    }
+    .slide-leave{
 
+    }
+    .slide-leave-active{
+        transition: all 1s ease;
+    }
+    .slide-leave-to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .slide-move{
+        transition: transform 1s;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px)
+        }
+        to {
+            transform: translateY(0)
+        }
+    }
+    @keyframes slide-out {
+        from {
+            transform: translateY(0)
+        }
+        to {
+            transform: translateY(20px)
+        }
+    }
 </style>
