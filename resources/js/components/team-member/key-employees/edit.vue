@@ -161,11 +161,11 @@
         },
         methods: {
             onSubmit() {
+                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.put(`/key-employees/${this.$route.params.id}`, this.data)
                     .then(response => {
-                        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-                        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-                        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                         Swal.fire({
                             title: "اطلاعات کارمند با موفقیت ویرایش شد",
                             icon: "success",
@@ -179,6 +179,7 @@
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
+                        KTUtil.btnRelease(formSubmitButton);
                     });
             },
         },

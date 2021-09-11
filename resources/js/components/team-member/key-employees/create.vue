@@ -168,11 +168,11 @@
         },
         methods: {
             onSubmit() {
+                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+                var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/key-employees', this.data)
                     .then(response => {
-                        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-                        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-                        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                         Swal.fire({
                             title: "کارمند با موفیت ایجاد شد",
                             icon: "success",
@@ -187,6 +187,7 @@
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
+                        KTUtil.btnRelease(formSubmitButton);
                     });
             },
         },

@@ -5704,10 +5704,10 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this2 = this;
 
+      var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+      var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
       axios.post('/key-employees', this.data).then(function (response) {
-        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
         Swal.fire({
           title: "کارمند با موفیت ایجاد شد",
           icon: "success",
@@ -5724,6 +5724,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this2.errors.record(error.response.data.errors);
+
+        KTUtil.btnRelease(formSubmitButton);
       });
     }
   },
@@ -5923,10 +5925,10 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this2 = this;
 
+      var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+      var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
       axios.put("/key-employees/".concat(this.$route.params.id), this.data).then(function (response) {
-        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
         Swal.fire({
           title: "اطلاعات کارمند با موفقیت ویرایش شد",
           icon: "success",
@@ -5942,6 +5944,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this2.errors.record(error.response.data.errors);
+
+        KTUtil.btnRelease(formSubmitButton);
       });
     }
   },
@@ -6380,10 +6384,10 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this2 = this;
 
+      var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+      var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
       axios.post('/shareholders', this.data).then(function (response) {
-        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
         Swal.fire({
           title: "سهامدار با موفیت ایجاد شد",
           icon: "success",
@@ -6400,6 +6404,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this2.errors.record(error.response.data.errors);
+
+        KTUtil.btnRelease(formSubmitButton);
       });
     }
   },
@@ -6607,10 +6613,10 @@ __webpack_require__.r(__webpack_exports__);
     onSubmit: function onSubmit() {
       var _this2 = this;
 
+      var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+      var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
       axios.put("/shareholders/".concat(this.$route.params.id), this.data).then(function (response) {
-        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
         Swal.fire({
           title: "اطلاعات سهامدار با موفقیت ویرایش شد",
           icon: "success",
@@ -6626,6 +6632,8 @@ __webpack_require__.r(__webpack_exports__);
         });
       })["catch"](function (error) {
         _this2.errors.record(error.response.data.errors);
+
+        KTUtil.btnRelease(formSubmitButton);
       });
     }
   },
@@ -55017,11 +55025,6 @@ var render = function() {
                                               staticClass: "col-md-4",
                                               staticStyle: {
                                                 "margin-top": "28px"
-                                              },
-                                              on: {
-                                                click: function($event) {
-                                                  return _vm.RemoveField(index)
-                                                }
                                               }
                                             },
                                             [
@@ -55032,6 +55035,13 @@ var render = function() {
                                                     "btn btn-sm font-weight-bolder btn-light-danger",
                                                   attrs: {
                                                     "data-repeater-delete": ""
+                                                  },
+                                                  on: {
+                                                    click: function($event) {
+                                                      return _vm.RemoveField(
+                                                        index
+                                                      )
+                                                    }
                                                   }
                                                 },
                                                 [

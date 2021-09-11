@@ -60,8 +60,8 @@
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(type_error[index])" style="display: block;">{{ errors.get(type_error[index]) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
-                                                        <div v-if="index != 0" class="col-md-4" style="margin-top: 28px" @click="RemoveField(index)">
-                                                            <a data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <div v-if="index != 0" class="col-md-4" style="margin-top: 28px">
+                                                            <a @click="RemoveField(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                                 <i class="la la-trash-o"></i>حذف</a>
                                                         </div>
                                                     </div>
