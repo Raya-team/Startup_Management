@@ -4,6 +4,7 @@ use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\TeamMember\KeyEmployeeController;
 use App\Http\Controllers\user\TeamMember\ShareholderController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*

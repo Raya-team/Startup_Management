@@ -186,8 +186,8 @@
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">
-                    <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">James Jones</a>
-                    <div class="text-muted mt-1">Application Developer</div>
+                    <a href="#" class="font-weight-bold font-size-h5 text-dark-75 text-hover-primary">{{ Auth::user()->username }}</a>
+                    <div class="text-muted mt-1">{{ Auth::user()->team->name }}</div>
                     <div class="navi mt-2">
                         <a href="#" class="navi-item">
 								<span class="navi-link p-0 pb-2">
@@ -204,13 +204,13 @@
                                             <!--end::Svg Icon-->
 										</span>
 									</span>
-									<span class="navi-text text-muted text-hover-primary">jm@softplus.com</span>
+									<span class="navi-text text-muted text-hover-primary">{{ Auth::user()->email }}</span>
 								</span>
                         </a>
                         <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();"
                            class="btn btn-sm btn-light-primary font-weight-bolder py-2 px-5">
-                            Sign Out</a>
+                           خروج</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>
