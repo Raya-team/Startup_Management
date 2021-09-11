@@ -35,10 +35,9 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label font-weight-bolder text-dark">لیست سهامداران</span>
                         </h3>
-                        <!--<input type="text" v-model="filterText">-->
                         <div class="card-toolbar my-2 my-md-0">
                             <div class="input-icon">
-                                <input type="text" class="form-control" placeholder="جستجو..." id="kt_datatable_search_query" />
+                                <input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />
                                 <span>
                                 <i class="flaticon2-search-1 text-muted"></i>
                             </span>
@@ -204,7 +203,6 @@
         computed: {
             shareholdersFilter() {
                 return this.shareholders.filter((element) => {
-                    console.log(element.responsibility);
                     if(!this.filterText){
                         return element
                     }else{
@@ -212,8 +210,8 @@
                             element.lname.match(this.filterText) ||
                             element.education.nickname.match(this.filterText) ||
                             element.major.match(this.filterText) ||
-                            element.age.toString().match(this.filterText) ||
-                            element.responsibility[0].nickname.match(this.filterText);
+                            element.age.toString().match(this.filterText);
+                            // element.responsibility[0].nickname.match(this.filterText);
                                 // for(var i=0 ; i<element.responsibility.length; i++)
                                 // {
                                 //     element.responsibility[i].nickname.match(this.filterText);
@@ -222,8 +220,6 @@
                             // element.resume.toString().match(this.filterText);
 
                     }
-
-                    // return element.lname.match('احسان');
                 })
             }
         }

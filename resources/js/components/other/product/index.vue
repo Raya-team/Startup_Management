@@ -35,7 +35,14 @@
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label font-weight-bolder text-dark">لیست محصولات</span>
                         </h3>
-                        <input type="text" v-model="filterText">
+                        <div class="card-toolbar my-2 my-md-0">
+                            <div class="input-icon">
+                                <input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />
+                                <span>
+                                <i class="flaticon2-search-1 text-muted"></i>
+                            </span>
+                            </div>
+                        </div>
                         <div class="card-toolbar">
                             <router-link :to="{ name: 'products-create' }">
                                 <a class="btn btn-primary font-weight-bolder">
