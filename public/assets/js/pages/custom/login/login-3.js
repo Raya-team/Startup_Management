@@ -658,7 +658,7 @@ var KTLogin = function() {
 
         // Initialize form wizard
         wizardObj = new KTWizard(wizardEl, {
-            startStep: 4, // initial active step number
+            startStep: 1, // initial active step number
             clickableSteps: false  // allow step clicking
         });
 
