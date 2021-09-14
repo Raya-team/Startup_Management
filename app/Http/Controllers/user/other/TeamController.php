@@ -77,11 +77,11 @@ class TeamController extends Controller
     protected function TeamValidation(Request $request, $id)
     {
         $request->validate([
-            'name' => ['required', 'min:3', 'max:32', Rule::unique('teams', 'name')->ignore($id), new Persian()],
+            'name' => ['required', 'min:3', 'max:32', Rule::unique('teams')->ignore($id), new Persian()],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'status' => ['required', new Security()],
-            'email' => ['required', 'email', 'max:255', Rule::unique('teams', 'email')->ignore($id),],
-            'phone_number' => ['required', Rule::unique('teams', 'phone_number')->ignore($id), new Phone(), 'digits:11', 'numeric']
+            'email' => ['required', 'email', 'max:255', Rule::unique('teams')->ignore($id),],
+            'phone_number' => ['required', Rule::unique('teams')->ignore($id), new Phone(), 'digits:11', 'numeric']
         ]);
     }
 
