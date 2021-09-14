@@ -554,7 +554,6 @@
                         </li>
                     </ul>
                 </div>
-
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
