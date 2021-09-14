@@ -142,6 +142,8 @@
 </template>
 
 <script>
+    import Auth from "../../../Auth";
+
     export default {
         name: "index",
         data() {
@@ -149,18 +151,21 @@
                 shareholders: [],
                 progress: true,
                 filterText: null,
+                Auth: new Auth()
             }
         },
         created() {
+            this.Auth.check();
             axios.get('/api/shareholders')
                 .then(response => {
                     this.shareholders = response.data;
                     this.progress = false;
                 })
-                .catch(error => console.log(error));
+                .catch(error => {console.log(error);});
         },
         methods: {
             deleteShareholder(id, index) {
+                this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
@@ -222,7 +227,7 @@
                     }
                 })
             }
-        }
+        },
     }
 </script>
 

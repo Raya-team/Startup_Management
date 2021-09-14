@@ -30,7 +30,7 @@
 </head>
 <!--end::Head-->
 <!--begin::Body-->
-<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed footer-fixed aside-minimize-hoverable page-loading">
 <!--begin::Main-->
 <div id="app">
     <!--begin::Header Mobile-->
@@ -1496,7 +1496,9 @@
 <!--end::Demo Panel-->
 <script>
     window.Laravel = {};
-    window.Laravel.csrfToken = '{{ csrf_token() }}'
+    window.Laravel.csrfToken = '{{ csrf_token() }}';
+    window.authCheck = '{{ auth()->check() }}';
+    window.redirectLogin = '{{ route('login') }}';
 </script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>var HOST_URL = "https://preview.keenthemes.com/metronic/theme/html/tools/preview";</script>

@@ -63,4 +63,16 @@ class LoginController extends Controller
             'password' => 'required|string',
         ]);
     }
+
+    public function auth_check()
+    {
+        return 'true';
+//        $user = Auth::user();
+//        if ($user){
+//            return 'is login';
+//        }else{
+//            return 'logout';
+//        }
+//        return Auth::check();
+    }
 }

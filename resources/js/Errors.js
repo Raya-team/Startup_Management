@@ -4,8 +4,6 @@ export default class Errors {
     }
 
     has(field) {
-        // product.0.product_name
-        // product.1.product_name
         return this.errors.hasOwnProperty(field);
     }
 

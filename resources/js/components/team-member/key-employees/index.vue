@@ -138,16 +138,19 @@
 </template>
 
 <script>
+    import Auth from "../../../Auth";
     export default {
         name: "index",
         data() {
             return {
                 keyEmployees: [],
                 progress: true,
-                filterText: null
+                filterText: null,
+                Auth: new Auth()
             }
         },
         created() {
+            this.Auth.check();
             axios.get('/api/key-employees')
                 .then(response => {
                     this.keyEmployees = response.data;
@@ -157,6 +160,7 @@
         },
         methods: {
             deleteKeyEmployee(id, index) {
+                this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
@@ -200,14 +204,7 @@
                             element.education.nickname.match(this.filterText) ||
                             element.major.match(this.filterText) ||
                             element.age.toString().match(this.filterText);
-                        // for(var i=0 ; i<element.responsibility.length; i++)
-                        // {
-                        //     element.responsibility[i].nickname.match(this.filterText);
-                        // };
-
                     }
-
-                    // return element.lname.match('احسان');
                 })
             }
         }

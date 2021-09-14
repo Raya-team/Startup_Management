@@ -118,16 +118,20 @@
 </template>
 
 <script>
+    import Auth from "../../../Auth";
+
     export default {
         name: "index",
         data() {
             return {
                 products: [],
                 progress: true,
-                filterText: null
+                filterText: null,
+                Auth: new Auth()
             }
         },
         created() {
+            this.Auth.check();
             axios.get('/api/products')
                 .then(response => {
                     this.products = response.data;
@@ -137,6 +141,7 @@
         },
         methods: {
             deleteProduct(id, index) {
+                this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
                 var formSubmitButton = KTUtil.getById(`icon${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);

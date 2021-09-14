@@ -18,6 +18,9 @@ import ProductsIndex from './components/other/product/index';
 import ProductsCreate from './components/other/product/create';
 import ProductsEdit from './components/other/product/edit';
 
+import TeamIndex from './components/other/team/index';
+import TeamEdit from './components/other/team/edit';
+
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
     {path: '/page', name: 'Page', component: Page},
@@ -33,6 +36,9 @@ const routes = [
     {path: '/products', name: 'products-index', component: ProductsIndex, meta: {title: 'محصولات'}},
     {path: '/products/create', name: 'products-create', component: ProductsCreate, meta: {title: 'ایجاد محصول'}},
     {path: '/products/:id/edit', name: 'products-edit', component: ProductsEdit, meta: {title: 'ویرایش محصول'}},
+
+    {path: '/team', name: 'team-index', component: TeamIndex, meta: {title: 'تیم'}},
+    {path: '/team/:id/edit', name: 'team-edit', component: TeamEdit, meta: {title: 'ویرایش تیم'}},
 ];
 
 export default new VueRouter({

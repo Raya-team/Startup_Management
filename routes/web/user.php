@@ -36,4 +36,5 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class, ['as' => 'api']);
     Route::resource('/key-employees', \App\Http\Controllers\Api\TeamMember\KeyEmployeesController::class, ['as' => 'api']);
     Route::resource('/products', \App\Http\Controllers\Api\other\ProductController::class, ['as' => 'api']);
+    Route::resource('/team', \App\Http\Controllers\Api\other\TeamController::class, ['as' => 'api']);
 });

@@ -137,6 +137,7 @@
 
 <script>
     import Errors from './../../../Errors'
+    import Auth from "../../../Auth";
 
     export default {
         name: "create",
@@ -155,9 +156,11 @@
                     resume: '',
                 },
                 errors: new Errors(),
+                Auth: new Auth()
             }
         },
         created() {
+            this.Auth.check();
             axios.get('/api/key-employees/create')
                 .then(response => {
                     this.education = response.data.education;
@@ -168,6 +171,7 @@
         },
         methods: {
             onSubmit() {
+                this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
                 var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);

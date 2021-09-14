@@ -14,11 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-//    \Illuminate\Support\Facades\Auth::logout();
+    \Illuminate\Support\Facades\Auth::logout();
     return view('welcome');
 });
-
+Route::get('/auth-check', function () {
+    $user = \Illuminate\Support\Facades\Auth::check();
+    if ($user){
+        return true;
+    }else{
+        return false;
+    }
+});
 Auth::routes();
+//Route::get('/auth-check', [\App\Http\Controllers\Auth\LoginController::class, 'auth_check'])->name('auth.check');
 Route::group(['middleware' =>['auth']] , function (){
 //    Route
 });

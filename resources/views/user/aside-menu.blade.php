@@ -30,7 +30,8 @@
                         'key-employees.index',
                         'key-employees.create',
                         'key-employees.edit'
-                    ]) ? 'menu-item-open' : ''}}" aria-haspopup="true" data-menu-toggle="hover">
+                    ]) ? 'menu-item-open' : ''}}"
+                aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:../assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
@@ -1656,7 +1657,16 @@
                     </ul>
                 </div>
             </li>
-            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+            <li class="menu-item menu-item-submenu
+                {{ in_array(Route::currentRouteName(),
+                    [
+                        'team.index',
+                        'team.edit',
+                        'products.index',
+                        'products.create',
+                        'products.edit'
+                    ]) ? 'menu-item-open' : ''}}"
+                aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:../assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
@@ -1676,15 +1686,15 @@
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/themes/aside-light.html" class="menu-link">
+                        <li class="menu-item {{ in_array(Route::currentRouteName(), ['team.index', 'team.edit']) ? 'menu-item-active' : ''}}" aria-haspopup="true">
+                            <a href="{{ route('team.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
                                 <span class="menu-text">تیم</span>
                             </a>
                         </li>
-                        <li class="menu-item" aria-haspopup="true">
+                        <li class="menu-item {{ in_array(Route::currentRouteName(), ['products.index', 'products.create', 'products-edit']) ? 'menu-item-active' : ''}}" aria-haspopup="true">
                             <a href="{{ route('products.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
