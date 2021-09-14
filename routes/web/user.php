@@ -29,6 +29,12 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/key-employees', KeyEmployeeController::class);
     Route::resource('/team', TeamController::class);
     Route::resource('/products', ProductController::class);
+    Route::get('/initial-shares',function (){
+        return view('user.shares.initial-shares.index');
+    })->name('initial');
+    Route::get('/participation-shares',function (){
+        return view('user.shares.participation-shares.index');
+    })->name('participation');
 });
 Route::get('/test2', [TeamController::class, 'create']);
 

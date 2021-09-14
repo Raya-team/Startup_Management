@@ -171,7 +171,6 @@ var KTLogin = function() {
                     // Release button
                     KTUtil.btnRelease(formSubmitButton);
                     var message = response;
-                    console.log(message);
                     if (message == "passwords.sent") {
                         Swal.fire({
                             text: "پیغام بازیابی رمز عبور برای ایمیل شما ارسال شد.",
@@ -233,12 +232,10 @@ var KTLogin = function() {
         var form = KTUtil.getById('kt_login_signup_form');
         var wizardObj;
         var validations = [];
-        console.log(uniqueUrl);
 
         if (!form) {
             return;
         }
-        console.log(FormValidation.formValidation());
         // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
         // Step 1
         validations.push(FormValidation.formValidation(

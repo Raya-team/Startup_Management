@@ -76,7 +76,6 @@
                         </li>
                     </ul>
                 </div>
-
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -512,7 +511,6 @@
                     </ul>
                 </div>
             </li>
-
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
@@ -574,58 +572,32 @@
                     <span class="menu-text">محاسبه سهام</span>
                     <i class="menu-arrow"></i>
                 </a>
-
                 <div class="menu-submenu">
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item menu-item-parent" aria-haspopup="true">
-												<span class="menu-link">
-													<span class="menu-text">Subheaders</span>
-												</span>
+                            <span class="menu-link">
+                                <span class="menu-text">Subheaders</span>
+                            </span>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/subheader/toolbar.html" class="menu-link">
+                            <a href="{{route('initial')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Toolbar Nav</span>
+                                <span class="menu-text">محاسبه سهام اولیه</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/subheader/actions.html" class="menu-link">
+                            <a href="{{route('participation')}}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Actions Buttons</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/subheader/tabbed.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">Tabbed Nav</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/subheader/classic.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">Classic</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/subheader/none.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">None</span>
+                                <span class="menu-text">محاسبه سهام مشارکت</span>
                             </a>
                         </li>
                     </ul>
                 </div>
-
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -704,7 +676,6 @@
                 </div>
 
             </li>
-
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
 										<span class="svg-icon menu-icon">
