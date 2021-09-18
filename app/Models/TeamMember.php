@@ -25,4 +25,9 @@ class TeamMember extends Model
     {
         return $this->belongsToMany(Responsibility::class,'responsibility_member','member_id','responsibility_id');
     }
+
+    public function variables()
+    {
+        return $this->belongsToMany(Variable::class,'variable_team_member','variable_id','team_member_id');
+    }
 }
