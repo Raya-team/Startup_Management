@@ -26,7 +26,7 @@
             <div class="row " style="margin-top: 85px">
                 <div class="col-xl-4 offset-xl-2">
                     <!--begin::Stats Widget 18-->
-                    <a href="#" class="card card-custom bg-dark bg-hover-state-dark card-stretch gutter-b">
+                    <a href="{{route('Agreements.create')}}" class="card card-custom bg-dark bg-hover-state-dark card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-xl-4">
                     <!--begin::Stats Widget 15-->
-                    <a href="#" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                    <a href="{{route('Calculations.create')}}" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <!--begin::Body-->
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
