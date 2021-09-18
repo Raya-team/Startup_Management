@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{{--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--}}
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
