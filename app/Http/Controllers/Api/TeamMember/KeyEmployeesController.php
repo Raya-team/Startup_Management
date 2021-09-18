@@ -22,7 +22,7 @@ class KeyEmployeesController extends Controller
     {
         $team_id = Auth::user()->team_id;
         $key_employee = KeyEmployee::with(['team', 'education', 'responsibility'])
-            ->where('team_id', $team_id)->get(['id', 'fname', 'lname', 'education_id', 'major', 'age', 'resume']);
+            ->where('team_id', $team_id)->paginate(3);
         return response()->json($key_employee);
     }
 

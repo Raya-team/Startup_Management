@@ -72,8 +72,8 @@
                                     <div class="spinner mr-10"></div>
                                 </div>
                                 <thead v-else>
-                                <tr class="bg-gray-100 text-left">
-                                    <th class="pl-7">نام</th>
+                                <tr class="bg-gray-100 text-center">
+                                    <th>نام</th>
                                     <th>نام خانوادگی</th>
                                     <th>تحصیلات</th>
                                     <th>رشته</th>
@@ -84,13 +84,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(employe, index) in keyEmployeesFilter" :id="'del'+employe.id">
-                                    <td class="pl-0 py-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="text-dark mb-1">
-                                                {{ employe.fname }}
-                                            </div>
-                                        </div>
+                                <tr v-for="(employe, index) in keyEmployeesFilter" :id="'del'+employe.id" class="text-center">
+                                    <td>
+                                        <span class="text-dark-75">{{ employe.fname }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ employe.lname }}</span>
@@ -110,7 +106,7 @@
                                     <td>
                                         <div v-for="res in employe.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
                                     </td>
-                                    <td class="pr-0 text-left">
+                                    <td>
                                         <router-link :to="{ name: 'key-employees-edit', params: { id: employe.id }}">
                                             <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                 <i class="flaticon2-edit"></i>
@@ -124,6 +120,43 @@
                                 </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="row" v-if="pagination.total_page > 3">
+                                <div class="col-md-10">
+                                    <div class="d-flex flex-wrap py-4 mr-3">
+                                        <div :class="{disables: !pagination.first_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.first_link)">
+                                            <a href="#">
+                                                <i class="ki ki-bold-double-arrow-back icon-xs"></i>
+                                            </a>
+                                        </div>
+                                        <div :class="{disables: !pagination.prev_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.prev_link)">
+                                            <a href="#">
+                                                <i class="ki ki-bold-arrow-back icon-xs"></i>
+                                            </a>
+                                        </div>
+                                        <div v-for='link in pagination.links' :class="{active: link.active}" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" @click="getResults(link.url)" v-if="link.label != '&laquo; قبلی' && link.label != 'بعدی &raquo;'">
+                                            <a>{{ link.label }}</a>
+                                        </div>
+                                        <div :class="{disables: !pagination.next_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.next_link)">
+                                            <a href="#">
+                                                <i class="ki ki-bold-arrow-next icon-xs"></i>
+                                            </a>
+                                        </div>
+                                        <div :class="{disables: !pagination.last_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.last_link)">
+                                            <a href="#">
+                                                <i class="ki ki-bold-double-arrow-next icon-xs"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="d-flex align-items-center py-3">
+                                <span class="text-muted">
+                                    Page: {{ pagination.from_page }} - {{ pagination.to_page }}
+                                    Total: {{ pagination.total_page }}
+                                </span>
+                                    </div>
+                                </div>
                         </div>
                         <!--end::Table-->
                     </div>
@@ -146,19 +179,43 @@
                 keyEmployees: [],
                 progress: true,
                 filterText: null,
+                pagination: {},
                 Auth: new Auth()
             }
         },
         created() {
             this.Auth.check();
-            axios.get('/api/key-employees')
-                .then(response => {
-                    this.keyEmployees = response.data;
-                    this.progress = false;
-                })
-                .catch(error => console.log(error));
+            // axios.get('/api/key-employees')
+            //     .then(response => {
+            //         console.log(response);
+            //         this.keyEmployees = response.data.data;
+            //         this.progress = false;
+            //     })
+            //     .catch(error => console.log(error));
+            this.getResults()
         },
         methods: {
+            getResults(pagi) {
+                pagi = pagi || '/api/key-employees';
+                axios.get(pagi)
+                    .then(response => {
+                        this.keyEmployees = response.data.data;
+                        this.pagination = {
+                            current_page: response.data.current_page,
+                            last_page: response.data.last_page,
+                            from_page: response.data.from,
+                            to_page: response.data.to,
+                            total_page: response.data.total,
+                            path_page: response.data.path+"?page=",
+                            links: response.data.links,
+                            first_link: response.data.first_page_url,
+                            last_link: response.data.last_page_url,
+                            prev_link: response.data.prev_page_url,
+                            next_link: response.data.next_page_url,
+                        };
+                        this.progress = false;
+                    });
+            },
             deleteKeyEmployee(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
@@ -186,7 +243,13 @@
                                     });
                                     KTUtil.btnRelease(formSubmitButton);
                                 }
-                            })
+                            });
+                        // console.log('deleted');
+                        // console.log(this.pagination.first_link);
+                        // console.log(this.pagination.current_page);
+                        // console.log(this.getResults);
+                        // console.log(this.created);
+                        // this.created('/api/key-employees')
                     } else {
                         KTUtil.btnRelease(formSubmitButton);
                     }

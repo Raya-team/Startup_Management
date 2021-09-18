@@ -6604,6 +6604,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "index",
@@ -6612,21 +6645,44 @@ __webpack_require__.r(__webpack_exports__);
       keyEmployees: [],
       progress: true,
       filterText: null,
+      pagination: {},
       Auth: new _Auth__WEBPACK_IMPORTED_MODULE_0__.default()
     };
   },
   created: function created() {
-    var _this = this;
+    this.Auth.check(); // axios.get('/api/key-employees')
+    //     .then(response => {
+    //         console.log(response);
+    //         this.keyEmployees = response.data.data;
+    //         this.progress = false;
+    //     })
+    //     .catch(error => console.log(error));
 
-    this.Auth.check();
-    axios.get('/api/key-employees').then(function (response) {
-      _this.keyEmployees = response.data;
-      _this.progress = false;
-    })["catch"](function (error) {
-      return console.log(error);
-    });
+    this.getResults();
   },
   methods: {
+    getResults: function getResults(pagi) {
+      var _this = this;
+
+      pagi = pagi || '/api/key-employees';
+      axios.get(pagi).then(function (response) {
+        _this.keyEmployees = response.data.data;
+        _this.pagination = {
+          current_page: response.data.current_page,
+          last_page: response.data.last_page,
+          from_page: response.data.from,
+          to_page: response.data.to,
+          total_page: response.data.total,
+          path_page: response.data.path + "?page=",
+          links: response.data.links,
+          first_link: response.data.first_page_url,
+          last_link: response.data.last_page_url,
+          prev_link: response.data.prev_page_url,
+          next_link: response.data.next_page_url
+        };
+        _this.progress = false;
+      });
+    },
     deleteKeyEmployee: function deleteKeyEmployee(id, index) {
       this.Auth.check();
       var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
@@ -6652,7 +6708,12 @@ __webpack_require__.r(__webpack_exports__);
               });
               KTUtil.btnRelease(formSubmitButton);
             }
-          });
+          }); // console.log('deleted');
+          // console.log(this.pagination.first_link);
+          // console.log(this.pagination.current_page);
+          // console.log(this.getResults);
+          // console.log(this.created);
+          // this.created('/api/key-employees')
         } else {
           KTUtil.btnRelease(formSubmitButton);
         }
@@ -59409,132 +59470,241 @@ var render = function() {
                   _c(
                     "tbody",
                     _vm._l(_vm.keyEmployeesFilter, function(employe, index) {
-                      return _c("tr", { attrs: { id: "del" + employe.id } }, [
-                        _c("td", { staticClass: "pl-0 py-0" }, [
-                          _c(
-                            "div",
-                            { staticClass: "d-flex align-items-center" },
-                            [
-                              _c("div", { staticClass: "text-dark mb-1" }, [
-                                _vm._v(
-                                  "\n                                            " +
-                                    _vm._s(employe.fname) +
-                                    "\n                                        "
-                                )
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.lname))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.education.nickname))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-750" }, [
-                            _vm._v(_vm._s(employe.major))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.age))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("td", [
-                          _c("span", { staticClass: "text-dark-75" }, [
-                            _vm._v(_vm._s(employe.resume))
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          _vm._l(employe.responsibility, function(res) {
-                            return _c("div", [
-                              _c(
-                                "span",
-                                {
-                                  staticClass:
-                                    "label label-lg label-light-primary label-inline mt-1"
-                                },
-                                [_vm._v(_vm._s(res.nickname))]
-                              ),
-                              _c("br")
+                      return _c(
+                        "tr",
+                        {
+                          staticClass: "text-center",
+                          attrs: { id: "del" + employe.id }
+                        },
+                        [
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-75" }, [
+                              _vm._v(_vm._s(employe.fname))
                             ])
-                          }),
-                          0
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "td",
-                          { staticClass: "pr-0 text-left" },
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                attrs: {
-                                  to: {
-                                    name: "key-employees-edit",
-                                    params: { id: employe.id }
-                                  }
-                                }
-                              },
-                              [
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-75" }, [
+                              _vm._v(_vm._s(employe.lname))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-75" }, [
+                              _vm._v(_vm._s(employe.education.nickname))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-750" }, [
+                              _vm._v(_vm._s(employe.major))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-75" }, [
+                              _vm._v(_vm._s(employe.age))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _c("span", { staticClass: "text-dark-75" }, [
+                              _vm._v(_vm._s(employe.resume))
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            _vm._l(employe.responsibility, function(res) {
+                              return _c("div", [
                                 _c(
-                                  "a",
+                                  "span",
                                   {
                                     staticClass:
-                                      "btn btn-icon btn-light-success btn-sm mr-2",
-                                    attrs: { href: "#" }
+                                      "label label-lg label-light-primary label-inline mt-1"
                                   },
-                                  [_c("i", { staticClass: "flaticon2-edit" })]
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "button",
-                              {
-                                staticClass:
-                                  "btn btn-icon btn-light-danger btn-sm mr-2",
-                                attrs: { type: "button" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.deleteKeyEmployee(
-                                      employe.id,
-                                      index
-                                    )
+                                  [_vm._v(_vm._s(res.nickname))]
+                                ),
+                                _c("br")
+                              ])
+                            }),
+                            0
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "td",
+                            [
+                              _c(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: {
+                                      name: "key-employees-edit",
+                                      params: { id: employe.id }
+                                    }
                                   }
-                                }
-                              },
-                              [
-                                _c("i", {
-                                  staticClass: "flaticon2-trash",
-                                  attrs: { id: "icon" + employe.id }
-                                })
-                              ]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c("hr")
-                      ])
+                                },
+                                [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "btn btn-icon btn-light-success btn-sm mr-2",
+                                      attrs: { href: "#" }
+                                    },
+                                    [_c("i", { staticClass: "flaticon2-edit" })]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "btn btn-icon btn-light-danger btn-sm mr-2",
+                                  attrs: { type: "button" },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.deleteKeyEmployee(
+                                        employe.id,
+                                        index
+                                      )
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("i", {
+                                    staticClass: "flaticon2-trash",
+                                    attrs: { id: "icon" + employe.id }
+                                  })
+                                ]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c("hr")
+                        ]
+                      )
                     }),
                     0
                   )
                 ]
               )
-            ])
+            ]),
+            _vm._v(" "),
+            _vm.pagination.total_page > 3
+              ? _c("div", { staticClass: "row" }, [
+                  _c("div", { staticClass: "col-md-10" }, [
+                    _c(
+                      "div",
+                      { staticClass: "d-flex flex-wrap py-4 mr-3" },
+                      [
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "btn btn-icon btn-sm btn-light-primary mr-2 my-1",
+                            class: { disables: !_vm.pagination.first_link },
+                            on: {
+                              click: function($event) {
+                                return _vm.getResults(_vm.pagination.first_link)
+                              }
+                            }
+                          },
+                          [_vm._m(4)]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "btn btn-icon btn-sm btn-light-primary mr-2 my-1",
+                            class: { disables: !_vm.pagination.prev_link },
+                            on: {
+                              click: function($event) {
+                                return _vm.getResults(_vm.pagination.prev_link)
+                              }
+                            }
+                          },
+                          [_vm._m(5)]
+                        ),
+                        _vm._v(" "),
+                        _vm._l(_vm.pagination.links, function(link) {
+                          return link.label != "&laquo; قبلی" &&
+                            link.label != "بعدی &raquo;"
+                            ? _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1",
+                                  class: { active: link.active },
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.getResults(link.url)
+                                    }
+                                  }
+                                },
+                                [_c("a", [_vm._v(_vm._s(link.label))])]
+                              )
+                            : _vm._e()
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "btn btn-icon btn-sm btn-light-primary mr-2 my-1",
+                            class: { disables: !_vm.pagination.next_link },
+                            on: {
+                              click: function($event) {
+                                return _vm.getResults(_vm.pagination.next_link)
+                              }
+                            }
+                          },
+                          [_vm._m(6)]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "btn btn-icon btn-sm btn-light-primary mr-2 my-1",
+                            class: { disables: !_vm.pagination.last_link },
+                            on: {
+                              click: function($event) {
+                                return _vm.getResults(_vm.pagination.last_link)
+                              }
+                            }
+                          },
+                          [_vm._m(7)]
+                        )
+                      ],
+                      2
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-md-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "d-flex align-items-center py-3" },
+                      [
+                        _c("span", { staticClass: "text-muted" }, [
+                          _vm._v(
+                            "\n                                Page: " +
+                              _vm._s(_vm.pagination.from_page) +
+                              " - " +
+                              _vm._s(_vm.pagination.to_page) +
+                              "\n                                Total: " +
+                              _vm._s(_vm.pagination.total_page) +
+                              "\n                            "
+                          )
+                        ])
+                      ]
+                    )
+                  ])
+                ])
+              : _vm._e()
           ])
         ])
       ])
@@ -59627,8 +59797,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", { staticClass: "bg-gray-100 text-left" }, [
-      _c("th", { staticClass: "pl-7" }, [_vm._v("نام")]),
+    return _c("tr", { staticClass: "bg-gray-100 text-center" }, [
+      _c("th", [_vm._v("نام")]),
       _vm._v(" "),
       _c("th", [_vm._v("نام خانوادگی")]),
       _vm._v(" "),
@@ -59643,6 +59813,38 @@ var staticRenderFns = [
       _c("th", [_vm._v("مسئولیت")]),
       _vm._v(" "),
       _c("th", [_vm._v("عملیات")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "ki ki-bold-double-arrow-back icon-xs" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "ki ki-bold-arrow-back icon-xs" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "ki ki-bold-arrow-next icon-xs" })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "ki ki-bold-double-arrow-next icon-xs" })
     ])
   }
 ]

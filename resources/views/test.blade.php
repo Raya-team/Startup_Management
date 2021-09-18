@@ -1,459 +1,147 @@
-@extends('auth.layout')
-@section('title', 'ثبت نام')
+@extends('user.master')
+@section('title', 'تست')
 @section('content')
-
-    <!--begin::Main-->
-    <div class="d-flex flex-column flex-root">
-        <!--begin::Login-->
-        <div class="login login-4 wizard d-flex flex-column flex-lg-row flex-column-fluid wizard" id="kt_login">
-            <!--begin::Content-->
-            <div class="login-container d-flex flex-center flex-row flex-row-fluid order-2 order-lg-1 flex-row-fluid bg-white py-lg-0 pb-lg-0 pt-15 pb-12">
-                <!--begin::Container-->
-                <div class="login-content login-content-signup d-flex flex-column">
-                    <!--begin::Aside Top-->
-                    <div class="d-flex flex-column-auto flex-column px-10">
-                        <!--begin::Aside header-->
-                        <!--end::Aside header-->
-                        <!--begin: Wizard Nav-->
-                        <div class="wizard-nav pt-5 pt-lg-15 pb-10">
-                            <!--begin::Wizard Steps-->
-                            <div class="wizard-steps d-flex flex-column flex-sm-row">
-                                <!--begin::Wizard Step 1 Nav-->
-                                <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step" data-wizard-state="current">
-                                    <div class="wizard-wrapper pr-7">
-                                        <div class="wizard-icon">
-                                            <i class="wizard-check ki ki-check"></i>
-                                            <span class="wizard-number">1</span>
-                                        </div>
-                                        <div class="wizard-label">
-                                            <h3 class="wizard-title">اطلاعات کاربر</h3>
-                                        </div>
-                                        <span class="svg-icon pl-6">
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<polygon points="0 0 24 0 24 24 0 24" />
-														<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
-														<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-													</g>
-												</svg>
-											</span>
-                                    </div>
+    <div>
+        <!--begin::Subheader-->
+        <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
+            <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                <!--begin::Info-->
+                <div class="d-flex align-items-center flex-wrap mr-1">
+                    <!--begin::Page Heading-->
+                    <div class="d-flex align-items-baseline flex-wrap mr-5">
+                        <!--begin::Page Title-->
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">محاسبه سهام</h5>
+                        <!--end::Page Title-->
+                        <!--begin::Breadcrumb-->
+                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
+                            <li class="breadcrumb-item text-muted">
+                                <div class="text-muted">
+                                    <a class="text-muted">سهام اولیه</a>
                                 </div>
-                                <!--end::Wizard Step 1 Nav-->
-                                <!--begin::Wizard Step 2 Nav-->
-                                <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step">
-                                    <div class="wizard-wrapper pr-7">
-                                        <div class="wizard-icon">
-                                            <i class="wizard-check ki ki-check"></i>
-                                            <span class="wizard-number">2</span>
-                                        </div>
-                                        <div class="wizard-label">
-                                            <h3 class="wizard-title">اطلاعات استارتاپ</h3>
-                                        </div>
-                                        <span class="svg-icon pl-6">
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<polygon points="0 0 24 0 24 24 0 24" />
-														<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
-														<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-													</g>
-												</svg>
-										</span>
-                                    </div>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <div class="text-muted">
+                                    <a class="text-muted">دستی</a>
                                 </div>
-                                <!--end::Wizard Step 2 Nav-->
-                                <!--begin::Wizard Step 3 Nav-->
-                                <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step">
-                                    <div class="wizard-wrapper pr-7">
-                                        <div class="wizard-icon">
-                                            <i class="wizard-check ki ki-check"></i>
-                                            <span class="wizard-number">3</span>
-                                        </div>
-                                        <div class="wizard-label">
-                                            <h3 class="wizard-title">اطلاعات اعضای تیم</h3>
-                                        </div>
-                                        <span class="svg-icon pl-6">
-												<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-														<polygon points="0 0 24 0 24 24 0 24" />
-														<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
-														<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-													</g>
-												</svg>
-										</span>
-                                    </div>
-                                </div>
-                                <!--end::Wizard Step 3 Nav-->
-                                <!--begin::Wizard Step 4 Nav-->
-                                <div class="wizard-step flex-grow-1 flex-basis-0" data-wizard-type="step">
-                                    <div class="wizard-wrapper">
-                                        <div class="wizard-icon">
-                                            <i class="wizard-check ki ki-check"></i>
-                                            <span class="wizard-number">4</span>
-                                        </div>
-                                        <div class="wizard-label">
-                                            <h3 class="wizard-title">اطلاعات محصول</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--end::Wizard Step 4 Nav-->
-                            </div>
-                            <!--end::Wizard Steps-->
-                        </div>
-                        <!--end: Wizard Nav-->
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <div class="text-muted">تخصیص درصد</div>
+                            </li>
+                        </ul>
+                        <!--end::Breadcrumb-->
                     </div>
-                    <!--end::Aside Top-->
-                    <!--begin::Signin-->
-                    <div class="login-form">
-                        <!--begin::Form-->
-                        <form class="form px-10" novalidate="novalidate" id="kt_login_signup_form">
-                            <!--begin: Wizard Step 1-->
-                            <div class="" data-wizard-type="step-content" data-wizard-state="current">
-                                <!--begin::Title-->
-                                <div class="pb-10 pb-lg-12">
-                                    <h3 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">ثبت نام</h3>
-                                    <div class="text-muted font-weight-bold font-size-h4">قبلا ثبت نام کرده ام؟
-                                        <a href="custom/pages/login/login-4/signin.html" class="text-primary font-weight-bolder">ورود</a></div>
-                                </div>
-                                <!--begin::Title-->
-                                <!--begin::Form Group-->
-                                <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">نام کاربری:</label>
-                                    <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="username" required/>
-                                </div>
-                                <!--end::Form Group-->
-                                <!--begin::Form Group-->
-                                <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                    <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="email" required/>
-                                </div>
-                                <!--end::Form Group-->
-                                <!--begin::Form Group-->
-                                <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">رمز عبور:</label>
-                                    <input type="password" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="password" required/>
-                                </div>
-                                <!--end::Form Group-->
-                                <!--begin::Form Group-->
-                                <div class="form-group">
-                                    <label class="font-size-h6 font-weight-bolder text-dark">تکرار رمز عبور:</label>
-                                    <input type="password" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="password_confirmation" required/>
-                                </div>
-                                <!--end::Form Group-->
-                            </div>
-                            <!--end: Wizard Step 1-->
-                            <!--begin: Wizard Step 2-->
-                            <div class="pb-5" data-wizard-type="step-content">
-                                <!--begin::Title-->
-                                <!--begin::Title-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام تیم یا شرکت:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamName" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام طرح:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="projectName" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">ایمیل:</label>
-                                            <input type="email" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamEmail" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">شماره تماس:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="teamPhone" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-                                            <span class="form-text text-muted" style="color: red !important" >این فیلد اختیاری می باشد</span>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Select-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">حوزه فعالیت:</label>
-                                            <select name="activityField" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">کشاورزی و دامپروری</option>
-                                                <option value="2">محصولات غذایی</option>
-                                                <option value="3">خودرو</option>
-                                                <option value="4">تجهیزات پزشکی</option>
-                                                <option value="5">الکترونیک</option>
-                                                <option value="6">مواد و نانو</option>
-                                                <option value="7">تجهیزات صنعتی</option>
-                                                <option value="8">ICT</option>
-                                                <option value="9">آموزش</option>
-                                                <option value="10">اینترنت اشیا</option>
-                                                <option value="11">آب</option>
-                                                <option value="12">هوافضا</option>
-                                                <option value="13">انرژی های تجدید پذیر</option>
-                                                <option value="14">انرژی های فسیلی</option>
-                                                <option value="15">آرایشی و بهداشتی</option>
-                                                <option value="16">معدن</option>
-                                                <option value="17">دارویی</option>
-                                                <option value="18">فینتک</option>
-                                                <option value="19">سلامت</option>
-                                                <option value="20">دارو</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Select-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">شرکت ثبت شده؟</label>
-                                            <select name="status" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">بله</option>
-                                                <option value="2">خیر</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">آدرس:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="address" />
-                                            <span class="form-text text-muted" style="color: red !important;">این فیلد اختیاری می باشد</span>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                            </div>
-                            <!--end: Wizard Step 2-->
-                            <!--begin: Wizard Step 3-->
-                            <div class="pb-5" data-wizard-type="step-content">
-                                <!--begin::Title-->
-                                <!--begin::Title-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="fName" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">نام خانوادگی:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="lName" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">رشته:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="major" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Select-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">سن:</label>
-                                            <select name="age" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                @for($i = 1300; $i <= 1400; $i++)
-                                                    <option value="{{$i}}">{{$i}}</option>
-                                                @endfor
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Select-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">مسئولیت:</label>
-                                            <select name="Responsibility" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">مسئول فنی</option>
-                                                <option value="2">مسئول بازار</option>
-                                                <option value="3">مسئول مالی</option>
-                                                <option value="4">مسئول مدیریتی و جذب سرمایه</option>
-                                                <option value="5">سرمایه گذار</option>
-                                                <option value="6">مشاور</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Select-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">تحصیلات:</label>
-                                            <select name="education" class="form-control form-control-solid h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">سیکل</option>
-                                                <option value="2">دیپلم</option>
-                                                <option value="3">فوق دیپلم</option>
-                                                <option value="4">کارشناسی</option>
-                                                <option value="5">کارشناسی ارشد</option>
-                                                <option value="6">دکترا</option>
-                                                <option value="7">فوق دکترا</option>
-                                            </select>
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                                <!--begin::Row-->
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">سابقه:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="resume" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Input-->
-                                        <div class="form-group">
-                                            <label class="font-size-h6 font-weight-bolder text-dark">سرمایه گذاری:</label>
-                                            <input type="text" class="form-control form-control-solid h-auto py-7 px-6 border-0 rounded-lg font-size-h6" name="investment" required />
-                                        </div>
-                                        <!--end::Input-->
-                                    </div>
-                                </div>
-                                <!--end::Row-->
-                            </div>
-                            <!--end: Wizard Step 3-->
-                            <!--begin: Wizard Step 4-->
-                            <div id="kt_repeater_1">
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label text-right">Contacts:</label>
-                                    <div data-repeater-list="" class="col-lg-10">
-                                        <div data-repeater-item="" class="form-group row align-items-center">
-                                            <div class="col-md-3">
-                                                <label>Name:</label>
-                                                <input type="email" class="form-control" placeholder="Enter full name" />
-                                                <div class="d-md-none mb-2"></div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label>Number:</label>
-                                                <input type="email" class="form-control" placeholder="Enter contact number" />
-                                                <div class="d-md-none mb-2"></div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="checkbox-inline">
-                                                    <label class="checkbox checkbox-success">
-                                                        <input type="checkbox" name="primary" checked="checked" />
-                                                        <span></span>Primary</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                    <i class="la la-trash-o"></i>Delete</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-2 col-form-label text-right"></label>
-                                    <div class="col-lg-4">
-                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
-                                            <i class="la la-plus"></i>Add</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end: Wizard Step 4-->
-                            <!--begin: Wizard Actions-->
-                            <div class="d-flex justify-content-between pt-7">
-                                <div class="mr-2">
-                                    <button type="button" class="btn btn-light-primary font-weight-bolder font-size-h6 pr-8 pl-6 py-4 my-3 mr-3" data-wizard-type="action-prev">
-										<span class="svg-icon svg-icon-md mr-2">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Left-2.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<polygon points="0 0 24 0 24 24 0 24" />
-													<rect fill="#000000" opacity="0.3" transform="translate(15.000000, 12.000000) scale(-1, 1) rotate(-90.000000) translate(-15.000000, -12.000000)" x="14" y="7" width="2" height="10" rx="1" />
-													<path d="M3.7071045,15.7071045 C3.3165802,16.0976288 2.68341522,16.0976288 2.29289093,15.7071045 C1.90236664,15.3165802 1.90236664,14.6834152 2.29289093,14.2928909 L8.29289093,8.29289093 C8.67146987,7.914312 9.28105631,7.90106637 9.67572234,8.26284357 L15.6757223,13.7628436 C16.0828413,14.136036 16.1103443,14.7686034 15.7371519,15.1757223 C15.3639594,15.5828413 14.7313921,15.6103443 14.3242731,15.2371519 L9.03007346,10.3841355 L3.7071045,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(9.000001, 11.999997) scale(-1, -1) rotate(90.000000) translate(-9.000001, -11.999997)" />
-												</g>
-											</svg>
-                                            <!--end::Svg Icon-->
-										</span>Previous</button>
-                                </div>
-                                <div>
-                                    <button class="btn btn-primary font-weight-bolder font-size-h6 pl-8 pr-4 py-4 my-3" data-wizard-type="action-submit" type="submit" id="kt_login_signup_form_submit_button">Submit
-                                        <span class="svg-icon svg-icon-md ml-2">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Right-2.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<polygon points="0 0 24 0 24 24 0 24" />
-													<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
-													<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-												</g>
-											</svg>
-                                            <!--end::Svg Icon-->
-										</span></button>
-                                    <button type="button" class="btn btn-primary font-weight-bolder font-size-h6 pl-8 pr-4 py-4 my-3" data-wizard-type="action-next">Next
-                                        <span class="svg-icon svg-icon-md ml-2">
-											<!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Right-2.svg-->
-											<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-												<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-													<polygon points="0 0 24 0 24 24 0 24" />
-													<rect fill="#000000" opacity="0.3" transform="translate(8.500000, 12.000000) rotate(-90.000000) translate(-8.500000, -12.000000)" x="7.5" y="7.5" width="2" height="9" rx="1" />
-													<path d="M9.70710318,15.7071045 C9.31657888,16.0976288 8.68341391,16.0976288 8.29288961,15.7071045 C7.90236532,15.3165802 7.90236532,14.6834152 8.29288961,14.2928909 L14.2928896,8.29289093 C14.6714686,7.914312 15.281055,7.90106637 15.675721,8.26284357 L21.675721,13.7628436 C22.08284,14.136036 22.1103429,14.7686034 21.7371505,15.1757223 C21.3639581,15.5828413 20.7313908,15.6103443 20.3242718,15.2371519 L15.0300721,10.3841355 L9.70710318,15.7071045 Z" fill="#000000" fill-rule="nonzero" transform="translate(14.999999, 11.999997) scale(1, -1) rotate(90.000000) translate(-14.999999, -11.999997)" />
-												</g>
-											</svg>
-                                            <!--end::Svg Icon-->
-										</span></button>
-                                </div>
-                            </div>
-                            <!--end: Wizard Actions-->
-                        </form>
-                        <!--end::Form-->
-                    </div>
-                    <!--end::Signin-->
+                    <!--end::Page Heading-->
                 </div>
-                <!--end::Container-->
+                <!--end::Info-->
             </div>
-            <!--begin::Content-->
-            <!--begin::Aside-->
-            <div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="width: 600px;">
-                <div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" style="background-image: url(assets/media/svg/illustrations/login-visual-4.svg);">
-                    <!--begin::Aside title-->
-                    {{--<h3 class="pt-lg-40 pl-lg-20 pb-lg-0 pl-10 py-20 m-0 d-flex justify-content-lg-start font-weight-boldest display5 display1-lg text-white">We Got
-                            <br />A Surprise
-                            <br />For You</h3>
-                        <!--end::Aside title-->--}}
-                </div>
-            </div>
-            <!--end::Aside-->
         </div>
-        <!--end::Login-->
+        <!--end::Subheader-->
+        <!--begin::Entry-->
+        <div class="d-flex flex-column-fluid">
+            <!--begin::Container-->
+            <div class="container">
+                <!--begin::table-->
+                <div class="card card-custom gutter-b col-xl-8 offset-xl-2">
+                    <!--begin::Header-->
+                    <div class="card-header border-0 py-5">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label font-weight-bolder text-dark">سهامداران شرکت</span>
+                        </h3>
+                        <div class="card-toolbar my-2 my-md-0">
+                            <div class="input-icon">
+                                <input type="text" class="form-control" placeholder="جستجو..." />
+                                <span>
+                                <i class="flaticon2-search-1 text-muted"></i>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end::Header-->
+                    <!--begin::Body-->
+                    <div class="card-body pt-0 pb-3">
+                        <!--begin::Table-->
+                        <div class="table-responsive">
+                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless">
+                                {{--<div class="d-flex align-items-center" v-if="progress">--}}
+                                {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
+                                {{--<div class="spinner mr-10"></div>--}}
+                                {{--</div>--}}
+                                <thead>
+                                <tr class="bg-gray-100 text-left">
+                                    <th class="pl-7">نام و نام خانوادگی</th>
+                                    <th>مسئولیت</th>
+                                    <th>میزان سهام (درصد)</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="pl-0 py-0">
+                                        <div class="d-flex align-items-center">
+                                            <div class="text-dark mb-1">
+                                                احسان روزبخش
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-75">
+                                            <span class="label label-lg label-light-primary label-inline mt-1" >بازاریاب</span><br>
+                                            <span class="label label-lg label-light-primary label-inline mt-1" >بخش فنی</span><br>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="icon-nm fas fa-percent"></i>
+                                                </span>
+                                                </div>
+                                                <input type="text" class="form-control" value="0">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="pl-0 py-0">
+                                        <div class="d-flex align-items-center">
+                                            <div class="text-dark mb-1">
+                                                مهدی مردانی
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-75">
+                                            <span class="label label-lg label-light-primary label-inline mt-1" >بازاریاب</span><br>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-8">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="icon-nm fas fa-percent"></i>
+                                                </span>
+                                                </div>
+                                                <input type="text" class="form-control" value="0">
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                        </div>
+                        <!--end::Table-->
+                    </div>
+                    <!--end::Body-->
+                </div>
+                <!--end::table-->
+            </div>
+            <!--end::Container-->
+        </div>
+        <!--end::Entry-->
     </div>
-    <!--end::Main-->
+
+@endsection
