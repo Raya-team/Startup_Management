@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPercentColumnToKeyEmployeesTable extends Migration
+class AddPercentColumnToTeamMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddPercentColumnToKeyEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::table('key_employees', function (Blueprint $table) {
-           $table->tinyInteger('percent');
+        Schema::table('team_members', function (Blueprint $table) {
+            $table->tinyInteger('percent')->after('investment');
         });
     }
 
@@ -25,7 +25,7 @@ class AddPercentColumnToKeyEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::table('key_employees', function (Blueprint $table) {
+        Schema::table('team_members', function (Blueprint $table) {
             $table->dropColumn('percent');
         });
     }
