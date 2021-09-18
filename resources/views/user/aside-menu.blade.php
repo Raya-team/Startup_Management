@@ -584,7 +584,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">محاسبه سهام اولیه</span>
+                                <span class="menu-text">سهام اولیه</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
@@ -592,7 +592,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">محاسبه سهام مشارکت</span>
+                                <span class="menu-text">سهام مشارکت</span>
                             </a>
                         </li>
                     </ul>
