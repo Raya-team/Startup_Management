@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVariablesTable extends Migration
+class CreateShareVariablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVariablesTable extends Migration
      */
     public function up()
     {
-        Schema::create('variables', function (Blueprint $table) {
+        Schema::create('share_variables', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('idea');
             $table->bigInteger('finance');
@@ -35,6 +35,6 @@ class CreateVariablesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('variables');
+        Schema::dropIfExists('share_variables');
     }
 }
