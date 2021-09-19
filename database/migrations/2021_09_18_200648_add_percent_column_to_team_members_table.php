@@ -14,7 +14,7 @@ class AddPercentColumnToTeamMembersTable extends Migration
     public function up()
     {
         Schema::table('team_members', function (Blueprint $table) {
-            $table->tinyInteger('percent')->after('investment');
+            $table->tinyInteger('percent')->after('investment')->default(0);
         });
     }
 
