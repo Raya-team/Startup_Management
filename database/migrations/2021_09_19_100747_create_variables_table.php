@@ -15,8 +15,15 @@ class CreateVariablesTable extends Migration
     {
         Schema::create('variables', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('Weight');
+            $table->bigInteger('idea');
+            $table->bigInteger('finance');
+            $table->bigInteger('experience');
+            $table->bigInteger('risk');
+            $table->bigInteger('technology');
+            $table->bigInteger('investment');
+            $table->bigInteger('management');
+            $table->bigInteger('sale');
+            $table->bigInteger('full_time');
             $table->timestamps();
         });
     }
