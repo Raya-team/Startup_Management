@@ -24,6 +24,8 @@ class CreateShareVariablesTable extends Migration
             $table->bigInteger('management');
             $table->bigInteger('sale');
             $table->bigInteger('full_time');
+            $table->bigInteger('team_id')->unsigned();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();
         });
     }
