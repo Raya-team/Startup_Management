@@ -28,7 +28,7 @@ class TeamMember extends Model
 
     public function sharequestoins()
     {
-        return $this->belongsToMany(Responsibility::class,'responsibility_member','member_id','responsibility_id');
+        return $this->belongsToMany(ShareQuestion::class,'member_share_question','member_id','question_id');
     }
 
 }

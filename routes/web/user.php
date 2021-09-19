@@ -23,8 +23,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/products', ProductController::class);
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
     Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
-    Route::resource('/Agreements', AgreementController::class);
-    Route::resource('/Calculations', CalculationController::class);
+    Route::resource('/agreements', AgreementController::class);
+    Route::resource('/calculations', CalculationController::class);
 });
 Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
     Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class, ['as' => 'api']);
