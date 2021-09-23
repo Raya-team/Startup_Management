@@ -21,6 +21,10 @@ import ProductsEdit from './components/other/product/edit';
 import TeamIndex from './components/other/team/index';
 import TeamEdit from './components/other/team/edit';
 
+import AgreementsIndex from './components/shares/initial-shares/index';
+// import AgreementsCreate from './components/shares/initial-shares/create';
+import AgreementsEdit from './components/shares/initial-shares/edit';
+
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
     {path: '/page', name: 'Page', component: Page},
@@ -39,6 +43,10 @@ const routes = [
 
     {path: '/team', name: 'team-index', component: TeamIndex, meta: {title: 'تیم'}},
     {path: '/team/:id/edit', name: 'team-edit', component: TeamEdit, meta: {title: 'ویرایش تیم'}},
+
+    {path: '/agreements', name: 'agreements-index', component: AgreementsIndex, meta: {title: 'توافقی'}},
+    // {path: '/agreements/create', name: 'agreements-create', component: AgreementsCreate, meta: {title: 'توافقی'}},
+    {path: '/agreements/:id/edit', name: 'agreements-edit', component: AgreementsEdit, meta: {title: 'ویرایش'}},
 ];
 
 export default new VueRouter({

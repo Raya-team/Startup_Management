@@ -25,10 +25,14 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
     Route::resource('/agreements', AgreementController::class);
     Route::resource('/calculations', CalculationController::class);
+    Route::get('/test',function (){
+        return view('test');
+    })->name('test');
 });
 Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
     Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class, ['as' => 'api']);
     Route::resource('/key-employees', \App\Http\Controllers\Api\TeamMember\KeyEmployeesController::class, ['as' => 'api']);
     Route::resource('/products', \App\Http\Controllers\Api\other\ProductController::class, ['as' => 'api']);
     Route::resource('/team', \App\Http\Controllers\Api\other\TeamController::class, ['as' => 'api']);
+    Route::resource('/agreements', \App\Http\Controllers\Api\Share\InitialShare\AgreementController::class, ['as' => 'api']);
 });

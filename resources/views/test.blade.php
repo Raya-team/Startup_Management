@@ -10,22 +10,14 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">محاسبه سهام</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
                                 <div class="text-muted">
-                                    <a class="text-muted">سهام اولیه</a>
+                                    <a class="text-muted">مالی 1</a>
                                 </div>
-                            </li>
-                            <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">
-                                    <a class="text-muted">دستی</a>
-                                </div>
-                            </li>
-                            <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">تخصیص درصد</div>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -41,101 +33,105 @@
             <!--begin::Container-->
             <div class="container">
                 <!--begin::table-->
-                <div class="card card-custom gutter-b col-xl-8 offset-xl-2">
-                    <!--begin::Header-->
-                    <div class="card-header border-0 py-5">
-                        <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">سهامداران شرکت</span>
-                        </h3>
-                        <div class="card-toolbar my-2 my-md-0">
-                            <div class="input-icon">
-                                <input type="text" class="form-control" placeholder="جستجو..." />
-                                <span>
-                                <i class="flaticon2-search-1 text-muted"></i>
-                            </span>
+                <div class="card card-custom gutter-b col-xl-12">
+                    <div class="card card-custom gutter-b">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h3 class="card-label">اطلاعات مالی 1</h3>
                             </div>
                         </div>
-                    </div>
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body pt-0 pb-3">
-                        <!--begin::Table-->
-                        <div class="table-responsive">
-                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless">
-                                {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                {{--<div class="spinner mr-10"></div>--}}
-                                {{--</div>--}}
-                                <thead>
-                                <tr class="bg-gray-100 text-left">
-                                    <th class="pl-7">نام و نام خانوادگی</th>
-                                    <th>مسئولیت</th>
-                                    <th>میزان سهام (درصد)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td class="pl-0 py-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="text-dark mb-1">
-                                                احسان روزبخش
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">
-                                            <span class="label label-lg label-light-primary label-inline mt-1" >بازاریاب</span><br>
-                                            <span class="label label-lg label-light-primary label-inline mt-1" >بخش فنی</span><br>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="col-lg-8">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="icon-nm fas fa-percent"></i>
+                        <div class="card-body">
+                            <!--begin::Example-->
+                            <div class="example">
+                                <div class="example-preview">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            {{--<ul class="nav nav-tabs" id="myTab" role="tablist">--}}
+                                            <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-chat-1"></i>
                                                 </span>
-                                                </div>
-                                                <input type="text" class="form-control" value="0">
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="pl-0 py-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="text-dark mb-1">
-                                                مهدی مردانی
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">
-                                            <span class="label label-lg label-light-primary label-inline mt-1" >بازاریاب</span><br>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="col-lg-8">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                <span class="input-group-text">
-                                                    <i class="icon-nm fas fa-percent"></i>
+                                                        <span class="nav-text">اطلاعات اولیه</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="lands-tab" data-toggle="tab" href="#lands" aria-controls="lands">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
-                                                </div>
-                                                <input type="text" class="form-control" value="0">
+                                                        <span class="nav-text">زمین ها</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="buildings-tab" data-toggle="tab" href="#buildings" aria-controls="buildings">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">ساختمان ها</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="machinery-tab" data-toggle="tab" href="#machinery" aria-controls="machinery">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">تجهیزات و ماشین آلات فنی</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="office-tab" data-toggle="tab" href="#office" aria-controls="office">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">تجهیزات و لوازم دفتری</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="facilities-tab" data-toggle="tab" href="#facilities" aria-controls="facilities">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">تاسیسات</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="transportation-tab" data-toggle="tab" href="#transportation" aria-controls="transportation">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">وسایل حمل و نقل</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="operation-tab" data-toggle="tab" href="#operation" aria-controls="operation">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-rocket-1"></i>
+                                                </span>
+                                                        <span class="nav-text">هزینه های قبل بهره برداری</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-10">
+                                            <div class="tab-content mt-5" id="myTabContent">
+                                                <div class="tab-pane fade active show" id="basic" role="tabpanel" aria-labelledby="basic-tab">Tab content 1</div>
+                                                <div class="tab-pane fade" id="lands" role="tabpanel" aria-labelledby="lands-tab">Tab content 2</div>
+                                                <div class="tab-pane fade" id="buildings" role="tabpanel" aria-labelledby="buildings-tab">Tab content 3</div>
+                                                <div class="tab-pane fade" id="machinery" role="tabpanel" aria-labelledby="machinery-tab">bbb</div>
+                                                <div class="tab-pane fade" id="office" role="tabpanel" aria-labelledby="office-tab">bbb</div>
+                                                <div class="tab-pane fade" id="facilities" role="tabpanel" aria-labelledby="facilities-tab">bbb</div>
+                                                <div class="tab-pane fade" id="transportation" role="tabpanel" aria-labelledby="transportation-tab">bbb</div>
+                                                <div class="tab-pane fade" id="operation" role="tabpanel" aria-labelledby="operation-tab">bbb</div>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end::Example-->
                         </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
-                        </div>
-                        <!--end::Table-->
                     </div>
-                    <!--end::Body-->
                 </div>
                 <!--end::table-->
             </div>
@@ -144,4 +140,19 @@
         <!--end::Entry-->
     </div>
 
+@endsection
+
+@section('script')
+    <script>
+        $('#myTab a[href="#contact"]').tab('show');
+    </script>
+@endsection
+
+@section('css')
+    <style>
+        .flex-column{
+            border-left: 2px solid #E4E6EF;
+            /*border-bottom: 0px;*/
+        }
+    </style>
 @endsection

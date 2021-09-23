@@ -72,25 +72,21 @@
                                     <div class="spinner mr-10"></div>
                                 </div>
                                 <thead v-else>
-                                <tr class="bg-gray-100 text-left">
-                                    <th class="pl-7">نام محصول</th>
+                                <tr class="bg-gray-100 text-center">
+                                    <th>نام محصول</th>
                                     <th>نوع محصول</th>
                                     <th>عملیات</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(product, index) in productFilter" :key="index" :id="'del'+product.id">
+                                <tr v-for="(product, index) in productFilter" :key="index" :id="'del'+product.id" class="text-center">
                                     <td class="pl-0 py-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="text-dark mb-1">
-                                                {{ product.name }}
-                                            </div>
-                                        </div>
+                                        <span class="text-dark-75">{{ product.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ product.type.nickname }}</span>
                                     </td>
-                                    <td class="pr-0 text-right" style=".text-right {text-align: right!important;}">
+                                    <td class="pr-0 text-center">
                                         <router-link :to="{ name: 'products-edit', params: { id: product.id }}">
                                             <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                 <i class="flaticon2-edit"></i>

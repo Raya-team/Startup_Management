@@ -72,7 +72,7 @@
                                     <div class="spinner mr-10"></div>
                                 </div>
                                 <thead v-else>
-                                <tr class="bg-gray-100 text-left">
+                                <tr class="bg-gray-100 text-center">
                                     <th class="pl-7">نام</th>
                                     <th>نام خانوادگی</th>
                                     <th>تحصیلات</th>
@@ -85,13 +85,9 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index">
-                                    <td class="pl-0 py-0">
-                                        <div class="d-flex align-items-center">
-                                            <div class="text-dark mb-1">
-                                                {{ shareholder.fname }}
-                                            </div>
-                                        </div>
+                                <tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">
+                                    <td>
+                                        <span class="text-dark-75">{{ shareholder.fname }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ shareholder.lname }}</span>
@@ -114,7 +110,7 @@
                                     <td>
                                         <span class="text-dark-75">{{ shareholder.investment }}</span>
                                     </td>
-                                    <td class="pr-0 text-left">
+                                    <td>
                                         <router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">
                                             <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                 <i class="flaticon2-edit"></i>

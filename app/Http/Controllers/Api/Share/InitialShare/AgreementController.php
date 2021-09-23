@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\user\Share\InitialShare;
+namespace App\Http\Controllers\Api\Share\InitialShare;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\AgreementRequest;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +16,14 @@ class AgreementController extends Controller
      */
     public function index()
     {
-        return view('user.shares.initial-shares.agreement.index');
+        $team_id = Auth::user()->team_id;
+        $shareholders = TeamMember::with(['team', 'education', 'responsibility'])
+            ->where('team_id', $team_id)
+            ->where('percent', '>', 0)->paginate(10);
+        return response()->json([
+            'shareholders' => $shareholders,
+            'team_id' => $team_id
+        ]);
     }
 
     /**
@@ -27,7 +33,7 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        return abourt(404);
+        //
     }
 
     /**
@@ -61,10 +67,9 @@ class AgreementController extends Controller
     public function edit($id)
     {
         $team_id = Auth::user()->team_id;
-        if ($team_id == $id){
-            return view('user.shares.initial-shares.agreement.index');
-        }
-        abort(404);
+        $shareholders = TeamMember::with(['responsibility'])
+            ->where('team_id', $team_id)->get();
+        return response()->json($shareholders);
     }
 
     /**
@@ -74,14 +79,9 @@ class AgreementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AgreementRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        for ( $i=0 ; $i<count(collect($request->shareholders)); $i++){
-            $member = TeamMember::findOrFail($request->shareholders[$i]['id']);
-            $member->percent = $request->shareholders[$i]['percent'];
-            $member->save();
-        }
-        return response(['success'], 201);
+        //
     }
 
     /**

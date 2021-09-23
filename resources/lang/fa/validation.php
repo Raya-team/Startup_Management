@@ -192,5 +192,6 @@ return array(
         'investment' => 'میزان سرمایه گذاری',
         'product.*.product_name' => 'نام محصول',
         'product.*.product_type' => 'نوع محصول',
+        'shareholders.*.percent' => 'درصد سهام',
     ),
 );

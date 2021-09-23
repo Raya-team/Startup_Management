@@ -8,12 +8,15 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات تیم</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">محاسبه سهام</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">کارکنان کلیدی</div>
+                                <div class="text-muted">سهام اولیه</div>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <div class="text-muted">توافقی</div>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -33,7 +36,7 @@
                     <!--begin::Header-->
                     <div class="card-header border-0 py-5">
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">لیست کارکنان کلیدی</span>
+                            <span class="card-label font-weight-bolder text-dark">توافقی</span>
                         </h3>
                         <div class="card-toolbar my-2 my-md-0">
                             <div class="input-icon">
@@ -44,19 +47,9 @@
                             </div>
                         </div>
                         <div class="card-toolbar">
-                            <router-link :to="{ name: 'key-employees-create' }">
-                                <a class="btn btn-primary font-weight-bolder">
-                                    <span class="svg-icon svg-icon-md">
-                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                <polygon points="0 0 24 0 24 24 0 24"/>
-                                                <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                                <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
-                                            </g>
-                                        </svg>
-                                        <!--end::Svg Icon-->
-                                    </span>افزودن کارمند جدید
+                            <router-link :to="{ name: 'agreements-edit', params: { id: team_id } }">
+                                <a class="btn btn-success font-weight-bolder">
+                                    <i class="icon-md  fas fa-percentage"></i>تخصیص درصد
                                 </a>
                             </router-link>
                         </div>
@@ -75,53 +68,30 @@
                                 <tr class="bg-gray-100 text-center">
                                     <th>نام</th>
                                     <th>نام خانوادگی</th>
-                                    <th>تحصیلات</th>
-                                    <th>رشته</th>
-                                    <th>سال تولد</th>
-                                    <th>رزومه</th>
                                     <th>مسئولیت</th>
-                                    <th>عملیات</th>
+                                    <th>میزان سهام (درصد)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(employe, index) in keyEmployeesFilter" :id="'del'+employe.id" class="text-center">
+                                <tr v-for="(member, index) in shareholdersFilter" :id="'del'+member.id" class="text-center">
                                     <td>
-                                        <span class="text-dark-75">{{ employe.fname }}</span>
+                                        <span class="text-dark-75">{{ member.fname }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ employe.lname }}</span>
+                                        <span class="text-dark-75">{{ member.lname }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ employe.education.nickname }}</span>
+                                        <div v-for="res in member.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
                                     </td>
                                     <td>
-                                        <span class="text-dark-750">{{ employe.major }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ employe.age }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ employe.resume }}</span>
-                                    </td>
-                                    <td>
-                                        <div v-for="res in employe.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
-                                    </td>
-                                    <td>
-                                        <router-link :to="{ name: 'key-employees-edit', params: { id: employe.id }}">
-                                            <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
-                                                <i class="flaticon2-edit"></i>
-                                            </a>
-                                        </router-link>
-                                        <button type="button" @click="deleteKeyEmployee(employe.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+employe.id"></i>
-                                        </button>
+                                        <span class="text-dark-75">{{ member.percent }}</span>
                                     </td>
                                     <hr>
                                 </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row" v-if="pagination.total_page > 3">
+                        <div class="row" v-if="pagination.total_page > 10">
                             <div class="col-md-10">
                                 <div class="d-flex flex-wrap py-4 mr-3">
                                     <div :class="{disables: !pagination.first_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.first_link)">
@@ -172,11 +142,13 @@
 
 <script>
     import Auth from "../../../Auth";
+
     export default {
         name: "index",
         data() {
             return {
-                keyEmployees: [],
+                shareholders: [],
+                team_id: '',
                 progress: true,
                 filterText: null,
                 pagination: {},
@@ -185,84 +157,41 @@
         },
         created() {
             this.Auth.check();
-            // axios.get('/api/key-employees')
-            //     .then(response => {
-            //         console.log(response);
-            //         this.keyEmployees = response.data.data;
-            //         this.progress = false;
-            //     })
-            //     .catch(error => console.log(error));
             this.getResults()
         },
         methods: {
             getResults(pagi) {
-                console.log(pagi);
-                pagi = pagi || '/api/key-employees';
+                pagi = pagi || '/api/agreements';
                 axios.get(pagi)
                     .then(response => {
-                        this.keyEmployees = response.data.data;
+                        this.shareholders = response.data.shareholders.data;
+                        this.team_id = response.data.team_id;
                         this.pagination = {
-                            current_page: response.data.current_page,
-                            last_page: response.data.last_page,
-                            from_page: response.data.from,
-                            to_page: response.data.to,
-                            total_page: response.data.total,
-                            path_page: response.data.path+"?page=",
-                            links: response.data.links,
-                            first_link: response.data.first_page_url,
-                            last_link: response.data.last_page_url,
-                            prev_link: response.data.prev_page_url,
-                            next_link: response.data.next_page_url,
+                            current_page: response.data.shareholders.current_page,
+                            last_page: response.data.shareholders.last_page,
+                            from_page: response.data.shareholders.from,
+                            to_page: response.data.shareholders.to,
+                            total_page: response.data.shareholders.total,
+                            path_page: response.data.shareholders.path+"?page=",
+                            links: response.data.shareholders.links,
+                            first_link: response.data.shareholders.first_page_url,
+                            last_link: response.data.shareholders.last_page_url,
+                            prev_link: response.data.shareholders.prev_page_url,
+                            next_link: response.data.shareholders.next_page_url,
                         };
                         this.progress = false;
                     });
             },
-            deleteKeyEmployee(id, index) {
-                this.Auth.check();
-                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
-                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
-
-                Swal.fire({
-                    title: "از حذف این کارمند اطمینان دارید؟",
-                    icon: "warning",
-                    showCancelButton: true,
-                    confirmButtonText: "بله، حذف شود",
-                    cancelButtonText: "لغو",
-                }).then(function(result) {
-                    if (result.value) {
-                        axios.delete(`/key-employees/${id}`)
-                            .then(response => {
-                                if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
-                                    table.remove();
-                                    Swal.fire({
-                                        title: "کارمند با موفقیت حذف شد",
-                                        icon: "success",
-                                        showConfirmButton: false,
-                                        timer: 3000,
-                                    });
-                                    KTUtil.btnRelease(formSubmitButton);
-                                }
-                            });
-                    } else {
-                        KTUtil.btnRelease(formSubmitButton);
-                    }
-
-                });
-            },
         },
         computed: {
-            keyEmployeesFilter() {
-                return this.keyEmployees.filter((element) => {
+            shareholdersFilter() {
+                return this.shareholders.filter((element) => {
                     if(!this.filterText){
                         return element
                     }else{
                         return element.fname.match(this.filterText) ||
                             element.lname.match(this.filterText) ||
-                            element.education.nickname.match(this.filterText) ||
-                            element.major.match(this.filterText) ||
-                            element.age.toString().match(this.filterText);
+                            element.percent.toString().match(this.filterText);
                     }
                 })
             }
