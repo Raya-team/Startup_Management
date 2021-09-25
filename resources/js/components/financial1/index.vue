@@ -1,6 +1,4 @@
-@extends('user.master')
-@section('title', 'تست')
-@section('content')
+<template>
     <div>
         <!--begin::Subheader-->
         <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -46,7 +44,7 @@
                                 <div class="example-preview">
                                     <div class="row">
                                         <div class="col-lg-3">
-                                            {{--<ul class="nav nav-tabs" id="myTab" role="tablist">--}}
+                                            <!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
                                             <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic">
@@ -127,9 +125,9 @@
                                                                     <!--begin::Header-->
                                                                     <div class="card-header border-0 pt-6 mb-2">
                                                                         <div class="card-toolbar">
-                                                                            {{--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">--}}
-                                                                                <a class="btn btn-light-success  btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
-                                                                            {{--</router-link>--}}
+                                                                            <!--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">-->
+                                                                            <a class="btn btn-light-success  btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
+                                                                            <!--</router-link>-->
                                                                         </div>
                                                                     </div>
                                                                     <!--end::Header-->
@@ -317,9 +315,9 @@
                                                                     <!--begin::Header-->
                                                                     <div class="card-header border-0 pt-6 mb-2">
                                                                         <div class="card-toolbar">
-                                                                            {{--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">--}}
+                                                                            <!--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">-->
                                                                             <a class="btn btn-light-success  btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
-                                                                            {{--</router-link>--}}
+                                                                            <!--</router-link>-->
                                                                         </div>
                                                                     </div>
                                                                     <!--end::Header-->
@@ -507,9 +505,9 @@
                                                                     <!--begin::Header-->
                                                                     <div class="card-header border-0 pt-6 mb-2">
                                                                         <div class="card-toolbar">
-                                                                            {{--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">--}}
+                                                                            <!--<router-link :to="{ name: 'team-edit', params: { id: team.id }}">-->
                                                                             <a class="btn btn-light-success  btn-sm font-weight-bolder font-size-sm py-3 px-6">ویرایش</a>
-                                                                            {{--</router-link>--}}
+                                                                            <!--</router-link>-->
                                                                         </div>
                                                                     </div>
                                                                     <!--end::Header-->
@@ -699,7 +697,7 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
+                                                                            <!--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />-->
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -707,7 +705,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
+                                                                        <!--<router-link :to="{ name: 'shareholders-create' }">-->
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -721,7 +719,7 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
+                                                                        <!--</router-link>-->
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -729,12 +727,12 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable1">
+                                                                            <!--<div class="d-flex align-items-center" v-if="progress">-->
+                                                                            <!--<div class="mr-2 text-muted">لطفا صبر کنید...</div>-->
+                                                                            <!--<div class="spinner mr-10"></div>-->
+                                                                            <!--</div>-->
+                                                                            <!--<thead v-else>-->
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -745,7 +743,7 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
+                                                                            <!--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">-->
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -760,14 +758,14 @@
                                                                                     <span class="text-dark-750">700,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
+                                                                                    <!--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">-->
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
+                                                                                    <!--</router-link>-->
+                                                                                    <!--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">-->
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
+                                                                                        <!--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>-->
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -796,7 +794,7 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
+                                                                            <!--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />-->
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -804,7 +802,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
+                                                                        <!--<router-link :to="{ name: 'shareholders-create' }">-->
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -818,7 +816,7 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
+                                                                        <!--</router-link>-->
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -826,12 +824,12 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable2">
+                                                                            <!--<div class="d-flex align-items-center" v-if="progress">-->
+                                                                            <!--<div class="mr-2 text-muted">لطفا صبر کنید...</div>-->
+                                                                            <!--<div class="spinner mr-10"></div>-->
+                                                                            <!--</div>-->
+                                                                            <!--<thead v-else>-->
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -842,7 +840,7 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
+                                                                            <!--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">-->
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -857,14 +855,14 @@
                                                                                     <span class="text-dark-750">700,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
+                                                                                    <!--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">-->
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
+                                                                                    <!--</router-link>-->
+                                                                                    <!--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">-->
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
+                                                                                        <!--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>-->
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -893,7 +891,7 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
+                                                                            <!--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />-->
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -901,7 +899,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
+                                                                        <!--<router-link :to="{ name: 'shareholders-create' }">-->
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -915,7 +913,7 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
+                                                                        <!--</router-link>-->
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -923,12 +921,12 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable3">
+                                                                            <!--<div class="d-flex align-items-center" v-if="progress">-->
+                                                                            <!--<div class="mr-2 text-muted">لطفا صبر کنید...</div>-->
+                                                                            <!--<div class="spinner mr-10"></div>-->
+                                                                            <!--</div>-->
+                                                                            <!--<thead v-else>-->
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -940,7 +938,7 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
+                                                                            <!--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">-->
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -958,14 +956,14 @@
                                                                                     <span class="text-dark-750">200,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
+                                                                                    <!--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">-->
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
+                                                                                    <!--</router-link>-->
+                                                                                    <!--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">-->
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
+                                                                                        <!--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>-->
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -994,7 +992,7 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
+                                                                            <!--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />-->
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -1002,7 +1000,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
+                                                                        <!--<router-link :to="{ name: 'shareholders-create' }">-->
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -1016,7 +1014,7 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
+                                                                        <!--</router-link>-->
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -1024,12 +1022,12 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable4">
+                                                                            <!--<div class="d-flex align-items-center" v-if="progress">-->
+                                                                            <!--<div class="mr-2 text-muted">لطفا صبر کنید...</div>-->
+                                                                            <!--<div class="spinner mr-10"></div>-->
+                                                                            <!--</div>-->
+                                                                            <!--<thead v-else>-->
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -1041,7 +1039,6 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -1059,14 +1056,14 @@
                                                                                     <span class="text-dark-750">200,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
+                                                                                    <!--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">-->
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
+                                                                                    <!--</router-link>-->
+                                                                                    <!--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">-->
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
+                                                                                        <!--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>-->
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -1095,7 +1092,6 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -1103,7 +1099,6 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -1117,7 +1112,6 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -1125,12 +1119,7 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable5">
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -1142,7 +1131,6 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -1160,14 +1148,10 @@
                                                                                     <span class="text-dark-750">200,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -1196,7 +1180,6 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -1204,7 +1187,6 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -1218,7 +1200,6 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -1226,12 +1207,7 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable6">
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -1243,7 +1219,6 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -1261,14 +1236,10 @@
                                                                                     <span class="text-dark-750">200,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -1297,7 +1268,6 @@
                                                                 <div class="card-header border-0 py-5">
                                                                     <div class="card-toolbar my-2 my-md-0">
                                                                         <div class="input-icon">
-                                                                            {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
                                                                             <input type="text" class="form-control" placeholder="جستجو..." />
                                                                             <span>
                                                                                 <i class="flaticon2-search-1 text-muted"></i>
@@ -1305,7 +1275,6 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        {{--<router-link :to="{ name: 'shareholders-create' }">--}}
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -1319,7 +1288,6 @@
                                                                                 <!--end::Svg Icon-->
                                                                             </span>افزودن سهامدار جدید
                                                                         </a>
-                                                                        {{--</router-link>--}}
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -1327,12 +1295,7 @@
                                                                 <div class="card-body pt-0 pb-3">
                                                                     <!--begin::Table-->
                                                                     <div class="table-responsive">
-                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                            {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                            {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                            {{--<div class="spinner mr-10"></div>--}}
-                                                                            {{--</div>--}}
-                                                                            {{--<thead v-else>--}}
+                                                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable7">
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
                                                                                 <th>ردیف</th>
@@ -1342,7 +1305,6 @@
                                                                             </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                            {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
                                                                             <tr class="text-center">
                                                                                 <td>
                                                                                     <span class="text-dark-75">1</span>
@@ -1354,14 +1316,10 @@
                                                                                     <span class="text-dark-750">700,000</span>
                                                                                 </td>
                                                                                 <td>
-                                                                                    {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
                                                                                     <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
                                                                                         <i class="flaticon2-edit"></i>
                                                                                     </a>
-                                                                                    {{--</router-link>--}}
-                                                                                    {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
                                                                                     <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                        {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
                                                                                         <i class="flaticon2-trash"></i>
                                                                                     </button>
                                                                                 </td>
@@ -1394,28 +1352,14 @@
         </div>
         <!--end::Entry-->
     </div>
-@endsection
+</template>
 
-@section('script')
-    <script>
-        $('#myTab a[href="#contact"]').tab('show');
-    </script>
-@endsection
+<script>
+    export default {
+        name: "index"
+    }
+</script>
 
-@section('css')
-    <style>
-        /*.flex-column{*/
-        /*border-left: 2px solid #E4E6EF;*/
-        /*}*/
-        @media (min-width: 1170px) {
-            .flex-column {
-                border-left: 2px solid #E4E6EF;
-            }
-        }
-        @media (max-width: 1170px) {
-            .flex-column {
-                border-bottom: 2px solid #E4E6EF;
-            }
-        }
-    </style>
-@endsection
+<style scoped>
+
+</style>

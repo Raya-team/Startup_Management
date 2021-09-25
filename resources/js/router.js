@@ -25,6 +25,9 @@ import AgreementsIndex from './components/shares/initial-shares/index';
 // import AgreementsCreate from './components/shares/initial-shares/create';
 import AgreementsEdit from './components/shares/initial-shares/edit';
 
+import invokable1 from './components/financial1/index';
+import LandCreate from './components/financial1/land/create';
+
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
     {path: '/page', name: 'Page', component: Page},
@@ -47,6 +50,10 @@ const routes = [
     {path: '/agreements', name: 'agreements-index', component: AgreementsIndex, meta: {title: 'توافقی'}},
     // {path: '/agreements/create', name: 'agreements-create', component: AgreementsCreate, meta: {title: 'توافقی'}},
     {path: '/agreements/:id/edit', name: 'agreements-edit', component: AgreementsEdit, meta: {title: 'ویرایش'}},
+
+    {path: '/invokable1', name: 'invokable1-index', component: invokable1, meta: {title: 'مالی1'}},
+
+    {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'ایجاد زمین'}},
 ];
 
 export default new VueRouter({
