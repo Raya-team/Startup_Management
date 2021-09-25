@@ -13,6 +13,6 @@ class ShareQuestion extends Model
 
     public function members()
     {
-        return $this->belongsToMany(TeamMember::class);
+        return $this->belongsToMany(TeamMember::class ,'member_share_question','member_id','question_id');
     }
 }
