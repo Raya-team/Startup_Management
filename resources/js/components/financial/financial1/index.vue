@@ -43,7 +43,7 @@
                             <div class="example">
                                 <div class="example-preview">
                                     <div class="row">
-                                        <div class="col-lg-3">
+                                        <div class="col-lg-2">
                                             <!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
                                             <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
                                                 <li class="nav-item mb-2">
@@ -112,7 +112,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div class="col-lg-9">
+                                        <div class="col-lg-10">
                                             <div class="tab-content mt-5" id="myTabContent">
                                                 <div class="tab-pane fade active show" id="basic" role="tabpanel" aria-labelledby="basic-tab">
                                                     <!--begin::Entry-->
@@ -705,7 +705,7 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="card-toolbar">
-                                                                        <!--<router-link :to="{ name: 'shareholders-create' }">-->
+                                                                        <router-link :to="{ name: 'land-create' }">
                                                                         <a class="btn btn-primary font-weight-bolder">
                                                                             <span class="svg-icon svg-icon-md">
                                                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -717,9 +717,9 @@
                                                                                     </g>
                                                                                 </svg>
                                                                                 <!--end::Svg Icon-->
-                                                                            </span>افزودن سهامدار جدید
+                                                                            </span>افزودن زمین
                                                                         </a>
-                                                                        <!--</router-link>-->
+                                                                        </router-link>
                                                                     </div>
                                                                 </div>
                                                                 <!--end::Header-->
@@ -735,7 +735,7 @@
                                                                             <!--<thead v-else>-->
                                                                             <thead>
                                                                             <tr class="bg-gray-100 text-center">
-                                                                                <th>ردیف</th>
+                                                                                <th>شیشسبسی</th>
                                                                                 <th>شرح</th>
                                                                                 <th>مساحت (متر مربع)</th>
                                                                                 <th>قیمت کل (تومان)</th>

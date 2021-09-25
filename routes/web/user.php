@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\user\Financial1\LandController;
+use App\Http\Controllers\user\Financial\Financial1\IndexController;
+use App\Http\Controllers\user\Financial\Financial1\LandController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Share\InitialShare\AgreementController;
@@ -26,7 +27,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
     Route::resource('/agreements', AgreementController::class);
     Route::resource('/calculations', CalculationController::class);
-    Route::get('/invokable1', \App\Http\Controllers\user\Financial1\IndexController::class);
+    Route::get('/financial1', IndexController::class);
     Route::resource('/lands', LandController::class);
     Route::get('/test',function (){
         return view('test');

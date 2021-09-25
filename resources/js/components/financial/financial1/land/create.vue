@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>Land Create</h1>
-    </div>
+
+</div>
 </template>
 
 <script>

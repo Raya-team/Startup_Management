@@ -4973,10 +4973,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6346,10 +6346,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9494,8 +9494,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_other_team_edit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/other/team/edit */ "./resources/js/components/other/team/edit.vue");
 /* harmony import */ var _components_shares_initial_shares_index__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/shares/initial-shares/index */ "./resources/js/components/shares/initial-shares/index.vue");
 /* harmony import */ var _components_shares_initial_shares_edit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/shares/initial-shares/edit */ "./resources/js/components/shares/initial-shares/edit.vue");
-/* harmony import */ var _components_financial1_index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/financial1/index */ "./resources/js/components/financial1/index.vue");
-/* harmony import */ var _components_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/financial1/land/create */ "./resources/js/components/financial1/land/create.vue");
+/* harmony import */ var _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/financial/financial1/index */ "./resources/js/components/financial/financial1/index.vue");
+/* harmony import */ var _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/financial/financial1/land/create */ "./resources/js/components/financial/financial1/land/create.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
@@ -9621,16 +9621,16 @@ var routes = [{
     title: 'ویرایش'
   }
 }, {
-  path: '/invokable1',
-  name: 'invokable1-index',
-  component: _components_financial1_index__WEBPACK_IMPORTED_MODULE_17__.default,
+  path: '/financial1',
+  name: 'financial1-index',
+  component: _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_17__.default,
   meta: {
     title: 'مالی1'
   }
 }, {
   path: '/lands/create',
   name: 'land-create',
-  component: _components_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__.default,
+  component: _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__.default,
   meta: {
     title: 'ایجاد زمین'
   }
@@ -45791,10 +45791,10 @@ component.options.__file = "resources/js/components/Dashboard.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/financial1/index.vue":
-/*!******************************************************!*\
-  !*** ./resources/js/components/financial1/index.vue ***!
-  \******************************************************/
+/***/ "./resources/js/components/financial/financial1/index.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/index.vue ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -45802,47 +45802,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=0c2024d4&scoped=true& */ "./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true&");
-/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/financial1/index.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-;
-var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
-  false,
-  null,
-  "0c2024d4",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/js/components/financial1/index.vue"
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/js/components/financial1/land/create.vue":
-/*!************************************************************!*\
-  !*** ./resources/js/components/financial1/land/create.vue ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=57f6c338&scoped=true& */ "./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true&");
-/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js&");
+/* harmony import */ var _index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=7d56bf9c&scoped=true& */ "./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -45852,19 +45813,58 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "57f6c338",
+  "7d56bf9c",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/financial1/land/create.vue"
+component.options.__file = "resources/js/components/financial/financial1/index.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/financial/financial1/land/create.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/land/create.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=6629582c&scoped=true& */ "./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true&");
+/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "6629582c",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/financial/financial1/land/create.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -46412,10 +46412,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/financial1/index.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/components/financial1/index.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -46423,15 +46423,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
-/***/ "./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************!*\
-  !*** ./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************/
+/***/ "./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -46439,7 +46439,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
@@ -46712,36 +46712,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true& ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true&":
+/*!***********************************************************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true& ***!
+  \***********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_0c2024d4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=0c2024d4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_7d56bf9c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=7d56bf9c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true&");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true& ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true&":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true& ***!
+  \*****************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_57f6c338_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=template&id=57f6c338&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_6629582c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=template&id=6629582c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true&");
 
 
 /***/ }),
@@ -57612,10 +57612,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/index.vue?vue&type=template&id=0c2024d4&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/index.vue?vue&type=template&id=7d56bf9c&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -57643,7 +57643,7 @@ var render = function() {
                   _c("div", { staticClass: "row" }, [
                     _vm._m(2),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-9" }, [
+                    _c("div", { staticClass: "col-lg-10" }, [
                       _c(
                         "div",
                         {
@@ -60841,91 +60841,109 @@ var render = function() {
                                               { staticClass: "card-toolbar" },
                                               [
                                                 _c(
-                                                  "a",
+                                                  "router-link",
                                                   {
-                                                    staticClass:
-                                                      "btn btn-primary font-weight-bolder"
+                                                    attrs: {
+                                                      to: {
+                                                        name: "land-create"
+                                                      }
+                                                    }
                                                   },
                                                   [
                                                     _c(
-                                                      "span",
+                                                      "a",
                                                       {
                                                         staticClass:
-                                                          "svg-icon svg-icon-md"
+                                                          "btn btn-primary font-weight-bolder"
                                                       },
                                                       [
                                                         _c(
-                                                          "svg",
+                                                          "span",
                                                           {
-                                                            attrs: {
-                                                              xmlns:
-                                                                "http://www.w3.org/2000/svg",
-                                                              "xmlns:xlink":
-                                                                "http://www.w3.org/1999/xlink",
-                                                              width: "24px",
-                                                              height: "24px",
-                                                              viewBox:
-                                                                "0 0 24 24",
-                                                              version: "1.1"
-                                                            }
+                                                            staticClass:
+                                                              "svg-icon svg-icon-md"
                                                           },
                                                           [
                                                             _c(
-                                                              "g",
+                                                              "svg",
                                                               {
                                                                 attrs: {
-                                                                  stroke:
-                                                                    "none",
-                                                                  "stroke-width":
-                                                                    "1",
-                                                                  fill: "none",
-                                                                  "fill-rule":
-                                                                    "evenodd"
+                                                                  xmlns:
+                                                                    "http://www.w3.org/2000/svg",
+                                                                  "xmlns:xlink":
+                                                                    "http://www.w3.org/1999/xlink",
+                                                                  width: "24px",
+                                                                  height:
+                                                                    "24px",
+                                                                  viewBox:
+                                                                    "0 0 24 24",
+                                                                  version: "1.1"
                                                                 }
                                                               },
                                                               [
-                                                                _c("polygon", {
-                                                                  attrs: {
-                                                                    points:
-                                                                      "0 0 24 0 24 24 0 24"
-                                                                  }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c("path", {
-                                                                  attrs: {
-                                                                    d:
-                                                                      "M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
-                                                                    fill:
-                                                                      "#000000",
-                                                                    "fill-rule":
-                                                                      "nonzero",
-                                                                    opacity:
-                                                                      "0.3"
-                                                                  }
-                                                                }),
-                                                                _vm._v(" "),
-                                                                _c("path", {
-                                                                  attrs: {
-                                                                    d:
-                                                                      "M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
-                                                                    fill:
-                                                                      "#000000",
-                                                                    "fill-rule":
-                                                                      "nonzero"
-                                                                  }
-                                                                })
+                                                                _c(
+                                                                  "g",
+                                                                  {
+                                                                    attrs: {
+                                                                      stroke:
+                                                                        "none",
+                                                                      "stroke-width":
+                                                                        "1",
+                                                                      fill:
+                                                                        "none",
+                                                                      "fill-rule":
+                                                                        "evenodd"
+                                                                    }
+                                                                  },
+                                                                  [
+                                                                    _c(
+                                                                      "polygon",
+                                                                      {
+                                                                        attrs: {
+                                                                          points:
+                                                                            "0 0 24 0 24 24 0 24"
+                                                                        }
+                                                                      }
+                                                                    ),
+                                                                    _vm._v(" "),
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
+                                                                        fill:
+                                                                          "#000000",
+                                                                        "fill-rule":
+                                                                          "nonzero",
+                                                                        opacity:
+                                                                          "0.3"
+                                                                      }
+                                                                    }),
+                                                                    _vm._v(" "),
+                                                                    _c("path", {
+                                                                      attrs: {
+                                                                        d:
+                                                                          "M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
+                                                                        fill:
+                                                                          "#000000",
+                                                                        "fill-rule":
+                                                                          "nonzero"
+                                                                      }
+                                                                    })
+                                                                  ]
+                                                                )
                                                               ]
                                                             )
                                                           ]
+                                                        ),
+                                                        _vm._v(
+                                                          "افزودن زمین\n                                                                    "
                                                         )
                                                       ]
-                                                    ),
-                                                    _vm._v(
-                                                      "افزودن سهامدار جدید\n                                                                    "
                                                     )
                                                   ]
                                                 )
-                                              ]
+                                              ],
+                                              1
                                             )
                                           ]
                                         ),
@@ -61831,7 +61849,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-3" }, [
+    return _c("div", { staticClass: "col-lg-2" }, [
       _c(
         "ul",
         {
@@ -62105,7 +62123,7 @@ var staticRenderFns = [
           [
             _c("thead", [
               _c("tr", { staticClass: "bg-gray-100 text-center" }, [
-                _c("th", [_vm._v("ردیف")]),
+                _c("th", [_vm._v("شیشسبسی")]),
                 _vm._v(" "),
                 _c("th", [_vm._v("شرح")]),
                 _vm._v(" "),
@@ -62740,10 +62758,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial1/land/create.vue?vue&type=template&id=57f6c338&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/financial/financial1/land/create.vue?vue&type=template&id=6629582c&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -62756,16 +62774,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Land Create")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
