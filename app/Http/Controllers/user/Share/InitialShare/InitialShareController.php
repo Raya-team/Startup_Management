@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user\Share\InitialShare;
 use App\Http\Controllers\Controller;
 use App\Models\ShareVariable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InitialShareController extends Controller
 {
@@ -16,10 +17,7 @@ class InitialShareController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $test= ShareVariable::all();
-        if(! isset($test))
-        {return 'null';}
-        else{return 'hello';}
-//        return view('user.shares.initial-shares.index');
+        $team_id = ShareVariable::where('team_id',Auth::user()->team_id)->first();
+        return view('user.shares.initial-shares.index',compact('team_id'));
     }
 }
