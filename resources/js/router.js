@@ -26,7 +26,27 @@ import AgreementsIndex from './components/shares/initial-shares/index';
 import AgreementsEdit from './components/shares/initial-shares/edit';
 
 import Financial from './components/financial/financial1/index';
+
 import LandCreate from './components/financial/financial1/land/create';
+import LandEdit from './components/financial/financial1/land/edit';
+
+import BuildingCreate from './components/financial/financial1/building/create';
+import BuildingEdit from './components/financial/financial1/building/edit';
+
+import EquipmentAndMachineryCreate from './components/financial/financial1/equipmentandmachinery/create';
+import EquipmentAndMachineryEdit from './components/financial/financial1/equipmentandmachinery/edit';
+
+import OfficeEquipmentAndSupplyCreate from './components/financial/financial1/officeequipmentandsupply/create';
+import OfficeEquipmentAndSupplyEdit from './components/financial/financial1/officeequipmentandsupply/edit';
+
+import FacilityCreate from './components/financial/financial1/facility/create';
+import FacilityEdit from './components/financial/financial1/facility/edit';
+
+import TransportationCreate from './components/financial/financial1/transportation/create';
+import TransportationEdit from './components/financial/financial1/transportation/edit';
+
+import PreOperatingCostCreate from './components/financial/financial1/preoperatingcost/create';
+import PreOperatingCostEdit from './components/financial/financial1/preoperatingcost/edit';
 
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
@@ -53,7 +73,26 @@ const routes = [
 
     {path: '/financial1', name: 'financial1-index', component: Financial, meta: {title: 'مالی1'}},
 
-    {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'ایجاد زمین'}},
+    {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'خرید زمین'}},
+    {path: '/lands/:id/edit', name: 'land-edit', component: LandEdit, meta: {title: 'ویرایش زمین'}},
+
+    {path: '/buildings/create', name: 'buildings-create', component: BuildingCreate, meta: {title: 'افزودن ساختمان'}},
+    {path: '/buildings/:id/edit', name: 'buildings-edit', component: BuildingEdit, meta: {title: 'ویرایش ساختمان'}},
+
+    {path: '/equipmentandmachineries/create', name: 'equipmentandmachineries-create', component: EquipmentAndMachineryCreate, meta: {title: 'افزودن تجهیزات و ماشین آلات فنی'}},
+    {path: '/equipmentandmachineries/:id/edit', name: 'equipmentandmachineries-edit', component: EquipmentAndMachineryEdit, meta: {title: 'ویرایش تجهیزات و ماشین آلات فنی'}},
+
+    {path: '/officeequipmentandsupplies/create', name: 'officeequipmentandsupplies-create', component: OfficeEquipmentAndSupplyCreate, meta: {title: 'افزودن تجهیزات و لوازم دفتری'}},
+    {path: '/officeequipmentandsupplies/:id/edit', name: 'officeequipmentandsupplies-edit', component: OfficeEquipmentAndSupplyEdit, meta: {title: 'ویرایش تجهیزات و لوازم دفتری'}},
+
+    {path: '/facilities/create', name: 'facilities-create', component: FacilityCreate, meta: {title: 'افزودن تاسیسات'}},
+    {path: '/facilities/:id/edit', name: 'facilities-edit', component: FacilityEdit, meta: {title: 'ویرایش تاسیسات'}},
+
+    {path: '/transportations/create', name: 'transportations-create', component: TransportationCreate, meta: {title: 'افزودن وسایل حمل و نقل'}},
+    {path: '/transportations/:id/edit', name: 'transportations-edit', component: TransportationEdit, meta: {title: 'ویرایش وسایل حمل و نقل'}},
+
+    {path: '/preoperatingcosts/create', name: 'preoperatingcosts-create', component: PreOperatingCostCreate, meta: {title: 'افزودن هزینه های قبل بهره برداری'}},
+    {path: '/preoperatingcosts/:id/edit', name: 'preoperatingcosts-edit', component: PreOperatingCostEdit, meta: {title: 'ویرایش هزینه های قبل بهره برداری'}},
 ];
 
 export default new VueRouter({

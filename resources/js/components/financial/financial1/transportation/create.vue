@@ -18,7 +18,7 @@
                                 </router-link>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                افزودن زمین
+                                افزودن وسایل حمل و نقل
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -42,38 +42,47 @@
                                 <div class="card-body">
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
-                                            <label class="col-lg-2 col-form-label text-right"><h4>خرید زمین:</h4></label>
-                                            <div data-repeater-list="lands" class="col-lg-10">
+                                            <label class="col-lg-2 col-form-label text-right"><h4>افزودن حمل و نقل:</h4></label>
+                                            <div data-repeater-list="transportations" class="col-lg-10">
                                                 <transition-group name="slide">
-                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
+                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(transportation, index) in data.transportations" :key="index">
                                                         <div class="col-md-3">
                                                             <label><h5>شرح :</h5></label>
-                                                                <input type="text" class="form-control lands" v-model="land.description"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.description')}]"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
+                                                            <input type="text" class="form-control transportations" v-model="transportation.description"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.description')}]"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.description')" style="display: block;">{{ errors.get('transportations.' + index +'.description') }}</div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <label><h5>مساحت :</h5></label>
+                                                        <div class="col-md-1">
+                                                            <label><h5>تعداد :</h5></label>
                                                             <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text noselect">متر مربع</span>
-                                                                </div>
-                                                                <input type="text" class="form-control lands" v-model="land.area"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.area')}]"
+                                                                <input type="text" class="form-control transportations" v-model="transportation.count"
+                                                                       :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.count')}]"
                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.area')" style="display: block;">{{ errors.get('lands.' + index +'.area') }}</div>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.count')" style="display: block;">{{ errors.get('transportations.' + index +'.count') }}</div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-3">
+                                                        <div class="col-md-2">
+                                                            <label><h5>قیمت واحد :</h5></label>
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <span class="input-group-text noselect">تومان</span>
+                                                                </div>
+                                                                <input type="text" class="form-control transportations" v-model="transportation.unit_price"
+                                                                       :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.unit_price')}]"
+                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.unit_price')" style="display: block;">{{ errors.get('transportations.' + index +'.unit_price') }}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
                                                             <label><h5>قیمت کل :</h5></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text noselect">تومان</span>
                                                                 </div>
-                                                            <input type="text" class="form-control lands" v-model="land.price"
-                                                                   :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.price')}]"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.price')" style="display: block;">{{ errors.get('lands.' + index +'.price') }}</div>
+                                                                <input type="text" class="form-control transportations" v-model="transportation.total_price"
+                                                                       :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.total_price')}]"
+                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.total_price')" style="display: block;">{{ errors.get('transportations.' + index +'.total_price') }}</div>
                                                             </div>
                                                         </div>
                                                         <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
@@ -118,7 +127,7 @@
         data() {
             return {
                 data: {
-                    lands: [{ description: '', area: '', price: '' }],
+                    transportations: [{ description: '', count: '', unit_price: '', total_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -126,22 +135,22 @@
         },
         methods: {
             AddField() {
-                this.data.lands.push({ description: '', area: '', price: '' });
+                this.data.transportations.push({ description: '', count: '', unit_price: '', total_price: ''});
             },
             RemoveField(index) {
-                this.data.lands.splice(index, 1);
+                this.data.transportations.splice(index, 1);
             },
             onSubmit() {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
                 var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
-                axios.post('/lands', this.data)
+                axios.post('/transportations', this.data)
                     .then(response => {
                         console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات خرید زمین با موفقیت ثبت شد",
+                                title: "اطلاعات تجهیزات با موفقیت ثبت شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,
@@ -154,6 +163,7 @@
                         }
                     })
                     .catch(error => {
+                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

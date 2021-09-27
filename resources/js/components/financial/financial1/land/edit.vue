@@ -18,7 +18,7 @@
                                 </router-link>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                افزودن زمین
+                                ویرایش زمین
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -42,59 +42,46 @@
                                 <div class="card-body">
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
-                                            <label class="col-lg-2 col-form-label text-right"><h4>خرید زمین:</h4></label>
+                                            <label class="col-lg-2 col-form-label text-right"><h4>ویرایش زمین:</h4></label>
                                             <div data-repeater-list="lands" class="col-lg-10">
-                                                <transition-group name="slide">
-                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
-                                                        <div class="col-md-3">
-                                                            <label><h5>شرح :</h5></label>
-                                                                <input type="text" class="form-control lands" v-model="land.description"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.description')}]"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <label><h5>مساحت :</h5></label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text noselect">متر مربع</span>
-                                                                </div>
-                                                                <input type="text" class="form-control lands" v-model="land.area"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.area')}]"
-                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.area')" style="display: block;">{{ errors.get('lands.' + index +'.area') }}</div>
+                                                <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
+                                                    <div class="col-md-3">
+                                                        <label><h5>شرح :</h5></label>
+                                                        <input type="text" class="form-control lands" v-model="land.description"
+                                                               :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.description')}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label><h5>مساحت :</h5></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text noselect">متر مربع</span>
                                                             </div>
+                                                            <input type="text" class="form-control lands" v-model="land.area"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.area')}]"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.area')" style="display: block;">{{ errors.get('lands.' + index +'.area') }}</div>
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <label><h5>قیمت کل :</h5></label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text noselect">تومان</span>
-                                                                </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label><h5>قیمت کل :</h5></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text noselect">تومان</span>
+                                                            </div>
                                                             <input type="text" class="form-control lands" v-model="land.price"
                                                                    :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.price')}]"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.price')" style="display: block;">{{ errors.get('lands.' + index +'.price') }}</div>
-                                                            </div>
-                                                        </div>
-                                                        <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
-                                                            <a @click="RemoveField(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                <i class="la la-trash-o"></i>حذف</a>
                                                         </div>
                                                     </div>
-                                                </transition-group>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-2 col-form-label text-right"></label>
-                                            <div @click="AddField" class="col-lg-4">
-                                                <a  href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
-                                                    <i class="la la-plus"></i>افزودن</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -110,38 +97,42 @@
 </template>
 
 <script>
-    import Auth from "../../../../Auth";
     import Errors from "../../../../Errors";
+    import Auth from "../../../../Auth";
 
     export default {
-        name: "create",
+        name: "edit",
         data() {
             return {
                 data: {
-                    lands: [{ description: '', area: '', price: '' }],
+                    lands: [{ description: '',area: '', price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
             }
         },
+        created() {
+            this.Auth.check();
+            axios.get(`/api/lands/${this.$route.params.id}/edit`)
+                .then(response => {
+                    this.data.lands[0].description = response.data.lands.description;
+                    this.data.lands[0].area = response.data.lands.area;
+                    this.data.lands[0].price = response.data.lands.price;
+                })
+                .catch(error => console.log(error));
+        },
         methods: {
-            AddField() {
-                this.data.lands.push({ description: '', area: '', price: '' });
-            },
-            RemoveField(index) {
-                this.data.lands.splice(index, 1);
-            },
             onSubmit() {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
                 var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
-                axios.post('/lands', this.data)
+                axios.put(`/lands/${this.$route.params.id}`, this.data)
                     .then(response => {
                         console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات خرید زمین با موفقیت ثبت شد",
+                                title: "اطلاعات زمین با موفقیت ویرایش شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,
@@ -154,6 +145,7 @@
                         }
                     })
                     .catch(error => {
+                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
@@ -171,43 +163,5 @@
         -ms-user-select: none;
         user-select: none;
         color: #a2a2a2;
-    }
-    .slide-enter{
-        opacity: 0;
-        /*transform: translateY(20px)*/
-    }
-    .slide-enter-active{
-        animation: slide-in 1s ease-out forwards;
-        transition: opacity .5s;
-    }
-    .slide-leave{
-
-    }
-    .slide-leave-active{
-        transition: all 1s ease;
-    }
-    .slide-leave-to {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    .slide-move{
-        transition: transform 1s;
-    }
-
-    @keyframes slide-in {
-        from {
-            transform: translateY(20px)
-        }
-        to {
-            transform: translateY(0)
-        }
-    }
-    @keyframes slide-out {
-        from {
-            transform: translateY(0)
-        }
-        to {
-            transform: translateY(20px)
-        }
     }
 </style>

@@ -1,5 +1,3 @@
-
-
 require('./bootstrap');
 
 
@@ -50,7 +48,13 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
-// Vue.component('myAside', require('./components/Aside.vue').default);
+Vue.component('Lands', require('./components/financial/financial1/land/index.vue').default);
+Vue.component('Buildings', require('./components/financial/financial1/building/index.vue').default);
+Vue.component('Equipmentandmachineries', require('./components/financial/financial1/equipmentandmachinery/index.vue').default);
+Vue.component('Officeequipmentandsupplies', require('./components/financial/financial1/officeequipmentandsupply/index.vue').default);
+Vue.component('Facilities', require('./components/financial/financial1/facility/index.vue').default);
+Vue.component('Transportations', require('./components/financial/financial1/transportation/index.vue').default);
+Vue.component('Preoperatingcosts', require('./components/financial/financial1/preoperatingcost/index.vue').default);
 
 
 const app = new Vue({
