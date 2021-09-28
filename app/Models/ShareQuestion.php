@@ -14,6 +14,6 @@ class ShareQuestion extends Model
 
     public function members()
     {
-        return $this->belongsToMany(TeamMember::class ,'member_share_question','member_id','question_id')->where('team_id' , Auth::user()->team_id);
+        return $this->belongsToMany(TeamMember::class ,'member_share_question','question_id','member_id')->where('team_id' , Auth::user()->team_id);
     }
 }
