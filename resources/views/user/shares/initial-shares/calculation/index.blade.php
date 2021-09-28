@@ -455,12 +455,29 @@
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                        @foreach($member_share_questions as $member_share_question)
                                                                         <tr class="font-size-lg font-weight-bolder h-65px">
-                                                                            <td class="align-middle pl-0 border-0">Creative Design</td>
+                                                                            <td class="align-middle pl-0 border-0">sdaasd</td>
                                                                             <td class="align-middle text-right border-0">80</td>
                                                                         </tr>
-                                                                        @endforeach
+                                                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                                                            <td class="align-middle pl-0 border-0">sdaasd</td>
+                                                                            <td class="align-middle text-right border-0">محمد مردانی</td>
+                                                                            <td class="align-middle text-right border-0">محمد مردانی</td>
+                                                                            <td class="align-middle text-right border-0">محمد مردانی</td>
+                                                                            <td class="align-middle text-right border-0">محمد مردانی</td>
+                                                                        </tr>
+                                                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                                                            <td class="align-middle pl-0 border-0">sdaasd</td>
+                                                                            <td class="align-middle text-right border-0">80</td>
+                                                                        </tr>
+                                                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                                                            <td class="align-middle pl-0 border-0">sdaasd</td>
+                                                                            <td class="align-middle text-right border-0">80</td>
+                                                                        </tr>
+                                                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                                                            <td class="align-middle pl-0 border-0">sdaasd</td>
+                                                                            <td class="align-middle text-right border-0">80</td>
+                                                                        </tr>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
