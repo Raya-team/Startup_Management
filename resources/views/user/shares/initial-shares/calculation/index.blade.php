@@ -433,101 +433,43 @@
                                                 <!--end::Entry-->
                                             </div>
                                             <div class="tab-pane fade" id="share_questions" role="tabpanel" aria-labelledby="questions-tab">
-                                                <!--begin::Entry-->
-                                                <div class="d-flex flex-column-fluid">
-                                                    <!--begin::Container-->
-                                                    <div class="container">
-                                                        <!--begin::table-->
-                                                        <div class="card card-custom gutter-b">
-                                                            <!--begin::Header-->
-                                                            <div class="card-header border-0 py-5">
-                                                                <div class="card-toolbar my-2 my-md-0">
-                                                                    <div class="input-icon">
-                                                                        {{--<input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />--}}
-                                                                        <input type="text" class="form-control" placeholder="جستجو..." />
-                                                                        <span>
-                                                                                <i class="flaticon2-search-1 text-muted"></i>
-                                                                            </span>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="card-toolbar">
-                                                                    {{--<router-link :to="{ name: 'shareholders-create' }">--}}
-                                                                    <a class="btn btn-primary font-weight-bolder">
-                                                                            <span class="svg-icon svg-icon-md">
-                                                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                                        <polygon points="0 0 24 0 24 24 0 24"/>
-                                                                                        <path d="M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                                                                        <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
-                                                                                    </g>
-                                                                                </svg>
-                                                                                <!--end::Svg Icon-->
-                                                                            </span>افزودن سهامدار جدید
-                                                                    </a>
-                                                                    {{--</router-link>--}}
-                                                                </div>
-                                                            </div>
-                                                            <!--end::Header-->
-                                                            <!--begin::Body-->
-                                                            <div class="card-body pt-0 pb-3">
-                                                                <!--begin::Table-->
+                                                <!--begin::Invoice Body-->
+                                                <div class="position-relative">
+                                                    <!--begin::Background Rows-->
+                                                    <div class="bgi-size-cover bgi-position-center bgi-no-repeat h-65px" style="background-image: url(assets/media/svg/shapes/abstract-7.svg);"></div>
+                                                    <div class="bg-white h-65px"></div>
+                                                    <div class="bg-light h-65px"></div>
+                                                    <div class="bg-white h-65px"></div>
+                                                    <div class="bg-light h-65px"></div>
+                                                    <!--end::Background Rows-->
+                                                    <!--begin:Table-->
+                                                    <div class="container position-absolute top-0 left-0 right-0">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-md-9">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                                                        {{--<div class="d-flex align-items-center" v-if="progress">--}}
-                                                                        {{--<div class="mr-2 text-muted">لطفا صبر کنید...</div>--}}
-                                                                        {{--<div class="spinner mr-10"></div>--}}
-                                                                        {{--</div>--}}
-                                                                        {{--<thead v-else>--}}
+                                                                    <table class="table">
                                                                         <thead>
-                                                                        <tr class="bg-gray-100 text-center">
-                                                                            <th>ردیف</th>
-                                                                            <th>شرح</th>
-                                                                            <th>مساحت (متر مربع)</th>
-                                                                            <th>قیمت کل (تومان)</th>
-                                                                            <th>عملیات</th>
+                                                                        <tr class="font-weight-boldest text-white h-65px">
+                                                                            <td class="align-middle font-size-h4 pl-0 border-0">سوالات</td>
+                                                                            <td class="align-middle font-size-h4 text-right border-0">سهامداران</td>
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                        {{--<tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">--}}
-                                                                        <tr class="text-center">
-                                                                            <td>
-                                                                                <span class="text-dark-75">1</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <span class="text-dark-75">عبادی</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <span class="text-dark-75">78</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                <span class="text-dark-750">700,000</span>
-                                                                            </td>
-                                                                            <td>
-                                                                                {{--<router-link :to="{ name: 'shareholders-edit', params: { id: shareholder.id }}">--}}
-                                                                                <a href="#" class="btn btn-icon btn-light-success btn-sm mr-2">
-                                                                                    <i class="flaticon2-edit"></i>
-                                                                                </a>
-                                                                                {{--</router-link>--}}
-                                                                                {{--<button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">--}}
-                                                                                <button type="button" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                                                    {{--<i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>--}}
-                                                                                    <i class="flaticon2-trash"></i>
-                                                                                </button>
-                                                                            </td>
+                                                                        @foreach($member_share_questions as $member_share_question)
+                                                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                                                            <td class="align-middle pl-0 border-0">Creative Design</td>
+                                                                            <td class="align-middle text-right border-0">80</td>
                                                                         </tr>
+                                                                        @endforeach
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
-                                                                <!--end::Table-->
                                                             </div>
-                                                            <!--end::Body-->
                                                         </div>
-                                                        <!--end::table-->
                                                     </div>
-                                                    <!--end::Container-->
+                                                    <!--end:Table-->
                                                 </div>
-                                                <!--end::Entry-->
+                                                <!--end::Invoice Body-->
                                             </div>
                                         </div>
                                     </div>
