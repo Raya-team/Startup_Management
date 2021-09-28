@@ -27,7 +27,7 @@ class AgreementController extends Controller
      */
     public function create()
     {
-        return abourt(404);
+        return abort(404);
     }
 
     /**
