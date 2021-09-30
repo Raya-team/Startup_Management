@@ -109,8 +109,8 @@
 </template>
 
 <script>
-    import Errors from './../../../Errors'
-    import Auth from "../../../Auth";
+    import Errors from '../../../../Errors'
+    import Auth from "../../../../Auth";
 
     export default {
         name: "edit",
@@ -136,7 +136,8 @@
             total: function() {
                 let total = 0;
                 this.data.shareholders.filter((el) => {
-                    if (isNaN(el.percent) || el.percent == null){
+                    console.log(el.percent);
+                    if (!el.percent){
                         total += 0
                     }else {
                         total += parseInt(el.percent)

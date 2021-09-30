@@ -8,18 +8,8 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">محاسبه سهام</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">سهام اولیه</h5>
                         <!--end::Page Title-->
-                        <!--begin::Breadcrumb-->
-                        <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                            <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">سهام اولیه</div>
-                            </li>
-                            <li class="breadcrumb-item text-muted">
-                                <div class="text-muted">توافقی</div>
-                            </li>
-                        </ul>
-                        <!--end::Breadcrumb-->
                     </div>
                     <!--end::Page Heading-->
                 </div>
@@ -31,108 +21,82 @@
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container">
-                <!--begin::table-->
-                <div class="card card-custom gutter-b">
-                    <!--begin::Header-->
-                    <div class="card-header border-0 py-5">
-                        <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label font-weight-bolder text-dark">توافقی</span>
-                        </h3>
-                        <div class="card-toolbar my-2 my-md-0">
-                            <div class="input-icon">
-                                <input type="text" v-model="filterText" class="form-control" placeholder="جستجو..." />
-                                <span>
-                                <i class="flaticon2-search-1 text-muted"></i>
+                <!--Begin::Row-->
+                <div class="row " style="margin-top: 85px">
+                    <div class="col-xl-4 offset-xl-2">
+                        <!--begin::Stats Widget 18-->
+                        <router-link :to="{name: 'agreements-index'}">
+                            <a class="card card-custom bg-dark bg-hover-state-dark card-stretch gutter-b">
+                                <!--begin::Body-->
+                                <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                        	<!--begin::Svg Icon | path:assets/media/svg/icons/Communication/Group.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon points="0 0 24 0 24 24 0 24" />
+                                        <path d="M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                        <path d="M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
                             </span>
-                            </div>
-                        </div>
-                        <div class="card-toolbar">
-                            <router-link :to="{ name: 'agreements-edit', params: { id: team_id } }">
-                                <a class="btn btn-success font-weight-bolder">
-                                    <i class="icon-md  fas fa-percentage"></i>تخصیص درصد
-                                </a>
-                            </router-link>
-                        </div>
+                                    <div class="text-inverse-dark font-weight-bolder font-size-h5 mb-2 mt-5">توافقی</div>
+                                </div>
+                                <!--end::Body-->
+                            </a>
+                        </router-link>
+                        <!--end::Stats Widget 18-->
                     </div>
-                    <!--end::Header-->
-                    <!--begin::Body-->
-                    <div class="card-body pt-0 pb-3">
-                        <!--begin::Table-->
-                        <div class="table-responsive">
-                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                <div class="d-flex align-items-center" v-if="progress">
-                                    <div class="mr-2 text-muted">لطفا صبر کنید...</div>
-                                    <div class="spinner mr-10"></div>
+                    <div class="col-xl-4" v-if="team_id">
+                        <!--begin::Stats Widget 15-->
+                        <router-link :to="{name: 'calculations-index'}">
+                            <a class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                                <!--begin::Body-->
+                                <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                            	<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Calculator.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <rect fill="#000000" opacity="0.3" x="7" y="4" width="10" height="4" />
+                                        <path d="M7,2 L17,2 C18.1045695,2 19,2.8954305 19,4 L19,20 C19,21.1045695 18.1045695,22 17,22 L7,22 C5.8954305,22 5,21.1045695 5,20 L5,4 C5,2.8954305 5.8954305,2 7,2 Z M8,12 C8.55228475,12 9,11.5522847 9,11 C9,10.4477153 8.55228475,10 8,10 C7.44771525,10 7,10.4477153 7,11 C7,11.5522847 7.44771525,12 8,12 Z M8,16 C8.55228475,16 9,15.5522847 9,15 C9,14.4477153 8.55228475,14 8,14 C7.44771525,14 7,14.4477153 7,15 C7,15.5522847 7.44771525,16 8,16 Z M12,12 C12.5522847,12 13,11.5522847 13,11 C13,10.4477153 12.5522847,10 12,10 C11.4477153,10 11,10.4477153 11,11 C11,11.5522847 11.4477153,12 12,12 Z M12,16 C12.5522847,16 13,15.5522847 13,15 C13,14.4477153 12.5522847,14 12,14 C11.4477153,14 11,14.4477153 11,15 C11,15.5522847 11.4477153,16 12,16 Z M16,12 C16.5522847,12 17,11.5522847 17,11 C17,10.4477153 16.5522847,10 16,10 C15.4477153,10 15,10.4477153 15,11 C15,11.5522847 15.4477153,12 16,12 Z M16,16 C16.5522847,16 17,15.5522847 17,15 C17,14.4477153 16.5522847,14 16,14 C15.4477153,14 15,14.4477153 15,15 C15,15.5522847 15.4477153,16 16,16 Z M16,20 C16.5522847,20 17,19.5522847 17,19 C17,18.4477153 16.5522847,18 16,18 C15.4477153,18 15,18.4477153 15,19 C15,19.5522847 15.4477153,20 16,20 Z M8,18 C7.44771525,18 7,18.4477153 7,19 C7,19.5522847 7.44771525,20 8,20 L12,20 C12.5522847,20 13,19.5522847 13,19 C13,18.4477153 12.5522847,18 12,18 L8,18 Z M7,4 L7,8 L17,8 L17,4 L7,4 Z" fill="#000000" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
+                                    <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">محاسبه</div>
                                 </div>
-                                <thead v-else>
-                                <tr class="bg-gray-100 text-center">
-                                    <th>نام</th>
-                                    <th>نام خانوادگی</th>
-                                    <th>مسئولیت</th>
-                                    <th>میزان سهام (درصد)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="(member, index) in shareholdersFilter" :id="'del'+member.id" class="text-center">
-                                    <td>
-                                        <span class="text-dark-75">{{ member.fname }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ member.lname }}</span>
-                                    </td>
-                                    <td>
-                                        <div v-for="res in member.responsibility"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res.nickname }}</span><br></div>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ member.percent }}</span>
-                                    </td>
-                                    <hr>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row" v-if="pagination.total_page > 10">
-                            <div class="col-md-10">
-                                <div class="d-flex flex-wrap py-4 mr-3">
-                                    <div :class="{disables: !pagination.first_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.first_link)">
-                                        <a href="#">
-                                            <i class="ki ki-bold-double-arrow-back icon-xs"></i>
-                                        </a>
-                                    </div>
-                                    <div :class="{disables: !pagination.prev_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.prev_link)">
-                                        <a href="#">
-                                            <i class="ki ki-bold-arrow-back icon-xs"></i>
-                                        </a>
-                                    </div>
-                                    <div v-for='link in pagination.links' :class="{active: link.active}" class="btn btn-icon btn-sm border-0 btn-hover-primary mr-2 my-1" @click="getResults(link.url)" v-if="link.label != '&laquo; قبلی' && link.label != 'بعدی &raquo;'">
-                                        <a>{{ link.label }}</a>
-                                    </div>
-                                    <div :class="{disables: !pagination.next_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.next_link)">
-                                        <a href="#">
-                                            <i class="ki ki-bold-arrow-next icon-xs"></i>
-                                        </a>
-                                    </div>
-                                    <div :class="{disables: !pagination.last_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.last_link)">
-                                        <a href="#">
-                                            <i class="ki ki-bold-double-arrow-next icon-xs"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="d-flex align-items-center py-3">
-                                <span class="text-muted">
-                                    Page: {{ pagination.from_page }} - {{ pagination.to_page }}
-                                    Total: {{ pagination.total_page }}
-                                </span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--end::Table-->
+                                <!--end::Body-->
+                            </a>
+                        </router-link>
+                        <!--end::Stats Widget 15-->
                     </div>
-                    <!--end::Body-->
+                    <div class="col-xl-4" v-else>
+                        <!--begin::Stats Widget 15-->
+                        <router-link :to="{name: 'calculations-create'}">
+                            <a class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
+                                <!--begin::Body-->
+                                <div class="card-body">
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                            	<!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Calculator.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <rect fill="#000000" opacity="0.3" x="7" y="4" width="10" height="4" />
+                                        <path d="M7,2 L17,2 C18.1045695,2 19,2.8954305 19,4 L19,20 C19,21.1045695 18.1045695,22 17,22 L7,22 C5.8954305,22 5,21.1045695 5,20 L5,4 C5,2.8954305 5.8954305,2 7,2 Z M8,12 C8.55228475,12 9,11.5522847 9,11 C9,10.4477153 8.55228475,10 8,10 C7.44771525,10 7,10.4477153 7,11 C7,11.5522847 7.44771525,12 8,12 Z M8,16 C8.55228475,16 9,15.5522847 9,15 C9,14.4477153 8.55228475,14 8,14 C7.44771525,14 7,14.4477153 7,15 C7,15.5522847 7.44771525,16 8,16 Z M12,12 C12.5522847,12 13,11.5522847 13,11 C13,10.4477153 12.5522847,10 12,10 C11.4477153,10 11,10.4477153 11,11 C11,11.5522847 11.4477153,12 12,12 Z M12,16 C12.5522847,16 13,15.5522847 13,15 C13,14.4477153 12.5522847,14 12,14 C11.4477153,14 11,14.4477153 11,15 C11,15.5522847 11.4477153,16 12,16 Z M16,12 C16.5522847,12 17,11.5522847 17,11 C17,10.4477153 16.5522847,10 16,10 C15.4477153,10 15,10.4477153 15,11 C15,11.5522847 15.4477153,12 16,12 Z M16,16 C16.5522847,16 17,15.5522847 17,15 C17,14.4477153 16.5522847,14 16,14 C15.4477153,14 15,14.4477153 15,15 C15,15.5522847 15.4477153,16 16,16 Z M16,20 C16.5522847,20 17,19.5522847 17,19 C17,18.4477153 16.5522847,18 16,18 C15.4477153,18 15,18.4477153 15,19 C15,19.5522847 15.4477153,20 16,20 Z M8,18 C7.44771525,18 7,18.4477153 7,19 C7,19.5522847 7.44771525,20 8,20 L12,20 C12.5522847,20 13,19.5522847 13,19 C13,18.4477153 12.5522847,18 12,18 L8,18 Z M7,4 L7,8 L17,8 L17,4 L7,4 Z" fill="#000000" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>
+                                    <div class="text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5">محاسبه</div>
+                                </div>
+                                <!--end::Body-->
+                            </a>
+                        </router-link>
+                        <!--end::Stats Widget 15-->
+                    </div>
                 </div>
-                <!--end::table-->
+                <!--End::Row-->
             </div>
             <!--end::Container-->
         </div>
@@ -147,55 +111,17 @@
         name: "index",
         data() {
             return {
-                shareholders: [],
                 team_id: '',
-                progress: true,
-                filterText: null,
-                pagination: {},
                 Auth: new Auth()
             }
         },
         created() {
             this.Auth.check();
-            this.getResults()
+            axios.get('/api/initial-shares')
+                .then(response => {
+                    this.team_id = response.data
+                });
         },
-        methods: {
-            getResults(pagi) {
-                pagi = pagi || '/api/agreements';
-                axios.get(pagi)
-                    .then(response => {
-                        this.shareholders = response.data.shareholders.data;
-                        this.team_id = response.data.team_id;
-                        this.pagination = {
-                            current_page: response.data.shareholders.current_page,
-                            last_page: response.data.shareholders.last_page,
-                            from_page: response.data.shareholders.from,
-                            to_page: response.data.shareholders.to,
-                            total_page: response.data.shareholders.total,
-                            path_page: response.data.shareholders.path+"?page=",
-                            links: response.data.shareholders.links,
-                            first_link: response.data.shareholders.first_page_url,
-                            last_link: response.data.shareholders.last_page_url,
-                            prev_link: response.data.shareholders.prev_page_url,
-                            next_link: response.data.shareholders.next_page_url,
-                        };
-                        this.progress = false;
-                    });
-            },
-        },
-        computed: {
-            shareholdersFilter() {
-                return this.shareholders.filter((element) => {
-                    if(!this.filterText){
-                        return element
-                    }else{
-                        return element.fname.match(this.filterText) ||
-                            element.lname.match(this.filterText) ||
-                            element.percent.toString().match(this.filterText);
-                    }
-                })
-            }
-        }
     }
 </script>
 

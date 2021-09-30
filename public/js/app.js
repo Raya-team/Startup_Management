@@ -11015,10 +11015,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11026,8 +11026,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../Errors */ "./resources/js/Errors.js");
-/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../Auth */ "./resources/js/Auth.js");
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Errors */ "./resources/js/Errors.js");
+/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Auth */ "./resources/js/Auth.js");
 //
 //
 //
@@ -11166,7 +11166,9 @@ __webpack_require__.r(__webpack_exports__);
     total: function total() {
       var total = 0;
       this.data.shareholders.filter(function (el) {
-        if (isNaN(el.percent) || el.percent == null) {
+        console.log(el.percent);
+
+        if (!el.percent) {
           total += 0;
         } else {
           total += parseInt(el.percent);
@@ -11226,10 +11228,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -11237,7 +11239,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Auth */ "./resources/js/Auth.js");
+/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Auth */ "./resources/js/Auth.js");
 //
 //
 //
@@ -11434,6 +11436,1251 @@ __webpack_require__.r(__webpack_exports__);
         }
       });
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Errors__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Errors */ "./resources/js/Errors.js");
+/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../Auth */ "./resources/js/Auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "create",
+  data: function data() {
+    return {
+      shareholders: [],
+      data: {
+        has_previous: true,
+        previous_investors: [{
+          name: '',
+          percent: ''
+        }],
+        idea: '',
+        finance: '',
+        experience: '',
+        risk: '',
+        technology: '',
+        investment: '',
+        management: '',
+        sale: '',
+        full_time: '',
+        Q1: [],
+        Q2: [],
+        Q3: [],
+        Q4: [],
+        Q5: [],
+        Q6: [],
+        Q7: [],
+        Q8: [],
+        Q9: []
+      },
+      errors: new _Errors__WEBPACK_IMPORTED_MODULE_0__.default(),
+      Auth: new _Auth__WEBPACK_IMPORTED_MODULE_1__.default()
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.Auth.check();
+    axios.get('/api/calculations/create').then(function (response) {
+      _this.shareholders = response.data;
+    })["catch"](function (error) {
+      return console.log(error);
+    });
+  },
+  computed: {
+    isActive: function isActive() {
+      return this.data.has_previous;
+    },
+    checkedValue: {
+      get: function get() {
+        return this.data.has_previous;
+      },
+      set: function set(newValue) {
+        this.data.has_previous = newValue;
+      }
+    },
+    total: function total() {
+      var total = 0;
+
+      if (!this.data.idea || isNaN(this.data.idea)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.idea);
+      }
+
+      if (!this.data.finance || isNaN(this.data.finance)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.finance);
+      }
+
+      if (!this.data.experience || isNaN(this.data.experience)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.experience);
+      }
+
+      if (!this.data.risk || isNaN(this.data.risk)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.risk);
+      }
+
+      if (!this.data.technology || isNaN(this.data.technology)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.technology);
+      }
+
+      if (!this.data.investment || isNaN(this.data.investment)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.investment);
+      }
+
+      if (!this.data.management || isNaN(this.data.management)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.management);
+      }
+
+      if (!this.data.sale || isNaN(this.data.sale)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.sale);
+      }
+
+      if (!this.data.full_time || isNaN(this.data.full_time)) {
+        total += 0;
+      } else {
+        total += parseInt(this.data.full_time);
+      }
+
+      return total;
+    }
+  },
+  methods: {
+    AddField: function AddField() {
+      this.data.previous_investors.push({
+        name: '',
+        percent: ''
+      });
+    },
+    RemoveField: function RemoveField(index) {
+      this.data.previous_investors.splice(index, 1);
+    },
+    onSubmit: function onSubmit() {
+      var _this2 = this;
+
+      this.Auth.check();
+
+      if (this.total == 100) {
+        var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
+        var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
+        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
+        axios.post('/calculations', this.data).then(function (response) {
+          Swal.fire({
+            title: "اطلاعات با موفیت ثبت شد",
+            icon: "success",
+            buttonsStyling: false,
+            showConfirmButton: false,
+            timer: 3000,
+            customClass: {
+              confirmButton: "btn btn-primary"
+            }
+          });
+
+          _this2.$router.push({
+            name: 'calculations-index'
+          });
+        })["catch"](function (error) {
+          console.log(error.response);
+
+          _this2.errors.record(error.response.data.errors);
+
+          KTUtil.btnRelease(formSubmitButton);
+        });
+      } else {
+        Swal.fire({
+          title: "مجموع وزن متغیر ها باید 100 باشد",
+          text: 'مجموع سهام سهامداران فعلی = ' + this.total,
+          icon: "warning",
+          buttonsStyling: false,
+          showConfirmButton: false,
+          timer: 5000,
+          customClass: {
+            confirmButton: "btn btn-primary"
+          }
+        });
+      }
+    }
+  },
+  mounted: function mounted() {
+    var $this = this;
+    $(document).ready(function () {
+      var select1 = $('#Q1').select2();
+      select1.on("select2:selecting", function (e) {
+        var Q1 = $this._data.data.Q1;
+        Q1.push(e.params.args.data.id);
+      });
+      select1.on("select2:unselecting", function (e) {
+        var Q1 = $this._data.data.Q1;
+        Q1.splice(Q1.indexOf(e.params.args.data.id), 1);
+      });
+      var select2 = $('#Q2').select2();
+      select2.on("select2:selecting", function (e) {
+        var Q2 = $this._data.data.Q2;
+        Q2.push(e.params.args.data.id);
+      });
+      select2.on("select2:unselecting", function (e) {
+        var Q2 = $this._data.data.Q2;
+        Q2.splice(Q2.indexOf(e.params.args.data.id), 1);
+      });
+      var select3 = $('#Q3').select2();
+      select3.on("select2:selecting", function (e) {
+        var Q3 = $this._data.data.Q3;
+        Q3.push(e.params.args.data.id);
+      });
+      select3.on("select2:unselecting", function (e) {
+        var Q3 = $this._data.data.Q3;
+        Q3.splice(Q3.indexOf(e.params.args.data.id), 1);
+      });
+      var select4 = $('#Q4').select2();
+      select4.on("select2:selecting", function (e) {
+        var Q4 = $this._data.data.Q4;
+        Q4.push(e.params.args.data.id);
+      });
+      select4.on("select2:unselecting", function (e) {
+        var Q4 = $this._data.data.Q4;
+        Q4.splice(Q4.indexOf(e.params.args.data.id), 1);
+      });
+      var select5 = $('#Q5').select2();
+      select5.on("select2:selecting", function (e) {
+        var Q5 = $this._data.data.Q5;
+        Q5.push(e.params.args.data.id);
+      });
+      select5.on("select2:unselecting", function (e) {
+        var Q5 = $this._data.data.Q5;
+        Q5.splice(Q5.indexOf(e.params.args.data.id), 1);
+      });
+      var select6 = $('#Q6').select2();
+      select6.on("select2:selecting", function (e) {
+        var Q6 = $this._data.data.Q6;
+        Q6.push(e.params.args.data.id);
+      });
+      select6.on("select2:unselecting", function (e) {
+        var Q6 = $this._data.data.Q6;
+        Q6.splice(Q6.indexOf(e.params.args.data.id), 1);
+      });
+      var select7 = $('#Q7').select2();
+      select7.on("select2:selecting", function (e) {
+        var Q7 = $this._data.data.Q7;
+        Q7.push(e.params.args.data.id);
+      });
+      select7.on("select2:unselecting", function (e) {
+        var Q7 = $this._data.data.Q7;
+        Q7.splice(Q7.indexOf(e.params.args.data.id), 1);
+      });
+      var select8 = $('#Q8').select2();
+      select8.on("select2:selecting", function (e) {
+        var Q8 = $this._data.data.Q8;
+        Q8.push(e.params.args.data.id);
+      });
+      select8.on("select2:unselecting", function (e) {
+        var Q8 = $this._data.data.Q8;
+        Q8.splice(Q8.indexOf(e.params.args.data.id), 1);
+      });
+      var select9 = $('#Q9').select2();
+      select9.on("select2:selecting", function (e) {
+        var Q9 = $this._data.data.Q9;
+        Q9.push(e.params.args.data.id);
+      });
+      select9.on("select2:unselecting", function (e) {
+        var Q9 = $this._data.data.Q9;
+        Q9.splice(Q9.indexOf(e.params.args.data.id), 1);
+      });
+    });
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "index"
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../Auth */ "./resources/js/Auth.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "index",
+  data: function data() {
+    return {
+      team_id: '',
+      Auth: new _Auth__WEBPACK_IMPORTED_MODULE_0__.default()
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    this.Auth.check();
+    axios.get('/api/initial-shares').then(function (response) {
+      _this.team_id = response.data;
+    });
   }
 });
 
@@ -13128,22 +14375,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_other_team_index__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/other/team/index */ "./resources/js/components/other/team/index.vue");
 /* harmony import */ var _components_other_team_edit__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/other/team/edit */ "./resources/js/components/other/team/edit.vue");
 /* harmony import */ var _components_shares_initial_shares_index__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/shares/initial-shares/index */ "./resources/js/components/shares/initial-shares/index.vue");
-/* harmony import */ var _components_shares_initial_shares_edit__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/shares/initial-shares/edit */ "./resources/js/components/shares/initial-shares/edit.vue");
-/* harmony import */ var _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/financial/financial1/index */ "./resources/js/components/financial/financial1/index.vue");
-/* harmony import */ var _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/financial/financial1/land/create */ "./resources/js/components/financial/financial1/land/create.vue");
-/* harmony import */ var _components_financial_financial1_land_edit__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/financial/financial1/land/edit */ "./resources/js/components/financial/financial1/land/edit.vue");
-/* harmony import */ var _components_financial_financial1_building_create__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/financial/financial1/building/create */ "./resources/js/components/financial/financial1/building/create.vue");
-/* harmony import */ var _components_financial_financial1_building_edit__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/financial/financial1/building/edit */ "./resources/js/components/financial/financial1/building/edit.vue");
-/* harmony import */ var _components_financial_financial1_equipmentandmachinery_create__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/financial/financial1/equipmentandmachinery/create */ "./resources/js/components/financial/financial1/equipmentandmachinery/create.vue");
-/* harmony import */ var _components_financial_financial1_equipmentandmachinery_edit__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/financial/financial1/equipmentandmachinery/edit */ "./resources/js/components/financial/financial1/equipmentandmachinery/edit.vue");
-/* harmony import */ var _components_financial_financial1_officeequipmentandsupply_create__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/financial/financial1/officeequipmentandsupply/create */ "./resources/js/components/financial/financial1/officeequipmentandsupply/create.vue");
-/* harmony import */ var _components_financial_financial1_officeequipmentandsupply_edit__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/financial/financial1/officeequipmentandsupply/edit */ "./resources/js/components/financial/financial1/officeequipmentandsupply/edit.vue");
-/* harmony import */ var _components_financial_financial1_facility_create__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/financial/financial1/facility/create */ "./resources/js/components/financial/financial1/facility/create.vue");
-/* harmony import */ var _components_financial_financial1_facility_edit__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/financial/financial1/facility/edit */ "./resources/js/components/financial/financial1/facility/edit.vue");
-/* harmony import */ var _components_financial_financial1_transportation_create__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/financial/financial1/transportation/create */ "./resources/js/components/financial/financial1/transportation/create.vue");
-/* harmony import */ var _components_financial_financial1_transportation_edit__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/financial/financial1/transportation/edit */ "./resources/js/components/financial/financial1/transportation/edit.vue");
-/* harmony import */ var _components_financial_financial1_preoperatingcost_create__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/financial/financial1/preoperatingcost/create */ "./resources/js/components/financial/financial1/preoperatingcost/create.vue");
-/* harmony import */ var _components_financial_financial1_preoperatingcost_edit__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/financial/financial1/preoperatingcost/edit */ "./resources/js/components/financial/financial1/preoperatingcost/edit.vue");
+/* harmony import */ var _components_shares_initial_shares_agreement_index__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/shares/initial-shares/agreement/index */ "./resources/js/components/shares/initial-shares/agreement/index.vue");
+/* harmony import */ var _components_shares_initial_shares_agreement_edit__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/shares/initial-shares/agreement/edit */ "./resources/js/components/shares/initial-shares/agreement/edit.vue");
+/* harmony import */ var _components_shares_initial_shares_calculation_index__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/shares/initial-shares/calculation/index */ "./resources/js/components/shares/initial-shares/calculation/index.vue");
+/* harmony import */ var _components_shares_initial_shares_calculation_create__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/shares/initial-shares/calculation/create */ "./resources/js/components/shares/initial-shares/calculation/create.vue");
+/* harmony import */ var _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/financial/financial1/index */ "./resources/js/components/financial/financial1/index.vue");
+/* harmony import */ var _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/financial/financial1/land/create */ "./resources/js/components/financial/financial1/land/create.vue");
+/* harmony import */ var _components_financial_financial1_land_edit__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/financial/financial1/land/edit */ "./resources/js/components/financial/financial1/land/edit.vue");
+/* harmony import */ var _components_financial_financial1_building_create__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/financial/financial1/building/create */ "./resources/js/components/financial/financial1/building/create.vue");
+/* harmony import */ var _components_financial_financial1_building_edit__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/financial/financial1/building/edit */ "./resources/js/components/financial/financial1/building/edit.vue");
+/* harmony import */ var _components_financial_financial1_equipmentandmachinery_create__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/financial/financial1/equipmentandmachinery/create */ "./resources/js/components/financial/financial1/equipmentandmachinery/create.vue");
+/* harmony import */ var _components_financial_financial1_equipmentandmachinery_edit__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/financial/financial1/equipmentandmachinery/edit */ "./resources/js/components/financial/financial1/equipmentandmachinery/edit.vue");
+/* harmony import */ var _components_financial_financial1_officeequipmentandsupply_create__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/financial/financial1/officeequipmentandsupply/create */ "./resources/js/components/financial/financial1/officeequipmentandsupply/create.vue");
+/* harmony import */ var _components_financial_financial1_officeequipmentandsupply_edit__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/financial/financial1/officeequipmentandsupply/edit */ "./resources/js/components/financial/financial1/officeequipmentandsupply/edit.vue");
+/* harmony import */ var _components_financial_financial1_facility_create__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/financial/financial1/facility/create */ "./resources/js/components/financial/financial1/facility/create.vue");
+/* harmony import */ var _components_financial_financial1_facility_edit__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/financial/financial1/facility/edit */ "./resources/js/components/financial/financial1/facility/edit.vue");
+/* harmony import */ var _components_financial_financial1_transportation_create__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/financial/financial1/transportation/create */ "./resources/js/components/financial/financial1/transportation/create.vue");
+/* harmony import */ var _components_financial_financial1_transportation_edit__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/financial/financial1/transportation/edit */ "./resources/js/components/financial/financial1/transportation/edit.vue");
+/* harmony import */ var _components_financial_financial1_preoperatingcost_create__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/financial/financial1/preoperatingcost/create */ "./resources/js/components/financial/financial1/preoperatingcost/create.vue");
+/* harmony import */ var _components_financial_financial1_preoperatingcost_edit__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/financial/financial1/preoperatingcost/edit */ "./resources/js/components/financial/financial1/preoperatingcost/edit.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_1__.default);
@@ -13160,7 +14410,9 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.use(vue_router__WEBPACK_IMPORTED_MODULE
 
 
 
- // import AgreementsCreate from './components/shares/initial-shares/create';
+
+
+
 
 
 
@@ -13267,122 +14519,142 @@ var routes = [{
     title: 'ویرایش تیم'
   }
 }, {
+  path: '/initial-shares',
+  name: 'initial-shares-index',
+  component: _components_shares_initial_shares_index__WEBPACK_IMPORTED_MODULE_15__.default,
+  meta: {
+    title: 'محاسبه سهام اولیه'
+  }
+}, {
   path: '/agreements',
   name: 'agreements-index',
-  component: _components_shares_initial_shares_index__WEBPACK_IMPORTED_MODULE_15__.default,
+  component: _components_shares_initial_shares_agreement_index__WEBPACK_IMPORTED_MODULE_16__.default,
   meta: {
     title: 'توافقی'
   }
-}, // {path: '/agreements/create', name: 'agreements-create', component: AgreementsCreate, meta: {title: 'توافقی'}},
-{
+}, {
   path: '/agreements/:id/edit',
   name: 'agreements-edit',
-  component: _components_shares_initial_shares_edit__WEBPACK_IMPORTED_MODULE_16__.default,
+  component: _components_shares_initial_shares_agreement_edit__WEBPACK_IMPORTED_MODULE_17__.default,
   meta: {
-    title: 'ویرایش'
+    title: 'تخصیص درصد'
+  }
+}, {
+  path: '/calculations',
+  name: 'calculations-index',
+  component: _components_shares_initial_shares_calculation_index__WEBPACK_IMPORTED_MODULE_18__.default,
+  meta: {
+    title: 'محاسبه'
+  }
+}, {
+  path: '/calculations/create',
+  name: 'calculations-create',
+  component: _components_shares_initial_shares_calculation_create__WEBPACK_IMPORTED_MODULE_19__.default,
+  meta: {
+    title: 'افزودن اطلاعات'
   }
 }, {
   path: '/financial1',
   name: 'financial1-index',
-  component: _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_17__.default,
+  component: _components_financial_financial1_index__WEBPACK_IMPORTED_MODULE_20__.default,
   meta: {
     title: 'مالی1'
   }
 }, {
   path: '/lands/create',
   name: 'land-create',
-  component: _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_18__.default,
+  component: _components_financial_financial1_land_create__WEBPACK_IMPORTED_MODULE_21__.default,
   meta: {
     title: 'خرید زمین'
   }
 }, {
   path: '/lands/:id/edit',
   name: 'land-edit',
-  component: _components_financial_financial1_land_edit__WEBPACK_IMPORTED_MODULE_19__.default,
+  component: _components_financial_financial1_land_edit__WEBPACK_IMPORTED_MODULE_22__.default,
   meta: {
     title: 'ویرایش زمین'
   }
 }, {
   path: '/buildings/create',
   name: 'buildings-create',
-  component: _components_financial_financial1_building_create__WEBPACK_IMPORTED_MODULE_20__.default,
+  component: _components_financial_financial1_building_create__WEBPACK_IMPORTED_MODULE_23__.default,
   meta: {
     title: 'افزودن ساختمان'
   }
 }, {
   path: '/buildings/:id/edit',
   name: 'buildings-edit',
-  component: _components_financial_financial1_building_edit__WEBPACK_IMPORTED_MODULE_21__.default,
+  component: _components_financial_financial1_building_edit__WEBPACK_IMPORTED_MODULE_24__.default,
   meta: {
     title: 'ویرایش ساختمان'
   }
 }, {
   path: '/equipmentandmachineries/create',
   name: 'equipmentandmachineries-create',
-  component: _components_financial_financial1_equipmentandmachinery_create__WEBPACK_IMPORTED_MODULE_22__.default,
+  component: _components_financial_financial1_equipmentandmachinery_create__WEBPACK_IMPORTED_MODULE_25__.default,
   meta: {
     title: 'افزودن تجهیزات و ماشین آلات فنی'
   }
 }, {
   path: '/equipmentandmachineries/:id/edit',
   name: 'equipmentandmachineries-edit',
-  component: _components_financial_financial1_equipmentandmachinery_edit__WEBPACK_IMPORTED_MODULE_23__.default,
+  component: _components_financial_financial1_equipmentandmachinery_edit__WEBPACK_IMPORTED_MODULE_26__.default,
   meta: {
     title: 'ویرایش تجهیزات و ماشین آلات فنی'
   }
 }, {
   path: '/officeequipmentandsupplies/create',
   name: 'officeequipmentandsupplies-create',
-  component: _components_financial_financial1_officeequipmentandsupply_create__WEBPACK_IMPORTED_MODULE_24__.default,
+  component: _components_financial_financial1_officeequipmentandsupply_create__WEBPACK_IMPORTED_MODULE_27__.default,
   meta: {
     title: 'افزودن تجهیزات و لوازم دفتری'
   }
 }, {
   path: '/officeequipmentandsupplies/:id/edit',
   name: 'officeequipmentandsupplies-edit',
-  component: _components_financial_financial1_officeequipmentandsupply_edit__WEBPACK_IMPORTED_MODULE_25__.default,
+  component: _components_financial_financial1_officeequipmentandsupply_edit__WEBPACK_IMPORTED_MODULE_28__.default,
   meta: {
     title: 'ویرایش تجهیزات و لوازم دفتری'
   }
 }, {
   path: '/facilities/create',
   name: 'facilities-create',
-  component: _components_financial_financial1_facility_create__WEBPACK_IMPORTED_MODULE_26__.default,
+  component: _components_financial_financial1_facility_create__WEBPACK_IMPORTED_MODULE_29__.default,
   meta: {
     title: 'افزودن تاسیسات'
   }
 }, {
   path: '/facilities/:id/edit',
   name: 'facilities-edit',
-  component: _components_financial_financial1_facility_edit__WEBPACK_IMPORTED_MODULE_27__.default,
+  component: _components_financial_financial1_facility_edit__WEBPACK_IMPORTED_MODULE_30__.default,
   meta: {
     title: 'ویرایش تاسیسات'
   }
 }, {
   path: '/transportations/create',
   name: 'transportations-create',
-  component: _components_financial_financial1_transportation_create__WEBPACK_IMPORTED_MODULE_28__.default,
+  component: _components_financial_financial1_transportation_create__WEBPACK_IMPORTED_MODULE_31__.default,
   meta: {
     title: 'افزودن وسایل حمل و نقل'
   }
 }, {
   path: '/transportations/:id/edit',
   name: 'transportations-edit',
-  component: _components_financial_financial1_transportation_edit__WEBPACK_IMPORTED_MODULE_29__.default,
+  component: _components_financial_financial1_transportation_edit__WEBPACK_IMPORTED_MODULE_32__.default,
   meta: {
     title: 'ویرایش وسایل حمل و نقل'
   }
 }, {
   path: '/preoperatingcosts/create',
   name: 'preoperatingcosts-create',
-  component: _components_financial_financial1_preoperatingcost_create__WEBPACK_IMPORTED_MODULE_30__.default,
+  component: _components_financial_financial1_preoperatingcost_create__WEBPACK_IMPORTED_MODULE_33__.default,
   meta: {
     title: 'افزودن هزینه های قبل بهره برداری'
   }
 }, {
   path: '/preoperatingcosts/:id/edit',
   name: 'preoperatingcosts-edit',
-  component: _components_financial_financial1_preoperatingcost_edit__WEBPACK_IMPORTED_MODULE_31__.default,
+  component: _components_financial_financial1_preoperatingcost_edit__WEBPACK_IMPORTED_MODULE_34__.default,
   meta: {
     title: 'ویرایش هزینه های قبل بهره برداری'
   }
@@ -18213,6 +19485,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n.text-right[data-v-16127110] {\n    text-align: right!important;\n}\n.font-size-lg[data-v-16127110] {\n    margin-right: 10px;\n}\n.footer[data-v-16127110] {\n    margin-top: 500px !important;\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n.slide-enter[data-v-f882bdb8]{\n    opacity: 0;\n    /*transform: translateY(20px)*/\n}\n.slide-enter-active[data-v-f882bdb8]{\n    -webkit-animation: slide-in-data-v-f882bdb8 1s ease-out forwards;\n            animation: slide-in-data-v-f882bdb8 1s ease-out forwards;\n    transition: opacity .5s;\n}\n.slide-leave[data-v-f882bdb8]{\n}\n.slide-leave-active[data-v-f882bdb8]{\n    transition: all 1s ease;\n}\n.slide-leave-to[data-v-f882bdb8] {\n    opacity: 0;\n    transform: translateY(30px);\n}\n.slide-move[data-v-f882bdb8]{\n    transition: transform 1s;\n}\n@-webkit-keyframes slide-in-data-v-f882bdb8 {\nfrom {\n        transform: translateY(20px)\n}\nto {\n        transform: translateY(0)\n}\n}\n@keyframes slide-in-data-v-f882bdb8 {\nfrom {\n        transform: translateY(20px)\n}\nto {\n        transform: translateY(0)\n}\n}\n@-webkit-keyframes slide-out-data-v-f882bdb8 {\nfrom {\n        transform: translateY(0)\n}\nto {\n        transform: translateY(20px)\n}\n}\n@keyframes slide-out-data-v-f882bdb8 {\nfrom {\n        transform: translateY(0)\n}\nto {\n        transform: translateY(20px)\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49942,6 +51238,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_style_index_0_id_f882bdb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_style_index_0_id_f882bdb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__.default, options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_style_index_0_id_f882bdb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_1__.default.locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
 /*!****************************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
@@ -51384,10 +52710,10 @@ component.options.__file = "resources/js/components/other/team/index.vue"
 
 /***/ }),
 
-/***/ "./resources/js/components/shares/initial-shares/edit.vue":
-/*!****************************************************************!*\
-  !*** ./resources/js/components/shares/initial-shares/edit.vue ***!
-  \****************************************************************/
+/***/ "./resources/js/components/shares/initial-shares/agreement/edit.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/edit.vue ***!
+  \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -51395,9 +52721,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.vue?vue&type=template&id=0e98f4a8&scoped=true& */ "./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true&");
-/* harmony import */ var _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit.vue?vue&type=script&lang=js& */ "./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.vue?vue&type=template&id=f09888de&scoped=true& */ "./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true&");
+/* harmony import */ var _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit.vue?vue&type=script&lang=js& */ "./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51407,18 +52733,137 @@ __webpack_require__.r(__webpack_exports__);
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
   _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
-  _edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
-  "0e98f4a8",
+  "f09888de",
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/shares/initial-shares/edit.vue"
+component.options.__file = "resources/js/components/shares/initial-shares/agreement/edit.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/agreement/index.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/index.vue ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=9f091f4a&scoped=true& */ "./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "9f091f4a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/shares/initial-shares/agreement/index.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/create.vue":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/create.vue ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create.vue?vue&type=template&id=f882bdb8&scoped=true& */ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true&");
+/* harmony import */ var _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create.vue?vue&type=script&lang=js& */ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js&");
+/* harmony import */ var _create_vue_vue_type_style_index_0_id_f882bdb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& */ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+;
+
+
+/* normalize component */
+
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__.default)(
+  _create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "f882bdb8",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/shares/initial-shares/calculation/create.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/index.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/index.vue ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=1bbe44da&scoped=true& */ "./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "1bbe44da",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/shares/initial-shares/calculation/index.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -52160,10 +53605,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************!*\
-  !*** ./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************/
+/***/ "./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -52171,8 +53616,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
@@ -52492,6 +53985,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_id_16127110_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=style&index=0&id=16127110&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/other/product/index.vue?vue&type=style&index=0&id=16127110&scoped=true&lang=css&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&":
+/*!***************************************************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& ***!
+  \***************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_0_rules_0_use_2_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_style_index_0_id_f882bdb8_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css& */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[1]!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9[0].rules[0].use[2]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=style&index=0&id=f882bdb8&scoped=true&lang=css&");
 
 
 /***/ }),
@@ -52989,19 +54495,70 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true&":
-/*!***********************************************************************************************************!*\
-  !*** ./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true& ***!
-  \***********************************************************************************************************/
+/***/ "./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true& ***!
+  \*********************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_0e98f4a8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=template&id=0e98f4a8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_f09888de_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=template&id=f09888de&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true&":
+/*!**********************************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true& ***!
+  \**********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_9f091f4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=9f091f4a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true& ***!
+  \*************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_create_vue_vue_type_template_id_f882bdb8_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./create.vue?vue&type=template&id=f882bdb8&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true& ***!
+  \************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_1bbe44da_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=1bbe44da&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true&");
 
 
 /***/ }),
@@ -80304,10 +81861,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/edit.vue?vue&type=template&id=0e98f4a8&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/edit.vue?vue&type=template&id=f09888de&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -80654,10 +82211,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=template&id=5f74e9a0&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=template&id=5f74e9a0&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/agreement/index.vue?vue&type=template&id=9f091f4a&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -81068,6 +82625,4200 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "#" } }, [
       _c("i", { staticClass: "ki ki-bold-double-arrow-next icon-xs" })
     ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/create.vue?vue&type=template&id=f882bdb8&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("محاسبه سهام")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm"
+                      },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                attrs: { to: { name: "initial-shares-index" } }
+                              },
+                              [
+                                _c("a", { staticClass: "text-muted" }, [
+                                  _vm._v("سهام اولیه")
+                                ])
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _vm._m(0)
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "card card-custom gutter-b example example-compact"
+              },
+              [
+                _c(
+                  "form",
+                  {
+                    staticClass: "form",
+                    attrs: {
+                      novalidate: "novalidate",
+                      id: "kt_login_signup_form"
+                    },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.onSubmit.apply(null, arguments)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "row" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-3" }, [
+                        _c(
+                          "span",
+                          {
+                            staticClass:
+                              "switch switch-outline switch-icon switch-primary"
+                          },
+                          [
+                            _c("label", [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.checkedValue,
+                                    expression: "checkedValue"
+                                  }
+                                ],
+                                attrs: { type: "checkbox", name: "select" },
+                                domProps: {
+                                  checked: Array.isArray(_vm.checkedValue)
+                                    ? _vm._i(_vm.checkedValue, null) > -1
+                                    : _vm.checkedValue
+                                },
+                                on: {
+                                  change: function($event) {
+                                    var $$a = _vm.checkedValue,
+                                      $$el = $event.target,
+                                      $$c = $$el.checked ? true : false
+                                    if (Array.isArray($$a)) {
+                                      var $$v = null,
+                                        $$i = _vm._i($$a, $$v)
+                                      if ($$el.checked) {
+                                        $$i < 0 &&
+                                          (_vm.checkedValue = $$a.concat([$$v]))
+                                      } else {
+                                        $$i > -1 &&
+                                          (_vm.checkedValue = $$a
+                                            .slice(0, $$i)
+                                            .concat($$a.slice($$i + 1)))
+                                      }
+                                    } else {
+                                      _vm.checkedValue = $$c
+                                    }
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.isActive
+                      ? _c("div", { staticClass: "row" }, [
+                          _c("div", { staticClass: "card-body" }, [
+                            _c("div", { attrs: { id: "kt_repeater_1" } }, [
+                              _c("div", { staticClass: "form-group row" }, [
+                                _c(
+                                  "div",
+                                  {
+                                    staticClass: "col-lg-10",
+                                    attrs: { "data-repeater-list": "product" }
+                                  },
+                                  [
+                                    _c(
+                                      "transition-group",
+                                      { attrs: { name: "slide" } },
+                                      _vm._l(
+                                        _vm.data.previous_investors,
+                                        function(investor, index) {
+                                          return _c(
+                                            "div",
+                                            {
+                                              key: index,
+                                              staticClass:
+                                                "form-group row align-items-center",
+                                              attrs: {
+                                                "data-repeater-item": ""
+                                              }
+                                            },
+                                            [
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-4" },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: investor.name,
+                                                        expression:
+                                                          "investor.name"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "form-control products",
+                                                    class: [
+                                                      "form-control",
+                                                      {
+                                                        "is-invalid": _vm.errors.has(
+                                                          "previous_investors." +
+                                                            index +
+                                                            ".name"
+                                                        )
+                                                      }
+                                                    ],
+                                                    attrs: {
+                                                      type: "text",
+                                                      name: "investor_name",
+                                                      placeholder:
+                                                        "نام سرمایه گذار قبلی"
+                                                    },
+                                                    domProps: {
+                                                      value: investor.name
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          investor,
+                                                          "name",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _vm.errors.has(
+                                                    "previous_investors." +
+                                                      index +
+                                                      ".name"
+                                                  )
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "invalid-feedback is-invalid",
+                                                          staticStyle: {
+                                                            display: "block"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              _vm.errors.get(
+                                                                "previous_investors." +
+                                                                  index +
+                                                                  ".name"
+                                                              )
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              _c(
+                                                "div",
+                                                { staticClass: "col-md-4" },
+                                                [
+                                                  _c("input", {
+                                                    directives: [
+                                                      {
+                                                        name: "model",
+                                                        rawName: "v-model",
+                                                        value: investor.percent,
+                                                        expression:
+                                                          "investor.percent"
+                                                      }
+                                                    ],
+                                                    staticClass:
+                                                      "form-control products",
+                                                    class: [
+                                                      "form-control",
+                                                      {
+                                                        "is-invalid": _vm.errors.has(
+                                                          "previous_investors." +
+                                                            index +
+                                                            ".percent"
+                                                        )
+                                                      }
+                                                    ],
+                                                    attrs: {
+                                                      type: "text",
+                                                      name: "percent",
+                                                      placeholder: "درصد",
+                                                      oninput:
+                                                        "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                                    },
+                                                    domProps: {
+                                                      value: investor.percent
+                                                    },
+                                                    on: {
+                                                      input: function($event) {
+                                                        if (
+                                                          $event.target
+                                                            .composing
+                                                        ) {
+                                                          return
+                                                        }
+                                                        _vm.$set(
+                                                          investor,
+                                                          "percent",
+                                                          $event.target.value
+                                                        )
+                                                      }
+                                                    }
+                                                  }),
+                                                  _vm._v(" "),
+                                                  _vm.errors.has(
+                                                    "previous_investors." +
+                                                      index +
+                                                      ".percent"
+                                                  )
+                                                    ? _c(
+                                                        "div",
+                                                        {
+                                                          staticClass:
+                                                            "invalid-feedback is-invalid",
+                                                          staticStyle: {
+                                                            display: "block"
+                                                          }
+                                                        },
+                                                        [
+                                                          _vm._v(
+                                                            _vm._s(
+                                                              _vm.errors.get(
+                                                                "previous_investors." +
+                                                                  index +
+                                                                  ".percent"
+                                                              )
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    : _vm._e()
+                                                ]
+                                              ),
+                                              _vm._v(" "),
+                                              index != 0
+                                                ? _c(
+                                                    "div",
+                                                    { staticClass: "col-md-4" },
+                                                    [
+                                                      _c(
+                                                        "a",
+                                                        {
+                                                          staticClass:
+                                                            "btn btn-sm font-weight-bolder btn-light-danger",
+                                                          attrs: {
+                                                            "data-repeater-delete":
+                                                              ""
+                                                          },
+                                                          on: {
+                                                            click: function(
+                                                              $event
+                                                            ) {
+                                                              return _vm.RemoveField(
+                                                                index
+                                                              )
+                                                            }
+                                                          }
+                                                        },
+                                                        [
+                                                          _c("i", {
+                                                            staticClass:
+                                                              "la la-trash-o"
+                                                          }),
+                                                          _vm._v("حذف")
+                                                        ]
+                                                      )
+                                                    ]
+                                                  )
+                                                : _vm._e()
+                                            ]
+                                          )
+                                        }
+                                      ),
+                                      0
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "form-group row" }, [
+                                _c("div", { staticClass: "col-lg-4" }, [
+                                  _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "btn btn-sm font-weight-bolder btn-light-primary",
+                                      attrs: { "data-repeater-create": "" },
+                                      on: { click: _vm.AddField }
+                                    },
+                                    [
+                                      _c("i", { staticClass: "la la-plus" }),
+                                      _vm._v("افزودن")
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "row" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "card-body",
+                          staticStyle: { "padding-top": "0px" }
+                        },
+                        [
+                          _c("h3", { staticStyle: { color: "red" } }, [
+                            _vm._v("محاسبه وزن متغیرها")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(2),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.idea,
+                                      expression: "data.idea"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    { "is-invalid": _vm.errors.has("idea") }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "idea",
+                                    placeholder: "وزن",
+                                    name: "idea",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.idea },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "idea",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("idea")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("idea")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(3),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.finance,
+                                      expression: "data.finance"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    { "is-invalid": _vm.errors.has("finance") }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "finance",
+                                    placeholder: "وزن",
+                                    name: "finance",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.finance },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "finance",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("finance")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("finance"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(4),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.experience,
+                                      expression: "data.experience"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    {
+                                      "is-invalid": _vm.errors.has("experience")
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "experience",
+                                    placeholder: "وزن",
+                                    name: "experience",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.experience },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "experience",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("experience")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("experience"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(5),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.risk,
+                                      expression: "data.risk"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    { "is-invalid": _vm.errors.has("risk") }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "risk",
+                                    placeholder: "وزن",
+                                    name: "risk",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.risk },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "risk",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("risk")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("risk")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(6),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.technology,
+                                      expression: "data.technology"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    {
+                                      "is-invalid": _vm.errors.has("technology")
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "technology",
+                                    placeholder: "وزن",
+                                    name: "technology",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.technology },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "technology",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("technology")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("technology"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(7),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.investment,
+                                      expression: "data.investment"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    {
+                                      "is-invalid": _vm.errors.has("investment")
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "investment",
+                                    placeholder: "وزن",
+                                    name: "investment",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.investment },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "investment",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("investment")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("investment"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(8),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.management,
+                                      expression: "data.management"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    {
+                                      "is-invalid": _vm.errors.has("management")
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "management",
+                                    placeholder: "وزن",
+                                    name: "management",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.management },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "management",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("management")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("management"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(9),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.sale,
+                                      expression: "data.sale"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    { "is-invalid": _vm.errors.has("sale") }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "sale",
+                                    placeholder: "وزن",
+                                    name: "sale",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.sale },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "sale",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("sale")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("sale")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-3" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(10),
+                                _vm._v(" "),
+                                _c("input", {
+                                  directives: [
+                                    {
+                                      name: "model",
+                                      rawName: "v-model",
+                                      value: _vm.data.full_time,
+                                      expression: "data.full_time"
+                                    }
+                                  ],
+                                  staticClass: "form-control",
+                                  class: [
+                                    "form-control",
+                                    {
+                                      "is-invalid": _vm.errors.has("full_time")
+                                    }
+                                  ],
+                                  attrs: {
+                                    type: "text",
+                                    id: "full_time",
+                                    placeholder: "وزن",
+                                    name: "full_time",
+                                    oninput:
+                                      "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*?)\\..*/g, '$1');"
+                                  },
+                                  domProps: { value: _vm.data.full_time },
+                                  on: {
+                                    input: function($event) {
+                                      if ($event.target.composing) {
+                                        return
+                                      }
+                                      _vm.$set(
+                                        _vm.data,
+                                        "full_time",
+                                        $event.target.value
+                                      )
+                                    }
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _vm.errors.has("full_time")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(_vm.errors.get("full_time"))
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("h3", { staticStyle: { color: "red" } }, [
+                            _vm._v("سوالات")
+                          ]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(11),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q1[]",
+                                      id: "Q1",
+                                      multiple: "multiple",
+                                      "data-placeholder": "ایده"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q1")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q1")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(12),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q2[]",
+                                      id: "Q2",
+                                      multiple: "multiple",
+                                      "data-placeholder": "مباحث مالی"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q2")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q2")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(13),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q3[]",
+                                      id: "Q3",
+                                      multiple: "multiple",
+                                      "data-placeholder": "تجربه"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q3")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q3")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(14),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q4[]",
+                                      id: "Q4",
+                                      multiple: "multiple",
+                                      "data-placeholder": "مسئولیت و ریسک طرح"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q4")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q4")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(15),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q5[]",
+                                      id: "Q5",
+                                      multiple: "multiple",
+                                      "data-placeholder":
+                                        "ایجاد و توسعه محصول/خدمت"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q5")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q5")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(16),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q6[]",
+                                      id: "Q6",
+                                      multiple: "multiple",
+                                      "data-placeholder": "جذب سرمایه گذار"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q6")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q6")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(17),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q7[]",
+                                      id: "Q7",
+                                      multiple: "multiple",
+                                      "data-placeholder": "مباحث مدیریتی"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q7")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q7")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(18),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q8[]",
+                                      id: "Q8",
+                                      multiple: "multiple",
+                                      "data-placeholder": "بازاریابی و فروش"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q8")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q8")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "row" }, [
+                            _c("div", { staticClass: "col-md-6" }, [
+                              _c("div", { staticClass: "form-group" }, [
+                                _vm._m(19),
+                                _vm._v(" "),
+                                _c(
+                                  "select",
+                                  {
+                                    staticClass: "form-control select2",
+                                    attrs: {
+                                      name: "Q9[]",
+                                      id: "Q9",
+                                      multiple: "multiple",
+                                      "data-placeholder": "تمام وقت"
+                                    }
+                                  },
+                                  _vm._l(_vm.shareholders, function(
+                                    shareholder,
+                                    key
+                                  ) {
+                                    return _c(
+                                      "option",
+                                      {
+                                        key: key,
+                                        domProps: { value: shareholder.id }
+                                      },
+                                      [
+                                        _vm._v(
+                                          _vm._s(shareholder.fname) +
+                                            " " +
+                                            _vm._s(shareholder.lname)
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  0
+                                ),
+                                _vm._v(" "),
+                                _vm.errors.has("Q9")
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "invalid-feedback is-invalid",
+                                        staticStyle: { display: "block" }
+                                      },
+                                      [_vm._v(_vm._s(_vm.errors.get("Q9")))]
+                                    )
+                                  : _vm._e()
+                              ])
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(20)
+                  ]
+                )
+              ]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", { staticClass: "breadcrumb-item text-muted" }, [
+      _c("a", { staticClass: "text-muted", attrs: { href: "#" } }, [
+        _vm._v("محاسبه")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      {
+        staticClass: "col-3 col-form-label",
+        staticStyle: { "margin-right": "15px" }
+      },
+      [_c("h6", [_vm._v("آیا سرمایه گذار قبلی وجود دارد؟ ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "idea" } }, [
+      _vm._v("ایده:\n                                                    "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "finance" } }, [
+      _vm._v(
+        "مباحث مالی:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "experience" } }, [
+      _vm._v("تجربه:\n                                                    "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "risk" } }, [
+      _vm._v(
+        "مسئولیت و ریسک:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "technology" } }, [
+      _vm._v(
+        "ایجاد و توسعه:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "investment" } }, [
+      _vm._v(
+        "جذب سرمایه گذار:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "management" } }, [
+      _vm._v(
+        "مباحث مدیریتی:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "sale" } }, [
+      _vm._v("فروش:\n                                                    "),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "full_time" } }, [
+      _vm._v(
+        "تمام وقت بودن:\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q1" } }, [
+      _vm._v(
+        "ایده اجرای این طرح با چه شخصی بود؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q2" } }, [
+      _vm._v(
+        "چه کسی مسئول مباحث مالی طرح است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q3" } }, [
+      _vm._v(
+        "چه کسی در زمینه مرتبط تجربه داشته است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q4" } }, [
+      _vm._v(
+        " مسئولیت و ریسک طرح با چه کسی است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q5" } }, [
+      _vm._v(
+        "مسئول ایجاد و توسعه محصول/خدمت چه کسی است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q6" } }, [
+      _vm._v(
+        "چه کسی مسئول جذب سرمایه گذار است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q7" } }, [
+      _vm._v(
+        "مباحث مدیریتی طرح با چه کسی است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q8" } }, [
+      _vm._v(
+        "مسئولیت بازاریابی و فروش با چه کسی است؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", { attrs: { for: "Q9" } }, [
+      _vm._v(
+        "چه کسانی به صورت تمام وقت در طرح فعالیت می کنند؟\n                                                    "
+      ),
+      _c("span", { staticClass: "text-danger" }, [_vm._v("*")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-primary mr-2",
+          attrs: { type: "submit", id: "kt_login_singin_form_submit_button" }
+        },
+        [_vm._v("ثبت")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/calculation/index.vue?vue&type=template&id=1bbe44da&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-xl-12" }, [
+              _c("div", { staticClass: "card card-custom gutter-b" }, [
+                _vm._m(1),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("div", { staticClass: "example" }, [
+                    _c("div", { staticClass: "example-preview" }, [
+                      _vm._m(2),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "tab-content mt-5",
+                          attrs: { id: "myTabContent" }
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade active show",
+                              attrs: {
+                                id: "previous-investor",
+                                role: "tabpanel",
+                                "aria-labelledby": "previous-tab"
+                              }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "d-flex flex-column-fluid" },
+                                [
+                                  _c("div", { staticClass: "container" }, [
+                                    _c(
+                                      "div",
+                                      {
+                                        staticClass: "card card-custom gutter-b"
+                                      },
+                                      [
+                                        _c(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "card-header border-0 py-5"
+                                          },
+                                          [
+                                            _vm._m(3),
+                                            _vm._v(" "),
+                                            _c(
+                                              "div",
+                                              { staticClass: "card-toolbar" },
+                                              [
+                                                _c(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "btn btn-primary font-weight-bolder"
+                                                  },
+                                                  [
+                                                    _c(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "svg-icon svg-icon-md"
+                                                      },
+                                                      [
+                                                        _c(
+                                                          "svg",
+                                                          {
+                                                            attrs: {
+                                                              xmlns:
+                                                                "http://www.w3.org/2000/svg",
+                                                              "xmlns:xlink":
+                                                                "http://www.w3.org/1999/xlink",
+                                                              width: "24px",
+                                                              height: "24px",
+                                                              viewBox:
+                                                                "0 0 24 24",
+                                                              version: "1.1"
+                                                            }
+                                                          },
+                                                          [
+                                                            _c(
+                                                              "g",
+                                                              {
+                                                                attrs: {
+                                                                  stroke:
+                                                                    "none",
+                                                                  "stroke-width":
+                                                                    "1",
+                                                                  fill: "none",
+                                                                  "fill-rule":
+                                                                    "evenodd"
+                                                                }
+                                                              },
+                                                              [
+                                                                _c("polygon", {
+                                                                  attrs: {
+                                                                    points:
+                                                                      "0 0 24 0 24 24 0 24"
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M18,8 L16,8 C15.4477153,8 15,7.55228475 15,7 C15,6.44771525 15.4477153,6 16,6 L18,6 L18,4 C18,3.44771525 18.4477153,3 19,3 C19.5522847,3 20,3.44771525 20,4 L20,6 L22,6 C22.5522847,6 23,6.44771525 23,7 C23,7.55228475 22.5522847,8 22,8 L20,8 L20,10 C20,10.5522847 19.5522847,11 19,11 C18.4477153,11 18,10.5522847 18,10 L18,8 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
+                                                                    fill:
+                                                                      "#000000",
+                                                                    "fill-rule":
+                                                                      "nonzero",
+                                                                    opacity:
+                                                                      "0.3"
+                                                                  }
+                                                                }),
+                                                                _vm._v(" "),
+                                                                _c("path", {
+                                                                  attrs: {
+                                                                    d:
+                                                                      "M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
+                                                                    fill:
+                                                                      "#000000",
+                                                                    "fill-rule":
+                                                                      "nonzero"
+                                                                  }
+                                                                })
+                                                              ]
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    _vm._v(
+                                                      "افزودن سرمایه گذار قبلی\n                                                                    "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(" "),
+                                        _vm._m(4)
+                                      ]
+                                    )
+                                  ])
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "tab-pane fade",
+                              attrs: {
+                                id: "variables",
+                                role: "tabpanel",
+                                "aria-labelledby": "variables-tab"
+                              }
+                            },
+                            [
+                              _c(
+                                "div",
+                                { staticClass: "d-flex flex-column-fluid" },
+                                [
+                                  _c("div", { staticClass: "container" }, [
+                                    _c("div", { staticClass: "col-xl-8" }, [
+                                      _c(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "card card-custom card-stretch gutter-b"
+                                        },
+                                        [
+                                          _vm._m(5),
+                                          _vm._v(" "),
+                                          _c(
+                                            "div",
+                                            { staticClass: "card-body pt-2" },
+                                            [
+                                              _c(
+                                                "div",
+                                                {
+                                                  staticClass:
+                                                    "table-responsive"
+                                                },
+                                                [
+                                                  _c(
+                                                    "table",
+                                                    {
+                                                      staticClass:
+                                                        "table table-borderless mb-0"
+                                                    },
+                                                    [
+                                                      _c("tbody", [
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px align-middle pb-6 pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M8,3 L8,3.5 C8,4.32842712 8.67157288,5 9.5,5 L14.5,5 C15.3284271,5 16,4.32842712 16,3.5 L16,3 L18,3 C19.1045695,3 20,3.8954305 20,5 L20,21 C20,22.1045695 19.1045695,23 18,23 L6,23 C4.8954305,23 4,22.1045695 4,21 L4,5 C4,3.8954305 4.8954305,3 6,3 L8,3 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M11,2 C11,1.44771525 11.4477153,1 12,1 C12.5522847,1 13,1.44771525 13,2 L14.5,2 C14.7761424,2 15,2.22385763 15,2.5 L15,3.5 C15,3.77614237 14.7761424,4 14.5,4 L9.5,4 C9.22385763,4 9,3.77614237 9,3.5 L9,2.5 C9,2.22385763 9.22385763,2 9.5,2 L11,2 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "10",
+                                                                                        y:
+                                                                                          "9",
+                                                                                        width:
+                                                                                          "7",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "7",
+                                                                                        y:
+                                                                                          "9",
+                                                                                        width:
+                                                                                          "2",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "7",
+                                                                                        y:
+                                                                                          "13",
+                                                                                        width:
+                                                                                          "2",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "10",
+                                                                                        y:
+                                                                                          "13",
+                                                                                        width:
+                                                                                          "7",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "7",
+                                                                                        y:
+                                                                                          "17",
+                                                                                        width:
+                                                                                          "2",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3",
+                                                                                        x:
+                                                                                          "10",
+                                                                                        y:
+                                                                                          "17",
+                                                                                        width:
+                                                                                          "7",
+                                                                                        height:
+                                                                                          "2",
+                                                                                        rx:
+                                                                                          "1"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 align-middle w-150px pb-6"
+                                                            },
+                                                            [_vm._v("ایده")]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg  text-dark-75 text-right align-middle pb-6"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pb-6 pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M3.5,21 L20.5,21 C21.3284271,21 22,20.3284271 22,19.5 L22,8.5 C22,7.67157288 21.3284271,7 20.5,7 L10,7 L7.43933983,4.43933983 C7.15803526,4.15803526 6.77650439,4 6.37867966,4 L3.5,4 C2.67157288,4 2,4.67157288 2,5.5 L2,19.5 C2,20.3284271 2.67157288,21 3.5,21 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M10.875,16.75 C10.6354167,16.75 10.3958333,16.6541667 10.2041667,16.4625 L8.2875,14.5458333 C7.90416667,14.1625 7.90416667,13.5875 8.2875,13.2041667 C8.67083333,12.8208333 9.29375,12.8208333 9.62916667,13.2041667 L10.875,14.45 L14.0375,11.2875 C14.4208333,10.9041667 14.9958333,10.9041667 15.3791667,11.2875 C15.7625,11.6708333 15.7625,12.2458333 15.3791667,12.6291667 L11.5458333,16.4625 C11.3541667,16.6541667 11.1145833,16.75 10.875,16.75 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle pb-6"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "مباحث مالی"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pb-6 pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M12.7037037,14 L15.6666667,10 L13.4444444,10 L13.4444444,6 L9,12 L11.2222222,12 L11.2222222,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L12.7037037,14 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M9.80428954,10.9142091 L9,12 L11.2222222,12 L11.2222222,16 L15.6666667,10 L15.4615385,10 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 L9.80428954,10.9142091 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle pb-6"
+                                                            },
+                                                            [_vm._v("تجربه")]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M8,2.5 C7.30964406,2.5 6.75,3.05964406 6.75,3.75 L6.75,20.25 C6.75,20.9403559 7.30964406,21.5 8,21.5 L16,21.5 C16.6903559,21.5 17.25,20.9403559 17.25,20.25 L17.25,3.75 C17.25,3.05964406 16.6903559,2.5 16,2.5 L8,2.5 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        opacity:
+                                                                                          "0.3"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M8,2.5 C7.30964406,2.5 6.75,3.05964406 6.75,3.75 L6.75,20.25 C6.75,20.9403559 7.30964406,21.5 8,21.5 L16,21.5 C16.6903559,21.5 17.25,20.9403559 17.25,20.25 L17.25,3.75 C17.25,3.05964406 16.6903559,2.5 16,2.5 L8,2.5 Z M8,1 L16,1 C17.5187831,1 18.75,2.23121694 18.75,3.75 L18.75,20.25 C18.75,21.7687831 17.5187831,23 16,23 L8,23 C6.48121694,23 5.25,21.7687831 5.25,20.25 L5.25,3.75 C5.25,2.23121694 6.48121694,1 8,1 Z M9.5,1.75 L14.5,1.75 C14.7761424,1.75 15,1.97385763 15,2.25 L15,3.25 C15,3.52614237 14.7761424,3.75 14.5,3.75 L9.5,3.75 C9.22385763,3.75 9,3.52614237 9,3.25 L9,2.25 C9,1.97385763 9.22385763,1.75 9.5,1.75 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        "fill-rule":
+                                                                                          "nonzero"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "مسئولیت و ریسک"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M13.0799676,14.7839934 L15.2839934,12.5799676 C15.8927139,11.9712471 16.0436229,11.0413042 15.6586342,10.2713269 L15.5337539,10.0215663 C15.1487653,9.25158901 15.2996742,8.3216461 15.9083948,7.71292558 L18.6411989,4.98012149 C18.836461,4.78485934 19.1530435,4.78485934 19.3483056,4.98012149 C19.3863063,5.01812215 19.4179321,5.06200062 19.4419658,5.11006808 L20.5459415,7.31801948 C21.3904962,9.0071287 21.0594452,11.0471565 19.7240871,12.3825146 L13.7252616,18.3813401 C12.2717221,19.8348796 10.1217008,20.3424308 8.17157288,19.6923882 L5.75709327,18.8875616 C5.49512161,18.8002377 5.35354162,18.5170777 5.4408655,18.2551061 C5.46541191,18.1814669 5.50676633,18.114554 5.56165376,18.0596666 L8.21292558,15.4083948 C8.8216461,14.7996742 9.75158901,14.6487653 10.5215663,15.0337539 L10.7713269,15.1586342 C11.5413042,15.5436229 12.4712471,15.3927139 13.0799676,14.7839934 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M14.1480759,6.00715131 L13.9566988,7.99797396 C12.4781389,7.8558405 11.0097207,8.36895892 9.93933983,9.43933983 C8.8724631,10.5062166 8.35911588,11.9685602 8.49664195,13.4426352 L6.50528978,13.6284215 C6.31304559,11.5678496 7.03283934,9.51741319 8.52512627,8.02512627 C10.0223249,6.52792766 12.0812426,5.80846733 14.1480759,6.00715131 Z M14.4980938,2.02230302 L14.313049,4.01372424 C11.6618299,3.76737046 9.03000738,4.69181803 7.1109127,6.6109127 C5.19447112,8.52735429 4.26985715,11.1545872 4.51274152,13.802405 L2.52110319,13.985098 C2.22450978,10.7517681 3.35562581,7.53777247 5.69669914,5.19669914 C8.04101739,2.85238089 11.2606138,1.72147333 14.4980938,2.02230302 Z",
+                                                                                        fill:
+                                                                                          "#000000",
+                                                                                        "fill-rule":
+                                                                                          "nonzero",
+                                                                                        opacity:
+                                                                                          "0.3"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "ایجاد و توسعه"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M6,2 L18,2 C19.6568542,2 21,3.34314575 21,5 L21,19 C21,20.6568542 19.6568542,22 18,22 L6,22 C4.34314575,22 3,20.6568542 3,19 L3,5 C3,3.34314575 4.34314575,2 6,2 Z M12,11 C13.1045695,11 14,10.1045695 14,9 C14,7.8954305 13.1045695,7 12,7 C10.8954305,7 10,7.8954305 10,9 C10,10.1045695 10.8954305,11 12,11 Z M7.00036205,16.4995035 C6.98863236,16.6619875 7.26484009,17 7.4041679,17 C11.463736,17 14.5228466,17 16.5815,17 C16.9988413,17 17.0053266,16.6221713 16.9988413,16.5 C16.8360465,13.4332455 14.6506758,12 11.9907452,12 C9.36772908,12 7.21569918,13.5165724 7.00036205,16.4995035 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "جذب سرمایه گذار"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M6,2 L18,2 C19.6568542,2 21,3.34314575 21,5 L21,19 C21,20.6568542 19.6568542,22 18,22 L6,22 C4.34314575,22 3,20.6568542 3,19 L3,5 C3,3.34314575 4.34314575,2 6,2 Z M12,11 C13.1045695,11 14,10.1045695 14,9 C14,7.8954305 13.1045695,7 12,7 C10.8954305,7 10,7.8954305 10,9 C10,10.1045695 10.8954305,11 12,11 Z M7.00036205,16.4995035 C6.98863236,16.6619875 7.26484009,17 7.4041679,17 C11.463736,17 14.5228466,17 16.5815,17 C16.9988413,17 17.0053266,16.6221713 16.9988413,16.5 C16.8360465,13.4332455 14.6506758,12 11.9907452,12 C9.36772908,12 7.21569918,13.5165724 7.00036205,16.4995035 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "مباحث مدیریتی"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M6,2 L18,2 C19.6568542,2 21,3.34314575 21,5 L21,19 C21,20.6568542 19.6568542,22 18,22 L6,22 C4.34314575,22 3,20.6568542 3,19 L3,5 C3,3.34314575 4.34314575,2 6,2 Z M12,11 C13.1045695,11 14,10.1045695 14,9 C14,7.8954305 13.1045695,7 12,7 C10.8954305,7 10,7.8954305 10,9 C10,10.1045695 10.8954305,11 12,11 Z M7.00036205,16.4995035 C6.98863236,16.6619875 7.26484009,17 7.4041679,17 C11.463736,17 14.5228466,17 16.5815,17 C16.9988413,17 17.0053266,16.6221713 16.9988413,16.5 C16.8360465,13.4332455 14.6506758,12 11.9907452,12 C9.36772908,12 7.21569918,13.5165724 7.00036205,16.4995035 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [_vm._v("فروش")]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ]),
+                                                        _vm._v(" "),
+                                                        _c("tr", [
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "w-40px pl-0 pr-2"
+                                                            },
+                                                            [
+                                                              _c(
+                                                                "div",
+                                                                {
+                                                                  staticClass:
+                                                                    "symbol symbol-40 symbol-light-dark align-middle"
+                                                                },
+                                                                [
+                                                                  _c(
+                                                                    "span",
+                                                                    {
+                                                                      staticClass:
+                                                                        "symbol-label"
+                                                                    },
+                                                                    [
+                                                                      _c(
+                                                                        "span",
+                                                                        {
+                                                                          staticClass:
+                                                                            "svg-icon svg-icon-lg svg-icon-dark"
+                                                                        },
+                                                                        [
+                                                                          _c(
+                                                                            "svg",
+                                                                            {
+                                                                              attrs: {
+                                                                                xmlns:
+                                                                                  "http://www.w3.org/2000/svg",
+                                                                                "xmlns:xlink":
+                                                                                  "http://www.w3.org/1999/xlink",
+                                                                                width:
+                                                                                  "24px",
+                                                                                height:
+                                                                                  "24px",
+                                                                                viewBox:
+                                                                                  "0 0 24 24",
+                                                                                version:
+                                                                                  "1.1"
+                                                                              }
+                                                                            },
+                                                                            [
+                                                                              _c(
+                                                                                "g",
+                                                                                {
+                                                                                  attrs: {
+                                                                                    stroke:
+                                                                                      "none",
+                                                                                    "stroke-width":
+                                                                                      "1",
+                                                                                    fill:
+                                                                                      "none",
+                                                                                    "fill-rule":
+                                                                                      "evenodd"
+                                                                                  }
+                                                                                },
+                                                                                [
+                                                                                  _c(
+                                                                                    "rect",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        x:
+                                                                                          "0",
+                                                                                        y:
+                                                                                          "0",
+                                                                                        width:
+                                                                                          "24",
+                                                                                        height:
+                                                                                          "24"
+                                                                                      }
+                                                                                    }
+                                                                                  ),
+                                                                                  _vm._v(
+                                                                                    " "
+                                                                                  ),
+                                                                                  _c(
+                                                                                    "path",
+                                                                                    {
+                                                                                      attrs: {
+                                                                                        d:
+                                                                                          "M6,2 L18,2 C19.6568542,2 21,3.34314575 21,5 L21,19 C21,20.6568542 19.6568542,22 18,22 L6,22 C4.34314575,22 3,20.6568542 3,19 L3,5 C3,3.34314575 4.34314575,2 6,2 Z M12,11 C13.1045695,11 14,10.1045695 14,9 C14,7.8954305 13.1045695,7 12,7 C10.8954305,7 10,7.8954305 10,9 C10,10.1045695 10.8954305,11 12,11 Z M7.00036205,16.4995035 C6.98863236,16.6619875 7.26484009,17 7.4041679,17 C11.463736,17 14.5228466,17 16.5815,17 C16.9988413,17 17.0053266,16.6221713 16.9988413,16.5 C16.8360465,13.4332455 14.6506758,12 11.9907452,12 C9.36772908,12 7.21569918,13.5165724 7.00036205,16.4995035 Z",
+                                                                                        fill:
+                                                                                          "#000000"
+                                                                                      }
+                                                                                    }
+                                                                                  )
+                                                                                ]
+                                                                              )
+                                                                            ]
+                                                                          )
+                                                                        ]
+                                                                      )
+                                                                    ]
+                                                                  )
+                                                                ]
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-size-lg font-weight-bolder text-dark-75 w-150px align-middle"
+                                                            },
+                                                            [
+                                                              _vm._v(
+                                                                "تمام وقت بودن"
+                                                              )
+                                                            ]
+                                                          ),
+                                                          _vm._v(" "),
+                                                          _c(
+                                                            "td",
+                                                            {
+                                                              staticClass:
+                                                                "font-weight-bolder font-size-lg text-dark-75 text-right align-middle"
+                                                            },
+                                                            [_vm._v("10")]
+                                                          )
+                                                        ])
+                                                      ])
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _vm._m(6)
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("محاسبه سهام")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm"
+                      },
+                      [
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "text-muted",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("سهام اولیه")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          { staticClass: "breadcrumb-item text-muted" },
+                          [
+                            _c(
+                              "a",
+                              {
+                                staticClass: "text-muted",
+                                attrs: { href: "#" }
+                              },
+                              [_vm._v("محاسبه")]
+                            )
+                          ]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("div", { staticClass: "card-title" }, [
+        _c("h3", { staticClass: "card-label" }, [_vm._v("سهام اولیه")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "ul",
+      { staticClass: "nav nav-tabs", attrs: { id: "myTab", role: "tablist" } },
+      [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: {
+                id: "previous-tab",
+                "data-toggle": "tab",
+                href: "#previous-investor"
+              }
+            },
+            [
+              _c("span", { staticClass: "nav-icon" }, [
+                _c("i", { staticClass: "flaticon2-chat-1" })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-text" }, [
+                _vm._v("سرمایه گذاران قبلی")
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "variables-tab",
+                "data-toggle": "tab",
+                href: "#variables",
+                "aria-controls": "profile"
+              }
+            },
+            [
+              _c("span", { staticClass: "nav-icon" }, [
+                _c("i", { staticClass: "flaticon2-layers-1" })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-text" }, [_vm._v("متغیرها")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: {
+                id: "questions-tab",
+                "data-toggle": "tab",
+                href: "#share_questions",
+                "aria-controls": "contact"
+              }
+            },
+            [
+              _c("span", { staticClass: "nav-icon" }, [
+                _c("i", { staticClass: "flaticon2-rocket-1" })
+              ]),
+              _vm._v(" "),
+              _c("span", { staticClass: "nav-text" }, [_vm._v("سوالات")])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-toolbar my-2 my-md-0" }, [
+      _c("div", { staticClass: "input-icon" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", placeholder: "جستجو..." }
+        }),
+        _vm._v(" "),
+        _c("span", [_c("i", { staticClass: "flaticon2-search-1 text-muted" })])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-body pt-0 pb-3" }, [
+      _c("div", { staticClass: "table-responsive" }, [
+        _c(
+          "table",
+          {
+            staticClass:
+              "table table-head-custom table-head-bg table-vertical-center table-borderless",
+            attrs: { id: "myTable" }
+          },
+          [
+            _c("thead", [
+              _c("tr", { staticClass: "bg-gray-100 text-center" }, [
+                _c("th", [_vm._v("ردیف")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("نام و نام خانوادگی")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("درصد")]),
+                _vm._v(" "),
+                _c("th", [_vm._v("عملیات")])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("tbody", [
+              _c("tr", { staticClass: "text-center" }, [
+                _c("td", [
+                  _c("span", { staticClass: "text-dark-75" }, [_vm._v("1")])
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("span", { staticClass: "text-dark-75" }, [_vm._v("عبادی")])
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("span", { staticClass: "text-dark-75" }, [_vm._v("78")])
+                ]),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-icon btn-light-success btn-sm mr-2",
+                      attrs: { href: "#" }
+                    },
+                    [_c("i", { staticClass: "flaticon2-edit" })]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-icon btn-light-danger btn-sm mr-2",
+                      attrs: { type: "button" }
+                    },
+                    [_c("i", { staticClass: "flaticon2-trash" })]
+                  )
+                ])
+              ])
+            ])
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header border-0 pt-6 mb-2" }, [
+      _c("h3", { staticClass: "card-title align-items-start flex-column" }, [
+        _c(
+          "span",
+          {
+            staticClass:
+              "card-label font-weight-bold font-size-h4 text-dark-75 mb-3",
+            staticStyle: { color: "red !important" }
+          },
+          [_vm._v("متغیر")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-toolbar" }, [
+        _c(
+          "span",
+          {
+            staticClass:
+              "card-label font-weight-bold font-size-h4 text-dark-75 mb-3",
+            staticStyle: { color: "red !important" }
+          },
+          [_vm._v("وزن")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "tab-pane fade",
+        attrs: {
+          id: "share_questions",
+          role: "tabpanel",
+          "aria-labelledby": "questions-tab"
+        }
+      },
+      [
+        _c("div", { staticClass: "position-relative" }, [
+          _c("div", {
+            staticClass:
+              "bgi-size-cover bgi-position-center bgi-no-repeat h-65px",
+            staticStyle: {
+              "background-image": "url(assets/media/svg/shapes/abstract-7.svg)"
+            }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white h-65px" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-light h-65px" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-white h-65px" }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bg-light h-65px" }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "container position-absolute top-0 left-0 right-0" },
+            [
+              _c("div", { staticClass: "row justify-content-center" }, [
+                _c("div", { staticClass: "col-md-9" }, [
+                  _c("div", { staticClass: "table-responsive" }, [
+                    _c("table", { staticClass: "table" }, [
+                      _c("thead", [
+                        _c(
+                          "tr",
+                          {
+                            staticClass: "font-weight-boldest text-white h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "align-middle font-size-h4 pl-0 border-0"
+                              },
+                              [_vm._v("سوالات")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass:
+                                  "align-middle font-size-h4 text-right border-0"
+                              },
+                              [_vm._v("سهامداران")]
+                            )
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c(
+                          "tr",
+                          {
+                            staticClass:
+                              "font-size-lg font-weight-bolder h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              { staticClass: "align-middle pl-0 border-0" },
+                              [_vm._v("sdaasd")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("80")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "tr",
+                          {
+                            staticClass:
+                              "font-size-lg font-weight-bolder h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              { staticClass: "align-middle pl-0 border-0" },
+                              [_vm._v("sdaasd")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("محمد مردانی")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("محمد مردانی")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("محمد مردانی")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("محمد مردانی")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "tr",
+                          {
+                            staticClass:
+                              "font-size-lg font-weight-bolder h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              { staticClass: "align-middle pl-0 border-0" },
+                              [_vm._v("sdaasd")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("80")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "tr",
+                          {
+                            staticClass:
+                              "font-size-lg font-weight-bolder h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              { staticClass: "align-middle pl-0 border-0" },
+                              [_vm._v("sdaasd")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("80")]
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "tr",
+                          {
+                            staticClass:
+                              "font-size-lg font-weight-bolder h-65px"
+                          },
+                          [
+                            _c(
+                              "td",
+                              { staticClass: "align-middle pl-0 border-0" },
+                              [_vm._v("sdaasd")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "td",
+                              {
+                                staticClass: "align-middle text-right border-0"
+                              },
+                              [_vm._v("80")]
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=template&id=5f74e9a0&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/shares/initial-shares/index.vue?vue&type=template&id=5f74e9a0&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex flex-column-fluid" }, [
+      _c("div", { staticClass: "container" }, [
+        _c(
+          "div",
+          { staticClass: "row ", staticStyle: { "margin-top": "85px" } },
+          [
+            _c(
+              "div",
+              { staticClass: "col-xl-4 offset-xl-2" },
+              [
+                _c(
+                  "router-link",
+                  { attrs: { to: { name: "agreements-index" } } },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass:
+                          "card card-custom bg-dark bg-hover-state-dark card-stretch gutter-b"
+                      },
+                      [
+                        _c("div", { staticClass: "card-body" }, [
+                          _c(
+                            "span",
+                            {
+                              staticClass:
+                                "svg-icon svg-icon-white svg-icon-3x ml-n1"
+                            },
+                            [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    "xmlns:xlink":
+                                      "http://www.w3.org/1999/xlink",
+                                    width: "24px",
+                                    height: "24px",
+                                    viewBox: "0 0 24 24",
+                                    version: "1.1"
+                                  }
+                                },
+                                [
+                                  _c(
+                                    "g",
+                                    {
+                                      attrs: {
+                                        stroke: "none",
+                                        "stroke-width": "1",
+                                        fill: "none",
+                                        "fill-rule": "evenodd"
+                                      }
+                                    },
+                                    [
+                                      _c("polygon", {
+                                        attrs: { points: "0 0 24 0 24 24 0 24" }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M18,14 C16.3431458,14 15,12.6568542 15,11 C15,9.34314575 16.3431458,8 18,8 C19.6568542,8 21,9.34314575 21,11 C21,12.6568542 19.6568542,14 18,14 Z M9,11 C6.790861,11 5,9.209139 5,7 C5,4.790861 6.790861,3 9,3 C11.209139,3 13,4.790861 13,7 C13,9.209139 11.209139,11 9,11 Z",
+                                          fill: "#000000",
+                                          "fill-rule": "nonzero",
+                                          opacity: "0.3"
+                                        }
+                                      }),
+                                      _vm._v(" "),
+                                      _c("path", {
+                                        attrs: {
+                                          d:
+                                            "M17.6011961,15.0006174 C21.0077043,15.0378534 23.7891749,16.7601418 23.9984937,20.4 C24.0069246,20.5466056 23.9984937,21 23.4559499,21 L19.6,21 C19.6,18.7490654 18.8562935,16.6718327 17.6011961,15.0006174 Z M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z",
+                                          fill: "#000000",
+                                          "fill-rule": "nonzero"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                ]
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "text-inverse-dark font-weight-bolder font-size-h5 mb-2 mt-5"
+                            },
+                            [_vm._v("توافقی")]
+                          )
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _vm.team_id
+              ? _c(
+                  "div",
+                  { staticClass: "col-xl-4" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "calculations-index" } } },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "card card-custom bg-success bg-hover-state-success card-stretch gutter-b"
+                          },
+                          [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "svg-icon svg-icon-white svg-icon-3x ml-n1"
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        "xmlns:xlink":
+                                          "http://www.w3.org/1999/xlink",
+                                        width: "24px",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        version: "1.1"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "g",
+                                        {
+                                          attrs: {
+                                            stroke: "none",
+                                            "stroke-width": "1",
+                                            fill: "none",
+                                            "fill-rule": "evenodd"
+                                          }
+                                        },
+                                        [
+                                          _c("rect", {
+                                            attrs: {
+                                              x: "0",
+                                              y: "0",
+                                              width: "24",
+                                              height: "24"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("rect", {
+                                            attrs: {
+                                              fill: "#000000",
+                                              opacity: "0.3",
+                                              x: "7",
+                                              y: "4",
+                                              width: "10",
+                                              height: "4"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M7,2 L17,2 C18.1045695,2 19,2.8954305 19,4 L19,20 C19,21.1045695 18.1045695,22 17,22 L7,22 C5.8954305,22 5,21.1045695 5,20 L5,4 C5,2.8954305 5.8954305,2 7,2 Z M8,12 C8.55228475,12 9,11.5522847 9,11 C9,10.4477153 8.55228475,10 8,10 C7.44771525,10 7,10.4477153 7,11 C7,11.5522847 7.44771525,12 8,12 Z M8,16 C8.55228475,16 9,15.5522847 9,15 C9,14.4477153 8.55228475,14 8,14 C7.44771525,14 7,14.4477153 7,15 C7,15.5522847 7.44771525,16 8,16 Z M12,12 C12.5522847,12 13,11.5522847 13,11 C13,10.4477153 12.5522847,10 12,10 C11.4477153,10 11,10.4477153 11,11 C11,11.5522847 11.4477153,12 12,12 Z M12,16 C12.5522847,16 13,15.5522847 13,15 C13,14.4477153 12.5522847,14 12,14 C11.4477153,14 11,14.4477153 11,15 C11,15.5522847 11.4477153,16 12,16 Z M16,12 C16.5522847,12 17,11.5522847 17,11 C17,10.4477153 16.5522847,10 16,10 C15.4477153,10 15,10.4477153 15,11 C15,11.5522847 15.4477153,12 16,12 Z M16,16 C16.5522847,16 17,15.5522847 17,15 C17,14.4477153 16.5522847,14 16,14 C15.4477153,14 15,14.4477153 15,15 C15,15.5522847 15.4477153,16 16,16 Z M16,20 C16.5522847,20 17,19.5522847 17,19 C17,18.4477153 16.5522847,18 16,18 C15.4477153,18 15,18.4477153 15,19 C15,19.5522847 15.4477153,20 16,20 Z M8,18 C7.44771525,18 7,18.4477153 7,19 C7,19.5522847 7.44771525,20 8,20 L12,20 C12.5522847,20 13,19.5522847 13,19 C13,18.4477153 12.5522847,18 12,18 L8,18 Z M7,4 L7,8 L17,8 L17,4 L7,4 Z",
+                                              fill: "#000000"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5"
+                                },
+                                [_vm._v("محاسبه")]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : _c(
+                  "div",
+                  { staticClass: "col-xl-4" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: { name: "calculations-create" } } },
+                      [
+                        _c(
+                          "a",
+                          {
+                            staticClass:
+                              "card card-custom bg-success bg-hover-state-success card-stretch gutter-b"
+                          },
+                          [
+                            _c("div", { staticClass: "card-body" }, [
+                              _c(
+                                "span",
+                                {
+                                  staticClass:
+                                    "svg-icon svg-icon-white svg-icon-3x ml-n1"
+                                },
+                                [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        "xmlns:xlink":
+                                          "http://www.w3.org/1999/xlink",
+                                        width: "24px",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        version: "1.1"
+                                      }
+                                    },
+                                    [
+                                      _c(
+                                        "g",
+                                        {
+                                          attrs: {
+                                            stroke: "none",
+                                            "stroke-width": "1",
+                                            fill: "none",
+                                            "fill-rule": "evenodd"
+                                          }
+                                        },
+                                        [
+                                          _c("rect", {
+                                            attrs: {
+                                              x: "0",
+                                              y: "0",
+                                              width: "24",
+                                              height: "24"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("rect", {
+                                            attrs: {
+                                              fill: "#000000",
+                                              opacity: "0.3",
+                                              x: "7",
+                                              y: "4",
+                                              width: "10",
+                                              height: "4"
+                                            }
+                                          }),
+                                          _vm._v(" "),
+                                          _c("path", {
+                                            attrs: {
+                                              d:
+                                                "M7,2 L17,2 C18.1045695,2 19,2.8954305 19,4 L19,20 C19,21.1045695 18.1045695,22 17,22 L7,22 C5.8954305,22 5,21.1045695 5,20 L5,4 C5,2.8954305 5.8954305,2 7,2 Z M8,12 C8.55228475,12 9,11.5522847 9,11 C9,10.4477153 8.55228475,10 8,10 C7.44771525,10 7,10.4477153 7,11 C7,11.5522847 7.44771525,12 8,12 Z M8,16 C8.55228475,16 9,15.5522847 9,15 C9,14.4477153 8.55228475,14 8,14 C7.44771525,14 7,14.4477153 7,15 C7,15.5522847 7.44771525,16 8,16 Z M12,12 C12.5522847,12 13,11.5522847 13,11 C13,10.4477153 12.5522847,10 12,10 C11.4477153,10 11,10.4477153 11,11 C11,11.5522847 11.4477153,12 12,12 Z M12,16 C12.5522847,16 13,15.5522847 13,15 C13,14.4477153 12.5522847,14 12,14 C11.4477153,14 11,14.4477153 11,15 C11,15.5522847 11.4477153,16 12,16 Z M16,12 C16.5522847,12 17,11.5522847 17,11 C17,10.4477153 16.5522847,10 16,10 C15.4477153,10 15,10.4477153 15,11 C15,11.5522847 15.4477153,12 16,12 Z M16,16 C16.5522847,16 17,15.5522847 17,15 C17,14.4477153 16.5522847,14 16,14 C15.4477153,14 15,14.4477153 15,15 C15,15.5522847 15.4477153,16 16,16 Z M16,20 C16.5522847,20 17,19.5522847 17,19 C17,18.4477153 16.5522847,18 16,18 C15.4477153,18 15,18.4477153 15,19 C15,19.5522847 15.4477153,20 16,20 Z M8,18 C7.44771525,18 7,18.4477153 7,19 C7,19.5522847 7.44771525,20 8,20 L12,20 C12.5522847,20 13,19.5522847 13,19 C13,18.4477153 12.5522847,18 12,18 L8,18 Z M7,4 L7,8 L17,8 L17,4 L7,4 Z",
+                                              fill: "#000000"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                {
+                                  staticClass:
+                                    "text-inverse-success font-weight-bolder font-size-h5 mb-2 mt-5"
+                                },
+                                [_vm._v("محاسبه")]
+                              )
+                            ])
+                          ]
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                )
+          ]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "subheader py-2 py-lg-6 subheader-solid",
+        attrs: { id: "kt_subheader" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap"
+          },
+          [
+            _c(
+              "div",
+              { staticClass: "d-flex align-items-center flex-wrap mr-1" },
+              [
+                _c(
+                  "div",
+                  { staticClass: "d-flex align-items-baseline flex-wrap mr-5" },
+                  [
+                    _c(
+                      "h5",
+                      { staticClass: "text-dark font-weight-bold my-1 mr-5" },
+                      [_vm._v("سهام اولیه")]
+                    )
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true

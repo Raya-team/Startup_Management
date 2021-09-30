@@ -26,8 +26,6 @@ class CalculationRequest extends FormRequest
     public function rules()
     {
         return [
-            'investor_name' => ['required' , 'min:3', 'max:32', new Persian()],
-            'percent' => ['required' , 'numeric'],
             'idea' => ['required' , 'numeric'],
             'finance' => ['required' , 'numeric'],
             'experience' => ['required' , 'numeric'],
@@ -37,15 +35,15 @@ class CalculationRequest extends FormRequest
             'management' => ['required' , 'numeric'],
             'sale' => ['required' , 'numeric'],
             'full_time' => ['required' , 'numeric'],
-            'Q1' => ['required', new Security()],
-            'Q2' => ['required', new Security()],
-            'Q3' => ['required', new Security()],
-            'Q4' => ['required', new Security()],
-            'Q5' => ['required', new Security()],
-            'Q6' => ['required', new Security()],
-            'Q7' => ['required', new Security()],
-            'Q8' => ['required', new Security()],
-            'Q9' => ['required', new Security()]
+            'Q1' => ['required'],
+            'Q2' => ['required'],
+            'Q3' => ['required'],
+            'Q4' => ['required'],
+            'Q5' => ['required'],
+            'Q6' => ['required'],
+            'Q7' => ['required'],
+            'Q8' => ['required'],
+            'Q9' => ['required']
         ];
     }
 }

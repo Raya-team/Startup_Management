@@ -8,6 +8,7 @@ use App\Models\PreviousInvestor;
 use App\Models\ShareQuestion;
 use App\Models\ShareVariable;
 use App\Models\TeamMember;
+use App\Rules\Persian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,18 +18,18 @@ class CalculationController extends Controller
     {
         $variables = ShareVariable::where('team_id' , Auth::user()->team_id)->first();
         $member_share_questions = ShareQuestion::with('members')->get();
-        return view('user.shares.initial-shares.calculation.index',compact('variables','member_share_questions'));
+//        return view('user.shares.initial-shares.calculation.index',compact('variables','member_share_questions'));
+        return view('user.shares.initial-shares.index');
     }
 
     public function create()
     {
-        $shareholders = TeamMember::all();
-        return view('user.shares.initial-shares.calculation.create',compact('shareholders'));
+        return view('user.shares.initial-shares.index');
     }
 
     public function store(CalculationRequest $request , PreviousInvestor $investor , ShareVariable $variable , TeamMember $member)
     {
-        $this->PreviousInvestor($request,$investor);
+        if ($request->has_previous) {$this->PreviousInvestor($request);}
         $this->ShareVariable($request,$variable);
         $this->MemberShareQuestion($request,$member);
     }
@@ -53,11 +54,21 @@ class CalculationController extends Controller
         //
     }
 
-    protected function PreviousInvestor(CalculationRequest $request , PreviousInvestor $investor)
+    protected function PreviousInvestor(CalculationRequest $request)
     {
-        $investor->name = $request->input('investor_name');
-        $investor->percent = $request->input('percent');
-        $investor->save();
+        $request->validate([
+            'previous_investors.*.name' => ['required' , 'min:3', 'max:32', new Persian()],
+            'previous_investors.*.percent' => ['required' , 'numeric'],
+        ]);
+        $investors = $request->previous_investors;
+        for ($i = 0; $i < sizeof($investors); $i++) {
+            $investor = new PreviousInvestor();
+            $investor->name = $investors[$i]['name'];
+            $investor->percent = $investors[$i]['percent'];
+            $investor->team_id = Auth::user()->team_id;
+            $investor->updated_at = null;
+            $investor->save();
+        }
     }
     protected function ShareVariable(CalculationRequest $request , ShareVariable $variable)
     {

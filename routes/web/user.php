@@ -28,16 +28,18 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     });
     Route::resource('/shareholders',ShareholderController::class);
     Route::resource('/key-employees', KeyEmployeeController::class);
+
     Route::resource('/team', TeamController::class);
     Route::resource('/products', ProductController::class);
+
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
     Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
     Route::resource('/agreements', AgreementController::class);
-    Route::resource('/calculations', CalculationController::class);
+    Route::get('/calculations', [CalculationController::class, 'index'])->name('calculations.index');
+    Route::get('/calculations/create', [CalculationController::class, 'create'])->name('calculations.create');
+    Route::post('/calculations', [CalculationController::class, 'store'])->name('calculations.store');
+
     Route::get('/financial1', IndexController::class);
-    Route::get('/financial2', [Financial2Controller::class,'index']);
-    Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
-    Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
     Route::resource('/lands', LandController::class);
     Route::resource('/buildings', BuildingController::class);
     Route::resource('/equipmentandmachineries', EquipmentAndMachineryController::class);
@@ -46,30 +48,30 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/transportations', TransportationController::class);
     Route::resource('/preoperatingcosts', PreOperatingCostController::class);
 
-//    Route::get('/test',function (){
-//        return view('test');
-//    })->name('test');
+    Route::get('/financial2', [Financial2Controller::class,'index']);
+    Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
+    Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
+  ;
 });
-
-for($i=0; $i<5 ; $i++)
-{
-    Route::get("test$i", function () use ($i){
-        return "test$i";
-    });
-}
 
 Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
     Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class, ['as' => 'api']);
     Route::resource('/key-employees', \App\Http\Controllers\Api\TeamMember\KeyEmployeesController::class, ['as' => 'api']);
+
     Route::resource('/products', \App\Http\Controllers\Api\other\ProductController::class, ['as' => 'api']);
     Route::resource('/team', \App\Http\Controllers\Api\other\TeamController::class, ['as' => 'api']);
+
+    Route::get('/initial-shares',\App\Http\Controllers\Api\Share\InitialShare\InitialShareController::class);
+    Route::resource('/agreements', \App\Http\Controllers\Api\Share\InitialShare\AgreementController::class, ['as' => 'api']);
+    Route::resource('/calculations', \App\Http\Controllers\Api\Share\InitialShare\CalculationController::class, ['as' => 'api']);
+
     Route::resource('/agreements', \App\Http\Controllers\Api\Share\InitialShare\AgreementController::class, ['as' => 'api']);
     Route::get('/financial1', \App\Http\Controllers\Api\Financial\Financial1\IndexController::class);
-    Route::resource('/lands', \App\Http\Controllers\Api\Financial\Financial1\LandController::class);
-    Route::resource('/buildings', \App\Http\Controllers\Api\Financial\Financial1\BuildingController::class);
-    Route::resource('/equipmentandmachineries', \App\Http\Controllers\Api\Financial\Financial1\EquipmentAndMachineryController::class);
-    Route::resource('/officeequipmentandsupplies', \App\Http\Controllers\Api\Financial\Financial1\OfficeEquipmentAndSupplyController::class);
-    Route::resource('/facilities', \App\Http\Controllers\Api\Financial\Financial1\FacilityController::class);
-    Route::resource('/transportations', \App\Http\Controllers\Api\Financial\Financial1\TransportationController::class);
-    Route::resource('/preoperatingcosts', \App\Http\Controllers\Api\Financial\Financial1\PreOperatingCostController::class);
+    Route::resource('/lands', \App\Http\Controllers\Api\Financial\Financial1\LandController::class, ['as' => 'api']);
+    Route::resource('/buildings', \App\Http\Controllers\Api\Financial\Financial1\BuildingController::class, ['as' => 'api']);
+    Route::resource('/equipmentandmachineries', \App\Http\Controllers\Api\Financial\Financial1\EquipmentAndMachineryController::class, ['as' => 'api']);
+    Route::resource('/officeequipmentandsupplies', \App\Http\Controllers\Api\Financial\Financial1\OfficeEquipmentAndSupplyController::class, ['as' => 'api']);
+    Route::resource('/facilities', \App\Http\Controllers\Api\Financial\Financial1\FacilityController::class, ['as' => 'api']);
+    Route::resource('/transportations', \App\Http\Controllers\Api\Financial\Financial1\TransportationController::class, ['as' => 'api']);
+    Route::resource('/preoperatingcosts', \App\Http\Controllers\Api\Financial\Financial1\PreOperatingCostController::class, ['as' => 'api']);
 });

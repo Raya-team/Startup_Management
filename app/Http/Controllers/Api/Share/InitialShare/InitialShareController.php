@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\user\Share\InitialShare;
+namespace App\Http\Controllers\Api\Share\InitialShare;
 
 use App\Http\Controllers\Controller;
 use App\Models\ShareVariable;
@@ -17,6 +17,10 @@ class InitialShareController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('user.shares.initial-shares.index');
+        $team_id = ShareVariable::where('team_id',Auth::user()->team_id)->first();
+        if (isset($team_id)){
+            return true;
+        }
+        return false;
     }
 }
