@@ -8,6 +8,7 @@ use App\Http\Controllers\user\Financial\Financial1\LandController;
 use App\Http\Controllers\user\Financial\Financial1\OfficeEquipmentAndSupplyController;
 use App\Http\Controllers\user\Financial\Financial1\PreOperatingCostController;
 use App\Http\Controllers\user\Financial\Financial1\TransportationController;
+use App\Http\Controllers\user\Financial\Financial2\Financial2Controller;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Share\InitialShare\AgreementController;
@@ -34,6 +35,9 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/agreements', AgreementController::class);
     Route::resource('/calculations', CalculationController::class);
     Route::get('/financial1', IndexController::class);
+    Route::get('/financial2', [Financial2Controller::class,'index']);
+    Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
+    Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
     Route::resource('/lands', LandController::class);
     Route::resource('/buildings', BuildingController::class);
     Route::resource('/equipmentandmachineries', EquipmentAndMachineryController::class);

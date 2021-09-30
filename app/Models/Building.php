@@ -9,8 +9,8 @@ class Building extends Model
 {
     use HasFactory;
 
-    public function shareholder()
+    public function team()
     {
-        return $this->belongsTo(TeamMember::class);
+        return $this->belongsTo(Team::class);
     }
 }
