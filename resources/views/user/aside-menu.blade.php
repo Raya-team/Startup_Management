@@ -628,47 +628,15 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Fluid Content</span>
+                                <span class="menu-text">اطلاعات مالی یک</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/general/minimized-aside.html" class="menu-link">
+                            <a href="/financial2" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">Minimized Aside</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/general/no-aside.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">No Aside</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/general/empty-page.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">Empty Page</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/general/fixed-footer.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">Fixed Footer</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a href="layout/general/no-header-menu.html" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">No Header Menu</span>
+                                <span class="menu-text">اطلاعات مالی دو</span>
                             </a>
                         </li>
                     </ul>
