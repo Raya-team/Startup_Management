@@ -51,7 +51,6 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/financial2', [Financial2Controller::class,'index']);
     Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
     Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
-  ;
 });
 
 Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , function (){
