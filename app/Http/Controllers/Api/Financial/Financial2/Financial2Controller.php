@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\user\Financial\Financial2;
+namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class WarrantieController extends Controller
+class Financial2Controller extends Controller
 {
     /**
      * Display a listing of the resource.

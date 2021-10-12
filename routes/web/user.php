@@ -23,7 +23,7 @@ use App\Http\Controllers\user\Financial\Financial2\RawMaterialController;
 use App\Http\Controllers\user\Financial\Financial2\RDController;
 use App\Http\Controllers\user\Financial\Financial2\RentController;
 use App\Http\Controllers\user\Financial\Financial2\RepairController;
-use App\Http\Controllers\user\Financial\Financial2\WarrantieController;
+use App\Http\Controllers\user\Financial\Financial2\WarrantyController;
 use App\Http\Controllers\user\Justificationplan\JustificationPlanController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
@@ -90,7 +90,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/rds', RDController::class);
     Route::resource('/insurances', InsuranceController::class);
     Route::resource('/repairs', RepairController::class);
-    Route::resource('/warranties', WarrantieController::class);
+    Route::resource('/warranties', WarrantyController::class);
     Route::resource('/consumerItems', ConsumerItemController::class);
     Route::resource('/aftersaleservices', AfterSaleServiceController::class);
     Route::resource('/otherinformations', OtherInformationController::class);
