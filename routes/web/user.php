@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\user\BusinessCanvas\BusinessCanvasController;
 use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
 use App\Http\Controllers\user\Financial\Financial1\BuildingController;
 use App\Http\Controllers\user\Financial\Financial1\EquipmentAndMachineryController;
@@ -9,7 +10,21 @@ use App\Http\Controllers\user\Financial\Financial1\LandController;
 use App\Http\Controllers\user\Financial\Financial1\OfficeEquipmentAndSupplyController;
 use App\Http\Controllers\user\Financial\Financial1\PreOperatingCostController;
 use App\Http\Controllers\user\Financial\Financial1\TransportationController;
+use App\Http\Controllers\user\Financial\Financial2\AfterSaleServiceController;
+use App\Http\Controllers\user\Financial\Financial2\CapacityController;
+use App\Http\Controllers\user\Financial\Financial2\ConsumerItemController;
+use App\Http\Controllers\user\Financial\Financial2\DevelopmentCostController;
+use App\Http\Controllers\user\Financial\Financial2\EnergyConsumptionController;
 use App\Http\Controllers\user\Financial\Financial2\Financial2Controller;
+use App\Http\Controllers\user\Financial\Financial2\InsuranceController;
+use App\Http\Controllers\user\Financial\Financial2\ManPowerController;
+use App\Http\Controllers\user\Financial\Financial2\OtherInformationController;
+use App\Http\Controllers\user\Financial\Financial2\RawMaterialController;
+use App\Http\Controllers\user\Financial\Financial2\RDController;
+use App\Http\Controllers\user\Financial\Financial2\RentController;
+use App\Http\Controllers\user\Financial\Financial2\RepairController;
+use App\Http\Controllers\user\Financial\Financial2\WarrantieController;
+use App\Http\Controllers\user\Justificationplan\JustificationPlanController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Readiness\BusinessController;
@@ -64,6 +79,25 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/financial2', [Financial2Controller::class,'index']);
     Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
     Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
+    Route::post('/financial2', [Financial2Controller::class,'store']);
+    Route::resource('/developmentcosts', DevelopmentCostController::class);
+    Route::resource('/capacities', CapacityController::class);
+    Route::resource('/rawmaterials', RawMaterialController::class);
+    Route::resource('/manpowers', ManPowerController::class);
+    Route::resource('/rents', RentController::class);
+    Route::resource('/energyconsumptions', EnergyConsumptionController::class);
+    Route::resource('/businesses', BusinessController::class);
+    Route::resource('/rds', RDController::class);
+    Route::resource('/insurances', InsuranceController::class);
+    Route::resource('/repairs', RepairController::class);
+    Route::resource('/warranties', WarrantieController::class);
+    Route::resource('/consumerItems', ConsumerItemController::class);
+    Route::resource('/aftersaleservices', AfterSaleServiceController::class);
+    Route::resource('/otherinformations', OtherInformationController::class);
+
+    Route::resource('/justificationplan', JustificationPlanController::class);
+
+    Route::resource('/businesscanvas', BusinessCanvasController::class);
 
     Route::resource('/valuation-costs', CostController::class);
     Route::resource('/valuation-tangible', TangibleController::class);

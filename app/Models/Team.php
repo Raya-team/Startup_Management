@@ -195,4 +195,25 @@ class Team extends Model
         return $this->hasOne(ValuationAdditionalQuestion::class);
     }
 
+    public function RegisteredTeam()
+    {
+        return $this->hasOne(RegisteredTeam::class);
+    }
+
+    public function BusinessQuestion()
+    {
+        return $this->hasOne(BusinessQuestion::class);
+    }
+
+
+    public function PreliminaryJustificationPlan()
+    {
+        return $this->hasOne(PreliminaryJustificationPlan::class);
+    }
+
+    public function BusinessCanvas()
+    {
+        return $this->hasOne(BusinessCanvas::class);
+    }
+
 }

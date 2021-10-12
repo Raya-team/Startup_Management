@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreviousInvestorsTable extends Migration
+class CreateRdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreatePreviousInvestorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('previous_investors', function (Blueprint $table) {
+        Schema::create('rds', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->tinyInteger('percent');
+            $table->text('description');
+            $table->bigInteger('annual_cost');
+            $table->bigInteger('team_id')->unsigned();
+            $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreatePreviousInvestorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('previous_investors');
+        Schema::dropIfExists('rds');
     }
 }
