@@ -16,9 +16,6 @@ class CalculationController extends Controller
 {
     public function index()
     {
-        $variables = ShareVariable::where('team_id' , Auth::user()->team_id)->first();
-        $member_share_questions = ShareQuestion::with('members')->get();
-//        return view('user.shares.initial-shares.calculation.index',compact('variables','member_share_questions'));
         return view('user.shares.initial-shares.index');
     }
 

@@ -48,6 +48,7 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+Vue.component('Basicinformation', require('./components/financial/financial1/basic-information/index').default);
 Vue.component('Lands', require('./components/financial/financial1/land/index.vue').default);
 Vue.component('Buildings', require('./components/financial/financial1/building/index.vue').default);
 Vue.component('Equipmentandmachineries', require('./components/financial/financial1/equipmentandmachinery/index.vue').default);
@@ -55,7 +56,24 @@ Vue.component('Officeequipmentandsupplies', require('./components/financial/fina
 Vue.component('Facilities', require('./components/financial/financial1/facility/index.vue').default);
 Vue.component('Transportations', require('./components/financial/financial1/transportation/index.vue').default);
 Vue.component('Preoperatingcosts', require('./components/financial/financial1/preoperatingcost/index.vue').default);
+Vue.component('Previousinvestors', require('./components/shares/initial-shares/calculation/previous-investor/index.vue').default);
+Vue.component('Sharevariables', require('./components/shares/initial-shares/calculation/share-variable/index.vue').default);
+Vue.component('Sharequestions', require('./components/shares/initial-shares/calculation/share-questions/index.vue').default);
 
+Vue.component('Commercialization', require('./components/readiness/business/commercialization/index.vue').default);
+Vue.component('PublicManagement', require('./components/readiness/business/public-management/index.vue').default);
+Vue.component('FunctionalManagement', require('./components/readiness/business/functional-management/index.vue').default);
+Vue.component('SaleAndTechnicalSupport', require('./components/readiness/business/sale-and-technical-support/index.vue').default);
+Vue.component('LiquidityAndAccessToCapital', require('./components/readiness/business/liquidity-and-access-to-capital/index.vue').default);
+Vue.component('CompetitivePosition', require('./components/readiness/business/competitive-position/index.vue').default);
+Vue.component('CustomerRecognition', require('./components/readiness/business/customer-recognition/index.vue').default);
+Vue.component('CustomerCommitment', require('./components/readiness/business/customer-commitment/index.vue').default);
+Vue.component('Affordable', require('./components/readiness/business/affordable/index.vue').default);
+Vue.component('IntellectualPropertyManagement', require('./components/readiness/business/intellectual-property-management/index.vue').default);
+Vue.component('SaleForecast', require('./components/readiness/business/sale-forecast/index.vue').default);
+Vue.component('UncertaintyPrediction', require('./components/readiness/business/uncertainty-prediction/index.vue').default);
+Vue.component('SupplyChain', require('./components/readiness/business/supply-chain/index.vue').default);
+Vue.component('Rule', require('./components/readiness/business/rule/index.vue').default);
 
 const app = new Vue({
     el: '#app',

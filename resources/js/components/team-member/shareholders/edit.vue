@@ -202,12 +202,10 @@
                 select.on("select2:selecting", (e) => {
                     var responsibility = $this._data.data.responsibility;
                     responsibility.push(e.params.args.data.id);
-                    console.log(responsibility);
                 });
                 select.on("select2:unselecting", (e) => {
                     var responsibility = $this._data.data.responsibility;
                     responsibility.splice(responsibility.indexOf(e.params.args.data.id), 1);
-                    console.log(responsibility);
                 });
             });
         }

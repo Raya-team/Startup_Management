@@ -124,7 +124,6 @@
             this.Auth.check();
             axios.get(`/api/transportations/${this.$route.params.id}/edit`)
                 .then(response => {
-                    console.log(response.data);
                     this.data.transportations[0].description = response.data.transportations.description;
                     this.data.transportations[0].count = response.data.transportations.count;
                     this.data.transportations[0].unit_price = response.data.transportations.unit_price;

@@ -165,5 +165,34 @@ class Team extends Model
         return $this->hasOne(ConsumerItem::class);
     }
 
+    public function valuationCosts()
+    {
+        return $this->hasMany(ValuationCost::class);
+    }
+
+    public function valuationTenement()
+    {
+        return $this->hasOne(ValuationTenement::class);
+    }
+
+    public function valuationMachinery()
+    {
+        return $this->hasOne(ValuationMachinery::class);
+    }
+
+    public function valuationOfficeSupply()
+    {
+        return $this->hasOne(ValuationOfficeSupply::class);
+    }
+
+    public function valuationOtherAsset()
+    {
+        return $this->hasOne(ValuationOtherAsset::class);
+    }
+
+    public function valuationAdditionalQuestion()
+    {
+        return $this->hasOne(ValuationAdditionalQuestion::class);
+    }
 
 }

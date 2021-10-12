@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\user\Share\InitialShare;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PreviousInvestorRequest;
+use App\Models\PreviousInvestor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PreviousInvestorController extends Controller
 {
@@ -24,7 +27,7 @@ class PreviousInvestorController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.shares.initial-shares.index');
     }
 
     /**
@@ -33,9 +36,18 @@ class PreviousInvestorController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PreviousInvestorRequest $request)
     {
-        //
+        $previousinvestors = $request->previousinvestors;
+        for ($i = 0; $i < sizeof($previousinvestors); $i++) {
+            $previousinvestor = new PreviousInvestor();
+            $previousinvestor->name = $previousinvestors[$i]['name'];
+            $previousinvestor->percent = $previousinvestors[$i]['percent'];
+            $previousinvestor->team_id = Auth::user()->team_id;
+            $previousinvestor->updated_at = null;
+            $previousinvestor->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -57,7 +69,12 @@ class PreviousInvestorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $previousinvestor = PreviousInvestor::findorfail($id);
+        if ($team_id == $previousinvestor->team_id){
+            return view('user.shares.initial-shares.index');
+        }
+        abort(404);
     }
 
     /**
@@ -67,9 +84,13 @@ class PreviousInvestorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PreviousInvestorRequest $request, PreviousInvestor $previousinvestor)
     {
-        //
+        $previousinvestor->name = $request['previousinvestors'][0]['name'];
+        $previousinvestor->percent = $request['previousinvestors'][0]['percent'];
+        $previousinvestor->team_id = Auth::user()->team_id;
+        $previousinvestor->save();
+        return response(['success'], 201);
     }
 
     /**
@@ -80,6 +101,8 @@ class PreviousInvestorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $previousinvestor = PreviousInvestor::findorfail($id);
+        $previousinvestor->delete();
+        return response(["deleted"], 201);
     }
 }

@@ -348,32 +348,6 @@
                 })
                 .catch(error => console.log(error));
         },
-        computed: {
-            isActive() {
-                return this.data.has_previous;
-            },
-            checkedValue: {
-                get() {
-                    return this.data.has_previous
-                },
-                set(newValue) {
-                    this.data.has_previous = newValue;
-                }
-            },
-            total: function() {
-                let total = 0;
-                if (!this.data.idea || isNaN(this.data.idea)){total += 0} else {total += parseInt(this.data.idea)}
-                if (!this.data.finance || isNaN(this.data.finance)){total += 0} else {total += parseInt(this.data.finance)}
-                if (!this.data.experience || isNaN(this.data.experience)){total += 0} else {total += parseInt(this.data.experience)}
-                if (!this.data.risk || isNaN(this.data.risk)){total += 0} else {total += parseInt(this.data.risk)}
-                if (!this.data.technology || isNaN(this.data.technology)){total += 0} else {total += parseInt(this.data.technology)}
-                if (!this.data.investment || isNaN(this.data.investment)){total += 0} else {total += parseInt(this.data.investment)}
-                if (!this.data.management || isNaN(this.data.management)){total += 0} else {total += parseInt(this.data.management)}
-                if (!this.data.sale || isNaN(this.data.sale)){total += 0} else {total += parseInt(this.data.sale)}
-                if (!this.data.full_time || isNaN(this.data.full_time)){total += 0} else {total += parseInt(this.data.full_time)}
-                return total;
-            }
-        },
         methods: {
             AddField() {
                 this.data.previous_investors.push({ name: '', percent: '' });
@@ -420,6 +394,32 @@
                     });
                 }
             },
+        },
+        computed: {
+            isActive() {
+                return this.data.has_previous;
+            },
+            checkedValue: {
+                get() {
+                    return this.data.has_previous
+                },
+                set(newValue) {
+                    this.data.has_previous = newValue;
+                }
+            },
+            total: function() {
+                let total = 0;
+                if (!this.data.idea || isNaN(this.data.idea)){total += 0} else {total += parseInt(this.data.idea)}
+                if (!this.data.finance || isNaN(this.data.finance)){total += 0} else {total += parseInt(this.data.finance)}
+                if (!this.data.experience || isNaN(this.data.experience)){total += 0} else {total += parseInt(this.data.experience)}
+                if (!this.data.risk || isNaN(this.data.risk)){total += 0} else {total += parseInt(this.data.risk)}
+                if (!this.data.technology || isNaN(this.data.technology)){total += 0} else {total += parseInt(this.data.technology)}
+                if (!this.data.investment || isNaN(this.data.investment)){total += 0} else {total += parseInt(this.data.investment)}
+                if (!this.data.management || isNaN(this.data.management)){total += 0} else {total += parseInt(this.data.management)}
+                if (!this.data.sale || isNaN(this.data.sale)){total += 0} else {total += parseInt(this.data.sale)}
+                if (!this.data.full_time || isNaN(this.data.full_time)){total += 0} else {total += parseInt(this.data.full_time)}
+                return total;
+            }
         },
         mounted() {
             var $this = this;

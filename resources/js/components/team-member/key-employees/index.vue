@@ -121,7 +121,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="row" v-if="pagination.total_page > 3">
+                        <div class="row" v-if="pagination.total_page > 10">
                             <div class="col-md-10">
                                 <div class="d-flex flex-wrap py-4 mr-3">
                                     <div :class="{disables: !pagination.first_link}" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1" @click="getResults(pagination.first_link)">
@@ -185,13 +185,6 @@
         },
         created() {
             this.Auth.check();
-            // axios.get('/api/key-employees')
-            //     .then(response => {
-            //         console.log(response);
-            //         this.keyEmployees = response.data.data;
-            //         this.progress = false;
-            //     })
-            //     .catch(error => console.log(error));
             this.getResults()
         },
         methods: {

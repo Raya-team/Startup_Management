@@ -30,4 +30,24 @@ class TeamMember extends Model
     {
         return $this->belongsToMany(ShareQuestion::class,'member_share_question','member_id','question_id');
     }
+
+    public function valuationTenement()
+    {
+        return $this->hasOne(ValuationTenement::class);
+    }
+
+    public function valuationMachinery()
+    {
+        return $this->hasOne(ValuationMachinery::class);
+    }
+
+    public function valuationOfficeSupply()
+    {
+        return $this->hasOne(ValuationOfficeSupply::class);
+    }
+
+    public function valuationOtherAsset()
+    {
+        return $this->hasOne(ValuationOtherAsset::class);
+    }
 }
