@@ -17,6 +17,7 @@ class CreateDevelopmentCostsTable extends Migration
             $table->id();
             $table->text('description');
             $table->bigInteger('total_cost');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

@@ -216,4 +216,9 @@ class Team extends Model
         return $this->hasOne(BusinessCanvas::class);
     }
 
+    public function BusinessManager()
+    {
+        return $this->hasOne(BusinessManager::class);
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePreliminaryJustificationPlanTable extends Migration
+class CreatePreliminaryJustificationPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePreliminaryJustificationPlanTable extends Migration
      */
     public function up()
     {
-        Schema::create('preliminary_justification_plan', function (Blueprint $table) {
+        Schema::create('preliminary_justification_plans', function (Blueprint $table) {
             $table->id();
             $table->text('requirement');
             $table->text('solution');
@@ -39,6 +39,6 @@ class CreatePreliminaryJustificationPlanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('preliminary_justification_plan');
+        Schema::dropIfExists('preliminary_justification_plans');
     }
 }

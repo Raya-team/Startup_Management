@@ -19,6 +19,7 @@ class CreateAfterSaleServicesTable extends Migration
             $table->integer('number');
             $table->Integer('unit_cost');
             $table->bigInteger('total_cost');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

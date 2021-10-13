@@ -20,6 +20,7 @@ class CreateRawMaterialsTable extends Migration
             $table->string('unit');
             $table->Integer('Unit_price');
             $table->bigInteger('total_price');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

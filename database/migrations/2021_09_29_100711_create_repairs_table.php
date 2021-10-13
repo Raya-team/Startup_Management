@@ -18,6 +18,7 @@ class CreateRepairsTable extends Migration
             $table->text('description');
             $table->tinyinteger('percent');
             $table->bigInteger('total_cost');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

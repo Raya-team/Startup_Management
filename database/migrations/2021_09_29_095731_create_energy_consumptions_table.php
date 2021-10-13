@@ -20,6 +20,7 @@ class CreateEnergyConsumptionsTable extends Migration
             $table->Integer('annual_consumption');
             $table->Integer('unit_cost');
             $table->bigInteger('annual_cost');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

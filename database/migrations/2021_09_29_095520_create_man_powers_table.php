@@ -19,6 +19,7 @@ class CreateManPowersTable extends Migration
             $table->Integer('number');
             $table->Integer('salary');
             $table->bigInteger('total_rights');
+            $table->tinyInteger('year');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();
