@@ -52,6 +52,10 @@ class RouteServiceProvider extends ServiceProvider
 
             Route::middleware(['web'])
                 ->namespace($this->namespace)
+                ->group(base_path('routes/web/vue-user.php'));
+
+            Route::middleware(['web'])
+                ->namespace($this->namespace)
                 ->group(base_path('routes/web/admin.php'));
 
             Route::middleware(['web'])

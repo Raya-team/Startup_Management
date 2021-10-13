@@ -47,6 +47,14 @@ import TransportationEdit from './components/financial/financial1/transportation
 import PreOperatingCostCreate from './components/financial/financial1/preoperatingcost/create';
 import PreOperatingCostEdit from './components/financial/financial1/preoperatingcost/edit';
 
+import Financial2Index from './components/financial/financial2/index';
+import Financial2Show from './components/financial/financial2/show';
+import Financial2Create from './components/financial/financial2/create';
+
+import BusinessCanvasIndex from './components/business-canvas/index';
+import BusinessCanvasCreate from './components/business-canvas/create';
+import BusinessCanvasEdit from './components/business-canvas/edit';
+
 import ValuationCostIndex from './components/valuation/cost/index';
 import ValuationCostCreate from './components/valuation/cost/create';
 import ValuationCostEdit from './components/valuation/cost/edit';
@@ -126,6 +134,14 @@ const routes = [
     {path: '/transportations/:id/edit', name: 'transportations-edit', component: TransportationEdit, meta: {title: 'ویرایش وسایل حمل و نقل'}},
     {path: '/preoperatingcosts/create', name: 'preoperatingcosts-create', component: PreOperatingCostCreate, meta: {title: 'افزودن هزینه های قبل بهره برداری'}},
     {path: '/preoperatingcosts/:id/edit', name: 'preoperatingcosts-edit', component: PreOperatingCostEdit, meta: {title: 'ویرایش هزینه های قبل بهره برداری'}},
+
+    {path: '/financial2', name: 'financial2-index', component: Financial2Index, meta: {title: 'اطلاعات مالی 2'}},
+    {path: '/financial2/year/{id}', name: 'financial2-show', component: Financial2Show, meta: {title: 'اطلاعات مالی 2'}},
+    {path: '/financial2/year/{id}/create', name: 'financial2-create', component: Financial2Create, meta: {title: 'اطلاعات مالی 2 - ایجاد'}},
+
+    {path: '/businesscanvas', name: 'businesscanvas-index', component: BusinessCanvasIndex,meta: {title: 'بوم کسب و کار'}},
+    {path: '/businesscanvas/create', name: 'businesscanvas-create', component: BusinessCanvasCreate, meta: {title: 'بوم کسب و کار - ایجاد'}},
+    {path: '/businesscanvas/:id/edit', name: 'businesscanvas-edit', component: BusinessCanvasEdit, meta: {title: 'بوم کسب و کار - ویرایش'}},
 
     {path: '/valuation-costs', name: 'valuation-costs-index', component: ValuationCostIndex,meta: {title: 'ارزش گذاری - هزینه'}},
     {path: '/valuation-costs/create', name: 'valuation-costs-create', component: ValuationCostCreate, meta: {title: 'ایجاد'}},

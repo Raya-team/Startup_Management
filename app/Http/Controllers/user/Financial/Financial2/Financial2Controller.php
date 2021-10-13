@@ -13,7 +13,6 @@ use App\Models\EnergyConsumption;
 use App\Models\Insurance;
 use App\Models\ManPower;
 use App\Models\OtherInformation;
-use App\Models\PlanYear;
 use App\Models\RawMaterial;
 use App\Models\RD;
 use App\Models\Rent;
@@ -29,12 +28,7 @@ class Financial2Controller extends Controller
 
     public function index()
     {
-        $plan_years = PlanYear::where('team_id' , Auth::user()->team_id)->first();
-        $years = $plan_years->number_of_plan_year;
-        $capacities = Capacity::where('team_id' , Auth::user()->team->id)->first();
-        if (isset($capacities)){$isset = true;}
-        else {$isset = false;}
-        return view('user.financial.financial2.index',compact('years','isset'));
+        return view('user.financial.financial2.index');
     }
 
     public function create($id)

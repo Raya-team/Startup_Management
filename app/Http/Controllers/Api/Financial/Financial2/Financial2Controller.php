@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Capacity;
+use App\Models\PlanYear;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Financial2Controller extends Controller
 {
@@ -14,7 +17,17 @@ class Financial2Controller extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $plan_years = PlanYear::where('team_id' , $team_id)->first();
+        $years = $plan_years->number_of_plan_year;
+        $capacities = Capacity::where('team_id' , $team_id)->first();
+        if (isset($capacities)){$isset = true;}
+        else {$isset = false;}
+
+        return response()->json([
+            'years' => $years,
+            'isset' => $isset,
+        ]);
     }
 
     /**
