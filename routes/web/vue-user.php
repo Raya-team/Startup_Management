@@ -29,6 +29,7 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
 
     Route::get('/financial2', [\App\Http\Controllers\Api\Financial\Financial2\Financial2Controller::class,'index']);
 
+    Route::resource('/justificationplan', \App\Http\Controllers\Api\JustificationPlan\JustificationPlanController::class);
 
     Route::resource('/businesscanvas', \App\Http\Controllers\Api\BusinessCanvas\BusinessCanvasController::class, ['as' => 'api']);
 

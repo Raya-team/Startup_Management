@@ -50,4 +50,10 @@ class TeamMember extends Model
     {
         return $this->hasOne(ValuationOtherAsset::class);
     }
+
+    public function BusinessManager()
+    {
+        return $this->hasOne(BusinessManager::class);
+    }
+
 }

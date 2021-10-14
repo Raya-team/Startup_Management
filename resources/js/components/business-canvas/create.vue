@@ -232,8 +232,6 @@
 </template>
 
 <script>
-
-
     import Errors from "../../Errors";
     import Auth from "../../Auth";
 
