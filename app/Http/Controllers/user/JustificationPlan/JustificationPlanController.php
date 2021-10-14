@@ -15,10 +15,11 @@ class JustificationPlanController extends Controller
 {
     public function index()
     {
-        $registered_team = RegisteredTeam::where('team_id' , Auth::user()->team_id)->first();
-        $business_manager = BusinessManager::where('team_id' , Auth::user()->team_id)->first();
-        $business_question = BusinessQuestion::where('team_id' , Auth::user()->team_id)->first();
-        $justification_plan = PreliminaryJustificationPlan::where('team_id' , Auth::user()->team_id)->first();
+        $team_id = Auth::user()->team_id;
+        $registered_team = RegisteredTeam::where('team_id' , $team_id)->first();
+        $business_manager = BusinessManager::where('team_id' , $team_id)->first();
+        $business_question = BusinessQuestion::where('team_id' , $team_id)->first();
+        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team_id)->first();
         return view('user.justification-plan.index');
     }
 
