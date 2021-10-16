@@ -55,8 +55,8 @@
                                                 <input type="text" class="form-control" id="registration_number" placeholder="شماره ثبت" name="registration_number" v-model="data.registered_team.registration_number"
                                                        :class="['form-control', {'is-invalid' : errors.has('registered_team.registration_number')}]"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('registered_team.registration_number')" style="display: block;">{{ errors.get('registered_team.registration_number') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('registered_team.registration_number')" style="display: block;">{{ errors.get('registered_team.registration_number') }}</div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -128,7 +128,8 @@
                                                 <label for="phone_number">شماره تماس خود را بنویسید.
                                                     <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="phone_number" placeholder="شماره تماس" name="phone_number" v-model="data.business_question.phone_number"
-                                                       :class="['form-control', {'is-invalid' : errors.has('business_question.phone_number')}]"/>
+                                                       :class="['form-control', {'is-invalid' : errors.has('business_question.phone_number')}]"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('business_question.phone_number')" style="display: block;">{{ errors.get('business_question.phone_number') }}</div>
                                             </div>
                                         </div>
@@ -403,19 +404,19 @@
                 axios.post('/justificationplan', this.data)
                     .then(response => {
                         console.log(response.data);
-                        // if(response.status == 201){
-                        //     Swal.fire({
-                        //         title: "اطلاعات با موفقیت ثبت شد",
-                        //         icon: "success",
-                        //         buttonsStyling: false,
-                        //         showConfirmButton: false,
-                        //         timer: 3000,
-                        //         customClass: {
-                        //             confirmButton: "btn btn-primary"
-                        //         }
-                        //     });
-                        //     this.$router.push({name: 'justificationplan-index'});
-                        // }
+                        if(response.status == 201){
+                            Swal.fire({
+                                title: "اطلاعات با موفقیت ثبت شد",
+                                icon: "success",
+                                buttonsStyling: false,
+                                showConfirmButton: false,
+                                timer: 3000,
+                                customClass: {
+                                    confirmButton: "btn btn-primary"
+                                }
+                            });
+                            this.$router.push({name: 'justificationplan-index'});
+                        }
                     })
                     .catch(error => {
                         console.log(error.response);

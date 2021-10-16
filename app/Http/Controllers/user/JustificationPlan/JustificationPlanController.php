@@ -16,8 +16,7 @@ class JustificationPlanController extends Controller
 {
     public function index()
     {
-        $team_id = Auth::user()->team;
-        return $team_id->status;
+        $team_id = Auth::user()->team_id;
         $registered_team = RegisteredTeam::where('team_id' , $team_id)->first();
         $business_manager = BusinessManager::where('team_id' , $team_id)->first();
         $business_question = BusinessQuestion::where('team_id' , $team_id)->first();
@@ -32,14 +31,15 @@ class JustificationPlanController extends Controller
 
     public function store(JustificationPlanRequest $request , RegisteredTeam $registeredTeam , BusinessManager $businessManager , BusinessQuestion $businessQuestion , PreliminaryJustificationPlan $justificationPlan)
     {
-        return $request;
         $team = Auth::user()->team;
         if ($team->status) {
-        $this->RegisteredTeam($request, $registeredTeam, $team);
+            $this->RegisteredTeam($request, $registeredTeam, $team);
         }
         $this->BusinessManager($request, $businessManager, $team);
         $this->BusinessQuestion($request, $businessQuestion, $team);
         $this->JustificationPlan($request, $justificationPlan, $team);
+
+        return response()->json(['success'], 210);
     }
 
     public function show($id)
@@ -68,13 +68,10 @@ class JustificationPlanController extends Controller
      */
     protected function RegisteredTeam(JustificationPlanRequest $request, RegisteredTeam $registeredTeam, $team)
     {
-        $request->validate([
-            'registered_team.registration_number' => ['required'],
-            'registered_team.registration_date' => ['required']
-        ]);
-        $registeredTeam->registration_number = $request->input('registration_number');
-        $registeredTeam->registration_date = $request->input('registration_date');
+        $registeredTeam->registration_number = $request->input('registered_team.registration_number');
+        $registeredTeam->registration_date = $request->input('registered_team.registration_date');
         $registeredTeam->team_id = $team->id;
+        $registeredTeam->updated_at = null;
         $registeredTeam->save();
     }
 
@@ -84,10 +81,11 @@ class JustificationPlanController extends Controller
      */
     protected function BusinessManager(JustificationPlanRequest $request, BusinessManager $businessManager, $team)
     {
-        $businessManager->name = $request->input('name');
-        $businessManager->phone_number = $request->input('manager_phone_number');
-        $businessManager->email = $request->input('email');
+        $businessManager->owner = $request->input('business_manager.owner');
+        $businessManager->phone_number = $request->input('business_manager.phone_number');
+        $businessManager->email = $request->input('business_manager.email');
         $businessManager->team_id = $team->id;
+        $businessManager->updated_at = null;
         $businessManager->save();
     }
 
@@ -97,13 +95,14 @@ class JustificationPlanController extends Controller
      */
     protected function BusinessQuestion(JustificationPlanRequest $request, BusinessQuestion $businessQuestion, $team)
     {
-        $businessQuestion->growth_center = $request->input('growth_center');
-        $businessQuestion->start_date = $request->input('start_date');
-        $businessQuestion->location_address = $request->input('location_address');
-        $businessQuestion->phone_number = $request->input('phone_number');
-        $businessQuestion->site_address = $request->input('site_address');
-        $businessQuestion->important_note = $request->input('important_note');
+        $businessQuestion->growth_center = $request->input('business_question.growth_center');
+        $businessQuestion->start_date = $request->input('business_question.start_date');
+        $businessQuestion->location_address = $request->input('business_question.location_address');
+        $businessQuestion->phone_number = $request->input('business_question.phone_number');
+        $businessQuestion->site_address = $request->input('business_question.site_address');
+        $businessQuestion->important_note = $request->input('business_question.important_note');
         $businessQuestion->team_id = $team->id;
+        $businessQuestion->updated_at = null;
         $businessQuestion->save();
     }
 
@@ -113,19 +112,20 @@ class JustificationPlanController extends Controller
      */
     protected function JustificationPlan(JustificationPlanRequest $request, PreliminaryJustificationPlan $justificationPlan, $team)
     {
-        $justificationPlan->requirement = $request->input('requirement');
-        $justificationPlan->solution = $request->input('solution');
-        $justificationPlan->competitors = $request->input('competitors');
-        $justificationPlan->competitive_advantage = $request->input('competitive_advantage');
-        $justificationPlan->target_market = $request->input('target_market');
-        $justificationPlan->Technology_level = $request->input('Technology_level');
-        $justificationPlan->required_budget = $request->input('required_budget');
-        $justificationPlan->Income = $request->input('Income');
-        $justificationPlan->technology_life = $request->input('technology_life');
-        $justificationPlan->plan_development = $request->input('plan_development');
-        $justificationPlan->technical_knowledge = $request->input('technical_knowledge');
-        $justificationPlan->technical_knowledge = $request->input('technical_knowledge');
+        $justificationPlan->requirement = $request->input('justification_plan.requirement');
+        $justificationPlan->solution = $request->input('justification_plan.solution');
+        $justificationPlan->competitors = $request->input('justification_plan.competitors');
+        $justificationPlan->competitive_advantage = $request->input('justification_plan.competitive_advantage');
+        $justificationPlan->target_market = $request->input('justification_plan.target_market');
+        $justificationPlan->Technology_level = $request->input('justification_plan.technology_level');
+        $justificationPlan->required_budget = $request->input('justification_plan.required_budget');
+        $justificationPlan->Income = $request->input('justification_plan.income');
+        $justificationPlan->technology_life = $request->input('justification_plan.technology_life');
+        $justificationPlan->plan_development = $request->input('justification_plan.plan_development');
+        $justificationPlan->technical_knowledge = $request->input('justification_plan.technical_knowledge');
+        $justificationPlan->technical_knowledge = $request->input('justification_plan.technical_knowledge');
         $justificationPlan->team_id = $team->id;
+        $justificationPlan->updated_at = null;
         $justificationPlan->save();
     }
 }

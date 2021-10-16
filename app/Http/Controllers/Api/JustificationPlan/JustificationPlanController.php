@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Api\JustificationPlan;
 
 use App\Http\Controllers\Controller;
+use App\Models\BusinessManager;
+use App\Models\BusinessQuestion;
+use App\Models\PreliminaryJustificationPlan;
+use App\Models\RegisteredTeam;
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +20,18 @@ class JustificationPlanController extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $registered_team = RegisteredTeam::where('team_id' , $team_id)->first();
+        $business_manager = BusinessManager::where('team_id' , $team_id)->first();
+        $business_question = BusinessQuestion::where('team_id' , $team_id)->first();
+        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team_id)->first();
+
+        return response()->json([
+            'registered_team' => $registered_team,
+            'shareholders' => $business_manager,
+            'business_question' => $business_question,
+            'justification_plan' => $justification_plan,
+        ]);
     }
 
     /**

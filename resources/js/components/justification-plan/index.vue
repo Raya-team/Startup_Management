@@ -9,8 +9,24 @@
 </template>
 
 <script>
+    import Auth from "../../Auth";
+
     export default {
-        name: "index"
+        name: "index",
+        data() {
+            return {
+                data: {},
+                Auth: new Auth()
+            }
+        },
+        created() {
+            this.Auth.check();
+            axios.get('/api/businesscanvas')
+                .then(response => {
+                    this.data = response.data;
+                })
+                .catch(error => {console.log(error);});
+        },
     }
 </script>
 

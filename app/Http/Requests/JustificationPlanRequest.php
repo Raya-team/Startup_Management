@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class JustificationPlanRequest extends FormRequest
 {
@@ -23,7 +24,13 @@ class JustificationPlanRequest extends FormRequest
      */
     public function rules()
     {
+        $team = Auth::user()->team->status;
         return [
+            'registered_team.registration_number' => $team ? ['required'] : '',
+            'registered_team.registration_date' => $team ? ['required'] : '',
+
+
+
             'business_manager.owner' => ['required'],
             'business_manager.phone_number' => ['required'],
             'business_manager.email' => ['required'],
