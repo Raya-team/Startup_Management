@@ -20,9 +20,9 @@ class CreatePreliminaryJustificationPlansTable extends Migration
             $table->text('competitors');
             $table->text('competitive_advantage');
             $table->text('target_market');
-            $table->text('Technology_level');
+            $table->text('technology_level');
             $table->text('required_budget');
-            $table->text('Income');
+            $table->text('income');
             $table->string('technology_life');
             $table->text('plan_development');
             $table->text('technical_knowledge');

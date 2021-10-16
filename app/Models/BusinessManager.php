@@ -9,9 +9,9 @@ class BusinessManager extends Model
 {
     use HasFactory;
 
-    public function TeamMember()
+    public function owner()
     {
-        return $this->belongsTo(TeamMember::class);
+        return $this->belongsTo(TeamMember::class, 'shareholder_id');
     }
 
     public function team()

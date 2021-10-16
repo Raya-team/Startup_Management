@@ -103,7 +103,7 @@
                                                 <!--end::Symbol-->
                                             </td>
                                             <td class="font-size-lg font-weight-bolder text-dark-75 w-150px align-middle pb-6">وضعیت ثبت شرکت</td>
-                                            <td class="font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6" v-if="team.status == '1'">بله</td>
+                                            <td class="font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6" v-if="team.status">بله</td>
                                             <td class="font-weight-bolder font-size-lg text-dark-75 text-right align-middle pb-6" v-else>خیر</td>
                                         </tr>
                                         <!--end::Item-->

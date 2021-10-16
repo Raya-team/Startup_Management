@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\JustificationPlan;
 
 use App\Http\Controllers\Controller;
+use App\Models\TeamMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,11 @@ class JustificationPlanController extends Controller
     public function create()
     {
         $team = Auth::user()->team;
-        return response()->json($team);
+        $shareholders = TeamMember::where('team_id', $team->id)->get();
+        return response()->json([
+            'team' => $team,
+            'shareholders' => $shareholders
+        ]);
     }
 
     /**

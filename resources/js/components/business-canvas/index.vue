@@ -14,7 +14,8 @@
                     <!--end::Page Heading-->
                 </div>
                 <div class="d-flex align-items-center">
-                    <a class="btn btn-success font-weight-bolder" dideo-checked="true">
+                    <router-link :to="{ name: 'businesscanvas-edit', params: { id: data.id }}">
+                        <a class="btn btn-success font-weight-bolder" dideo-checked="true">
                           <span data-v-c75cca8a="" class="svg-icon svg-icon-md">
                               <svg data-v-c75cca8a="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                   <g data-v-c75cca8a="" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -24,7 +25,8 @@
                                   </g>
                               </svg>
                           </span>ویرایش اطلاعات
-                    </a>
+                        </a>
+                    </router-link>
                 </div>
                 <!--end::Info-->
             </div>
@@ -42,7 +44,7 @@
                                 <h3 class="card-title">شرکای کلیدی</h3>
                             </div>
                             <div class="card-body">
-                                    <p style="white-space: pre">{{ data.key_partners }}</p>
+                                <p style="white-space: pre">{{ data.key_partners }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -154,7 +156,7 @@
                                 <h3 class="card-title">جریان درآمد</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.customer_section }}</p>
+                                <p style="white-space: pre">{{ data.income_flow }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -182,7 +184,6 @@
             this.Auth.check();
             axios.get('/api/businesscanvas')
                 .then(response => {
-                    console.log(response.data);
                     this.data = response.data;
                 })
                 .catch(error => {console.log(error);});

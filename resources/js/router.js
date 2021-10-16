@@ -51,6 +51,10 @@ import Financial2Index from './components/financial/financial2/index';
 import Financial2Show from './components/financial/financial2/show';
 import Financial2Create from './components/financial/financial2/create';
 
+import JustificationPlanIndex from './components/justification-plan/index';
+import JustificationPlanCreate from './components/justification-plan/create';
+import JustificationPlanEdit from './components/justification-plan/edit';
+
 import BusinessCanvasIndex from './components/business-canvas/index';
 import BusinessCanvasCreate from './components/business-canvas/create';
 import BusinessCanvasEdit from './components/business-canvas/edit';
@@ -138,6 +142,10 @@ const routes = [
     {path: '/financial2', name: 'financial2-index', component: Financial2Index, meta: {title: 'اطلاعات مالی 2'}},
     {path: '/financial2/year/{id}', name: 'financial2-show', component: Financial2Show, meta: {title: 'اطلاعات مالی 2'}},
     {path: '/financial2/year/{id}/create', name: 'financial2-create', component: Financial2Create, meta: {title: 'اطلاعات مالی 2 - ایجاد'}},
+
+    {path: '/justificationplan', name: 'justificationplan-index', component: JustificationPlanIndex,meta: {title: 'بوم کسب و کار'}},
+    {path: '/justificationplan/create', name: 'justificationplan-create', component: JustificationPlanCreate, meta: {title: 'بوم کسب و کار - ایجاد'}},
+    {path: '/justificationplan/:id/edit', name: 'justificationplan-edit', component: JustificationPlanEdit, meta: {title: 'بوم کسب و کار - ویرایش'}},
 
     {path: '/businesscanvas', name: 'businesscanvas-index', component: BusinessCanvasIndex,meta: {title: 'بوم کسب و کار'}},
     {path: '/businesscanvas/create', name: 'businesscanvas-create', component: BusinessCanvasCreate, meta: {title: 'بوم کسب و کار - ایجاد'}},

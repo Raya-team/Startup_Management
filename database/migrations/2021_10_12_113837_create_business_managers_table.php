@@ -15,8 +15,8 @@ class CreateBusinessManagersTable extends Migration
     {
         Schema::create('business_managers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('shareholder_id')->unsigned();
-            $table->foreign('shareholder_id')->references('id')->on('team_members')->onDelete('cascade');
+            $table->bigInteger('owner')->unsigned();
+            $table->foreign('owner')->references('id')->on('team_members')->onDelete('cascade');
             $table->string('phone_number');
             $table->string('email');
             $table->bigInteger('team_id')->unsigned();
