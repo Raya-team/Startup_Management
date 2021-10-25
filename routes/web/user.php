@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\user\BusinessCanvas\BusinessCanvasController;
+use App\Http\Controllers\user\Description\Managerial\ManagerialController;
+use App\Http\Controllers\user\Description\Technical\TechnicalController;
 use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
 use App\Http\Controllers\user\Financial\Financial1\BuildingController;
 use App\Http\Controllers\user\Financial\Financial1\EquipmentAndMachineryController;
@@ -136,5 +138,10 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/UncertaintyPrediction-questions', \App\Http\Controllers\user\Readiness\UncertaintyPredictionController::class);
     Route::resource('/SupplyChain-questions', \App\Http\Controllers\user\Readiness\SupplyChainController::class);
     Route::resource('/Rule-questions', \App\Http\Controllers\user\Readiness\RuleController::class);
+
+    Route::resource('/Managerials', ManagerialController::class);
+    Route::resource('/obtainedcertificates', ManagerialController::class);
+    Route::resource('/obtainedcertificates', ManagerialController::class);
+    Route::resource('/technicals', TechnicalController::class);
 });
 

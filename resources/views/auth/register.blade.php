@@ -185,8 +185,8 @@
                                         <div class="form-group">
                                             <label class="font-size-h6 font-weight-bolder text-dark">شرکت ثبت شده؟</label>
                                             <select name="status" class="form-control h-auto py-7 px-5 border-0 rounded-lg font-size-h6">
-                                                <option value="1">بله</option>
-                                                <option value="2">خیر</option>
+                                                <option value="0">بله</option>
+                                                <option value="1">خیر</option>
                                             </select>
                                         </div>
                                         <!--end::Input-->

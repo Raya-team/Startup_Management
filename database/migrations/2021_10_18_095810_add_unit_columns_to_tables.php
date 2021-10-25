@@ -13,10 +13,10 @@ class AddUnitColumnsToTables extends Migration
      */
     public function up()
     {
-        Schema::table('capacities', function (Blueprint $table) {
-        $table->dropColumn('production_unit');
-        $table->dropColumn('capacity_unit');
-    });
+//        Schema::table('capacities', function (Blueprint $table) {
+//        $table->dropColumn('production_unit');
+//        $table->dropColumn('capacity_unit');
+//        });
         Schema::table('capacities', function (Blueprint $table) {
             $table->bigInteger('unit')->unsigned()->after('nominal_capacity');
             $table->foreign('unit')->references('id')->on('unit_of_measurements')->onDelete('cascade');

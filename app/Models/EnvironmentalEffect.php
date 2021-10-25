@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UnitOfMeasurement extends Model
+class EnvironmentalEffect extends Model
 {
     use HasFactory;
 
-    public function productSupplyAndDemand()
+    public function team()
     {
-        return $this->hasMany(ProductSupplyAndDemand::class);
+        return $this->belongsTo(Team::class);
     }
 }

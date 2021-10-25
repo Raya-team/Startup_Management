@@ -195,30 +195,116 @@ class Team extends Model
         return $this->hasOne(ValuationAdditionalQuestion::class);
     }
 
-    public function RegisteredTeam()
+    public function registeredTeam()
     {
         return $this->hasOne(RegisteredTeam::class);
     }
 
-    public function BusinessQuestion()
+    public function businessQuestion()
     {
         return $this->hasOne(BusinessQuestion::class);
     }
 
 
-    public function PreliminaryJustificationPlan()
+    public function preliminaryJustificationPlan()
     {
         return $this->hasOne(PreliminaryJustificationPlan::class);
     }
 
-    public function BusinessCanvas()
+    public function businessCanvas()
     {
         return $this->hasOne(BusinessCanvas::class);
     }
 
-    public function BusinessManager()
+    public function businessManager()
     {
         return $this->hasOne(BusinessManager::class);
+    }
+
+    public function managerial()
+    {
+        return $this->hasOne(Managerial::class);
+    }
+
+
+    public function market()
+    {
+        return $this->hasOne(Market::class);
+    }
+
+    public function technical()
+    {
+        return $this->hasOne(Technical::class);
+    }
+
+    public function obtainedCertificates()
+    {
+        return $this->hasMany(ObtainedCertificate::class);
+    }
+
+    public function environmentalEffect()
+    {
+        return $this->hasOne(EnvironmentalEffect::class);
+    }
+
+    public function opportunityPoints()
+    {
+        return $this->hasMany(OpportunityPoint::class);
+    }
+
+    public function producers()
+    {
+        return $this->hasMany(Producer::class);
+    }
+
+    public function productCompetitors()
+    {
+        return $this->hasMany(ProductCompetitor::class);
+    }
+
+    public function productCustomers()
+    {
+        return $this->hasMany(ProductCustomer::class);
+    }
+
+    public function productSupplyAndDemand()
+    {
+        return $this->hasMany(ProductSupplyAndDemand::class);
+    }
+
+    public function rawMaterialSuppliers()
+    {
+        return $this->hasMany(ProductCustomer::class);
+    }
+
+    public function requiredCertificates()
+    {
+        return $this->hasMany(RequiredCertificate::class);
+    }
+
+    public function retails()
+    {
+        return $this->hasMany(Retail::class);
+    }
+
+    public function strengths()
+    {
+        return $this->hasMany(Strengths::class);
+    }
+
+    public function suppliers()
+    {
+        return $this->hasMany(Supplier::class);
+    }
+
+    public function threats()
+    {
+        return $this->hasMany(Threats::class);
+    }
+
+    public function weakPoints()
+    {
+        return $this->hasMany(weakPoint::class);
     }
 
 }

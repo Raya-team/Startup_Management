@@ -365,7 +365,11 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="#" class="menu-link">
+                            @php
+                                use App\Models\Managerial;
+                                $managerial = Managerial::where('team_id' , Auth::user()->team_id)->first();
+                            @endphp
+                            <a @if(isset($managerial)) href="{{ route('Managerials.index') }}" @else href="{{ route('Managerials.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -381,7 +385,11 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="#" class="menu-link">
+                            @php
+                                use App\Models\Technical;
+                                $technical = Technical::where('team_id' , Auth::user()->team_id)->first();
+                            @endphp
+                            <a @if(isset($technical)) href="{{ route('technicals.index') }}" @else href="{{ route('technicals.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
