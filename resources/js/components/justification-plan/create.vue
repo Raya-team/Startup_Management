@@ -12,13 +12,11 @@
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
-                            <router-link :to="{name: 'justificationplan-index'}">
-                                <li class="breadcrumb-item text-muted">
-                                    <a class="text-muted">ایندکس</a>
-                                </li>
-                            </router-link>
                             <li class="breadcrumb-item text-muted">
-                                <a class="text-muted">افزودن</a>
+                                <a class="text-muted">ایندکس</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a class="text-muted">ایجاد</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -362,7 +360,6 @@
         </div>
         <!--end::Entry-->
     </div>
-
 </template>
 
 <script>
@@ -387,7 +384,6 @@
         },
         created() {
             this.Auth.check();
-            // import('./../../datepicker');
             axios.get('/api/justificationplan/create')
                 .then(response => {
                     this.team = response.data.team;

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Repair;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RepairController extends Controller
 {
@@ -24,7 +26,7 @@ class RepairController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,18 @@ class RepairController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $repairs = $request->repair;
+        for ($i = 0; $i < sizeof($repairs); $i++) {
+            $repair = new Repair();
+            $repair->description = $repairs[$i]['description'];
+            $repair->percent = $repairs[$i]['percent'];
+            $repair->total_cost = $repairs[$i]['total_cost'];
+            $repair->year = $request->year;
+            $repair->team_id = $team = Auth::user()->team_id;
+            $repair->updated_at = null;
+            $repair->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +80,13 @@ class RepairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Repair $repair)
     {
-        //
+        $repair->description = $request['repair'][0]['description'];
+        $repair->percent = $request['repair'][0]['percent'];
+        $repair->total_cost = $request['repair'][0]['total_cost'];
+        $repair->save();
+        return response(['success'], 201);
     }
 
     /**

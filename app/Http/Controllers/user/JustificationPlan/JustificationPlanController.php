@@ -16,17 +16,12 @@ class JustificationPlanController extends Controller
 {
     public function index()
     {
-        $team_id = Auth::user()->team_id;
-        $registered_team = RegisteredTeam::where('team_id' , $team_id)->first();
-        $business_manager = BusinessManager::where('team_id' , $team_id)->first();
-        $business_question = BusinessQuestion::where('team_id' , $team_id)->first();
-        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team_id)->first();
         return view('user.justification-plan.index');
     }
 
     public function create()
     {
-        return view('user.justification-plan.create');
+        return view('user.justification-plan.index');
     }
 
     public function store(JustificationPlanRequest $request , RegisteredTeam $registeredTeam , BusinessManager $businessManager , BusinessQuestion $businessQuestion , PreliminaryJustificationPlan $justificationPlan)
@@ -39,7 +34,7 @@ class JustificationPlanController extends Controller
         $this->BusinessQuestion($request, $businessQuestion, $team);
         $this->JustificationPlan($request, $justificationPlan, $team);
 
-        return response()->json(['success'], 210);
+        return response()->json(['success'], 201);
     }
 
     public function show($id)
@@ -49,12 +44,51 @@ class JustificationPlanController extends Controller
 
     public function edit($id)
     {
-        //
+        $team_id = Auth::user()->team_id;
+        if ($team_id == $id){
+            return view('user.justification-plan.index');
+        }
+        abort(404);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $registeredTeam = RegisteredTeam::findorfail($request->input('registered_team.id'));
+        $registeredTeam->registration_number = $request->input('registered_team.registration_number');
+        $registeredTeam->registration_date = $request->input('registered_team.registration_date');
+        $registeredTeam->save();
+
+        $businessManager = BusinessManager::findorfail($request->input('business_manager.id'));
+        $businessManager->owner = $request->input('business_manager.owner');
+        $businessManager->phone_number = $request->input('business_manager.phone_number');
+        $businessManager->email = $request->input('business_manager.email');
+        $businessManager->save();
+
+        $businessQuestion = BusinessQuestion::findorfail($request->input('business_question.id'));
+        $businessQuestion->growth_center = $request->input('business_question.growth_center');
+        $businessQuestion->start_date = $request->input('business_question.start_date');
+        $businessQuestion->location_address = $request->input('business_question.location_address');
+        $businessQuestion->phone_number = $request->input('business_question.phone_number');
+        $businessQuestion->site_address = $request->input('business_question.site_address');
+        $businessQuestion->important_note = $request->input('business_question.important_note');
+        $businessQuestion->save();
+
+        $justificationPlan = PreliminaryJustificationPlan::findorfail($request->input('justification_plan.id'));
+        $justificationPlan->requirement = $request->input('justification_plan.requirement');
+        $justificationPlan->solution = $request->input('justification_plan.solution');
+        $justificationPlan->competitors = $request->input('justification_plan.competitors');
+        $justificationPlan->competitive_advantage = $request->input('justification_plan.competitive_advantage');
+        $justificationPlan->target_market = $request->input('justification_plan.target_market');
+        $justificationPlan->Technology_level = $request->input('justification_plan.technology_level');
+        $justificationPlan->required_budget = $request->input('justification_plan.required_budget');
+        $justificationPlan->Income = $request->input('justification_plan.income');
+        $justificationPlan->technology_life = $request->input('justification_plan.technology_life');
+        $justificationPlan->plan_development = $request->input('justification_plan.plan_development');
+        $justificationPlan->technical_knowledge = $request->input('justification_plan.technical_knowledge');
+        $justificationPlan->technical_knowledge = $request->input('justification_plan.technical_knowledge');
+        $justificationPlan->save();
+
+        return response()->json(['success'], 201);
     }
 
     public function destroy($id)

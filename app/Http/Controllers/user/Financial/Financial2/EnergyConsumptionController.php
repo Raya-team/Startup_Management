@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\EnergyConsumption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnergyConsumptionController extends Controller
 {
@@ -22,9 +24,9 @@ class EnergyConsumptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($year)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,20 @@ class EnergyConsumptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $energyConsumptions = $request->energy_consumption;
+        for ($i = 0; $i < sizeof($energyConsumptions); $i++) {
+            $energyConsumption = new EnergyConsumption();
+            $energyConsumption->description = $energyConsumptions[$i]['description'];
+            $energyConsumption->unit = $energyConsumptions[$i]['unit'];
+            $energyConsumption->annual_consumption = $energyConsumptions[$i]['annual_consumption'];
+            $energyConsumption->unit_cost = $energyConsumptions[$i]['unit_cost'];
+            $energyConsumption->annual_cost = $energyConsumptions[$i]['annual_cost'];
+            $energyConsumption->year = $request->year;
+            $energyConsumption->team_id = $team = Auth::user()->team_id;
+            $energyConsumption->updated_at = null;
+            $energyConsumption->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +82,15 @@ class EnergyConsumptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, EnergyConsumption $energyConsumption)
     {
-        //
+        $energyConsumption->description = $request['energy_consumption'][0]['description'];
+        $energyConsumption->unit = $request['energy_consumption'][0]['unit'];
+        $energyConsumption->annual_consumption = $request['energy_consumption'][0]['annual_consumption'];
+        $energyConsumption->unit_cost = $request['energy_consumption'][0]['unit_cost'];
+        $energyConsumption->annual_cost = $request['energy_consumption'][0]['annual_cost'];
+        $energyConsumption->save();
+        return response(['success'], 201);
     }
 
     /**

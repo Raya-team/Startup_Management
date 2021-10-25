@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\RD;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RDController extends Controller
 {
@@ -24,7 +26,7 @@ class RDController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,17 @@ class RDController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rds = $request->r_d;
+        for ($i = 0; $i < sizeof($rds); $i++) {
+            $rd = new RD();
+            $rd->description = $rds[$i]['description'];
+            $rd->annual_cost = $rds[$i]['annual_cost'];
+            $rd->year = $request->year;
+            $rd->team_id = $team = Auth::user()->team_id;
+            $rd->updated_at = null;
+            $rd->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +79,12 @@ class RDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, RD $rd)
     {
-        //
+        $rd->description = $request['r_d'][0]['description'];
+        $rd->annual_cost = $request['r_d'][0]['annual_cost'];
+        $rd->save();
+        return response(['success'], 201);
     }
 
     /**

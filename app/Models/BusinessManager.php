@@ -11,7 +11,7 @@ class BusinessManager extends Model
 
     public function owner()
     {
-        return $this->belongsTo(TeamMember::class, 'shareholder_id');
+        return $this->belongsTo(TeamMember::class, 'owner');
     }
 
     public function team()

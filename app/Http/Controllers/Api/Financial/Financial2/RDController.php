@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\RD;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RDController extends Controller
 {
@@ -12,9 +14,11 @@ class RDController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $rd = RD::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($rd);
     }
 
     /**
@@ -57,7 +61,8 @@ class RDController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rd = RD::where('id', $id)->first();
+        return response()->json($rd);
     }
 
     /**

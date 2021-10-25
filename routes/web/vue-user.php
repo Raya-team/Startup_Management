@@ -28,6 +28,27 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::resource('/preoperatingcosts', \App\Http\Controllers\Api\Financial\Financial1\PreOperatingCostController::class, ['as' => 'api']);
 
     Route::get('/financial2', [\App\Http\Controllers\Api\Financial\Financial2\Financial2Controller::class,'index']);
+    Route::get('/financial2/year/{id}/create', [\App\Http\Controllers\Api\Financial\Financial2\Financial2Controller::class,'create']);
+    Route::get('/developmentcosts/{id}', [\App\Http\Controllers\Api\Financial\Financial2\DevelopmentCostController::class, 'index']);
+    Route::get('/developmentcosts/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\DevelopmentCostController::class, 'edit']);
+    Route::get('/capacities/{id}', [\App\Http\Controllers\Api\Financial\Financial2\CapacityController::class, 'index']);
+    Route::get('/capacities/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\CapacityController::class, 'edit']);
+    Route::get('/rawmaterials/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RawMaterialController::class, 'index']);
+    Route::get('/rawmaterials/{year}/create', [\App\Http\Controllers\Api\Financial\Financial2\RawMaterialController::class, 'create']);
+    Route::get('/manpowers/{id}', [\App\Http\Controllers\Api\Financial\Financial2\ManPowerController::class, 'index']);
+    Route::get('/rents/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RentController::class, 'index']);
+    Route::get('/energyconsumptions/{id}', [\App\Http\Controllers\Api\Financial\Financial2\EnergyConsumptionController::class, 'index']);
+    Route::get('/energyconsumptions/{year}/create', [\App\Http\Controllers\Api\Financial\Financial2\EnergyConsumptionController::class, 'create']);
+    Route::get('/rds/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RDController::class, 'index']);
+    Route::get('/businesses/{id}', [\App\Http\Controllers\Api\Financial\Financial2\BusinessController::class, 'index']);
+    Route::get('/insurances/{id}', [\App\Http\Controllers\Api\Financial\Financial2\InsuranceController::class, 'index']);
+    Route::get('/repairs/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RepairController::class, 'index']);
+    Route::get('/transportationcosts/{id}', [\App\Http\Controllers\Api\Financial\Financial2\TransportationCostController::class, 'index']);
+    Route::get('/warranties/{id}', [\App\Http\Controllers\Api\Financial\Financial2\WarrantyController::class, 'index']);
+    Route::get('/consumeritems/{id}', [\App\Http\Controllers\Api\Financial\Financial2\ConsumerItemController::class, 'index']);
+    Route::get('/aftersaleservices/{id}', [\App\Http\Controllers\Api\Financial\Financial2\AfterSaleServiceController::class, 'index']);
+    Route::get('/otherinformations/{id}', [\App\Http\Controllers\Api\Financial\Financial2\OtherInformationController::class, 'index']);
+    Route::get('/otherinformations/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\OtherInformationController::class, 'edit']);
 
     Route::resource('/justificationplan', \App\Http\Controllers\Api\JustificationPlan\JustificationPlanController::class);
 

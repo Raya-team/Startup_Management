@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Repair;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RepairController extends Controller
 {
@@ -12,9 +14,11 @@ class RepairController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $repair = Repair::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($repair);
     }
 
     /**
@@ -57,7 +61,8 @@ class RepairController extends Controller
      */
     public function edit($id)
     {
-        //
+        $repair = Repair::where('id', $id)->first();
+        return response()->json($repair);
     }
 
     /**

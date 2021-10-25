@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\DevelopmentCost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DevelopmentCostController extends Controller
 {
@@ -12,9 +14,11 @@ class DevelopmentCostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $development_cost = DevelopmentCost::where('team_id', $team->id)->where('year', $year)->first();
+        return response()->json($development_cost);
     }
 
     /**
@@ -57,7 +61,8 @@ class DevelopmentCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $development_cost = DevelopmentCost::where('id', $id)->first();
+        return response()->json($development_cost);
     }
 
     /**

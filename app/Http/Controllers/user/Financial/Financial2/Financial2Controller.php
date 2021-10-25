@@ -33,58 +33,46 @@ class Financial2Controller extends Controller
 
     public function create($id)
     {
-        return view('user.financial.financial2.create',compact('id'));
+        return view('user.financial.financial2.index');
     }
 
-    public function store(Financial2Request $request , DevelopmentCost $developmentCost , Capacity $capacity , RawMaterial $rawMaterial , ManPower $manPower , Rent $rent , EnergyConsumption $energyConsumption , Business $business , RD $rd , Insurance $insurance , Repair $repair , TransportationCost $transportationCost , Warranty $warranty , ConsumerItem $consumerItem , AfterSaleService $afterSaleService , OtherInformation $information )
+    public function store(Request $request, $year, DevelopmentCost $developmentCost, Capacity $capacity, OtherInformation $information)
     {
-//        return $request;
-        $this->DevelopmentCost($request, $developmentCost);
-        $this->Capacity($request, $capacity);
-        $this->RawMaterial($request, $rawMaterial);
-        $this->ManPower($request, $manPower);
-        $this->Rent($request, $rent);
-        $this->EnergyConsumption($request, $energyConsumption);
-        $this->Business($request, $business);
-        $this->RD($request, $rd);
-        $this->Insurance($request, $insurance);
-        $this->Repair($request, $repair);
-        $this->Transportation($request, $transportationCost);
-        $this->Warranty($request, $warranty);
-        $this->ConsumerItem($request, $consumerItem);
-        $this->AfterSaleService($request, $afterSaleService);
-        $this->OtherInformation($request, $information);
+        $team = Auth::user()->team;
+        $this->DevelopmentCost($request, $developmentCost, $team, $year);
+        $this->Capacity($request, $capacity, $team, $year);
+        $this->RawMaterial($request, $team, $year);
+        $this->ManPower($request, $team, $year);
+        $this->Rent($request, $team, $year);
+        $this->EnergyConsumption($request, $team, $year);
+        $this->RD($request, $team, $year);
+        $this->Business($request, $team, $year);
+        $this->Insurance($request, $team, $year);
+        $this->Repair($request, $team, $year);
+        $this->TransportationCost($request, $team, $year);
+        $this->Warranty($request, $team, $year);
+        $this->ConsumerItem($request, $team, $year);
+        $this->AfterSaleService($request, $team, $year);
+        $this->OtherInformation($request, $information, $team, $year);
+        return response(['success'], 201);
     }
 
     public function show($id)
     {
-        $development_cost = DevelopmentCost::where('team_id' , Auth::user()->team_id)->first();
-        $capacity = Capacity::where('team_id' , Auth::user()->team_id)->first();
-        $raw_material = RawMaterial::where('team_id' , Auth::user()->team_id)->get();
-        $man_power = ManPower::where('team_id' , Auth::user()->team_id)->get();
-        $rent = Rent::where('team_id' , Auth::user()->team_id)->get();
-        $energy_consumption = EnergyConsumption::where('team_id' , Auth::user()->team_id)->get();
-        $business = Business::where('team_id' , Auth::user()->team_id)->get();
-        $rd = RD::where('team_id' , Auth::user()->team_id)->get();
-        $insurance = Insurance::where('team_id' , Auth::user()->team_id)->get();
-        $repair = Repair::where('team_id' , Auth::user()->team_id)->get();
-        $transportation_cost = TransportationCost::where('team_id' , Auth::user()->team_id)->get();
-        $warranty = Warranty::where('team_id' , Auth::user()->team_id)->get();
-        $consumer_item = ConsumerItem::where('team_id' , Auth::user()->team_id)->get();
-        $after_sale_service = AfterSaleService::where('team_id' , Auth::user()->team_id)->get();
-        $other_information = OtherInformation::where('team_id' , Auth::user()->team_id)->first();
-        return view('user.financial.financial2.show');
+        return view('user.financial.financial2.index');
     }
 
     /**
      * @param Financial2Request $request
      * @param DevelopmentCost $developmentCost
      */
-    protected function DevelopmentCost(Financial2Request $request, DevelopmentCost $developmentCost)
+    protected function DevelopmentCost(Request $request, DevelopmentCost $developmentCost, $team, $year)
     {
-        $developmentCost->description = $request->input('dev_description');
-        $developmentCost->total_cost = $request->input('dev_cost');
-        $developmentCost->team_id = Auth::user()->team_id;
+        $developmentCost->description = $request->input('development_cost.description');
+        $developmentCost->total_cost = $request->input('development_cost.total_cost');
+        $developmentCost->year = $year;
+        $developmentCost->team_id = $team->id;
+        $developmentCost->updated_at = null;
         $developmentCost->save();
     }
 
@@ -92,14 +80,14 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Capacity $capacity
      */
-    protected function Capacity(Financial2Request $request, Capacity $capacity)
+    protected function Capacity(Request $request, Capacity $capacity, $team, $year)
     {
-        $capacity->nominal_capacity = $request->input('nominal_capacity');
-        $capacity->capacity_unit = $request->input('capacity_unit');
-        $capacity->percent = $request->input('capacity_percent');
-        $capacity->total_production = $request->input('total_production');
-        $capacity->production_unit = $request->input('production_unit');
-        $capacity->team_id = Auth::user()->team_id;
+        $capacity->nominal_capacity = $request->input('capacity.nominal_capacity');
+        $capacity->unit = $request->input('capacity.unit');
+        $capacity->percent = $request->input('capacity.percent');
+        $capacity->total_production = $request->input('capacity.total_production');
+        $capacity->year = $year;
+        $capacity->team_id = $team->id;
         $capacity->save();
     }
 
@@ -107,174 +95,248 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param RawMaterial $rawMaterial
      */
-    protected function RawMaterial(Financial2Request $request, RawMaterial $rawMaterial)
+    protected function RawMaterial(Request $request, $team, $year)
     {
-        $rawMaterial->description = $request->input('materials_description');
-        $rawMaterial->Consumption = $request->input('materials_consumption');
-        $rawMaterial->unit = $request->input('materials_unit');
-        $rawMaterial->Unit_price = $request->input('materials_unit_price');
-        $rawMaterial->total_price = $request->input('materials_total_price');
-        $rawMaterial->team_id = Auth::user()->team_id;
-        $rawMaterial->save();
+        $rawMaterials = $request->raw_material;
+        for ($i = 0; $i < sizeof($rawMaterials); $i++) {
+            $rawMaterial = new RawMaterial();
+            $rawMaterial->description = $rawMaterials[$i]['description'];
+            $rawMaterial->unit = $rawMaterials[$i]['unit'];
+            $rawMaterial->unit_price = $rawMaterials[$i]['unit_price'];
+            $rawMaterial->total_price = $rawMaterials[$i]['total_price'];
+            $rawMaterial->consumption = $rawMaterials[$i]['consumption'];
+            $rawMaterial->year = $year;
+            $rawMaterial->team_id = $team->id;
+            $rawMaterial->updated_at = null;
+            $rawMaterial->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param ManPower $manPower
      */
-    protected function ManPower(Financial2Request $request, ManPower $manPower)
+    protected function ManPower(Request $request, $team, $year)
     {
-        $manPower->description = $request->input('powers_description');
-        $manPower->number = $request->input('powers_number');
-        $manPower->salary = $request->input('powers_salary');
-        $manPower->total_rights = $request->input('powers_total_rights');
-        $manPower->team_id = Auth::user()->team_id;
-        $manPower->save();
+        $manPowers = $request->man_power;
+        for ($i = 0; $i < sizeof($manPowers); $i++) {
+            $manPower = new ManPower();
+            $manPower->description = $manPowers[$i]['description'];
+            $manPower->number = $manPowers[$i]['number'];
+            $manPower->salary = $manPowers[$i]['salary'];
+            $manPower->total_rights = $manPowers[$i]['total_rights'];
+            $manPower->year = $year;
+            $manPower->team_id = $team->id;
+            $manPower->updated_at = null;
+            $manPower->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param Rent $rent
      */
-    protected function Rent(Financial2Request $request, Rent $rent)
+    protected function Rent(Request $request, $team, $year)
     {
-        $rent->description = $request->input('rents_description');
-        $rent->area = $request->input('area');
-        $rent->monthly_rent = $request->input('monthly_rent');
-        $rent->total_rent = $request->input('total_rent');
-        $rent->team_id = Auth::user()->team_id;
-        $rent->save();
+        $rents = $request->rent;
+        for ($i = 0; $i < sizeof($rents); $i++) {
+            $rent = new Rent();
+            $rent->description = $rents[$i]['description'];
+            $rent->area = $rents[$i]['area'];
+            $rent->monthly_rent = $rents[$i]['monthly_rent'];
+            $rent->total_rent = $rents[$i]['total_rent'];
+            $rent->year = $year;
+            $rent->team_id = $team->id;
+            $rent->updated_at = null;
+            $rent->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param EnergyConsumption $energyConsumption
      */
-    protected function EnergyConsumption(Financial2Request $request, EnergyConsumption $energyConsumption)
+    protected function EnergyConsumption(Request $request, $team, $year)
     {
-        $energyConsumption->description = $request->input('energy_description');
-        $energyConsumption->unit = $request->input('energy_unit');
-        $energyConsumption->annual_consumption = $request->input('annual_consumption');
-        $energyConsumption->unit_cost = $request->input('energy_unit_cost');
-        $energyConsumption->annual_cost = $request->input('energy_annual_cost');
-        $energyConsumption->team_id = Auth::user()->team_id;
-        $energyConsumption->save();
-    }
-
-    /**
-     * @param Financial2Request $request
-     * @param Business $business
-     */
-    protected function Business(Financial2Request $request, Business $business)
-    {
-        $business->description = $request->input('businesses_description');
-        $business->annual_cost = $request->input('businesses_annual_cost');
-        $business->team_id = Auth::user()->team_id;
-        $business->save();
+        $energyConsumptions = $request->energy_consumption;
+        for ($i = 0; $i < sizeof($energyConsumptions); $i++) {
+            $energyConsumption = new EnergyConsumption();
+            $energyConsumption->description = $energyConsumptions[$i]['description'];
+            $energyConsumption->unit = $energyConsumptions[$i]['unit'];
+            $energyConsumption->annual_consumption = $energyConsumptions[$i]['annual_consumption'];
+            $energyConsumption->unit_cost = $energyConsumptions[$i]['unit_cost'];
+            $energyConsumption->annual_cost = $energyConsumptions[$i]['annual_cost'];
+            $energyConsumption->year = $year;
+            $energyConsumption->team_id = $team->id;
+            $energyConsumption->updated_at = null;
+            $energyConsumption->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param RD $rd
      */
-    protected function RD(Financial2Request $request, RD $rd)
+    protected function RD(Request $request, $team, $year)
     {
-        $rd->description = $request->input('rd_description');
-        $rd->annual_cost = $request->input('rd_annual_cost');
-        $rd->team_id = Auth::user()->team_id;
-        $rd->save();
+        $rds = $request->r_d;
+        for ($i = 0; $i < sizeof($rds); $i++) {
+            $rd = new RD();
+            $rd->description = $rds[$i]['description'];
+            $rd->annual_cost = $rds[$i]['annual_cost'];
+            $rd->year = $year;
+            $rd->team_id = $team->id;
+            $rd->updated_at = null;
+            $rd->save();
+        }
+    }
+
+    /**
+     * @param Financial2Request $request
+     * @param Business $business
+     */
+    protected function Business(Request $request, $team, $year)
+    {
+        $businesses = $request->business;
+        for ($i = 0; $i < sizeof($businesses); $i++) {
+            $business = new Business();
+            $business->description = $businesses[$i]['description'];
+            $business->annual_cost = $businesses[$i]['annual_cost'];
+            $business->year = $year;
+            $business->team_id = $team->id;
+            $business->updated_at = null;
+            $business->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param Insurance $insurance
      */
-    protected function Insurance(Financial2Request $request, Insurance $insurance)
+    protected function Insurance(Request $request, $team, $year)
     {
-        $insurance->description = $request->input('insurances_description');
-        $insurance->percent = $request->input('insurances_percent');
-        $insurance->total_cost = $request->input('insurances_total_cost');
-        $insurance->team_id = Auth::user()->team_id;
-        $insurance->save();
+        $insurances = $request->insurance;
+        for ($i = 0; $i < sizeof($insurances); $i++) {
+            $insurance = new Insurance();
+            $insurance->description = $insurances[$i]['description'];
+            $insurance->percent = $insurances[$i]['percent'];
+            $insurance->total_cost = $insurances[$i]['total_cost'];
+            $insurance->year = $year;
+            $insurance->team_id = $team->id;
+            $insurance->updated_at = null;
+            $insurance->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param Repair $repair
      */
-    protected function Repair(Financial2Request $request, Repair $repair)
+    protected function Repair(Request $request, $team, $year)
     {
-        $repair->description = $request->input('repairs_description');
-        $repair->percent = $request->input('repairs_percent');
-        $repair->total_cost = $request->input('repairs_total_cost');
-        $repair->team_id = Auth::user()->team_id;
-        $repair->save();
+        $repairs = $request->repair;
+        for ($i = 0; $i < sizeof($repairs); $i++) {
+            $repair = new Repair();
+            $repair->description = $repairs[$i]['description'];
+            $repair->percent = $repairs[$i]['percent'];
+            $repair->total_cost = $repairs[$i]['total_cost'];
+            $repair->year = $year;
+            $repair->team_id = $team->id;
+            $repair->updated_at = null;
+            $repair->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param Transportation $transportation
      */
-    protected function Transportation(Financial2Request $request, TransportationCost $transportationCost)
+    protected function TransportationCost(Request $request, $team, $year)
     {
-        $transportationCost->description = $request->input('transportation_description');
-        $transportationCost->number = $request->input('transportation_number');
-        $transportationCost->unit_cost = $request->input('transportation_unit_cost');
-        $transportationCost->total_cost = $request->input('transportation_total_cost');
-        $transportationCost->team_id = Auth::user()->team_id;
-        $transportationCost->save();
+        $transportationCosts = $request->transportation_cost;
+        for ($i = 0; $i < sizeof($transportationCosts); $i++) {
+            $transportationCost = new TransportationCost();
+            $transportationCost->description = $transportationCosts[$i]['description'];
+            $transportationCost->number = $transportationCosts[$i]['number'];
+            $transportationCost->unit_cost = $transportationCosts[$i]['unit_cost'];
+            $transportationCost->total_cost = $transportationCosts[$i]['total_cost'];
+            $transportationCost->year = $year;
+            $transportationCost->team_id = $team->id;
+            $transportationCost->updated_at = null;
+            $transportationCost->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param Warranty $warranty
      */
-    protected function Warranty(Financial2Request $request, Warranty $warranty)
+    protected function Warranty(Request $request, $team, $year)
     {
-        $warranty->description = $request->input('warranties_description');
-        $warranty->percent = $request->input('warranties_percent');
-        $warranty->total_cost = $request->input('warranties_total_cost');
-        $warranty->team_id = Auth::user()->team_id;
-        $warranty->save();
+        $warranties = $request->warranty;
+        for ($i = 0; $i < sizeof($warranties); $i++) {
+            $warranty = new Warranty();
+            $warranty->description = $warranties[$i]['description'];
+            $warranty->percent = $warranties[$i]['percent'];
+            $warranty->total_cost = $warranties[$i]['total_cost'];
+            $warranty->year = $year;
+            $warranty->team_id = $team->id;
+            $warranty->updated_at = null;
+            $warranty->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param ConsumerItem $consumerItem
      */
-    protected function ConsumerItem(Financial2Request $request, ConsumerItem $consumerItem)
+    protected function ConsumerItem(Request $request, $team, $year)
     {
-        $consumerItem->description = $request->input('consumer_description');
-        $consumerItem->number = $request->input('consumer_number');
-        $consumerItem->unit_cost = $request->input('consumer_unit_cost');
-        $consumerItem->total_cost = $request->input('consumer_total_cost');
-        $consumerItem->team_id = Auth::user()->team_id;
-        $consumerItem->save();
+        $consumerItems = $request->consumer_item;
+        for ($i = 0; $i < sizeof($consumerItems); $i++) {
+            $consumerItem = new ConsumerItem();
+            $consumerItem->description = $consumerItems[$i]['description'];
+            $consumerItem->number = $consumerItems[$i]['number'];
+            $consumerItem->unit_cost = $consumerItems[$i]['unit_cost'];
+            $consumerItem->total_cost = $consumerItems[$i]['total_cost'];
+            $consumerItem->year = $year;
+            $consumerItem->team_id = $team->id;
+            $consumerItem->updated_at = null;
+            $consumerItem->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param AfterSaleService $afterSaleService
      */
-    protected function AfterSaleService(Financial2Request $request, AfterSaleService $afterSaleService)
+    protected function AfterSaleService(Request $request, $team, $year)
     {
-        $afterSaleService->description = $request->input('sale_services_description');
-        $afterSaleService->number = $request->input('sale_services_number');
-        $afterSaleService->unit_cost = $request->input('sale_services_unit_cost');
-        $afterSaleService->total_cost = $request->input('sale_services_total_cost');
-        $afterSaleService->team_id = Auth::user()->team_id;
-        $afterSaleService->save();
+        $afterSaleServices = $request->after_sale_service;
+        for ($i = 0; $i < sizeof($afterSaleServices); $i++) {
+            $afterSaleService = new AfterSaleService();
+            $afterSaleService->description = $afterSaleServices[$i]['description'];
+            $afterSaleService->number = $afterSaleServices[$i]['number'];
+            $afterSaleService->unit_cost = $afterSaleServices[$i]['unit_cost'];
+            $afterSaleService->total_cost = $afterSaleServices[$i]['total_cost'];
+            $afterSaleService->year = $year;
+            $afterSaleService->team_id = $team->id;
+            $afterSaleService->updated_at = null;
+            $afterSaleService->save();
+        }
     }
 
     /**
      * @param Financial2Request $request
      * @param OtherInformation $information
      */
-    protected function OtherInformation(Financial2Request $request, OtherInformation $information)
+    protected function OtherInformation(Request $request, OtherInformation $information, $team, $year)
     {
-        $information->sale_price = $request->input('sale_price');
-        $information->tax_rate = $request->input('tax_rate');
-        $information->team_id = Auth::user()->team_id;
+        $information->sale_price = $request->input('other_information.sale_price');
+        $information->tax_rate = $request->input('other_information.tax_rate');
+        $information->year = $year;
+        $information->team_id = $team->id;
+        $information->updated_at = null;
         $information->save();
     }
 

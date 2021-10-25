@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\ConsumerItem;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConsumerItemController extends Controller
 {
@@ -12,9 +14,11 @@ class ConsumerItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $consumer_item = ConsumerItem::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($consumer_item);
     }
 
     /**
@@ -57,7 +61,9 @@ class ConsumerItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Auth::user()->team;
+        $consumer_item = ConsumerItem::where('id', $id)->first();
+        return response()->json($consumer_item);
     }
 
     /**

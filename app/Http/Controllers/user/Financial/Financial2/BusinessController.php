@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BusinessController extends Controller
 {
@@ -24,7 +26,7 @@ class BusinessController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,17 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $businesses = $request->business;
+        for ($i = 0; $i < sizeof($businesses); $i++) {
+            $business = new Business();
+            $business->description = $businesses[$i]['description'];
+            $business->annual_cost = $businesses[$i]['annual_cost'];
+            $business->year = $request->year;
+            $business->team_id = $team = Auth::user()->team_id;
+            $business->updated_at = null;
+            $business->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +79,12 @@ class BusinessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Business $business)
     {
-        //
+        $business->description = $request['business'][0]['description'];
+        $business->annual_cost = $request['business'][0]['annual_cost'];
+        $business->save();
+        return response(['success'], 201);
     }
 
     /**

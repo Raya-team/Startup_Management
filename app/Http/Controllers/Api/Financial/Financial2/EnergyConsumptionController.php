@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\EnergyConsumption;
+use App\Models\UnitOfMeasurement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EnergyConsumptionController extends Controller
 {
@@ -12,9 +15,11 @@ class EnergyConsumptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $energy_consumption = EnergyConsumption::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($energy_consumption);
     }
 
     /**
@@ -24,7 +29,8 @@ class EnergyConsumptionController extends Controller
      */
     public function create()
     {
-        //
+        $units = UnitOfMeasurement::all();
+        return response()->json($units);
     }
 
     /**
@@ -57,7 +63,9 @@ class EnergyConsumptionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Auth::user()->team;
+        $energy_consumption = EnergyConsumption::where('id', $id)->first();
+        return response()->json($energy_consumption);
     }
 
     /**

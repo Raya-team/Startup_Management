@@ -3,8 +3,23 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\AfterSaleService;
+use App\Models\Business;
 use App\Models\Capacity;
+use App\Models\ConsumerItem;
+use App\Models\DevelopmentCost;
+use App\Models\EnergyConsumption;
+use App\Models\Insurance;
+use App\Models\ManPower;
+use App\Models\OtherInformation;
 use App\Models\PlanYear;
+use App\Models\RawMaterial;
+use App\Models\RD;
+use App\Models\Rent;
+use App\Models\Repair;
+use App\Models\TransportationCost;
+use App\Models\UnitOfMeasurement;
+use App\Models\Warranty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,9 +35,17 @@ class Financial2Controller extends Controller
         $team_id = Auth::user()->team_id;
         $plan_years = PlanYear::where('team_id' , $team_id)->first();
         $years = $plan_years->number_of_plan_year;
-        $capacities = Capacity::where('team_id' , $team_id)->first();
-        if (isset($capacities)){$isset = true;}
-        else {$isset = false;}
+        $isset = [];
+        for ($i=1; $i<=$years; $i++){
+            $capacities = Capacity::where('team_id' , $team_id)
+                ->where('year', $i)->first();
+            if(isset($capacities)){
+                array_push($isset,true);
+            }else{
+                array_push($isset,false);
+            }
+        }
+
 
         return response()->json([
             'years' => $years,
@@ -37,7 +60,8 @@ class Financial2Controller extends Controller
      */
     public function create()
     {
-        //
+        $units = UnitOfMeasurement::all();
+        return response()->json($units);
     }
 
     /**
@@ -57,9 +81,42 @@ class Financial2Controller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($year)
     {
-        //
+        $team = Auth::user()->team;
+        $development_cost = DevelopmentCost::where('team_id', $team->id)->where('year', $year)->first();
+        $capacity = Capacity::where('team_id', $team->id)->where('year', $year)->first();
+        $raw_material = RawMaterial::where('team_id', $team->id)->where('year', $year)->get();
+        $man_power = ManPower::where('team_id', $team->id)->where('year', $year)->get();
+        $rent = Rent::where('team_id', $team->id)->where('year', $year)->get();
+        $energy_consumption = EnergyConsumption::where('team_id', $team->id)->where('year', $year)->get();
+        $rd = RD::where('team_id', $team->id)->where('year', $year)->get();
+        $business = Business::where('team_id', $team->id)->where('year', $year)->get();
+        $insurance = Insurance::where('team_id', $team->id)->where('year', $year)->get();
+        $repair = Repair::where('team_id', $team->id)->where('year', $year)->get();
+        $transportation_cost = TransportationCost::where('team_id', $team->id)->where('year', $year)->get();
+        $warranty = Warranty::where('team_id', $team->id)->where('year', $year)->get();
+        $consumer_item = ConsumerItem::where('team_id', $team->id)->where('year', $year)->get();
+        $after_sale_service = AfterSaleService::where('team_id', $team->id)->where('year', $year)->get();
+        $other_information = OtherInformation::where('team_id', $team->id)->where('year', $year)->first();
+
+        return response()->json([
+            'development_cost' => $development_cost,
+            'capacity' => $capacity,
+            'raw_material' => $raw_material,
+            'man_power' => $man_power,
+            'rent' => $rent,
+            'energy_consumption' => $energy_consumption,
+            'rd' => $rd,
+            'business' => $business,
+            'insurance' => $insurance,
+            'repair' => $repair,
+            'transportation_cost' => $transportation_cost,
+            'warranty' => $warranty,
+            'consumer_item' => $consumer_item,
+            'after_sale_service' => $after_sale_service,
+            'other_information' => $other_information,
+        ]);
     }
 
     /**

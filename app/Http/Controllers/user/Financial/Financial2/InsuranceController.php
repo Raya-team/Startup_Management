@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Insurance;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class InsuranceController extends Controller
 {
@@ -24,7 +26,7 @@ class InsuranceController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,18 @@ class InsuranceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insurances = $request->insurance;
+        for ($i = 0; $i < sizeof($insurances); $i++) {
+            $insurance = new Insurance();
+            $insurance->description = $insurances[$i]['description'];
+            $insurance->percent = $insurances[$i]['percent'];
+            $insurance->total_cost = $insurances[$i]['total_cost'];
+            $insurance->year = $request->year;
+            $insurance->team_id = $team = Auth::user()->team_id;
+            $insurance->updated_at = null;
+            $insurance->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +80,13 @@ class InsuranceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Insurance $insurance)
     {
-        //
+        $insurance->description = $request['insurance'][0]['description'];
+        $insurance->percent = $request['insurance'][0]['percent'];
+        $insurance->total_cost = $request['insurance'][0]['total_cost'];
+        $insurance->save();
+        return response(['success'], 201);
     }
 
     /**

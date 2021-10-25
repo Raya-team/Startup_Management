@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\ManPower;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManPowerController extends Controller
 {
@@ -12,9 +14,11 @@ class ManPowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $man_power = ManPower::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($man_power);
     }
 
     /**
@@ -57,7 +61,8 @@ class ManPowerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $man_power = ManPower::where('id', $id)->first();
+        return response()->json($man_power);
     }
 
     /**

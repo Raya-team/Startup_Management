@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\OtherInformation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OtherInformationController extends Controller
 {
@@ -12,9 +14,11 @@ class OtherInformationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $other_information = OtherInformation::where('team_id', $team->id)->where('year', $year)->first();
+        return response()->json($other_information);
     }
 
     /**
@@ -57,7 +61,8 @@ class OtherInformationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $other_information = OtherInformation::where('id', $id)->first();
+        return response()->json($other_information);
     }
 
     /**

@@ -75,6 +75,22 @@ Vue.component('UncertaintyPrediction', require('./components/readiness/business/
 Vue.component('SupplyChain', require('./components/readiness/business/supply-chain/index.vue').default);
 Vue.component('Rule', require('./components/readiness/business/rule/index.vue').default);
 
+Vue.component('DevelopmentCost', require('./components/financial/financial2/development-cost/index.vue').default);
+Vue.component('Capacity', require('./components/financial/financial2/capacity/index.vue').default);
+Vue.component('RawMaterial', require('./components/financial/financial2/raw-material/index.vue').default);
+Vue.component('ManPower', require('./components/financial/financial2/man-power/index.vue').default);
+Vue.component('Rent', require('./components/financial/financial2/rent/index.vue').default);
+Vue.component('EnergyConsumption', require('./components/financial/financial2/energy-consumption/index.vue').default);
+Vue.component('RD', require('./components/financial/financial2/rd/index.vue').default);
+Vue.component('Business', require('./components/financial/financial2/business/index.vue').default);
+Vue.component('Insurance', require('./components/financial/financial2/insurance/index.vue').default);
+Vue.component('Repair', require('./components/financial/financial2/repair/index.vue').default);
+Vue.component('TransportationCost', require('./components/financial/financial2/transportation-cost/index.vue').default);
+Vue.component('Warranty', require('./components/financial/financial2/warranty/index.vue').default);
+Vue.component('ConsumerItem', require('./components/financial/financial2/consumer-item/index.vue').default);
+Vue.component('AfterSaleService', require('./components/financial/financial2/after-sale-service/index.vue').default);
+Vue.component('OtherInformation', require('./components/financial/financial2/other-information/index.vue').default);
+
 const app = new Vue({
     el: '#app',
     router,

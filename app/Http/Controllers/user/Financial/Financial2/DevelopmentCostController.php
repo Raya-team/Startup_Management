@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\DevelopmentCost;
 use Illuminate\Http\Request;
 
 class DevelopmentCostController extends Controller
@@ -57,7 +58,7 @@ class DevelopmentCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -69,7 +70,11 @@ class DevelopmentCostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $DevelopmentCost = DevelopmentCost::findorfail($id);
+        $DevelopmentCost->description = $request->input('description');
+        $DevelopmentCost->total_cost = $request->input('total_cost');
+        $DevelopmentCost->save();
+        return response(['success'], 201);
     }
 
     /**

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\RawMaterial;
+use App\Models\UnitOfMeasurement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RawMaterialController extends Controller
 {
@@ -12,9 +15,11 @@ class RawMaterialController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $raw_material = RawMaterial::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($raw_material);
     }
 
     /**
@@ -24,7 +29,8 @@ class RawMaterialController extends Controller
      */
     public function create()
     {
-        //
+        $units = UnitOfMeasurement::all();
+        return response()->json($units);
     }
 
     /**
@@ -57,7 +63,8 @@ class RawMaterialController extends Controller
      */
     public function edit($id)
     {
-        //
+        $raw_material = RawMaterial::where('id', $id)->first();
+        return response()->json($raw_material);
     }
 
     /**

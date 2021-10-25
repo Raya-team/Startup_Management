@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\AfterSaleService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AfterSaleServiceController extends Controller
 {
@@ -12,9 +14,11 @@ class AfterSaleServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $after_sale_service = AfterSaleService::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($after_sale_service);
     }
 
     /**
@@ -57,7 +61,9 @@ class AfterSaleServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Auth::user()->team;
+        $after_sale_service = AfterSaleService::where('id', $id)->first();
+        return response()->json($after_sale_service);
     }
 
     /**

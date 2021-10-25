@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\TransportationCost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransportationCostController extends Controller
 {
@@ -24,7 +26,7 @@ class TransportationCostController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,19 @@ class TransportationCostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $transportationCosts = $request->transportation_cost;
+        for ($i = 0; $i < sizeof($transportationCosts); $i++) {
+            $transportationCost = new TransportationCost();
+            $transportationCost->description = $transportationCosts[$i]['description'];
+            $transportationCost->number = $transportationCosts[$i]['number'];
+            $transportationCost->unit_cost = $transportationCosts[$i]['unit_cost'];
+            $transportationCost->total_cost = $transportationCosts[$i]['total_cost'];
+            $transportationCost->year = $request->year;
+            $transportationCost->team_id = $team = Auth::user()->team_id;
+            $transportationCost->updated_at = null;
+            $transportationCost->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +81,14 @@ class TransportationCostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TransportationCost $transportationCost)
     {
-        //
+        $transportationCost->description = $request['transportation_cost'][0]['description'];
+        $transportationCost->number = $request['transportation_cost'][0]['number'];
+        $transportationCost->unit_cost = $request['transportation_cost'][0]['unit_cost'];
+        $transportationCost->total_cost = $request['transportation_cost'][0]['total_cost'];
+        $transportationCost->save();
+        return response(['success'], 201);
     }
 
     /**

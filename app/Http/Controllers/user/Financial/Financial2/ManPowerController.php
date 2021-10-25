@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\ManPower;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManPowerController extends Controller
 {
@@ -35,7 +37,19 @@ class ManPowerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $manPowers = $request->man_power;
+        for ($i = 0; $i < sizeof($manPowers); $i++) {
+            $manPower = new ManPower();
+            $manPower->description = $manPowers[$i]['description'];
+            $manPower->number = $manPowers[$i]['number'];
+            $manPower->salary = $manPowers[$i]['salary'];
+            $manPower->total_rights = $manPowers[$i]['total_rights'];
+            $manPower->year = $request->year;
+            $manPower->team_id = $team = Auth::user()->team_id;
+            $manPower->updated_at = null;
+            $manPower->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +81,14 @@ class ManPowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, ManPower $manPower)
     {
-        //
+        $manPower->description = $request['man_power'][0]['description'];
+        $manPower->number = $request['man_power'][0]['number'];
+        $manPower->salary = $request['man_power'][0]['salary'];
+        $manPower->total_rights = $request['man_power'][0]['total_rights'];
+        $manPower->save();
+        return response(['success'], 201);
     }
 
     /**

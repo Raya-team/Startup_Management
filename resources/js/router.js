@@ -50,6 +50,33 @@ import PreOperatingCostEdit from './components/financial/financial1/preoperating
 import Financial2Index from './components/financial/financial2/index';
 import Financial2Show from './components/financial/financial2/show';
 import Financial2Create from './components/financial/financial2/create';
+import DevelopmentCostEdit from './components/financial/financial2/development-cost/edit';
+import CapacityEdit from './components/financial/financial2/capacity/edit';
+import RawMaterialCreate from './components/financial/financial2/raw-material/create';
+import RawMaterialEdit from './components/financial/financial2/raw-material/edit';
+import ManPowerCreate from './components/financial/financial2/man-power/create';
+import ManPowerEdit from './components/financial/financial2/man-power/edit';
+import RentCreate from './components/financial/financial2/rent/create';
+import RentEdit from './components/financial/financial2/rent/edit';
+import EnergyConsumptionCreate from './components/financial/financial2/energy-consumption/create';
+import EnergyConsumptionEdit from './components/financial/financial2/energy-consumption/edit';
+import RDCreate from './components/financial/financial2/rd/create';
+import RDEdit from './components/financial/financial2/rd/edit';
+import BusinessCreate from './components/financial/financial2/business/create';
+import BusinessEdit from './components/financial/financial2/business/edit';
+import InsuranceCreate from './components/financial/financial2/insurance/create';
+import InsuranceEdit from './components/financial/financial2/insurance/edit';
+import RepairCreate from './components/financial/financial2/repair/create';
+import RepairEdit from './components/financial/financial2/repair/edit';
+import TransportationCostCreate from './components/financial/financial2/transportation-cost/create';
+import TransportationCostEdit from './components/financial/financial2/transportation-cost/edit';
+import WarrantyCreate from './components/financial/financial2/warranty/create';
+import WarrantyEdit from './components/financial/financial2/warranty/edit';
+import ConsumerItemCreate from './components/financial/financial2/consumer-item/create';
+import ConsumerItemEdit from './components/financial/financial2/consumer-item/edit';
+import AfterSaleServiceCreate from './components/financial/financial2/after-sale-service/create';
+import AfterSaleServiceEdit from './components/financial/financial2/after-sale-service/edit';
+import OtherInformationEdit from './components/financial/financial2/other-information/edit';
 
 import JustificationPlanIndex from './components/justification-plan/index';
 import JustificationPlanCreate from './components/justification-plan/create';
@@ -140,12 +167,39 @@ const routes = [
     {path: '/preoperatingcosts/:id/edit', name: 'preoperatingcosts-edit', component: PreOperatingCostEdit, meta: {title: 'ویرایش هزینه های قبل بهره برداری'}},
 
     {path: '/financial2', name: 'financial2-index', component: Financial2Index, meta: {title: 'اطلاعات مالی 2'}},
-    {path: '/financial2/year/{id}', name: 'financial2-show', component: Financial2Show, meta: {title: 'اطلاعات مالی 2'}},
-    {path: '/financial2/year/{id}/create', name: 'financial2-create', component: Financial2Create, meta: {title: 'اطلاعات مالی 2 - ایجاد'}},
+    {path: '/financial2/year/:id', name: 'financial2-show', component: Financial2Show, meta: {title: 'اطلاعات مالی 2'}},
+    {path: '/financial2/year/:id/create', name: 'financial2-create', component: Financial2Create, meta: {title: 'اطلاعات مالی 2 - ایجاد'}},
+    {path: '/developmentcosts/:id/edit', name: 'developmentcosts-edit', component: DevelopmentCostEdit, meta: {title: 'هزینه های توسعه - ویرایش'}},
+    {path: '/capacities/:id/edit', name: 'capacities-edit', component: CapacityEdit, meta: {title: 'ظرفیت - ویرایش'}},
+    {path: '/rawmaterials/:year/create', name: 'rawmaterials-create', component: RawMaterialCreate, meta: {title: 'مواد اولیه وبسته بندی برای یک واحد محصول - ایجاد'}},
+    {path: '/rawmaterials/:id/edit', name: 'rawmaterials-edit', component: RawMaterialEdit, meta: {title: 'مواد اولیه وبسته بندی برای یک واحد محصول - ویرایش'}},
+    {path: '/manpowers/:year/create', name: 'manpowers-create', component: ManPowerCreate, meta: {title: 'نیروی انسانی مورد نیاز - ایجاد'}},
+    {path: '/manpowers/:id/edit', name: 'manpowers-edit', component: ManPowerEdit, meta: {title: 'نیروی انسانی مورد نیاز - ویرایش'}},
+    {path: '/rents/:year/create', name: 'rents-create', component: RentCreate, meta: {title: 'اجاره - ایجاد'}},
+    {path: '/rents/:id/edit', name: 'rents-edit', component: RentEdit, meta: {title: 'اجاره - ویرایش'}},
+    {path: '/energyconsumptions/:year/create', name: 'energyconsumptions-create', component: EnergyConsumptionCreate, meta: {title: 'انرژی مصرفی - ایجاد'}},
+    {path: '/energyconsumptions/:id/edit', name: 'energyconsumptions-edit', component: EnergyConsumptionEdit, meta: {title: 'انرژی مصرفی - ویرایش'}},
+    {path: '/rds/:year/create', name: 'rds-create', component: RDCreate, meta: {title: 'هزینه های R&D - ایجاد'}},
+    {path: '/rds/:id/edit', name: 'rds-edit', component: RDEdit, meta: {title: 'هزینه های R&D - ویرایش'}},
+    {path: '/businesses/:year/create', name: 'businesses-create', component: BusinessCreate, meta: {title: 'هزینه های بازرگانی - ایجاد'}},
+    {path: '/businesses/:id/edit', name: 'businesses-edit', component: BusinessEdit, meta: {title: 'هزینه های بازرگانی - ویرایش'}},
+    {path: '/insurances/:year/create', name: 'insurances-create', component: InsuranceCreate, meta: {title: 'هزینه بیمه - ایجاد'}},
+    {path: '/insurances/:id/edit', name: 'insurances-edit', component: InsuranceEdit, meta: {title: 'هزینه بیمه - ویرایش'}},
+    {path: '/repairs/:year/create', name: 'repairs-create', component: RepairCreate, meta: {title: 'هزینه تعمیر و نگهداری - ایجاد'}},
+    {path: '/repairs/:id/edit', name: 'repairs-edit', component: RepairEdit, meta: {title: 'هزینه تعمیر و نگهداری - ویرایش'}},
+    {path: '/transportationcosts/:year/create', name: 'transportationcosts-create', component: TransportationCostCreate, meta: {title: 'هزینه حمل و نقل - ایجاد'}},
+    {path: '/transportationcosts/:id/edit', name: 'transportationcosts-edit', component: TransportationCostEdit, meta: {title: 'هزینه حمل و نقل - ویرایش'}},
+    {path: '/warranties/:year/create', name: 'warranties-create', component: WarrantyCreate, meta: {title: 'هزینه گارانتی - ایجاد'}},
+    {path: '/warranties/:id/edit', name: 'warranties-edit', component: WarrantyEdit, meta: {title: 'هزینه گارانتی - ویرایش'}},
+    {path: '/consumeritems/:year/create', name: 'consumeritems-create', component: ConsumerItemCreate, meta: {title: 'هزینه اقلام مصرفی - ایجاد'}},
+    {path: '/consumeritems/:id/edit', name: 'consumeritems-edit', component: ConsumerItemEdit, meta: {title: 'هزینه اقلام مصرفی - ویرایش'}},
+    {path: '/aftersaleservices/:year/create', name: 'aftersaleservices-create', component: AfterSaleServiceCreate, meta: {title: 'درآمد خدمات پس از فروش - ایجاد'}},
+    {path: '/aftersaleservices/:id/edit', name: 'aftersaleservices-edit', component: AfterSaleServiceEdit, meta: {title: 'درآمد خدمات پس از فروش - ویرایش'}},
+    {path: '/otherinformations/:id/edit', name: 'otherinformations-edit', component: OtherInformationEdit, meta: {title: 'اطلاعات دیگر - ویرایش'}},
 
-    {path: '/justificationplan', name: 'justificationplan-index', component: JustificationPlanIndex,meta: {title: 'بوم کسب و کار'}},
-    {path: '/justificationplan/create', name: 'justificationplan-create', component: JustificationPlanCreate, meta: {title: 'بوم کسب و کار - ایجاد'}},
-    {path: '/justificationplan/:id/edit', name: 'justificationplan-edit', component: JustificationPlanEdit, meta: {title: 'بوم کسب و کار - ویرایش'}},
+    {path: '/justificationplan', name: 'justificationplan-index', component: JustificationPlanIndex,meta: {title: 'طرح توجیهی مقدماتی'}},
+    {path: '/justificationplan/create', name: 'justificationplan-create', component: JustificationPlanCreate, meta: {title: 'طرح توجیهی مقدماتی - ایجاد'}},
+    {path: '/justificationplan/:id/edit', name: 'justificationplan-edit', component: JustificationPlanEdit, meta: {title: 'طرح توجیهی مقدماتی - ویرایش'}},
 
     {path: '/businesscanvas', name: 'businesscanvas-index', component: BusinessCanvasIndex,meta: {title: 'بوم کسب و کار'}},
     {path: '/businesscanvas/create', name: 'businesscanvas-create', component: BusinessCanvasCreate, meta: {title: 'بوم کسب و کار - ایجاد'}},

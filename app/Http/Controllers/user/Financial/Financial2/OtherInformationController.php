@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\OtherInformation;
 use Illuminate\Http\Request;
 
 class OtherInformationController extends Controller
@@ -57,7 +58,7 @@ class OtherInformationController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -69,7 +70,11 @@ class OtherInformationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $OtherInformation = OtherInformation::findorfail($id);
+        $OtherInformation->sale_price = $request->input('sale_price');
+        $OtherInformation->tax_rate = $request->input('tax_rate');
+        $OtherInformation->save();
+        return response(['success'], 201);
     }
 
     /**

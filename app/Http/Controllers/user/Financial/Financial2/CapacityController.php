@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Capacity;
 use Illuminate\Http\Request;
 
 class CapacityController extends Controller
@@ -57,7 +58,7 @@ class CapacityController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -69,7 +70,13 @@ class CapacityController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Capacity = Capacity::findorfail($id);
+        $Capacity->nominal_capacity = $request->input('nominal_capacity');
+        $Capacity->unit = $request->input('unit');
+        $Capacity->percent = $request->input('percent');
+        $Capacity->total_production = $request->input('total_production');
+        $Capacity->save();
+        return response(['success'], 201);
     }
 
     /**

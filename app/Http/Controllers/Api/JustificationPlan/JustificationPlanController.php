@@ -20,15 +20,16 @@ class JustificationPlanController extends Controller
      */
     public function index()
     {
-        $team_id = Auth::user()->team_id;
-        $registered_team = RegisteredTeam::where('team_id' , $team_id)->first();
-        $business_manager = BusinessManager::where('team_id' , $team_id)->first();
-        $business_question = BusinessQuestion::where('team_id' , $team_id)->first();
-        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team_id)->first();
+        $team = Auth::user()->team;
+        $registered_team = RegisteredTeam::where('team_id' , $team->id)->with('team')->first();
+        $business_manager = BusinessManager::where('team_id' , $team->id)->with('owner')->first();
+        $business_question = BusinessQuestion::where('team_id' , $team->id)->first();
+        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team->id)->first();
 
         return response()->json([
+            'team' => $team,
             'registered_team' => $registered_team,
-            'shareholders' => $business_manager,
+            'business_manager' => $business_manager,
             'business_question' => $business_question,
             'justification_plan' => $justification_plan,
         ]);
@@ -79,7 +80,20 @@ class JustificationPlanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team = Auth::user()->team;
+        $shareholders = TeamMember::where('team_id', $team->id)->get();
+        $registered_team = RegisteredTeam::where('team_id' , $team->id)->with('team')->first();
+        $business_manager = BusinessManager::where('team_id' , $team->id)->first();
+        $business_question = BusinessQuestion::where('team_id' , $team->id)->first();
+        $justification_plan = PreliminaryJustificationPlan::where('team_id' , $team->id)->first();
+        return response()->json([
+            'team' => $team,
+            'shareholders' => $shareholders,
+            'registered_team' => $registered_team,
+            'business_manager' => $business_manager,
+            'business_question' => $business_question,
+            'justification_plan' => $justification_plan,
+        ]);
     }
 
     /**

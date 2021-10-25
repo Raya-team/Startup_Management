@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RentController extends Controller
 {
@@ -24,7 +26,7 @@ class RentController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,19 @@ class RentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rents = $request->rent;
+        for ($i = 0; $i < sizeof($rents); $i++) {
+            $rent = new Rent();
+            $rent->description = $rents[$i]['description'];
+            $rent->area = $rents[$i]['area'];
+            $rent->monthly_rent = $rents[$i]['monthly_rent'];
+            $rent->total_rent = $rents[$i]['total_rent'];
+            $rent->year = $request->year;
+            $rent->team_id = $team = Auth::user()->team_id;
+            $rent->updated_at = null;
+            $rent->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +81,14 @@ class RentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Rent $rent)
     {
-        //
+        $rent->description = $request['rent'][0]['description'];
+        $rent->area = $request['rent'][0]['area'];
+        $rent->monthly_rent = $request['rent'][0]['monthly_rent'];
+        $rent->total_rent = $request['rent'][0]['total_rent'];
+        $rent->save();
+        return response(['success'], 201);
     }
 
     /**

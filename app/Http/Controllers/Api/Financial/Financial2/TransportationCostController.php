@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\TransportationCost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransportationCostController extends Controller
 {
@@ -12,9 +14,11 @@ class TransportationCostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($year)
     {
-        //
+        $team = Auth::user()->team;
+        $transportation_cost = TransportationCost::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        return response()->json($transportation_cost);
     }
 
     /**
@@ -57,7 +61,8 @@ class TransportationCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $transportation_cost = TransportationCost::where('id', $id)->first();
+        return response()->json($transportation_cost);
     }
 
     /**

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Warranty;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WarrantyController extends Controller
 {
@@ -24,7 +26,7 @@ class WarrantyController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -35,7 +37,18 @@ class WarrantyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $warranties = $request->warranty;
+        for ($i = 0; $i < sizeof($warranties); $i++) {
+            $warranty = new Warranty();
+            $warranty->description = $warranties[$i]['description'];
+            $warranty->percent = $warranties[$i]['percent'];
+            $warranty->total_cost = $warranties[$i]['total_cost'];
+            $warranty->year = $request->year;
+            $warranty->team_id = $team = Auth::user()->team_id;
+            $warranty->updated_at = null;
+            $warranty->save();
+        }
+        return response(['success'], 201);
     }
 
     /**
@@ -67,9 +80,13 @@ class WarrantyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Warranty $warranty)
     {
-        //
+        $warranty->description = $request['warranty'][0]['description'];
+        $warranty->percent = $request['warranty'][0]['percent'];
+        $warranty->total_cost = $request['warranty'][0]['total_cost'];
+        $warranty->save();
+        return response(['success'], 201);
     }
 
     /**
