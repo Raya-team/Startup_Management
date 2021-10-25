@@ -141,7 +141,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/Managerials', ManagerialController::class);
     Route::resource('/obtainedcertificates', ManagerialController::class);
-    Route::resource('/obtainedcertificates', ManagerialController::class);
     Route::resource('/technicals', TechnicalController::class);
+    Route::resource('/requiredcertificates', ManagerialController::class);
 });
 

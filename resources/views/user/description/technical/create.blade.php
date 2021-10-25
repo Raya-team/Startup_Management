@@ -74,6 +74,39 @@
                                 </div>
                                 <!--end::Group-->
                                 <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده</h5><br>
+                                <div class="form-group row">
+                                    <div id="kt_repeater_1">
+                                        <div data-repeater-list="product" class="col-lg-10">
+                                            <div data-repeater-item="" class="form-group row align-items-center">
+                                                <div class="form-group row">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control products" name="description" value="{{ old('description') }}" placeholder="شرح" required />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control products" name="acquisition_year" value="{{ old('acquisition_year') }}" placeholder="سال اخذ" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <select name="type" class="form-control">
+                                                            <option value="1">اجباری</option>
+                                                            <option value="0">غیر اجباری</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>

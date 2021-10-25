@@ -92,7 +92,6 @@
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('education_id')">{{ errors.get('education_id') }}</div>
                                             </div>
                                         </div>
-
                                         <div class="col-md-6">
                                             <div class="form-group is-invalid">
                                                 <label for="kt_select2_3">مسئولیت:
