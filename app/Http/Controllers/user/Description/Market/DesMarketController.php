@@ -15,6 +15,7 @@ use App\Models\Retail;
 use App\Models\Strengths;
 use App\Models\Supplier;
 use App\Models\Threats;
+use App\Models\UnitOfMeasurement;
 use App\Models\WeakPoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +42,7 @@ class DesMarketController extends Controller
 
     public function create()
     {
+        $units = UnitOfMeasurement::all();
         return view('user.description.market.create');
     }
 
