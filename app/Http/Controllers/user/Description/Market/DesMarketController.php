@@ -3,20 +3,18 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
-use App\Models\Market;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class DesMarketController extends Controller
 {
     public function index()
     {
-        return 'index';
+        return view('user.description.market.index');
     }
 
     public function create()
     {
-        return 'create';
+        return view('user.description.market.create');
     }
 
     public function store(Request $request)
