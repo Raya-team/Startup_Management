@@ -377,7 +377,11 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="#" class="menu-link">
+                            @php
+                                use App\Models\Market;
+                                $market = Market::where('team_id' , Auth::user()->team_id)->first();
+                            @endphp
+                            <a @if(isset($market)) href="{{ route('description-market.index') }}" @else href="{{ route('description-market.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
