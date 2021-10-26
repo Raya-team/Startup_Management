@@ -37,7 +37,7 @@
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
                         <!--begin::Form-->
-                        <form method="POST" action="{{route('Managerials.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
+                        <form method="POST" action="{{route('description-managerial.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
                             @csrf
                             @include('errors')
                             <div class="card-body">

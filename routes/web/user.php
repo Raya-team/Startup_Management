@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\user\BusinessCanvas\BusinessCanvasController;
 use App\Http\Controllers\user\Description\Managerial\ManagerialController;
+use App\Http\Controllers\user\Description\Market\DesMarketController;
 use App\Http\Controllers\user\Description\Technical\TechnicalController;
 use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
 use App\Http\Controllers\user\Financial\Financial1\BuildingController;
@@ -122,7 +123,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/technology-questions', TechnologyController::class);
     Route::resource('/manufacturing-questions', ManufacturingController::class);
-    Route::resource('/market-questions', MarketController::class);
+    Route::resource('/market-questions', DesMarketController::class);
     Route::resource('/business-questions', \App\Http\Controllers\user\Readiness\BusinessController::class);
     Route::resource('/commercialization-questions', \App\Http\Controllers\user\Readiness\CommercializationController::class);
     Route::resource('/publicmanagement-questions', \App\Http\Controllers\user\Readiness\PublicManagementController::class);
@@ -139,9 +140,11 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/SupplyChain-questions', \App\Http\Controllers\user\Readiness\SupplyChainController::class);
     Route::resource('/Rule-questions', \App\Http\Controllers\user\Readiness\RuleController::class);
 
-    Route::resource('/Managerials', ManagerialController::class);
-    Route::resource('/obtainedcertificates', ManagerialController::class);
-    Route::resource('/technicals', TechnicalController::class);
-    Route::resource('/requiredcertificates', ManagerialController::class);
+    Route::resource('/description-managerial', ManagerialController::class);
+    Route::resource('/description-obtainedcertificates', ManagerialController::class);
+    Route::resource('/description-technical', TechnicalController::class);
+    Route::resource('/description-requiredcertificates', ManagerialController::class);
+    Route::resource('/description-market', \App\Http\Controllers\user\Description\Market\DesMarketController::class);
+
 });
 

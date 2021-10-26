@@ -32,85 +32,102 @@
         <!--begin::Container-->
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">درباره تیم/شرکت</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">چشم انداز تیم/شرکت</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">ماموریت تیم/شرکت</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">شایستگی‌های کلیدی تیم/شرکت</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">اهداف</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
-                    </div>
-                    <!--end::Card-->
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <!--begin::Card-->
-                    <div class="card card-custom gutter-b example example-compact">
-                        <div class="card-header">
-                            <h3 class="card-title">بیان مساله</h3>
-                        </div>
-                        <div class="card-body">
-                            <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
-                        </div>
+                        <!--begin::Form-->
+                        <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">درباره تیم/شرکت</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">چشم انداز تیم/شرکت</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">ماموریت تیم/شرکت</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">شایستگی‌های کلیدی تیم/شرکت</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">اهداف</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">بیان مساله</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button" style="margin-right: 788px;">ویرایش</button>
+                            </div>
+                        </form>
+                        <!--end::Form-->
                     </div>
                     <!--end::Card-->
                 </div>
@@ -203,4 +220,5 @@
     </div>
     <!--end::Entry-->
 @endsection
+
 

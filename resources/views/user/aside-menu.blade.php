@@ -369,7 +369,7 @@
                                 use App\Models\Managerial;
                                 $managerial = Managerial::where('team_id' , Auth::user()->team_id)->first();
                             @endphp
-                            <a @if(isset($managerial)) href="{{ route('Managerials.index') }}" @else href="{{ route('Managerials.create') }}" @endif class="menu-link">
+                            <a @if(isset($managerial)) href="{{ route('description-managerial.index') }}" @else href="{{ route('description-managerial.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -389,7 +389,7 @@
                                 use App\Models\Technical;
                                 $technical = Technical::where('team_id' , Auth::user()->team_id)->first();
                             @endphp
-                            <a @if(isset($technical)) href="{{ route('technicals.index') }}" @else href="{{ route('technicals.create') }}" @endif class="menu-link">
+                            <a @if(isset($technical)) href="{{ route('description-technical.index') }}" @else href="{{ route('description-technical.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
