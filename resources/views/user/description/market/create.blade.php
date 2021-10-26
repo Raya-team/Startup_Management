@@ -1372,71 +1372,7 @@
     </div>
     <!--end::Entry-->>
 @endsection
-
-<script>
-    import Errors from "../../../Errors";
-    import Auth from "../../../Auth";
-
-    export default {
-        name: "create",
-        data() {
-            return {
-                data: {
-                    commercialization: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    public_management: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    functional_management: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    sale_and_technical_support: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    liquidity_and_access_to_capital: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    competitive_position: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    customer_recognition: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    customer_commitment: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    affordable: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    intellectual_property_management: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    sale_forecast: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    uncertainty_prediction_questions: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    supply_chain: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-                    rule: {q1: false, q2: false, q3: false, q4: false, q5: false, q6: false, q7: false, q8: false, q9: false, q10: false},
-
-                },
-                errors: new Errors(),
-                Auth: new Auth()
-            }
-        },
-        created() {
-            this.Auth.check();
-            import('../../../wizard')
-        },
-        methods: {
-            onSubmit() {
-                this.Auth.check();
-                var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
-                var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
-                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
-                axios.post('/business-questions', this.data)
-                    .then(response => {
-                        if (response.status == 201){
-                            Swal.fire({
-                                title: "اطلاعات با موفقیت ثبت شد.",
-                                icon: "success",
-                                buttonsStyling: false,
-                                showConfirmButton: false,
-                                timer: 3000,
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            });
-                            this.$router.push({name: 'business-questions-index'});
-                        }
-                    })
-                    .catch(error => {
-                        this.errors.record(error.response.data.errors);
-                        KTUtil.btnRelease(formSubmitButton);
-                    });
-            },
-        },
-    }
-</script>
-
+@section('css')
 <style scoped>
     .wizard.wizard-2 .wizard-nav .wizard-steps .wizard-step .wizard-label .wizard-title{
         font-weight: 600
@@ -1468,3 +1404,4 @@
         border-width: 1rem;
     }
 </style>
+@endsection
