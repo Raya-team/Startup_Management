@@ -1,5 +1,5 @@
 @extends('user.master')
-@section('title', 'توضیحات - مدیریتی')
+@section('title', 'توضیحات - بازار')
 @section('content')
     <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
@@ -15,7 +15,7 @@
                     <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                         <li class="breadcrumb-item text-muted">
                             <div class="text-muted">
-                                <a class="text-muted">مدیریتی</a>
+                                <a class="text-muted">بازار</a>
                             </div>
                         </li>
                     </ul>
@@ -36,14 +36,16 @@
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
                         <!--begin::Form-->
-                        <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
+                        <form method="POST" action="{{route('description-market.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form">
+                            @csrf
+                            @include('errors')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">درباره تیم/شرکت</h3>
+                                                <h3 class="card-title">معرفی محصول</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
@@ -57,7 +59,7 @@
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">چشم انداز تیم/شرکت</h3>
+                                                <h3 class="card-title">ویژگی های محصول</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
@@ -71,7 +73,7 @@
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">ماموریت تیم/شرکت</h3>
+                                                <h3 class="card-title">مزیت های رقابتی محصول</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
@@ -85,7 +87,7 @@
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">شایستگی‌های کلیدی تیم/شرکت</h3>
+                                                <h3 class="card-title">تجزیه و تحلیل موقعیت</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
@@ -99,7 +101,7 @@
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">اهداف</h3>
+                                                <h3 class="card-title">استراتژی قیمت گذاری محصول</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>
@@ -113,7 +115,7 @@
                                         <!--begin::Card-->
                                         <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
                                             <div class="card-header">
-                                                <h3 class="card-title">بیان مساله</h3>
+                                                <h3 class="card-title">استراتژی بازاریابی محصول</h3>
                                             </div>
                                             <div class="card-body">
                                                 <p style="white-space: pre">استقلال ازادی جمهوری اسلامی</p>

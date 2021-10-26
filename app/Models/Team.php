@@ -304,7 +304,7 @@ class Team extends Model
 
     public function weakPoints()
     {
-        return $this->hasMany(weakPoint::class);
+        return $this->hasMany(WeakPoint::class);
     }
 
 }
