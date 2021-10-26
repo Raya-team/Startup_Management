@@ -121,11 +121,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a class="btn btn-success font-weight-bolder">
-                                    <span class="svg-icon svg-icon-md">
-                                    </span> ویرایش اطلاعات
-                            </a>
+                        <div class="card-footer d-flex flex-center">
+                            <a class="btn btn-success font-weight-bolder">ویرایش اطلاعات</a>
                         </div>
                     </div>
                     <!--end::Card-->
