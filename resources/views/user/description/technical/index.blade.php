@@ -35,10 +35,6 @@
                 <div class="col-md-12">
                     <!--begin::Card-->
                     <div class="card card-custom gutter-b example example-compact">
-                        <!--begin::Form-->
-                        <form method="POST" action="{{route('description-technical.store')}}" class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
-                            @csrf
-                            @include('errors')
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
@@ -84,10 +80,11 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button" style="margin-right: 788px;">ویرایش</button>
+                                <a class="btn btn-success font-weight-bolder">
+                                    <span class="svg-icon svg-icon-md">
+                                    </span> ویرایش اطلاعات
+                                </a>
                             </div>
-                        </form>
-                        <!--end::Form-->
                     </div>
                     <!--end::Card-->
                 </div>
