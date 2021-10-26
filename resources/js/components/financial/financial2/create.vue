@@ -345,8 +345,7 @@
                                                     <label for="insurances_description">شرح:
                                                         <span class="text-danger">*</span></label>
                                                     <select name="insurances_description" id="insurances_description" class="form-control" v-model="insu.description">
-                                                        <option value="1">شرح 1</option>
-                                                        <option value="2">شرح 2</option>
+                                                        <option v-for="des in descriptions" :value="des.description">{{ des.description }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -384,8 +383,7 @@
                                                     <label for="repairs_description">شرح:
                                                         <span class="text-danger">*</span></label>
                                                     <select name="repairs_description" id="repairs_description" class="form-control" v-model="rep.description">
-                                                        <option value="1">شرح 1</option>
-                                                        <option value="2">شرح 2</option>
+                                                        <option v-for="des in descriptions" :value="des.description">{{ des.description }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -619,6 +617,7 @@
         data() {
             return {
                 units: '',
+                descriptions: '',
                 data: {
                     development_cost: {},
                     capacity: {},
@@ -644,7 +643,8 @@
             this.Auth.check();
             axios.get(`/api/financial2/year/${this.$route.params.id}/create`)
                 .then(response => {
-                    this.units = response.data;
+                    this.units = response.data.units;
+                    this.descriptions = response.data.descriptions;
                 })
                 .catch(error => {console.log(error);});
         },

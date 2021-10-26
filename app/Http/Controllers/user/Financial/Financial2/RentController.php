@@ -71,7 +71,7 @@ class RentController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -81,8 +81,9 @@ class RentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rent $rent)
+    public function update(Request $request, $id)
     {
+        $rent = Rent::findorfail($id);
         $rent->description = $request['rent'][0]['description'];
         $rent->area = $request['rent'][0]['area'];
         $rent->monthly_rent = $request['rent'][0]['monthly_rent'];

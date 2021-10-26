@@ -70,7 +70,7 @@ class RepairController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -80,8 +80,9 @@ class RepairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Repair $repair)
+    public function update(Request $request, $id)
     {
+        $repair = Repair::findorfail($id);
         $repair->description = $request['repair'][0]['description'];
         $repair->percent = $request['repair'][0]['percent'];
         $repair->total_cost = $request['repair'][0]['total_cost'];

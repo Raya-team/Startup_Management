@@ -72,7 +72,7 @@ class EnergyConsumptionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -82,8 +82,9 @@ class EnergyConsumptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EnergyConsumption $energyConsumption)
+    public function update(Request $request, $id)
     {
+        $energyConsumption = EnergyConsumption::findorfail($id);
         $energyConsumption->description = $request['energy_consumption'][0]['description'];
         $energyConsumption->unit = $request['energy_consumption'][0]['unit'];
         $energyConsumption->annual_consumption = $request['energy_consumption'][0]['annual_consumption'];

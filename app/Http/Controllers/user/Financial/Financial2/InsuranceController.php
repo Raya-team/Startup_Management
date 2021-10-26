@@ -70,7 +70,7 @@ class InsuranceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -80,8 +80,9 @@ class InsuranceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Insurance $insurance)
+    public function update(Request $request, $id)
     {
+        $insurance = Insurance::findorfail($id);
         $insurance->description = $request['insurance'][0]['description'];
         $insurance->percent = $request['insurance'][0]['percent'];
         $insurance->total_cost = $request['insurance'][0]['total_cost'];

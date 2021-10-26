@@ -69,7 +69,7 @@ class RDController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -79,8 +79,9 @@ class RDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RD $rd)
+    public function update(Request $request, $id)
     {
+        $rd = RD::findorfail($id);
         $rd->description = $request['r_d'][0]['description'];
         $rd->annual_cost = $request['r_d'][0]['annual_cost'];
         $rd->save();

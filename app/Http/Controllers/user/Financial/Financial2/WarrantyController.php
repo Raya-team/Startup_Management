@@ -70,7 +70,7 @@ class WarrantyController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -80,8 +80,9 @@ class WarrantyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warranty $warranty)
+    public function update(Request $request, $id)
     {
+        $warranty = Warranty::findorfail($id);
         $warranty->description = $request['warranty'][0]['description'];
         $warranty->percent = $request['warranty'][0]['percent'];
         $warranty->total_cost = $request['warranty'][0]['total_cost'];

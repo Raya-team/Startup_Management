@@ -63,8 +63,12 @@ class RawMaterialController extends Controller
      */
     public function edit($id)
     {
+        $units = UnitOfMeasurement::all();
         $raw_material = RawMaterial::where('id', $id)->first();
-        return response()->json($raw_material);
+        return response()->json([
+            'units' => $units,
+            'raw_material' => $raw_material,
+        ]);
     }
 
     /**

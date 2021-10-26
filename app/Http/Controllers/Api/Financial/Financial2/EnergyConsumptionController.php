@@ -64,8 +64,12 @@ class EnergyConsumptionController extends Controller
     public function edit($id)
     {
         $team = Auth::user()->team;
+        $units = UnitOfMeasurement::all();
         $energy_consumption = EnergyConsumption::where('id', $id)->first();
-        return response()->json($energy_consumption);
+        return response()->json([
+            'units' => $units,
+            'energy_consumption' => $energy_consumption,
+        ]);
     }
 
     /**

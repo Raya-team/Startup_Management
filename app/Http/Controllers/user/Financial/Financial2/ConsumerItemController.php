@@ -71,7 +71,7 @@ class ConsumerItemController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -81,8 +81,9 @@ class ConsumerItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ConsumerItem $consumerItem)
+    public function update(Request $request, $id)
     {
+        $consumerItem = ConsumerItem::findorfail($id);
         $consumerItem->description = $request['consumer_item'][0]['description'];
         $consumerItem->number = $request['consumer_item'][0]['number'];
         $consumerItem->unit_cost = $request['consumer_item'][0]['unit_cost'];

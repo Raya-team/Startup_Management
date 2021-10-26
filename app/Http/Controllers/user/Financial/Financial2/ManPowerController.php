@@ -71,7 +71,7 @@ class ManPowerController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -81,8 +81,9 @@ class ManPowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ManPower $manPower)
+    public function update(Request $request, $id)
     {
+        $manPower = ManPower::findorfail($id);
         $manPower->description = $request['man_power'][0]['description'];
         $manPower->number = $request['man_power'][0]['number'];
         $manPower->salary = $request['man_power'][0]['salary'];

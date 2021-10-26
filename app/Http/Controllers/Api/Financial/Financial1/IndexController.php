@@ -23,13 +23,14 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $lands = Land::where('team_id', Auth::user()->team_id)->paginate(10);
-        $buildings = Building::where('team_id', Auth::user()->team_id)->paginate(10);
-        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', Auth::user()->team_id)->paginate(10);
-        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', Auth::user()->team_id)->paginate(10);
-        $facilities = Facility::where('team_id', Auth::user()->team_id)->paginate(10);
-        $transportations = Transportation::where('team_id', Auth::user()->team_id)->paginate(10);
-        $preoperatingcosts = PreOperatingCost::where('team_id', Auth::user()->team_id)->paginate(10);
+        $team_id = Auth::user()->team_id;
+        $lands = Land::where('team_id', $team_id)->paginate(10);
+        $buildings = Building::where('team_id', $team_id)->paginate(10);
+        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->paginate(10);
+        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->paginate(10);
+        $facilities = Facility::where('team_id', $team_id)->paginate(10);
+        $transportations = Transportation::where('team_id', $team_id)->paginate(10);
+        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->paginate(10);
         return response()->json([
             'lands' => $lands,
             'buildings' => $buildings,

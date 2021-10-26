@@ -71,7 +71,7 @@ class TransportationCostController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -81,8 +81,9 @@ class TransportationCostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TransportationCost $transportationCost)
+    public function update(Request $request, $id)
     {
+        $transportationCost = TransportationCost::findorfail($id);
         $transportationCost->description = $request['transportation_cost'][0]['description'];
         $transportationCost->number = $request['transportation_cost'][0]['number'];
         $transportationCost->unit_cost = $request['transportation_cost'][0]['unit_cost'];

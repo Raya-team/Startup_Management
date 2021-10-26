@@ -72,7 +72,7 @@ class RawMaterialController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -82,8 +82,9 @@ class RawMaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RawMaterial $rawMaterial)
+    public function update(Request $request, $id)
     {
+        $rawMaterial = RawMaterial::findorfail($id);
         $rawMaterial->description = $request['raw_material'][0]['description'];
         $rawMaterial->unit = $request['raw_material'][0]['unit'];
         $rawMaterial->unit_price = $request['raw_material'][0]['unit_price'];

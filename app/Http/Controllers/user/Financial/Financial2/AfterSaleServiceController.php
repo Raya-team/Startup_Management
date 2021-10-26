@@ -71,7 +71,7 @@ class AfterSaleServiceController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -81,8 +81,9 @@ class AfterSaleServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AfterSaleService $afterSaleService)
+    public function update(Request $request, $id)
     {
+        $afterSaleService = AfterSaleService::findorfail($id);
         $afterSaleService->description = $request['after_sale_service'][0]['description'];
         $afterSaleService->number = $request['after_sale_service'][0]['number'];
         $afterSaleService->unit_cost = $request['after_sale_service'][0]['unit_cost'];

@@ -69,7 +69,7 @@ class BusinessController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -79,8 +79,9 @@ class BusinessController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Business $business)
+    public function update(Request $request, $id)
     {
+        $business = Business::findorfail($id);
         $business->description = $request['business'][0]['description'];
         $business->annual_cost = $request['business'][0]['annual_cost'];
         $business->save();

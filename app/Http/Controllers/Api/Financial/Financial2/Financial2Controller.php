@@ -4,19 +4,25 @@ namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
 use App\Models\AfterSaleService;
+use App\Models\Building;
 use App\Models\Business;
 use App\Models\Capacity;
 use App\Models\ConsumerItem;
 use App\Models\DevelopmentCost;
 use App\Models\EnergyConsumption;
+use App\Models\EquipmentAndMachinery;
+use App\Models\Facility;
 use App\Models\Insurance;
 use App\Models\ManPower;
+use App\Models\OfficeEquipmentAndSupply;
 use App\Models\OtherInformation;
 use App\Models\PlanYear;
+use App\Models\PreOperatingCost;
 use App\Models\RawMaterial;
 use App\Models\RD;
 use App\Models\Rent;
 use App\Models\Repair;
+use App\Models\Transportation;
 use App\Models\TransportationCost;
 use App\Models\UnitOfMeasurement;
 use App\Models\Warranty;
@@ -60,8 +66,26 @@ class Financial2Controller extends Controller
      */
     public function create()
     {
+        $team_id = Auth::user()->team_id;
+        $buildings = collect(Building::where('team_id', $team_id)->get('description'));
+        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->get('description');
+        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get('description');
+        $facilities = Facility::where('team_id', $team_id)->get('description');
+        $transportations = Transportation::where('team_id', $team_id)->get('description');
+        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->get('description');
+
+        $descriptions = $buildings
+            ->merge($equipmentandmachineries)
+            ->merge($officeequipmentandsupplies)
+            ->merge($facilities)
+            ->merge($transportations)
+            ->merge($preoperatingcosts);
+
         $units = UnitOfMeasurement::all();
-        return response()->json($units);
+        return response()->json([
+            'descriptions' => $descriptions,
+            'units' => $units,
+        ]);
     }
 
     /**
