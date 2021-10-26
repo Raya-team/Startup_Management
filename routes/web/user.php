@@ -123,7 +123,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/technology-questions', TechnologyController::class);
     Route::resource('/manufacturing-questions', ManufacturingController::class);
-    Route::resource('/market-questions', DesMarketController::class);
+    Route::resource('/market-questions', MarketController::class);
     Route::resource('/business-questions', \App\Http\Controllers\user\Readiness\BusinessController::class);
     Route::resource('/commercialization-questions', \App\Http\Controllers\user\Readiness\CommercializationController::class);
     Route::resource('/publicmanagement-questions', \App\Http\Controllers\user\Readiness\PublicManagementController::class);
@@ -144,7 +144,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/description-obtainedcertificates', ManagerialController::class);
     Route::resource('/description-technical', TechnicalController::class);
     Route::resource('/description-requiredcertificates', ManagerialController::class);
-    Route::resource('/description-market', \App\Http\Controllers\user\Description\Market\DesMarketController::class);
+    Route::resource('/description-market', DesMarketController::class);
 
 });
 
