@@ -137,7 +137,7 @@
                             <!--begin: Wizard Form-->
                             <div class="row">
                                 <div class="col-xxl-12">
-                                    <form method="POST" action="{{route('description-market.store')}}" class="form" id="kt_form">
+                                    <form class="form" id="kt_form">
                                         <!--begin: Wizard Step 1-->
                                         <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                             <div class="card-body">
@@ -157,7 +157,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="form-group">
-                                                            <textarea name="Product_features" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                            <textarea name="product_features" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,7 +168,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="form-group">
-                                                            <textarea name="Product_competitive_advantages" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                            <textarea name="product_competitive_advantages" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -190,7 +190,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="form-group">
-                                                            <textarea name="product_pricing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
+                                                            <textarea name="pricing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -201,7 +201,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="form-group">
-                                                            <textarea name="product_marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
+                                                            <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -211,52 +211,52 @@
                                         <!--end: Wizard Step 1-->
                                         <!--begin: Wizard Step 2-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <div class="form-group row">
-                                                <div id="kt_repeater_1">
-                                                    <div data-repeater-list="product" class="col-lg-10">
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
                                                         <div data-repeater-item="" class="form-group row align-items-center">
-                                                            <div class="row">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-3">
-                                                                        <input type="text" class="form-control products" name="year" value="{{ old('year')}}" placeholder="سال" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <input type="text" class="form-control products" name="general_request" value="{{ old('general_request')}}" placeholder="تقاضای کل" required />
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <input type="text" class="form-control products" name="domestic_production" value="{{ old('domestic_production')}}" placeholder="تولید داخل" required />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-6">
-                                                                        <input type="text" class="form-control products" name="importation" value="{{ old('importation') }}" placeholder="واردات" required />
-                                                                    </div>
-                                                                    <div class="col-md-5">
-                                                                        <select name="unit" class="form-control">
-                                                                            <option value="">تن</option>
-                                                                            <option value="">کیلوگرم</option>
-                                                                            <option value="">عدد</option>
-                                                                            <option value="">متر</option>
-                                                                            <option value="">نفر</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="col-md-3">
+                                                                <label>سال:</label>
+                                                                <input type="text" class="form-control products" name="year" value="{{ old('year')}}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                                <div class="d-md-none mb-2"></div>
                                                             </div>
-                                                            <div class="row">
-                                                                <div class="form-group row">
-                                                                    <div class="col-md-12">
-                                                                        <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                            <i class="la la-trash-o"></i>حذف</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group row" style="margin-right: 10px">
-                                                                    <div class="col-md-12">
-                                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
-                                                                            <i class="la la-plus"></i>افزودن</a>
-                                                                    </div>
-                                                                </div>
+                                                            <div class="col-md-5">
+                                                                <label>تقاضای کل:</label>
+                                                                <input type="text" class="form-control products" name="general_request" value="{{ old('general_request')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>تولید داخل:</label>
+                                                                <input type="text" class="form-control products" name="domestic_production" value="{{ old('domestic_production')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>واردات:</label>
+                                                                <input type="text" class="form-control products" name="importation" value="{{ old('importation') }}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>واحد:</label>
+                                                                <select name="unit" class="form-control">
+                                                                    <option value="">تن</option>
+                                                                    <option value="">کیلوگرم</option>
+                                                                    <option value="">عدد</option>
+                                                                    <option value="">متر</option>
+                                                                    <option value="">نفر</option>
+                                                                </select>
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -264,938 +264,416 @@
                                         <!--end: Wizard Step 2-->
                                         <!--begin: Wizard Step 3-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-4">
+                                                                <label>ویژگی مشتری:</label>
+                                                                <input type="text" class="form-control products" name="customer_features" value="{{ old('customer_features')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>مشتریان گروه اول:</label>
+                                                                <input type="text" class="form-control products" name="first_group_customers" value="{{ old('first_group_customers')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>مشتریان گروه دوم:</label>
+                                                                <input type="text" class="form-control products" name="second_group_customers" value="{{ old('second_group_customers')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>مشتریان گروه سوم:</label>
+                                                                <input type="text" class="form-control products" name="third_group_customers" value="{{ old('third_group_customers') }}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>مشتریان گروه چهارم:</label>
+                                                                <input type="text" class="form-control products" name="fourth_group_customers" value="{{ old('fourth_group_customers') }}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 3-->
                                         <!--begin: Wizard Step 4-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label text-right">تامین‌کننده مواد اولیه:</label>
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-4">
+                                                                <label>نام:</label>
+                                                                <input type="text" class="form-control products" name="material_suppliers_name" value="{{ old('material_suppliers_name')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>منطقه جغرافیایی:</label>
+                                                                <input type="text" class="form-control products" name="material_suppliers_region" value="{{ old('material_suppliers_region')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
+                                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label text-right">تولید کننده:</label>
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-4">
+                                                                <label>نام:</label>
+                                                                <input type="text" class="form-control products" name="producers_name" value="{{ old('producers_name')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>منطقه جغرافیایی:</label>
+                                                                <input type="text" class="form-control products" name="producers_region" value="{{ old('producers_region')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label text-right">عرضه کننده:</label>
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-4">
+                                                                <label>نام:</label>
+                                                                <input type="text" class="form-control products" name="suppliers_name" value="{{ old('suppliers_name')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>منطقه جغرافیایی:</label>
+                                                                <input type="text" class="form-control products" name="suppliers_region" value="{{ old('suppliers_region')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-2 col-form-label text-right">خرده فروش:</label>
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-4">
+                                                                <label>نام:</label>
+                                                                <input type="text" class="form-control products" name="retails_name" value="{{ old('retails_name')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>منطقه جغرافیایی:</label>
+                                                                <input type="text" class="form-control products" name="retails_region" value="{{ old('retails_region')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <!--end: Wizard Step 4-->
                                         <!--begin: Wizard Step 5-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div class="card-body">
+                                                <h5 class="text-dark font-weight-bold">اقتصادی</h5><br>
+                                                <!--begin::Group-->
+                                                <div class="form-group row">
+                                                    <div class="col-xl-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea name="economical" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Group-->
+                                                <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                <h5 class="text-dark font-weight-bold">اجتماعی</h5><br>
+                                                <!--begin::Group-->
+                                                <div class="form-group row">
+                                                    <div class="col-xl-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea name="social" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Group-->
+                                                <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                <h5 class="text-dark font-weight-bold">سیاسی</h5><br>
+                                                <!--begin::Group-->
+                                                <div class="form-group row">
+                                                    <div class="col-xl-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea name="political" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Group-->
+                                                <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                <h5 class="text-dark font-weight-bold">محیط زیستی</h5><br>
+                                                <!--begin::Group-->
+                                                <div class="form-group row">
+                                                    <div class="col-xl-12 col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea name="environmental" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Group-->
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 5-->
                                         <!--begin: Wizard Step 6-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-5">
+                                                                <label>نام رقیب:</label>
+                                                                <input type="text" class="form-control products" name="competitor_name" value="{{ old('competitor_name')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <label>منطقه جغرافیایی:</label>
+                                                                <input type="text" class="form-control products" name="competitors_region" value="{{ old('competitors_region')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <label>سهم از بازار:</label>
+                                                                <input type="text" class="form-control products" name="market_share" value="{{ old('market_share')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <label>ویژگی رقابتی:</label>
+                                                                <input type="text" class="form-control products" name="competitive_feature" value="{{ old('competitive_feature') }}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <label>نقطه ضعف:</label>
+                                                                <input type="text" class="form-control products" name="weakness" value="{{ old('weakness') }}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 6-->
                                         <!--begin: Wizard Step 7-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-12">
+                                                                <label>شرح:</label>
+                                                                <input type="text" class="form-control products" name="strengths_description" value="{{ old('strengths_description')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>وزن:</label>
+                                                                <input type="text" class="form-control products" name="strengths_weight" value="{{ old('strengths_weight')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>امتیاز:</label>
+                                                                <input type="text" class="form-control products" name="strengths_Score" value="{{ old('strengths_Score')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 7-->
                                         <!--begin: Wizard Step 8-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-12">
+                                                                <label>شرح:</label>
+                                                                <input type="text" class="form-control products" name="weak_points_description" value="{{ old('weak_points_description')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>وزن:</label>
+                                                                <input type="text" class="form-control products" name="weak_points_weight" value="{{ old('weak_points_weight')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>امتیاز:</label>
+                                                                <input type="text" class="form-control products" name="weak_points_Score" value="{{ old('weak_points_Score')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 8-->
                                         <!--begin: Wizard Step 9-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-12">
+                                                                <label>شرح:</label>
+                                                                <input type="text" class="form-control products" name="opportunity_points_description" value="{{ old('opportunity_points_description')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>وزن:</label>
+                                                                <input type="text" class="form-control products" name="opportunity_points_weight" value="{{ old('opportunity_points_weight')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>امتیاز:</label>
+                                                                <input type="text" class="form-control products" name="opportunity_points_Score" value="{{ old('opportunity_points_Score')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 9-->
                                         <!--begin: Wizard Step 10-->
                                         <div class="pb-5" data-wizard-type="step-content">
-                                            <!--begin::Table-->
-                                            <div class="table-responsive">
-                                                <table class="table table-head-custom table-vertical-center" id="myTable1">
-                                                    <thead>
-                                                    <tr class="bg-gray-100">
-                                                        <th class="text-left">ردیف</th>
-                                                        <th class="text-center">سوال</th>
-                                                        <th class="text-left">پاسخ</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">1</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر در حال توسعه محصول در اوقات فراغت است. مبتکر دارای اشتغال اولیه‌ای است که توسعه این محصول را شامل نمی‌شود.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">2</span></td>
-                                                        <td><span class="text-dark-75">مبتکر منابع شخصی قابل توجهی را در توسعه محصول سرمایه‌گذاری کرده است.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td>
-                                                            <span class="text-dark-75">3</span>
-                                                        </td>
-                                                        <td>
-                                                            <span class="text-dark-75">مبتکر یک شرکت بر ای توسعه محصول تاسیس کرده است. اولویت اول استخدام مبتکر، برای ساختن کسب و کار است.</span>
-                                                        </td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">4</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی متفاوت با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">5</span></td>
-                                                        <td><span class="text-dark-75">اگر سطوح بالاتر اعمال نشوند، مبتکر و یا مدیر عمومی او، حداقل تجربه تجاری سازی محصول جدیدی مشابه با محصول درحال توسعه را دارند.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">6</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را در TRL6 یا بالاتر به ثبت رسانده است. کمتر از 10% درآمد شرکت از فروش آن محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">7</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار حداقل یک محصول را درTRL 7 بالاتر به ثبت رسانده است. بیش از 10% درآمد شرکت از فروش محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">8</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده محصولات جدید با تجربه، با حداقل تجاری سازی یک محصول مهم است. بیش از 25 درصد درآمد شرکت از فروش این محصول حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr style="background-color: #fdff9338" class="text-left">
-                                                        <td><span class="text-dark-75">9</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، یک توسعه دهنده باثبات محصولات جدید، با موفقیت چندین محصول جدید تجاری در 5 سال گذشته است. بیش از 50 درصد درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="text-left">
-                                                        <td><span class="text-dark-75">10</span></td>
-                                                        <td><span class="text-dark-75">کسب و کار، به طور مداوم در حال توسعه محصولات جدید، با چندین موفقیت تجاری جدید در هر سال است. بیش از 75% درآمد شرکت از فروش این محصولات حاصل می‌شود.</span></td>
-                                                        <td>
-                                                            <label class="checkbox checkbox-outline checkbox-outline-2x checkbox-success" style="display: inline-block;">
-                                                                <input type="checkbox" name="Checkboxes16">
-                                                                <span></span></label>
-                                                        </td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
+                                            <div id="kt_repeater_1">
+                                                <div class="form-group row">
+                                                    <div data-repeater-list="" class="col-lg-10">
+                                                        <div data-repeater-item="" class="form-group row align-items-center">
+                                                            <div class="col-md-12">
+                                                                <label>شرح:</label>
+                                                                <input type="text" class="form-control products" name="threats_description" value="{{ old('threats_description')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>وزن:</label>
+                                                                <input type="text" class="form-control products" name="threats_weight" value="{{ old('threats_weight')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label>امتیاز:</label>
+                                                                <input type="text" class="form-control products" name="threats_Score" value="{{ old('threats_Score')}}" required />
+                                                                <div class="d-md-none mb-2"></div>
+                                                            </div>
+                                                            <div class="col-md-4" style="padding-top: 23px">
+                                                                <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                    <i class="la la-trash-o"></i>حذف</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-lg-12">
+                                                        <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <i class="la la-plus"></i>افزودن</a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <!--end::Table-->
                                         </div>
                                         <!--end: Wizard Step 10-->
                                         <!--begin: Wizard Actions-->
@@ -1204,8 +682,7 @@
                                                 <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">قبلی</button>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit"
-                                                        id="kt_login_singin_form_submit_button">ثبت</button>
+                                                <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit" id="kt_login_singin_form_submit_button">ثبت</button>
                                                 <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">بعدی</button>
                                             </div>
                                         </div>
@@ -1230,7 +707,6 @@
 @section('script')
     <script>
         "use strict";
-
         // Class definition
         var KTWizard2 = function () {
             // Base elements
