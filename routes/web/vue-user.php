@@ -88,4 +88,10 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::resource('/UncertaintyPrediction-questions', \App\Http\Controllers\Api\Readiness\UncertaintyPredictionController::class);
     Route::resource('/SupplyChain-questions', \App\Http\Controllers\Api\Readiness\SupplyChainController::class);
     Route::resource('/Rule-questions', \App\Http\Controllers\Api\Readiness\RuleController::class);
+
+    Route::resource('/description-managerial', \App\Http\Controllers\Api\Description\Managerial\ManagerialController::class);
+    Route::resource('/description-obtainedcertificates', \App\Http\Controllers\Api\Description\Managerial\ObtainedCertificateController::class);
+
+    Route::resource('/description-technical', \App\Http\Controllers\Api\Description\Technical\TechnicalController::class);
+    Route::resource('/description-requiredcertificates',\App\Http\Controllers\Api\Description\Technical\RequiredCertificateController::class);
 });

@@ -16,7 +16,7 @@ class TechnologyController extends Controller
      */
     public function index()
     {
-        return view('user.Readiness.technology.index');
+        return view('user.readiness.technology.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class TechnologyController extends Controller
      */
     public function create()
     {
-        return view('user.Readiness.technology.index');
+        return view('user.readiness.technology.index');
     }
 
     /**
@@ -103,7 +103,7 @@ class TechnologyController extends Controller
         $team_id = Auth::user()->team_id;
         $questions = TechnologyQuestion::findorfail($id);
         if ($team_id == $questions->team_id){
-            return view('user.Readiness.technology.index');
+            return view('user.readiness.technology.index');
         }
         abort(404);
     }

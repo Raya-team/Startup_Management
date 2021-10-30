@@ -122,6 +122,17 @@ import UncertaintyPredictionQuestionEdit from './components/readiness/business/u
 import SupplyChainQuestionEdit from './components/readiness/business/supply-chain/edit';
 import RuleQuestionEdit from './components/readiness/business/rule/edit';
 
+import DescriptionManagerialCreate from './components/description/managerial/create';
+import DescriptionManagerialIndex from './components/description/managerial/index';
+import DescriptionManagerialEdit from './components/description/managerial/edit';
+import DescriptionObtainedCertificateCreate from './components/description/managerial/obtained-certificate/create';
+import DescriptionObtainedCertificateEdit from './components/description/managerial/obtained-certificate/edit';
+import DescriptionTechnicalCreate from './components/description/technical/create';
+import DescriptionTechnicalIndex from './components/description/technical/index';
+import DescriptionTechnicalEdit from './components/description/technical/edit';
+import DescriptionRequiredCertificateCreate from './components/description/technical/required-certificate/create';
+import DescriptionRequiredCertificateEdit from './components/description/technical/required-certificate/edit';
+
 const routes = [
     {path: '/user/dashboard', name: 'Dashboard', component: Dashboard, meta: {title: 'داشبورد'}},
     {path: '/page', name: 'Page', component: Page},
@@ -245,6 +256,17 @@ const routes = [
     {path: '/UncertaintyPrediction-questions/:id/edit', name: 'UncertaintyPrediction-questions-edit', component: UncertaintyPredictionQuestionEdit, meta: {title: 'ویرایش'}},
     {path: '/SupplyChain-questions/:id/edit', name: 'SupplyChain-questions-edit', component: SupplyChainQuestionEdit, meta: {title: 'ویرایش'}},
     {path: '/Rule-questions/:id/edit', name: 'Rule-questions-edit', component: RuleQuestionEdit, meta: {title: 'ویرایش'}},
+
+    {path: '/description-managerial', name: 'description-managerial-index', component: DescriptionManagerialIndex,meta: {title: 'توضیحات - مدیریتی'}},
+    {path: '/description-managerial/create', name: 'description-managerial-create', component: DescriptionManagerialCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
+    {path: '/description-managerial/:id/edit', name: 'description-managerial-edit', component: DescriptionManagerialEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
+    {path: '/description-obtainedcertificates/create', name: 'description-obtainedcertificates-create', component: DescriptionObtainedCertificateCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
+    {path: '/description-obtainedcertificates/:id/edit', name: 'description-obtainedcertificates-edit', component: DescriptionObtainedCertificateEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
+    {path: '/description-technical', name: 'description-technical-index', component: DescriptionTechnicalIndex,meta: {title: 'توضیحات - فنی'}},
+    {path: '/description-technical/create', name: 'description-technical-create', component: DescriptionTechnicalCreate, meta: {title: 'توضیحات - فنی | ایجاد'}},
+    {path: '/description-technical/:id/edit', name: 'description-technical-edit', component: DescriptionTechnicalEdit, meta: {title: 'توضیحات - فنی | ویرایش'}},
+    {path: '/description-requiredcertificates/create', name: 'description-requiredcertificates-create', component: DescriptionRequiredCertificateCreate, meta: {title: 'توضیحات - فنی | ایجاد'}},
+    {path: '/description-requiredcertificates/:id/edit', name: 'description-requiredcertificates-edit', component: DescriptionRequiredCertificateEdit, meta: {title: 'توضیحات - فنی | ویرایش'}},
 ];
 
 export default new VueRouter({

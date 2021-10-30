@@ -62,7 +62,7 @@ class CustomerRecognitionController extends Controller
         $team_id = Auth::user()->team_id;
         $questions = CustomerRecognitionQuestion::findorfail($id);
         if ($team_id == $questions->team_id){
-            return view('user.Readiness.index');
+            return view('user.readiness.index');
         }
         abort(404);
     }

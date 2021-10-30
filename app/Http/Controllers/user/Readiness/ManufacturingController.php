@@ -16,7 +16,7 @@ class ManufacturingController extends Controller
      */
     public function index()
     {
-        return view('user.Readiness.index');
+        return view('user.readiness.index');
     }
 
     /**
@@ -26,7 +26,7 @@ class ManufacturingController extends Controller
      */
     public function create()
     {
-        return view('user.Readiness.index');
+        return view('user.readiness.index');
     }
 
     /**
@@ -98,7 +98,7 @@ class ManufacturingController extends Controller
         $team_id = Auth::user()->team_id;
         $questions = ManufacturingQuestion::findorfail($id);
         if ($team_id == $questions->team_id){
-            return view('user.Readiness.technology.index');
+            return view('user.readiness.technology.index');
         }
         abort(404);
     }

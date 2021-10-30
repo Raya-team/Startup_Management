@@ -42,21 +42,21 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <h3 style="color: red">هزینه های بازرگانی</h3><hr>
-                                        <div class="row" v-for="(busi, index) in data.business" :key="index">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="businesses_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="businesses_description" placeholder="شرح" name="businesses_description" v-model="busi.description"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="businesses_annual_cost">هزینه سالیانه:</label>
-                                                    <input type="text" class="form-control" id="businesses_annual_cost" placeholder="هزینه سالیانه" name="businesses_annual_cost" v-model="busi.annual_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                </div>
+                                    <div class="row" v-for="(busi, index) in data.business" :key="index">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="businesses_description">شرح:</label>
+                                                <input type="text" class="form-control" id="businesses_description" placeholder="شرح" name="businesses_description" v-model="busi.description"/>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="businesses_annual_cost">هزینه سالیانه:</label>
+                                                <input type="text" class="form-control" id="businesses_annual_cost" placeholder="هزینه سالیانه" name="businesses_annual_cost" v-model="busi.annual_cost"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
