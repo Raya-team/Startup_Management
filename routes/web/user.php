@@ -147,6 +147,18 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/description-technical', TechnicalController::class);
     Route::resource('/description-requiredcertificates',RequiredCertificateController::class);
     Route::resource('/description-market', DesMarketController::class);
+    Route::resource('/product-supply-and-demands', DesMarketController::class);
+    Route::resource('/product-customers', DesMarketController::class);
+    Route::resource('/raw-material-suppliers', DesMarketController::class);
+    Route::resource('/producers', DesMarketController::class);
+    Route::resource('/suppliers', DesMarketController::class);
+    Route::resource('/retails', DesMarketController::class);
+    Route::resource('environmental-effects', DesMarketController::class);
+    Route::resource('/product-competitors', DesMarketController::class);
+    Route::resource('/strengths', DesMarketController::class);
+    Route::resource('/weak-points', DesMarketController::class);
+    Route::resource('/opportunity-points', DesMarketController::class);
+    Route::resource('/threats', DesMarketController::class);
 
 });
 
