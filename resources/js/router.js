@@ -127,6 +127,7 @@ import DescriptionManagerialIndex from './components/description/managerial/inde
 import DescriptionManagerialEdit from './components/description/managerial/edit';
 import DescriptionObtainedCertificateCreate from './components/description/managerial/obtained-certificate/create';
 import DescriptionObtainedCertificateEdit from './components/description/managerial/obtained-certificate/edit';
+import DescriptionMarketCreate from './components/description/market/create';
 import DescriptionTechnicalCreate from './components/description/technical/create';
 import DescriptionTechnicalIndex from './components/description/technical/index';
 import DescriptionTechnicalEdit from './components/description/technical/edit';
@@ -262,6 +263,7 @@ const routes = [
     {path: '/description-managerial/:id/edit', name: 'description-managerial-edit', component: DescriptionManagerialEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
     {path: '/description-obtainedcertificates/create', name: 'description-obtainedcertificates-create', component: DescriptionObtainedCertificateCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
     {path: '/description-obtainedcertificates/:id/edit', name: 'description-obtainedcertificates-edit', component: DescriptionObtainedCertificateEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
+    {path: '/description-market/create', name: 'description-market-create', component: DescriptionMarketCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
     {path: '/description-technical', name: 'description-technical-index', component: DescriptionTechnicalIndex,meta: {title: 'توضیحات - فنی'}},
     {path: '/description-technical/create', name: 'description-technical-create', component: DescriptionTechnicalCreate, meta: {title: 'توضیحات - فنی | ایجاد'}},
     {path: '/description-technical/:id/edit', name: 'description-technical-edit', component: DescriptionTechnicalEdit, meta: {title: 'توضیحات - فنی | ویرایش'}},

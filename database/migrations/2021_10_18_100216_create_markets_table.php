@@ -16,8 +16,8 @@ class CreateMarketsTable extends Migration
         Schema::create('markets', function (Blueprint $table) {
             $table->id();
             $table->text('product_introduction');
-            $table->text('Product_features');
-            $table->text('Product_competitive_advantages');
+            $table->text('product_features');
+            $table->text('product_competitive_advantages');
             $table->text('position_analysis');
             $table->text('product_pricing_strategy');
             $table->text('product_marketing_strategy');

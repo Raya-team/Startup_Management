@@ -17,7 +17,7 @@ class CreateOpportunityPointsTable extends Migration
             $table->id();
             $table->text('description');
             $table->string('weight');
-            $table->string('Score');
+            $table->string('score');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

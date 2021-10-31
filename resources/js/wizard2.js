@@ -1,5 +1,4 @@
 "use strict";
-
 // Class definition
 var KTWizard2 = function () {
     // Base elements

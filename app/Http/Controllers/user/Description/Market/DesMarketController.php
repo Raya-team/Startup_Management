@@ -89,8 +89,8 @@ class DesMarketController extends Controller
     protected function Market(DesMarketRequest $request, Market $market, $team_id)
     {
         $market->product_introduction = $request->input('product_introduction');
-        $market->Product_features = $request->input('product_features');
-        $market->Product_competitive_advantages = $request->input('product_competitive_advantages');
+        $market->product_features = $request->input('product_features');
+        $market->product_competitive_advantages = $request->input('product_competitive_advantages');
         $market->position_analysis = $request->input('position_analysis');
         $market->product_pricing_strategy = $request->input('pricing_strategy');
         $market->product_marketing_strategy = $request->input('marketing_strategy');
@@ -216,7 +216,7 @@ class DesMarketController extends Controller
             $strength = new Strengths();
             $strength->description = $strengths[$i]['strengths_description'];
             $strength->weight = $strengths[$i]['strengths_weight'];
-            $strength->Score = $strengths[$i]['strengths_Score'];
+            $strength->score = $strengths[$i]['strengths_score'];
             $strength->team_id = $team_id;
             $strength->updated_at = null;
             $strength->save();
@@ -230,7 +230,7 @@ class DesMarketController extends Controller
             $weak_point = new WeakPoint();
             $weak_point->description = $weak_points[$i]['weak_points_description'];
             $weak_point->weight = $weak_points[$i]['weak_points_weight'];
-            $weak_point->Score = $weak_points[$i]['weak_points_Score'];
+            $weak_point->score = $weak_points[$i]['weak_points_score'];
             $weak_point->team_id = $team_id;
             $weak_point->updated_at = null;
             $weak_point->save();
@@ -244,7 +244,7 @@ class DesMarketController extends Controller
             $opportunity_point = new OpportunityPoint();
             $opportunity_point->description = $opportunity_points[$i]['opportunity_points_description'];
             $opportunity_point->weight = $opportunity_points[$i]['opportunity_points_weight'];
-            $opportunity_point->Score = $opportunity_points[$i]['opportunity_points_Score'];
+            $opportunity_point->score = $opportunity_points[$i]['opportunity_points_score'];
             $opportunity_point->team_id = $team_id;
             $opportunity_point->updated_at = null;
             $opportunity_point->save();
@@ -258,7 +258,7 @@ class DesMarketController extends Controller
             $threat = new Threats();
             $threat->description = $threats[$i]['threats_description'];
             $threat->weight = $threats[$i]['threats_weight'];
-            $threat->Score = $threats[$i]['threats_Score'];
+            $threat->score = $threats[$i]['threats_score'];
             $threat->team_id = $team_id;
             $threat->updated_at = null;
             $threat->save();

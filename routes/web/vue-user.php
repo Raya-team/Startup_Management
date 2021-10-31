@@ -91,7 +91,7 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
 
     Route::resource('/description-managerial', \App\Http\Controllers\Api\Description\Managerial\ManagerialController::class);
     Route::resource('/description-obtainedcertificates', \App\Http\Controllers\Api\Description\Managerial\ObtainedCertificateController::class);
-
+    Route::resource('/description-market', \App\Http\Controllers\Api\Description\Market\DesMarketController::class);
     Route::resource('/description-technical', \App\Http\Controllers\Api\Description\Technical\TechnicalController::class);
     Route::resource('/description-requiredcertificates',\App\Http\Controllers\Api\Description\Technical\RequiredCertificateController::class);
 });
