@@ -128,6 +128,15 @@
                                         </div>
                                     </div>
                                     <!--end::Wizard Step 10 Nav-->
+                                    <!--begin::Wizard Step 11 Nav-->
+                                    <div class="wizard-step" data-wizard-type="step">
+                                        <div class="wizard-wrapper">
+                                            <div class="wizard-label">
+                                                <h3 class="wizard-title">محصولات جایگزین</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Wizard Step 11 Nav-->
                                 </div>
                             </div>
                             <!--end: Wizard Nav-->
@@ -136,7 +145,7 @@
                                 <!--begin: Wizard Form-->
                                 <div class="row">
                                     <div class="col-xxl-12">
-                                        <form class="form" id="kt_form">
+                                        <form class="form" id="kt_form" @submit.prevent="onSubmit">
                                             <!--begin: Wizard Step 1-->
                                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                                 <div class="card-body">
@@ -205,6 +214,39 @@
                                                         </div>
                                                     </div>
                                                     <!--end::Group-->
+                                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                    <h5 class="text-dark font-weight-bold">وضعیت بازار</h5>
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <div class="col-xl-12 col-lg-12">
+                                                            <div class="form-group">
+                                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.market_status"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+                                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                    <h5 class="text-dark font-weight-bold">بازار هدف</h5>
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <div class="col-xl-12 col-lg-12">
+                                                            <div class="form-group">
+                                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.target_market"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
+                                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                                    <h5 class="text-dark font-weight-bold">پیش‌بینی آینده بازار</h5>
+                                                    <!--begin::Group-->
+                                                    <div class="form-group row">
+                                                        <div class="col-xl-12 col-lg-12">
+                                                            <div class="form-group">
+                                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.forecast_the_future_of_the_market"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!--end::Group-->
                                                 </div>
                                             </div>
                                             <!--end: Wizard Step 1-->
@@ -238,13 +280,13 @@
                                                                     </div>
                                                                     <div class="col-md-4">
                                                                         <label>واحد:</label>
-                                                                        <select name="unit" class="form-control" v-model="pro.unit">
+                                                                        <select name="unit" class="form-control" v-model="pro.unit_id">
                                                                             <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>
                                                                         </select>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div v-if="index != 0" class="col-md-2">
-                                                                        <a  @click="RemoveProductSupplies(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                        <a @click="RemoveProductSupplies(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                                             <i class="la la-trash-o"></i>حذف</a>
                                                                     </div>
                                                                 </div>
@@ -263,44 +305,46 @@
                                             <!--begin: Wizard Step 3-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_2">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <label>ویژگی مشتری:</label>
-                                                                    <input type="text" class="form-control products" name="customer_features" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>مشتریان گروه اول:</label>
-                                                                    <input type="text" class="form-control products" name="first_group_customers" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>مشتریان گروه دوم:</label>
-                                                                    <input type="text" class="form-control products" name="second_group_customers" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>مشتریان گروه سوم:</label>
-                                                                    <input type="text" class="form-control products" name="third_group_customers" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>مشتریان گروه چهارم:</label>
-                                                                    <input type="text" class="form-control products" name="fourth_group_customers" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(pro, index) in data.product_customers" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-4">
+                                                                        <label>ویژگی مشتری:</label>
+                                                                        <input type="text" class="form-control products" name="customer_features" v-model="pro.customer_features"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>مشتریان گروه اول:</label>
+                                                                        <input type="text" class="form-control products" name="first_group_customers" v-model="pro.first_group_customers"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>مشتریان گروه دوم:</label>
+                                                                        <input type="text" class="form-control products" name="second_group_customers" v-model="pro.second_group_customers"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>مشتریان گروه سوم:</label>
+                                                                        <input type="text" class="form-control products" name="third_group_customers" v-model="pro.third_group_customers"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>مشتریان گروه چهارم:</label>
+                                                                        <input type="text" class="form-control products" name="fourth_group_customers" v-model="pro.fourth_group_customers"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveProductCustomers(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddProductCustomers" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
@@ -310,120 +354,128 @@
                                             <!--begin: Wizard Step 4-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_3">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-2 col-form-label text-right">تامین‌کننده مواد اولیه:</label>
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <label>نام:</label>
-                                                                    <input type="text" class="form-control products" name="material_suppliers_name" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>منطقه جغرافیایی:</label>
-                                                                    <input type="text" class="form-control products" name="material_suppliers_region" required />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(raw, index) in data.raw_material_suppliers" :key="index">
+                                                            <label class="col-lg-2 col-form-label text-right">تامین‌کننده مواد اولیه:</label>
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-4">
+                                                                        <label>نام:</label>
+                                                                        <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveRawMaterialSuppliers(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddRawMaterialSuppliers" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                                 <div id="kt_repeater_4">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-2 col-form-label text-right">تولید کننده:</label>
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <label>نام:</label>
-                                                                    <input type="text" class="form-control products" name="producers_name" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>منطقه جغرافیایی:</label>
-                                                                    <input type="text" class="form-control products" name="producers_region" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(pro, index) in data.producers" :key="index">
+                                                            <label class="col-lg-2 col-form-label text-right">تولید کننده:</label>
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-4">
+                                                                        <label>نام:</label>
+                                                                        <input type="text" class="form-control products" name="producers_name" v-model="pro.name"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <input type="text" class="form-control products" name="producers_region" v-model="pro.geographical_region"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveProducers(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddProducers" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                                 <div id="kt_repeater_5">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-2 col-form-label text-right">عرضه کننده:</label>
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <label>نام:</label>
-                                                                    <input type="text" class="form-control products" name="suppliers_name" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>منطقه جغرافیایی:</label>
-                                                                    <input type="text" class="form-control products" name="suppliers_region" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(supp, index) in data.suppliers" :key="index">
+                                                            <label class="col-lg-2 col-form-label text-right">عرضه کننده:</label>
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-4">
+                                                                        <label>نام:</label>
+                                                                        <input type="text" class="form-control products" name="suppliers_name" v-model="supp.name"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <input type="text" class="form-control products" name="suppliers_region" v-model="supp.geographical_region"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveSuppliers(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddSuppliers" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                                 <div id="kt_repeater_6">
-                                                    <div class="form-group row">
-                                                        <label class="col-lg-2 col-form-label text-right">خرده فروش:</label>
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-4">
-                                                                    <label>نام:</label>
-                                                                    <input type="text" class="form-control products" name="retails_name" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>منطقه جغرافیایی:</label>
-                                                                    <input type="text" class="form-control products" name="retails_region" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(ret, index) in data.retails" :key="index">
+                                                            <label class="col-lg-2 col-form-label text-right">خرده فروش:</label>
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-4">
+                                                                        <label>نام:</label>
+                                                                        <input type="text" class="form-control products" name="retails_name" v-model="ret.name"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <input type="text" class="form-control products" name="retails_region" v-model="ret.geographical_region"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveRetails(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddRetails" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
@@ -438,7 +490,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
                                                             <div class="form-group">
-                                                                <textarea name="economical" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                                <textarea name="economical" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.economical"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -449,7 +501,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
                                                             <div class="form-group">
-                                                                <textarea name="social" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                                <textarea name="social" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.social"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -460,7 +512,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
                                                             <div class="form-group">
-                                                                <textarea name="political" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید"></textarea>
+                                                                <textarea name="political" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.political"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -471,7 +523,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
                                                             <div class="form-group">
-                                                                <textarea name="environmental" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید"></textarea>
+                                                                <textarea name="environmental" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.environmental_effect.environmental"></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -482,45 +534,49 @@
                                             <!--begin: Wizard Step 6-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_7">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-5">
-                                                                    <label>نام رقیب:</label>
-                                                                    <input type="text" class="form-control products" name="competitor_name"/>
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-5">
-                                                                    <label>منطقه جغرافیایی:</label>
-                                                                    <input type="text" class="form-control products" name="competitors_region"/>
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-5">
-                                                                    <label>سهم از بازار:</label>
-                                                                    <input type="text" class="form-control products" name="market_share" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-5">
-                                                                    <label>ویژگی رقابتی:</label>
-                                                                    <input type="text" class="form-control products" name="competitive_feature" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-5">
-                                                                    <label>نقطه ضعف:</label>
-                                                                    <input type="text" class="form-control products" name="weakness" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(pro, index) in data.product_competitors" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-5">
+                                                                        <label>نام رقیب:</label>
+                                                                        <input type="text" class="form-control products" name="competitor_name" v-model="pro.name"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <input type="text" class="form-control products" name="competitors_region" v-model="pro.geographical_region"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label>سهم از بازار:</label>
+                                                                        <input type="text" class="form-control products" name="market_share" v-model="pro.market_share"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label>ویژگی رقابتی:</label>
+                                                                        <input type="text" class="form-control products" name="competitive_feature" v-model="pro.competitive_feature"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label>نقطه ضعف:</label>
+                                                                        <input type="text" class="form-control products" name="weakness" v-model="pro.weakness"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveProductCompetitors(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
-                                                                <i class="la la-plus"></i>افزودن</a>
+                                                            <a @click="AddProductCompetitors" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                                <i class="la la-plus"></i>افزودن
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -529,34 +585,36 @@
                                             <!--begin: Wizard Step 7-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_8">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-12">
-                                                                    <label>شرح:</label>
-                                                                    <input type="text" class="form-control products" name="strengths_description" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>وزن:</label>
-                                                                    <input type="text" class="form-control products" name="strengths_weight"  />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>امتیاز:</label>
-                                                                    <input type="text" class="form-control products" name="strengths_Score"  />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(data, index) in data.strengths" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <label>شرح:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_description" v-model="data.description"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>وزن:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>امتیاز:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveStrengths(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddStrengths" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
@@ -566,34 +624,36 @@
                                             <!--begin: Wizard Step 8-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_9">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-12">
-                                                                    <label>شرح:</label>
-                                                                    <input type="text" class="form-control products" name="weak_points_description" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>وزن:</label>
-                                                                    <input type="text" class="form-control products" name="weak_points_weight" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>امتیاز:</label>
-                                                                    <input type="text" class="form-control products" name="weak_points_Score" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(data, index) in data.weak_points" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <label>شرح:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_description" v-model="data.description"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>وزن:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>امتیاز:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveWeakPoints(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddWeakPoints" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
@@ -603,34 +663,36 @@
                                             <!--begin: Wizard Step 9-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_10">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-12">
-                                                                    <label>شرح:</label>
-                                                                    <input type="text" class="form-control products" name="opportunity_points_description" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>وزن:</label>
-                                                                    <input type="text" class="form-control products" name="opportunity_points_weight" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>امتیاز:</label>
-                                                                    <input type="text" class="form-control products" name="opportunity_points_Score" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(data, index) in data.opportunity_points" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <label>شرح:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_description" v-model="data.description"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>وزن:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>امتیاز:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveOpportunityPoints(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddOpportunityPoints" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
@@ -640,47 +702,83 @@
                                             <!--begin: Wizard Step 10-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div id="kt_repeater_11">
-                                                    <div class="form-group row">
-                                                        <div data-repeater-list="" class="col-lg-10">
-                                                            <div data-repeater-item="" class="form-group row align-items-center">
-                                                                <div class="col-md-12">
-                                                                    <label>شرح:</label>
-                                                                    <input type="text" class="form-control products" name="threats_description" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>وزن:</label>
-                                                                    <input type="text" class="form-control products" name="threats_weight" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <label>امتیاز:</label>
-                                                                    <input type="text" class="form-control products" name="threats_Score" />
-                                                                    <div class="d-md-none mb-2"></div>
-                                                                </div>
-                                                                <div class="col-md-4" style="padding-top: 23px">
-                                                                    <a href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(data, index) in data.threats" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <label>شرح:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_description" v-model="data.description"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>وزن:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <label>امتیاز:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                                        <a @click="RemoveThreats(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </transition-group>
                                                     <div class="form-group row">
                                                         <div class="col-lg-12">
-                                                            <a href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                            <a @click="AddThreats" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                                                 <i class="la la-plus"></i>افزودن</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!--end: Wizard Step 10-->
+                                            <!--begin: Wizard Step 11-->
+                                            <div class="pb-5" data-wizard-type="step-content">
+                                                <div id="kt_repeater_12">
+                                                    <transition-group name="slide">
+                                                        <div class="form-group row" v-for="(pro, index) in data.alternative_products" :key="index">
+                                                            <div data-repeater-list="" class="col-lg-10">
+                                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                                    <div class="col-md-5">
+                                                                        <label>عنوان محصول:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_description" v-model="pro.product_title"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div class="col-md-5">
+                                                                        <label>توضیحات:</label>
+                                                                        <input type="text" class="form-control products" name="strengths_weight" v-model="pro.description"/>
+                                                                        <div class="d-md-none mb-2"></div>
+                                                                    </div>
+                                                                    <div v-if="index != 0" class="col-md-2" style="padding-top: 23px">
+                                                                        <a @click="RemoveAlternativeProducts(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </transition-group>
+                                                    <div class="form-group row">
+                                                        <div class="col-lg-12">
+                                                            <a @click="AddAlternativeProducts" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                                <i class="la la-plus"></i>افزودن</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end: Wizard Step 11-->
                                             <!--begin: Wizard Actions-->
                                             <div class="d-flex justify-content-between border-top mt-5 pt-10">
                                                 <div class="mr-2">
                                                     <button type="button" class="btn btn-light-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-prev">قبلی</button>
                                                 </div>
                                                 <div>
-                                                    <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit" id="kt_login_singin_form_submit_button">ثبت</button>
+                                                    <button type="button" class="btn btn-success font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-submit" id="kt_login_singin_form_submit_button" @click="onSubmit">ثبت</button>
                                                     <button type="button" class="btn btn-primary font-weight-bolder text-uppercase px-9 py-4" data-wizard-type="action-next">بعدی</button>
                                                 </div>
                                             </div>
@@ -713,8 +811,8 @@
             return {
                 units: '',
                 data: {
-                    market: {product_introduction: '', product_features: '', product_competitive_advantages: '', position_analysis: '', product_pricing_strategy: '', product_marketing_strategy: ''},
-                    product_supplies: [{ year: '', general_request: '', domestic_production: '', importation: '', unit: '' }],
+                    market: {product_introduction: '', product_features: '', product_competitive_advantages: '', position_analysis: '', product_pricing_strategy: '', product_marketing_strategy: '', market_status:'', target_market: '', forecast_the_future_of_the_market: ''},
+                    product_supplies: [{ year: '', general_request: '', domestic_production: '', importation: '', unit_id: '' }],
                     product_customers: [{ customer_features: '', first_group_customers: '', second_group_customers: '', third_group_customers: '', fourth_group_customers: '' }],
                     raw_material_suppliers: [{ name: '', geographical_region: '' }],
                     producers: [{ name: '', geographical_region: '' }],
@@ -726,6 +824,7 @@
                     weak_points: [{ description: '', weight: '', score: '' }],
                     opportunity_points: [{ description: '', weight: '', score: '' }],
                     threats: [{ description: '', weight: '', score: '' }],
+                    alternative_products: [{ product_title: '', description: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -746,7 +845,7 @@
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15 disabled';
                 var formSubmitButton = KTUtil.getById('kt_login_singin_form_submit_button');
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
-                axios.post(`/description-technical`, this.data)
+                axios.post(`/description-market`, this.data)
                     .then(response => {
                         console.log(response);
                         if(response.status == 201){
@@ -760,7 +859,7 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
-                            this.$router.push({name: 'description-technical-index'});
+                            this.$router.push({name: 'description-market-index'});
                         }
                     })
                     .catch(error => {
@@ -770,70 +869,76 @@
                     });
             },
             AddProductSupplies() {
-                this.data.product_supplies.push({ year: '', general_request: '', domestic_production: '', importation: '', unit: '' });
+                this.data.product_supplies.push({ year: '', general_request: '', domestic_production: '', importation: '', unit_id: '' });
             },
             RemoveProductSupplies(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.product_supplies.splice(index, 1);
             },
             AddProductCustomers() {
                 this.data.product_customers.push({ customer_features: '', first_group_customers: '', second_group_customers: '', third_group_customers: '', fourth_group_customers: '' });
             },
             RemoveProductCustomers(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.product_customers.splice(index, 1);
             },
             AddRawMaterialSuppliers() {
                 this.data.raw_material_suppliers.push({ name: '', geographical_region: '' });
             },
             RemoveRawMaterialSuppliers(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.raw_material_suppliers.splice(index, 1);
             },
             AddProducers() {
                 this.data.producers.push({ name: '', geographical_region: '' });
             },
             RemoveProducers(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.producers.splice(index, 1);
             },
             AddSuppliers() {
                 this.data.suppliers.push({ name: '', geographical_region: '' });
             },
             RemoveSuppliers(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.suppliers.splice(index, 1);
             },
             AddRetails() {
                 this.data.retails.push({ name: '', geographical_region: '' });
             },
             RemoveRetails(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.retails.splice(index, 1);
             },
             AddProductCompetitors() {
                 this.data.product_competitors.push({ name: '', geographical_region: '', market_share: '', competitive_feature: '', weakness: '' });
             },
             RemoveProductCompetitors(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.product_competitors.splice(index, 1);
             },
             AddStrengths() {
                 this.data.strengths.push({ description: '', weight: '', score: '' });
             },
             RemoveStrengths(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.strengths.splice(index, 1);
             },
             AddWeakPoints() {
                 this.data.weak_points.push({ description: '', weight: '', score: '' });
             },
             RemoveWeakPoints(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.weak_points.splice(index, 1);
             },
             AddOpportunityPoints() {
                 this.data.opportunity_points.push({ description: '', weight: '', score: '' });
             },
             RemoveOpportunityPoints(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.opportunity_points.splice(index, 1);
             },
             AddThreats() {
                 this.data.threats.push({ description: '', weight: '', score: '' });
             },
             RemoveThreats(index) {
-                this.data.required_certificates.splice(index, 1);
+                this.data.threats.splice(index, 1);
+            },
+            AddAlternativeProducts() {
+                this.data.alternative_products.push({ product_title: '', description: '' });
+            },
+            RemoveAlternativeProducts(index) {
+                this.data.alternative_products.splice(index, 1);
             },
         },
     }

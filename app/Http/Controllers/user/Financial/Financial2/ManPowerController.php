@@ -100,6 +100,8 @@ class ManPowerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $manPower = ManPower::findorfail($id);
+        $manPower->delete();
+        return response(["deleted"], 201);
     }
 }

@@ -77,6 +77,20 @@
                                         <!--end::Card-->
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">ویژگی‌های فنی محصول</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">{{ technical.technical_features_product }}</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-footer d-flex flex-center">
                                 <router-link :to="{ name: 'description-technical-edit', params: { id: technical.id } }">

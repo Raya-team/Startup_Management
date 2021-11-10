@@ -91,7 +91,21 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
 
     Route::resource('/description-managerial', \App\Http\Controllers\Api\Description\Managerial\ManagerialController::class);
     Route::resource('/description-obtainedcertificates', \App\Http\Controllers\Api\Description\Managerial\ObtainedCertificateController::class);
+    Route::resource('/description-planimplementations', \App\Http\Controllers\Api\Description\Managerial\PlanImplementationController::class);
     Route::resource('/description-market', \App\Http\Controllers\Api\Description\Market\DesMarketController::class);
+    Route::resource('/product-supply-and-demands', \App\Http\Controllers\Api\Description\Market\ProductSupplyAndDemandController::class);
+    Route::resource('/product-customers', \App\Http\Controllers\Api\Description\Market\ProductCustomerController::class);
+    Route::resource('/raw-material-suppliers', \App\Http\Controllers\Api\Description\Market\RawMaterialSupplierController::class);
+    Route::resource('/producers', \App\Http\Controllers\Api\Description\Market\ProducerController::class);
+    Route::resource('/suppliers', \App\Http\Controllers\Api\Description\Market\SupplierController::class);
+    Route::resource('/retails', \App\Http\Controllers\Api\Description\Market\RetailController::class);
+    Route::resource('/environmental-effects', \App\Http\Controllers\Api\Description\Market\EnvironmentalEffectController::class);
+    Route::resource('/product-competitors', \App\Http\Controllers\Api\Description\Market\ProductCompetitorController::class);
+    Route::resource('/strengths', \App\Http\Controllers\Api\Description\Market\StrengthController::class);
+    Route::resource('/weak-points', \App\Http\Controllers\Api\Description\Market\WeakPointController::class);
+    Route::resource('/opportunity-points', \App\Http\Controllers\Api\Description\Market\OpportunityPointController::class);
+    Route::resource('/threats', \App\Http\Controllers\Api\Description\Market\ThreatController::class);
+    Route::resource('/alternative-products', \App\Http\Controllers\Api\Description\Market\AlternativeProductController::class);
     Route::resource('/description-technical', \App\Http\Controllers\Api\Description\Technical\TechnicalController::class);
     Route::resource('/description-requiredcertificates',\App\Http\Controllers\Api\Description\Technical\RequiredCertificateController::class);
 });

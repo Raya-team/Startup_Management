@@ -98,6 +98,7 @@ class WarrantyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $warranty = Warranty::findorfail($id);
+        $warranty->delete();
     }
 }

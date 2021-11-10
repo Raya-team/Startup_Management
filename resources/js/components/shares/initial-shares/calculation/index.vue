@@ -46,9 +46,17 @@
                                     <div class="example-preview">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="previous-tab" data-toggle="tab" href="#previous-investor">
+                                                <a class="nav-link active" id="percents-tab" data-toggle="tab" href="#percents">
                                                     <span class="nav-icon">
                                                         <i class="flaticon2-chat-1"></i>
+                                                    </span>
+                                                    <span class="nav-text">درصد ها</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="previous-tab" data-toggle="tab" href="#previous-investor" aria-controls="profile">
+                                                    <span class="nav-icon">
+                                                        <i class="flaticon2-layers-1"></i>
                                                     </span>
                                                     <span class="nav-text">سرمایه گذاران قبلی</span>
                                                 </a>
@@ -71,7 +79,10 @@
                                             </li>
                                         </ul>
                                         <div class="tab-content mt-5" id="myTabContent">
-                                            <div class="tab-pane fade active show" id="previous-investor" role="tabpanel" aria-labelledby="previous-tab">
+                                            <div class="tab-pane fade active show" id="percents" role="tabpanel" aria-labelledby="percents-tab">
+                                                <percents></percents>
+                                            </div>
+                                            <div class="tab-pane fade" id="previous-investor" role="tabpanel" aria-labelledby="previous-tab">
                                                 <previousinvestors></previousinvestors>
                                             </div>
                                             <div class="tab-pane fade" id="variables" role="tabpanel" aria-labelledby="variables-tab">

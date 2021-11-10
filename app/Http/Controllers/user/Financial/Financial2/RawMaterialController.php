@@ -102,6 +102,8 @@ class RawMaterialController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rawMaterial = RawMaterial::findorfail($id);
+        $rawMaterial->delete();
+        return response(["deleted"], 201);
     }
 }

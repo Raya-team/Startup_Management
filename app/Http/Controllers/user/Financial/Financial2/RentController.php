@@ -100,6 +100,8 @@ class RentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rent = Rent::findorfail($id);
+        $rent->delete();
+        return response(["deleted"], 201);
     }
 }

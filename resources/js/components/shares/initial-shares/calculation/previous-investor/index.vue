@@ -128,8 +128,6 @@
 </template>
 
 <script>
-
-
     import Auth from "../../../../../Auth";
 
     export default {

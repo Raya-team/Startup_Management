@@ -100,6 +100,8 @@ class AfterSaleServiceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $afterSaleService = AfterSaleService::findorfail($id);
+        $afterSaleService->delete();
+        return response(["deleted"], 201);
     }
 }

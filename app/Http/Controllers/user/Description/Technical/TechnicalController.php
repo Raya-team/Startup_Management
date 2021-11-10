@@ -47,6 +47,7 @@ class TechnicalController extends Controller
         $technical->product_introduction = $request->input('technical.product_introduction');
         $technical->technical_specifications = $request->input('technical.technical_specifications');
         $technical->scientific_principles = $request->input('technical.scientific_principles');
+        $technical->technical_features_product = $request->input('technical.technical_features_product');
         $technical->save();
 
         return response(['success'], 201);
@@ -62,6 +63,7 @@ class TechnicalController extends Controller
         $technical->product_introduction = $request->input('technical.product_introduction');
         $technical->technical_specifications = $request->input('technical.technical_specifications');
         $technical->scientific_principles = $request->input('technical.scientific_principles');
+        $technical->technical_features_product = $request->input('technical.technical_features_product');
         $technical->team_id = $team_id;
         $technical->updated_at = null;
         $technical->save();

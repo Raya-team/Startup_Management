@@ -96,6 +96,8 @@ class RDController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rd = RD::findorfail($id);
+        $rd->delete();
+        return response(["deleted"], 201);
     }
 }

@@ -98,6 +98,8 @@ class RepairController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $repair = Repair::findorfail($id);
+        $repair->delete();
+        return response(["deleted"], 201);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ManagerialRequest;
 use App\Models\Managerial;
 use App\Models\ObtainedCertificate;
+use App\Models\PlanImplementation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,6 +27,7 @@ class ManagerialController extends Controller
         $team_id = Auth::user()->team_id;
         $this->Managerial($request, $managerial, $team_id);
         $this->ObtainedCertificate($request, $team_id);
+        $this->PlanImplementations($request, $team_id);
         return response(['success'], 201);
     }
 
@@ -82,6 +84,23 @@ class ManagerialController extends Controller
             $certificate->team_id = $team_id;
             $certificate->updated_at = null;
             $certificate->save();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $team_id
+     */
+    protected function PlanImplementations(Request $request, $team_id)
+    {
+        $plan_implementations = $request->plan_implementations;
+        for ($i = 0; $i < sizeof($plan_implementations); $i++) {
+            $plan_implementation = new PlanImplementation();
+            $plan_implementation->subject_of_work = $plan_implementations[$i]['subject_of_work'];
+            $plan_implementation->duration_of_work = $plan_implementations[$i]['duration_of_work'];
+            $plan_implementation->team_id = $team_id;
+            $plan_implementation->updated_at = null;
+            $plan_implementation->save();
         }
     }
 }

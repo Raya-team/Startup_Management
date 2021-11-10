@@ -131,6 +131,30 @@
                                         <a @click="AddObtainedCertificate" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                             <i class="la la-plus"></i>افزودن</a>
                                     </div>
+                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <h5 class="text-dark font-weight-bold">پیش‌بینی برنامه زمان‌بندی اجرای طرح</h5><br>
+                                    <transition-group name="slide">
+                                        <div class="form-group row" v-for="(plan, index) in data.plan_implementations" :key="index">
+                                            <div data-repeater-list="product" class="col-lg-10">
+                                                <div data-repeater-item="" class="form-group row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control products" name="description" placeholder="موضوع کار" v-model="plan.subject_of_work"/>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" class="form-control products" name="acquisition_year" placeholder="مدت زمان کار" v-model="plan.duration_of_work"/>
+                                                    </div>
+                                                    <div v-if="index != 0" class="col-md-2">
+                                                        <a  @click="RemovePlanImplementation(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                            <i class="la la-trash-o"></i>حذف</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </transition-group>
+                                    <div class="col-md-2">
+                                        <a @click="AddPlanImplementation" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                            <i class="la la-plus"></i>افزودن</a>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
@@ -161,6 +185,7 @@
                 data: {
                     managerial: {},
                     obtained_certificate: [{ description: '', acquisition_year: '', comment: '' }],
+                    plan_implementations: [{ subject_of_work: '', duration_of_work: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -200,6 +225,12 @@
             },
             RemoveObtainedCertificate(index) {
                 this.data.obtained_certificate.splice(index, 1);
+            },
+            AddPlanImplementation() {
+                this.data.plan_implementations.push({ subject_of_work: '', duration_of_work: '' });
+            },
+            RemovePlanImplementation(index) {
+                this.data.plan_implementations.splice(index, 1);
             },
         },
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Description\Managerial;
 use App\Http\Controllers\Controller;
 use App\Models\Managerial;
 use App\Models\ObtainedCertificate;
+use App\Models\PlanImplementation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,10 +21,12 @@ class ManagerialController extends Controller
         $team_id = Auth::user()->team_id;
         $managerial = Managerial::where('team_id' , $team_id)->first();
         $certificate = ObtainedCertificate::where('team_id' , $team_id)->paginate(10);
+        $plan_implementations = PlanImplementation::where('team_id' , $team_id)->paginate(10);
 
         return response()->json([
             'managerial' => $managerial,
             'certificate' => $certificate,
+            'plan_implementations' => $plan_implementations,
         ]);
     }
 

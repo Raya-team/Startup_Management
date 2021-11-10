@@ -102,6 +102,8 @@ class EnergyConsumptionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $energyConsumption = EnergyConsumption::findorfail($id);
+        $energyConsumption->delete();
+        return response(["deleted"], 201);
     }
 }

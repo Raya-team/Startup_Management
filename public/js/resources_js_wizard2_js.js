@@ -187,6 +187,18 @@ var KTWizard2 = function () {
           eleValidClass: ''
         })
       }
+    })); // Step 11
+
+
+    _validations.push(FormValidation.formValidation(_formEl, {
+      plugins: {
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap({
+          //eleInvalidClass: '',
+          eleValidClass: ''
+        })
+      }
     }));
   };
 

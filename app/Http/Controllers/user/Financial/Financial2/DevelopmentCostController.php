@@ -85,6 +85,8 @@ class DevelopmentCostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $DevelopmentCost = DevelopmentCost::findorfail($id);
+        $DevelopmentCost->delete();
+        return response(["deleted"], 201);
     }
 }

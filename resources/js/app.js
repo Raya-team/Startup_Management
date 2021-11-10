@@ -56,6 +56,8 @@ Vue.component('Officeequipmentandsupplies', require('./components/financial/fina
 Vue.component('Facilities', require('./components/financial/financial1/facility/index.vue').default);
 Vue.component('Transportations', require('./components/financial/financial1/transportation/index.vue').default);
 Vue.component('Preoperatingcosts', require('./components/financial/financial1/preoperatingcost/index.vue').default);
+
+Vue.component('Percents', require('./components/shares/initial-shares/calculation/percents/index.vue').default);
 Vue.component('Previousinvestors', require('./components/shares/initial-shares/calculation/previous-investor/index.vue').default);
 Vue.component('Sharevariables', require('./components/shares/initial-shares/calculation/share-variable/index.vue').default);
 Vue.component('Sharequestions', require('./components/shares/initial-shares/calculation/share-questions/index.vue').default);
@@ -90,6 +92,21 @@ Vue.component('Warranty', require('./components/financial/financial2/warranty/in
 Vue.component('ConsumerItem', require('./components/financial/financial2/consumer-item/index.vue').default);
 Vue.component('AfterSaleService', require('./components/financial/financial2/after-sale-service/index.vue').default);
 Vue.component('OtherInformation', require('./components/financial/financial2/other-information/index.vue').default);
+
+Vue.component('DescriptionMarket', require('./components/description/market/market/index.vue').default);
+Vue.component('DescriptionProductSupplyAndDemand', require('./components/description/market/product-supply-and-demand/index.vue').default);
+Vue.component('DescriptionProductCustomer', require('./components/description/market/product-customer/index.vue').default);
+Vue.component('DescriptionRawMaterialSupplier', require('./components/description/market/product-supply/raw-material-supplier/index.vue').default);
+Vue.component('DescriptionProducer', require('./components/description/market/product-supply/producer/index.vue').default);
+Vue.component('DescriptionSupplier', require('./components/description/market/product-supply/supply/index.vue').default);
+Vue.component('DescriptionRetail', require('./components/description/market/product-supply/retail/index.vue').default);
+Vue.component('DescriptionEnvironmentalEffect', require('./components/description/market/environmental-effect/index.vue').default);
+Vue.component('DescriptionProductCompetitor', require('./components/description/market/product-competitor/index.vue').default);
+Vue.component('DescriptionStrengths', require('./components/description/market/strength/index.vue').default);
+Vue.component('DescriptionWeakPoint', require('./components/description/market/weak-point/index.vue').default);
+Vue.component('DescriptionOpportunityPoint', require('./components/description/market/opportunity-point/index.vue').default);
+Vue.component('DescriptionThreats', require('./components/description/market/threat/index.vue').default);
+Vue.component('DescriptionAlternativeProduct', require('./components/description/market/alternative-product/index.vue').default);
 
 const app = new Vue({
     el: '#app',

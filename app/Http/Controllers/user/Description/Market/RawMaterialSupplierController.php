@@ -3,83 +3,62 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Models\RawMaterialSupplier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RawMaterialSupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('user.description.market.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $team_id = Auth::user()->team_id;
+
+        $raw_material_suppliers = $request->raw_material_suppliers;
+        for ($i = 0; $i < sizeof($raw_material_suppliers); $i++) {
+            $raw_material_supplier = new RawMaterialSupplier();
+            $raw_material_supplier->name = $raw_material_suppliers[$i]['name'];
+            $raw_material_supplier->geographical_region = $raw_material_suppliers[$i]['geographical_region'];
+            $raw_material_supplier->team_id = $team_id;
+            $raw_material_supplier->updated_at = null;
+            $raw_material_supplier->save();
+        }
+
+        return response(['success'], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('user.description.market.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $raw_material_supplier = RawMaterialSupplier::findorfail($id);
+        $raw_material_supplier->name = $request['raw_material_suppliers'][0]['name'];
+        $raw_material_supplier->geographical_region = $request['raw_material_suppliers'][0]['geographical_region'];
+        $raw_material_supplier->save();
+        return response(['success'], 201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $raw_material_supplier = RawMaterialSupplier::findorfail($id);
+        $raw_material_supplier->delete();
+        return response(["deleted"], 201);
     }
 }

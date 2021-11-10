@@ -103,8 +103,8 @@ class BuildingController extends Controller
      */
     public function destroy($id)
     {
-        $land = Building::findorfail($id);
-        $land->delete();
+        $building = Building::findorfail($id);
+        $building->delete();
         return response(["deleted"], 201);
     }
 }

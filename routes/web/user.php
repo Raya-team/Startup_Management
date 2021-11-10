@@ -3,7 +3,21 @@
 use App\Http\Controllers\user\BusinessCanvas\BusinessCanvasController;
 use App\Http\Controllers\user\Description\Managerial\ManagerialController;
 use App\Http\Controllers\user\Description\Managerial\ObtainedCertificateController;
+use App\Http\Controllers\user\Description\Managerial\PlanImplementationController;
+use App\Http\Controllers\user\Description\Market\AlternativeProductController;
 use App\Http\Controllers\user\Description\Market\DesMarketController;
+use App\Http\Controllers\user\Description\Market\EnvironmentalEffectController;
+use App\Http\Controllers\user\Description\Market\OpportunityPointController;
+use App\Http\Controllers\user\Description\Market\ProducerController;
+use App\Http\Controllers\user\Description\Market\ProductCompetitorController;
+use App\Http\Controllers\user\Description\Market\ProductCustomerController;
+use App\Http\Controllers\user\Description\Market\ProductSupplyAndDemandController;
+use App\Http\Controllers\user\Description\Market\RawMaterialSupplierController;
+use App\Http\Controllers\user\Description\Market\RetailController;
+use App\Http\Controllers\user\Description\Market\StrengthController;
+use App\Http\Controllers\user\Description\Market\SupplierController;
+use App\Http\Controllers\user\Description\Market\ThreatController;
+use App\Http\Controllers\user\Description\Market\WeakPointController;
 use App\Http\Controllers\user\Description\Technical\RequiredCertificateController;
 use App\Http\Controllers\user\Description\Technical\TechnicalController;
 use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
@@ -144,21 +158,23 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/description-managerial', ManagerialController::class);
     Route::resource('/description-obtainedcertificates', ObtainedCertificateController::class);
+    Route::resource('/description-planimplementations', PlanImplementationController::class);
     Route::resource('/description-technical', TechnicalController::class);
     Route::resource('/description-requiredcertificates',RequiredCertificateController::class);
     Route::resource('/description-market', DesMarketController::class);
-    Route::resource('/product-supply-and-demands', DesMarketController::class);
-    Route::resource('/product-customers', DesMarketController::class);
-    Route::resource('/raw-material-suppliers', DesMarketController::class);
-    Route::resource('/producers', DesMarketController::class);
-    Route::resource('/suppliers', DesMarketController::class);
-    Route::resource('/retails', DesMarketController::class);
-    Route::resource('environmental-effects', DesMarketController::class);
-    Route::resource('/product-competitors', DesMarketController::class);
-    Route::resource('/strengths', DesMarketController::class);
-    Route::resource('/weak-points', DesMarketController::class);
-    Route::resource('/opportunity-points', DesMarketController::class);
-    Route::resource('/threats', DesMarketController::class);
+    Route::resource('/product-supply-and-demands', ProductSupplyAndDemandController::class);
+    Route::resource('/product-customers', ProductCustomerController::class);
+    Route::resource('/raw-material-suppliers', RawMaterialSupplierController::class);
+    Route::resource('/producers', ProducerController::class);
+    Route::resource('/suppliers', SupplierController::class);
+    Route::resource('/retails', RetailController::class);
+    Route::resource('/environmental-effects', EnvironmentalEffectController::class);
+    Route::resource('/product-competitors', ProductCompetitorController::class);
+    Route::resource('/strengths', StrengthController::class);
+    Route::resource('/weak-points', WeakPointController::class);
+    Route::resource('/opportunity-points', OpportunityPointController::class);
+    Route::resource('/threats', ThreatController::class);
+    Route::resource('/alternative-products', AlternativeProductController::class);
 
 });
 

@@ -18,6 +18,7 @@ class CreateTechnicalsTable extends Migration
             $table->text('product_introduction');
             $table->text('technical_specifications');
             $table->text('scientific_principles');
+            $table->text('technical_features_product');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

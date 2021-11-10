@@ -100,6 +100,8 @@ class ConsumerItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $consumerItem = ConsumerItem::findorfail($id);
+        $consumerItem->delete();
+        return response(["deleted"], 201);
     }
 }

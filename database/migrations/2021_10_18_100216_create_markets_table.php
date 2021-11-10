@@ -21,6 +21,9 @@ class CreateMarketsTable extends Migration
             $table->text('position_analysis');
             $table->text('product_pricing_strategy');
             $table->text('product_marketing_strategy');
+            $table->text('market_status');
+            $table->text('target_market');
+            $table->text('forecast_the_future_of_the_market');
             $table->bigInteger('team_id')->unsigned();
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
             $table->timestamps();

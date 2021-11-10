@@ -12,87 +12,85 @@ use Illuminate\Support\Facades\Auth;
 
 class CalculationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+
+
+
+
         $team_id = Auth::user()->team_id;
-        $variables = ShareVariable::where('team_id' , Auth::user()->team_id)->first();
-        $member_share_questions = ShareQuestion::with('members')->get();
-        $previous_investors = PreviousInvestor::where('team_id' , Auth::user()->team_id)->paginate(10);
+        $variables = ShareVariable::where('team_id' , $team_id)->first();
+        $questions = ShareQuestion::with('members')->get();
+        $previous_investors = PreviousInvestor::where('team_id' , $team_id)->paginate(10);
+
+        $shareholders = TeamMember::with(['sharequestoins','responsibility'])->where('team_id', $team_id)->get();
+        $arr = [];
+        foreach ($shareholders as $shareholder)
+        {
+            $percent = 0;
+            foreach ($shareholder->sharequestoins as $sharequestoin)
+            {
+                switch ($sharequestoin->id) {
+                    case 1:
+                        $percent += $variables->idea / count($questions[0]->members); break;
+                    case 2:
+                        $percent += $variables->finance / count($questions[1]->members); break;
+                    case 3:
+                        $percent += $variables->experience / count($questions[2]->members); break;
+                    case 4:
+                        $percent += $variables->risk / count($questions[3]->members); break;
+                    case 5:
+                        $percent += $variables->technology / count($questions[4]->members); break;
+                    case 6:
+                        $percent += $variables->investment / count($questions[5]->members); break;
+                    case 7:
+                        $percent += $variables->management / count($questions[6]->members); break;
+                    case 8:
+                        $percent += $variables->sale / count($questions[7]->members); break;
+                    case 9:
+                        $percent += $variables->full_time / count($questions[8]->members); break;
+                    default;
+                        $percent += 0; break;
+                }
+            }
+            array_push($arr, [round($percent, 2), "$shareholder->fname $shareholder->lname", $shareholder->responsibility]);
+        }
+
         return response()->json([
             'team_id' => $team_id,
             'variables' => $variables,
-            'member_share_questions' => $member_share_questions,
-            'previousinvestors' => $previous_investors
+            'member_share_questions' => $questions,
+            'previousinvestors' => $previous_investors,
+            'percents' => $arr,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $shareholders = TeamMember::all();
         return response()->json($shareholders);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

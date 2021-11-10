@@ -100,6 +100,8 @@ class TransportationCostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $transportationCost = TransportationCost::findorfail($id);
+        $transportationCost->delete();
+        return response(["deleted"], 201);
     }
 }

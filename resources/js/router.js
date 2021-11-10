@@ -127,7 +127,36 @@ import DescriptionManagerialIndex from './components/description/managerial/inde
 import DescriptionManagerialEdit from './components/description/managerial/edit';
 import DescriptionObtainedCertificateCreate from './components/description/managerial/obtained-certificate/create';
 import DescriptionObtainedCertificateEdit from './components/description/managerial/obtained-certificate/edit';
+import DescriptionPlanImplementationCreate from './components/description/managerial/plan-implementation/create';
+import DescriptionPlanImplementationEdit from './components/description/managerial/plan-implementation/edit';
 import DescriptionMarketCreate from './components/description/market/create';
+import DescriptionMarketEdit from './components/description/market/edit';
+import ProductSupplyAndDemandCreate from './components/description/market/product-supply-and-demand/create';
+import ProductSupplyAndDemandEdit from './components/description/market/product-supply-and-demand/edit';
+import ProductCustomerCreate from './components/description/market/product-customer/create';
+import ProductCustomerEdit from './components/description/market/product-customer/edit';
+import RawMaterialSupplierCreate from './components/description/market/product-supply/raw-material-supplier/create';
+import RawMaterialSupplierEdit from './components/description/market/product-supply/raw-material-supplier/edit';
+import ProducerCreate from './components/description/market/product-supply/producer/create';
+import ProducerEdit from './components/description/market/product-supply/producer/edit';
+import SupplierCreate from './components/description/market/product-supply/supply/create';
+import SupplierEdit from './components/description/market/product-supply/supply/edit';
+import RetailCreate from './components/description/market/product-supply/retail/create';
+import RetailEdit from './components/description/market/product-supply/retail/edit';
+import EnvironmentalEffectEdit from './components/description/market/environmental-effect/edit';
+import ProductCompetitorCreate from './components/description/market/product-competitor/create';
+import ProductCompetitorEdit from './components/description/market/product-competitor/edit';
+import StrengthCreate from './components/description/market/strength/create';
+import StrengthEdit from './components/description/market/strength/edit';
+import WeakPointCreate from './components/description/market/weak-point/create';
+import WeakPointEdit from './components/description/market/weak-point/edit';
+import OpportunityPointCreate from './components/description/market/opportunity-point/create';
+import OpportunityPointEdit from './components/description/market/opportunity-point/edit';
+import ThreatCreate from './components/description/market/threat/create';
+import ThreatEdit from './components/description/market/threat/edit';
+import AlternativeProductCreate from './components/description/market/alternative-product/create';
+import AlternativeProductEdit from './components/description/market/alternative-product/edit';
+import DescriptionMarketIndex from './components/description/market/index';
 import DescriptionTechnicalCreate from './components/description/technical/create';
 import DescriptionTechnicalIndex from './components/description/technical/index';
 import DescriptionTechnicalEdit from './components/description/technical/edit';
@@ -263,7 +292,36 @@ const routes = [
     {path: '/description-managerial/:id/edit', name: 'description-managerial-edit', component: DescriptionManagerialEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
     {path: '/description-obtainedcertificates/create', name: 'description-obtainedcertificates-create', component: DescriptionObtainedCertificateCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
     {path: '/description-obtainedcertificates/:id/edit', name: 'description-obtainedcertificates-edit', component: DescriptionObtainedCertificateEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
+    {path: '/description-planimplementations/create', name: 'description-planimplementations-create', component: DescriptionPlanImplementationCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
+    {path: '/description-planimplementations/:id/edit', name: 'description-planimplementations-edit', component: DescriptionPlanImplementationEdit, meta: {title: 'توضیحات - مدیریتی | ویرایش'}},
     {path: '/description-market/create', name: 'description-market-create', component: DescriptionMarketCreate, meta: {title: 'توضیحات - مدیریتی | ایجاد'}},
+    {path: '/description-market', name: 'description-market-index', component: DescriptionMarketIndex, meta: {title: 'توضیحات - بازار'}},
+    {path: '/description-market/:id/edit', name: 'description-market-edit', component: DescriptionMarketEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-supply-and-demands/create', name: 'product-supply-and-demands-create', component: ProductSupplyAndDemandCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-supply-and-demands/:id/edit', name: 'product-supply-and-demands-edit', component: ProductSupplyAndDemandEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-customers/create', name: 'product-customers-create', component: ProductCustomerCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-customers/:id/edit', name: 'product-customers-edit', component: ProductCustomerEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/raw-material-suppliers/create', name: 'raw-material-suppliers-create', component: RawMaterialSupplierCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/raw-material-suppliers/:id/edit', name: 'raw-material-suppliers-edit', component: RawMaterialSupplierEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/producers/create', name: 'producers-create', component: ProducerCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/producers/:id/edit', name: 'producers-edit', component: ProducerEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/suppliers/create', name: 'suppliers-create', component: SupplierCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/suppliers/:id/edit', name: 'suppliers-edit', component:  SupplierEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/retails/create', name: 'retails-create', component: RetailCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/retails/:id/edit', name: 'retails-edit', component: RetailEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/environmental-effects/:id/edit', name: 'environmental-effects-edit', component: EnvironmentalEffectEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-competitors/create', name: 'product-competitors-create', component: ProductCompetitorCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/product-competitors/:id/edit', name: 'product-competitors-edit', component: ProductCompetitorEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/strengths/create', name: 'strengths-create', component: StrengthCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/strengths/:id/edit', name: 'strengths-edit', component: StrengthEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/weak-points/create', name: 'weak-points-create', component: WeakPointCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/weak-points/:id/edit', name: 'weak-points-edit', component: WeakPointEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/opportunity-points/create', name: 'opportunity-points-create', component: OpportunityPointCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/opportunity-points/:id/edit', name: 'opportunity-points-edit', component: OpportunityPointEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/threats/create', name: 'threats-create', component: ThreatCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/threats/:id/edit', name: 'threats-edit', component: ThreatEdit, meta: {title: 'توضیحات - بازار'}},
+    {path: '/alternative-products/create', name: 'alternative-products-create', component: AlternativeProductCreate, meta: {title: 'توضیحات - بازار'}},
+    {path: '/alternative-products/:id/edit', name: 'alternative-products-edit', component: AlternativeProductEdit, meta: {title: 'توضیحات - بازار'}},
     {path: '/description-technical', name: 'description-technical-index', component: DescriptionTechnicalIndex,meta: {title: 'توضیحات - فنی'}},
     {path: '/description-technical/create', name: 'description-technical-create', component: DescriptionTechnicalCreate, meta: {title: 'توضیحات - فنی | ایجاد'}},
     {path: '/description-technical/:id/edit', name: 'description-technical-edit', component: DescriptionTechnicalEdit, meta: {title: 'توضیحات - فنی | ویرایش'}},

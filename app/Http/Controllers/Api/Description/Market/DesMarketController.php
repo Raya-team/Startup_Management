@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Models\Market;
 use App\Models\UnitOfMeasurement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DesMarketController extends Controller
 {
@@ -15,7 +17,10 @@ class DesMarketController extends Controller
      */
     public function index()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $market = Market::where('team_id' , $team_id)->first();
+
+        return response()->json($market);
     }
 
     /**
@@ -59,7 +64,10 @@ class DesMarketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $market = Market::findorfail($id);
+
+        return response()->json($market);
     }
 
     /**

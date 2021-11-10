@@ -96,6 +96,8 @@ class BusinessController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $business = Business::findorfail($id);
+        $business->delete();
+        return response(["deleted"], 201);
     }
 }

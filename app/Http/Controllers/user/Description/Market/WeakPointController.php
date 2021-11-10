@@ -3,83 +3,64 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Models\WeakPoint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WeakPointController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('user.description.market.index');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $team_id = Auth::user()->team_id;
+
+        $weak_points = $request->weak_points;
+        for ($i = 0; $i < sizeof($weak_points); $i++) {
+            $weak_point = new WeakPoint();
+            $weak_point->description = $weak_points[$i]['description'];
+            $weak_point->weight = $weak_points[$i]['weight'];
+            $weak_point->score = $weak_points[$i]['score'];
+            $weak_point->team_id = $team_id;
+            $weak_point->updated_at = null;
+            $weak_point->save();
+        }
+
+        return response(['success'], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return view('user.description.market.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $weak_point = WeakPoint::findorfail($id);
+        $weak_point->description = $request['weak_points'][0]['description'];
+        $weak_point->weight = $request['weak_points'][0]['weight'];
+        $weak_point->score = $request['weak_points'][0]['score'];
+        $weak_point->save();
+        return response(['success'], 201);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $weak_point = WeakPoint::findorfail($id);
+        $weak_point->delete();
+        return response(["deleted"], 201);
     }
 }
