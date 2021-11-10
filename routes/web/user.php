@@ -79,7 +79,6 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
     Route::resource('/participation-shares', ParticipationShareController::class);
-    Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
     Route::resource('/agreements', AgreementController::class);
     Route::get('/calculations', [CalculationController::class, 'index'])->name('calculations.index');
     Route::get('/calculations/create', [CalculationController::class, 'create'])->name('calculations.create');
