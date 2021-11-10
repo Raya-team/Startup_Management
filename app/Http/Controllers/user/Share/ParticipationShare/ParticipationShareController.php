@@ -64,7 +64,6 @@ class ParticipationShareController extends Controller
             $investment =  ($collect['investment']/100000)*100;
             array_push($arr1, [$name,['سرمایه گذار'],$investment]);
         }
-return $arr1;
         return view('user.shares.participation-shares.index');
     }
 
