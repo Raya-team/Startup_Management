@@ -51,6 +51,7 @@ use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Readiness\ManufacturingController;
 use App\Http\Controllers\user\Readiness\MarketController;
 use App\Http\Controllers\user\Readiness\TechnologyController;
+use App\Http\Controllers\user\Reporting\RepJustificationPlanController;
 use App\Http\Controllers\user\Share\InitialShare\AgreementController;
 use App\Http\Controllers\user\Share\InitialShare\CalculationController;
 use App\Http\Controllers\user\Share\InitialShare\InitialShareController;
@@ -77,6 +78,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/products', ProductController::class);
 
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
+    Route::resource('/participation-shares', ParticipationShareController::class);
     Route::get('/participation-shares',ParticipationShareController::class)->name('participation');
     Route::resource('/agreements', AgreementController::class);
     Route::get('/calculations', [CalculationController::class, 'index'])->name('calculations.index');
@@ -175,6 +177,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/opportunity-points', OpportunityPointController::class);
     Route::resource('/threats', ThreatController::class);
     Route::resource('/alternative-products', AlternativeProductController::class);
+
+    Route::get('/reporting/justification-plan', RepJustificationPlanController::class);
 
 });
 

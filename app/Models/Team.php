@@ -307,4 +307,14 @@ class Team extends Model
         return $this->hasMany(WeakPoint::class);
     }
 
+    public function participationPreInvestors()
+    {
+        return $this->hasMany(ParticipationPreInvestor::class);
+    }
+
+    public function participationNewInvestors()
+    {
+        return $this->hasMany(ParticipationNewInvestor::class);
+    }
+
 }

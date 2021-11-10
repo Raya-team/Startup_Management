@@ -56,4 +56,9 @@ class TeamMember extends Model
         return $this->hasOne(BusinessManager::class);
     }
 
+    public function participationPreInvestors()
+    {
+        return $this->hasMany(ParticipationPreInvestor::class);
+    }
+
 }
