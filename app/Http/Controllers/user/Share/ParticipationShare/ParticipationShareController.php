@@ -45,23 +45,26 @@ class ParticipationShareController extends Controller
         $arr1=[];
         foreach ($pre_investors as $pre_investor)
         {
+            $response_name = [];
             $collect = collect($pre_investor);
             $full_name = $collect['investor']['fname'] . " " . $collect['investor']['lname'];
-            $responsibility = $collect['investor']['responsibility'];
+            $responsibilities = $collect['investor']['responsibility'];
+            foreach ($responsibilities as $responsibility){
+                array_push($response_name, $responsibility['nickname']);
+            }
             $investment =  ($collect['investment']/100000)*100;
-            array_push($arr1, [$full_name,$responsibility,$investment]);
+            array_push($arr1, [$full_name, $response_name, $investment]);
         }
 
         $new_investors = ParticipationNewInvestor::where('team_id', $team_id)->get();
-        $arr2=[];
         foreach ($new_investors as $new_investor)
         {
             $collect = collect($new_investor);
             $name = $collect['supplier'];
             $investment =  ($collect['investment']/100000)*100;
-            array_push($arr2, [$name,'سرمایه گذار',$investment]);
+            array_push($arr1, [$name,['سرمایه گذار'],$investment]);
         }
-
+return $arr1;
         return view('user.shares.participation-shares.index');
     }
 
