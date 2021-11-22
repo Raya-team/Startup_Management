@@ -19,4 +19,9 @@ class ValuationOfficeSupply extends Model
     {
         return $this->belongsTo(TeamMember::class, 'owner');
     }
+
+    public function description()
+    {
+        return $this->belongsTo(OfficeEquipmentAndSupply::class, 'description');
+    }
 }

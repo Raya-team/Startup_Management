@@ -13,4 +13,9 @@ class Facility extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function facility()
+    {
+        return $this->hasOne(ValuationFacility::class);
+    }
 }

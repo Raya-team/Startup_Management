@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Building;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
+use App\Models\LaboratoryEquipment;
 use App\Models\Land;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\PreOperatingCost;
@@ -25,7 +26,8 @@ class IndexController extends Controller
     {
         $team_id = Auth::user()->team_id;
         $lands = Land::where('team_id', $team_id)->paginate(10);
-        $buildings = Building::where('team_id', $team_id)->paginate(10);
+//        $buildings = Building::where('team_id', $team_id)->paginate(10);
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->paginate(10);
         $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->paginate(10);
         $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->paginate(10);
         $facilities = Facility::where('team_id', $team_id)->paginate(10);
@@ -33,7 +35,8 @@ class IndexController extends Controller
         $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->paginate(10);
         return response()->json([
             'lands' => $lands,
-            'buildings' => $buildings,
+//            'buildings' => $buildings,
+            'laboratory_equipments' => $laboratory_equipments,
             'equipmentandmachineries' => $equipmentandmachineries,
             'officeequipmentandsupplies' => $officeequipmentandsupplies,
             'facilities' => $facilities,

@@ -18,7 +18,7 @@
                                 </router-link>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                افزودن زمین
+                                افزودن مستغلات
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -42,7 +42,7 @@
                                 <div class="card-body">
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
-                                            <label class="col-lg-2 col-form-label text-right"><h4>خرید زمین:</h4></label>
+                                            <label class="col-lg-2 col-form-label text-right"><h4>خرید مستغلات:</h4></label>
                                             <div data-repeater-list="lands" class="col-lg-10">
                                                 <transition-group name="slide">
                                                     <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
@@ -53,7 +53,7 @@
                                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <label><h5>مساحت :</h5></label>
+                                                            <label><h5>متراژ :</h5></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text noselect">متر مربع</span>
@@ -141,7 +141,7 @@
                         console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات خرید زمین با موفقیت ثبت شد",
+                                title: "اطلاعات با موفقیت ثبت شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

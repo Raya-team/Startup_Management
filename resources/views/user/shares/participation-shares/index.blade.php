@@ -1,7 +1,8 @@
 @extends('user.master')
 @section('title', 'محاسبه سهام مشارکت')
 @section('content')
-    <!--begin::Subheader-->
+    <router-view></router-view>
+   {{-- <!--begin::Subheader-->
     <div class="subheader py-2 py-lg-6 subheader-solid" id="kt_subheader">
         <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
             <!--begin::Info-->
@@ -270,6 +271,6 @@
             </div>
         </div>
     </div>
-    <!--end::Entry-->
+    <!--end::Entry-->--}}
 @endsection
 

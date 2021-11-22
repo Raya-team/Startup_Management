@@ -48,8 +48,6 @@
                                 <tr class="bg-gray-100 text-center">
                                     <th>ردیف</th>
                                     <th>شرح</th>
-                                    <th>تعداد</th>
-                                    <th>قیمت واحد (تومان)</th>
                                     <th>قیمت کل (تومان)</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -61,12 +59,6 @@
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ preoperatingcost.description }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-75">{{ preoperatingcost.count }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-750">{{ preoperatingcost.unit_price }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ preoperatingcost.total_price }}</span>

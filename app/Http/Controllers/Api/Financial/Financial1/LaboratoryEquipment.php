@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\user\Valuation\Tangible;
+namespace App\Http\Controllers\Api\Financial\Financial1;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class OfficeSupplyController extends Controller
+class LaboratoryEquipment extends Controller
 {
     /**
      * Display a listing of the resource.

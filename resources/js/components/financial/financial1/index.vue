@@ -59,15 +59,15 @@
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-layers-1"></i>
                                                 </span>
-                                                        <span class="nav-text">زمین ها</span>
+                                                        <span class="nav-text">مستغلات</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item mb-2">
-                                                    <a class="nav-link" id="buildings-tab" data-toggle="tab" href="#buildings" aria-controls="buildings">
+                                                    <a class="nav-link" id="laboratory-equipments-tab" data-toggle="tab" href="#laboratory-equipments" aria-controls="laboratory-equipments">
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-rocket-1"></i>
                                                 </span>
-                                                        <span class="nav-text">ساختمان ها</span>
+                                                        <span class="nav-text">تجهیزات آزمایشگاهی</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item mb-2">
@@ -120,8 +120,8 @@
                                                 <div class="tab-pane fade" id="lands" role="tabpanel" aria-labelledby="lands-tab">
                                                     <lands></lands>
                                                 </div>
-                                                <div class="tab-pane fade" id="buildings" role="tabpanel" aria-labelledby="buildings-tab">
-                                                    <buildings></buildings>
+                                                <div class="tab-pane fade" id="laboratory-equipments" role="tabpanel" aria-labelledby="laboratory-equipments-tab">
+                                                    <laboratory-equipments></laboratory-equipments>
                                                 </div>
                                                 <div class="tab-pane fade" id="machinery" role="tabpanel" aria-labelledby="machinery-tab">
                                                     <equipmentandmachineries></equipmentandmachineries>

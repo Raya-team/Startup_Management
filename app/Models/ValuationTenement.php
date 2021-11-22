@@ -18,4 +18,9 @@ class ValuationTenement extends Model
     {
         return $this->belongsTo(TeamMember::class, 'owner');
     }
+
+    public function description()
+    {
+        return $this->belongsTo(Land::class, 'description');
+    }
 }

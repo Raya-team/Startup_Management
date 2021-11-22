@@ -50,7 +50,8 @@ router.beforeEach((to, from, next) => {
 
 Vue.component('Basicinformation', require('./components/financial/financial1/basic-information/index').default);
 Vue.component('Lands', require('./components/financial/financial1/land/index.vue').default);
-Vue.component('Buildings', require('./components/financial/financial1/building/index.vue').default);
+// Vue.component('Buildings', require('./components/financial/financial1/building/index.vue').default);
+Vue.component('LaboratoryEquipments', require('./components/financial/financial1/laboratory-equipment/index.vue').default);
 Vue.component('Equipmentandmachineries', require('./components/financial/financial1/equipmentandmachinery/index.vue').default);
 Vue.component('Officeequipmentandsupplies', require('./components/financial/financial1/officeequipmentandsupply/index.vue').default);
 Vue.component('Facilities', require('./components/financial/financial1/facility/index.vue').default);
@@ -61,6 +62,8 @@ Vue.component('Percents', require('./components/shares/initial-shares/calculatio
 Vue.component('Previousinvestors', require('./components/shares/initial-shares/calculation/previous-investor/index.vue').default);
 Vue.component('Sharevariables', require('./components/shares/initial-shares/calculation/share-variable/index.vue').default);
 Vue.component('Sharequestions', require('./components/shares/initial-shares/calculation/share-questions/index.vue').default);
+Vue.component('PreInvestors', require('./components/shares/participation-shares/pre-investor/index.vue').default);
+Vue.component('NewInvestors', require('./components/shares/participation-shares/new-investor/index.vue').default);
 
 Vue.component('Commercialization', require('./components/readiness/business/commercialization/index.vue').default);
 Vue.component('PublicManagement', require('./components/readiness/business/public-management/index.vue').default);
@@ -92,6 +95,14 @@ Vue.component('Warranty', require('./components/financial/financial2/warranty/in
 Vue.component('ConsumerItem', require('./components/financial/financial2/consumer-item/index.vue').default);
 Vue.component('AfterSaleService', require('./components/financial/financial2/after-sale-service/index.vue').default);
 Vue.component('OtherInformation', require('./components/financial/financial2/other-information/index.vue').default);
+
+Vue.component('ValEquipmentAndMachinery', require('./components/valuation/tangible/equipment-and-machinery/index.vue').default);
+Vue.component('ValFacility', require('./components/valuation/tangible/facility/index.vue').default);
+Vue.component('ValLaboratoryEquipment', require('./components/valuation/tangible/laboratory-equipment/index.vue').default);
+Vue.component('ValOfficeSupply', require('./components/valuation/tangible/office-equipment-and-supply/index.vue').default);
+Vue.component('ValPreOperatingCost', require('./components/valuation/tangible/pre-operating-cost/index.vue').default);
+Vue.component('ValTenement', require('./components/valuation/tangible/tenement/index.vue').default);
+Vue.component('ValTransportation', require('./components/valuation/tangible/transportation/index.vue').default);
 
 Vue.component('DescriptionMarket', require('./components/description/market/market/index.vue').default);
 Vue.component('DescriptionProductSupplyAndDemand', require('./components/description/market/product-supply-and-demand/index.vue').default);

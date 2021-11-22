@@ -13,4 +13,9 @@ class EquipmentAndMachinery extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function machinery()
+    {
+        return $this->hasOne(ValuationMachinery::class);
+    }
 }

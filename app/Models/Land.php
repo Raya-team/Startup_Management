@@ -13,4 +13,9 @@ class Land extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function tenement()
+    {
+        return $this->hasOne(ValuationTenement::class);
+    }
 }

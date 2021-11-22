@@ -19,4 +19,9 @@ class ValuationMachinery extends Model
     {
         return $this->belongsTo(TeamMember::class, 'owner');
     }
+
+    public function description()
+    {
+        return $this->belongsTo(EquipmentAndMachinery::class, 'description');
+    }
 }

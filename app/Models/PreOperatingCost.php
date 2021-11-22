@@ -13,4 +13,9 @@ class PreOperatingCost extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function preOperationCost()
+    {
+        return $this->hasOne(ValuationPreOperationCost::class);
+    }
 }

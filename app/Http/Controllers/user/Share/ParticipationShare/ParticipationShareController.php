@@ -25,73 +25,20 @@ class ParticipationShareController extends Controller
 {
     public function index()
     {
-
-        $team_id = Auth::user()->team_id;
-        $lands = Land::where('team_id', $team_id)->sum('price');
-        $buildings = Building::where('team_id', $team_id)->sum('price');
-        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->sum('total_price');
-        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->sum('total_price');
-        $facilities = Facility::where('team_id', $team_id)->sum('total_price');
-        $transportations = Transportation::where('team_id', $team_id)->sum('total_price');
-        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
-        $financial_total_price = array_sum([$lands,$buildings,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
-        $tenements = ValuationTenement::where('team_id', $team_id)->sum('total_price');
-        $machineries = ValuationMachinery::where('team_id', $team_id)->sum('total_price');
-        $offices = ValuationOfficeSupply::where('team_id', $team_id)->sum('total_price');
-        $others = ValuationOtherAsset::where('team_id', $team_id)->sum('total_price');
-        $valuation_total_price = array_sum([$tenements,$machineries,$offices,$others]);
-
-        $pre_investors = ParticipationPreInvestor::with('investor')->where('team_id', $team_id)->get();
-        $arr1=[];
-        foreach ($pre_investors as $pre_investor)
-        {
-            $response_name = [];
-            $collect = collect($pre_investor);
-            $full_name = $collect['investor']['fname'] . " " . $collect['investor']['lname'];
-            $responsibilities = $collect['investor']['responsibility'];
-            foreach ($responsibilities as $responsibility){
-                array_push($response_name, $responsibility['nickname']);
-            }
-            $investment =  ($collect['investment']/100000)*100;
-            array_push($arr1, [$full_name, $response_name, $investment]);
-        }
-
-        $new_investors = ParticipationNewInvestor::where('team_id', $team_id)->get();
-        foreach ($new_investors as $new_investor)
-        {
-            $collect = collect($new_investor);
-            $name = $collect['supplier'];
-            $investment =  ($collect['investment']/100000)*100;
-            array_push($arr1, [$name,['سرمایه گذار'],$investment]);
-        }
         return view('user.shares.participation-shares.index');
     }
 
     public function create()
     {
-        $team_id = Auth::user()->team_id;
-        $members = TeamMember::where('team_id', $team_id)->get();
-        $lands = Land::where('team_id', $team_id)->sum('price');
-        $buildings = Building::where('team_id', $team_id)->sum('price');
-        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->sum('total_price');
-        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->sum('total_price');
-        $facilities = Facility::where('team_id', $team_id)->sum('total_price');
-        $transportations = Transportation::where('team_id', $team_id)->sum('total_price');
-        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
-        $financial_total_price = array_sum([$lands,$buildings,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
-        $tenements = ValuationTenement::where('team_id', $team_id)->sum('total_price');
-        $machineries = ValuationMachinery::where('team_id', $team_id)->sum('total_price');
-        $offices = ValuationOfficeSupply::where('team_id', $team_id)->sum('total_price');
-        $others = ValuationOtherAsset::where('team_id', $team_id)->sum('total_price');
-        $valuation_total_price = array_sum([$tenements,$machineries,$offices,$others]);
-        return view('user.shares.participation-shares.create');
+        return view('user.shares.participation-shares.index');
     }
 
-    public function store(ParticipationShare $request)
+    public function store(Request $request)
     {
         $team_id = Auth::user()->team_id;
         $this->participationPreIinvestors($request, $team_id);
         $this->participationNewInvestors($request, $team_id);
+        return response(['success'], 201);
     }
 
     public function show($id)
@@ -116,11 +63,12 @@ class ParticipationShareController extends Controller
 
     protected function participationPreIinvestors(Request $request, $team_id)
     {
+
         $pre_investors = $request->pre_investors;
         for ($i = 0; $i < sizeof($pre_investors); $i++) {
             $pre_investor = new ParticipationPreInvestor();
-            $pre_investor->investors_id = $pre_investors[$i]['pre_supplier_name'];
-            $pre_investor->investment = $pre_investors[$i]['pre_investment'];
+            $pre_investor->investor = $pre_investors[$i]['investor'];
+            $pre_investor->investment = $pre_investors[$i]['investment'];
             $pre_investor->team_id = $team_id;
             $pre_investor->updated_at = null;
             $pre_investor->save();
@@ -132,8 +80,8 @@ class ParticipationShareController extends Controller
         $new_investors = $request->new_investors;
         for ($i = 0; $i < sizeof($new_investors); $i++) {
             $new_investor = new ParticipationNewInvestor();
-            $new_investor->supplier = $new_investors[$i]['new_supplier_name'];
-            $new_investor->investment = $new_investors[$i]['new_investment'];
+            $new_investor->supplier = $new_investors[$i]['supplier'];
+            $new_investor->investment = $new_investors[$i]['investment'];
             $new_investor->team_id = $team_id;
             $new_investor->updated_at = null;
             $new_investor->save();

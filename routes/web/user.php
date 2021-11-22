@@ -25,6 +25,7 @@ use App\Http\Controllers\user\Financial\Financial1\BuildingController;
 use App\Http\Controllers\user\Financial\Financial1\EquipmentAndMachineryController;
 use App\Http\Controllers\user\Financial\Financial1\FacilityController;
 use App\Http\Controllers\user\Financial\Financial1\IndexController;
+use App\Http\Controllers\user\Financial\Financial1\LaboratoryEquipmentController;
 use App\Http\Controllers\user\Financial\Financial1\LandController;
 use App\Http\Controllers\user\Financial\Financial1\OfficeEquipmentAndSupplyController;
 use App\Http\Controllers\user\Financial\Financial1\PreOperatingCostController;
@@ -58,7 +59,9 @@ use App\Http\Controllers\user\Share\InitialShare\InitialShareController;
 use App\Http\Controllers\user\Share\InitialShare\PreviousInvestorController;
 use App\Http\Controllers\user\Share\InitialShare\ShareQuestionController;
 use App\Http\Controllers\user\Share\InitialShare\ShareVariableController;
+use App\Http\Controllers\user\Share\ParticipationShare\NewInvestorController;
 use App\Http\Controllers\user\Share\ParticipationShare\ParticipationShareController;
+use App\Http\Controllers\user\Share\ParticipationShare\PreInvestorController;
 use App\Http\Controllers\user\TeamMember\KeyEmployeeController;
 use App\Http\Controllers\user\TeamMember\ShareholderController;
 use App\Http\Controllers\user\Valuation\Cost\CostController;
@@ -78,7 +81,6 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/products', ProductController::class);
 
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
-    Route::resource('/participation-shares', ParticipationShareController::class);
     Route::resource('/agreements', AgreementController::class);
     Route::get('/calculations', [CalculationController::class, 'index'])->name('calculations.index');
     Route::get('/calculations/create', [CalculationController::class, 'create'])->name('calculations.create');
@@ -86,11 +88,15 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/previousinvestors', PreviousInvestorController::class);
     Route::resource('/sharevariables', ShareVariableController::class);
     Route::resource('/sharequestions', ShareQuestionController::class);
+    Route::resource('/participation-shares', ParticipationShareController::class);
+    Route::resource('/pre-investors', PreInvestorController::class);
+    Route::resource('/new-investors', NewInvestorController::class);
 
     Route::get('/financial1', IndexController::class);
     Route::resource('/basic-information', BasicInformationController::class);
     Route::resource('/lands', LandController::class);
-    Route::resource('/buildings', BuildingController::class);
+//    Route::resource('/buildings', BuildingController::class);
+    Route::resource('/laboratory-equipments', LaboratoryEquipmentController::class);
     Route::resource('/equipmentandmachineries', EquipmentAndMachineryController::class);
     Route::resource('/officeequipmentandsupplies', OfficeEquipmentAndSupplyController::class);
     Route::resource('/facilities', FacilityController::class);
@@ -136,6 +142,13 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/valuation-costs', CostController::class);
     Route::resource('/valuation-tangible', TangibleController::class);
+    Route::resource('/val-equipment-and-machineries', \App\Http\Controllers\user\Valuation\Tangible\EquipmentAndMachineryController::class);
+    Route::resource('/val-facilities', \App\Http\Controllers\user\Valuation\Tangible\FacilityController::class);
+    Route::resource('/val-laboratory-equipments', \App\Http\Controllers\user\Valuation\Tangible\LaboratoryEquipmentController::class);
+    Route::resource('/val-office-supplies', \App\Http\Controllers\user\Valuation\Tangible\OfficeEquipmentAndSupplyController::class);
+    Route::resource('/val-pre-operating-costs', \App\Http\Controllers\user\Valuation\Tangible\PreOperatingCostController::class);
+    Route::resource('/val-tenements', \App\Http\Controllers\user\Valuation\Tangible\TenementController::class);
+    Route::resource('/val-transportations', \App\Http\Controllers\user\Valuation\Tangible\TransportationController::class);
     Route::resource('/valuation-intangible', IntangibleController::class);
 
     Route::resource('/technology-questions', TechnologyController::class);

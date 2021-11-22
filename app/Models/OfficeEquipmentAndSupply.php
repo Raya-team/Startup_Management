@@ -13,4 +13,9 @@ class OfficeEquipmentAndSupply extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function officeSupply()
+    {
+        return $this->hasOne(ValuationOfficeSupply::class);
+    }
 }

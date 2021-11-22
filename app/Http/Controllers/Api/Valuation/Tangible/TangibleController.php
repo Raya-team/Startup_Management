@@ -3,115 +3,78 @@
 namespace App\Http\Controllers\Api\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Models\EquipmentAndMachinery;
+use App\Models\Facility;
+use App\Models\LaboratoryEquipment;
+use App\Models\Land;
+use App\Models\OfficeEquipmentAndSupply;
+use App\Models\PreOperatingCost;
 use App\Models\TeamMember;
+use App\Models\Transportation;
+use App\Models\ValuationFacility;
+use App\Models\ValuationLaboratoryEquipment;
 use App\Models\ValuationMachinery;
 use App\Models\ValuationOfficeSupply;
 use App\Models\ValuationOtherAsset;
 use App\Models\ValuationTenement;
+use App\Models\ValuationTransportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TangibleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $team_id = Auth::user()->team_id;
-        $tenements = ValuationTenement::with('owner')->where('team_id', $team_id)->first();
-        $machineries = ValuationMachinery::with('owner')->where('team_id', $team_id)->first();
-        $offices = ValuationOfficeSupply::with('owner')->where('team_id', $team_id)->first();
-        $others = ValuationOtherAsset::with('owner')->where('team_id', $team_id)->first();
+        $transportations = ValuationTransportation::with(['owner', 'description'])->where('team_id', $team_id)->paginate(10);
         return response()->json([
-            'team_id' => $team_id,
-            'tenements' => $tenements,
-            'machineries' => $machineries,
-            'offices' => $offices,
-            'others' => $others,
+            'transportations' => $transportations,
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $team_id = Auth::user()->team_id;
         $shareholders = TeamMember::where('team_id', $team_id)->get();
-        return response()->json($shareholders);
+        $tenements = Land::where('team_id', $team_id)->get();
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get();
+        $machineries = EquipmentAndMachinery::where('team_id', $team_id)->get();
+        $office_supplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get();
+        $facilities = Facility::where('team_id', $team_id)->get();
+        $transportations = Transportation::where('team_id', $team_id)->get();
+        $pre_operation_costs = PreOperatingCost::where('team_id', $team_id)->get();
+        return response()->json([
+            'shareholders' => $shareholders,
+            'tenements' => $tenements,
+            'laboratory_equipments' => $laboratory_equipments,
+            'machineries' => $machineries,
+            'office_supplies' => $office_supplies,
+            'facilities' => $facilities,
+            'transportations' => $transportations,
+            'pre_operation_costs' => $pre_operation_costs
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $team_id = Auth::user()->team_id;
-        $shareholders = TeamMember::where('team_id', $team_id)->get();
 
-        $tenements = ValuationTenement::where('team_id', $team_id)->first();
-        $machineries = ValuationMachinery::where('team_id', $team_id)->first();
-        $offices = ValuationOfficeSupply::where('team_id', $team_id)->first();
-        $others = ValuationOtherAsset::where('team_id', $team_id)->first();
-
-        return response()->json([
-            'shareholders' => $shareholders,
-            'team_id' => $team_id,
-            'tenements' => $tenements,
-            'machineries' => $machineries,
-            'offices' => $offices,
-            'others' => $others,
-        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

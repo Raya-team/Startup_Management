@@ -13,4 +13,9 @@ class Transportation extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function transportation()
+    {
+        return $this->hasOne(ValuationTransportation::class);
+    }
 }

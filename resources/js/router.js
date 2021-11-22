@@ -29,13 +29,21 @@ import PreviousInvestorsCreate from './components/shares/initial-shares/calculat
 import PreviousInvestorsEdit from './components/shares/initial-shares/calculation/previous-investor/edit';
 import ShareVariablesEdit from './components/shares/initial-shares/calculation/share-variable/edit';
 import ShareQuestionsEdit from './components/shares/initial-shares/calculation/share-questions/edit';
+import ParticipationShareIndex from './components/shares/participation-shares/index';
+import ParticipationShareCreate from './components/shares/participation-shares/create';
+import PreInvestorCreate from './components/shares/participation-shares/pre-investor/create';
+import PreInvestorEdit from './components/shares/participation-shares/pre-investor/edit';
+import NewInvestorCreate from './components/shares/participation-shares/new-investor/create';
+import NewInvestorEdit from './components/shares/participation-shares/new-investor/edit';
 
 import Financial1 from './components/financial/financial1/index';
 import BasicInformationCreate from './components/financial/financial1/basic-information/create';
 import LandCreate from './components/financial/financial1/land/create';
 import LandEdit from './components/financial/financial1/land/edit';
-import BuildingCreate from './components/financial/financial1/building/create';
-import BuildingEdit from './components/financial/financial1/building/edit';
+// import BuildingCreate from './components/financial/financial1/building/create';
+// import BuildingEdit from './components/financial/financial1/building/edit';
+import LaboratoryEquipmentCreate from './components/financial/financial1/laboratory-equipment/create';
+import LaboratoryEquipmentEdit from './components/financial/financial1/laboratory-equipment/edit';
 import EquipmentAndMachineryCreate from './components/financial/financial1/equipmentandmachinery/create';
 import EquipmentAndMachineryEdit from './components/financial/financial1/equipmentandmachinery/edit';
 import OfficeEquipmentAndSupplyCreate from './components/financial/financial1/officeequipmentandsupply/create';
@@ -91,7 +99,21 @@ import ValuationCostCreate from './components/valuation/cost/create';
 import ValuationCostEdit from './components/valuation/cost/edit';
 import ValuationTangibleIndex from './components/valuation/tangible/index';
 import ValuationTangibleCreate from './components/valuation/tangible/create';
-import ValuationTangibleEdit from './components/valuation/tangible/edit';
+// import ValuationTangibleEdit from './components/valuation/tangible/edit';
+import ValEquipmentAndMachineryCreate from './components/valuation/tangible/equipment-and-machinery/create';
+import ValEquipmentAndMachineryEdit from './components/valuation/tangible/equipment-and-machinery/edit';
+import ValFacilityCreate from './components/valuation/tangible/facility/create';
+import ValFacilityEdit from './components/valuation/tangible/facility/edit';
+import ValLaboratoryEquipmentCreate from './components/valuation/tangible/laboratory-equipment/create';
+import ValLaboratoryEquipmentEdit from './components/valuation/tangible/laboratory-equipment/edit';
+import ValOfficeSupplyCreate from './components/valuation/tangible/office-equipment-and-supply/create';
+import ValOfficeSupplyEdit from './components/valuation/tangible/office-equipment-and-supply/edit';
+import ValPreOperatingCostCreate from './components/valuation/tangible/pre-operating-cost/create';
+import ValPreOperatingCostEdit from './components/valuation/tangible/pre-operating-cost/edit';
+import ValTenementCreate from './components/valuation/tangible/tenement/create';
+import ValTenementEdit from './components/valuation/tangible/tenement/edit';
+import ValTransportationCreate from './components/valuation/tangible/transportation/create';
+import ValTransportationEdit from './components/valuation/tangible/transportation/edit';
 import ValuationIntangibleIndex from './components/valuation/intangible/index';
 import ValuationIntangibleCreate from './components/valuation/intangible/create';
 import ValuationIntangibleEdit from './components/valuation/intangible/edit';
@@ -189,13 +211,21 @@ const routes = [
     {path: '/previousinvestors/:id/edit', name: 'previousinvestors-edit', component: PreviousInvestorsEdit, meta: {title: 'ویرایش سهامدار'}},
     {path: '/sharevariables/:id/edit', name: 'sharevariables-edit', component: ShareVariablesEdit, meta: {title: 'ویرایش وزن متغیر ها'}},
     {path: '/sharequestions/:id/edit', name: 'sharequestions-edit', component: ShareQuestionsEdit, meta: {title: 'ویرایش اطلاعات'}},
+    {path: '/participation-shares', name: 'participation-shares-index', component: ParticipationShareIndex, meta: {title: 'محاسبه سهام مشارکت'}},
+    {path: '/participation-shares/create', name: 'participation-shares-create', component: ParticipationShareCreate, meta: {title: 'محاسبه سهام مشارکت'}},
+    {path: '/pre-investors/create', name: 'pre-investors-create', component: PreInvestorCreate, meta: {title: 'تامین از موسسین و سرمایه گذران قبلی | افزودن'}},
+    {path: '/pre-investors/:id/edit', name: 'pre-investors-edit', component: PreInvestorEdit, meta: {title: 'تامین از موسسین و سرمایه گذران قبلی | ویرایش'}},
+    {path: '/new-investors/create', name: 'new-investors-create', component: NewInvestorCreate, meta: {title: 'تامین از سرمایه گذران جدید | افزودن'}},
+    {path: '/new-investors/:id/edit', name: 'new-investors-edit', component: NewInvestorEdit, meta: {title: 'تامین از سرمایه گذران جدید | ویرایش'}},
 
     {path: '/financial1', name: 'financial1-index', component: Financial1, meta: {title: 'مالی1'}},
     {path: '/basic-information/create', name: 'basic-information-create', component: BasicInformationCreate, meta: {title: 'ایجاد اطلاعات اولیه'}},
-    {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'خرید زمین'}},
-    {path: '/lands/:id/edit', name: 'land-edit', component: LandEdit, meta: {title: 'ویرایش زمین'}},
-    {path: '/buildings/create', name: 'buildings-create', component: BuildingCreate, meta: {title: 'افزودن ساختمان'}},
-    {path: '/buildings/:id/edit', name: 'buildings-edit', component: BuildingEdit, meta: {title: 'ویرایش ساختمان'}},
+    {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'خرید مستغلات'}},
+    {path: '/lands/:id/edit', name: 'land-edit', component: LandEdit, meta: {title: 'ویرایش مستغلات'}},
+    // {path: '/buildings/create', name: 'buildings-create', component: BuildingCreate, meta: {title: 'افزودن ساختمان'}},
+    // {path: '/buildings/:id/edit', name: 'buildings-edit', component: BuildingEdit, meta: {title: 'ویرایش ساختمان'}},
+    {path: '/laboratory-equipments/create', name: 'laboratory-equipments-create', component: LaboratoryEquipmentCreate, meta: {title: 'افزودن تجهیزات آزمایشگاهی'}},
+    {path: '/laboratory-equipments/:id/edit', name: 'laboratory-equipments-edit', component: LaboratoryEquipmentEdit, meta: {title: 'ویرایش تجهیزات آزمایشگاهی'}},
     {path: '/equipmentandmachineries/create', name: 'equipmentandmachineries-create', component: EquipmentAndMachineryCreate, meta: {title: 'افزودن تجهیزات و ماشین آلات فنی'}},
     {path: '/equipmentandmachineries/:id/edit', name: 'equipmentandmachineries-edit', component: EquipmentAndMachineryEdit, meta: {title: 'ویرایش تجهیزات و ماشین آلات فنی'}},
     {path: '/officeequipmentandsupplies/create', name: 'officeequipmentandsupplies-create', component: OfficeEquipmentAndSupplyCreate, meta: {title: 'افزودن تجهیزات و لوازم دفتری'}},
@@ -252,7 +282,20 @@ const routes = [
 
     {path: '/valuation-tangible', name: 'valuation-tangible-index', component: ValuationTangibleIndex,meta: {title: 'ارزش گذاری - مشهود'}},
     {path: '/valuation-tangible/create', name: 'valuation-tangible-create', component: ValuationTangibleCreate, meta: {title: 'ایجاد'}},
-    {path: '/valuation-tangible/:id/edit', name: 'valuation-tangible-edit', component: ValuationTangibleEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-equipment-and-machineries/create', name: 'val-equipment-and-machineries-create', component: ValEquipmentAndMachineryCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-equipment-and-machineries/:id/edit', name: 'val-equipment-and-machineries-edit', component: ValEquipmentAndMachineryEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-facilities/create', name: 'val-facilities-create', component: ValFacilityCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-facilities/:id/edit', name: 'val-facilities-edit', component: ValFacilityEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-laboratory-equipments/create', name: 'val-laboratory-equipments-create', component: ValLaboratoryEquipmentCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-laboratory-equipments/:id/edit', name: 'val-laboratory-equipments-edit', component: ValLaboratoryEquipmentEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-office-supplies/create', name: 'val-office-supplies-create', component: ValOfficeSupplyCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-office-supplies/:id/edit', name: 'val-office-supplies-edit', component: ValOfficeSupplyEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-pre-operating-costs/create', name: 'val-pre-operating-costs-create', component: ValPreOperatingCostCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-pre-operating-costs/:id/edit', name: 'val-pre-operating-costs-edit', component: ValPreOperatingCostEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-tenements/create', name: 'val-tenements-create', component: ValTenementCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-tenements/:id/edit', name: 'val-tenements-edit', component: ValTenementEdit, meta: {title: 'ویرایش'}},
+    {path: '/val-transportations/create', name: 'val-transportations-create', component: ValTransportationCreate, meta: {title: 'ایجاد'}},
+    {path: '/val-transportations/:id/edit', name: 'val-transportations-edit', component: ValTransportationEdit, meta: {title: 'ویرایش'}},
 
     {path: '/valuation-intangible', name: 'valuation-intangible-index', component: ValuationIntangibleIndex,meta: {title: 'ارزش گذاری - نامشهود'}},
     {path: '/valuation-intangible/create', name: 'valuation-intangible-create', component: ValuationIntangibleCreate, meta: {title: 'ایجاد'}},

@@ -48,7 +48,7 @@
                                 <tr class="bg-gray-100 text-center">
                                     <th>ردیف</th>
                                     <th>شرح</th>
-                                    <th>مساحت (متر مربع)</th>
+                                    <th>متراژ (متر مربع)</th>
                                     <th>قیمت کل (تومان)</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -178,7 +178,7 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
-                    title: "از حذف این زمین اطمینان دارید؟",
+                    title: "از حذف مورد اطمینان دارید؟",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonText: "بله، حذف شود",
@@ -191,7 +191,7 @@
                                     var table = document.getElementById(`del${id}`);
                                     table.remove();
                                     Swal.fire({
-                                        title: "زمین با موفقیت حذف شد",
+                                        title: "حذف با موفقیت انجام شد",
                                         icon: "success",
                                         showConfirmButton: false,
                                         timer: 3000,

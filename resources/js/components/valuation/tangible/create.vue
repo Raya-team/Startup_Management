@@ -41,60 +41,71 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="row">
                                     <div class="card-body" style="padding-top: 30px">
-                                        <h4 style="color: red">مستغلات</h4>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="tenement_description">شرح :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="tenement_description" name="tenement_description" v-model="data.tenement_description"
-                                                           :class="['form-control', {'is-invalid' : errors.has('tenement_description')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('tenement_description')" style="display: block;">{{ errors.get('tenement_description') }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="tenement_area">متراژ :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                             <span class="input-group-text noselect">
-                                                                 متر مربع
-                                                            </span>
-                                                        </div>
-                                                        <input type="text" class="form-control" id="tenement_area" name="tenement_area" v-model.number="data.tenement_area"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('tenement_area')}]"/>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>مستغلات</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_tenements" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="materials_description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="materials_description" id="materials_description" class="form-control" v-model="data.description">
+                                                            <option v-for="tenement in tenements" :value="tenement.id">{{ tenement.description }}</option>
+                                                        </select>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('tenement_area')" style="display: block;">{{ errors.get('tenement_area') }}</div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="tenement_owner">مالک :
-                                                        <span class="text-danger">*</span></label>
-                                                    <select name="tenement_owner" id="tenement_owner" class="form-control" v-model="data.tenement_owner" :class="['form-control', {'is-invalid' : errors.has('tenement_owner')}]">
-                                                        <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
-                                                    </select>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('tenement_owner')" style="display: block;">{{ errors.get('tenement_owner') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_tenements.area">متراژ :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                متر مربع
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="متراژ" type="text" class="form-control" id="valuation_tenements.area" name="valuation_tenements.area" v-model.number="data.area"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="tenement_total_price">قمیت کل :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="materials_unit">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="materials_unit" id="materials_unit" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_tenements.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_tenements.total_price" name="valuation_tenements.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="tenement_total_price" name="tenement_total_price" v-model.number="data.tenement_total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('tenement_total_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('tenement_total_price')" style="display: block;">{{ errors.get('tenement_total_price') }}</div>
                                                 </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationTenement(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationTenement" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
                                     </div>
@@ -102,71 +113,96 @@
                                 <div class="row">
                                     <div class="card-body" style="padding-top: 0px">
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
-                                        <h3 style="color: red">ماشین آلات و تجهیزات فنی</h3>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="machinery_description">شرح :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="machinery_description" name="machinery_description" v-model="data.machinery_description"
-                                                           :class="['form-control', {'is-invalid' : errors.has('machinery_description')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('machinery_description')" style="display: block;">{{ errors.get('machinery_description') }}</div>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>تجهییزات آزمایشگاهی</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_laboratory_equipments" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_laboratory_equipments.description" id="valuation_laboratory_equipments.description" class="form-control" v-model="data.description">
+                                                            <option v-for="laboratory_equipment in laboratory_equipments" :value="laboratory_equipment.id">{{ laboratory_equipment.description }}</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="machinery_number">تعداد :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="machinery_number" name="machinery_number" v-model.number="data.machinery_number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has('machinery_number')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('machinery_number')" style="display: block;">{{ errors.get('machinery_number') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.number">تعداد (دستگاه) :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_laboratory_equipments.number" name="valuation_laboratory_equipments.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="machinery_owner">مالک :
-                                                        <span class="text-danger">*</span></label>
-                                                    <select name="machinery_owner" id="machinery_owner" class="form-control" v-model="data.machinery_owner" :class="['form-control', {'is-invalid' : errors.has('machinery_owner')}]">
-                                                        <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
-                                                    </select>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('machinery_owner')" style="display: block;">{{ errors.get('machinery_owner') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_laboratory_equipments" id="valuation_laboratory_equipments.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="machinery_unit_price">قمیت واحد :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.dollar_unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                دلار
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_laboratory_equipments.dollar_unit_price" name="valuation_laboratory_equipments.dollar_unit_price" v-model.number="data.dollar_unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.toman_unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_laboratory_equipments.toman_unit_price" name="valuation_laboratory_equipments.toman_unit_price" v-model.number="data.toman_unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="machinery_unit_price" name="machinery_unit_price" v-model.number="data.machinery_unit_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('machinery_unit_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('machinery_unit_price')" style="display: block;">{{ errors.get('machinery_unit_price') }}</div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="machinery_total_price">قمیت کل :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_laboratory_equipments.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_laboratory_equipments.total_price" name="valuation_laboratory_equipments.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="machinery_total_price" name="machinery_total_price" v-model.number="data.machinery_total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('machinery_total_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('machinery_total_price')" style="display: block;">{{ errors.get('machinery_total_price') }}</div>
                                                 </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationLaboratoryEquipment(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationLaboratoryEquipment" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
                                     </div>
@@ -174,71 +210,80 @@
                                 <div class="row">
                                     <div class="card-body" style="padding-top: 0px">
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
-                                        <h3 style="color: red">تجهیزات و لوازم دفتری</h3>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="office_description">شرح :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="office_description" name="office_description" v-model="data.office_description"
-                                                           :class="['form-control', {'is-invalid' : errors.has('office_description')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('office_description')" style="display: block;">{{ errors.get('office_description') }}</div>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>تجهییزات و ماشین آلات فنی</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_machineries" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_machineries.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_machineries.description" id="valuation_machineries.description" class="form-control" v-model="data.description">
+                                                            <option v-for="machinery in machineries" :value="machinery.id">{{ machinery.description }}</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="office_number">تعداد :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="office_number" name="office_number" v-model.number="data.office_number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has('office_number')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('office_number')" style="display: block;">{{ errors.get('office_number') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_machineries.number">تعداد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_machineries.number" name="valuation_machineries.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="office_owner">مالک :
-                                                        <span class="text-danger">*</span></label>
-                                                    <select name="office_owner" id="office_owner" class="form-control" v-model="data.office_owner" :class="['form-control', {'is-invalid' : errors.has('office_owner')}]">
-                                                        <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
-                                                    </select>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('office_owner')" style="display: block;">{{ errors.get('office_owner') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_machineries.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_machineries" id="valuation_machineries.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="office_unit_price">قمیت واحد :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_machineries.unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_machineries.unit_price" name="valuation_machineries.toman_unit_price" v-model.number="data.unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="office_unit_price" name="office_unit_price" v-model.number="data.office_unit_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('office_unit_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('office_unit_price')" style="display: block;">{{ errors.get('office_unit_price') }}</div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group">
-                                                    <label for="office_total_price">قمیت کل :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_machineries.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_machineries.total_price" name="valuation_machineries.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="office_total_price" name="office_total_price" v-model.number="data.office_total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('office_total_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('office_total_price')" style="display: block;">{{ errors.get('office_total_price') }}</div>
                                                 </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationMachinerie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationMachinerie" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
                                     </div>
@@ -246,44 +291,323 @@
                                 <div class="row">
                                     <div class="card-body" style="padding-top: 0px">
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
-                                        <h3 style="color: red">دارایی های دیگر</h3>
-                                        <br>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="other_description">شرح :
-                                                        <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="other_description" name="other_description" v-model="data.other_description"
-                                                           :class="['form-control', {'is-invalid' : errors.has('other_description')}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('other_description')" style="display: block;">{{ errors.get('other_description') }}</div>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>تجهیزات و لوازم دفتری</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_office_supplies" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_office_supplies.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_office_supplies.description" id="valuation_office_supplies.description" class="form-control" v-model="data.description">
+                                                            <option v-for="office_supply in office_supplies" :value="office_supply.id">{{ office_supply.description }}</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="other_owner">مالک :
-                                                        <span class="text-danger">*</span></label>
-                                                    <select name="machinery_owner" id="other_owner" class="form-control" v-model="data.other_owner" :class="['form-control', {'is-invalid' : errors.has('other_owner')}]">
-                                                        <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
-                                                    </select>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('other_owner')" style="display: block;">{{ errors.get('other_owner') }}</div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_office_supplies.number">تعداد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_office_supplies.number" name="valuation_office_supplies.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="other_total_price">قمیت کل :
-                                                        <span class="text-danger">*</span></label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_office_supplies.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_office_supplies" id="valuation_office_supplies.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_office_supplies.unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_office_supplies.unit_price" name="valuation_office_supplies.toman_unit_price" v-model.number="data.unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
-                                                        <input type="text" class="form-control" id="other_total_price" name="other_total_price" v-model.number="data.other_total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                               :class="['form-control', {'is-invalid' : errors.has('other_total_price')}]"/>
                                                     </div>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('other_total_price')" style="display: block;">{{ errors.get('other_total_price') }}</div>
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_office_supplies.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_office_supplies.total_price" name="valuation_office_supplies.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationOfficeSupplie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationOfficeSupplie" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card-body" style="padding-top: 0px">
+                                        <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>تاسیسات</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_facilities" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_facilities.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_facilities.description" id="valuation_facilities.description" class="form-control" v-model="data.description">
+                                                            <option v-for="facility in facilities" :value="facility.id">{{ facility.description }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_facilities.number">تعداد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_facilities.number" name="valuation_facilities.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_facilities.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_facilities" id="valuation_facilities.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_facilities.unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_facilities.unit_price" name="valuation_facilities.toman_unit_price" v-model.number="data.unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_facilities.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_facilities.total_price" name="valuation_facilities.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationFacilitie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationFacilitie" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card-body" style="padding-top: 0px">
+                                        <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>وسایل حمل و نقل</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_transportations" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_transportations.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_transportations.description" id="valuation_transportations.description" class="form-control" v-model="data.description">
+                                                            <option v-for="transportation in transportations" :value="transportation.id">{{ transportation.description }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_transportations.number">تعداد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_transportations.number" name="valuation_transportations.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_transportations.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_transportations" id="valuation_transportations.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_transportations.unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_transportations.unit_price" name="valuation_transportations.toman_unit_price" v-model.number="data.unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_transportations.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_transportations.total_price" name="valuation_transportations.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationTransportation(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationTransportation" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card-body" style="padding-top: 0px">
+                                        <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>هزینه‌های قبل بهره‌برداری</b><hr>
+                                        </div>
+                                        <transition-group name="slide">
+                                            <div class="row" v-for="(data, index) in data.valuation_pre_operation_costs" :key="index">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label for="valuation_pre_operation_costs.description">شرح:
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_pre_operation_costs.description" id="valuation_pre_operation_costs.description" class="form-control" v-model="data.description">
+                                                            <option v-for="pre_operation_cost in pre_operation_costs" :value="pre_operation_cost.id">{{ pre_operation_cost.description }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_pre_operation_costs.number">تعداد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_pre_operation_costs.number" name="valuation_pre_operation_costs.number" v-model.number="data.number"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_pre_operation_costs.owner">مالک :
+                                                            <span class="text-danger">*</span></label>
+                                                        <select name="valuation_pre_operation_costs" id="valuation_pre_operation_costs.owner" class="form-control" v-model="data.owner">
+                                                            <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_pre_operation_costs.unit_price">قیمت واحد :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_pre_operation_costs.unit_price" name="valuation_pre_operation_costs.toman_unit_price" v-model.number="data.unit_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="valuation_pre_operation_costs.total_price">قیمت کل :
+                                                            <span class="text-danger">*</span>
+                                                        </label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                تومان
+                                                            </span>
+                                                            </div>
+                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_pre_operation_costs.total_price" name="valuation_pre_operation_costs.total_price" v-model.number="data.total_price"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                    <a @click="RemoveValuationPreOperationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
+                                            </div>
+                                        </transition-group>
+                                        <div class="form-group row">
+                                            <div class="col-lg-12">
+                                                <a @click="AddValuationPreOperationCost" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                    <i class="la la-plus"></i>افزودن</a>
                                             </div>
                                         </div>
                                     </div>
@@ -311,26 +635,22 @@
         name: "create",
         data() {
             return {
-                types: [],
                 shareholders: [],
+                tenements: [],
+                laboratory_equipments: [],
+                machineries: [],
+                office_supplies: [],
+                facilities: [],
+                transportations: [],
+                pre_operation_costs: [],
                 data: {
-                    tenement_description: '',
-                    tenement_area: '',
-                    tenement_owner: '',
-                    tenement_total_price: '',
-                    machinery_description: '',
-                    machinery_number: '',
-                    machinery_owner: '',
-                    machinery_unit_price: '',
-                    machinery_total_price: '',
-                    office_description: '',
-                    office_number: '',
-                    office_owner: '',
-                    office_unit_price: '',
-                    office_total_price: '',
-                    other_description: '',
-                    other_owner: '',
-                    other_total_price: '',
+                    valuation_tenements: [{description: '', area: '', owner: '', total_price: ''}],
+                    valuation_laboratory_equipments: [{description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: '', total_price: ''}],
+                    valuation_machineries: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_office_supplies: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_facilities: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_transportations: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_pre_operation_costs: [{description: '', owner: '', total_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -340,7 +660,14 @@
             this.Auth.check();
             axios.get('/api/valuation-tangible/create')
                 .then(response => {
-                    this.shareholders = response.data;
+                    this.shareholders = response.data.shareholders;
+                    this.tenements = response.data.tenements;
+                    this.laboratory_equipments = response.data.laboratory_equipments;
+                    this.machineries = response.data.machineries;
+                    this.office_supplies = response.data.office_supplies;
+                    this.facilities = response.data.facilities;
+                    this.transportations = response.data.transportations;
+                    this.pre_operation_costs = response.data.pre_operation_costs;
                 })
                 .catch(error => console.log(error));
         },
@@ -374,6 +701,48 @@
                         KTUtil.btnRelease(formSubmitButton);
                     });
             },
+            AddValuationTenement() {
+                this.data.valuation_tenements.push({description: '', area: '', owner: '', total_price: ''});
+            },
+            RemoveValuationTenement(index) {
+                this.data.valuation_tenements.splice(index, 1);
+            },
+            AddValuationLaboratoryEquipment() {
+                this.data.valuation_laboratory_equipments.push({description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: '', total_price: ''});
+            },
+            RemoveValuationLaboratoryEquipment(index) {
+                this.data.valuation_laboratory_equipments.splice(index, 1);
+            },
+            AddValuationMachinerie() {
+                this.data.valuation_machineries.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+            },
+            RemoveValuationMachinerie(index) {
+                this.data.valuation_machineries.splice(index, 1);
+            },
+            AddValuationOfficeSupplie() {
+                this.data.valuation_office_supplies.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+            },
+            RemoveValuationOfficeSupplie(index) {
+                this.data.valuation_office_supplies.splice(index, 1);
+            },
+            AddValuationFacilitie() {
+                this.data.valuation_facilities.push({description: '', count: '', owner: '', unit_price: '', total_price: ''});
+            },
+            RemoveValuationFacilitie(index) {
+                this.data.valuation_facilities.splice(index, 1);
+            },
+            AddValuationTransportation() {
+                this.data.valuation_transportations.push({description: '', count: '', owner: '', unit_price: '', total_price: ''});
+            },
+            RemoveValuationTransportation(index) {
+                this.data.valuation_transportations.splice(index, 1);
+            },
+            AddValuationPreOperationCost() {
+                this.data.valuation_pre_operation_costs.push({description: '', owner: '', total_price: ''});
+            },
+            RemoveValuationPreOperationCost(index) {
+                this.data.valuation_pre_operation_costs.splice(index, 1);
+            },
         },
     }
 </script>
@@ -387,5 +756,43 @@
         -ms-user-select: none;
         user-select: none;
         color: #a2a2a2;
+    }
+    .slide-enter{
+        opacity: 0;
+        /*transform: translateY(20px)*/
+    }
+    .slide-enter-active{
+        animation: slide-in 1s ease-out forwards;
+        transition: opacity .5s;
+    }
+    .slide-leave{
+
+    }
+    .slide-leave-active{
+        transition: all 1s ease;
+    }
+    .slide-leave-to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    .slide-move{
+        transition: transform 1s;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px)
+        }
+        to {
+            transform: translateY(0)
+        }
+    }
+    @keyframes slide-out {
+        from {
+            transform: translateY(0)
+        }
+        to {
+            transform: translateY(20px)
+        }
     }
 </style>

@@ -170,19 +170,34 @@ class Team extends Model
         return $this->hasMany(ValuationCost::class);
     }
 
-    public function valuationTenement()
+    public function valuationTenements()
     {
-        return $this->hasOne(ValuationTenement::class);
+        return $this->hasMany(ValuationTenement::class);
     }
 
-    public function valuationMachinery()
+    public function valuationMachineries()
     {
-        return $this->hasOne(ValuationMachinery::class);
+        return $this->hasMany(ValuationMachinery::class);
     }
 
-    public function valuationOfficeSupply()
+    public function valuationOfficeSupplies()
     {
-        return $this->hasOne(ValuationOfficeSupply::class);
+        return $this->hasMany(ValuationOfficeSupply::class);
+    }
+
+    public function valuationFacilities()
+    {
+        return $this->hasMany(ValuationFacility::class);
+    }
+
+    public function transportations()
+    {
+        return $this->hasMany(ValuationTransportation::class);
+    }
+
+    public function valuationPreOperationCosts()
+    {
+        return $this->hasMany(ValuationPreOperationCost::class);
     }
 
     public function valuationOtherAsset()

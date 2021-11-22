@@ -61,7 +61,6 @@ class AfterSaleServiceController extends Controller
      */
     public function edit($id)
     {
-        $team = Auth::user()->team;
         $after_sale_service = AfterSaleService::where('id', $id)->first();
         return response()->json($after_sale_service);
     }
