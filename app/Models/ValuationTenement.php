@@ -14,12 +14,12 @@ class ValuationTenement extends Model
         return $this->belongsTo(Team::class);
     }
 
-    public function owner()
+    public function Owner()
     {
         return $this->belongsTo(TeamMember::class, 'owner');
     }
 
-    public function description()
+    public function Description()
     {
         return $this->belongsTo(Land::class, 'description');
     }

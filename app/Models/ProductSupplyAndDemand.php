@@ -14,7 +14,7 @@ class ProductSupplyAndDemand extends Model
         return $this->belongsTo(Team::class);
     }
 
-    public function unit_id()
+    public function Unit_id()
     {
         return $this->belongsTo(UnitOfMeasurement::class, 'unit_id');
     }

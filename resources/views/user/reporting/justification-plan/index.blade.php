@@ -293,7 +293,7 @@
                             <h4>14)بررسی بازار:</h4><br>
                             <h5>1_14)وضعیت بازار:</h5><br>
                             <p>
-                                {{$technicals->product_introduction}}
+                                {{$markets->market_status}}
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
@@ -329,7 +329,7 @@
                                                         <span class="text-dark-75">{{$supply->importation}}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$supply->unit_id}}</span>
+                                                        <span class="text-dark-75">{{$supply->Unit_id->name}}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -434,6 +434,45 @@
                             </div>
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>5_14)محصولات جایگزین:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">نام محصول</th>
+                                                <th>شرح</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($alternative_products as $alternative_product)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$alternative_product->product_title}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$alternative_product->description}}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <h5>6_14)بازار هدف:</h5><br>
+                            <p>
+                                {{$markets->target_market}}
+                            </p>
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>7_14)استراتژی قیمت گذاری:</h5><br>
                             <p>
                                 {{$markets->product_pricing_strategy}}
@@ -447,6 +486,11 @@
                             <h5>9_14)مزیت رقابتی محصول:</h5><br>
                             <p>
                                 {{$markets->product_competitive_advantages}}
+                            </p>
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <h5>10_14)پیش بینی آینده بازار:</h5><br>
+                            <p>
+                                {{$markets->forecast_the_future_of_the_market}}
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
@@ -622,6 +666,629 @@
                                 <!--end::Body-->
                             </div>
                             <!--end::table-->
+                        </div>
+                    </div>
+                    <!--end::Card-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b example example-compact">
+                        <div class="card-header">
+                            <h1 class="card-title" style="margin: auto; font-size: 20px;"><b>اطلاعات تولید</b></h1>
+                        </div>
+                        <div class="card-body">
+                            <h4>15)شرایط و نوبت کاری:</h4><br>
+                            <p>
+                                {{$technicals->terms_and_conditions_of_work}}
+                            </p>
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <h4>16)برنامه تولید:</h4><br>
+                            <p>
+                                {{$technicals->production_schedule}}
+                            </p>
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h4>17)پیش‌ بینی برنامه زمانبندی اجرای طرح:</h4><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">موضوع کار</th>
+                                                <th>مدت زمان کار</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($plan_implementation as $plan)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$plan->subject_of_work}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$plan->duration_of_work}}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                        </div>
+                    </div>
+                    <!--end::Card-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--begin::Card-->
+                    <div class="card card-custom gutter-b example example-compact">
+                        <div class="card-header">
+                            <h1 class="card-title" style="margin: auto; font-size: 20px;"><b>اطلاعات مالی</b></h1>
+                        </div>
+                        <div class="card-body">
+                            <h4>18)فرضیات محاسبات مالی:</h4><br>
+                            <p>
+                                در این طرح عمر فناوری {{$plan_year->number_of_plan_year}} ساله در نظر گرفته شده است و نرخ تورم سالیانه  {{$fiscal->inflation}}درصد می‌باشد. لازم به ذکر است قیمت روز دلار {{$fiscal->dollar}} تومان بوده و وامی {{$fiscal->loan}} تومانی با سود {{$fiscal->profit}} درصد و بازپرداخت {{$fiscal->reimbursement}} ماهانه درنظر گرفته شده است. با توجه به برآورد ریسک ..... محاسبه شده در سامانه و میزان تورم، نرخ تنزیل ...... در نظر گرفته می‌شود.
+                            </p>
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h4>19)هزینه های سرمایه گذاری:</h4><br>
+                                <h5>1_19)مستغلات:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>متراژ کل</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($tenements as $tenement)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$tenement->Description->description}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$tenement->Description->area}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$tenement->total_price}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{($tenement->Description->price)-($tenement->total_price)}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$tenement->Description->price}}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>2_19)تاسیسات:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>تعداد</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($facilities as $facility)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $facility->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $facility->Description->count }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $facility->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{($facility->Description->total_price) - ($facility->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $facility->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $facilities->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($facilities->sum('Description.total_price')) - ($facilities->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $facilities->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>3_19)ماشین آلات و تجهیزات فنی:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>تعداد</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($machineries as $machinery)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $machinery->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $machinery->Description->count }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $machinery->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{($machinery->Description->total_price) - ($machinery->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $machinery->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $machineries->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($machineries->sum('Description.total_price')) - ($machineries->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $machineries->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>4_19)تجهیزات آزمایشگاهی:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>تعداد</th>
+                                                <th>قیمت واحد(دلار)</th>
+                                                <th>قیمت واحد(تومان)</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($laboratory_equipments as $laboratory_equipment)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->number }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->dollar_unit_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->toman_unit_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($laboratory_equipment->Description->total_price) - ($laboratory_equipment->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $laboratory_equipments->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($laboratory_equipments->sum('Description.total_price')) - ($laboratory_equipments->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $laboratory_equipments->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>5_19)اثاثه اداری:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>تعداد</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($offices as $office)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $office->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $office->Description->count }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $office->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($office->Description->total_price) - ($office->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $office->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $offices->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($offices->sum('Description.total_price')) - ($offices->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $offices->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>6_19)وسایل نقلیه:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>تعداد</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($transportations as $transportation)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $transportation->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $transportation->Description->count }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $transportation->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($transportation->Description->total_price) - ($transportation->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $transportation->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $transportations->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($transportations->sum('Description.total_price')) - ($transportations->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $transportations->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>7_19)هزینه های قبل از بهره برداری:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>مبلغ انجام شده</th>
+                                                <th>مبلغ مورد نیاز</th>
+                                                <th>جمع</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($pre_operation_costs as $pre_operation_cost)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $pre_operation_cost->Description->description }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $pre_operation_cost->total_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($pre_operation_cost->Description->total_price) - ($pre_operation_cost->total_price) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $pre_operation_cost->Description->total_price }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $pre_operation_costs->sum('total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($pre_operation_costs->sum('Description.total_price')) - ($pre_operation_costs->sum('total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $pre_operation_costs->sum('Description.total_price') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h5>8_19)سرمایه در گردش مورد نیاز:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">مدت زمانی که طول می‌کشد ماده اولیه خریده شده و تبدیل به محصول شوند (روز)</th>
+                                                <th>مدت زمانی که طول می‌کشد محصول به فروش رود (روز)</th>
+                                                <th>مدت زمانی که طول می‌کشد مطالبات وصول شود (روز)</th>
+                                                <th>جمع کل (روز)</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $count_day->question_3 }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $count_day->question_4 }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4) }}</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                    <br><br>
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>مدت(ماه)</th>
+                                                <th>سرمایه در گردش مورد نیاز</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">سال{{$i}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
+                                                </td>
+                                            </tr>
+                                            @endfor
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                    <br><br>
+                                    <p>
+                                        با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
+                                        به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
+                                        مبلغ ............... تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
+                                    </p>
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div class="card card-custom gutter-b">
+                                <h4>20)برآورد هزینه‌های دوران بهره‌برداری:</h4><br>
+                                <h5>1_20)مواد اولیه و بسته‌بندی:</h5><br>
+                                <h6>1_1_20)مشخصات مواد اولیه برای یک واحد محصول:</h6><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح مواد مصرفی</th>
+                                                <th>واحد</th>
+                                                <th>قیمت واحد</th>
+                                                <th>مقدار و هزينه مصرف براي هرواحد محصول</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $count_day->question_3 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $count_day->question_4 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4) }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                         </div>
                     </div>
                     <!--end::Card-->
