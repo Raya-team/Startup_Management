@@ -550,36 +550,11 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label for="valuation_pre_operation_costs.number">تعداد :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <input placeholder="تعداد" type="text" class="form-control" id="valuation_pre_operation_costs.number" name="valuation_pre_operation_costs.number" v-model.number="data.number"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
                                                         <label for="valuation_pre_operation_costs.owner">مالک :
                                                             <span class="text-danger">*</span></label>
                                                         <select name="valuation_pre_operation_costs" id="valuation_pre_operation_costs.owner" class="form-control" v-model="data.owner">
                                                             <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
                                                         </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_pre_operation_costs.unit_price">قیمت واحد :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_pre_operation_costs.unit_price" name="valuation_pre_operation_costs.toman_unit_price" v-model.number="data.unit_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -598,7 +573,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
                                                     <a @click="RemoveValuationPreOperationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>

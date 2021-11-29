@@ -104,6 +104,47 @@
                             <!--end::Invoice Body-->
                         </div>
                     </div>
+                    <div class="card-body pt-0 pb-3">
+                        <div class="card card-custom gutter-b">
+                            <!--begin::Invoice Body-->
+                            <div class="position-relative">
+                                <!--begin::Background Rows-->
+                                <div class="bgi-size-cover bgi-position-center bgi-no-repeat h-65px" style="background-image: url(assets/media/svg/shapes/abstract-10.svg);"></div>
+                                <div>
+                                    <div class="bg-white h-65px"></div>
+                                    <div class="bg-light h-65px"></div>
+                                    <div class="bg-white h-65px"></div>
+                                    <div class="bg-light h-65px"></div>
+                                </div>
+                                <!--end::Background Rows-->
+                                <!--begin:Table-->
+                                <div class="container position-absolute top-0 left-0 right-0">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                    <tr class="font-weight-boldest text-white h-65px">
+                                                        <td class="align-middle font-size-h4 text-center pl-0 border-0">مدل ارزش گذاری</td>
+                                                        <td class="align-middle font-size-h4 text-center border-0">مقدار (تومان)</td>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr class="font-size-lg font-weight-bolder h-65px">
+                                                        <td class="align-middle text-center border-0">نرخ تنزیل مورد نظر چند درصد است</td>
+                                                        <td class="align-middle text-center border-0">{{ q.question_1 }} %</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end:Table-->
+                            </div>
+                            <!--end::Invoice Body-->
+                        </div>
+                    </div>
                 </div>
                 <!--end::Container-->
             </div>

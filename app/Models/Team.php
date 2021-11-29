@@ -332,4 +332,8 @@ class Team extends Model
         return $this->hasMany(ParticipationNewInvestor::class);
     }
 
+    public function asset()
+    {
+        return $this->hasOne(ValuationOfIntangibleAsset::class);
+    }
 }

@@ -149,7 +149,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

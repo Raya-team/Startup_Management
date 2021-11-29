@@ -147,7 +147,6 @@
                         this.$router.push({name: 'description-technical-index'});
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

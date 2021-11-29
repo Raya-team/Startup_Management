@@ -21,7 +21,7 @@ use App\Http\Controllers\user\Description\Market\WeakPointController;
 use App\Http\Controllers\user\Description\Technical\RequiredCertificateController;
 use App\Http\Controllers\user\Description\Technical\TechnicalController;
 use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
-use App\Http\Controllers\user\Financial\Financial1\BuildingController;
+//use App\Http\Controllers\user\Financial\Financial1\BuildingController;
 use App\Http\Controllers\user\Financial\Financial1\EquipmentAndMachineryController;
 use App\Http\Controllers\user\Financial\Financial1\FacilityController;
 use App\Http\Controllers\user\Financial\Financial1\IndexController;
@@ -40,6 +40,7 @@ use App\Http\Controllers\user\Financial\Financial2\Financial2Controller;
 use App\Http\Controllers\user\Financial\Financial2\InsuranceController;
 use App\Http\Controllers\user\Financial\Financial2\ManPowerController;
 use App\Http\Controllers\user\Financial\Financial2\OtherInformationController;
+use App\Http\Controllers\user\Financial\Financial2\OutsourcingController;
 use App\Http\Controllers\user\Financial\Financial2\RawMaterialController;
 use App\Http\Controllers\user\Financial\Financial2\RDController;
 use App\Http\Controllers\user\Financial\Financial2\RentController;
@@ -134,6 +135,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/consumeritems/{year}/create', [ConsumerItemController::class, 'create']);
     Route::resource('/aftersaleservices', AfterSaleServiceController::class);
     Route::get('/aftersaleservices/{year}/create', [AfterSaleServiceController::class, 'create']);
+    Route::resource('/outsourcings', OutsourcingController::class);
+    Route::get('/outsourcings/{year}/create', [OutsourcingController::class, 'create']);
     Route::resource('/otherinformations', OtherInformationController::class);
 
     Route::resource('/justificationplan', JustificationPlanController::class);

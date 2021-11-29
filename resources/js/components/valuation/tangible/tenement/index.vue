@@ -50,6 +50,7 @@
                                 <thead v-else>
                                 <tr class="bg-gray-100 text-center">
                                     <th>شرح</th>
+                                    <th>متراژ</th>
                                     <th>مالک</th>
                                     <th>قیمت کل (تومان)</th>
                                     <th>عملیات</th>
@@ -59,6 +60,9 @@
                                 <tr v-for="(tenement, index) in ValuationTenementsFilter" :id="'del_'+tenement.id" class="text-center">
                                     <td>
                                         <span class="text-dark-75">{{ tenement.description.description }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-75">{{ tenement.area }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ tenement.owner.fname }} {{ tenement.owner.lname }}</span>

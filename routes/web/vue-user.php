@@ -63,6 +63,8 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::get('/consumeritems/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\ConsumerItemController::class, 'edit']);
     Route::get('/aftersaleservices/{id}', [\App\Http\Controllers\Api\Financial\Financial2\AfterSaleServiceController::class, 'index']);
     Route::get('/aftersaleservices/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\AfterSaleServiceController::class, 'edit']);
+    Route::get('/outsourcings/{id}', [\App\Http\Controllers\Api\Financial\Financial2\OutsourcingController::class, 'index']);
+    Route::get('/outsourcings/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\OutsourcingController::class, 'edit']);
     Route::get('/otherinformations/{id}', [\App\Http\Controllers\Api\Financial\Financial2\OtherInformationController::class, 'index']);
     Route::get('/otherinformations/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\OtherInformationController::class, 'edit']);
 

@@ -127,10 +127,8 @@
                                                     <div class="form-group">
                                                         <label for="office_owner">مدل ارزش گذاری :
                                                             <span class="text-danger">*</span></label>
-                                                        <select name="office_owner" id="office_owner" class="form-control" :class="['form-control', {'is-invalid' : errors.has('office_owner')}]">
-                                                            <option value="1">1</option>
-                                                            <option value="1">2</option>
-                                                            <option value="1">3</option>
+                                                        <select name="office_owner" id="office_owner" class="form-control" v-model="data.valuation_model">
+                                                            <option v-for="model in models" :value="model.id">{{ model.name }}</option>
                                                         </select>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('office_owner')" style="display: block;">{{ errors.get('office_owner') }}</div>
                                                     </div>
@@ -162,11 +160,14 @@
         name: "create",
         data() {
             return {
+                models: [],
                 data: {
                     question_1: '',
                     question_2: '',
                     question_3: '',
                     question_4: '',
+                    valuation_model: '',
+                    value: null,
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -174,6 +175,11 @@
         },
         created() {
             this.Auth.check();
+            axios.get('/api/valuation-intangible/create')
+                .then(response => {
+                    this.models = response.data;
+                })
+                .catch(error => console.log(error));
         },
         methods: {
             onSubmit() {
@@ -198,6 +204,7 @@
                         }
                     })
                     .catch(error => {
+                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

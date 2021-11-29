@@ -296,7 +296,6 @@
                     if (result.value) {
                         axios.delete(`/description-requiredcertificates/${id}`)
                             .then(response => {
-                                console.log(response);
                                 if(response.data[0] == "deleted"){
                                     var table = document.getElementById(`del${id}`);
                                     table.remove();

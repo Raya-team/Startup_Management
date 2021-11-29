@@ -17,6 +17,7 @@ use App\Models\Insurance;
 use App\Models\ManPower;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\OtherInformation;
+use App\Models\Outsourcing;
 use App\Models\PreOperatingCost;
 use App\Models\RawMaterial;
 use App\Models\RD;
@@ -44,7 +45,9 @@ class Financial2Controller extends Controller
     public function store(Request $request, $year, DevelopmentCost $developmentCost, Capacity $capacity, OtherInformation $information)
     {
         $team = Auth::user()->team;
-        $this->DevelopmentCost($request, $developmentCost, $team, $year);
+        if ($year>1){
+            $this->DevelopmentCost($request, $developmentCost, $team, $year);
+        }
         $this->Capacity($request, $capacity, $team, $year);
         $this->RawMaterial($request, $team, $year);
         $this->ManPower($request, $team, $year);
@@ -58,6 +61,7 @@ class Financial2Controller extends Controller
         $this->Warranty($request, $team, $year);
         $this->ConsumerItem($request, $team, $year);
         $this->AfterSaleService($request, $team, $year);
+        $this->Outsourcing($request, $year, $team);
         $this->OtherInformation($request, $information, $team, $year);
         return response(['success'], 201);
     }
@@ -328,6 +332,27 @@ class Financial2Controller extends Controller
             $afterSaleService->team_id = $team->id;
             $afterSaleService->updated_at = null;
             $afterSaleService->save();
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $year
+     * @param $team
+     */
+    protected function Outsourcing(Request $request, $year, $team)
+    {
+        $outsourcings = $request->outsourcing;
+        for ($i = 0; $i < sizeof($outsourcings); $i++) {
+            $outsourcing = new Outsourcing();
+            $outsourcing->description = $outsourcings[$i]['description'];
+            $outsourcing->number = $outsourcings[$i]['number'];
+            $outsourcing->unit_cost = $outsourcings[$i]['unit_cost'];
+            $outsourcing->total_cost = $outsourcings[$i]['total_cost'];
+            $outsourcing->year = $year;
+            $outsourcing->team_id = $team->id;
+            $outsourcing->updated_at = null;
+            $outsourcing->save();
         }
     }
 

@@ -199,7 +199,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post(`/description-managerial`, this.data)
                     .then(response => {
-                        console.log(response);
                         if(response.status == 201){
                             Swal.fire({
                                 title: "اطلاعات با موفقیت ثبت شد",
@@ -215,7 +214,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

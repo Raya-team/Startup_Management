@@ -50,7 +50,9 @@
                                 <thead v-else>
                                 <tr class="bg-gray-100 text-center">
                                     <th>شرح</th>
+                                    <th>تعداد</th>
                                     <th>مالک</th>
+                                    <th>قیمت واحد (تومان)</th>
                                     <th>قیمت کل (تومان)</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -61,7 +63,13 @@
                                         <span class="text-dark-75">{{ transportation.description.description }}</span>
                                     </td>
                                     <td>
+                                        <span class="text-dark-75">{{ transportation.number }}</span>
+                                    </td>
+                                    <td>
                                         <span class="text-dark-750">{{ transportation.owner.fname }} {{ transportation.owner.lname }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-750">{{ transportation.unit_price }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ transportation.total_price }}</span>

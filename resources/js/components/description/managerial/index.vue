@@ -457,7 +457,6 @@
                     if (result.value) {
                         axios.delete(`/description-obtainedcertificates/${id}`)
                             .then(response => {
-                                console.log(response);
                                 if(response.data[0] == "deleted"){
                                     var table = document.getElementById(`del${id}`);
                                     table.remove();
@@ -492,7 +491,6 @@
                     if (result.value) {
                         axios.delete(`/description-planimplementations/${id}`)
                             .then(response => {
-                                console.log(response);
                                 if(response.data[0] == "deleted"){
                                     var table = document.getElementById(`del${id}`);
                                     table.remove();

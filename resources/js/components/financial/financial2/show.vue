@@ -46,7 +46,7 @@
                                         <div class="col-lg-3">
                                             <!--<ul class="nav nav-tabs" id="myTab" role="tablist">-->
                                             <ul class="nav flex-column nav-pills" id="myTab" role="tablist">
-                                                <li class="nav-item mb-2">
+                                                <li class="nav-item mb-2" v-if="this.$route.params.id > 1">
                                                     <a class="nav-link active" id="development-tab" data-toggle="tab" href="#development-cost">
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-chat-1"></i>
@@ -159,6 +159,14 @@
                                                     </a>
                                                 </li>
                                                 <li class="nav-item mb-2">
+                                                    <a class="nav-link" id="outsourcing-tab" data-toggle="tab" href="#outsourcing">
+                                                <span class="nav-icon">
+                                                    <i class="flaticon2-chat-1"></i>
+                                                </span>
+                                                        <span class="nav-text">برونسپاری</span>
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item mb-2">
                                                     <a class="nav-link" id="information-tab" data-toggle="tab" href="#information">
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-chat-1"></i>
@@ -170,7 +178,7 @@
                                         </div>
                                         <div class="col-lg-9">
                                             <div class="tab-content mt-5" id="myTabContent">
-                                                <div class="tab-pane fade active show" id="development-cost" role="tabpanel" aria-labelledby="development-tab">
+                                                <div v-if="this.$route.params.id > 1" class="tab-pane fade active show" id="development-cost" role="tabpanel" aria-labelledby="development-tab">
                                                     <development-cost></development-cost>
                                                 </div>
                                                 <div class="tab-pane fade" id="capacity" role="tabpanel" aria-labelledby="capacity-tab">
@@ -211,6 +219,9 @@
                                                 </div>
                                                 <div class="tab-pane fade" id="sale-service" role="tabpanel" aria-labelledby="sale-service-tab">
                                                     <after-sale-service></after-sale-service>
+                                                </div>
+                                                <div class="tab-pane fade" id="outsourcing" role="tabpanel" aria-labelledby="outsourcing-tab">
+                                                    <outsourcing></outsourcing>
                                                 </div>
                                                 <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
                                                     <other-information></other-information>

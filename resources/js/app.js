@@ -94,6 +94,7 @@ Vue.component('TransportationCost', require('./components/financial/financial2/t
 Vue.component('Warranty', require('./components/financial/financial2/warranty/index.vue').default);
 Vue.component('ConsumerItem', require('./components/financial/financial2/consumer-item/index.vue').default);
 Vue.component('AfterSaleService', require('./components/financial/financial2/after-sale-service/index.vue').default);
+Vue.component('Outsourcing', require('./components/financial/financial2/outsourcing/index.vue').default);
 Vue.component('OtherInformation', require('./components/financial/financial2/other-information/index.vue').default);
 
 Vue.component('ValEquipmentAndMachinery', require('./components/valuation/tangible/equipment-and-machinery/index.vue').default);

@@ -171,7 +171,6 @@
                         this.$router.push({name: 'description-managerial-index'});
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

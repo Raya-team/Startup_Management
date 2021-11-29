@@ -85,6 +85,8 @@ import ConsumerItemEdit from './components/financial/financial2/consumer-item/ed
 import AfterSaleServiceCreate from './components/financial/financial2/after-sale-service/create';
 import AfterSaleServiceEdit from './components/financial/financial2/after-sale-service/edit';
 import OtherInformationEdit from './components/financial/financial2/other-information/edit';
+import OutsourcingsCreate from './components/financial/financial2/outsourcing/create';
+import OutsourcingsEdit from './components/financial/financial2/outsourcing/edit';
 
 import JustificationPlanIndex from './components/justification-plan/index';
 import JustificationPlanCreate from './components/justification-plan/create';
@@ -266,6 +268,8 @@ const routes = [
     {path: '/consumeritems/:id/edit', name: 'consumeritems-edit', component: ConsumerItemEdit, meta: {title: 'هزینه اقلام مصرفی - ویرایش'}},
     {path: '/aftersaleservices/:year/create', name: 'aftersaleservices-create', component: AfterSaleServiceCreate, meta: {title: 'درآمد خدمات پس از فروش - ایجاد'}},
     {path: '/aftersaleservices/:id/edit', name: 'aftersaleservices-edit', component: AfterSaleServiceEdit, meta: {title: 'درآمد خدمات پس از فروش - ویرایش'}},
+    {path: '/outsourcings/:year/create', name: 'outsourcings-create', component: OutsourcingsCreate, meta: {title: 'برونسپاری - ایجاد'}},
+    {path: '/outsourcings/:id/edit', name: 'outsourcings-edit', component: OutsourcingsEdit, meta: {title: 'برونسپاری - ویرایش'}},
     {path: '/otherinformations/:id/edit', name: 'otherinformations-edit', component: OtherInformationEdit, meta: {title: 'اطلاعات دیگر - ویرایش'}},
 
     {path: '/justificationplan', name: 'justificationplan-index', component: JustificationPlanIndex,meta: {title: 'طرح توجیهی مقدماتی'}},

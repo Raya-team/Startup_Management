@@ -262,7 +262,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/businesscanvas', this.data)
                     .then(response => {
-                        console.log(response.data);
                         if(response.status == 201){
                             Swal.fire({
                                 title: "اطلاعات با موفقیت ثبت شد",

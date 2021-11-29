@@ -140,12 +140,23 @@
         name: "create",
         data() {
             return {
+                shareholders: [],
+                machineries: [],
                 data: {
                     valuation_machineries: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
             }
+        },
+        created() {
+            this.Auth.check();
+            axios.get('/api/val-equipment-and-machineries/create')
+                .then(response => {
+                    this.shareholders = response.data.shareholders;
+                    this.machineries = response.data.machineries;
+                })
+                .catch(error => console.log(error));
         },
         methods: {
             AddValuationMachinerie() {

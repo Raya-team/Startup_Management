@@ -574,6 +574,48 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
+                                    <h3 style="color: red">برونسپاری</h3><hr>
+                                    <transition-group name="slide">
+                                        <div class="row" v-for="(out, index) in data.outsourcing" :key="index">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="outsourcing_description">شرح:</label>
+                                                    <input type="text" class="form-control" id="outsourcing_description" placeholder="شرح" name="outsourcing_description" v-model="out.description"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="outsourcing_number">تعداد:</label>
+                                                    <input type="text" class="form-control" id="outsourcing_number" placeholder="تعداد" name="outsourcing_number" v-model="out.number"
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="outsourcing_unit_cost">هزینه واحد:</label>
+                                                    <input type="text" class="form-control" id="outsourcing_unit_cost" placeholder="هزینه واحد" name="outsourcing_unit_cost" v-model="out.unit_cost"
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="outsourcing_total_cost">هزینه کل:</label>
+                                                    <input type="text" class="form-control" id="outsourcing_total_cost" placeholder="هزینه کل" name="outsourcing_total_cost" v-model="out.total_cost"
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 28px">
+                                                <a @click="RemoveOutsourcing(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                    <i class="la la-trash-o"></i>حذف</a>
+                                            </div>
+                                        </div>
+                                    </transition-group>
+                                    <div class="form-group row">
+                                        <div class="col-lg-12">
+                                            <a @click="AddOutsourcing" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
+                                                <i class="la la-plus"></i>افزودن</a>
+                                        </div>
+                                    </div>
                                     <h3 style="color: red">اطلاعات دیگر</h3><hr>
                                     <div class="row">
                                         <div class="col-md-3">
@@ -633,6 +675,7 @@
                     warranty: [{ description: '', percent: '', total_cost: '' }],
                     consumer_item: [{ description: '', number: '', unit_cost: '', total_cost: '' }],
                     after_sale_service: [{ description: '', number: '', unit_cost: '', total_cost: '' }],
+                    outsourcing: [{ description: '', number: '', unit_cost: '', total_cost: '' }],
                     other_information: {},
                 },
                 errors: new Errors(),
@@ -748,6 +791,12 @@
             },
             RemoveAfterSaleService(index) {
                 this.data.after_sale_service.splice(index, 1);
+            },
+            AddOutsourcing() {
+                this.data.outsourcing.push({ description: '', number: '', unit_cost: '', total_cost: '' });
+            },
+            RemoveOutsourcing(index) {
+                this.data.outsourcing.splice(index, 1);
             },
         },
     }
