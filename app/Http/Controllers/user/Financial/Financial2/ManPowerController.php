@@ -37,15 +37,16 @@ class ManPowerController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $manPowers = $request->man_power;
         for ($i = 0; $i < sizeof($manPowers); $i++) {
             $manPower = new ManPower();
             $manPower->description = $manPowers[$i]['description'];
             $manPower->number = $manPowers[$i]['number'];
             $manPower->salary = $manPowers[$i]['salary'];
-            $manPower->total_rights = $manPowers[$i]['total_rights'];
+            $manPower->total_rights = $manPowers[$i]['salary'] * $manPowers[$i]['number'] * 16;
             $manPower->year = $request->year;
-            $manPower->team_id = $team = Auth::user()->team_id;
+            $manPower->team_id = $team_id;
             $manPower->updated_at = null;
             $manPower->save();
         }
@@ -87,7 +88,7 @@ class ManPowerController extends Controller
         $manPower->description = $request['man_power'][0]['description'];
         $manPower->number = $request['man_power'][0]['number'];
         $manPower->salary = $request['man_power'][0]['salary'];
-        $manPower->total_rights = $request['man_power'][0]['total_rights'];
+        $manPower->total_rights = $request['man_power'][0]['salary'] * $request['man_power'][0]['number'] * 16;
         $manPower->save();
         return response(['success'], 201);
     }

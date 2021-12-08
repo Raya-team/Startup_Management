@@ -27,7 +27,6 @@ class FacilityRequest extends FormRequest
             'facilities.*.description' => ['required'],
             'facilities.*.count' => ['required', 'numeric'],
             'facilities.*.unit_price' => ['required', 'numeric'],
-            'facilities.*.total_price' => ['required', 'numeric'],
         ];
     }
 }

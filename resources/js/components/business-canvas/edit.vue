@@ -38,7 +38,7 @@
                                     <h5 class="text-dark font-weight-bold">شرکای کلیدی</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>شرکای کلیدی شما که هستند؟</span><br>
                                                 <span> تامین کنندگان کلیدی شما که هستند؟</span><br>
@@ -58,7 +58,7 @@
                                     <h5 class="text-dark font-weight-bold">فعالیت های اصلی</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>امور مربوط به کسب و کار به چه فعالیت های اصلی نیاز دارد؟</span><br>
                                                 <span>دسته ها: تولید، حل مساله، ایجاد روابط و ... </span><br>
@@ -75,7 +75,7 @@
                                     <h5 class="text-dark font-weight-bold">منابع اصلی</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>امور مربوط به کسب و کار به چه منابعی اصلی نیاز دارد؟</span><br>
                                                 <span>انواع منبع: فیزیکی،معنوی(پتنت های برند، حق نشر، داده ها)،انسانی، مالی و ... </span><br>
@@ -92,7 +92,7 @@
                                     <h5 class="text-dark font-weight-bold">ساختار هزینه</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>مهم ترین هزینه های کسب و کارتان کدام ها هستند؟</span><br>
                                                 <span>گران ترین منابع اصلی کدامند؟</span><br>
@@ -115,7 +115,7 @@
                                     <h5 class="text-dark font-weight-bold">ارزش پیشنهادی</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>به مشتریان چه ارزشی ارائه می دهید؟</span><br>
                                                 <span>به حل کدام یک از مسایل مشتریان کمک می کنید؟ </span><br>
@@ -135,7 +135,7 @@
                                     <h5 class="text-dark font-weight-bold">ارتباط با مشتریان</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>هر بخش از مشتریان انتظار برقراری و حفظ چه نوع رابطه ای را از شما دارند؟</span><br>
                                                 <span>کدام یک از این رابطه ها برقرار شده؟</span><br>
@@ -155,7 +155,7 @@
                                     <h5 class="text-dark font-weight-bold">کانال توزیع</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>مشتریان از طریق چه کانال هایی می خواهند که به آنان دسترسی پیدا کنید؟</span><br>
                                                 <span>هم اکنون چگونه به آنان دسترسی داریم؟</span><br>
@@ -174,7 +174,7 @@
                                     <h5 class="text-dark font-weight-bold">بخش مشتریان</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>برای چه کسانی ارزش آفرینی می کنید؟</span><br>
                                                 <span>مهم ترین مشتریان شما چه کسانی هستند؟</span><br>
@@ -192,7 +192,7 @@
                                     <h5 class="text-dark font-weight-bold">جریان درآمد</h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
-                                        <div class="col-xl-9 col-lg-9">
+                                        <div class="col-12">
                                             <div class="form-text text-muted">
                                                 <span>مشتریانتان برای چه ارزشی واقعا حاضرند پول بدهند؟</span><br>
                                                 <span>آن ها هم اکنون برای چه چیزی پول میدهند؟</span><br>

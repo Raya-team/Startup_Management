@@ -27,7 +27,6 @@ class EquipmentAndMachineryRequest extends FormRequest
             'equipmentandmachineries.*.description' => ['required'],
             'equipmentandmachineries.*.count' => ['required', 'numeric'],
             'equipmentandmachineries.*.unit_price' => ['required', 'numeric'],
-            'equipmentandmachineries.*.total_price' => ['required', 'numeric'],
         ];
     }
 }

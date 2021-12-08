@@ -13,6 +13,7 @@ use App\Models\EnergyConsumption;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
 use App\Models\Insurance;
+use App\Models\Land;
 use App\Models\ManPower;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\OtherInformation;
@@ -67,14 +68,14 @@ class Financial2Controller extends Controller
     public function create()
     {
         $team_id = Auth::user()->team_id;
-        $buildings = collect(Building::where('team_id', $team_id)->get('description'));
+        $land = collect(Land::where('team_id', $team_id)->get('description'));
         $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->get('description');
         $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get('description');
         $facilities = Facility::where('team_id', $team_id)->get('description');
         $transportations = Transportation::where('team_id', $team_id)->get('description');
         $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->get('description');
 
-        $descriptions = $buildings
+        $descriptions = $land
             ->merge($equipmentandmachineries)
             ->merge($officeequipmentandsupplies)
             ->merge($facilities)

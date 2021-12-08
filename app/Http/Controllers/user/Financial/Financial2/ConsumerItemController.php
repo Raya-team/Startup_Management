@@ -37,15 +37,16 @@ class ConsumerItemController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $consumerItems = $request->consumer_item;
         for ($i = 0; $i < sizeof($consumerItems); $i++) {
             $consumerItem = new ConsumerItem();
             $consumerItem->description = $consumerItems[$i]['description'];
             $consumerItem->number = $consumerItems[$i]['number'];
             $consumerItem->unit_cost = $consumerItems[$i]['unit_cost'];
-            $consumerItem->total_cost = $consumerItems[$i]['total_cost'];
+            $consumerItem->total_cost = $consumerItems[$i]['unit_cost'] * $consumerItems[$i]['number'];
             $consumerItem->year = $request->year;
-            $consumerItem->team_id = $team = Auth::user()->team_id;
+            $consumerItem->team_id = $team_id;
             $consumerItem->updated_at = null;
             $consumerItem->save();
         }
@@ -87,7 +88,7 @@ class ConsumerItemController extends Controller
         $consumerItem->description = $request['consumer_item'][0]['description'];
         $consumerItem->number = $request['consumer_item'][0]['number'];
         $consumerItem->unit_cost = $request['consumer_item'][0]['unit_cost'];
-        $consumerItem->total_cost = $request['consumer_item'][0]['total_cost'];
+        $consumerItem->total_cost = $request['consumer_item'][0]['unit_cost'] * $request['consumer_item'][0]['number'];
         $consumerItem->save();
         return response(['success'], 201);
     }

@@ -9,8 +9,8 @@ class TypeOfLocation extends Model
 {
     use HasFactory;
 
-    public function type()
+    public function Type()
     {
-        return $this->belongsTo(Type::class);
+        return $this->belongsTo(Type::class, 'type');
     }
 }

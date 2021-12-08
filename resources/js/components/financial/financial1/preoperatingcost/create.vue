@@ -126,7 +126,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/preoperatingcosts', this.data)
                     .then(response => {
-                        console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
                                 title: "اطلاعات تجهیزات با موفقیت ثبت شد",
@@ -139,10 +138,14 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#operation-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

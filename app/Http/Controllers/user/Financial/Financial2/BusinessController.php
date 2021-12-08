@@ -37,13 +37,14 @@ class BusinessController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $businesses = $request->business;
         for ($i = 0; $i < sizeof($businesses); $i++) {
             $business = new Business();
             $business->description = $businesses[$i]['description'];
             $business->annual_cost = $businesses[$i]['annual_cost'];
             $business->year = $request->year;
-            $business->team_id = $team = Auth::user()->team_id;
+            $business->team_id = $team_id;
             $business->updated_at = null;
             $business->save();
         }

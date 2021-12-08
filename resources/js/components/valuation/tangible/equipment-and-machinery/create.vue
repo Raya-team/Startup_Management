@@ -87,22 +87,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="valuation_machineries.total_price">قیمت کل :
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                        </div>
-                                                        <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_machineries.total_price" name="valuation_machineries.total_price" v-model.number="data.total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveValuationMachinerie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
@@ -143,7 +127,7 @@
                 shareholders: [],
                 machineries: [],
                 data: {
-                    valuation_machineries: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_machineries: [{description: '', number: '', owner: '', unit_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -160,7 +144,7 @@
         },
         methods: {
             AddValuationMachinerie() {
-                this.data.valuation_machineries.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_machineries.push({description: '', number: '', owner: '', unit_price: ''});
             },
             RemoveValuationMachinerie(index) {
                 this.data.valuation_machineries.splice(index, 1);

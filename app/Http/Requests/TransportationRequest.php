@@ -27,7 +27,6 @@ class TransportationRequest extends FormRequest
             'transportations.*.description' => ['required'],
             'transportations.*.count' => ['required', 'numeric'],
             'transportations.*.unit_price' => ['required', 'numeric'],
-            'transportations.*.total_price' => ['required', 'numeric'],
         ];
     }
 }

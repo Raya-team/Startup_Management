@@ -31,7 +31,7 @@ class LaboratoryEquipmentController extends Controller
             $valuation_laboratory_equipment->owner = $valuation_laboratory_equipments[$i]['owner'];
             $valuation_laboratory_equipment->dollar_unit_price = $valuation_laboratory_equipments[$i]['dollar_unit_price'];
             $valuation_laboratory_equipment->toman_unit_price = $valuation_laboratory_equipments[$i]['toman_unit_price'];
-            $valuation_laboratory_equipment->total_price = $valuation_laboratory_equipments[$i]['total_price'];
+            $valuation_laboratory_equipment->total_price = $valuation_laboratory_equipments[$i]['toman_unit_price'] * $valuation_laboratory_equipments[$i]['number'];
             $valuation_laboratory_equipment->team_id = $team_id;
             $valuation_laboratory_equipment->updated_at = null;
             $valuation_laboratory_equipment->save();
@@ -58,8 +58,7 @@ class LaboratoryEquipmentController extends Controller
         $valuation_laboratory_equipment->owner = $request['valuation_laboratory_equipments'][0]['owner'];
         $valuation_laboratory_equipment->dollar_unit_price = $request['valuation_laboratory_equipments'][0]['dollar_unit_price'];
         $valuation_laboratory_equipment->toman_unit_price = $request['valuation_laboratory_equipments'][0]['toman_unit_price'];
-        $valuation_laboratory_equipment->total_price = $request['valuation_laboratory_equipments'][0]['total_price'];
-        $valuation_laboratory_equipment->team_id = Auth::user()->team_id;
+        $valuation_laboratory_equipment->total_price = $request['valuation_laboratory_equipments'][0]['toman_unit_price'] * $request['valuation_laboratory_equipments'][0]['number'];
         $valuation_laboratory_equipment->save();
         return response(['success'], 201);
     }

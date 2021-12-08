@@ -376,7 +376,6 @@
             this.Auth.check();
             axios.get('/api/justificationplan')
                 .then(response => {
-                    console.log(response.data);
                     this.registered_team = response.data.registered_team;
                     this.business_manager = response.data.business_manager;
                     this.business_question = response.data.business_question;

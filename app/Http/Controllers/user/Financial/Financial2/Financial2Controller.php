@@ -112,7 +112,7 @@ class Financial2Controller extends Controller
             $rawMaterial->description = $rawMaterials[$i]['description'];
             $rawMaterial->unit = $rawMaterials[$i]['unit'];
             $rawMaterial->unit_price = $rawMaterials[$i]['unit_price'];
-            $rawMaterial->total_price = $rawMaterials[$i]['total_price'];
+            $rawMaterial->total_price = $rawMaterials[$i]['unit_price'] * $rawMaterials[$i]['consumption'];
             $rawMaterial->consumption = $rawMaterials[$i]['consumption'];
             $rawMaterial->year = $year;
             $rawMaterial->team_id = $team->id;
@@ -133,7 +133,7 @@ class Financial2Controller extends Controller
             $manPower->description = $manPowers[$i]['description'];
             $manPower->number = $manPowers[$i]['number'];
             $manPower->salary = $manPowers[$i]['salary'];
-            $manPower->total_rights = $manPowers[$i]['total_rights'];
+            $manPower->total_rights = $manPowers[$i]['salary'] * $manPowers[$i]['number'] * 16;
             $manPower->year = $year;
             $manPower->team_id = $team->id;
             $manPower->updated_at = null;
@@ -153,7 +153,7 @@ class Financial2Controller extends Controller
             $rent->description = $rents[$i]['description'];
             $rent->area = $rents[$i]['area'];
             $rent->monthly_rent = $rents[$i]['monthly_rent'];
-            $rent->total_rent = $rents[$i]['total_rent'];
+            $rent->total_rent = $rents[$i]['monthly_rent'] * 12;
             $rent->year = $year;
             $rent->team_id = $team->id;
             $rent->updated_at = null;
@@ -174,7 +174,7 @@ class Financial2Controller extends Controller
             $energyConsumption->unit = $energyConsumptions[$i]['unit'];
             $energyConsumption->annual_consumption = $energyConsumptions[$i]['annual_consumption'];
             $energyConsumption->unit_cost = $energyConsumptions[$i]['unit_cost'];
-            $energyConsumption->annual_cost = $energyConsumptions[$i]['annual_cost'];
+            $energyConsumption->annual_cost = $energyConsumptions[$i]['unit_cost'] * $energyConsumptions[$i]['annual_consumption'];
             $energyConsumption->year = $year;
             $energyConsumption->team_id = $team->id;
             $energyConsumption->updated_at = null;
@@ -268,7 +268,7 @@ class Financial2Controller extends Controller
             $transportationCost->description = $transportationCosts[$i]['description'];
             $transportationCost->number = $transportationCosts[$i]['number'];
             $transportationCost->unit_cost = $transportationCosts[$i]['unit_cost'];
-            $transportationCost->total_cost = $transportationCosts[$i]['total_cost'];
+            $transportationCost->total_cost = $transportationCosts[$i]['unit_cost'] * $transportationCosts[$i]['number'];
             $transportationCost->year = $year;
             $transportationCost->team_id = $team->id;
             $transportationCost->updated_at = null;
@@ -307,7 +307,7 @@ class Financial2Controller extends Controller
             $consumerItem->description = $consumerItems[$i]['description'];
             $consumerItem->number = $consumerItems[$i]['number'];
             $consumerItem->unit_cost = $consumerItems[$i]['unit_cost'];
-            $consumerItem->total_cost = $consumerItems[$i]['total_cost'];
+            $consumerItem->total_cost = $consumerItems[$i]['unit_cost'] * $consumerItems[$i]['number'];
             $consumerItem->year = $year;
             $consumerItem->team_id = $team->id;
             $consumerItem->updated_at = null;
@@ -327,7 +327,7 @@ class Financial2Controller extends Controller
             $afterSaleService->description = $afterSaleServices[$i]['description'];
             $afterSaleService->number = $afterSaleServices[$i]['number'];
             $afterSaleService->unit_cost = $afterSaleServices[$i]['unit_cost'];
-            $afterSaleService->total_cost = $afterSaleServices[$i]['total_cost'];
+            $afterSaleService->total_cost = $afterSaleServices[$i]['unit_cost'] * $afterSaleServices[$i]['number'];
             $afterSaleService->year = $year;
             $afterSaleService->team_id = $team->id;
             $afterSaleService->updated_at = null;

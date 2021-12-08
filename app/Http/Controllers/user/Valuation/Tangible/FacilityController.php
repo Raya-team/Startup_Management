@@ -30,7 +30,7 @@ class FacilityController extends Controller
             $valuation_facilitie->number = $valuation_facilities[$i]['number'];
             $valuation_facilitie->owner = $valuation_facilities[$i]['owner'];
             $valuation_facilitie->unit_price = $valuation_facilities[$i]['unit_price'];
-            $valuation_facilitie->total_price = $valuation_facilities[$i]['total_price'];
+            $valuation_facilitie->total_price = $valuation_facilities[$i]['unit_price'] * $valuation_facilities[$i]['number'];
             $valuation_facilitie->team_id = $team_id;
             $valuation_facilitie->updated_at = null;
             $valuation_facilitie->save();
@@ -56,8 +56,7 @@ class FacilityController extends Controller
         $valuation_facilitie->number = $request['valuation_facilities'][0]['number'];
         $valuation_facilitie->owner = $request['valuation_facilities'][0]['owner'];
         $valuation_facilitie->unit_price = $request['valuation_facilities'][0]['unit_price'];
-        $valuation_facilitie->total_price = $request['valuation_facilities'][0]['total_price'];
-        $valuation_facilitie->team_id = Auth::user()->team_id;
+        $valuation_facilitie->total_price = $request['valuation_facilities'][0]['unit_price'] * $request['valuation_facilities'][0]['number'];
         $valuation_facilitie->save();
         return response(['success'], 201);
     }

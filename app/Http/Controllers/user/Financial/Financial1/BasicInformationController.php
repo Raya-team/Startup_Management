@@ -42,49 +42,7 @@ class BasicInformationController extends Controller
      */
     public function store(BasicInformationRequest $request)
     {
-        $team_id = Auth::user()->team_id;
-        $year = new PlanYear();
-        $year->number_of_plan_year = $request->input('number_of_plan_year');
-        $year->team_id = $team_id;
-        $year->updated_at = null;
-        $year->save();
-
-        $fiscal = new Fiscal();
-        $fiscal->dollar = $request->input('dollar');
-        $fiscal->inflation = $request->input('inflation');
-        $fiscal->loan = $request->input('loan');
-        $fiscal->profit = $request->input('profit');
-        $fiscal->reimbursement = $request->input('reimbursement');
-        $fiscal->team_id =  $team_id;
-        $fiscal->updated_at = null;
-        $fiscal->save();
-
-        $count_day = new CountDay();
-        $count_day->question_1 = $request->input('number_of_day_1');
-        $count_day->question_2 = $request->input('number_of_day_2');
-        $count_day->question_3 = $request->input('number_of_day_3');
-        $count_day->question_4 = $request->input('number_of_day_4');
-        $count_day->team_id =  $team_id;
-        $count_day->updated_at = null;
-        $count_day->save();
-
-        $depreciation = new DepreciationRate();
-        $depreciation->question_1 = $request->input('depreciation_rate_1');
-        $depreciation->question_2 = $request->input('depreciation_rate_2');
-        $depreciation->question_3 = $request->input('depreciation_rate_3');
-        $depreciation->question_4 = $request->input('depreciation_rate_4');
-        $depreciation->question_5 = $request->input('depreciation_rate_5');
-        $depreciation->team_id =  $team_id;
-        $depreciation->updated_at = null;
-        $depreciation->save();
-
-        $type = new TypeOfLocation();
-        $type->type = $request->input('type');
-        $type->team_id =  $team_id;
-        $type->updated_at = null;
-        $type->save();
-
-        return response(['success'], 201);
+        //
     }
 
     /**
@@ -116,9 +74,42 @@ class BasicInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BasicInformationRequest $request, $id)
     {
-        //
+        $team_id = Auth::user()->team_id;
+
+        $year = PlanYear::where('team_id', $team_id)->first();
+        $year->number_of_plan_year = $request->input('number_of_plan_year');
+        $year->save();
+
+        $fiscal = Fiscal::where('team_id', $team_id)->first();
+        $fiscal->dollar = $request->input('dollar');
+        $fiscal->inflation = $request->input('inflation');
+        $fiscal->loan = $request->input('loan');
+        $fiscal->profit = $request->input('profit');
+        $fiscal->reimbursement = $request->input('reimbursement');
+        $fiscal->save();
+
+        $count_day = CountDay::where('team_id', $team_id)->first();
+        $count_day->question_1 = $request->input('number_of_day_1');
+        $count_day->question_2 = $request->input('number_of_day_2');
+        $count_day->question_3 = $request->input('number_of_day_3');
+        $count_day->question_4 = $request->input('number_of_day_4');
+        $count_day->save();
+
+        $depreciation = DepreciationRate::where('team_id', $team_id)->first();
+        $depreciation->question_1 = $request->input('depreciation_rate_1');
+        $depreciation->question_2 = $request->input('depreciation_rate_2');
+        $depreciation->question_3 = $request->input('depreciation_rate_3');
+        $depreciation->question_4 = $request->input('depreciation_rate_4');
+        $depreciation->question_5 = $request->input('depreciation_rate_5');
+        $depreciation->save();
+
+        $type = TypeOfLocation::with('Type')->where('team_id', $team_id)->first();
+        $type->type = $request->input('type');
+        $type->save();
+
+        return response(['success'], 201);
     }
 
     /**

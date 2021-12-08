@@ -30,7 +30,7 @@ class TransportationController extends Controller
             $valuation_transportation->number = $valuation_transportations[$i]['number'];
             $valuation_transportation->owner = $valuation_transportations[$i]['owner'];
             $valuation_transportation->unit_price = $valuation_transportations[$i]['unit_price'];
-            $valuation_transportation->total_price = $valuation_transportations[$i]['total_price'];
+            $valuation_transportation->total_price = $valuation_transportations[$i]['unit_price'] * $valuation_transportations[$i]['number'];
             $valuation_transportation->team_id = $team_id;
             $valuation_transportation->updated_at = null;
             $valuation_transportation->save();
@@ -56,8 +56,7 @@ class TransportationController extends Controller
         $valuation_transportation->number = $request['valuation_transportations'][0]['number'];
         $valuation_transportation->owner = $request['valuation_transportations'][0]['owner'];
         $valuation_transportation->unit_price = $request['valuation_transportations'][0]['unit_price'];
-        $valuation_transportation->total_price = $request['valuation_transportations'][0]['total_price'];
-        $valuation_transportation->team_id = Auth::user()->team_id;
+        $valuation_transportation->total_price = $request['valuation_transportations'][0]['unit_price'] * $request['valuation_transportations'][0]['number'];
         $valuation_transportation->save();
         return response(['success'], 201);
     }

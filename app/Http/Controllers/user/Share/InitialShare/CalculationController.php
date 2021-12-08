@@ -24,7 +24,7 @@ class CalculationController extends Controller
         return view('user.shares.initial-shares.index');
     }
 
-    public function store(CalculationRequest $request , PreviousInvestor $investor , ShareVariable $variable , TeamMember $member)
+    public function store(CalculationRequest $request , ShareVariable $variable , TeamMember $member)
     {
         if ($request->has_previous) {$this->PreviousInvestor($request);}
         $this->ShareVariable($request,$variable);
@@ -53,10 +53,6 @@ class CalculationController extends Controller
 
     protected function PreviousInvestor(CalculationRequest $request)
     {
-        $request->validate([
-            'previous_investors.*.name' => ['required' , 'min:3', 'max:32', new Persian()],
-            'previous_investors.*.percent' => ['required' , 'numeric'],
-        ]);
         $investors = $request->previous_investors;
         for ($i = 0; $i < sizeof($investors); $i++) {
             $investor = new PreviousInvestor();

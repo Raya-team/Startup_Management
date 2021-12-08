@@ -38,14 +38,15 @@ class EquipmentAndMachineryController extends Controller
      */
     public function store(EquipmentAndMachineryRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $equipmentandmachineries = $request->equipmentandmachineries;
         for ($i = 0; $i < sizeof($equipmentandmachineries); $i++) {
             $equipmentandmachinery = new EquipmentAndMachinery();
             $equipmentandmachinery->description = $equipmentandmachineries[$i]['description'];
             $equipmentandmachinery->count = $equipmentandmachineries[$i]['count'];
             $equipmentandmachinery->unit_price = $equipmentandmachineries[$i]['unit_price'];
-            $equipmentandmachinery->total_price = $equipmentandmachineries[$i]['total_price'];
-            $equipmentandmachinery->team_id = Auth::user()->team_id;
+            $equipmentandmachinery->total_price = $equipmentandmachineries[$i]['unit_price'] * $equipmentandmachineries[$i]['count'];
+            $equipmentandmachinery->team_id = $team_id;
             $equipmentandmachinery->updated_at = null;
             $equipmentandmachinery->save();
         }
@@ -91,8 +92,7 @@ class EquipmentAndMachineryController extends Controller
         $equipmentandmachinery->description = $request['equipmentandmachineries'][0]['description'];
         $equipmentandmachinery->count = $request['equipmentandmachineries'][0]['count'];
         $equipmentandmachinery->unit_price = $request['equipmentandmachineries'][0]['unit_price'];
-        $equipmentandmachinery->total_price = $request['equipmentandmachineries'][0]['total_price'];
-        $equipmentandmachinery->team_id = Auth::user()->team_id;
+        $equipmentandmachinery->total_price = $request['equipmentandmachineries'][0]['unit_price'] * $request['equipmentandmachineries'][0]['count'];
         $equipmentandmachinery->save();
         return response(['success'], 201);
     }

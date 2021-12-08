@@ -105,22 +105,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="valuation_laboratory_equipments.total_price">قیمت کل :
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                        </div>
-                                                        <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_laboratory_equipments.total_price" name="valuation_laboratory_equipments.total_price" v-model.number="data.total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </transition-group>
                                 </div>
@@ -151,7 +135,7 @@
                 shareholders: [],
                 laboratory_equipments: [],
                 data: {
-                    valuation_laboratory_equipments: [{description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: '', total_price: ''}],
+                    valuation_laboratory_equipments: [{description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()

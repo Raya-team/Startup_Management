@@ -38,14 +38,15 @@ class TransportationController extends Controller
      */
     public function store(TransportationRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $transportations = $request->transportations;
         for ($i = 0; $i < sizeof($transportations); $i++) {
             $transportation = new Transportation();
             $transportation->description = $transportations[$i]['description'];
             $transportation->count = $transportations[$i]['count'];
             $transportation->unit_price = $transportations[$i]['unit_price'];
-            $transportation->total_price = $transportations[$i]['total_price'];
-            $transportation->team_id = Auth::user()->team_id;
+            $transportation->total_price = $transportations[$i]['unit_price'] * $transportations[$i]['count'];
+            $transportation->team_id = $team_id;
             $transportation->updated_at = null;
             $transportation->save();
         }
@@ -91,8 +92,7 @@ class TransportationController extends Controller
         $transportation->description = $request['transportations'][0]['description'];
         $transportation->count = $request['transportations'][0]['count'];
         $transportation->unit_price = $request['transportations'][0]['unit_price'];
-        $transportation->total_price = $request['transportations'][0]['total_price'];
-        $transportation->team_id = Auth::user()->team_id;
+        $transportation->total_price = $request['transportations'][0]['unit_price'] * $request['transportations'][0]['count'];
         $transportation->save();
         return response(['success'], 201);
     }

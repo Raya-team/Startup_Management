@@ -81,6 +81,28 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
+                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <h5 class="text-dark font-weight-bold">شرایط و نوبت کاری</h5><br>
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <div class="col-xl-12">
+                                            <div class="form-group">
+                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
+                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <h5 class="text-dark font-weight-bold">برنامه تولید</h5><br>
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <div class="col-xl-12">
+                                            <div class="form-group">
+                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
@@ -112,6 +134,8 @@
                         technical_specifications:'',
                         scientific_principles:'',
                         technical_features_product:'',
+                        terms_and_conditions_of_work:'',
+                        production_schedule:'',
                     }
                 },
                 errors: new Errors(),

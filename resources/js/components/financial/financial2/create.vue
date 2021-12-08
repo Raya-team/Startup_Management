@@ -134,7 +134,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveRawMaterial(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -176,7 +176,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveManPower(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -218,7 +218,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveRent(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -269,7 +269,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveEnergyConsumption(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -297,7 +297,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveRD(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -325,7 +325,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveBusiness(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -363,7 +363,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
                                                 <a @click="RemoveInsurance(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -401,7 +401,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
                                                 <a @click="RemoveRepair(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -443,7 +443,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveTransportationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -478,7 +478,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-1" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
                                                 <a @click="RemoveWarranty(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -520,7 +520,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveConsumerItem(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -562,7 +562,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveAfterSaleService(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -604,7 +604,7 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveOutsourcing(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>

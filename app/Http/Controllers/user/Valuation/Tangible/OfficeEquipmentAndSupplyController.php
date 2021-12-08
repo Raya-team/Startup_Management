@@ -30,7 +30,7 @@ class OfficeEquipmentAndSupplyController extends Controller
             $valuation_office_supply->number = $valuation_office_supplies[$i]['number'];
             $valuation_office_supply->owner = $valuation_office_supplies[$i]['owner'];
             $valuation_office_supply->unit_price = $valuation_office_supplies[$i]['unit_price'];
-            $valuation_office_supply->total_price = $valuation_office_supplies[$i]['total_price'];
+            $valuation_office_supply->total_price = $valuation_office_supplies[$i]['unit_price'] * $valuation_office_supplies[$i]['number'];
             $valuation_office_supply->team_id = $team_id;
             $valuation_office_supply->updated_at = null;
             $valuation_office_supply->save();
@@ -56,8 +56,7 @@ class OfficeEquipmentAndSupplyController extends Controller
         $valuation_office_supply->number = $request['valuation_office_supplies'][0]['number'];
         $valuation_office_supply->owner = $request['valuation_office_supplies'][0]['owner'];
         $valuation_office_supply->unit_price = $request['valuation_office_supplies'][0]['unit_price'];
-        $valuation_office_supply->total_price = $request['valuation_office_supplies'][0]['total_price'];
-        $valuation_office_supply->team_id = Auth::user()->team_id;
+        $valuation_office_supply->total_price = $request['valuation_office_supplies'][0]['unit_price'] * $request['valuation_office_supplies'][0]['number'];
         $valuation_office_supply->save();
         return response(['success'], 201);
     }

@@ -185,7 +185,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr v-for="(cer, index) in certificatesFilter" :id="'del'+cer.id" class="text-center">
+                                            <tr v-for="(cer, index) in certificatesFilter" :id="'del_'+cer.id" class="text-center">
                                                 <td>
                                                     <span class="text-dark-75">{{ cer.description }}</span>
                                                 </td>
@@ -202,7 +202,7 @@
                                                         </a>
                                                     </router-link>
                                                     <button type="button" @click="deleteCertificate(cer.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                        <i class="flaticon2-trash" :id="'icon'+cer.id"></i>
+                                                        <i class="flaticon2-trash" :id="'icon_'+cer.id"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -310,7 +310,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr v-for="(plan, index) in PlanImplementationsFilter" :id="'del'+plan.id" class="text-center">
+                                            <tr v-for="(plan, index) in PlanImplementationsFilter" :id="'del_'+plan.id" class="text-center">
                                                 <td>
                                                     <span class="text-dark-75">{{ plan.subject_of_work }}</span>
                                                 </td>
@@ -324,7 +324,7 @@
                                                         </a>
                                                     </router-link>
                                                     <button type="button" @click="deletePlanImplementation(plan.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                        <i class="flaticon2-trash" :id="'icon'+plan.id"></i>
+                                                        <i class="flaticon2-trash" :id="'icon_'+plan.id"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -444,7 +444,7 @@
             deleteCertificate(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -458,7 +458,7 @@
                         axios.delete(`/description-obtainedcertificates/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موفقیت انجام شد",
@@ -478,7 +478,7 @@
             deletePlanImplementation(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -492,7 +492,7 @@
                         axios.delete(`/description-planimplementations/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موفقیت انجام شد",

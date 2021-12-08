@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\EquipmentAndMachinery;
+use App\Models\Facility;
+use App\Models\Land;
+use App\Models\OfficeEquipmentAndSupply;
+use App\Models\PreOperatingCost;
 use App\Models\Repair;
+use App\Models\Transportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,7 +34,22 @@ class RepairController extends Controller
      */
     public function create()
     {
-        //
+        $team_id = Auth::user()->team_id;
+        $land = collect(Land::where('team_id', $team_id)->get('description'));
+        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->get('description');
+        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get('description');
+        $facilities = Facility::where('team_id', $team_id)->get('description');
+        $transportations = Transportation::where('team_id', $team_id)->get('description');
+        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->get('description');
+
+        $descriptions = $land
+            ->merge($equipmentandmachineries)
+            ->merge($officeequipmentandsupplies)
+            ->merge($facilities)
+            ->merge($transportations)
+            ->merge($preoperatingcosts);
+
+        return response()->json($descriptions);
     }
 
     /**
@@ -61,8 +82,27 @@ class RepairController extends Controller
      */
     public function edit($id)
     {
+        $team_id = Auth::user()->team_id;
+        $land = collect(Land::where('team_id', $team_id)->get('description'));
+        $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->get('description');
+        $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get('description');
+        $facilities = Facility::where('team_id', $team_id)->get('description');
+        $transportations = Transportation::where('team_id', $team_id)->get('description');
+        $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->get('description');
+
+        $descriptions = $land
+            ->merge($equipmentandmachineries)
+            ->merge($officeequipmentandsupplies)
+            ->merge($facilities)
+            ->merge($transportations)
+            ->merge($preoperatingcosts);
+
         $repair = Repair::where('id', $id)->first();
-        return response()->json($repair);
+        return response()->json([
+            'descriptions' => $descriptions,
+            'repair' => $repair
+        ]);
+
     }
 
     /**

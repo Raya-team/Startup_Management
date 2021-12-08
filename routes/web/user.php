@@ -24,6 +24,7 @@ use App\Http\Controllers\user\Financial\Financial1\BasicInformationController;
 //use App\Http\Controllers\user\Financial\Financial1\BuildingController;
 use App\Http\Controllers\user\Financial\Financial1\EquipmentAndMachineryController;
 use App\Http\Controllers\user\Financial\Financial1\FacilityController;
+use App\Http\Controllers\user\Financial\Financial1\Financial1Controller;
 use App\Http\Controllers\user\Financial\Financial1\IndexController;
 use App\Http\Controllers\user\Financial\Financial1\LaboratoryEquipmentController;
 use App\Http\Controllers\user\Financial\Financial1\LandController;
@@ -93,7 +94,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/pre-investors', PreInvestorController::class);
     Route::resource('/new-investors', NewInvestorController::class);
 
-    Route::get('/financial1', IndexController::class);
+    Route::resource('/financial1', Financial1Controller::class);
     Route::resource('/basic-information', BasicInformationController::class);
     Route::resource('/lands', LandController::class);
 //    Route::resource('/buildings', BuildingController::class);

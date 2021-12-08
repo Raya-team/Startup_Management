@@ -174,7 +174,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="number_of_day_2">تعدار روزی که طول می کشد مواد اولیه تبدیل به محصول شود :
+                                                    <label for="number_of_day_2">تعداد روزی که طول می کشد مواد اولیه تبدیل به محصول شود :
                                                         <span class="text-danger">*</span></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -233,7 +233,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="depreciation_rate_1">میزان استهلاک ساختمان ها :
+                                                    <label for="depreciation_rate_1">میزان استهلاک مستغلات :
                                                         <span class="text-danger">*</span></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -412,11 +412,8 @@
                             });
                             this.$router.push({name: 'financial1-index'});
                         }
-                        console.log(response);
-
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

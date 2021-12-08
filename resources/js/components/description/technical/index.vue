@@ -91,6 +91,34 @@
                                         <!--end::Card-->
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">شرایط و نوبت کاری</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">{{ technical.terms_and_conditions_of_work }}</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact" style="background-color:#eee">
+                                            <div class="card-header">
+                                                <h3 class="card-title">برنامه تولید</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <p style="white-space: pre">{{ technical.production_schedule }}</p>
+                                            </div>
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-footer d-flex flex-center">
                                 <router-link :to="{ name: 'description-technical-edit', params: { id: technical.id } }">
@@ -159,7 +187,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr v-for="(cer, index) in certificatesFilter" :id="'del'+cer.id" class="text-center">
+                                            <tr v-for="(cer, index) in certificatesFilter" :id="'del_'+cer.id" class="text-center">
                                                 <td>
                                                     <span class="text-dark-75">{{ cer.description}}</span>
                                                 </td>
@@ -177,7 +205,7 @@
                                                         </a>
                                                     </router-link>
                                                     <button type="button" @click="deleteCertificate(cer.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                                        <i class="flaticon2-trash"></i>
+                                                        <i class="flaticon2-trash" :id="'icon_'+cer.id"></i>
                                                     </button>
                                                 </td>
                                             </tr>
@@ -283,7 +311,7 @@
             deleteCertificate(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -297,7 +325,7 @@
                         axios.delete(`/description-requiredcertificates/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موفقیت انجام شد",

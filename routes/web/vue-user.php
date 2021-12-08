@@ -21,7 +21,7 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::resource('/new-investors', \App\Http\Controllers\Api\Share\ParticipationShare\NewInvestorController::class, ['as' => 'api']);
 
     Route::get('/financial1', \App\Http\Controllers\Api\Financial\Financial1\IndexController::class);
-    Route::resource('/facility', \App\Http\Controllers\Api\Financial\Financial1\BasicInformationController::class, ['as' => 'api']);
+    Route::resource('/basic-information', \App\Http\Controllers\Api\Financial\Financial1\BasicInformationController::class, ['as' => 'api']);
     Route::resource('/lands', \App\Http\Controllers\Api\Financial\Financial1\LandController::class, ['as' => 'api']);
 //    Route::resource('/buildings', \App\Http\Controllers\Api\Financial\Financial1\BuildingController::class, ['as' => 'api']);
     Route::resource('/laboratory-equipments', \App\Http\Controllers\Api\Financial\Financial1\LaboratoryEquipmentController::class, ['as' => 'api']);
@@ -52,8 +52,10 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::get('/businesses/{id}', [\App\Http\Controllers\Api\Financial\Financial2\BusinessController::class, 'index']);
     Route::get('/businesses/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\BusinessController::class, 'edit']);
     Route::get('/insurances/{id}', [\App\Http\Controllers\Api\Financial\Financial2\InsuranceController::class, 'index']);
+    Route::get('/insurances/{id}/create', [\App\Http\Controllers\Api\Financial\Financial2\InsuranceController::class, 'create']);
     Route::get('/insurances/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\InsuranceController::class, 'edit']);
     Route::get('/repairs/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RepairController::class, 'index']);
+    Route::get('/repairs/{id}/create', [\App\Http\Controllers\Api\Financial\Financial2\RepairController::class, 'create']);
     Route::get('/repairs/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\RepairController::class, 'edit']);
     Route::get('/transportationcosts/{id}', [\App\Http\Controllers\Api\Financial\Financial2\TransportationCostController::class, 'index']);
     Route::get('/transportationcosts/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\TransportationCostController::class, 'edit']);

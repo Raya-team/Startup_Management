@@ -138,7 +138,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/buildings', this.data)
                     .then(response => {
-                        console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
                                 title: "اطلاعات خرید زمین با موفقیت ثبت شد",
@@ -154,7 +153,6 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

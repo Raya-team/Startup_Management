@@ -37,6 +37,7 @@ class WarrantyController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $warranties = $request->warranty;
         for ($i = 0; $i < sizeof($warranties); $i++) {
             $warranty = new Warranty();
@@ -44,7 +45,7 @@ class WarrantyController extends Controller
             $warranty->percent = $warranties[$i]['percent'];
             $warranty->total_cost = $warranties[$i]['total_cost'];
             $warranty->year = $request->year;
-            $warranty->team_id = $team = Auth::user()->team_id;
+            $warranty->team_id = $team_id;
             $warranty->updated_at = null;
             $warranty->save();
         }

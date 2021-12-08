@@ -38,14 +38,15 @@ class OfficeEquipmentAndSupplyController extends Controller
      */
     public function store(OfficeEquipmentAndSupplyRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $officeequipmentandsupplies = $request->officeequipmentandsupplies;
         for ($i = 0; $i < sizeof($officeequipmentandsupplies); $i++) {
             $officeequipmentandsupply = new OfficeEquipmentAndSupply();
             $officeequipmentandsupply->description = $officeequipmentandsupplies[$i]['description'];
             $officeequipmentandsupply->count = $officeequipmentandsupplies[$i]['count'];
             $officeequipmentandsupply->unit_price = $officeequipmentandsupplies[$i]['unit_price'];
-            $officeequipmentandsupply->total_price = $officeequipmentandsupplies[$i]['total_price'];
-            $officeequipmentandsupply->team_id = Auth::user()->team_id;
+            $officeequipmentandsupply->total_price = $officeequipmentandsupplies[$i]['unit_price'] * $officeequipmentandsupplies[$i]['count'];
+            $officeequipmentandsupply->team_id = $team_id;
             $officeequipmentandsupply->updated_at = null;
             $officeequipmentandsupply->save();
         }
@@ -91,8 +92,7 @@ class OfficeEquipmentAndSupplyController extends Controller
         $officeequipmentandsupply->description = $request['officeequipmentandsupplies'][0]['description'];
         $officeequipmentandsupply->count = $request['officeequipmentandsupplies'][0]['count'];
         $officeequipmentandsupply->unit_price = $request['officeequipmentandsupplies'][0]['unit_price'];
-        $officeequipmentandsupply->total_price = $request['officeequipmentandsupplies'][0]['total_price'];
-        $officeequipmentandsupply->team_id = Auth::user()->team_id;
+        $officeequipmentandsupply->total_price = $request['officeequipmentandsupplies'][0]['unit_price'] * $request['officeequipmentandsupplies'][0]['count'];
         $officeequipmentandsupply->save();
         return response(['success'], 201);
     }

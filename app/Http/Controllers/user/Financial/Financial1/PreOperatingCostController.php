@@ -38,12 +38,13 @@ class PreOperatingCostController extends Controller
      */
     public function store(PreOperatingCostRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $preoperatingcosts = $request->preoperatingcosts;
         for ($i = 0; $i < sizeof($preoperatingcosts); $i++) {
             $preoperatingcost = new PreOperatingCost();
             $preoperatingcost->description = $preoperatingcosts[$i]['description'];
             $preoperatingcost->total_price = $preoperatingcosts[$i]['total_price'];
-            $preoperatingcost->team_id = Auth::user()->team_id;
+            $preoperatingcost->team_id = $team_id;
             $preoperatingcost->updated_at = null;
             $preoperatingcost->save();
         }

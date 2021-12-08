@@ -138,7 +138,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/lands', this.data)
                     .then(response => {
-                        console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
                                 title: "اطلاعات با موفقیت ثبت شد",
@@ -151,6 +150,11 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#lands-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {

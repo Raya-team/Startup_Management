@@ -37,15 +37,16 @@ class TransportationCostController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $transportationCosts = $request->transportation_cost;
         for ($i = 0; $i < sizeof($transportationCosts); $i++) {
             $transportationCost = new TransportationCost();
             $transportationCost->description = $transportationCosts[$i]['description'];
             $transportationCost->number = $transportationCosts[$i]['number'];
             $transportationCost->unit_cost = $transportationCosts[$i]['unit_cost'];
-            $transportationCost->total_cost = $transportationCosts[$i]['total_cost'];
+            $transportationCost->total_cost = $transportationCosts[$i]['unit_cost'] * $transportationCosts[$i]['number'];
             $transportationCost->year = $request->year;
-            $transportationCost->team_id = $team = Auth::user()->team_id;
+            $transportationCost->team_id = $team_id;
             $transportationCost->updated_at = null;
             $transportationCost->save();
         }
@@ -87,7 +88,7 @@ class TransportationCostController extends Controller
         $transportationCost->description = $request['transportation_cost'][0]['description'];
         $transportationCost->number = $request['transportation_cost'][0]['number'];
         $transportationCost->unit_cost = $request['transportation_cost'][0]['unit_cost'];
-        $transportationCost->total_cost = $request['transportation_cost'][0]['total_cost'];
+        $transportationCost->total_cost = $request['transportation_cost'][0]['unit_cost'] * $request['transportation_cost'][0]['number'];
         $transportationCost->save();
         return response(['success'], 201);
     }

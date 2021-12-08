@@ -37,16 +37,17 @@ class RawMaterialController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $rawMaterials = $request->raw_material;
         for ($i = 0; $i < sizeof($rawMaterials); $i++) {
             $rawMaterial = new RawMaterial();
             $rawMaterial->description = $rawMaterials[$i]['description'];
             $rawMaterial->unit = $rawMaterials[$i]['unit'];
             $rawMaterial->unit_price = $rawMaterials[$i]['unit_price'];
-            $rawMaterial->total_price = $rawMaterials[$i]['total_price'];
+            $rawMaterial->total_price = $rawMaterials[$i]['unit_price'] * $rawMaterials[$i]['consumption'];
             $rawMaterial->consumption = $rawMaterials[$i]['consumption'];
             $rawMaterial->year = $request->year;
-            $rawMaterial->team_id = $team = Auth::user()->team_id;
+            $rawMaterial->team_id = $team_id;
             $rawMaterial->updated_at = null;
             $rawMaterial->save();
         }
@@ -88,7 +89,7 @@ class RawMaterialController extends Controller
         $rawMaterial->description = $request['raw_material'][0]['description'];
         $rawMaterial->unit = $request['raw_material'][0]['unit'];
         $rawMaterial->unit_price = $request['raw_material'][0]['unit_price'];
-        $rawMaterial->total_price = $request['raw_material'][0]['total_price'];
+        $rawMaterial->total_price = $request['raw_material'][0]['unit_price'] * $request['raw_material'][0]['consumption'];
         $rawMaterial->consumption = $request['raw_material'][0]['consumption'];
         $rawMaterial->save();
         return response(['success'], 201);

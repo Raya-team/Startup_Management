@@ -82,6 +82,28 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <h5 class="text-dark font-weight-bold">شرایط و نوبت کاری</h5><br>
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <div class="col-xl-12">
+                                            <div class="form-group">
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
+                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <h5 class="text-dark font-weight-bold">برنامه تولید</h5><br>
+                                    <!--begin::Group-->
+                                    <div class="form-group row">
+                                        <div class="col-xl-12">
+                                            <div class="form-group">
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--end::Group-->
+                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                     <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده</h5><br>
                                     <transition-group name="slide">
                                         <div v-for="(cer, index) in data.required_certificates" :key="index">

@@ -89,22 +89,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="valuation_facilities.total_price">قیمت کل :
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                        </div>
-                                                        <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_facilities.total_price" name="valuation_facilities.total_price" v-model.number="data.total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </transition-group>
                                 </div>
@@ -135,7 +119,7 @@
                 shareholders: [],
                 facilities: [],
                 data: {
-                    valuation_facilities: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_facilities: [{description: '', number: '', owner: '', unit_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()

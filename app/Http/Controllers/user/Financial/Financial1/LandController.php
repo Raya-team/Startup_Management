@@ -39,13 +39,14 @@ class LandController extends Controller
      */
     public function store(LandRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $lands = $request->lands;
         for ($i = 0; $i < sizeof($lands); $i++) {
             $land = new Land();
             $land->description = $lands[$i]['description'];
             $land->area = $lands[$i]['area'];
             $land->price = $lands[$i]['price'];
-            $land->team_id = Auth::user()->team_id;
+            $land->team_id = $team_id;
             $land->updated_at = null;
             $land->save();
         }

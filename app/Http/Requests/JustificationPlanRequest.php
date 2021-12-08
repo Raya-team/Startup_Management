@@ -29,8 +29,6 @@ class JustificationPlanRequest extends FormRequest
             'registered_team.registration_number' => $team ? ['required'] : '',
             'registered_team.registration_date' => $team ? ['required'] : '',
 
-
-
             'business_manager.owner' => ['required'],
             'business_manager.phone_number' => ['required'],
             'business_manager.email' => ['required'],

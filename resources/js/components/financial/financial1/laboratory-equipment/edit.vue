@@ -82,18 +82,6 @@
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.toman_unit_price')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.toman_unit_price') }}</div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
-                                                        <label><h5>قیمت کل :</h5></label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text noselect">تومان</span>
-                                                            </div>
-                                                            <input type="text" class="form-control laboratory_equipments" v-model="building.total_price"
-                                                                   :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.total_price')}]"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.total_price')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.total_price') }}</div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -124,7 +112,7 @@
         data() {
             return {
                 data: {
-                    laboratory_equipments: [{ description: '', number: '', dollar_unit_price: '', toman_unit_price: '', total_price: '' }],
+                    laboratory_equipments: [{ description: '', number: '', dollar_unit_price: '', toman_unit_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -138,7 +126,6 @@
                     this.data.laboratory_equipments[0].number = response.data.laboratory_equipments.number;
                     this.data.laboratory_equipments[0].dollar_unit_price = response.data.laboratory_equipments.dollar_unit_price;
                     this.data.laboratory_equipments[0].toman_unit_price = response.data.laboratory_equipments.toman_unit_price;
-                    this.data.laboratory_equipments[0].total_price = response.data.laboratory_equipments.total_price;
                 })
                 .catch(error => console.log(error));
         },
@@ -162,10 +149,14 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#laboratory-equipments-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

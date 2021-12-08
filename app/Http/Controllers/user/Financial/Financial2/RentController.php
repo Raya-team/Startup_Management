@@ -37,15 +37,16 @@ class RentController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $rents = $request->rent;
         for ($i = 0; $i < sizeof($rents); $i++) {
             $rent = new Rent();
             $rent->description = $rents[$i]['description'];
             $rent->area = $rents[$i]['area'];
             $rent->monthly_rent = $rents[$i]['monthly_rent'];
-            $rent->total_rent = $rents[$i]['total_rent'];
+            $rent->total_rent = $rents[$i]['monthly_rent'] * 12;
             $rent->year = $request->year;
-            $rent->team_id = $team = Auth::user()->team_id;
+            $rent->team_id = $team_id;
             $rent->updated_at = null;
             $rent->save();
         }
@@ -87,7 +88,7 @@ class RentController extends Controller
         $rent->description = $request['rent'][0]['description'];
         $rent->area = $request['rent'][0]['area'];
         $rent->monthly_rent = $request['rent'][0]['monthly_rent'];
-        $rent->total_rent = $request['rent'][0]['total_rent'];
+        $rent->total_rent = $request['rent'][0]['monthly_rent'] * 12;
         $rent->save();
         return response(['success'], 201);
     }

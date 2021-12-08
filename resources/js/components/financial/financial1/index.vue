@@ -65,7 +65,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="laboratory-equipments-tab" data-toggle="tab" href="#laboratory-equipments" aria-controls="laboratory-equipments">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">تجهیزات آزمایشگاهی</span>
                                                     </a>
@@ -73,7 +73,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="machinery-tab" data-toggle="tab" href="#machinery" aria-controls="machinery">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">تجهیزات و ماشین آلات فنی</span>
                                                     </a>
@@ -81,7 +81,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="office-tab" data-toggle="tab" href="#office" aria-controls="office">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">تجهیزات و لوازم دفتری</span>
                                                     </a>
@@ -89,7 +89,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="facilities-tab" data-toggle="tab" href="#facilities" aria-controls="facilities">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">تاسیسات</span>
                                                     </a>
@@ -97,7 +97,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="transportation-tab" data-toggle="tab" href="#transportation" aria-controls="transportation">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">وسایل حمل و نقل</span>
                                                     </a>
@@ -105,7 +105,7 @@
                                                 <li class="nav-item mb-2">
                                                     <a class="nav-link" id="operation-tab" data-toggle="tab" href="#operation" aria-controls="operation">
                                                 <span class="nav-icon">
-                                                    <i class="flaticon2-rocket-1"></i>
+                                                    <i class="flaticon2-layers-1"></i>
                                                 </span>
                                                         <span class="nav-text">هزینه های قبل بهره برداری</span>
                                                     </a>

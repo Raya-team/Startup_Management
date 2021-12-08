@@ -24,7 +24,10 @@ class LaboratoryEquipmentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'laboratory_equipments.*.description' => ['required'],
+            'laboratory_equipments.*.number' => ['required'],
+            'laboratory_equipments.*.dollar_unit_price' => ['required'],
+            'laboratory_equipments.*.toman_unit_price' => ['required'],
         ];
     }
 }

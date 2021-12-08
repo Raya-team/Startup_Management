@@ -177,22 +177,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_laboratory_equipments.total_price">قیمت کل :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_laboratory_equipments.total_price" name="valuation_laboratory_equipments.total_price" v-model.number="data.total_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationLaboratoryEquipment(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
@@ -254,22 +238,6 @@
                                                             </span>
                                                             </div>
                                                             <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_machineries.unit_price" name="valuation_machineries.toman_unit_price" v-model.number="data.unit_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_machineries.total_price">قیمت کل :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_machineries.total_price" name="valuation_machineries.total_price" v-model.number="data.total_price"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
                                                     </div>
@@ -339,22 +307,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_office_supplies.total_price">قیمت کل :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_office_supplies.total_price" name="valuation_office_supplies.total_price" v-model.number="data.total_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationOfficeSupplie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
@@ -420,22 +372,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_facilities.total_price">قیمت کل :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_facilities.total_price" name="valuation_facilities.total_price" v-model.number="data.total_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationFacilitie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
@@ -497,22 +433,6 @@
                                                             </span>
                                                             </div>
                                                             <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_transportations.unit_price" name="valuation_transportations.toman_unit_price" v-model.number="data.unit_price"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label for="valuation_transportations.total_price">قیمت کل :
-                                                            <span class="text-danger">*</span>
-                                                        </label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                            </div>
-                                                            <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_transportations.total_price" name="valuation_transportations.total_price" v-model.number="data.total_price"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         </div>
                                                     </div>
@@ -620,11 +540,11 @@
                 pre_operation_costs: [],
                 data: {
                     valuation_tenements: [{description: '', area: '', owner: '', total_price: ''}],
-                    valuation_laboratory_equipments: [{description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: '', total_price: ''}],
-                    valuation_machineries: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
-                    valuation_office_supplies: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
-                    valuation_facilities: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
-                    valuation_transportations: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_laboratory_equipments: [{description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: ''}],
+                    valuation_machineries: [{description: '', number: '', owner: '', unit_price: ''}],
+                    valuation_office_supplies: [{description: '', number: '', owner: '', unit_price: ''}],
+                    valuation_facilities: [{description: '', number: '', owner: '', unit_price: ''}],
+                    valuation_transportations: [{description: '', number: '', owner: '', unit_price: ''}],
                     valuation_pre_operation_costs: [{description: '', owner: '', total_price: ''}],
                 },
                 errors: new Errors(),
@@ -683,31 +603,31 @@
                 this.data.valuation_tenements.splice(index, 1);
             },
             AddValuationLaboratoryEquipment() {
-                this.data.valuation_laboratory_equipments.push({description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: '', total_price: ''});
+                this.data.valuation_laboratory_equipments.push({description: '', number: '', owner: '', dollar_unit_price: '', toman_unit_price: ''});
             },
             RemoveValuationLaboratoryEquipment(index) {
                 this.data.valuation_laboratory_equipments.splice(index, 1);
             },
             AddValuationMachinerie() {
-                this.data.valuation_machineries.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_machineries.push({description: '', number: '', owner: '', unit_price: ''});
             },
             RemoveValuationMachinerie(index) {
                 this.data.valuation_machineries.splice(index, 1);
             },
             AddValuationOfficeSupplie() {
-                this.data.valuation_office_supplies.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_office_supplies.push({description: '', number: '', owner: '', unit_price: ''});
             },
             RemoveValuationOfficeSupplie(index) {
                 this.data.valuation_office_supplies.splice(index, 1);
             },
             AddValuationFacilitie() {
-                this.data.valuation_facilities.push({description: '', count: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_facilities.push({description: '', count: '', owner: '', unit_price: ''});
             },
             RemoveValuationFacilitie(index) {
                 this.data.valuation_facilities.splice(index, 1);
             },
             AddValuationTransportation() {
-                this.data.valuation_transportations.push({description: '', count: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_transportations.push({description: '', count: '', owner: '', unit_price: ''});
             },
             RemoveValuationTransportation(index) {
                 this.data.valuation_transportations.splice(index, 1);

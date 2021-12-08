@@ -103,7 +103,6 @@
             this.Auth.check();
             axios.get(`/api/preoperatingcosts/${this.$route.params.id}/edit`)
                 .then(response => {
-                    console.log(response.data);
                     this.data.preoperatingcosts[0].description = response.data.preoperatingcosts.description;
                     this.data.preoperatingcosts[0].count = response.data.preoperatingcosts.count;
                     this.data.preoperatingcosts[0].unit_price = response.data.preoperatingcosts.unit_price;
@@ -131,6 +130,11 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#operation-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {

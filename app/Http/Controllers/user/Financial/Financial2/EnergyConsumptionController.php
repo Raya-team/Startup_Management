@@ -37,6 +37,7 @@ class EnergyConsumptionController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $energyConsumptions = $request->energy_consumption;
         for ($i = 0; $i < sizeof($energyConsumptions); $i++) {
             $energyConsumption = new EnergyConsumption();
@@ -44,9 +45,9 @@ class EnergyConsumptionController extends Controller
             $energyConsumption->unit = $energyConsumptions[$i]['unit'];
             $energyConsumption->annual_consumption = $energyConsumptions[$i]['annual_consumption'];
             $energyConsumption->unit_cost = $energyConsumptions[$i]['unit_cost'];
-            $energyConsumption->annual_cost = $energyConsumptions[$i]['annual_cost'];
+            $energyConsumption->annual_cost = $energyConsumptions[$i]['unit_cost'] * $energyConsumptions[$i]['annual_consumption'];
             $energyConsumption->year = $request->year;
-            $energyConsumption->team_id = $team = Auth::user()->team_id;
+            $energyConsumption->team_id = $team_id;
             $energyConsumption->updated_at = null;
             $energyConsumption->save();
         }
@@ -89,7 +90,7 @@ class EnergyConsumptionController extends Controller
         $energyConsumption->unit = $request['energy_consumption'][0]['unit'];
         $energyConsumption->annual_consumption = $request['energy_consumption'][0]['annual_consumption'];
         $energyConsumption->unit_cost = $request['energy_consumption'][0]['unit_cost'];
-        $energyConsumption->annual_cost = $request['energy_consumption'][0]['annual_cost'];
+        $energyConsumption->annual_cost = $request['energy_consumption'][0]['unit_cost'] * $request['energy_consumption'][0]['annual_consumption'];
         $energyConsumption->save();
         return response(['success'], 201);
     }

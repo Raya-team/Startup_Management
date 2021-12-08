@@ -30,7 +30,7 @@ class EquipmentAndMachineryController extends Controller
             $valuation_machinerie->number = $valuation_machineries[$i]['number'];
             $valuation_machinerie->owner = $valuation_machineries[$i]['owner'];
             $valuation_machinerie->unit_price = $valuation_machineries[$i]['unit_price'];
-            $valuation_machinerie->total_price = $valuation_machineries[$i]['total_price'];
+            $valuation_machinerie->total_price = $valuation_machineries[$i]['unit_price'] * $valuation_machineries[$i]['number'];
             $valuation_machinerie->team_id = $team_id;
             $valuation_machinerie->updated_at = null;
             $valuation_machinerie->save();
@@ -56,8 +56,7 @@ class EquipmentAndMachineryController extends Controller
         $valuation_machinerie->number = $request['valuation_machineries'][0]['number'];
         $valuation_machinerie->owner = $request['valuation_machineries'][0]['owner'];
         $valuation_machinerie->unit_price = $request['valuation_machineries'][0]['unit_price'];
-        $valuation_machinerie->total_price = $request['valuation_machineries'][0]['total_price'];
-        $valuation_machinerie->team_id = Auth::user()->team_id;
+        $valuation_machinerie->total_price = $request['valuation_machineries'][0]['unit_price'] * $request['valuation_machineries'][0]['number'];
         $valuation_machinerie->save();
         return response(['success'], 201);
     }

@@ -37,6 +37,7 @@ class InsuranceController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $insurances = $request->insurance;
         for ($i = 0; $i < sizeof($insurances); $i++) {
             $insurance = new Insurance();
@@ -44,7 +45,7 @@ class InsuranceController extends Controller
             $insurance->percent = $insurances[$i]['percent'];
             $insurance->total_cost = $insurances[$i]['total_cost'];
             $insurance->year = $request->year;
-            $insurance->team_id = $team = Auth::user()->team_id;
+            $insurance->team_id = $team_id;
             $insurance->updated_at = null;
             $insurance->save();
         }

@@ -72,18 +72,6 @@
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.unit_price')" style="display: block;">{{ errors.get('facilities.' + index +'.unit_price') }}</div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-2">
-                                                        <label><h5>قیمت کل :</h5></label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text noselect">تومان</span>
-                                                            </div>
-                                                            <input type="text" class="form-control facilities" v-model="facility.total_price"
-                                                                   :class="['form-control', {'is-invalid' : errors.has('facilities.' + index +'.total_price')}]"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.total_price')" style="display: block;">{{ errors.get('facilities.' + index +'.total_price') }}</div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +102,7 @@
         data() {
             return {
                 data: {
-                    facilities: [{ description: '', count: '', unit_price: '', total_price: ''}],
+                    facilities: [{ description: '', count: '', unit_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -124,11 +112,9 @@
             this.Auth.check();
             axios.get(`/api/facilities/${this.$route.params.id}/edit`)
                 .then(response => {
-                    console.log(response.data);
                     this.data.facilities[0].description = response.data.facilities.description;
                     this.data.facilities[0].count = response.data.facilities.count;
                     this.data.facilities[0].unit_price = response.data.facilities.unit_price;
-                    this.data.facilities[0].total_price = response.data.facilities.total_price;
                 })
                 .catch(error => console.log(error));
         },
@@ -142,7 +128,7 @@
                     .then(response => {
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات زمین با موفقیت ویرایش شد",
+                                title: "اطلاعات با موفقیت ویرایش شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,
@@ -152,6 +138,11 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#facilities-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {

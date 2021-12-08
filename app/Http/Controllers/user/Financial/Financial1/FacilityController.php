@@ -38,14 +38,15 @@ class FacilityController extends Controller
      */
     public function store(FacilityRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $facilities = $request->facilities;
         for ($i = 0; $i < sizeof($facilities); $i++) {
             $facility = new Facility();
             $facility->description = $facilities[$i]['description'];
             $facility->count = $facilities[$i]['count'];
             $facility->unit_price = $facilities[$i]['unit_price'];
-            $facility->total_price = $facilities[$i]['total_price'];
-            $facility->team_id = Auth::user()->team_id;
+            $facility->total_price = $facilities[$i]['unit_price'] * $facilities[$i]['count'];
+            $facility->team_id = $team_id;
             $facility->updated_at = null;
             $facility->save();
         }
@@ -91,8 +92,7 @@ class FacilityController extends Controller
         $facility->description = $request['facilities'][0]['description'];
         $facility->count = $request['facilities'][0]['count'];
         $facility->unit_price = $request['facilities'][0]['unit_price'];
-        $facility->total_price = $request['facilities'][0]['total_price'];
-        $facility->team_id = Auth::user()->team_id;
+        $facility->total_price = $request['facilities'][0]['unit_price'] * $request['facilities'][0]['count'];
         $facility->save();
         return response(['success'], 201);
     }

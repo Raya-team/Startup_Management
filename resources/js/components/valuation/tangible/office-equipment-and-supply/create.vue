@@ -89,22 +89,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="valuation_office_supplies.total_price">قیمت کل :
-                                                        <span class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text noselect">
-                                                                تومان
-                                                            </span>
-                                                        </div>
-                                                        <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_office_supplies.total_price" name="valuation_office_supplies.total_price" v-model.number="data.total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                 <a @click="RemoveValuationOfficeSupplie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
@@ -145,7 +129,7 @@
                 shareholders: [],
                 office_supplies: [],
                 data: {
-                    valuation_office_supplies: [{description: '', number: '', owner: '', unit_price: '', total_price: ''}],
+                    valuation_office_supplies: [{description: '', number: '', owner: '', unit_price: ''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -162,7 +146,7 @@
         },
         methods: {
             AddValuationOfficeSupplie() {
-                this.data.valuation_office_supplies.push({description: '', number: '', owner: '', unit_price: '', total_price: ''});
+                this.data.valuation_office_supplies.push({description: '', number: '', owner: '', unit_price: ''});
             },
             RemoveValuationOfficeSupplie(index) {
                 this.data.valuation_office_supplies.splice(index, 1);

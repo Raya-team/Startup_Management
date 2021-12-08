@@ -120,7 +120,7 @@ class TangibleController extends Controller
             $valuation_laboratory_equipment->owner = $valuation_laboratory_equipments[$i]['owner'];
             $valuation_laboratory_equipment->dollar_unit_price = $valuation_laboratory_equipments[$i]['dollar_unit_price'];
             $valuation_laboratory_equipment->toman_unit_price = $valuation_laboratory_equipments[$i]['toman_unit_price'];
-            $valuation_laboratory_equipment->total_price = $valuation_laboratory_equipments[$i]['total_price'];
+            $valuation_laboratory_equipment->total_price = $valuation_laboratory_equipments[$i]['toman_unit_price'] * $valuation_laboratory_equipments[$i]['number'];
             $valuation_laboratory_equipment->team_id = $team_id;
             $valuation_laboratory_equipment->updated_at = null;
             $valuation_laboratory_equipment->save();
@@ -136,7 +136,7 @@ class TangibleController extends Controller
             $valuation_machinerie->number = $valuation_machineries[$i]['number'];
             $valuation_machinerie->owner = $valuation_machineries[$i]['owner'];
             $valuation_machinerie->unit_price = $valuation_machineries[$i]['unit_price'];
-            $valuation_machinerie->total_price = $valuation_machineries[$i]['total_price'];
+            $valuation_machinerie->total_price = $valuation_machineries[$i]['unit_price'] * $valuation_machineries[$i]['number'];
             $valuation_machinerie->team_id = $team_id;
             $valuation_machinerie->updated_at = null;
             $valuation_machinerie->save();
@@ -152,7 +152,7 @@ class TangibleController extends Controller
             $valuation_office_supply->number = $valuation_office_supplies[$i]['number'];
             $valuation_office_supply->owner = $valuation_office_supplies[$i]['owner'];
             $valuation_office_supply->unit_price = $valuation_office_supplies[$i]['unit_price'];
-            $valuation_office_supply->total_price = $valuation_office_supplies[$i]['total_price'];
+            $valuation_office_supply->total_price = $valuation_office_supplies[$i]['unit_price'] * $valuation_office_supplies[$i]['number'];
             $valuation_office_supply->team_id = $team_id;
             $valuation_office_supply->updated_at = null;
             $valuation_office_supply->save();
@@ -168,7 +168,7 @@ class TangibleController extends Controller
             $valuation_facilitie->number = $valuation_facilities[$i]['number'];
             $valuation_facilitie->owner = $valuation_facilities[$i]['owner'];
             $valuation_facilitie->unit_price = $valuation_facilities[$i]['unit_price'];
-            $valuation_facilitie->total_price = $valuation_facilities[$i]['total_price'];
+            $valuation_facilitie->total_price = $valuation_facilities[$i]['unit_price'] * $valuation_facilities[$i]['number'];
             $valuation_facilitie->team_id = $team_id;
             $valuation_facilitie->updated_at = null;
             $valuation_facilitie->save();
@@ -184,7 +184,7 @@ class TangibleController extends Controller
             $valuation_transportation->number = $valuation_transportations[$i]['number'];
             $valuation_transportation->owner = $valuation_transportations[$i]['owner'];
             $valuation_transportation->unit_price = $valuation_transportations[$i]['unit_price'];
-            $valuation_transportation->total_price = $valuation_transportations[$i]['total_price'];
+            $valuation_transportation->total_price = $valuation_transportations[$i]['unit_price'] * $valuation_transportations[$i]['number'];
             $valuation_transportation->team_id = $team_id;
             $valuation_transportation->updated_at = null;
             $valuation_transportation->save();

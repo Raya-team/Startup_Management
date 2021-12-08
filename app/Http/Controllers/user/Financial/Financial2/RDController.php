@@ -37,13 +37,14 @@ class RDController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $rds = $request->r_d;
         for ($i = 0; $i < sizeof($rds); $i++) {
             $rd = new RD();
             $rd->description = $rds[$i]['description'];
             $rd->annual_cost = $rds[$i]['annual_cost'];
             $rd->year = $request->year;
-            $rd->team_id = $team = Auth::user()->team_id;
+            $rd->team_id = $team_id;
             $rd->updated_at = null;
             $rd->save();
         }

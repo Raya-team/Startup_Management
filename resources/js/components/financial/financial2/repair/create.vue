@@ -49,8 +49,7 @@
                                                     <label for="repairs_description">شرح:
                                                         <span class="text-danger">*</span></label>
                                                     <select name="repairs_description" id="repairs_description" class="form-control" v-model="rep.description">
-                                                        <option value="1">شرح 1</option>
-                                                        <option value="2">شرح 2</option>
+                                                        <option v-for="des in descriptions" :value="des.description">{{ des.description }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -96,7 +95,6 @@
         <!--end::Entry-->
     </div>
 </template>
-
 <script>
     import Auth from "../../../../Auth";
     import Errors from "../../../../Errors";
@@ -105,6 +103,7 @@
         name: "create",
         data() {
             return {
+                descriptions: '',
                 data: {
                     year: this.$route.params.year,
                     repair: [{ description: '', percent: '', total_cost: '' }],
@@ -112,6 +111,14 @@
                 errors: new Errors(),
                 Auth: new Auth()
             }
+        },
+        created() {
+            this.Auth.check();
+            axios.get(`/api/repairs/${this.$route.params.year}/create`)
+                .then(response => {
+                    this.descriptions = response.data
+                })
+                .catch(error => {console.log(error);});
         },
         methods: {
             AddRepair() {

@@ -241,8 +241,8 @@
                                             <div class="form-group">
                                                 <textarea name="target_market" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.justification_plan.target_market"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('justification_plan.target_market')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.target_market')" style="display: block;">{{ errors.get('justification_plan.target_market') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.target_market')" style="display: block;">{{ errors.get('justification_plan.target_market') }}</div>
                                         </div>
                                     </div>
                                     <!--end::Group-->
@@ -258,8 +258,8 @@
                                             <div class="form-group">
                                                 <textarea name="technology_level" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.justification_plan.technology_level"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('justification_plan.technology_level')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.technology_level')" style="display: block;">{{ errors.get('justification_plan.technology_level') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.technology_level')" style="display: block;">{{ errors.get('justification_plan.technology_level') }}</div>
                                         </div>
                                     </div>
                                     <!--end::Group-->
@@ -275,8 +275,8 @@
                                             <div class="form-group">
                                                 <textarea name="required_budget" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.justification_plan.required_budget"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('justification_plan.required_budget')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.required_budget')" style="display: block;">{{ errors.get('justification_plan.required_budget') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.required_budget')" style="display: block;">{{ errors.get('justification_plan.required_budget') }}</div>
                                         </div>
                                     </div>
                                     <!--end::Group-->
@@ -292,8 +292,8 @@
                                             <div class="form-group">
                                                 <textarea name="income" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.justification_plan.income"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('justification_plan.income')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.income')" style="display: block;">{{ errors.get('justification_plan.income') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.income')" style="display: block;">{{ errors.get('justification_plan.income') }}</div>
                                         </div>
                                     </div>
                                     <!--end::Group-->
@@ -308,8 +308,8 @@
                                             <div class="form-group">
                                                 <textarea name="technology_life" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.justification_plan.technology_life"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('justification_plan.technology_life')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.technology_life')" style="display: block;">{{ errors.get('justification_plan.technology_life') }}</div>
                                             </div>
-                                            <div class="invalid-feedback is-invalid" v-if="errors.has('justification_plan.technology_life')" style="display: block;">{{ errors.get('justification_plan.technology_life') }}</div>
                                         </div>
                                     </div>
                                     <!--end::Group-->

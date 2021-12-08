@@ -27,7 +27,6 @@ class OfficeEquipmentAndSupplyRequest extends FormRequest
             'officeequipmentandsupplies.*.description' => ['required'],
             'officeequipmentandsupplies.*.count' => ['required', 'numeric'],
             'officeequipmentandsupplies.*.unit_price' => ['required', 'numeric'],
-            'officeequipmentandsupplies.*.total_price' => ['required', 'numeric'],
         ];
     }
 }

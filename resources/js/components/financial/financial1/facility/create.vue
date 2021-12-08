@@ -73,18 +73,6 @@
                                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.unit_price')" style="display: block;">{{ errors.get('facilities.' + index +'.unit_price') }}</div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-2">
-                                                            <label><h5>قیمت کل :</h5></label>
-                                                            <div class="input-group">
-                                                                <div class="input-group-prepend">
-                                                                    <span class="input-group-text noselect">تومان</span>
-                                                                </div>
-                                                                <input type="text" class="form-control facilities" v-model="facility.total_price"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('facilities.' + index +'.total_price')}]"
-                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.total_price')" style="display: block;">{{ errors.get('facilities.' + index +'.total_price') }}</div>
-                                                            </div>
-                                                        </div>
                                                         <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
                                                             <a @click="RemoveField(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                                 <i class="la la-trash-o"></i>حذف</a>
@@ -127,7 +115,7 @@
         data() {
             return {
                 data: {
-                    facilities: [{ description: '', count: '', unit_price: '', total_price: '' }],
+                    facilities: [{ description: '', count: '', unit_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -135,7 +123,7 @@
         },
         methods: {
             AddField() {
-                this.data.facilities.push({ description: '', count: '', unit_price: '', total_price: ''});
+                this.data.facilities.push({ description: '', count: '', unit_price: '' });
             },
             RemoveField(index) {
                 this.data.facilities.splice(index, 1);
@@ -159,6 +147,11 @@
                                 }
                             });
                             this.$router.push({name: 'financial1-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#facilities-tab');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {

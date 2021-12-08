@@ -37,15 +37,16 @@ class AfterSaleServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $afterSaleServices = $request->after_sale_service;
         for ($i = 0; $i < sizeof($afterSaleServices); $i++) {
             $afterSaleService = new AfterSaleService();
             $afterSaleService->description = $afterSaleServices[$i]['description'];
             $afterSaleService->number = $afterSaleServices[$i]['number'];
             $afterSaleService->unit_cost = $afterSaleServices[$i]['unit_cost'];
-            $afterSaleService->total_cost = $afterSaleServices[$i]['total_cost'];
+            $afterSaleService->total_cost = $afterSaleServices[$i]['unit_cost'] * $afterSaleServices[$i]['number'];
             $afterSaleService->year = $request->year;
-            $afterSaleService->team_id = $team = Auth::user()->team_id;
+            $afterSaleService->team_id = $team_id;
             $afterSaleService->updated_at = null;
             $afterSaleService->save();
         }
@@ -87,7 +88,7 @@ class AfterSaleServiceController extends Controller
         $afterSaleService->description = $request['after_sale_service'][0]['description'];
         $afterSaleService->number = $request['after_sale_service'][0]['number'];
         $afterSaleService->unit_cost = $request['after_sale_service'][0]['unit_cost'];
-        $afterSaleService->total_cost = $request['after_sale_service'][0]['total_cost'];
+        $afterSaleService->total_cost = $request['after_sale_service'][0]['unit_cost'] * $request['after_sale_service'][0]['unit_cost'];
         $afterSaleService->save();
         return response(['success'], 201);
     }

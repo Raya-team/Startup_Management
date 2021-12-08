@@ -37,7 +37,9 @@ import NewInvestorCreate from './components/shares/participation-shares/new-inve
 import NewInvestorEdit from './components/shares/participation-shares/new-investor/edit';
 
 import Financial1 from './components/financial/financial1/index';
+import Financial1Create from './components/financial/financial1/create';
 import BasicInformationCreate from './components/financial/financial1/basic-information/create';
+import BasicInformationEdit from './components/financial/financial1/basic-information/edit';
 import LandCreate from './components/financial/financial1/land/create';
 import LandEdit from './components/financial/financial1/land/edit';
 // import BuildingCreate from './components/financial/financial1/building/create';
@@ -221,7 +223,9 @@ const routes = [
     {path: '/new-investors/:id/edit', name: 'new-investors-edit', component: NewInvestorEdit, meta: {title: 'تامین از سرمایه گذران جدید | ویرایش'}},
 
     {path: '/financial1', name: 'financial1-index', component: Financial1, meta: {title: 'مالی1'}},
+    {path: '/financial1/create', name: 'financial1-create', component: Financial1Create, meta: {title: 'مالی1 | ایجاد'}},
     {path: '/basic-information/create', name: 'basic-information-create', component: BasicInformationCreate, meta: {title: 'ایجاد اطلاعات اولیه'}},
+    {path: '/basic-information/:id/edit', name: 'basic-information-edit', component: BasicInformationEdit, meta: {title: 'ویرایش اطلاعات اولیه'}},
     {path: '/lands/create', name: 'land-create', component: LandCreate, meta: {title: 'خرید مستغلات'}},
     {path: '/lands/:id/edit', name: 'land-edit', component: LandEdit, meta: {title: 'ویرایش مستغلات'}},
     // {path: '/buildings/create', name: 'buildings-create', component: BuildingCreate, meta: {title: 'افزودن ساختمان'}},

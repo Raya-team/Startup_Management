@@ -115,7 +115,6 @@
             this.Auth.check();
             axios.get(`/api/buildings/${this.$route.params.id}/edit`)
                 .then(response => {
-                    console.log(response.data);
                     this.data.buildings[0].description = response.data.buildings.description;
                     this.data.buildings[0].area = response.data.buildings.area;
                     this.data.buildings[0].price = response.data.buildings.price;
@@ -130,7 +129,6 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.put(`/buildings/${this.$route.params.id}`, this.data)
                     .then(response => {
-                        console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
                                 title: "اطلاعات زمین با موفقیت ویرایش شد",

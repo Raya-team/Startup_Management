@@ -37,6 +37,7 @@ class RepairController extends Controller
      */
     public function store(Request $request)
     {
+        $team_id = Auth::user()->team_id;
         $repairs = $request->repair;
         for ($i = 0; $i < sizeof($repairs); $i++) {
             $repair = new Repair();
@@ -44,7 +45,7 @@ class RepairController extends Controller
             $repair->percent = $repairs[$i]['percent'];
             $repair->total_cost = $repairs[$i]['total_cost'];
             $repair->year = $request->year;
-            $repair->team_id = $team = Auth::user()->team_id;
+            $repair->team_id = $team_id;
             $repair->updated_at = null;
             $repair->save();
         }
