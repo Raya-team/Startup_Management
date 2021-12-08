@@ -441,11 +441,19 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="{{ route('description-managerial.index') }}" class="menu-link">
+                            <a  href='/reporting/justification-plan' class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">گزارش تقسیم سهم</span>
+                                <span class="menu-text">طرح توجیهی</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true">
+                            <a href='/reporting/preliminary-justification-plan' class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">طرح توجیهی مقدماتی</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
@@ -453,7 +461,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">گزارش دارایی ها</span>
+                                <span class="menu-text">مالی</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
@@ -461,15 +469,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">گزارش مالی طرح</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a  href='/reporting/justification-plan' class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">طرح توجیهی</span>
+                                <span class="menu-text">بوم مدل کسب و کار</span>
                             </a>
                         </li>
                     </ul>

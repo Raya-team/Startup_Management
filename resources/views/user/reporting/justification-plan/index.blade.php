@@ -63,7 +63,7 @@
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h4>4)مشخصات سهامداران:</h4><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -123,7 +123,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h4>5)معرفی پرسنل کلیدی:</h4><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -138,7 +138,6 @@
                                                 <th>رشته</th>
                                                 <th>سال تولد</th>
                                                 <th>رزومه</th>
-                                                <th>مسئولیت</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -151,7 +150,7 @@
                                                         <span class="text-dark-75">{{$key_employee->lname}}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$key_employee->lname}}</span>
+                                                        <span class="text-dark-75">{{$key_employee->education->nickname}}</span>
                                                     </td>
                                                     <td>
                                                         <span class="text-dark-75">{{$key_employee->major}}</span>
@@ -232,10 +231,10 @@
                             <p>
                                 @foreach($products as $product)
                                     با توجه به جدول محاسبه سطح آمادگی فناوری، سطح آمادگی فناوری   {{$product->type->nickname}} {{$product->name}} می باشد. <br><br></p>
-                                @endforeach
+                            @endforeach
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h4>13)مجوز، استاندارد و گواهی‌نامه‌ها:</h4><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -261,9 +260,9 @@
                                                     <td>
                                                         <span class="text-dark-75">
                                                             @if($required_certificate->type)
-                                                            اجباری
+                                                                اجباری
                                                             @else
-                                                            غیر اجباری
+                                                                غیر اجباری
                                                             @endif
                                                         </span>
                                                     </td>
@@ -297,7 +296,7 @@
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>2_14)وضعیت عرضه و تقاضا:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -343,7 +342,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>3_14)مشتریان:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -389,7 +388,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>4_14)رقبا:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -435,7 +434,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>5_14)محصولات جایگزین:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -494,7 +493,7 @@
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>11_14)تاثیرات محیطی طرح:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -510,20 +509,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="text-center">
-                                                    <td>
-                                                        <span class="text-dark-75">{{$environmental_effects->economical}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{$environmental_effects->social}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{$environmental_effects->political}}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{$environmental_effects->environmental}}</span>
-                                                    </td>
-                                                </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">{{$environmental_effects->economical}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{$environmental_effects->social}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{$environmental_effects->political}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{$environmental_effects->environmental}}</span>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -534,7 +533,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>12_14)بررسی نقاط قوت، ضعف، تهدیدها و فرصت‌ها:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -551,16 +550,16 @@
                                             <tbody>
                                             @foreach($strengths as $strength)
                                                 <tr class="text-center">
-                                                <td>
-                                                    <span class="text-dark-75">{{$strength->description}}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-dark-75">{{$strength->weight}}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-dark-75">{{$strength->score}}</span>
-                                                </td>
-                                            </tr>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$strength->description}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$strength->weight}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$strength->score}}</span>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                             </tbody>
                                         </table>
@@ -690,7 +689,7 @@
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h4>17)پیش‌ بینی برنامه زمانبندی اجرای طرح:</h4><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -741,7 +740,7 @@
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h4>19)هزینه های سرمایه گذاری:</h4><br>
                                 <h5>1_19)مستغلات:</h5><br>
                                 <!--begin::Body-->
@@ -788,7 +787,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>2_19)تاسیسات:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -851,7 +850,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>3_19)ماشین آلات و تجهیزات فنی:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -914,7 +913,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>4_19)تجهیزات آزمایشگاهی:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -991,7 +990,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>5_19)اثاثه اداری:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -1054,7 +1053,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>6_19)وسایل نقلیه:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -1117,7 +1116,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>7_19)هزینه های قبل از بهره برداری:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -1173,7 +1172,7 @@
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
-                            <div class="card card-custom gutter-b">
+                            <div>
                                 <h5>8_19)سرمایه در گردش مورد نیاز:</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
@@ -1186,83 +1185,6 @@
                                                 <th>مدت زمانی که طول می‌کشد محصول به فروش رود (روز)</th>
                                                 <th>مدت زمانی که طول می‌کشد مطالبات وصول شود (روز)</th>
                                                 <th>جمع کل (روز)</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="text-center">
-                                                    <td>
-                                                        <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $count_day->question_3 }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $count_day->question_4 }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4) }}</span>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!--end::Table-->
-                                    <br><br>
-                                    <!--begin::Table-->
-                                    <div class="table-responsive">
-                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                            <thead>
-                                            <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7">شرح</th>
-                                                <th>مدت(ماه)</th>
-                                                <th>سرمایه در گردش مورد نیاز</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
-                                            <tr class="text-center">
-                                                <td>
-                                                    <span class="text-dark-75">سال{{$i}}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
-                                                </td>
-                                                <td>
-                                                    <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
-                                                </td>
-                                            </tr>
-                                            @endfor
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!--end::Table-->
-                                    <br><br>
-                                    <p>
-                                        با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
-                                        به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
-                                        مبلغ ............... تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
-                                    </p>
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::table-->
-                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                            <!--begin::table-->
-                            <div class="card card-custom gutter-b">
-                                <h4>20)برآورد هزینه‌های دوران بهره‌برداری:</h4><br>
-                                <h5>1_20)مواد اولیه و بسته‌بندی:</h5><br>
-                                <h6>1_1_20)مشخصات مواد اولیه برای یک واحد محصول:</h6><br>
-                                <!--begin::Body-->
-                                <div class="card-body pt-0 pb-3">
-                                    <!--begin::Table-->
-                                    <div class="table-responsive">
-                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                            <thead>
-                                            <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7">شرح مواد مصرفی</th>
-                                                <th>واحد</th>
-                                                <th>قیمت واحد</th>
-                                                <th>مقدار و هزينه مصرف براي هرواحد محصول</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -1284,6 +1206,106 @@
                                         </table>
                                     </div>
                                     <!--end::Table-->
+                                    <br><br>
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th>مدت(ماه)</th>
+                                                <th>سرمایه در گردش مورد نیاز</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">سال{{$i}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endfor
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                    <br><br>
+                                    <p>
+                                        با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
+                                        به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
+                                        مبلغ ............... تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
+                                    </p>
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h4>20)برآورد هزینه‌های دوران بهره‌برداری:</h4><br>
+                                <h5>1_20)مواد اولیه و بسته‌بندی:</h5><br>
+                                <h6>1_1_20)مشخصات مواد اولیه برای یک واحد محصول:</h6><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح مواد مصرفی</th>
+                                                <th>واحد</th>
+                                                <th>قیمت واحد</th>
+                                                <th>مقدار مصرف براي هرواحد محصول</th>
+                                                <th>هزینه مصرف براي هرواحد محصول</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($raw_materials as $raw_material)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$raw_material->description}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $raw_material->Unit->name }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $raw_material->unit_price }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $raw_material->consumption }}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{ ($raw_material->consumption) * ($raw_material->unit_price) }}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع هزينه مواد اوليه و بسته‌بندی برای هر واحد محصول </b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $raw_materials->sum('') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
                                 </div>
                                 <!--end::Body-->
                             </div>
@@ -1294,6 +1316,7 @@
                     <!--end::Card-->
                 </div>
             </div>
+            <a class="btn btn-primary" href="{{ URL::to('/employee/pdf') }}">Export to PDF</a>
         </div>
     </div>
     <!--end::Entry-->

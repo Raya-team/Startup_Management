@@ -46,7 +46,7 @@ class RepJustificationPlanController extends Controller
         $team = Team::where('id', $team_id)->first();
         $registered_team = RegisteredTeam::where('team_id', $team_id)->first('registration_number');
         $shareholders = TeamMember::with(['education','responsibility'])->where('team_id', $team_id)->get();
-        $key_employees = KeyEmployee::where('team_id', $team_id)->get();
+        $key_employees = KeyEmployee::with('education')->where('team_id', $team_id)->get();
         $managerial = Managerial::where('team_id', $team_id)->first();
         $technicals = Technical::where('team_id', $team_id)->first();
         $products = Product::with('type')->where('team_id', $team_id)->get();
@@ -72,8 +72,8 @@ class RepJustificationPlanController extends Controller
         $plan_year = PlanYear::where('team_id', $team_id)->first();
         $fiscal = Fiscal::where('team_id', $team_id)->first();
         $count_day = CountDay::where('team_id', $team_id)->first();
-        $raw_material = RawMaterial::where('team_id', $team_id)->where('year', 1)->get();
-//        return $raw_material;
-        return view('user.reporting.justification-plan.index',compact('team','registered_team','shareholders','key_employees','managerial','technicals','products','required_certificates','markets','supply_and_demand','product_customers','product_competitors','alternative_products','environmental_effects','strengths','weakPoints','opportunityPoints','threats','plan_implementation','tenements','facilities','machineries','laboratory_equipments','offices','transportations','pre_operation_costs','plan_year','fiscal','count_day','raw_material'));
+        $raw_materials = RawMaterial::with('Unit')->where('team_id', $team_id)->where('year', 1)->get();
+//        return $raw_materials;
+        return view('user.reporting.justification-plan.index',compact('team','registered_team','shareholders','key_employees','managerial','technicals','products','required_certificates','markets','supply_and_demand','product_customers','product_competitors','alternative_products','environmental_effects','strengths','weakPoints','opportunityPoints','threats','plan_implementation','tenements','facilities','machineries','laboratory_equipments','offices','transportations','pre_operation_costs','plan_year','fiscal','count_day','raw_materials'));
     }
 }

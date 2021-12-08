@@ -55,6 +55,7 @@ use App\Http\Controllers\user\Readiness\ManufacturingController;
 use App\Http\Controllers\user\Readiness\MarketController;
 use App\Http\Controllers\user\Readiness\TechnologyController;
 use App\Http\Controllers\user\Reporting\RepJustificationPlanController;
+use App\Http\Controllers\user\Reporting\RepPreliminaryJustificationPlanController;
 use App\Http\Controllers\user\Share\InitialShare\AgreementController;
 use App\Http\Controllers\user\Share\InitialShare\CalculationController;
 use App\Http\Controllers\user\Share\InitialShare\InitialShareController;
@@ -195,6 +196,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/alternative-products', AlternativeProductController::class);
 
     Route::get('/reporting/justification-plan', RepJustificationPlanController::class);
+    Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index']);
+
 
 });
 

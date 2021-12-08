@@ -13,4 +13,9 @@ class UnitOfMeasurement extends Model
     {
         return $this->hasMany(ProductSupplyAndDemand::class);
     }
+
+    public function rawMaterials()
+    {
+        return $this->hasMany(RawMaterial::class);
+    }
 }

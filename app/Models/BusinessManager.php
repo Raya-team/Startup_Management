@@ -9,7 +9,7 @@ class BusinessManager extends Model
 {
     use HasFactory;
 
-    public function owner()
+    public function Owner()
     {
         return $this->belongsTo(TeamMember::class, 'owner');
     }

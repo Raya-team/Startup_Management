@@ -13,4 +13,9 @@ class RawMaterial extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function Unit()
+    {
+        return $this->belongsTo(UnitOfMeasurement::class,'unit');
+    }
 }
