@@ -47,23 +47,29 @@
                                             <div class="form-group">
                                                 <label for="insurances_description">شرح:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="insurances_description" id="insurances_description" class="form-control" v-model="insu.description">
+                                                <select name="insurances_description" id="insurances_description" class="form-control" v-model="insu.description"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.description`)}]">
                                                     <option v-for="des in descriptions" :value="des.description">{{ des.description }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.description`)" style="display: block;">{{ errors.get(`insurance.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="insurances_percent">درصد</label>
                                                 <input type="text" class="form-control" id="insurances_percent" placeholder="تعداد" name="insurances_percent" v-model="insu.percent"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.description`)" style="display: block;">{{ errors.get(`insurance.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="insurances_total_cost">هزینه کل:</label>
                                                 <input type="text" class="form-control" id="insurances_total_cost" placeholder="هزینه کل" name="insurances_total_cost" v-model="insu.total_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.total_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.total_cost`)" style="display: block;">{{ errors.get(`insurance.${index}.total_cost`) }}</div>
                                             </div>
                                         </div>
                                     </div>

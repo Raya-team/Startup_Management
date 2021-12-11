@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RepairRequest;
+use App\Models\EquipmentAndMachinery;
+use App\Models\Facility;
+use App\Models\LaboratoryEquipment;
+use App\Models\Land;
+use App\Models\OfficeEquipmentAndSupply;
 use App\Models\Repair;
+use App\Models\Transportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,15 +42,31 @@ class RepairController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RepairRequest $request)
     {
         $team_id = Auth::user()->team_id;
+        /* (اطلاعات مالی1) */
+        /* مستغلات */
+        $tenements = Land::where('team_id', $team_id)->get()->sum('price');
+        /* تجهیزات و ماشین آلات فنی */
+        $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
+        /* تجهیزات آزمایشگاهی */
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
+        /* تجهیزات و لوازم دفتری */
+        $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
+        /* تاسیسات */
+        $facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
+        /* وسایل حمل و نقل */
+        $transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
+        /* مجموع اطلاعات مالی 1 به غیر از هزینه های قبل بهره برداری */
+        $total_financial1 = $tenements + $equipment_and_machineries + $laboratory_equipments + $facilities + $transportations + $office_equipment_and_supplise;
+
         $repairs = $request->repair;
         for ($i = 0; $i < sizeof($repairs); $i++) {
             $repair = new Repair();
             $repair->description = $repairs[$i]['description'];
             $repair->percent = $repairs[$i]['percent'];
-            $repair->total_cost = $repairs[$i]['total_cost'];
+            $repair->total_cost = $total_financial1 * $repairs[$i]['percent'];
             $repair->year = $request->year;
             $repair->team_id = $team_id;
             $repair->updated_at = null;
@@ -81,12 +104,29 @@ class RepairController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RepairRequest $request, $id)
     {
+        $team_id = Auth::user()->team_id;
+        /* (اطلاعات مالی1) */
+        /* مستغلات */
+        $tenements = Land::where('team_id', $team_id)->get()->sum('price');
+        /* تجهیزات و ماشین آلات فنی */
+        $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
+        /* تجهیزات آزمایشگاهی */
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
+        /* تجهیزات و لوازم دفتری */
+        $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
+        /* تاسیسات */
+        $facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
+        /* وسایل حمل و نقل */
+        $transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
+        /* مجموع اطلاعات مالی 1 به غیر از هزینه های قبل بهره برداری */
+        $total_financial1 = $tenements + $equipment_and_machineries + $laboratory_equipments + $facilities + $transportations + $office_equipment_and_supplise;
+
         $repair = Repair::findorfail($id);
         $repair->description = $request['repair'][0]['description'];
         $repair->percent = $request['repair'][0]['percent'];
-        $repair->total_cost = $request['repair'][0]['total_cost'];
+        $repair->total_cost = $total_financial1 * $request['repair'][0]['percent'];
         $repair->save();
         return response(['success'], 201);
     }

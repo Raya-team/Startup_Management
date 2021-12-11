@@ -46,28 +46,27 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="outsourcing_description">شرح:</label>
-                                                <input type="text" class="form-control" id="outsourcing_description" placeholder="شرح" name="outsourcing_description" v-model="out.description"/>
+                                                <input type="text" class="form-control" id="outsourcing_description" placeholder="شرح" name="outsourcing_description" v-model="out.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`outsourcing.${index}.description`)" style="display: block;">{{ errors.get(`outsourcing.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="outsourcing_number">تعداد:</label>
                                                 <input type="text" class="form-control" id="outsourcing_number" placeholder="تعداد" name="outsourcing_number" v-model="out.number"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.number`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`outsourcing.${index}.number`)" style="display: block;">{{ errors.get(`outsourcing.${index}.number`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="outsourcing_unit_cost">هزینه واحد:</label>
                                                 <input type="text" class="form-control" id="outsourcing_unit_cost" placeholder="هزینه واحد" name="outsourcing_unit_cost" v-model="out.unit_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="outsourcing_total_cost">هزینه کل:</label>
-                                                <input type="text" class="form-control" id="outsourcing_total_cost" placeholder="هزینه کل" name="outsourcing_total_cost" v-model="out.total_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.unit_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`outsourcing.${index}.unit_cost`)" style="display: block;">{{ errors.get(`outsourcing.${index}.unit_cost`) }}</div>
                                             </div>
                                         </div>
                                     </div>

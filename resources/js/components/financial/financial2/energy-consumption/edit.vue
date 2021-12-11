@@ -46,37 +46,38 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="energy_description">شرح:</label>
-                                                <input type="text" class="form-control" id="energy_description" placeholder="شرح" name="energy_description" v-model="ener.description"/>
+                                                <input type="text" class="form-control" id="energy_description" placeholder="شرح" name="energy_description" v-model="ener.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`energy_consumption.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`energy_consumption.${index}.description`)" style="display: block;">{{ errors.get(`energy_consumption.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="energy_unit">واحد:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="energy_unit" id="energy_unit" class="form-control" v-model="ener.unit">
+                                                <select name="energy_unit" id="energy_unit" class="form-control" v-model="ener.unit"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`energy_consumption.${index}.unit`)}]">
                                                     <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`energy_consumption.${index}.unit`)" style="display: block;">{{ errors.get(`energy_consumption.${index}.unit`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="annual_consumption">مصرف سالیانه:</label>
                                                 <input type="text" class="form-control" id="annual_consumption" placeholder="مصرف سالیانه" name="annual_consumption"  v-model="ener.annual_consumption"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`energy_consumption.${index}.annual_consumption`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`energy_consumption.${index}.annual_consumption`)" style="display: block;">{{ errors.get(`energy_consumption.${index}.annual_consumption`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="energy_unit_cost">هزینه واحد:</label>
                                                 <input type="text" class="form-control" id="energy_unit_cost" placeholder="هزینه واحد" name="energy_unit_cost"  v-model="ener.unit_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="energy_annual_cost">هزینه سالیانه:</label>
-                                                <input type="text" class="form-control" id="energy_annual_cost" placeholder="هزینه سالیانه" name="energy_annual_cost"  v-model="ener.annual_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`energy_consumption.${index}.unit_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`energy_consumption.${index}.unit_cost`)" style="display: block;">{{ errors.get(`energy_consumption.${index}.unit_cost`) }}</div>
                                             </div>
                                         </div>
                                     </div>

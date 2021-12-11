@@ -18,7 +18,7 @@ class RawMaterialController extends Controller
     public function index($year)
     {
         $team = Auth::user()->team;
-        $raw_material = RawMaterial::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        $raw_material = RawMaterial::with('Unit')->where('team_id', $team->id)->where('year', $year)->paginate(10);
         return response()->json($raw_material);
     }
 

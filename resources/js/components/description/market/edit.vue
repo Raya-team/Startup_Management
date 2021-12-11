@@ -46,7 +46,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_introduction"></textarea>
+                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_introduction"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.product_introduction')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.product_introduction')" style="display: block;">{{ errors.get('market.product_introduction') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +59,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="product_features" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_features"></textarea>
+                                                <textarea name="product_features" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_features"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.product_features')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.product_features')" style="display: block;">{{ errors.get('market.product_features') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +72,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="product_competitive_advantages" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_competitive_advantages"></textarea>
+                                                <textarea name="product_competitive_advantages" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.market.product_competitive_advantages"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.product_competitive_advantages')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.product_competitive_advantages')" style="display: block;">{{ errors.get('market.product_competitive_advantages') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +85,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="position_analysis" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.position_analysis"></textarea>
+                                                <textarea name="position_analysis" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.position_analysis"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.position_analysis')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.position_analysis')" style="display: block;">{{ errors.get('market.position_analysis') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +98,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="pricing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.product_pricing_strategy"></textarea>
+                                                <textarea name="pricing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.product_pricing_strategy"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.product_pricing_strategy')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.product_pricing_strategy')" style="display: block;">{{ errors.get('market.product_pricing_strategy') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +111,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.product_marketing_strategy"></textarea>
+                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.product_marketing_strategy"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.product_marketing_strategy')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.product_marketing_strategy')" style="display: block;">{{ errors.get('market.product_marketing_strategy') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +124,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.market_status"></textarea>
+                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.market_status"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.market_status')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.market_status')" style="display: block;">{{ errors.get('market.market_status') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +137,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.target_market"></textarea>
+                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.target_market"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.target_market')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.target_market')" style="display: block;">{{ errors.get('market.target_market') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -134,7 +150,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.forecast_the_future_of_the_market"></textarea>
+                                                <textarea name="marketing_strategy" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.market.forecast_the_future_of_the_market"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('market.forecast_the_future_of_the_market')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('market.forecast_the_future_of_the_market')" style="display: block;">{{ errors.get('market.forecast_the_future_of_the_market') }}</div>
                                             </div>
                                         </div>
                                     </div>

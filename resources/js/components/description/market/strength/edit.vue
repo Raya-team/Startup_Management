@@ -47,17 +47,23 @@
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-12">
                                                     <label>شرح:</label>
-                                                    <input type="text" class="form-control products" name="strengths_description" v-model="data.description"/>
+                                                    <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.description`)" style="display: block;">{{ errors.get(`strengths.${index}.description`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>وزن:</label>
-                                                    <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"/>
+                                                    <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.weight`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.weight`)" style="display: block;">{{ errors.get(`strengths.${index}.weight`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>امتیاز:</label>
-                                                    <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"/>
+                                                    <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.score`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.score`)" style="display: block;">{{ errors.get(`strengths.${index}.score`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                             </div>

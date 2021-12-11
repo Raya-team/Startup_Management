@@ -48,16 +48,20 @@
                                                 <label for="nominal_capacity">ظرفیت اسمی(در سال):
                                                     <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="nominal_capacity" placeholder="ظرفیت اسمی" name="nominal_capacity" v-model="data.nominal_capacity"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('nominal_capacity')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('nominal_capacity')" style="display: block;">{{ errors.get('nominal_capacity') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="capacity_unit">واحد:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="capacity_unit" id="capacity_unit" class="form-control" v-model="data.unit">
+                                                <select name="capacity_unit" id="capacity_unit" class="form-control" v-model="data.unit"
+                                                        :class="['form-control', {'is-invalid' : errors.has('unit')}]">
                                                     <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('unit')" style="display: block;">{{ errors.get('unit') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -65,7 +69,9 @@
                                                 <label for="capacity_percent">درصد استفاده از ظرفیت اسمی:
                                                     <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="capacity_percent" placeholder="درصد استفاده از ظرفیت اسمی" name="capacity_percent" v-model="data.percent"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('percent')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('percent')" style="display: block;">{{ errors.get('percent') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -73,7 +79,9 @@
                                                 <label for="total_production">تعداد تولید واقعی:
                                                     <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="total_production" placeholder="تعداد تولید واقعی" name="total_production" v-model="data.total_production"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('total_production')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('total_production')" style="display: block;">{{ errors.get('total_production') }}</div>
                                             </div>
                                         </div>
                                     </div>

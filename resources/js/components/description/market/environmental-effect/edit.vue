@@ -46,7 +46,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="economical" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.economical"></textarea>
+                                                <textarea name="economical" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.economical"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('environmental_effect.economical')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('environmental_effect.economical')" style="display: block;">{{ errors.get('environmental_effect.economical') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +59,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="social" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.social"></textarea>
+                                                <textarea name="social" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.social"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('environmental_effect.social')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('environmental_effect.social')" style="display: block;">{{ errors.get('environmental_effect.social') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +72,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="political" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.political"></textarea>
+                                                <textarea name="political" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.environmental_effect.political"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('environmental_effect.political')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('environmental_effect.political')" style="display: block;">{{ errors.get('environmental_effect.political') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -79,7 +85,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
                                             <div class="form-group">
-                                                <textarea name="environmental" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.environmental_effect.environmental"></textarea>
+                                                <textarea name="environmental" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.environmental_effect.environmental"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('environmental_effect.environmental')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('environmental_effect.environmental')" style="display: block;">{{ errors.get('environmental_effect.environmental') }}</div>
                                             </div>
                                         </div>
                                     </div>

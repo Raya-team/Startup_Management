@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\SupplierRequest;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class SupplierController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(SupplierRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -46,7 +47,7 @@ class SupplierController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(SupplierRequest $request, $id)
     {
         $supplier = Supplier::findorfail($id);
         $supplier->name = $request['suppliers'][0]['name'];

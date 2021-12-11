@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationTransportationRequest;
 use App\Models\ValuationTransportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class TransportationController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationTransportationRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class TransportationController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationTransportationRequest $request, $id)
     {
         $valuation_transportation = ValuationTransportation::findorfail($id);
         $valuation_transportation->description = $request['valuation_transportations'][0]['description'];
@@ -63,6 +64,8 @@ class TransportationController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationTransportation::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

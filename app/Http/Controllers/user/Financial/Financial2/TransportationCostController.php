@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TransportationCostRequest;
 use App\Models\TransportationCost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class TransportationCostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransportationCostRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $transportationCosts = $request->transportation_cost;
@@ -82,7 +83,7 @@ class TransportationCostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TransportationCostRequest $request, $id)
     {
         $transportationCost = TransportationCost::findorfail($id);
         $transportationCost->description = $request['transportation_cost'][0]['description'];

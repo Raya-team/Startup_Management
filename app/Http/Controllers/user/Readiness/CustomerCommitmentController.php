@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Readiness;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CustomerCommitmentQuestionRequest;
 use App\Models\CustomerCommitmentQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +75,7 @@ class CustomerCommitmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CustomerCommitmentQuestionRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
 

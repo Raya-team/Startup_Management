@@ -47,31 +47,30 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="powers_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"/>
+                                                    <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="powers_number">تعداد:</label>
                                                     <input type="text" class="form-control" id="powers_number" placeholder="تعداد" name="powers_number" v-model="man.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.number`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.number`)" style="display: block;">{{ errors.get(`man_power.${index}.number`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="powers_salary">حقوق ماهانه:</label>
                                                     <input type="text" class="form-control" id="powers_salary" placeholder="حقوق ماهانه" name="powers_salary" v-model="man.salary"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.salary`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.salary`)" style="display: block;">{{ errors.get(`man_power.${index}.salary`) }}</div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="powers_total_rights">حقوق کل:</label>
-                                                    <input type="text" class="form-control" id="powers_total_rights" placeholder="حقوق کل" name="powers_total_rights" v-model="man.total_rights"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                </div>
-                                            </div>
-                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
                                                 <a @click="RemoveManPower(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>

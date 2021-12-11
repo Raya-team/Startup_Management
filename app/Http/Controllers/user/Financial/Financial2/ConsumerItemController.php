@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConsumerItemRequest;
 use App\Models\ConsumerItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class ConsumerItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsumerItemRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $consumerItems = $request->consumer_item;
@@ -82,7 +83,7 @@ class ConsumerItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ConsumerItemRequest $request, $id)
     {
         $consumerItem = ConsumerItem::findorfail($id);
         $consumerItem->description = $request['consumer_item'][0]['description'];

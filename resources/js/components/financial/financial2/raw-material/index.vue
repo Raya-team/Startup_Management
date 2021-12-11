@@ -67,7 +67,7 @@
                                         <span class="text-dark-75">{{ rawmaterial.consumption }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-750">{{ rawmaterial.unit }}</span>
+                                        <span class="text-dark-750">{{ rawmaterial.unit.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ rawmaterial.unit_price }}</span>
@@ -222,7 +222,7 @@
                     }else{
                         return element.description.match(this.filterText) ||
                             element.consumption.toString().match(this.filterText) ||
-                            element.unit.toString().match(this.filterText) ||
+                            element.unit.name.toString().match(this.filterText) ||
                             element.unit_price.toString().match(this.filterText) ||
                             element.total_price.toString().match(this.filterText);
                     }

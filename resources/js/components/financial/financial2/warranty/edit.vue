@@ -46,21 +46,27 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="warranties_description">شرح:</label>
-                                                <input type="text" class="form-control" id="warranties_description" placeholder="شرح" name="warranties_description" v-model="warr.description"/>
+                                                <input type="text" class="form-control" id="warranties_description" placeholder="شرح" name="warranties_description" v-model="warr.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.description`)" style="display: block;">{{ errors.get(`warranty.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="warranties_percent">درصد از فروش:</label>
                                                 <input type="text" class="form-control" id="warranties_percent" placeholder="درصد از فروش" name="warranties_percent" v-model="warr.percent"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.percent`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.percent`)" style="display: block;">{{ errors.get(`warranty.${index}.percent`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="warranties_total_cost">هزینه کل:</label>
                                                 <input type="text" class="form-control" id="warranties_total_cost" placeholder="هزینه کل" name="warranties_total_cost" v-model="warr.total_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.total_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.total_cost`)" style="display: block;">{{ errors.get(`warranty.${index}.total_cost`) }}</div>
                                             </div>
                                         </div>
                                     </div>

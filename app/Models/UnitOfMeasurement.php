@@ -18,4 +18,14 @@ class UnitOfMeasurement extends Model
     {
         return $this->hasMany(RawMaterial::class);
     }
+
+    public function capacities()
+    {
+        return $this->hasMany(Capacity::class);
+    }
+
+    public function energyConsumptions()
+    {
+        return $this->hasMany(EnergyConsumption::class);
+    }
 }

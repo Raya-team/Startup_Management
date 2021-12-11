@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationTenementRequest;
 use App\Models\ValuationTenement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class TenementController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationTenementRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -48,7 +49,7 @@ class TenementController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationTenementRequest $request, $id)
     {
         $valuation_tenement = ValuationTenement::findorfail($id);
         $valuation_tenement->description = $request['valuation_tenements'][0]['description'];
@@ -62,6 +63,8 @@ class TenementController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationTenement::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

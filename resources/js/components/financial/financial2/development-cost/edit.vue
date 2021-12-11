@@ -47,7 +47,9 @@
                                             <div class="form-group">
                                                 <label for="dev_description">شرح:
                                                     <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="dev_description" placeholder="شرح" name="dev_description" v-model="data.description"/>
+                                                <input type="text" class="form-control" id="dev_description" placeholder="شرح" name="dev_description" v-model="data.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has('description')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('description')" style="display: block;">{{ errors.get('description') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -55,7 +57,9 @@
                                                 <label for="dev_cost">هزینه کل:
                                                     <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="dev_cost" placeholder="هزینه کل" name="dev_cost" v-model="data.total_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('total_cost')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('total_cost')" style="display: block;">{{ errors.get('total_cost') }}</div>
                                             </div>
                                         </div>
                                     </div>

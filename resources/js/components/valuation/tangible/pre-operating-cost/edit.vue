@@ -50,18 +50,22 @@
                                                 <div class="form-group">
                                                     <label for="valuation_pre_operation_costs.description">شرح:
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_pre_operation_costs.description" id="valuation_pre_operation_costs.description" class="form-control" v-model="data.description">
+                                                    <select name="valuation_pre_operation_costs.description" id="valuation_pre_operation_costs.description" class="form-control" v-model="data.description"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_pre_operation_costs.${index}.description`)}]">
                                                         <option v-for="pre_operation_cost in pre_operation_costs" :value="pre_operation_cost.id">{{ pre_operation_cost.description }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_pre_operation_costs.${index}.description`)" style="display: block;">{{ errors.get(`valuation_pre_operation_costs.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="valuation_pre_operation_costs.owner">مالک :
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_pre_operation_costs" id="valuation_pre_operation_costs.owner" class="form-control" v-model="data.owner">
+                                                    <select name="valuation_pre_operation_costs" id="valuation_pre_operation_costs.owner" class="form-control" v-model="data.owner"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_pre_operation_costs.${index}.owner`)}]">
                                                         <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_pre_operation_costs.${index}.owner`)" style="display: block;">{{ errors.get(`valuation_pre_operation_costs.${index}.owner`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -76,9 +80,15 @@
                                                             </span>
                                                         </div>
                                                         <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_pre_operation_costs.total_price" name="valuation_pre_operation_costs.total_price" v-model.number="data.total_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_pre_operation_costs.${index}.total_price`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_pre_operation_costs.${index}.total_price`)" style="display: block;">{{ errors.get(`valuation_pre_operation_costs.${index}.total_price`) }}</div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
+                                                <a @click="RemoveValuationPreOperationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                    <i class="la la-trash-o"></i>حذف</a>
                                             </div>
                                         </div>
                                     </transition-group>

@@ -47,28 +47,21 @@
                                             <div class="form-group">
                                                 <label for="repairs_description">شرح:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="repairs_description" id="repairs_description" class="form-control" v-model="rep.description">
+                                                <select name="repairs_description" id="repairs_description" class="form-control" v-model="rep.description"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`repair.${index}.description`)}]">
                                                     <option v-for="des in descriptions" :value="des.description">{{ des.description }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`repair.${index}.description`)" style="display: block;">{{ errors.get(`repair.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="repairs_percent">درصد</label>
                                                 <input type="text" class="form-control" id="repairs_percent" placeholder="تعداد" name="repairs_percent" v-model="rep.percent"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`repair.${index}.percent`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`repair.${index}.percent`)" style="display: block;">{{ errors.get(`repair.${index}.percent`) }}</div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="repairs_total_cost">هزینه کل:</label>
-                                                <input type="text" class="form-control" id="repairs_total_cost" placeholder="هزینه کل" name="repairs_total_cost" v-model="rep.total_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                            </div>
-                                        </div>
-                                        <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
-                                            <a @click="RemoveRepair(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                <i class="la la-trash-o"></i>حذف</a>
                                         </div>
                                     </div>
                                 </div>
@@ -99,7 +92,7 @@
                 year: '',
                 descriptions: '',
                 data: {
-                    repair: [{ description: '', percent: '', total_cost: '' }],
+                    repair: [{ description: '', percent: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -113,7 +106,6 @@
                     this.year = response.data.repair.year;
                     this.data.repair[0].description = response.data.repair.description;
                     this.data.repair[0].percent = response.data.repair.percent;
-                    this.data.repair[0].total_cost = response.data.repair.total_cost;
                 })
                 .catch(error => {console.log(error);});
         },

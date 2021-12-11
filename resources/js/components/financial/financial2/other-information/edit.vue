@@ -47,14 +47,18 @@
                                             <div class="form-group">
                                                 <label for="sale_price">قیمت فروش:</label>
                                                 <input type="text" class="form-control" id="sale_price" placeholder="برحسب تومان" name="sale_price" v-model="data.sale_price"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('sale_price')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('sale_price')" style="display: block;">{{ errors.get('sale_price') }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="tax_rate">میزان مالیات:</label>
                                                 <input type="text" class="form-control" id="tax_rate" placeholder="برحسب درصد" name="tax_rate" v-model="data.tax_rate"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has('tax_rate')}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('tax_rate')" style="display: block;">{{ errors.get('tax_rate') }}</div>
                                             </div>
                                         </div>
                                     </div>

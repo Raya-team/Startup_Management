@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationLaboratoryEquipmentRequest;
 use App\Models\ValuationLaboratoryEquipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class LaboratoryEquipmentController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationLaboratoryEquipmentRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -50,7 +51,7 @@ class LaboratoryEquipmentController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationLaboratoryEquipmentRequest $request, $id)
     {
         $valuation_laboratory_equipment = ValuationLaboratoryEquipment::findorfail($id);
         $valuation_laboratory_equipment->description = $request['valuation_laboratory_equipments'][0]['description'];
@@ -65,6 +66,8 @@ class LaboratoryEquipmentController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationLaboratoryEquipment::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

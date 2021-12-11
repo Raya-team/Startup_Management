@@ -28,7 +28,7 @@ class TangibleController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(TangibleRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -58,36 +58,7 @@ class TangibleController extends Controller
 
     public function update(TangibleEditRequest $request, $id)
     {
-        $tenement = ValuationTenement::findOrFail($request['tenements']['id']);
-        $tenement->description = $request['tenements']['description'];
-        $tenement->area = $request['tenements']['area'];
-        $tenement->owner = $request['tenements']['owner'];
-        $tenement->total_price = $request['tenements']['total_price'];
-        $tenement->save();
-
-        $machinery = ValuationMachinery::findOrFail($request['machineries']['id']);
-        $machinery->description = $request['machineries']['description'];
-        $machinery->number = $request['machineries']['number'];
-        $machinery->owner = $request['machineries']['owner'];
-        $machinery->unit_price = $request['machineries']['unit_price'];
-        $machinery->total_price = $request['machineries']['total_price'];
-        $machinery->save();
-
-        $office = ValuationOfficeSupply::findOrFail($request['offices']['id']);
-        $office->description = $request['offices']['description'];
-        $office->number = $request['offices']['number'];
-        $office->owner = $request['offices']['owner'];
-        $office->unit_price = $request['offices']['unit_price'];
-        $office->total_price = $request['offices']['total_price'];
-        $office->save();
-
-        $other = ValuationOtherAsset::findOrFail($request['others']['id']);
-        $other->description = $request['others']['description'];
-        $other->owner = $request['others']['owner'];
-        $other->total_price = $request['others']['total_price'];
-        $other->save();
-
-        return response(['success'], 201);
+       //
     }
 
     public function destroy($id)
@@ -95,7 +66,7 @@ class TangibleController extends Controller
         //
     }
 
-    protected function ValuationTenement(Request $request, $team_id)
+    protected function ValuationTenement(TangibleRequest $request, $team_id)
     {
         $valuation_tenements = $request->valuation_tenements;
         for ($i = 0; $i < sizeof($valuation_tenements); $i++) {
@@ -110,7 +81,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationLaboratoryEquipment(Request $request, $team_id)
+    protected function ValuationLaboratoryEquipment(TangibleRequest $request, $team_id)
     {
         $valuation_laboratory_equipments = $request->valuation_laboratory_equipments;
         for ($i = 0; $i < sizeof($valuation_laboratory_equipments); $i++) {
@@ -127,7 +98,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationMachinery(Request $request, $team_id)
+    protected function ValuationMachinery(TangibleRequest $request, $team_id)
     {
         $valuation_machineries = $request->valuation_machineries;
         for ($i = 0; $i < sizeof($valuation_machineries); $i++) {
@@ -143,7 +114,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationOfficeSupply(Request $request, $team_id)
+    protected function ValuationOfficeSupply(TangibleRequest $request, $team_id)
     {
         $valuation_office_supplies = $request->valuation_office_supplies;
         for ($i = 0; $i < sizeof($valuation_office_supplies); $i++) {
@@ -159,7 +130,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationFacility(Request $request, $team_id)
+    protected function ValuationFacility(TangibleRequest $request, $team_id)
     {
         $valuation_facilities = $request->valuation_facilities;
         for ($i = 0; $i < sizeof($valuation_facilities); $i++) {
@@ -175,7 +146,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationTransportation(Request $request, $team_id)
+    protected function ValuationTransportation(TangibleRequest $request, $team_id)
     {
         $valuation_transportations = $request->valuation_transportations;
         for ($i = 0; $i < sizeof($valuation_transportations); $i++) {
@@ -191,7 +162,7 @@ class TangibleController extends Controller
         }
     }
 
-    protected function ValuationPreOperationCost(Request $request, $team_id)
+    protected function ValuationPreOperationCost(TangibleRequest $request, $team_id)
     {
         $valuation_pre_operation_costs = $request->valuation_pre_operation_costs;
         for ($i = 0; $i < sizeof($valuation_pre_operation_costs); $i++) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Managerial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ObtainedCertificateRequest;
 use App\Models\ObtainedCertificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ObtainedCertificateController extends Controller
         return view('user.description.managerial.index');
     }
 
-    public function store(Request $request)
+    public function store(ObtainedCertificateRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $certificates = $request->obtained_certificate;
@@ -46,7 +47,7 @@ class ObtainedCertificateController extends Controller
         return view('user.description.managerial.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ObtainedCertificateRequest $request, $id)
     {
         $certificate = ObtainedCertificate::findorfail($id);
         $certificate->description = $request['obtained_certificate'][0]['description'];

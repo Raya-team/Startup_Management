@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Share\ParticipationShare;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ParticipationPreInvestorRequest;
 use App\Models\ParticipationPreInvestor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class PreInvestorController extends Controller
         return view('user.shares.participation-shares.index');
     }
 
-    public function store(Request $request)
+    public function store(ParticipationPreInvestorRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $pre_investors = $request->pre_investors;
@@ -44,7 +45,7 @@ class PreInvestorController extends Controller
         return view('user.shares.participation-shares.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ParticipationPreInvestorRequest $request, $id)
     {
         $pre_investor = ParticipationPreInvestor::findorfail($id);
         $pre_investor->investor = $request['pre_investors'][0]['investor'];

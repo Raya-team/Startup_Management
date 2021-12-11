@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Share\ParticipationShare;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ParticipationNewInvestorRequest;
 use App\Models\ParticipationNewInvestor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class NewInvestorController extends Controller
         return view('user.shares.participation-shares.index');
     }
 
-    public function store(Request $request)
+    public function store(ParticipationNewInvestorRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $new_investors = $request->new_investors;
@@ -44,7 +45,7 @@ class NewInvestorController extends Controller
         return view('user.shares.participation-shares.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ParticipationNewInvestorRequest $request, $id)
     {
         $new_investor = ParticipationNewInvestor::findorfail($id);
         $new_investor->supplier = $request['new_investors'][0]['supplier'];

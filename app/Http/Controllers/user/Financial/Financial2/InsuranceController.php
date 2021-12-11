@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InsuranceRequest;
 use App\Models\Insurance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class InsuranceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsuranceRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $insurances = $request->insurance;
@@ -81,7 +82,7 @@ class InsuranceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsuranceRequest $request, $id)
     {
         $insurance = Insurance::findorfail($id);
         $insurance->description = $request['insurance'][0]['description'];

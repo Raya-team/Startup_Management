@@ -42,17 +42,21 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <div class="form-group row" v-for="(pro, index) in data.raw_material_suppliers" :key="index">
-                                        <label class="col-lg-2 col-form-label text-right">تامین کننده مواد اولیه:</label>
+                                        <label class="col-lg-2 col-form-label text-right">تامین‌کننده مواد اولیه:</label>
                                         <div data-repeater-list="" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-4">
                                                     <label>نام:</label>
-                                                    <input type="text" class="form-control products" name="producers_name" v-model="pro.name"/>
+                                                    <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.name`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.name`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.name`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>منطقه جغرافیایی:</label>
-                                                    <input type="text" class="form-control products" name="producers_region" v-model="pro.geographical_region"/>
+                                                    <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.geographical_region`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.geographical_region`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                             </div>

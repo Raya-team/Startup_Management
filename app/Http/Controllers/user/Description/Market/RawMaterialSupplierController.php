@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RawMaterialSupplierRequest;
 use App\Models\RawMaterialSupplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class RawMaterialSupplierController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(RawMaterialSupplierRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -46,7 +47,7 @@ class RawMaterialSupplierController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(RawMaterialSupplierRequest $request, $id)
     {
         $raw_material_supplier = RawMaterialSupplier::findorfail($id);
         $raw_material_supplier->name = $request['raw_material_suppliers'][0]['name'];

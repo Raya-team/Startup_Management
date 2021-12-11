@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Readiness;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MarketQuestionRequest;
 use App\Models\MarketQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class MarketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MarketQuestionRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -50,7 +51,6 @@ class MarketController extends Controller
         $market->q7 = $request->q7;
         $market->q8 = $request->q8;
         $market->q9 = $request->q9;
-        $market->q10 = $request->q10;
         $market->save();
 
         return response(['success'], 201);
@@ -90,7 +90,7 @@ class MarketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MarketQuestionRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
 
@@ -105,7 +105,6 @@ class MarketController extends Controller
         $market->q7 = $request->q7;
         $market->q8 = $request->q8;
         $market->q9 = $request->q9;
-        $market->q10 = $request->q10;
         $market->save();
 
         return response(['success'], 201);

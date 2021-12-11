@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Managerial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\PlanImplementationRequest;
 use App\Models\PlanImplementation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class PlanImplementationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PlanImplementationRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $plan_implementations = $request->plan_implementations;
@@ -79,7 +80,7 @@ class PlanImplementationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PlanImplementationRequest $request, $id)
     {
         $plan_implementation = PlanImplementation::findorfail($id);
         $plan_implementation->subject_of_work = $request['plan_implementations'][0]['subject_of_work'];

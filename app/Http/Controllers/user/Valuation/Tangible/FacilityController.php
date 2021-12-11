@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationFacilityRequest;
 use App\Models\ValuationFacility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class FacilityController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationFacilityRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class FacilityController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationFacilityRequest $request, $id)
     {
         $valuation_facilitie = ValuationFacility::findorfail($id);
         $valuation_facilitie->description = $request['valuation_facilities'][0]['description'];
@@ -63,6 +64,8 @@ class FacilityController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationFacility::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

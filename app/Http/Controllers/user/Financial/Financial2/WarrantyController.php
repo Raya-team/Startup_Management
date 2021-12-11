@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WarrantyRequest;
 use App\Models\Warranty;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class WarrantyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(WarrantyRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $warranties = $request->warranty;
@@ -81,7 +82,7 @@ class WarrantyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(WarrantyRequest $request, $id)
     {
         $warranty = Warranty::findorfail($id);
         $warranty->description = $request['warranty'][0]['description'];

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationPreOperationCostRequest;
 use App\Models\ValuationPreOperationCost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class PreOperatingCostController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationPreOperationCostRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -47,7 +48,7 @@ class PreOperatingCostController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationPreOperationCostRequest $request, $id)
     {
         $valuation_pre_operation_cost = ValuationPreOperationCost::findorfail($id);
         $valuation_pre_operation_cost->description = $request['valuation_pre_operation_costs'][0]['description'];
@@ -60,6 +61,8 @@ class PreOperatingCostController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationPreOperationCost::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

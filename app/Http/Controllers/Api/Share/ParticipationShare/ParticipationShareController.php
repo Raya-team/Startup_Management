@@ -52,7 +52,7 @@ class ParticipationShareController extends Controller
                 array_push($response_name, $responsibility['nickname']);
             }
             $investment =  ($collect['investment']/100000)*100;
-            array_push($arr1, [$full_name, $response_name, $investment]);
+            array_push($arr1, [$full_name, $response_name, round($investment, 2)]);
         }
 
         $new_investors = ParticipationNewInvestor::where('team_id', $team_id)->get();
@@ -61,12 +61,12 @@ class ParticipationShareController extends Controller
             $collect = collect($new_investor);
             $name = $collect['supplier'];
             $investment =  ($collect['investment']/100000)*100;
-            array_push($arr1, [$name,['سرمایه گذار'],$investment]);
+            array_push($arr1, [$name,['سرمایه گذار'], round($investment, 2)]);
         }
-
         return response()->json([
             'financial_total_price' => $financial_total_price,
             'valuation_total_price' => $valuation_total_price,
+            'shareholders' => $arr1,
         ]);
     }
 

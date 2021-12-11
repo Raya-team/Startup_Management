@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Managerial;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ManagerialEditRequest;
 use App\Http\Requests\ManagerialRequest;
 use App\Models\Managerial;
 use App\Models\ObtainedCertificate;
@@ -22,7 +23,7 @@ class ManagerialController extends Controller
         return view('user.description.managerial.index');
     }
 
-    public function store(Request $request , Managerial $managerial)
+    public function store(ManagerialRequest $request , Managerial $managerial)
     {
         $team_id = Auth::user()->team_id;
         $this->Managerial($request, $managerial, $team_id);
@@ -41,7 +42,7 @@ class ManagerialController extends Controller
         return view('user.description.managerial.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ManagerialEditRequest $request, $id)
     {
         $managerial = Managerial::findorfail($id);
         $managerial->about_team = $request->input('managerial.about_team');
@@ -60,7 +61,7 @@ class ManagerialController extends Controller
         //
     }
 
-    protected function Managerial(Request $request, Managerial $managerial, $team_id)
+    protected function Managerial(ManagerialRequest $request, Managerial $managerial, $team_id)
     {
         $managerial->about_team = $request->input('managerial.about_team');
         $managerial->vision = $request->input('managerial.vision');
@@ -73,7 +74,7 @@ class ManagerialController extends Controller
         $managerial->save();
     }
 
-    protected function ObtainedCertificate(Request $request, $team_id)
+    protected function ObtainedCertificate(ManagerialRequest $request, $team_id)
     {
         $certificates = $request->obtained_certificate;
         for ($i = 0; $i < sizeof($certificates); $i++) {

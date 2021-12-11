@@ -47,31 +47,30 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="transportation_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="transportation_description" placeholder="شرح" name="transportation_description" v-model="tran.description"/>
+                                                    <input type="text" class="form-control" id="transportation_description" placeholder="شرح" name="transportation_description" v-model="tran.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.description`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="transportation_number">تعداد:</label>
                                                     <input type="text" class="form-control" id="transportation_number" placeholder="تعداد" name="transportation_number"  v-model="tran.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.number`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.number`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.number`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="transportation_unit_cost">هزینه واحد:</label>
                                                     <input type="text" class="form-control" id="transportation_unit_cost" placeholder="هزینه واحد" name="transportation_unit_cost" v-model="tran.unit_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.unit_cost`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.unit_cost`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.unit_cost`) }}</div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="transportation_total_cost">هزینه کل:</label>
-                                                    <input type="text" class="form-control" id="transportation_total_cost" placeholder="هزینه کل" name="transportation_total_cost" v-model="tran.total_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                </div>
-                                            </div>
-                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
                                                 <a @click="RemoveTransportationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>

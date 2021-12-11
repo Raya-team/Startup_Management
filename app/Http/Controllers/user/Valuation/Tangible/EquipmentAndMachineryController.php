@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationMachineryRequest;
 use App\Models\ValuationMachinery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class EquipmentAndMachineryController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationMachineryRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class EquipmentAndMachineryController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationMachineryRequest $request, $id)
     {
         $valuation_machinerie = ValuationMachinery::findorfail($id);
         $valuation_machinerie->description = $request['valuation_machineries'][0]['description'];
@@ -63,6 +64,8 @@ class EquipmentAndMachineryController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationMachinery::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

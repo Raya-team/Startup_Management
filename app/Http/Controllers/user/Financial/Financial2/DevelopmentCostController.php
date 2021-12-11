@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DevelopmentCostRequest;
 use App\Models\DevelopmentCost;
 use Illuminate\Http\Request;
 
@@ -68,7 +69,7 @@ class DevelopmentCostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DevelopmentCostRequest $request, $id)
     {
         $DevelopmentCost = DevelopmentCost::findorfail($id);
         $DevelopmentCost->description = $request->input('description');

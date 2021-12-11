@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RDRequest;
 use App\Models\RD;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class RDController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RDRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $rds = $request->r_d;
@@ -80,7 +81,7 @@ class RDController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RDRequest $request, $id)
     {
         $rd = RD::findorfail($id);
         $rd->description = $request['r_d'][0]['description'];

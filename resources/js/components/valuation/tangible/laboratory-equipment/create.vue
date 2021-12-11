@@ -50,9 +50,11 @@
                                                 <div class="form-group">
                                                     <label for="valuation_laboratory_equipments.description">شرح:
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_laboratory_equipments.description" id="valuation_laboratory_equipments.description" class="form-control" v-model="data.description">
+                                                    <select name="valuation_laboratory_equipments.description" id="valuation_laboratory_equipments.description" class="form-control" v-model="data.description"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_laboratory_equipments.${index}.description`)}]">
                                                         <option v-for="laboratory_equipment in laboratory_equipments" :value="laboratory_equipment.id">{{ laboratory_equipment.description }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_laboratory_equipments.${index}.description`)" style="display: block;">{{ errors.get(`valuation_laboratory_equipments.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -61,16 +63,20 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <input placeholder="تعداد" type="text" class="form-control" id="valuation_laboratory_equipments.number" name="valuation_laboratory_equipments.number" v-model.number="data.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`valuation_laboratory_equipments.${index}.number`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_laboratory_equipments.${index}.number`)" style="display: block;">{{ errors.get(`valuation_laboratory_equipments.${index}.number`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="valuation_laboratory_equipments.owner">مالک :
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_laboratory_equipments" id="valuation_laboratory_equipments.owner" class="form-control" v-model="data.owner">
+                                                    <select name="valuation_laboratory_equipments" id="valuation_laboratory_equipments.owner" class="form-control" v-model="data.owner"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_laboratory_equipments.${index}.owner`)}]">
                                                         <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_laboratory_equipments.${index}.owner`)" style="display: block;">{{ errors.get(`valuation_laboratory_equipments.${index}.owner`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -85,7 +91,9 @@
                                                             </span>
                                                         </div>
                                                         <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_laboratory_equipments.dollar_unit_price" name="valuation_laboratory_equipments.dollar_unit_price" v-model.number="data.dollar_unit_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_laboratory_equipments.${index}.dollar_unit_price`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_laboratory_equipments.${index}.dollar_unit_price`)" style="display: block;">{{ errors.get(`valuation_laboratory_equipments.${index}.dollar_unit_price`) }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -101,7 +109,9 @@
                                                             </span>
                                                         </div>
                                                         <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_laboratory_equipments.toman_unit_price" name="valuation_laboratory_equipments.toman_unit_price" v-model.number="data.toman_unit_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_laboratory_equipments.${index}.toman_unit_price`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_laboratory_equipments.${index}.toman_unit_price`)" style="display: block;">{{ errors.get(`valuation_laboratory_equipments.${index}.toman_unit_price`) }}</div>
                                                     </div>
                                                 </div>
                                             </div>

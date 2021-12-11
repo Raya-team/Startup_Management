@@ -46,14 +46,20 @@
                                         <div data-repeater-list="product" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control products" name="description" placeholder="شرح" v-model="cer.description"/>
+                                                    <input type="text" class="form-control products" name="description" placeholder="شرح" v-model="cer.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`obtained_certificate.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.description`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.description`) }}</div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control products" name="acquisition_year" placeholder="سال اخذ" v-model="cer.acquisition_year"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`obtained_certificate.${index}.acquisition_year`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.acquisition_year`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.acquisition_year`) }}</div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <textarea name="comment" class="form-control form-control-solid" rows="3" placeholder="توضیحات" v-model="cer.comment"></textarea>
+                                                        <textarea name="comment" class="form-control form-control-solid" rows="3" placeholder="توضیحات" v-model="cer.comment"
+                                                                  :class="['form-control', {'is-invalid border border-danger' : errors.has(`obtained_certificate.${index}.comment`)}]"></textarea>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.comment`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.comment`) }}</div>
                                                 </div>
                                             </div>
                                         </div>

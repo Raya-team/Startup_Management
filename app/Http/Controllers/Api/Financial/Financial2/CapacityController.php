@@ -18,7 +18,7 @@ class CapacityController extends Controller
     public function index($year)
     {
         $team = Auth::user()->team;
-        $capacity = Capacity::where('team_id', $team->id)->where('year', $year)->first();
+        $capacity = Capacity::with('Unit')->where('team_id', $team->id)->where('year', $year)->first();
         return response()->json($capacity);
     }
 

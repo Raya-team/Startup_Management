@@ -107,15 +107,15 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr class="text-center">
+                                            <tr class="text-center" v-for="(shareholder, index) in shareholders" :key="index">
                                                 <td>
-                                                    <span class="text-dark-75">استقلال</span>
+                                                    <span class="text-dark-75">{{ shareholder[0] }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">استقلال</span>
+                                                    <div v-for="res in shareholder[1]"><span class="label label-lg label-light-primary label-inline mt-1" >{{ res }}</span><br></div>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">استقلال</span>
+                                                    <span class="text-dark-75">{{ shareholder[2] }} %</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -145,6 +145,7 @@
             return {
                 financial_total_price: '',
                 valuation_total_price: '',
+                shareholders: '',
                 Auth: new Auth()
             }
         },
@@ -154,6 +155,7 @@
                 .then(response => {
                     this.financial_total_price = response.data.financial_total_price;
                     this.valuation_total_price = response.data.valuation_total_price;
+                    this.shareholders = response.data.shareholders;
                 })
                 .catch(error => {console.log(error);});
         },

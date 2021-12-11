@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Readiness;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TechnologyQuestionRequest;
 use App\Models\TechnologyQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class TechnologyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TechnologyQuestionRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -115,7 +116,7 @@ class TechnologyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TechnologyQuestionRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
 

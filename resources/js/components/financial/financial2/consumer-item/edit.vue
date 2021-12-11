@@ -46,28 +46,27 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="consumer_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="consumer_description" placeholder="شرح" name="consumer_description" v-model="cons.description"/>
+                                                    <input type="text" class="form-control" id="consumer_description" placeholder="شرح" name="consumer_description" v-model="cons.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`consumer_item.${index}.description`)" style="display: block;">{{ errors.get(`consumer_item.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="consumer_number">تعداد:</label>
                                                     <input type="text" class="form-control" id="consumer_number" placeholder="تعداد" name="consumer_number" v-model="cons.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.number`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`consumer_item.${index}.number`)" style="display: block;">{{ errors.get(`consumer_item.${index}.number`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="consumer_unit_cost">هزینه واحد:</label>
                                                     <input type="text" class="form-control" id="consumer_unit_cost" placeholder="هزینه واحد" name="consumer_unit_cost" v-model="cons.unit_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="consumer_total_cost">هزینه کل:</label>
-                                                    <input type="text" class="form-control" id="consumer_total_cost" placeholder="هزینه کل" name="consumer_total_cost" v-model="cons.total_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.unit_cost`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`consumer_item.${index}.unit_cost`)" style="display: block;">{{ errors.get(`consumer_item.${index}.unit_cost`) }}</div>
                                                 </div>
                                             </div>
                                         </div>

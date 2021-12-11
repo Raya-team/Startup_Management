@@ -47,37 +47,38 @@
                                             <div class="form-group">
                                                 <label for="materials_description">شرح:
                                                     <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="materials_description" placeholder="شرح" name="materials_description" v-model="raw.description"/>
+                                                <input type="text" class="form-control" id="materials_description" placeholder="شرح" name="materials_description" v-model="raw.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.description`)" style="display: block;">{{ errors.get(`raw_material.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="materials_consumption">میزان مصرف:</label>
                                                 <input type="text" class="form-control" id="materials_consumption" placeholder="میزان مصرف" name="materials_consumption"v-model="raw.consumption"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.consumption`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.consumption`)" style="display: block;">{{ errors.get(`raw_material.${index}.consumption`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="materials_unit">واحد:
                                                     <span class="text-danger">*</span></label>
-                                                <select name="materials_unit" id="materials_unit" class="form-control" v-model="raw.unit">
+                                                <select name="materials_unit" id="materials_unit" class="form-control" v-model="raw.unit"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.unit`)}]">
                                                     <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>
                                                 </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.unit`)" style="display: block;">{{ errors.get(`raw_material.${index}.unit`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="materials_unit_price">قیمت واحد:</label>
                                                 <input type="text" class="form-control" id="materials_unit_price" placeholder="قیمت واحد" name="materials_unit_price" v-model="raw.unit_price"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="materials_total_price">قیمت کل:</label>
-                                                <input type="text" class="form-control" id="materials_total_price" placeholder="قیمت کل" name="materials_total_price" v-model="raw.total_price"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.unit_price`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.unit_price`)" style="display: block;">{{ errors.get(`raw_material.${index}.unit_price`) }}</div>
                                             </div>
                                         </div>
                                     </div>

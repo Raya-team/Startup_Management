@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ManPowerRequest;
 use App\Models\ManPower;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class ManPowerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ManPowerRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $manPowers = $request->man_power;
@@ -82,7 +83,7 @@ class ManPowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ManPowerRequest $request, $id)
     {
         $manPower = ManPower::findorfail($id);
         $manPower->description = $request['man_power'][0]['description'];

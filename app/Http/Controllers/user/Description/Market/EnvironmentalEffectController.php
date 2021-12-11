@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EnvironmentalEffectRequest;
 use App\Models\EnvironmentalEffect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,7 +35,7 @@ class EnvironmentalEffectController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(EnvironmentalEffectRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
         $effect = EnvironmentalEffect::findorfail($id);

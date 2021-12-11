@@ -47,27 +47,37 @@
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-4">
                                                     <label>ویژگی مشتری:</label>
-                                                    <input type="text" class="form-control products" name="customer_features" v-model="pro.customer_features"/>
+                                                    <input type="text" class="form-control products" name="customer_features" v-model="pro.customer_features"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.customer_features`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.customer_features`)" style="display: block;">{{ errors.get(`product_customers.${index}.customer_features`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>مشتریان گروه اول:</label>
-                                                    <input type="text" class="form-control products" name="first_group_customers" v-model="pro.first_group_customers"/>
+                                                    <input type="text" class="form-control products" name="first_group_customers" v-model="pro.first_group_customers"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.first_group_customers`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.first_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.first_group_customers`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>مشتریان گروه دوم:</label>
-                                                    <input type="text" class="form-control products" name="second_group_customers" v-model="pro.second_group_customers"/>
+                                                    <input type="text" class="form-control products" name="second_group_customers" v-model="pro.second_group_customers"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.second_group_customers`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.second_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.second_group_customers`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>مشتریان گروه سوم:</label>
-                                                    <input type="text" class="form-control products" name="third_group_customers" v-model="pro.third_group_customers"/>
+                                                    <input type="text" class="form-control products" name="third_group_customers" v-model="pro.third_group_customers"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.third_group_customers`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.third_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.third_group_customers`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>مشتریان گروه چهارم:</label>
-                                                    <input type="text" class="form-control products" name="fourth_group_customers" v-model="pro.fourth_group_customers"/>
+                                                    <input type="text" class="form-control products" name="fourth_group_customers" v-model="pro.fourth_group_customers"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.fourth_group_customers`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.fourth_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.fourth_group_customers`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                             </div>

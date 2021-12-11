@@ -30,7 +30,7 @@
                                         <span class="text-dark-75">{{ data.nominal_capacity }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ data.unit }}</span>
+                                        <span class="text-dark-75">{{ data.unit.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ data.percent }}</span>

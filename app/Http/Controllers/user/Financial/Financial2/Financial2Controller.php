@@ -14,6 +14,8 @@ use App\Models\EnergyConsumption;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
 use App\Models\Insurance;
+use App\Models\LaboratoryEquipment;
+use App\Models\Land;
 use App\Models\ManPower;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\OtherInformation;
@@ -42,7 +44,7 @@ class Financial2Controller extends Controller
         return view('user.financial.financial2.index');
     }
 
-    public function store(Request $request, $year, DevelopmentCost $developmentCost, Capacity $capacity, OtherInformation $information)
+    public function store(Financial2Request $request, $year, DevelopmentCost $developmentCost, Capacity $capacity, OtherInformation $information)
     {
         $team = Auth::user()->team;
         if ($year>1){
@@ -75,7 +77,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param DevelopmentCost $developmentCost
      */
-    protected function DevelopmentCost(Request $request, DevelopmentCost $developmentCost, $team, $year)
+    protected function DevelopmentCost(Financial2Request $request, DevelopmentCost $developmentCost, $team, $year)
     {
         $developmentCost->description = $request->input('development_cost.description');
         $developmentCost->total_cost = $request->input('development_cost.total_cost');
@@ -89,7 +91,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Capacity $capacity
      */
-    protected function Capacity(Request $request, Capacity $capacity, $team, $year)
+    protected function Capacity(Financial2Request $request, Capacity $capacity, $team, $year)
     {
         $capacity->nominal_capacity = $request->input('capacity.nominal_capacity');
         $capacity->unit = $request->input('capacity.unit');
@@ -104,7 +106,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param RawMaterial $rawMaterial
      */
-    protected function RawMaterial(Request $request, $team, $year)
+    protected function RawMaterial(Financial2Request $request, $team, $year)
     {
         $rawMaterials = $request->raw_material;
         for ($i = 0; $i < sizeof($rawMaterials); $i++) {
@@ -125,7 +127,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param ManPower $manPower
      */
-    protected function ManPower(Request $request, $team, $year)
+    protected function ManPower(Financial2Request $request, $team, $year)
     {
         $manPowers = $request->man_power;
         for ($i = 0; $i < sizeof($manPowers); $i++) {
@@ -145,7 +147,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Rent $rent
      */
-    protected function Rent(Request $request, $team, $year)
+    protected function Rent(Financial2Request $request, $team, $year)
     {
         $rents = $request->rent;
         for ($i = 0; $i < sizeof($rents); $i++) {
@@ -165,7 +167,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param EnergyConsumption $energyConsumption
      */
-    protected function EnergyConsumption(Request $request, $team, $year)
+    protected function EnergyConsumption(Financial2Request $request, $team, $year)
     {
         $energyConsumptions = $request->energy_consumption;
         for ($i = 0; $i < sizeof($energyConsumptions); $i++) {
@@ -186,7 +188,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param RD $rd
      */
-    protected function RD(Request $request, $team, $year)
+    protected function RD(Financial2Request $request, $team, $year)
     {
         $rds = $request->r_d;
         for ($i = 0; $i < sizeof($rds); $i++) {
@@ -204,7 +206,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Business $business
      */
-    protected function Business(Request $request, $team, $year)
+    protected function Business(Financial2Request $request, $team, $year)
     {
         $businesses = $request->business;
         for ($i = 0; $i < sizeof($businesses); $i++) {
@@ -222,7 +224,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Insurance $insurance
      */
-    protected function Insurance(Request $request, $team, $year)
+    protected function Insurance(Financial2Request $request, $team, $year)
     {
         $insurances = $request->insurance;
         for ($i = 0; $i < sizeof($insurances); $i++) {
@@ -241,14 +243,30 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Repair $repair
      */
-    protected function Repair(Request $request, $team, $year)
+    protected function Repair(Financial2Request $request, $team, $year)
     {
+        /* (اطلاعات مالی1) */
+        /* مستغلات */
+        $tenements = Land::where('team_id', $team->id)->get()->sum('price');
+        /* تجهیزات و ماشین آلات فنی */
+        $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team->id)->get()->sum('total_price');
+        /* تجهیزات آزمایشگاهی */
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team->id)->get()->sum('total_price');
+        /* تجهیزات و لوازم دفتری */
+        $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team->id)->get()->sum('total_price');
+        /* تاسیسات */
+        $facilities = Facility::where('team_id', $team->id)->get()->sum('total_price');
+        /* وسایل حمل و نقل */
+        $transportations = Transportation::where('team_id', $team->id)->get()->sum('total_price');
+        /* مجموع اطلاعات مالی 1 به غیر از هزینه های قبل بهره برداری */
+        $total_financial1 = $tenements + $equipment_and_machineries + $laboratory_equipments + $facilities + $transportations + $office_equipment_and_supplise;
+
         $repairs = $request->repair;
         for ($i = 0; $i < sizeof($repairs); $i++) {
             $repair = new Repair();
             $repair->description = $repairs[$i]['description'];
             $repair->percent = $repairs[$i]['percent'];
-            $repair->total_cost = $repairs[$i]['total_cost'];
+            $repair->total_cost = $total_financial1 * $repairs[$i]['percent'];
             $repair->year = $year;
             $repair->team_id = $team->id;
             $repair->updated_at = null;
@@ -260,7 +278,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Transportation $transportation
      */
-    protected function TransportationCost(Request $request, $team, $year)
+    protected function TransportationCost(Financial2Request $request, $team, $year)
     {
         $transportationCosts = $request->transportation_cost;
         for ($i = 0; $i < sizeof($transportationCosts); $i++) {
@@ -280,7 +298,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param Warranty $warranty
      */
-    protected function Warranty(Request $request, $team, $year)
+    protected function Warranty(Financial2Request $request, $team, $year)
     {
         $warranties = $request->warranty;
         for ($i = 0; $i < sizeof($warranties); $i++) {
@@ -299,7 +317,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param ConsumerItem $consumerItem
      */
-    protected function ConsumerItem(Request $request, $team, $year)
+    protected function ConsumerItem(Financial2Request $request, $team, $year)
     {
         $consumerItems = $request->consumer_item;
         for ($i = 0; $i < sizeof($consumerItems); $i++) {
@@ -319,7 +337,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param AfterSaleService $afterSaleService
      */
-    protected function AfterSaleService(Request $request, $team, $year)
+    protected function AfterSaleService(Financial2Request $request, $team, $year)
     {
         $afterSaleServices = $request->after_sale_service;
         for ($i = 0; $i < sizeof($afterSaleServices); $i++) {
@@ -340,7 +358,7 @@ class Financial2Controller extends Controller
      * @param $year
      * @param $team
      */
-    protected function Outsourcing(Request $request, $year, $team)
+    protected function Outsourcing(Financial2Request $request, $year, $team)
     {
         $outsourcings = $request->outsourcing;
         for ($i = 0; $i < sizeof($outsourcings); $i++) {
@@ -348,7 +366,7 @@ class Financial2Controller extends Controller
             $outsourcing->description = $outsourcings[$i]['description'];
             $outsourcing->number = $outsourcings[$i]['number'];
             $outsourcing->unit_cost = $outsourcings[$i]['unit_cost'];
-            $outsourcing->total_cost = $outsourcings[$i]['total_cost'];
+            $outsourcing->total_cost = $outsourcings[$i]['unit_cost'] * $outsourcings[$i]['number'];
             $outsourcing->year = $year;
             $outsourcing->team_id = $team->id;
             $outsourcing->updated_at = null;
@@ -360,7 +378,7 @@ class Financial2Controller extends Controller
      * @param Financial2Request $request
      * @param OtherInformation $information
      */
-    protected function OtherInformation(Request $request, OtherInformation $information, $team, $year)
+    protected function OtherInformation(Financial2Request $request, OtherInformation $information, $team, $year)
     {
         $information->sale_price = $request->input('other_information.sale_price');
         $information->tax_rate = $request->input('other_information.tax_rate');

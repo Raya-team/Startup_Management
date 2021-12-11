@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EnergyConsumptionRequest;
 use App\Models\EnergyConsumption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class EnergyConsumptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EnergyConsumptionRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $energyConsumptions = $request->energy_consumption;
@@ -83,7 +84,7 @@ class EnergyConsumptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EnergyConsumptionRequest $request, $id)
     {
         $energyConsumption = EnergyConsumption::findorfail($id);
         $energyConsumption->description = $request['energy_consumption'][0]['description'];

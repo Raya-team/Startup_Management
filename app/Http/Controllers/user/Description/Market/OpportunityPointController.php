@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OpportunityPointRequest;
 use App\Models\OpportunityPoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class OpportunityPointController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(OpportunityPointRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -47,7 +48,7 @@ class OpportunityPointController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(OpportunityPointRequest $request, $id)
     {
         $opportunity_point = OpportunityPoint::findorfail($id);
         $opportunity_point->description = $request['opportunity_points'][0]['description'];

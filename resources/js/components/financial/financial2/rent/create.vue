@@ -47,31 +47,30 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="rents_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="rents_description" placeholder="شرح" name="rents_description" v-model="ren.description"/>
+                                                    <input type="text" class="form-control" id="rents_description" placeholder="شرح" name="rents_description" v-model="ren.description"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.description`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.description`)" style="display: block;">{{ errors.get(`rent.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="area">متراژ:</label>
                                                     <input type="text" class="form-control" id="area" placeholder="متراژ" name="area" v-model="ren.area"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.area`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.area`)" style="display: block;">{{ errors.get(`rent.${index}.area`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="monthly_rent">اجاره ماهانه:</label>
                                                     <input type="text" class="form-control" id="monthly_rent" placeholder="اجاره ماهانه" name="monthly_rent" v-model="ren.monthly_rent"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.monthly_rent`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.monthly_rent`)" style="display: block;">{{ errors.get(`rent.${index}.monthly_rent`) }}</div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="total_rent">اجاره کل:</label>
-                                                    <input type="text" class="form-control" id="total_rent" placeholder="اجاره کل" name="total_rent" v-model="ren.total_rent"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                </div>
-                                            </div>
-                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
                                                 <a @click="RemoveRent(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>

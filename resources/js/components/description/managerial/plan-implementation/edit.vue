@@ -46,10 +46,14 @@
                                         <div data-repeater-list="product" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control products" name="description" placeholder="موضوع کار" v-model="plan.subject_of_work"/>
+                                                    <input type="text" class="form-control products" name="description" placeholder="موضوع کار" v-model="plan.subject_of_work"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`plan_implementations.${index}.subject_of_work`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`plan_implementations.${index}.subject_of_work`)" style="display: block;">{{ errors.get(`plan_implementations.${index}.subject_of_work`) }}</div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="text" class="form-control products" name="acquisition_year" placeholder="مدت زمان کار" v-model="plan.duration_of_work"/>
+                                                    <input type="text" class="form-control products" name="acquisition_year" placeholder="مدت زمان کار" v-model="plan.duration_of_work"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`plan_implementations.${index}.duration_of_work`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`plan_implementations.${index}.duration_of_work`)" style="display: block;">{{ errors.get(`plan_implementations.${index}.duration_of_work`) }}</div>
                                                 </div>
                                             </div>
                                         </div>

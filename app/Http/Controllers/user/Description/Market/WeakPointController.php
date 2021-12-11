@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\WeakPointRequest;
 use App\Models\WeakPoint;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class WeakPointController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(WeakPointRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -47,7 +48,7 @@ class WeakPointController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(WeakPointRequest $request, $id)
     {
         $weak_point = WeakPoint::findorfail($id);
         $weak_point->description = $request['weak_points'][0]['description'];

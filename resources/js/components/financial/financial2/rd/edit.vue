@@ -46,14 +46,18 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="rd_description">شرح:</label>
-                                                <input type="text" class="form-control" id="rd_description" placeholder="شرح" name="rd_description" v-model="rd.description"/>
+                                                <input type="text" class="form-control" id="rd_description" placeholder="شرح" name="rd_description" v-model="rd.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`r_d.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`r_d.${index}.description`)" style="display: block;">{{ errors.get(`r_d.${index}.description`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label for="rd_annual_cost">هزینه سالیانه:</label>
                                                 <input type="text" class="form-control" id="rd_annual_cost" placeholder="هزینه سالیانه" name="rd_annual_cost" v-model="rd.annual_cost"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`r_d.${index}.annual_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`r_d.${index}.annual_cost`)" style="display: block;">{{ errors.get(`r_d.${index}.annual_cost`) }}</div>
                                             </div>
                                         </div>
                                     </div>

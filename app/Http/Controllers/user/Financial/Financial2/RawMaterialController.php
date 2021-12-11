@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RawMaterialRequest;
 use App\Models\RawMaterial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class RawMaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RawMaterialRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $rawMaterials = $request->raw_material;
@@ -83,7 +84,7 @@ class RawMaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RawMaterialRequest $request, $id)
     {
         $rawMaterial = RawMaterial::findorfail($id);
         $rawMaterial->description = $request['raw_material'][0]['description'];

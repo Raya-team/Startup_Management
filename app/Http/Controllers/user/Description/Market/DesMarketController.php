@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DesMarketEditRequest;
 use App\Http\Requests\DesMarketRequest;
 use App\Models\AlternativeProduct;
 use App\Models\EnvironmentalEffect;
@@ -34,7 +35,7 @@ class DesMarketController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request , Market $market , EnvironmentalEffect $effect)
+    public function store(DesMarketRequest $request , Market $market , EnvironmentalEffect $effect)
     {
         $team_id = Auth::user()->team_id;
         $this->Market($request, $market, $team_id);
@@ -65,7 +66,7 @@ class DesMarketController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(DesMarketEditRequest $request, $id)
     {
         $market = Market::findorfail($id);
         $market->product_introduction = $request->input('market.product_introduction');
@@ -87,7 +88,7 @@ class DesMarketController extends Controller
         //
     }
 
-    protected function Market(Request $request, Market $market, $team_id)
+    protected function Market(DesMarketRequest $request, Market $market, $team_id)
     {
         $market->product_introduction = $request->input('market.product_introduction');
         $market->product_features = $request->input('market.product_features');
@@ -103,7 +104,7 @@ class DesMarketController extends Controller
         $market->save();
     }
 
-    protected function ProductSupplyAndDemand(Request $request, $team_id)
+    protected function ProductSupplyAndDemand(DesMarketRequest $request, $team_id)
     {
         $product_supplies = $request->product_supplies;
         for ($i = 0; $i < sizeof($product_supplies); $i++) {
@@ -119,7 +120,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function ProductCustomers(Request $request, $team_id)
+    protected function ProductCustomers(DesMarketRequest $request, $team_id)
     {
         $product_customers = $request->product_customers;
         for ($i = 0; $i < sizeof($product_customers); $i++) {
@@ -135,7 +136,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function RawMaterialSuppliers(Request $request, $team_id)
+    protected function RawMaterialSuppliers(DesMarketRequest $request, $team_id)
     {
         $raw_material_suppliers = $request->raw_material_suppliers;
         for ($i = 0; $i < sizeof($raw_material_suppliers); $i++) {
@@ -148,7 +149,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function Producers(Request $request, $team_id)
+    protected function Producers(DesMarketRequest $request, $team_id)
     {
         $producers = $request->producers;
         for ($i = 0; $i < sizeof($producers); $i++) {
@@ -161,7 +162,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function Suppliers(Request $request, $team_id)
+    protected function Suppliers(DesMarketRequest $request, $team_id)
     {
         $suppliers = $request->suppliers;
         for ($i = 0; $i < sizeof($suppliers); $i++) {
@@ -174,7 +175,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function Retails(Request $request, $team_id)
+    protected function Retails(DesMarketRequest $request, $team_id)
     {
         $retails = $request->retails;
         for ($i = 0; $i < sizeof($retails); $i++) {
@@ -188,7 +189,7 @@ class DesMarketController extends Controller
     }
 
 
-    protected function EnvironmentalEffect(Request $request, EnvironmentalEffect $effect, $team_id)
+    protected function EnvironmentalEffect(DesMarketRequest $request, EnvironmentalEffect $effect, $team_id)
     {
         $effect->economical = $request->input('environmental_effect.economical');
         $effect->social = $request->input('environmental_effect.social');
@@ -199,7 +200,7 @@ class DesMarketController extends Controller
         $effect->save();
     }
 
-    protected function ProductCompetitors(Request $request, $team_id)
+    protected function ProductCompetitors(DesMarketRequest $request, $team_id)
     {
         $product_competitors = $request->product_competitors;
         for ($i = 0; $i < sizeof($product_competitors); $i++) {
@@ -215,7 +216,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function Strengths(Request $request, $team_id)
+    protected function Strengths(DesMarketRequest $request, $team_id)
     {
         $strengths = $request->strengths;
         for ($i = 0; $i < sizeof($strengths); $i++) {
@@ -229,7 +230,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function WeakPoints(Request $request, $team_id)
+    protected function WeakPoints(DesMarketRequest $request, $team_id)
     {
         $weak_points = $request->weak_points;
         for ($i = 0; $i < sizeof($weak_points); $i++) {
@@ -243,7 +244,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function OpportunityPoints(Request $request, $team_id)
+    protected function OpportunityPoints(DesMarketRequest $request, $team_id)
     {
         $opportunity_points = $request->opportunity_points;
         for ($i = 0; $i < sizeof($opportunity_points); $i++) {
@@ -257,7 +258,7 @@ class DesMarketController extends Controller
         }
     }
 
-    protected function Threats(Request $request, $team_id)
+    protected function Threats(DesMarketRequest $request, $team_id)
     {
         $threats = $request->threats;
         for ($i = 0; $i < sizeof($threats); $i++) {
@@ -275,7 +276,7 @@ class DesMarketController extends Controller
      * @param Request $request
      * @param $team_id
      */
-    protected function AlternativeProduct(Request $request, $team_id)
+    protected function AlternativeProduct(DesMarketRequest $request, $team_id)
     {
         $alternative_products = $request->alternative_products;
         for ($i = 0; $i < sizeof($alternative_products); $i++) {

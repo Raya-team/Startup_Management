@@ -43,7 +43,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="about_team" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.about_team"></textarea>
+                                                <textarea name="about_team" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.about_team"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.about_team')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.about_team')" style="display: block;">{{ errors.get('managerial.about_team') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +56,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.vision"></textarea>
+                                                <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.vision"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.vision')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.vision')" style="display: block;">{{ errors.get('managerial.vision') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +69,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="mission" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.mission"></textarea>
+                                                <textarea name="mission" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.mission"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.mission')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.mission')" style="display: block;">{{ errors.get('managerial.mission') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +82,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="key_competencies" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.key_competencies"></textarea>
+                                                <textarea name="key_competencies" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.key_competencies"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.key_competencies')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.key_competencies')" style="display: block;">{{ errors.get('managerial.key_competencies') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +95,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="targets" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.targets"></textarea>
+                                                <textarea name="targets" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.targets"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.targets')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.targets')" style="display: block;">{{ errors.get('managerial.targets') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +108,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="problem_statement" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.problem_statement"></textarea>
+                                                <textarea name="problem_statement" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.problem_statement"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.problem_statement')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.problem_statement')" style="display: block;">{{ errors.get('managerial.problem_statement') }}</div>
                                             </div>
                                         </div>
                                     </div>

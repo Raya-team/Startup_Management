@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Valuation\Tangible;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValuationOfficeSupplyRequest;
 use App\Models\ValuationOfficeSupply;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class OfficeEquipmentAndSupplyController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function store(Request $request)
+    public function store(ValuationOfficeSupplyRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class OfficeEquipmentAndSupplyController extends Controller
         return view('user.valuation.tangible.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ValuationOfficeSupplyRequest $request, $id)
     {
         $valuation_office_supply = ValuationOfficeSupply::findorfail($id);
         $valuation_office_supply->description = $request['valuation_office_supplies'][0]['description'];
@@ -63,6 +64,8 @@ class OfficeEquipmentAndSupplyController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = ValuationOfficeSupply::findorfail($id);
+        $data->delete();
+        return response(["deleted"], 201);
     }
 }

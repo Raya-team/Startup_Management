@@ -45,63 +45,71 @@
                                         <b>مستغلات</b><hr>
                                     </div>
                                     <transition-group name="slide">
-                                    <div class="row" v-for="(data, index) in data.valuation_tenements" :key="index">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label for="materials_description">شرح:
-                                                    <span class="text-danger">*</span></label>
-                                                <select name="materials_description" id="materials_description" class="form-control" v-model="data.description">
-                                                    <option v-for="tenement in tenements" :value="tenement.id">{{ tenement.description }}</option>
-                                                </select>
+                                        <div class="row" v-for="(data, index) in data.valuation_tenements" :key="index">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="materials_description">شرح:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_description" id="materials_description" class="form-control" v-model="data.description"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_tenements.${index}.description`)}]">
+                                                        <option v-for="tenement in tenements" :value="tenement.id">{{ tenement.description }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_tenements.${index}.description`)" style="display: block;">{{ errors.get(`valuation_tenements.${index}.description`) }}</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="valuation_tenements.area">متراژ :
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="valuation_tenements.area">متراژ :
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 متر مربع
                                                             </span>
+                                                        </div>
+                                                        <input placeholder="متراژ" type="text" class="form-control" id="valuation_tenements.area" name="valuation_tenements.area" v-model.number="data.area"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_tenements.${index}.area`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_tenements.${index}.area`)" style="display: block;">{{ errors.get(`valuation_tenements.${index}.area`) }}</div>
                                                     </div>
-                                                    <input placeholder="متراژ" type="text" class="form-control" id="valuation_tenements.area" name="valuation_tenements.area" v-model.number="data.area"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="materials_unit">مالک :
-                                                    <span class="text-danger">*</span></label>
-                                                <select name="materials_unit" id="materials_unit" class="form-control" v-model="data.owner">
-                                                    <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
-                                                </select>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="materials_unit">مالک :
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_unit" id="materials_unit" class="form-control" v-model="data.owner"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_tenements.${index}.owner`)}]">
+                                                        <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_tenements.${index}.owner`)" style="display: block;">{{ errors.get(`valuation_tenements.${index}.owner`) }}</div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="valuation_tenements.total_price">قیمت کل :
-                                                    <span class="text-danger">*</span>
-                                                </label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="valuation_tenements.total_price">قیمت کل :
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">
                                                                 تومان
                                                             </span>
+                                                        </div>
+                                                        <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_tenements.total_price" name="valuation_tenements.total_price" v-model.number="data.total_price"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_tenements.${index}.total_price`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_tenements.${index}.total_price`)" style="display: block;">{{ errors.get(`valuation_tenements.${index}.total_price`) }}</div>
                                                     </div>
-                                                    <input placeholder="قیمت کل" type="text" class="form-control" id="valuation_tenements.total_price" name="valuation_tenements.total_price" v-model.number="data.total_price"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                 </div>
                                             </div>
+                                            <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <a @click="RemoveValuationTenement(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                    <i class="la la-trash-o"></i>حذف</a>
+                                            </div>
                                         </div>
-                                        <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
-                                            <a @click="RemoveValuationTenement(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
-                                                <i class="la la-trash-o"></i>حذف</a>
-                                        </div>
-                                    </div>
-                                </transition-group>
+                                    </transition-group>
                                     <div class="form-group row">
                                         <div class="col-lg-12">
                                             <a @click="AddValuationTenement" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductSupplyAndDemandRequest;
 use App\Models\ProductSupplyAndDemand;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class ProductSupplyAndDemandController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(ProductSupplyAndDemandRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class ProductSupplyAndDemandController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductSupplyAndDemandRequest $request, $id)
     {
         $product_supply_and_demand = ProductSupplyAndDemand::findorfail($id);
         $product_supply_and_demand->year = $request['product_supplies'][0]['year'];

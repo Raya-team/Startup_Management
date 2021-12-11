@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProducerRequest;
 use App\Models\Producer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class ProducerController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(ProducerRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -46,7 +47,7 @@ class ProducerController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ProducerRequest $request, $id)
     {
         $producer = Producer::findorfail($id);
         $producer->name = $request['producers'][0]['name'];

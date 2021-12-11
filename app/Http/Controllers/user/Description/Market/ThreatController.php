@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ThreatsRequest;
 use App\Models\Threats;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class ThreatController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(ThreatsRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -47,7 +48,7 @@ class ThreatController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ThreatsRequest $request, $id)
     {
         $threat = Threats::findorfail($id);
         $threat->description = $request['threats'][0]['description'];

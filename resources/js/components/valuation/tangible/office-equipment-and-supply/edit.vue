@@ -50,9 +50,11 @@
                                                 <div class="form-group">
                                                     <label for="valuation_office_supplies.description">شرح:
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_office_supplies.description" id="valuation_office_supplies.description" class="form-control" v-model="data.description">
+                                                    <select name="valuation_office_supplies.description" id="valuation_office_supplies.description" class="form-control" v-model="data.description"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_office_supplies.${index}.description`)}]">
                                                         <option v-for="office_supply in office_supplies" :value="office_supply.id">{{ office_supply.description }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_office_supplies.${index}.description`)" style="display: block;">{{ errors.get(`valuation_office_supplies.${index}.description`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -61,16 +63,20 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <input placeholder="تعداد" type="text" class="form-control" id="valuation_office_supplies.number" name="valuation_office_supplies.number" v-model.number="data.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`valuation_office_supplies.${index}.number`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_office_supplies.${index}.number`)" style="display: block;">{{ errors.get(`valuation_office_supplies.${index}.number`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="valuation_office_supplies.owner">مالک :
                                                         <span class="text-danger">*</span></label>
-                                                    <select name="valuation_office_supplies" id="valuation_office_supplies.owner" class="form-control" v-model="data.owner">
+                                                    <select name="valuation_office_supplies" id="valuation_office_supplies.owner" class="form-control" v-model="data.owner"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`valuation_office_supplies.${index}.owner`)}]">
                                                         <option v-for="shareholder in shareholders" :value="shareholder.id">{{ shareholder.fname }} {{ shareholder.lname }}</option>
                                                     </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_office_supplies.${index}.owner`)" style="display: block;">{{ errors.get(`valuation_office_supplies.${index}.owner`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -85,7 +91,9 @@
                                                             </span>
                                                         </div>
                                                         <input placeholder="قیمت واحد" type="text" class="form-control" id="valuation_office_supplies.unit_price" name="valuation_office_supplies.toman_unit_price" v-model.number="data.unit_price"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`valuation_office_supplies.${index}.unit_price`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`valuation_office_supplies.${index}.unit_price`)" style="display: block;">{{ errors.get(`valuation_office_supplies.${index}.unit_price`) }}</div>
                                                     </div>
                                                 </div>
                                             </div>

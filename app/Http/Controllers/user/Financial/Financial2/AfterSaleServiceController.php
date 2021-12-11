@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AfterSaleServiceRequest;
 use App\Models\AfterSaleService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class AfterSaleServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AfterSaleServiceRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $afterSaleServices = $request->after_sale_service;
@@ -82,7 +83,7 @@ class AfterSaleServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AfterSaleServiceRequest $request, $id)
     {
         $afterSaleService = AfterSaleService::findorfail($id);
         $afterSaleService->description = $request['after_sale_service'][0]['description'];

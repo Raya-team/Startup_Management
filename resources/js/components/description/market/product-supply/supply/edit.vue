@@ -47,12 +47,16 @@
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-4">
                                                     <label>نام:</label>
-                                                    <input type="text" class="form-control products" name="producers_name" v-model="pro.name"/>
+                                                    <input type="text" class="form-control products" name="suppliers_name" v-model="supp.name"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`suppliers.${index}.name`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`suppliers.${index}.name`)" style="display: block;">{{ errors.get(`suppliers.${index}.name`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label>منطقه جغرافیایی:</label>
-                                                    <input type="text" class="form-control products" name="producers_region" v-model="pro.geographical_region"/>
+                                                    <input type="text" class="form-control products" name="suppliers_region" v-model="supp.geographical_region"
+                                                           :class="['form-control', {'is-invalid' : errors.has(`suppliers.${index}.geographical_region`)}]"/>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`suppliers.${index}.geographical_region`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                             </div>

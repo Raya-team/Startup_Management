@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OutsourcingRequest;
 use App\Models\Outsourcing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class OutsourcingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OutsourcingRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $outsourcings = $request->outsourcing;
@@ -44,7 +45,7 @@ class OutsourcingController extends Controller
             $outsourcing->description = $outsourcings[$i]['description'];
             $outsourcing->number = $outsourcings[$i]['number'];
             $outsourcing->unit_cost = $outsourcings[$i]['unit_cost'];
-            $outsourcing->total_cost = $outsourcings[$i]['total_cost'];
+            $outsourcing->total_cost = $outsourcings[$i]['unit_cost'] * $outsourcings[$i]['number'];
             $outsourcing->year = $request->year;
             $outsourcing->team_id = $team_id;
             $outsourcing->updated_at = null;
@@ -82,13 +83,13 @@ class OutsourcingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OutsourcingRequest $request, $id)
     {
         $outsourcing = Outsourcing::findorfail($id);
         $outsourcing->description = $request['outsourcing'][0]['description'];
         $outsourcing->number = $request['outsourcing'][0]['number'];
         $outsourcing->unit_cost = $request['outsourcing'][0]['unit_cost'];
-        $outsourcing->total_cost = $request['outsourcing'][0]['total_cost'];
+        $outsourcing->total_cost = $request['outsourcing'][0]['unit_cost'] * $request['outsourcing'][0]['number'];
         $outsourcing->save();
         return response(['success'], 201);
     }

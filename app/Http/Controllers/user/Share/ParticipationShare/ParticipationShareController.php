@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user\Share\ParticipationShare;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ParticipationShare;
+use App\Http\Requests\ParticipationShareRequest;
 use App\Models\Building;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
@@ -33,7 +34,7 @@ class ParticipationShareController extends Controller
         return view('user.shares.participation-shares.index');
     }
 
-    public function store(Request $request)
+    public function store(ParticipationShareRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $this->participationPreIinvestors($request, $team_id);
@@ -61,7 +62,7 @@ class ParticipationShareController extends Controller
         //
     }
 
-    protected function participationPreIinvestors(Request $request, $team_id)
+    protected function participationPreIinvestors(ParticipationShareRequest $request, $team_id)
     {
 
         $pre_investors = $request->pre_investors;
@@ -75,7 +76,7 @@ class ParticipationShareController extends Controller
         }
     }
 
-    protected function participationNewInvestors(Request $request, $team_id)
+    protected function participationNewInvestors(ParticipationShareRequest $request, $team_id)
     {
         $new_investors = $request->new_investors;
         for ($i = 0; $i < sizeof($new_investors); $i++) {

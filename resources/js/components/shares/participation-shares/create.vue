@@ -70,15 +70,19 @@
                                                     <div data-repeater-item="" class="form-group row align-items-center">
                                                         <div class="col-md-4">
                                                             <label>نام تامین کننده:</label>
-                                                            <select name="pre_supplier_name" class="form-control" v-model="investor.investor">
+                                                            <select name="pre_supplier_name" class="form-control" v-model="investor.investor"
+                                                                    :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investor`)}]">
                                                                 <option v-for="member in members" :value="member.id">{{ member.fname }} {{ member.lname }}</option>
                                                             </select>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(`pre_investors.${index}.investor`)" style="display: block;">{{ errors.get(`pre_investors.${index}.investor`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>میزان سرمایه گذاری:</label>
                                                             <input type="text" class="form-control products" name="pre_investment" v-model="investor.investment"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                   :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investment`)}]"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(`pre_investors.${index}.investment`)" style="display: block;">{{ errors.get(`pre_investors.${index}.investment`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
@@ -107,13 +111,17 @@
                                                     <div data-repeater-item="" class="form-group row align-items-center">
                                                         <div class="col-md-4">
                                                             <label>نام تامین کننده:</label>
-                                                            <input type="text" class="form-control products" name="new_supplier_name" v-model="investor.supplier"/>
+                                                            <input type="text" class="form-control products" name="new_supplier_name" v-model="investor.supplier"
+                                                                   :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.supplier`)}]"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(`new_investors.${index}.supplier`)" style="display: block;">{{ errors.get(`new_investors.${index}.supplier`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <label>میزان سرمایه گذاری:</label>
                                                             <input type="text" class="form-control products" name="new_investment"  v-model="investor.investment"
-                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                   :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.investment`)}]"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has(`new_investors.${index}.investment`)" style="display: block;">{{ errors.get(`new_investors.${index}.investment`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">

@@ -64,7 +64,7 @@
                                         <span class="text-dark-75">{{ energyconsumption.description }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ energyconsumption.unit }}</span>
+                                        <span class="text-dark-75">{{ energyconsumption.unit.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ energyconsumption.annual_consumption }}</span>
@@ -221,7 +221,7 @@
                         return element
                     }else{
                         return element.description.match(this.filterText) ||
-                            element.unit.toString().match(this.filterText) ||
+                            element.unit.name.toString().match(this.filterText) ||
                             element.annual_consumption.toString().match(this.filterText) ||
                             element.unit_cost.toString().match(this.filterText) ||
                             element.annual_cost.toString().match(this.filterText);

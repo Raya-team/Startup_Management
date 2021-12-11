@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Readiness;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\IntellectualPropertyManagementQuestionRequest;
 use App\Models\IntellectualPropertyManagementQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +75,7 @@ class IntellectualPropertyManagementController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(IntellectualPropertyManagementQuestionRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
 

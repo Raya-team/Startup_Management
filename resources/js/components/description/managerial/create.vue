@@ -43,7 +43,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="about_team" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.about_team"></textarea>
+                                                <textarea name="about_team" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.about_team"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.about_team')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.about_team')" style="display: block;">{{ errors.get('managerial.about_team') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +56,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.vision"></textarea>
+                                                <textarea name="vision" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.vision"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.vision')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.vision')" style="display: block;">{{ errors.get('managerial.vision') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +69,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="mission" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.mission"></textarea>
+                                                <textarea name="mission" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.managerial.mission"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.mission')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.mission')" style="display: block;">{{ errors.get('managerial.mission') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +82,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="key_competencies" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.key_competencies"></textarea>
+                                                <textarea name="key_competencies" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.key_competencies"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.key_competencies')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.key_competencies')" style="display: block;">{{ errors.get('managerial.key_competencies') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +95,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="targets" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.targets"></textarea>
+                                                <textarea name="targets" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.targets"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.targets')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.targets')" style="display: block;">{{ errors.get('managerial.targets') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +108,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="problem_statement" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.problem_statement"></textarea>
+                                                <textarea name="problem_statement" class="form-control form-control-solid" rows="3" placeholder="متن خودرا وارد کنید" v-model="data.managerial.problem_statement"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('managerial.problem_statement')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('managerial.problem_statement')" style="display: block;">{{ errors.get('managerial.problem_statement') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -110,14 +122,20 @@
                                             <div data-repeater-list="product" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <input type="text" class="form-control products" name="description" placeholder="شرح" v-model="cer.description"/>
+                                                        <input type="text" class="form-control products" name="description" placeholder="شرح" v-model="cer.description"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`obtained_certificate.${index}.description`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.description`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.description`) }}</div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <input type="text" class="form-control products" name="acquisition_year" placeholder="سال اخذ" v-model="cer.acquisition_year"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`obtained_certificate.${index}.acquisition_year`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.acquisition_year`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.acquisition_year`) }}</div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <textarea name="comment" class="form-control form-control-solid" rows="3" placeholder="توضیحات" v-model="cer.comment"></textarea>
+                                                        <textarea name="comment" class="form-control form-control-solid" rows="3" placeholder="توضیحات" v-model="cer.comment"
+                                                                  :class="['form-control', {'is-invalid border border-danger' : errors.has(`obtained_certificate.${index}.comment`)}]"></textarea>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`obtained_certificate.${index}.comment`)" style="display: block;">{{ errors.get(`obtained_certificate.${index}.comment`) }}</div>
                                                     </div>
                                                     <div v-if="index != 0" class="col-md-2">
                                                         <a  @click="RemoveObtainedCertificate(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
@@ -138,10 +156,14 @@
                                             <div data-repeater-list="product" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <input type="text" class="form-control products" name="description" placeholder="موضوع کار" v-model="plan.subject_of_work"/>
+                                                        <input type="text" class="form-control products" name="description" placeholder="موضوع کار" v-model="plan.subject_of_work"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`plan_implementations.${index}.subject_of_work`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`plan_implementations.${index}.subject_of_work`)" style="display: block;">{{ errors.get(`plan_implementations.${index}.subject_of_work`) }}</div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <input type="text" class="form-control products" name="acquisition_year" placeholder="مدت زمان کار" v-model="plan.duration_of_work"/>
+                                                        <input type="text" class="form-control products" name="acquisition_year" placeholder="مدت زمان کار" v-model="plan.duration_of_work"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`plan_implementations.${index}.duration_of_work`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`plan_implementations.${index}.duration_of_work`)" style="display: block;">{{ errors.get(`plan_implementations.${index}.duration_of_work`) }}</div>
                                                     </div>
                                                     <div v-if="index != 0" class="col-md-2">
                                                         <a  @click="RemovePlanImplementation(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">

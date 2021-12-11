@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OtherInformationRequest;
 use App\Models\OtherInformation;
 use Illuminate\Http\Request;
 
@@ -68,7 +69,7 @@ class OtherInformationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(OtherInformationRequest $request, $id)
     {
         $OtherInformation = OtherInformation::findorfail($id);
         $OtherInformation->sale_price = $request->input('sale_price');

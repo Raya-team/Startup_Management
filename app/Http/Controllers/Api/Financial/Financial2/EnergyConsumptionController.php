@@ -18,7 +18,7 @@ class EnergyConsumptionController extends Controller
     public function index($year)
     {
         $team = Auth::user()->team;
-        $energy_consumption = EnergyConsumption::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        $energy_consumption = EnergyConsumption::with('Unit')->where('team_id', $team->id)->where('year', $year)->paginate(10);
         return response()->json($energy_consumption);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Readiness;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ManufacturingQuestionRequest;
 use App\Models\ManufacturingQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,7 @@ class ManufacturingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ManufacturingQuestionRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -110,7 +111,7 @@ class ManufacturingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ManufacturingQuestionRequest $request, $id)
     {
         $team_id = Auth::user()->team_id;
 

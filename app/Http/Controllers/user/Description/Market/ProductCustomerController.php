@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductCustomerRequest;
 use App\Models\ProductCustomer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class ProductCustomerController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(ProductCustomerRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -49,7 +50,7 @@ class ProductCustomerController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(ProductCustomerRequest $request, $id)
     {
         $product_customer = ProductCustomer::findorfail($id);
         $product_customer->customer_features = $request['product_customers'][0]['customer_features'];

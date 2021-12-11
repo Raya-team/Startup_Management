@@ -48,12 +48,16 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label>نام:</label>
-                                                        <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"/>
+                                                        <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.name`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.name`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.name`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label>منطقه جغرافیایی:</label>
-                                                        <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"/>
+                                                        <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.geographical_region`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.geographical_region`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">

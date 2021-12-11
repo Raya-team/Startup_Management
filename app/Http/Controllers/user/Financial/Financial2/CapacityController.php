@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CapacityRequest;
 use App\Models\Capacity;
 use Illuminate\Http\Request;
 
@@ -68,7 +69,7 @@ class CapacityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CapacityRequest $request, $id)
     {
         $Capacity = Capacity::findorfail($id);
         $Capacity->nominal_capacity = $request->input('nominal_capacity');

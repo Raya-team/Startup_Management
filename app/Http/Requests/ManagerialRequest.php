@@ -24,15 +24,17 @@ class ManagerialRequest extends FormRequest
     public function rules()
     {
         return [
-            'about_team' => ['required'],
-            'vision' => ['required'],
-            'mission' => ['required'],
-            'key_competencies' => ['required'],
-            'targets' => ['required'],
-            'problem_statement' => ['required'],
-            'description' =>['required'],
-            'acquisition_year' =>['required'],
-            'comment' => ['required'],
+            'managerial.about_team' => ['required'],
+            'managerial.vision' => ['required'],
+            'managerial.mission' => ['required'],
+            'managerial.key_competencies' => ['required'],
+            'managerial.targets' => ['required'],
+            'managerial.problem_statement' => ['required'],
+            'obtained_certificate.*.description' => ['required'],
+            'obtained_certificate.*.acquisition_year' => ['required'],
+            'obtained_certificate.*.comment' => ['required'],
+            'plan_implementations.*.subject_of_work' => ['required'],
+            'plan_implementations.*.duration_of_work' => ['required'],
         ];
     }
 }

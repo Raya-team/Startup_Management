@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Market;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AlternativeProductRequest;
 use App\Models\AlternativeProduct;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class AlternativeProductController extends Controller
         return view('user.description.market.index');
     }
 
-    public function store(Request $request)
+    public function store(AlternativeProductRequest $request)
     {
         $team_id = Auth::user()->team_id;
 
@@ -46,7 +47,7 @@ class AlternativeProductController extends Controller
         return view('user.description.market.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(AlternativeProductRequest $request, $id)
     {
         $alternative_product = AlternativeProduct::findorfail($id);
         $alternative_product->product_title = $request['alternative_products'][0]['product_title'];
