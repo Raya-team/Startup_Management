@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OfficeEquipmentAndSupplyRequest extends FormRequest
@@ -24,9 +25,9 @@ class OfficeEquipmentAndSupplyRequest extends FormRequest
     public function rules()
     {
         return [
-            'officeequipmentandsupplies.*.description' => ['required'],
-            'officeequipmentandsupplies.*.count' => ['required', 'numeric'],
-            'officeequipmentandsupplies.*.unit_price' => ['required', 'numeric'],
+            'officeequipmentandsupplies.*.description' => ['required', new Persian()],
+            'officeequipmentandsupplies.*.count' => ['required','numeric'],
+            'officeequipmentandsupplies.*.unit_price' => ['required','numeric'],
         ];
     }
 }

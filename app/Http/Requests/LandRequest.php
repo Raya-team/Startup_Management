@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class LandRequest extends FormRequest
@@ -24,9 +25,9 @@ class LandRequest extends FormRequest
     public function rules()
     {
         return [
-            'lands.*.description' => ['required'],
-            'lands.*.area' => ['required', 'numeric'],
-            'lands.*.price' => ['required', 'numeric'],
+            'lands.*.description' => ['required', new Persian()],
+            'lands.*.area' => ['required','numeric'],
+            'lands.*.price' => ['required','numeric'],
         ];
     }
 }

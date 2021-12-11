@@ -24,7 +24,7 @@ class AgreementRequest extends FormRequest
     public function rules()
     {
         return [
-            'shareholders.*.percent' => ['required', 'numeric']
+            'shareholders.*.percent' => ['required','numeric','max:100']
         ];
     }
 }

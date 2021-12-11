@@ -324,7 +324,7 @@
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
                                         <br>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label for="education">نوع محل اجرا :
                                                         <span class="text-danger">*</span></label>
@@ -400,8 +400,8 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.description')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-3">
-                                                    <label><h5>تعداد (دستگاه) :</h5></label>
+                                                <div class="col-md-2">
+                                                    <label><h5>تعداد:</h5></label>
                                                     <input type="text" class="form-control laboratory_equipments" v-model="building.number"
                                                            :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.number')}]"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
@@ -458,7 +458,7 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('equipmentandmachineries.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.description')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <label><h5>تعداد :</h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control equipmentandmachineries" v-model="equipmentandmachinery.count"
@@ -467,7 +467,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.count')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.count') }}</div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <label><h5>قیمت واحد :</h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -506,7 +506,7 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('officeequipmentandsupplies.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('officeequipmentandsupplies.' + index +'.description')" style="display: block;">{{ errors.get('officeequipmentandsupplies.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <label><h5>تعداد :</h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control officeequipmentandsupplies" v-model="officeequipmentandsupply.count"
@@ -515,7 +515,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('officeequipmentandsupplies.' + index +'.count')" style="display: block;">{{ errors.get('officeequipmentandsupplies.' + index +'.count') }}</div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <label><h5>قیمت واحد :</h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -554,7 +554,7 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('facilities.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.description')" style="display: block;">{{ errors.get('facilities.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <label><h5>تعداد :</h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control facilities" v-model="facility.count"
@@ -563,7 +563,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.count')" style="display: block;">{{ errors.get('facilities.' + index +'.count') }}</div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <label><h5>قیمت واحد :</h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -602,7 +602,7 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.description')" style="display: block;">{{ errors.get('transportations.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-1">
+                                                <div class="col-md-2">
                                                     <label><h5>تعداد :</h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control transportations" v-model="transportation.count"
@@ -611,7 +611,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.count')" style="display: block;">{{ errors.get('transportations.' + index +'.count') }}</div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <label><h5>قیمت واحد :</h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
@@ -650,7 +650,7 @@
                                                            :class="['form-control', {'is-invalid' : errors.has('preoperatingcosts.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('preoperatingcosts.' + index +'.description')" style="display: block;">{{ errors.get('preoperatingcosts.' + index +'.description') }}</div>
                                                 </div>
-                                                <div class="col-md-5">
+                                                <div class="col-md-3">
                                                     <label><h5>قیمت کل :</h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">

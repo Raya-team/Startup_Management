@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TransportationRequest extends FormRequest
@@ -24,9 +25,9 @@ class TransportationRequest extends FormRequest
     public function rules()
     {
         return [
-            'transportations.*.description' => ['required'],
-            'transportations.*.count' => ['required', 'numeric'],
-            'transportations.*.unit_price' => ['required', 'numeric'],
+            'transportations.*.description' => ['required', new Persian()],
+            'transportations.*.count' => ['required','numeric'],
+            'transportations.*.unit_price' => ['required','numeric'],
         ];
     }
 }

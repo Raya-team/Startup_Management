@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BusinessCanvasRequest extends FormRequest
@@ -24,15 +25,15 @@ class BusinessCanvasRequest extends FormRequest
     public function rules()
     {
         return [
-            'key_partners' => ['required'],
-            'main_activities' => ['required'],
-            'main_sources' => ['required'],
-            'cost_structure' => ['required'],
-            'suggested_value' => ['required'],
-            'communication_with_clients' => ['required'],
-            'distribution_channels' => ['required'],
-            'customer_section' => ['required'],
-            'income_flow' => ['required']
+            'key_partners' => ['required',new Persian()],
+            'main_activities' => ['required',new Persian()],
+            'main_sources' => ['required',new Persian()],
+            'cost_structure' => ['required',new Persian()],
+            'suggested_value' => ['required',new Persian()],
+            'communication_with_clients' => ['required',new Persian()],
+            'distribution_channels' => ['required',new Persian()],
+            'customer_section' => ['required',new Persian()],
+            'income_flow' => ['required',new Persian()],
         ];
     }
 }

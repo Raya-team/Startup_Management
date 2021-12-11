@@ -24,15 +24,15 @@ class ShareVariableRequest extends FormRequest
     public function rules()
     {
         return [
-            'idea' => ['required' , 'numeric'],
-            'finance' => ['required' , 'numeric'],
-            'experience' => ['required' , 'numeric'],
-            'risk' => ['required' , 'numeric'],
-            'technology' => ['required' , 'numeric'],
-            'investment' => ['required' , 'numeric'],
-            'management' => ['required' , 'numeric'],
-            'sale' => ['required' , 'numeric'],
-            'full_time' => ['required' , 'numeric'],
+            'idea' => ['required' , 'numeric', 'max:100'],
+            'finance' => ['required' , 'numeric', 'max:100'],
+            'experience' => ['required' , 'numeric', 'max:100'],
+            'risk' => ['required' , 'numeric', 'max:100'],
+            'technology' => ['required' , 'numeric', 'max:100'],
+            'investment' => ['required' , 'numeric', 'max:100'],
+            'management' => ['required' , 'numeric', 'max:100'],
+            'sale' => ['required' , 'numeric', 'max:100'],
+            'full_time' => ['required' , 'numeric', 'max:100'],
         ];
     }
 }

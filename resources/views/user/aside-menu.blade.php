@@ -1,4 +1,3 @@
-
 <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
     <!--begin::Menu Container-->
     <div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
@@ -94,7 +93,7 @@
                     use App\Models\BusinessManager;
                     $business_manager = BusinessManager::where('team_id' , Auth::user()->team_id)->first();
                 @endphp
-                    <a @if(isset($business_manager)) href="{{ route('justificationplan.index') }}" @else href="{{ route('justificationplan.create') }}" @endif class="menu-link menu-toggle">
+                <a @if(isset($business_manager)) href="{{ route('justificationplan.index') }}" @else href="{{ route('justificationplan.create') }}" @endif class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:../assets/media/svg/icons/Design/Bucket.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -106,8 +105,8 @@
                         </svg>
                         <!--end::Svg Icon-->
                     </span>
-                        <span class="menu-text">طرح توجیهی مقدماتی</span>
-                    </a>
+                    <span class="menu-text">طرح توجیهی مقدماتی</span>
+                </a>
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                 <a href="javascript:;" class="menu-link menu-toggle">
@@ -171,7 +170,11 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="#" class="menu-link">
+                            @php
+                                use App\Models\Land;
+                                $lands = Land::where('team_id' , Auth::user()->team_id)->first();
+                            @endphp
+                            <a @if(isset($lands)) href="{{ route('financial1.index') }}" @else href="{{ route('financial1.create') }}" @endif class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -179,7 +182,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a href="#" class="menu-link">
+                            <a href="financial2" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>

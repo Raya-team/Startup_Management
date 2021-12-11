@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class FacilityRequest extends FormRequest
@@ -24,9 +25,9 @@ class FacilityRequest extends FormRequest
     public function rules()
     {
         return [
-            'facilities.*.description' => ['required'],
-            'facilities.*.count' => ['required', 'numeric'],
-            'facilities.*.unit_price' => ['required', 'numeric'],
+            'facilities.*.description' => ['required', new Persian()],
+            'facilities.*.count' => ['required','numeric'],
+            'facilities.*.unit_price' => ['required','numeric'],
         ];
     }
 }

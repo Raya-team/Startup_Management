@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PreviousInvestorRequest extends FormRequest
@@ -24,8 +25,8 @@ class PreviousInvestorRequest extends FormRequest
     public function rules()
     {
         return [
-            'previousinvestors.*.name' => ['required'],
-            'previousinvestors.*.percent' => ['required', 'numeric'],
+            'previous_investors.*.name' => ['required' , 'min:3', 'max:32', new Persian()],
+            'previous_investors.*.percent' => ['required' , 'numeric', 'max:100'],
         ];
     }
 }

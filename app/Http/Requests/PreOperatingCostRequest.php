@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PreOperatingCostRequest extends FormRequest
@@ -24,8 +25,8 @@ class PreOperatingCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'preoperatingcosts.*.description' => ['required'],
-            'preoperatingcosts.*.total_price' => ['required', 'numeric'],
+            'preoperatingcosts.*.description' => ['required', new Persian()],
+            'preoperatingcosts.*.total_price' => ['required','numeric'],
         ];
     }
 }

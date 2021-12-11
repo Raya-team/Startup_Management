@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EquipmentAndMachineryRequest extends FormRequest
@@ -24,9 +25,9 @@ class EquipmentAndMachineryRequest extends FormRequest
     public function rules()
     {
         return [
-            'equipmentandmachineries.*.description' => ['required'],
-            'equipmentandmachineries.*.count' => ['required', 'numeric'],
-            'equipmentandmachineries.*.unit_price' => ['required', 'numeric'],
+            'equipmentandmachineries.*.description' => ['required', new Persian()],
+            'equipmentandmachineries.*.count' => ['required','numeric'],
+            'equipmentandmachineries.*.unit_price' => ['required','numeric'],
         ];
     }
 }
