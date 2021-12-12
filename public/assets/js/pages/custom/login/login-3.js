@@ -362,7 +362,7 @@ var KTLogin = function() {
                             stringLength: {
                                 min: 3,
                                 max: 32,
-                                message: 'نام تیم باید بین 3 تا 32 کاراکتر باشد.'
+                                message: 'نام طرح باید بین 3 تا 32 کاراکتر باشد.'
                             },
                             regexp: {
                                 regexp: /^[-0123456789°._abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZآابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهیئ\s]+$/,

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\user\Justificationplan;
+namespace App\Http\Controllers\user\JustificationPlan;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\JustificationPlanRequest;

@@ -107,8 +107,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="growth_center">آیا سابقه حضور در شتابدهنده و یا مرکز رشد را دارید؟ نام مرکز را بنویسید.
-                                                    <span class="text-danger">*</span></label>
+                                                <label for="growth_center">آیا سابقه حضور در شتابدهنده و یا مرکز رشد را دارید؟ نام مرکز را بنویسید.</label>
                                                 <input type="text" class="form-control" id="growth_center" placeholder="نام مرکز" name="growth_center" v-model="data.business_question.growth_center"
                                                        :class="['form-control', {'is-invalid' : errors.has('business_question.growth_center')}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('business_question.growth_center')" style="display: block;">{{ errors.get('business_question.growth_center') }}</div>
@@ -135,8 +134,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="site_address">آدرس وب سایت خود را درصورت وجود بنویسید.
-                                                    <span class="text-danger">*</span></label>
+                                                <label for="site_address">آدرس وب سایت خود را درصورت وجود بنویسید.</label>
                                                 <input type="text" class="form-control" id="site_address" placeholder="آدرس وب سایت" name="site_address" v-model="data.business_question.site_address"
                                                        :class="['form-control', {'is-invalid' : errors.has('business_question.site_address')}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('business_question.site_address')" style="display: block;">{{ errors.get('business_question.site_address') }}</div>
@@ -153,8 +151,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="important_note">اگر نکته قابل توجه ای وجود دارد که می خواهید سرمایه گذار آن را بداند اینجا بنویسد.
-                                                    <span class="text-danger">*</span></label>
+                                                <label for="important_note">اگر نکته قابل توجه ای وجود دارد که می خواهید سرمایه گذار آن را بداند اینجا بنویسد.</label>
                                                 <textarea name="important_note" id="important_note" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.business_question.important_note"
                                                           :class="['form-control', {'is-invalid border border-danger' : errors.has('business_question.important_note')}]"></textarea>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('business_question.important_note')" style="display: block;">{{ errors.get('business_question.important_note') }}</div>
@@ -162,7 +159,7 @@
                                         </div>
                                     </div>
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">نیاز</h5>
+                                    <h5 class="text-dark font-weight-bold">نیاز <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -179,7 +176,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">راه حل</h5>
+                                    <h5 class="text-dark font-weight-bold">راه حل <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -196,7 +193,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">رقبا</h5>
+                                    <h5 class="text-dark font-weight-bold">رقبا <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -213,7 +210,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">مزیت رقابتی</h5>
+                                    <h5 class="text-dark font-weight-bold">مزیت رقابتی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -230,7 +227,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">بازار هدف</h5>
+                                    <h5 class="text-dark font-weight-bold">بازار هدف <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -247,7 +244,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">سطح آمادگی فناوری</h5>
+                                    <h5 class="text-dark font-weight-bold">سطح آمادگی فناوری <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -264,7 +261,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">بودجه مورد نیاز تقریبی</h5>
+                                    <h5 class="text-dark font-weight-bold">بودجه مورد نیاز تقریبی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -281,7 +278,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">درآمد تقریبی</h5>
+                                    <h5 class="text-dark font-weight-bold">درآمد تقریبی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -297,7 +294,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">عمر تکنولوژی(طرح)</h5>
+                                    <h5 class="text-dark font-weight-bold">عمر تکنولوژی(طرح) <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -314,7 +311,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">دلیل عدم ایجاد/توسعه طرح</h5>
+                                    <h5 class="text-dark font-weight-bold">دلیل عدم ایجاد/توسعه طرح <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -331,7 +328,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">ارزش دانش فنی</h5>
+                                    <h5 class="text-dark font-weight-bold">ارزش دانش فنی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="row">
                                         <div class="col-md-12">

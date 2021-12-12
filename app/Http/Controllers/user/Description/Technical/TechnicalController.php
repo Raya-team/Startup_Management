@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Technical;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TechnicalEditRequest;
 use App\Http\Requests\TechnicalRequest;
 use App\Models\RequiredCertificate;
 use App\Models\Technical;
@@ -21,7 +22,7 @@ class TechnicalController extends Controller
        return view('user.description.technical.index');
     }
 
-    public function store(Request $request , Technical $technical)
+    public function store(TechnicalRequest $request , Technical $technical)
     {
         $team_id = Auth::user()->team_id;
 
@@ -41,7 +42,7 @@ class TechnicalController extends Controller
         return view('user.description.technical.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(TechnicalEditRequest $request, $id)
     {
         $technical = Technical::findorfail($id);
         $technical->product_introduction = $request->input('technical.product_introduction');

@@ -48,7 +48,7 @@ use App\Http\Controllers\user\Financial\Financial2\RentController;
 use App\Http\Controllers\user\Financial\Financial2\RepairController;
 use App\Http\Controllers\user\Financial\Financial2\TransportationCostController;
 use App\Http\Controllers\user\Financial\Financial2\WarrantyController;
-use App\Http\Controllers\user\Justificationplan\JustificationPlanController;
+use App\Http\Controllers\user\JustificationPlan\JustificationPlanController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Readiness\ManufacturingController;

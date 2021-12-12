@@ -43,7 +43,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.product_introduction"></textarea>
+                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.product_introduction"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.product_introduction')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.product_introduction')" style="display: block;">{{ errors.get('technical.product_introduction') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +56,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="technical_specifications" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_specifications"></textarea>
+                                                <textarea name="technical_specifications" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_specifications"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.technical_specifications')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.technical_specifications')" style="display: block;">{{ errors.get('technical.technical_specifications') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +69,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.scientific_principles"></textarea>
+                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.scientific_principles"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.scientific_principles')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.scientific_principles')" style="display: block;">{{ errors.get('technical.scientific_principles') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +82,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_features_product"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_features_product"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.technical_features_product')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.technical_features_product')" style="display: block;">{{ errors.get('technical.technical_features_product') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +95,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.terms_and_conditions_of_work')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.terms_and_conditions_of_work')" style="display: block;">{{ errors.get('technical.terms_and_conditions_of_work') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +108,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.production_schedule')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.production_schedule')" style="display: block;">{{ errors.get('technical.production_schedule') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -113,23 +125,29 @@
                                                         <div class="col-md-4">
                                                             <div class="form-group">
                                                                 <label for="description">شرح:</label>
-                                                                <input type="text" class="form-control products" id="description" name="description" placeholder="شرح" v-model="cer.description" />
+                                                                <input type="text" class="form-control products" id="description" name="description" placeholder="شرح" v-model="cer.description"
+                                                                       :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.description`)}]"/>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`required_certificates.${index}.description`)" style="display: block;">{{ errors.get(`required_certificates.${index}.description`) }}</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label for="acquisition_year">اخذ شده؟</label>
                                                                 <input type="text" class="form-control products" id="acquisition_year" name="acquisition_year" placeholder="سال اخذ" v-model.number="cer.received"
-                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                       :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.received`)}]"/>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`required_certificates.${index}.received`)" style="display: block;">{{ errors.get(`required_certificates.${index}.received`) }}</div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label for="type">نوع:</label>
-                                                                <select name="type" class="form-control" id="type" v-model="cer.type">
+                                                                <select name="type" class="form-control" id="type" v-model="cer.type"
+                                                                        :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.type`)}]">
                                                                     <option value="1">اجباری</option>
                                                                     <option value="0">غیر اجباری</option>
                                                                 </select>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`required_certificates.${index}.type`)" style="display: block;">{{ errors.get(`required_certificates.${index}.type`) }}</div>
                                                             </div>
                                                         </div>
                                                         <div v-if="index != 0"  class="col-md-2" style="margin-top: 28px">

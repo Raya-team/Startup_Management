@@ -26,10 +26,26 @@ SET time_zone = "+00:00";
 --
 
 INSERT INTO `activities` (`id`, `name`, `nickname`) VALUES
-(1, 'keshavarzi', 'کشاورزی و دامپروری'),
-(2, 'car', 'خودرو'),
-(3, 'wahter', 'آب'),
-(4, 'blockchain', 'اینترنت اشیا');
+(1, 'Agriculture and Animal Husbandry', 'کشاورزی و دامپروری'),
+(2, 'Food products', 'محصولات غذایی'),
+(3, 'Car', 'خودرو'),
+(4, 'Medical Equipment', 'تجهیزات پزشکی'),
+(5, 'Electronic', 'الکترونیک'),
+(6, 'Materials and Nano', 'مواد و نانو'),
+(7, 'Industrial equipment', 'تجهیزات صنعتی'),
+(8, 'ICT', 'ICT'),
+(9, 'Education', 'آموزش'),
+(10, 'Internet of Things', 'اینترنت اشیا'),
+(11, 'Water', 'آب'),
+(12, 'Aerospace', 'هوافضا'),
+(13, 'Renewable energy', 'انرژی‌های تجدیدپذیر'),
+(14, 'Fossil energies', 'انرژی‌های فسیلی'),
+(15, 'Cosmetics', 'آرایشی و بهداشتی'),
+(16, 'Mine', 'معدن'),
+(17, 'Medicinal', 'دارویی'),
+(18, 'Fin Tech', 'فینتک'),
+(19, 'Health', 'سلامت'),
+(20, 'Medicine', 'دارو');
 
 --
 -- Dumping data for table `education`
@@ -58,22 +74,15 @@ INSERT INTO `product_types` (`id`, `name`, `nickname`) VALUES
 INSERT INTO `responsibilities` (`id`, `name`, `nickname`) VALUES
 (1, 'Technical Assistant', 'مسئول فنی'),
 (2, 'Responsible for the market', 'مسئول بازار'),
-(3, 'Consultant', 'مشاور');
-
---
--- Dumping data for table `teams`
---
-
-INSERT INTO `teams` (`id`, `name`, `project_name`, `status`, `activity_id`, `email`, `address`, `phone_number`, `landline`, `created_at`, `updated_at`) VALUES
-(1, 'asdasd', 'sadasd', 1, 2, 'startup@gmail.com', NULL, '09019585040', NULL, NULL, NULL);
+(3, 'Financial manager', 'مسئول مالی'),
+(4, 'Responsible for management and raising capital', 'مسئول مدیریتی و جذب سرمایه'),
+(5, 'Investor', 'سرمایه گذار'),
+(6, 'Consultant', 'مشاور');
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `level`, `team_id`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'ehsan', 'ehsan@admin.com', 1, NULL, NULL, '$2y$10$a/XmT.Zm7Wi5DfkrDw8BZOrTeSeygoc4xW5arHezKzFzQMMYPd8be', 'sruqiCjV1yj3gLW32w080LBdy5WpyAws8rnaMYEOWVUSyAyrhLroEwOLQfmi', '2021-08-13 06:30:44', '2021-08-13 08:56:17'),
-(2, 'hasan', 'hasan@startup.com', 0, 1, NULL, '$2y$10$/F8G7XNp63xgXkedoJSh.OCDmUl3.nDzjOVNEBB16TYr.qGQ4jhEm', 'kEZH9HcUeeCM8kSBabl2Ol8a56wA3lr2FnMiwARn7Geg4FG1HaSPagCHTDaI', '2021-08-13 06:31:16', '2021-08-13 09:16:25');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

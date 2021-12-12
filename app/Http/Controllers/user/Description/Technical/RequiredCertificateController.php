@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\Description\Technical;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RequiredCertificateRequest;
 use App\Models\RequiredCertificate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,7 @@ class RequiredCertificateController extends Controller
         return view('user.description.technical.index');
     }
 
-    public function store(Request $request)
+    public function store(RequiredCertificateRequest $request)
     {
         $team_id = Auth::user()->team_id;
         $certificates = $request->required_certificates;
@@ -45,7 +46,7 @@ class RequiredCertificateController extends Controller
         return view('user.description.technical.index');
     }
 
-    public function update(Request $request, $id)
+    public function update(RequiredCertificateRequest $request, $id)
     {
         $certificate = RequiredCertificate::findorfail($id);
         $certificate->description = $request['required_certificates'][0]['description'];

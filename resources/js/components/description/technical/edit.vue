@@ -37,13 +37,14 @@
                         <div class="card card-custom gutter-b example example-compact">
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
-                                <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">معرفی محصول</h5><br>
+                                <div class="card-body"><h5 class="text-dark font-weight-bold">معرفی محصول</h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.product_introduction"></textarea>
+                                                <textarea name="product_introduction" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.product_introduction"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.product_introduction')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.product_introduction')" style="display: block;">{{ errors.get('technical.product_introduction') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +55,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="technical_specifications" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_specifications"></textarea>
+                                                <textarea name="technical_specifications" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_specifications"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.technical_specifications')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.technical_specifications')" style="display: block;">{{ errors.get('technical.technical_specifications') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +68,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.scientific_principles"></textarea>
+                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.scientific_principles"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.scientific_principles')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.scientific_principles')" style="display: block;">{{ errors.get('technical.scientific_principles') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +81,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_features_product"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.technical_features_product"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.technical_features_product')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.technical_features_product')" style="display: block;">{{ errors.get('technical.technical_features_product') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +94,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.terms_and_conditions_of_work"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.terms_and_conditions_of_work')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.terms_and_conditions_of_work')" style="display: block;">{{ errors.get('technical.terms_and_conditions_of_work') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +107,9 @@
                                     <div class="form-group row">
                                         <div class="col-xl-12">
                                             <div class="form-group">
-                                                <textarea name="scientific_principles" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"></textarea>
+                                                <textarea name="technical_features_product" class="form-control form-control-solid" rows="3" placeholder="متن خود را وارد کنید" v-model="data.technical.production_schedule"
+                                                          :class="['form-control', {'is-invalid border border-danger' : errors.has('technical.production_schedule')}]"></textarea>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has('technical.production_schedule')" style="display: block;">{{ errors.get('technical.production_schedule') }}</div>
                                             </div>
                                         </div>
                                     </div>
