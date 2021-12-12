@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OpportunityPointRequest extends FormRequest
@@ -24,9 +25,9 @@ class OpportunityPointRequest extends FormRequest
     public function rules()
     {
         return [
-            'opportunity_points.*.description' => ['required'],
-            'opportunity_points.*.weight' => ['required'],
-            'opportunity_points.*.score' => ['required'],
+            'opportunity_points.*.description' => ['required',new Persian()],
+            'opportunity_points.*.weight' => ['required','numeric'],
+            'opportunity_points.*.score' => ['required','numeric'],
         ];
     }
 }

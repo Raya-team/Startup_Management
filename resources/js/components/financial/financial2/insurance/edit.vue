@@ -59,8 +59,8 @@
                                                 <label for="insurances_percent">درصد</label>
                                                 <input type="text" class="form-control" id="insurances_percent" placeholder="تعداد" name="insurances_percent" v-model="insu.percent"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                       :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.description`)}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.description`)" style="display: block;">{{ errors.get(`insurance.${index}.description`) }}</div>
+                                                       :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.percent`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.percent`)" style="display: block;">{{ errors.get(`insurance.${index}.percent`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">

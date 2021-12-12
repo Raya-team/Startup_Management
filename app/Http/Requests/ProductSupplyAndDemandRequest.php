@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductSupplyAndDemandRequest extends FormRequest
@@ -24,11 +25,11 @@ class ProductSupplyAndDemandRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_supplies.*.year' => ['required'],
-            'product_supplies.*.general_request' => ['required'],
-            'product_supplies.*.domestic_production' => ['required'],
-            'product_supplies.*.importation' => ['required'],
-            'product_supplies.*.unit_id' => ['required'],
+            'product_supplies.*.year' => ['required','numeric'],
+            'product_supplies.*.general_request' => ['required',new Security()],
+            'product_supplies.*.domestic_production' => ['required',new Security()],
+            'product_supplies.*.importation' => ['required',new Security()],
+            'product_supplies.*.unit_id' => ['required',new Security()],
         ];
     }
 }

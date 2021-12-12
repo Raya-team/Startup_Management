@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class WarrantyRequest extends FormRequest
@@ -24,9 +25,9 @@ class WarrantyRequest extends FormRequest
     public function rules()
     {
         return [
-            'warranty.*.description' => ['required'],
-            'warranty.*.percent' => ['required'],
-            'warranty.*.total_cost' => ['required'],
+            'warranty.*.description' => ['required', new Persian()],
+            'warranty.*.percent' => ['required','numeric'],
+            'warranty.*.total_cost' => ['required','numeric'],
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ValuationPreOperationCostRequest extends FormRequest
@@ -24,9 +26,9 @@ class ValuationPreOperationCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'valuation_pre_operation_costs.*.description' => ['required'],
-            'valuation_pre_operation_costs.*.owner' => ['required'],
-            'valuation_pre_operation_costs.*.total_price' => ['required'],
+            'valuation_pre_operation_costs.*.description' => ['required', new Security()],
+            'valuation_pre_operation_costs.*.owner' => ['required', new Security()],
+            'valuation_pre_operation_costs.*.total_price' => ['required','numeric'],
         ];
     }
 }

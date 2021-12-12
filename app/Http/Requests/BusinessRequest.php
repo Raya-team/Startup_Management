@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BusinessRequest extends FormRequest
@@ -24,8 +25,8 @@ class BusinessRequest extends FormRequest
     public function rules()
     {
         return [
-            'business.*.description' => ['required'],
-            'business.*.annual_cost' => ['required'],
+            'business.*.description' => ['required', new Persian()],
+            'business.*.annual_cost' => ['required','numeric'],
         ];
     }
 }

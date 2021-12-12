@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OutsourcingRequest extends FormRequest
@@ -24,9 +25,9 @@ class OutsourcingRequest extends FormRequest
     public function rules()
     {
         return [
-            'outsourcing.*.description' => ['required'],
-            'outsourcing.*.number' => ['required'],
-            'outsourcing.*.unit_cost' => ['required'],
+            'outsourcing.*.description' => ['required', new Persian()],
+            'outsourcing.*.number' => ['required','numeric'],
+            'outsourcing.*.unit_cost' => ['required','numeric'],
         ];
     }
 }

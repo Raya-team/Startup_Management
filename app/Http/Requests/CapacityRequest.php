@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CapacityRequest extends FormRequest
@@ -24,10 +25,20 @@ class CapacityRequest extends FormRequest
     public function rules()
     {
         return [
-            'nominal_capacity' => ['required'],
-            'unit' => ['required'],
-            'percent' => ['required'],
-            'total_production' => ['required'],
+            'nominal_capacity' => ['required','numeric'],
+            'unit' => ['required', new Security()],
+            'percent' => ['required','numeric'],
+            'total_production' => ['required','numeric'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'nominal_capacity' => 'ظرفیت اسمی',
+            'unit' => 'واحد',
+            'percent' => 'درصد',
+            'total_production' => 'تعداد تولید واقعی',
         ];
     }
 }

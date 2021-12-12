@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProducerRequest extends FormRequest
@@ -24,8 +26,8 @@ class ProducerRequest extends FormRequest
     public function rules()
     {
         return [
-            'producers.*.name' => ['required'],
-            'producers.*.geographical_region' => ['required'],
+            'producers.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'producers.*.geographical_region' => ['required',new Security()],
         ];
     }
 }

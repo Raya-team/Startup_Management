@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EnergyConsumptionRequest extends FormRequest
@@ -24,10 +26,10 @@ class EnergyConsumptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'energy_consumption.*.description' => ['required'],
-            'energy_consumption.*.unit' => ['required'],
-            'energy_consumption.*.annual_consumption' => ['required'],
-            'energy_consumption.*.unit_cost' => ['required'],
+            'energy_consumption.*.description' => ['required', new Persian()],
+            'energy_consumption.*.unit' => ['required', new Security()],
+            'energy_consumption.*.annual_consumption' => ['required','numeric'],
+            'energy_consumption.*.unit_cost' =>['required','numeric'],
         ];
     }
 }

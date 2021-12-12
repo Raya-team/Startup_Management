@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PlanImplementationRequest extends FormRequest
@@ -24,8 +26,8 @@ class PlanImplementationRequest extends FormRequest
     public function rules()
     {
         return [
-            'plan_implementations.*.subject_of_work' => ['required'],
-            'plan_implementations.*.duration_of_work' => ['required'],
+            'plan_implementations.*.subject_of_work' => ['required',new Persian()],
+            'plan_implementations.*.duration_of_work' => ['required',new Security()],
         ];
     }
 }

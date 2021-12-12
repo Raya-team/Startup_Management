@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RDRequest extends FormRequest
@@ -24,8 +25,8 @@ class RDRequest extends FormRequest
     public function rules()
     {
         return [
-            'r_d.*.description' => ['required'],
-            'r_d.*.annual_cost' => ['required'],
+            'r_d.*.description' => ['required', new Persian()],
+            'r_d.*.annual_cost' => ['required','numeric'],
         ];
     }
 }

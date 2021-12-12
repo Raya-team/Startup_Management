@@ -122,7 +122,7 @@
                                     <div class="card-body" style="padding-top: 0px">
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
                                         <div style="text-align: center;font-size: initial;">
-                                            <b>تجهییزات آزمایشگاهی</b><hr>
+                                            <b>تجهیزات آزمایشگاهی</b><hr>
                                         </div>
                                         <transition-group name="slide">
                                             <div class="row" v-for="(data, index) in data.valuation_laboratory_equipments" :key="index">
@@ -213,7 +213,7 @@
                                     <div class="card-body" style="padding-top: 0px">
                                         <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
                                         <div style="text-align: center;font-size: initial;">
-                                            <b>تجهییزات و ماشین آلات فنی</b><hr>
+                                            <b>تجهیزات و ماشین آلات فنی</b><hr>
                                         </div>
                                         <transition-group name="slide">
                                             <div class="row" v-for="(data, index) in data.valuation_machineries" :key="index">

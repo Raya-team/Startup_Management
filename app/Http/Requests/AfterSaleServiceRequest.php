@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AfterSaleServiceRequest extends FormRequest
@@ -24,9 +25,9 @@ class AfterSaleServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'after_sale_service.*.description' => ['required'],
-            'after_sale_service.*.number' => ['required'],
-            'after_sale_service.*.unit_cost' => ['required'],
+            'after_sale_service.*.description' => ['required', new Persian()],
+            'after_sale_service.*.number' => ['required','numeric'],
+            'after_sale_service.*.unit_cost' => ['required','numeric'],
         ];
     }
 }

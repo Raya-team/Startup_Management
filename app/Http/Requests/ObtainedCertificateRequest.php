@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ObtainedCertificateRequest extends FormRequest
@@ -24,9 +25,9 @@ class ObtainedCertificateRequest extends FormRequest
     public function rules()
     {
         return [
-            'obtained_certificate.*.description' => ['required'],
-            'obtained_certificate.*.acquisition_year' => ['required'],
-            'obtained_certificate.*.comment' => ['required'],
+            'obtained_certificate.*.description' => ['required',new Persian()],
+            'obtained_certificate.*.acquisition_year' => ['required','numeric'],
+            'obtained_certificate.*.comment' => ['required',new Persian()],
         ];
     }
 }

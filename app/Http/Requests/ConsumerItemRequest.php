@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ConsumerItemRequest extends FormRequest
@@ -24,9 +25,9 @@ class ConsumerItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'consumer_item.*.description' => ['required'],
-            'consumer_item.*.number' => ['required'],
-            'consumer_item.*.unit_cost' => ['required'],
+            'consumer_item.*.description' => ['required', new Persian()],
+            'consumer_item.*.number' => ['required','numeric'],
+            'consumer_item.*.unit_cost' => ['required','numeric'],
         ];
     }
 }

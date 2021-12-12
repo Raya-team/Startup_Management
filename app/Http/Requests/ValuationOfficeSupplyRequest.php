@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ValuationOfficeSupplyRequest extends FormRequest
@@ -24,10 +26,10 @@ class ValuationOfficeSupplyRequest extends FormRequest
     public function rules()
     {
         return [
-            'valuation_office_supplies.*.description' => ['required'],
-            'valuation_office_supplies.*.number' => ['required'],
-            'valuation_office_supplies.*.owner' => ['required'],
-            'valuation_office_supplies.*.unit_price' => ['required'],
+            'valuation_office_supplies.*.description' => ['required', new Security()],
+            'valuation_office_supplies.*.number' => ['required','numeric'],
+            'valuation_office_supplies.*.owner' => ['required', new Security()],
+            'valuation_office_supplies.*.unit_price' => ['required','numeric'],
         ];
     }
 }

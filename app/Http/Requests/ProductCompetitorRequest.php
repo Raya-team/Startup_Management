@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductCompetitorRequest extends FormRequest
@@ -24,11 +26,11 @@ class ProductCompetitorRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_competitors.*.name' => ['required'],
-            'product_competitors.*.geographical_region' => ['required'],
-            'product_competitors.*.market_share' => ['required'],
-            'product_competitors.*.competitive_feature' => ['required'],
-            'product_competitors.*.weakness' => ['required'],
+            'product_competitors.*.name' =>['required', 'min:3', 'max:16', new Persian()],
+            'product_competitors.*.geographical_region' => ['required',new Security()],
+            'product_competitors.*.market_share' => ['required',new Security()],
+            'product_competitors.*.competitive_feature' => ['required',new Security()],
+            'product_competitors.*.weakness' => ['required',new Security()],
         ];
     }
 }

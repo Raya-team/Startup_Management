@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RentRequest extends FormRequest
@@ -24,10 +25,9 @@ class RentRequest extends FormRequest
     public function rules()
     {
         return [
-            'rent.*.salary' => ['required'],
-            'rent.*.description' => ['required'],
-            'rent.*.area' => ['required'],
-            'rent.*.monthly_rent' => ['required'],
+            'rent.*.description' => ['required', new Persian()],
+            'rent.*.area' => ['required','numeric'],
+            'rent.*.monthly_rent' => ['required','numeric'],
         ];
     }
 }

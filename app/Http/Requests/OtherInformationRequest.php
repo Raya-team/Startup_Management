@@ -24,8 +24,16 @@ class OtherInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'sale_price' => ['required'],
-            'tax_rate' => ['required'],
+            'sale_price' => ['required','numeric'],
+            'tax_rate' => ['required','numeric'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'sale_price' => 'قیمت فروش',
+            'tax_rate' => 'میزان مالیات',
         ];
     }
 }

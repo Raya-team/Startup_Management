@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class WeakPointRequest extends FormRequest
@@ -24,9 +25,9 @@ class WeakPointRequest extends FormRequest
     public function rules()
     {
         return [
-            'weak_points.*.description' => ['required'],
-            'weak_points.*.weight' => ['required'],
-            'weak_points.*.score' => ['required'],
+            'weak_points.*.description' => ['required',new Persian()],
+            'weak_points.*.weight' => ['required','numeric'],
+            'weak_points.*.score' => ['required','numeric'],
         ];
     }
 }

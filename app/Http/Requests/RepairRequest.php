@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RepairRequest extends FormRequest
@@ -24,8 +25,8 @@ class RepairRequest extends FormRequest
     public function rules()
     {
         return [
-            'repair.*.description' => ['required'],
-            'repair.*.percent' => ['required'],
+            'repair.*.description' => ['required', new Persian()],
+            'repair.*.percent' => ['required','numeric'],
         ];
     }
 }

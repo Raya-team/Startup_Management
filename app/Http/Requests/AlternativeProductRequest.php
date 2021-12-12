@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AlternativeProductRequest extends FormRequest
@@ -24,8 +25,8 @@ class AlternativeProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'alternative_products.*.product_title' => ['required'],
-            'alternative_products.*.description' => ['required'],
+            'alternative_products.*.product_title' => ['required', 'min:3', 'max:32', new Persian()],
+            'alternative_products.*.description' => ['required',new Persian()],
         ];
     }
 }

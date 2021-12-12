@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ValuationFacilityRequest extends FormRequest
@@ -24,10 +26,10 @@ class ValuationFacilityRequest extends FormRequest
     public function rules()
     {
         return [
-            'valuation_facilities.*.description' => ['required'],
-            'valuation_facilities.*.number' => ['required'],
-            'valuation_facilities.*.owner' => ['required'],
-            'valuation_facilities.*.unit_price' => ['required'],
+            'valuation_facilities.*.description' => ['required', new Security()],
+            'valuation_facilities.*.number' => ['required','numeric'],
+            'valuation_facilities.*.owner' => ['required', new Security()],
+            'valuation_facilities.*.unit_price' => ['required','numeric'],
         ];
     }
 }

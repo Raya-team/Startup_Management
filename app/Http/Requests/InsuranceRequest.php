@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class InsuranceRequest extends FormRequest
@@ -24,9 +25,9 @@ class InsuranceRequest extends FormRequest
     public function rules()
     {
         return [
-            'insurance.*.description' => ['required'],
-            'insurance.*.percent' => ['required'],
-            'insurance.*.total_cost' => ['required'],
+            'insurance.*.description' => ['required', new Persian()],
+            'insurance.*.percent' =>['required','numeric'],
+            'insurance.*.total_cost' => ['required','numeric'],
         ];
     }
 }

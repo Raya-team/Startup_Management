@@ -25,7 +25,7 @@ class BasicInformationRequest extends FormRequest
     public function rules()
     {
         return [
-            'number_of_plan_year' => ['required','numeric'],
+            'number_of_plan_year' => ['required','numeric','max:10'],
             'dollar' => ['required','numeric'],
             'inflation' => ['required','numeric'],
             'loan' => ['required','numeric'],

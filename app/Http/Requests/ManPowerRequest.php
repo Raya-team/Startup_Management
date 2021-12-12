@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ManPowerRequest extends FormRequest
@@ -24,9 +25,9 @@ class ManPowerRequest extends FormRequest
     public function rules()
     {
         return [
-            'man_power.*.description' => ['required'],
-            'man_power.*.number' => ['required'],
-            'man_power.*.salary' => ['required'],
+            'man_power.*.description' => ['required', new Persian()],
+            'man_power.*.number' => ['required','numeric'],
+            'man_power.*.salary' => ['required','numeric'],
         ];
     }
 }

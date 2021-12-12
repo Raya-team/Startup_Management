@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ThreatsRequest extends FormRequest
@@ -24,9 +25,9 @@ class ThreatsRequest extends FormRequest
     public function rules()
     {
         return [
-            'threats.*.description' => ['required'],
-            'threats.*.weight' => ['required'],
-            'threats.*.score' => ['required'],
+            'threats.*.description' => ['required',new Persian()],
+            'threats.*.weight' => ['required','numeric'],
+            'threats.*.score' => ['required','numeric'],
         ];
     }
 }

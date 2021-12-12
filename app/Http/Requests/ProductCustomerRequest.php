@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ProductCustomerRequest extends FormRequest
@@ -24,11 +25,11 @@ class ProductCustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_customers.*.customer_features' => ['required'],
-            'product_customers.*.first_group_customers' => ['required'],
-            'product_customers.*.second_group_customers' => ['required'],
-            'product_customers.*.third_group_customers' => ['required'],
-            'product_customers.*.fourth_group_customers' => ['required'],
+            'product_customers.*.customer_features' => ['required',new Security()],
+            'product_customers.*.first_group_customers' => ['required',new Security()],
+            'product_customers.*.second_group_customers' => ['required',new Security()],
+            'product_customers.*.third_group_customers' => ['required',new Security()],
+            'product_customers.*.fourth_group_customers' => ['required',new Security()],
         ];
     }
 }

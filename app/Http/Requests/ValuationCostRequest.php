@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ValuationCostRequest extends FormRequest
@@ -24,7 +25,7 @@ class ValuationCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'costs.*.description' => ['required'],
+            'costs.*.description' => ['required', new Persian()],
             'costs.*.total_price' => ['required', 'numeric']
         ];
     }

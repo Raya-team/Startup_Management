@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RetailRequest extends FormRequest
@@ -24,8 +26,8 @@ class RetailRequest extends FormRequest
     public function rules()
     {
         return [
-            'retails.*.name' => ['required'],
-            'retails.*.geographical_region' => ['required'],
+            'retails.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'retails.*.geographical_region' => ['required',new Security()],
         ];
     }
 }

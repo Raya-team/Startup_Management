@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SupplierRequest extends FormRequest
@@ -24,8 +26,8 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'suppliers.*.name' => ['required'],
-            'suppliers.*.geographical_region' => ['required'],
+            'suppliers.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'suppliers.*.geographical_region' => ['required',new Security()],
         ];
     }
 }

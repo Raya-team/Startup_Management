@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Persian;
+use App\Rules\Security;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RawMaterialSupplierRequest extends FormRequest
@@ -24,8 +26,8 @@ class RawMaterialSupplierRequest extends FormRequest
     public function rules()
     {
         return [
-            'raw_material_suppliers.*.name' => ['required'],
-            'raw_material_suppliers.*.geographical_region' => ['required'],
+            'raw_material_suppliers.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'raw_material_suppliers.*.geographical_region' => ['required',new Security()],
         ];
     }
 }
