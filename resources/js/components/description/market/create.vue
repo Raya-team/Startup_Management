@@ -1058,7 +1058,7 @@
     }
     .wizard.wizard-2 .wizard-nav{
         -webkit-box-flex: 0;
-        flex: 0 0 400px;
+        flex: 0 0 300px;
         width: auto;
         max-width: none;
     }
