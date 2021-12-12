@@ -133,7 +133,7 @@
                                                         <div class="col-md-3">
                                                             <div class="form-group">
                                                                 <label for="acquisition_year">اخذ شده؟</label>
-                                                                <input type="text" class="form-control products" id="acquisition_year" name="acquisition_year" placeholder="سال اخذ" v-model.number="cer.received"
+                                                                <input type="text" class="form-control products" id="acquisition_year" name="acquisition_year" placeholder="اخذ شده؟" v-model.number="cer.received"
                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                        :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.received`)}]"/>
                                                                 <div class="invalid-feedback is-invalid" v-if="errors.has(`required_certificates.${index}.received`)" style="display: block;">{{ errors.get(`required_certificates.${index}.received`) }}</div>
