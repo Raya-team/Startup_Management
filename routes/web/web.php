@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect(route('login'));
-    \Illuminate\Support\Facades\Auth::logout();
-    return view('welcome');
 });
 Route::get('/auth-check', function () {
     $user = \Illuminate\Support\Facades\Auth::check();
