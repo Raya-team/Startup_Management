@@ -54,7 +54,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>2)معرفی تیم:</h4><br>
                             <p>
-                                @if(!$managerial->about_team)
+                                @if(!$managerial)
                                 @else
                                     {{$managerial->about_team}}
                                 @endif
@@ -62,7 +62,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>3)شایستگی های تیم:</h4><br>
                             <p>
-                                @if(!$managerial->key_competencies)
+                                @if(!$managerial)
                                 @else
                                     {{$managerial->key_competencies}}
                                 @endif
@@ -183,11 +183,11 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>6)بیان مساله و مبانی علمی:</h4><br>
                             <p>
-                                @if(!$managerial->problem_statement)
+                                @if(!$managerial)
                                 @else
                                     {{$managerial->problem_statement}}<br>
                                 @endif
-                                @if(!$technicals->scientific_principles)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->scientific_principles}}
                                 @endif
@@ -195,7 +195,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>7)چشم انداز و ماموریت:</h4><br>
                             <p>
-                                @if(!$managerial->mission)
+                                @if(!$managerial)
                                 @else
                                     {{$managerial->mission}}
                                 @endif
@@ -203,7 +203,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>8)هدف از اجرای طرح:</h4><br>
                             <p>
-                                @if(!$managerial->targets)
+                                @if(!$managerial)
                                 @else
                                     {{$managerial->targets}}
                                 @endif
@@ -232,7 +232,7 @@
                         <div class="card-body">
                             <h4>9)معرفی محصولات:</h4><br>
                             <p>
-                                @if(!$technicals->product_introduction)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->product_introduction}}
                                 @endif
@@ -240,7 +240,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>10)مشخصات فنی محصول:</h4><br>
                             <p>
-                                @if(!$technicals->technical_specifications)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->technical_specifications}}
                                 @endif
@@ -248,7 +248,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>11)ویژگی های محصول:</h4><br>
                             <p>
-                                @if(!$technicals->technical_features_product)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->technical_features_product}}
                                 @endif
@@ -319,7 +319,7 @@
                             <h4>14)بررسی بازار:</h4><br>
                             <h5>1_14)وضعیت بازار:</h5><br>
                             <p>
-                                @if(!$markets->market_status)
+                                @if(!$markets)
                                 @else
                                     {{$markets->market_status}}
                                 @endif
@@ -499,7 +499,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>6_14)بازار هدف:</h5><br>
                             <p>
-                                @if(!$markets->target_market)
+                                @if(!$markets)
                                 @else
                                     {{$markets->target_market}}
                                 @endif
@@ -507,7 +507,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>7_14)استراتژی قیمت گذاری:</h5><br>
                             <p>
-                                @if(!$markets->product_pricing_strategy)
+                                @if(!$markets)
                                 @else
                                     {{$markets->product_pricing_strategy}}
                                 @endif
@@ -515,7 +515,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>8_14)استراتژی بازاریابی:</h5><br>
                             <p>
-                                @if(!$markets->product_marketing_strategy)
+                                @if(!$markets)
                                 @else
                                     {{$markets->product_marketing_strategy}}
                                 @endif
@@ -523,7 +523,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>9_14)مزیت رقابتی محصول:</h5><br>
                             <p>
-                                @if(!$markets->product_competitive_advantages)
+                                @if(!$markets)
                                 @else
                                     {{$markets->product_competitive_advantages}}
                                 @endif
@@ -531,7 +531,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h5>10_14)پیش بینی آینده بازار:</h5><br>
                             <p>
-                                @if(!$markets->forecast_the_future_of_the_market)
+                                @if(!$markets)
                                 @else
                                     {{$markets->forecast_the_future_of_the_market}}
                                 @endif
@@ -557,7 +557,7 @@
                                             <tr class="text-center">
                                                 <td>
                                                     <span class="text-dark-75">
-                                                        @if(!$environmental_effects->economical)
+                                                        @if(!$environmental_effects)
                                                         @else
                                                             {{$environmental_effects->economical}}
                                                         @endif
@@ -565,7 +565,7 @@
                                                 </td>
                                                 <td>
                                                     <span class="text-dark-75">
-                                                        @if(!$environmental_effects->social)
+                                                        @if(!$environmental_effects)
                                                         @else
                                                             {{$environmental_effects->social}}
                                                         @endif
@@ -573,7 +573,7 @@
                                                 </td>
                                                 <td>
                                                     <span class="text-dark-75">
-                                                        @if(!$environmental_effects->political)
+                                                        @if(!$environmental_effects)
                                                         @else
                                                             {{$environmental_effects->political}}
                                                         @endif
@@ -581,7 +581,7 @@
                                                 </td>
                                                 <td>
                                                     <span class="text-dark-75">
-                                                        @if(!$environmental_effects->environmental)
+                                                        @if(!$environmental_effects)
                                                         @else
                                                             {{$environmental_effects->environmental}}
                                                         @endif
@@ -745,7 +745,7 @@
                         <div class="card-body">
                             <h4>15)شرایط و نوبت کاری:</h4><br>
                             <p>
-                                @if(!$technicals->terms_and_conditions_of_work)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->terms_and_conditions_of_work}}
                                 @endif
@@ -753,7 +753,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <h4>16)برنامه تولید:</h4><br>
                             <p>
-                                @if(!$technicals->production_schedule)
+                                @if(!$technicals)
                                 @else
                                     {{$technicals->production_schedule}}
                                 @endif
@@ -807,7 +807,7 @@
                         <div class="card-body">
                             <h4>18)فرضیات محاسبات مالی:</h4><br>
                             <p>
-                                @if(!$plan_year->number_of_plan_year)
+                                @if(!$plan_year)
                                 @else
                                     در این طرح عمر فناوری {{$plan_year->number_of_plan_year}} ساله در نظر گرفته شده است و نرخ تورم سالیانه  {{$fiscal->inflation}}درصد می‌باشد. لازم به ذکر است قیمت روز دلار {{$fiscal->dollar}} تومان بوده و وامی {{$fiscal->loan}} تومانی با سود {{$fiscal->profit}} درصد و بازپرداخت {{$fiscal->reimbursement}} ماهانه درنظر گرفته شده است. با توجه به برآورد ریسک ..... محاسبه شده در سامانه و میزان تورم، نرخ تنزیل ...... در نظر گرفته می‌شود.
                                 @endif
@@ -1264,25 +1264,25 @@
                                             <tbody>
                                             <tr class="text-center">
                                                 <td>
-                                                    @if(!($count_day->question_1 && $count_day->question_2))
+                                                    @if(!$count_day)
                                                     @else
                                                         <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if(!$count_day->question_3)
+                                                    @if(!$count_day)
                                                     @else
                                                         <span class="text-dark-75">{{ $count_day->question_3 }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if(!$count_day->question_4)
+                                                    @if(!$count_day)
                                                     @else
                                                         <span class="text-dark-75">{{ $count_day->question_4 }}</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    @if(!($count_day->question_1 && $count_day->question_2 && $count_day->question_3 && $count_day->question_4))
+                                                    @if(!$count_day)
                                                     @else
                                                         <span class="text-dark-75">{{ ($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4) }}</span>
                                                     @endif
@@ -1304,7 +1304,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @if(!$plan_year->number_of_plan_year)
+                                            @if(!$plan_year)
                                             @else
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <tr class="text-center">
@@ -1312,13 +1312,13 @@
                                                             <span class="text-dark-75">سال{{$i}}</span>
                                                         </td>
                                                         <td>
-                                                            @if(!($count_day->question_1 && $count_day->question_2 && $count_day->question_3 && $count_day->question_4))
+                                                            @if(!$count_day)
                                                             @else
                                                                 <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
                                                             @endif
                                                         </td>
                                                         <td>
-                                                            @if(!($count_day->question_1 && $count_day->question_2 && $count_day->question_3 && $count_day->question_4))
+                                                            @if(!$count_day)
                                                             @else
                                                                 <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
                                                             @endif
@@ -1332,7 +1332,7 @@
                                     <!--end::Table-->
                                     <br><br>
                                     <p>
-                                        @if(!($count_day->question_1 && $count_day->question_2 && $count_day->question_3 && $count_day->question_4))
+                                        @if(!$count_day)
                                         @else
                                             با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
                                             به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
