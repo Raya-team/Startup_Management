@@ -40,18 +40,18 @@
                             <ul>
                                 <li><h5>نام کسب و کار:</h5>{{$team->name}}</li><br>
                                 <li><h5>صنعت فعالیت:</h5>{{$team->activity->nickname}}</li><br>
-                                @if(!$business_questions->site_address)
+                                @if(!$business_questions)
                                 @else
                                     <li><h5>آدرس وب سایت:</h5>{{$business_questions->site_address}}</li><br>
-                                @endif
-                                @if(!$business_questions->location_address)
-                                @else
                                     <li><h5>آدرس دفتر کار:</h5>{{$business_questions->location_address}}</li><br>
                                 @endif
                                 @if($team->status == 1)
                                     <li><h5>مشخصات شرکت ثبت شده:</h5>نام تیم:{{$team->name}}<br><br>شماره ثبت:{{$registered_team->registration_number}}<br><br>تاریخ ثبت:{{$registered_team->registration_date}}</li><br>
                                 @endif
-                                <li><h5>سابقه‌ی حضور در شتاب‌دهنده‌‌‌ها یا مراکز رشد(نام موسسه و درصد سهام آن‌ها):</h5>{{$business_questions->growth_center}}</li><br>
+                                @if(!$business_questions)
+                                @else
+                                    <li><h5>سابقه‌ی حضور در شتاب‌دهنده‌‌‌ها یا مراکز رشد(نام موسسه و درصد سهام آن‌ها):</h5>{{$business_questions->growth_center}}</li><br>
+                                @endif
                                 <li><h5>سرمایه‌گذار دیگر(نام موسسه و درصد سهام آن‌ها):</h5></li><br>
                             </ul>
                             <!--begin::Body-->
@@ -108,17 +108,20 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr class="text-center">
-                                            <td>
-                                                <span class="text-dark-75">{{$business_manager->Owner->fname}} {{$business_manager->Owner->lname}}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-dark-75">{{$business_manager->phone_number}}</span>
-                                            </td>
-                                            <td>
-                                                <span class="text-dark-75">{{$business_manager->email}}</span>
-                                            </td>
-                                        </tr>
+                                        @if(!$business_manager)
+                                        @else
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">{{$business_manager->Owner->fname}} {{$business_manager->Owner->lname}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{$business_manager->phone_number}}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{$business_manager->email}}</span>
+                                                </td>
+                                            </tr>
+                                        @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -263,7 +266,10 @@
                             <h3 class="card-title">نیاز</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->requirement }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->requirement }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -277,7 +283,10 @@
                             <h3 class="card-title">راه حل</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->solution }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->solution }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -291,7 +300,10 @@
                             <h3 class="card-title">رقبا</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->competitors }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->competitors }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -305,7 +317,10 @@
                             <h3 class="card-title">مزیت رقابتی</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->competitive_advantage }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->competitive_advantage }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -319,7 +334,10 @@
                             <h3 class="card-title">بازار هدف</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->target_market }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->target_market }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -333,7 +351,10 @@
                             <h3 class="card-title">سطح آمادگی فناوری</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->technology_level }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->technology_level }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -347,7 +368,10 @@
                             <h3 class="card-title">بودجه مورد نیاز تقریبی</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->required_budget }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->required_budget }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -361,7 +385,10 @@
                             <h3 class="card-title">درآمد تقریبی</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->income }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->income }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -375,7 +402,10 @@
                             <h3 class="card-title">عمر تکنولوژی(طرح)</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->technology_life }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->technology_life }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -389,7 +419,10 @@
                             <h3 class="card-title">دلیل عدم  ایجاد/ توسعه طرح </h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->plan_development }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->plan_development }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
@@ -403,7 +436,10 @@
                             <h3 class="card-title">ارزش دانش فنی</h3>
                         </div>
                         <div class="card-body">
-                            <p style="white-space: pre">{{ $justification_plan->technical_knowledge }}</p>
+                            @if(!$justification_plan)
+                            @else
+                                <p style="white-space: pre">{{ $justification_plan->technical_knowledge }}</p>
+                            @endif
                         </div>
                     </div>
                     <!--end::Card-->
