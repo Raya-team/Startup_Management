@@ -40,8 +40,14 @@
                             <ul>
                                 <li><h5>نام کسب و کار:</h5>{{$team->name}}</li><br>
                                 <li><h5>صنعت فعالیت:</h5>{{$team->activity->nickname}}</li><br>
-                                <li><h5>آدرس وب سایت:</h5>{{$business_questions->site_address}}</li><br>
-                                <li><h5>آدرس دفتر کار:</h5>{{$business_questions->location_address}}</li><br>
+                                @if(!$business_questions->site_address)
+                                @else
+                                    <li><h5>آدرس وب سایت:</h5>{{$business_questions->site_address}}</li><br>
+                                @endif
+                                @if(!$business_questions->location_address)
+                                @else
+                                    <li><h5>آدرس دفتر کار:</h5>{{$business_questions->location_address}}</li><br>
+                                @endif
                                 @if($team->status == 1)
                                     <li><h5>مشخصات شرکت ثبت شده:</h5>نام تیم:{{$team->name}}<br><br>شماره ثبت:{{$registered_team->registration_number}}<br><br>تاریخ ثبت:{{$registered_team->registration_date}}</li><br>
                                 @endif
