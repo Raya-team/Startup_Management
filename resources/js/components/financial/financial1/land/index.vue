@@ -54,7 +54,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(land, index) in LandsFilter" :id="'del'+land.id" class="text-center">
+                                <tr v-for="(land, index) in LandsFilter" :id="'del_'+land.id" class="text-center">
                                     <td>
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
@@ -74,7 +74,7 @@
                                             </a>
                                         </router-link>
                                         <button type="button" @click="deleteLand(land.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+land.id"></i>
+                                            <i class="flaticon2-trash" :id="'icon_'+land.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -174,7 +174,7 @@
             deleteLand(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -188,7 +188,7 @@
                         axios.delete(`/lands/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موفقیت انجام شد",

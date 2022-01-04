@@ -1414,9 +1414,8 @@
                     <!--end::Card-->
                 </div>
             </div>
-            <a class="btn btn-primary" href="{{ URL::to('/employee/pdf') }}">Export to PDF</a>
+            <a class="btn btn-primary" href="{{ URL::to('/reporting/justification-plan/pdf') }}">Export to PDF</a>
         </div>
     </div>
     <!--end::Entry-->
 @endsection
-

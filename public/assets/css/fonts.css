@@ -1,10 +1,15 @@
 @font-face {
     font-family: Shabnam;
-    src: url('../plugins/global/fonts/shabnam-font/Shabnam.eot');
+    /*src: url('../plugins/global/fonts/shabnam-font/Shabnam.eot');
     src: url('../plugins/global/fonts/shabnam-font/Shabnam.eot?#iefix') format('embedded-opentype'),
          url('../plugins/global/fonts/shabnam-font/Shabnam.woff2') format('woff2'),
          url('../plugins/global/fonts/shabnam-font/Shabnam.woff') format('woff'),
-         url('../plugins/global/fonts/shabnam-font/Shabnam.ttf') format('truetype');
+         url('../plugins/global/fonts/shabnam-font/Shabnam.ttf') format('truetype');*/
+    src: url('../plugins/global/fonts/shabnam-font/Farsi-Digits/Shabnam-FD.eot');
+    src: url('../plugins/global/fonts/shabnam-font/Farsi-Digits/Shabnam-FD.eot?#iefix') format('embedded-opentype'),
+    url('../plugins/global/fonts/shabnam-font/Farsi-Digits/Shabnam-FD.woff2') format('woff2'),
+    url('../plugins/global/fonts/shabnam-font/Farsi-Digits/Shabnam-FD.woff') format('woff'),
+    url('../plugins/global/fonts/shabnam-font/Farsi-Digits/Shabnam-FD.ttf') format('truetype');
     font-weight: normal;
     font-display: swap;
   }

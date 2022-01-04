@@ -79,7 +79,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(product, index) in productFilter" :key="index" :id="'del'+product.id" class="text-center">
+                                <tr v-for="(product, index) in productFilter" :key="index" :id="'del_'+product.id" class="text-center">
                                     <td class="pl-0 py-0">
                                         <span class="text-dark-75">{{ product.name }}</span>
                                     </td>
@@ -93,7 +93,7 @@
                                             </a>
                                         </router-link>
                                         <button  @click="deleteProduct(product.id)" class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+product.id"></i>
+                                            <i class="flaticon2-trash" :id="'icon_'+product.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -139,7 +139,7 @@
             deleteProduct(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -153,7 +153,7 @@
                         axios.delete(`/products/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "محصول با موفقیت حذف شد",

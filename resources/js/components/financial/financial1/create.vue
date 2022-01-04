@@ -344,13 +344,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control lands" v-model="land.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>متراژ :</h5></label>
+                                                    <label><h5>متراژ : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">متر مربع</span>
@@ -362,7 +362,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت کل :</h5></label>
+                                                    <label><h5>قیمت کل : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>
@@ -395,20 +395,20 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(building, index) in data.laboratory_equipments" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control laboratory_equipments" v-model="building.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.description')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label><h5>تعداد:</h5></label>
+                                                    <label><h5>تعداد: <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control laboratory_equipments" v-model="building.number"
                                                            :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.number')}]"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.number')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.number') }}</div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">دلار</span>
@@ -420,7 +420,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>

@@ -55,7 +55,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(manpower, index) in manpowersFilter" :id="'del'+manpower.id" class="text-center">
+                                <tr v-for="(manpower, index) in manpowersFilter" :id="'del_'+manpower.id" class="text-center">
                                     <td>
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
@@ -78,7 +78,7 @@
                                             </a>
                                         </router-link>
                                         <button type="button" @click="deleteManpower(manpower.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+manpower.id"></i>
+                                            <i class="flaticon2-trash" :id="'icon_'+manpower.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -178,7 +178,7 @@
             deleteManpower(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -192,7 +192,7 @@
                         axios.delete(`/manpowers/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موقیت انجام شد.",

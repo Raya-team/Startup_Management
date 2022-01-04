@@ -56,7 +56,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(energyconsumption, index) in energyconsumptionsFilter" :id="'del'+energyconsumption.id" class="text-center">
+                                <tr v-for="(energyconsumption, index) in energyconsumptionsFilter" :id="'del_'+energyconsumption.id" class="text-center">
                                     <td>
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
@@ -82,7 +82,7 @@
                                             </a>
                                         </router-link>
                                         <button type="button" @click="deleteEnergyConsumption(energyconsumption.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+energyconsumption.id"></i>
+                                            <i class="flaticon2-trash" :id="'icon_'+energyconsumption.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -182,7 +182,7 @@
             deleteEnergyConsumption(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
@@ -196,7 +196,7 @@
                         axios.delete(`/energyconsumptions/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "حذف با موقیت انجام شد.",

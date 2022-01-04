@@ -85,7 +85,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr v-for="(shareholder, index) in shareholdersFilter" :id="'del'+shareholder.id" :key="index" class="text-center">
+                                <tr v-for="(shareholder, index) in shareholdersFilter" :id="'del_'+shareholder.id" :key="index" class="text-center">
                                     <td>
                                         <span class="text-dark-75">{{ shareholder.fname }}</span>
                                     </td>
@@ -117,7 +117,7 @@
                                             </a>
                                         </router-link>
                                         <button type="button" @click="deleteShareholder(shareholder.id, index)"  class="btn btn-icon btn-light-danger btn-sm mr-2">
-                                            <i class="flaticon2-trash" :id="'icon'+shareholder.id"></i>
+                                            <i class="flaticon2-trash" :id="'icon_'+shareholder.id"></i>
                                         </button>
                                     </td>
                                     <hr>
@@ -163,7 +163,7 @@
             deleteShareholder(id, index) {
                 this.Auth.check();
                 var _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-                var formSubmitButton = KTUtil.getById(`icon${id}`);
+                var formSubmitButton = KTUtil.getById(`icon_${id}`);
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
                 Swal.fire({
                     title: "از حذف این سهامدار اطمینان دارید؟",
@@ -176,7 +176,7 @@
                         axios.delete(`/shareholders/${id}`)
                             .then(response => {
                                 if(response.data[0] == "deleted"){
-                                    var table = document.getElementById(`del${id}`);
+                                    var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
                                         title: "سهامدار با موفقیت حذف شد",

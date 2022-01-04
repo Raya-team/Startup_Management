@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
-        "barryvdh/laravel-dompdf": "^0.9.0",
         "doctrine/dbal": "^3.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
@@ -15,6 +14,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
         "morilog/jalali": "3.*",
+        "niklasravnsborg/laravel-pdf": "^4.1",
         "uxweb/sweet-alert": "^2.0",
         "wulfheart/pretty_routes": "^0.3.0",
         "yajra/laravel-datatables-oracle": "~9.0"

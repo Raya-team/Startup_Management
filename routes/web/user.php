@@ -195,7 +195,8 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/threats', ThreatController::class);
     Route::resource('/alternative-products', AlternativeProductController::class);
 
-    Route::get('/reporting/justification-plan', RepJustificationPlanController::class);
+    Route::get('/reporting/justification-plan', [RepJustificationPlanController::class, 'index']);
+    Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF']);
     Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index']);
 
 
