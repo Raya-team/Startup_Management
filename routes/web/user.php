@@ -55,6 +55,7 @@ use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Readiness\ManufacturingController;
 use App\Http\Controllers\user\Readiness\MarketController;
 use App\Http\Controllers\user\Readiness\TechnologyController;
+use App\Http\Controllers\user\Reporting\FinancialCalculationController;
 use App\Http\Controllers\user\Reporting\RepJustificationPlanController;
 use App\Http\Controllers\user\Reporting\RepPreliminaryJustificationPlanController;
 use App\Http\Controllers\user\Share\InitialShare\AgreementController;
@@ -108,7 +109,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/transportations', TransportationController::class);
     Route::resource('/preoperatingcosts', PreOperatingCostController::class);
 
-    Route::get('/financial2', [Financial2Controller::class,'index']);
+    Route::get('/financial2', [Financial2Controller::class,'index'])->name('financial2.index');
     Route::get('/financial2/year/{id}', [Financial2Controller::class,'show']);
     Route::get('/financial2/year/{id}/create', [Financial2Controller::class,'create']);
     Route::post('/financial2/year/{id}', [Financial2Controller::class,'store']);
@@ -197,9 +198,10 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/threats', ThreatController::class);
     Route::resource('/alternative-products', AlternativeProductController::class);
 
-    Route::get('/reporting/justification-plan', [RepJustificationPlanController::class, 'index']);
+    Route::get('/reporting/justification-plan', [RepJustificationPlanController::class, 'index'])->name('justification-plan.index');
     Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF']);
-    Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index']);
+    Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index'])->name('preliminary-justification-plan.index');
+    Route::get('/reporting/financial-calculations', [FinancialCalculationController::class, 'index'])->name('financial-calculations.index');
 
 
 });
