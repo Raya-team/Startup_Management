@@ -41,38 +41,41 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">هزینه حمل و نقل</h3><hr>
-                                        <div class="row" v-for="(tran, index) in data.transportation_cost" :key="index">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="transportation_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="transportation_description" placeholder="شرح" name="transportation_description" v-model="tran.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.description`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.description`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="transportation_number">تعداد:</label>
-                                                    <input type="text" class="form-control" id="transportation_number" placeholder="تعداد" name="transportation_number"  v-model="tran.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.number`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.number`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.number`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="transportation_unit_cost">هزینه واحد:</label>
-                                                    <input type="text" class="form-control" id="transportation_unit_cost" placeholder="هزینه واحد" name="transportation_unit_cost" v-model="tran.unit_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.unit_cost`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.unit_cost`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.unit_cost`) }}</div>
-                                                </div>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه حمل و نقل</b><hr>
+                                    </div>
+                                    <div class="row" v-for="(tran, index) in data.transportation_cost" :key="index">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="transportation_description">شرح:</label>
+                                                <input type="text" class="form-control" id="transportation_description" placeholder="شرح" name="transportation_description" v-model="tran.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.description`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.description`) }}</div>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="transportation_number">تعداد:</label>
+                                                <input type="text" class="form-control" id="transportation_number" placeholder="تعداد" name="transportation_number"  v-model="tran.number"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.number`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.number`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.number`) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="transportation_unit_cost">هزینه واحد:</label>
+                                                <input type="text" class="form-control" id="transportation_unit_cost" placeholder="هزینه واحد" name="transportation_unit_cost" v-model="tran.unit_cost"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.unit_cost`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.unit_cost`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.unit_cost`) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -146,6 +149,14 @@
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#transportation-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
             }
         },
     }

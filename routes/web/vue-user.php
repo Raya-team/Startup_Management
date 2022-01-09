@@ -5,8 +5,9 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::resource('/shareholders', \App\Http\Controllers\Api\TeamMember\ShareholderController::class, ['as' => 'api']);
     Route::resource('/key-employees', \App\Http\Controllers\Api\TeamMember\KeyEmployeesController::class, ['as' => 'api']);
 
-    Route::resource('/products', \App\Http\Controllers\Api\other\ProductController::class, ['as' => 'api']);
     Route::resource('/team', \App\Http\Controllers\Api\other\TeamController::class, ['as' => 'api']);
+    Route::resource('/products', \App\Http\Controllers\Api\other\ProductController::class, ['as' => 'api']);
+    Route::resource('/materials', \App\Http\Controllers\Api\other\MaterialController::class, ['as' => 'api']);
 
     Route::get('/initial-shares',\App\Http\Controllers\Api\Share\InitialShare\InitialShareController::class);
     Route::resource('/agreements', \App\Http\Controllers\Api\Share\InitialShare\AgreementController::class, ['as' => 'api']);

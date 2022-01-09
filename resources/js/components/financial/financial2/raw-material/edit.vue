@@ -41,7 +41,9 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">مواد اولیه و بسته بندی برای یک واحد محصول</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>مواد اولیه و بسته بندی برای یک واحد محصول</b><hr>
+                                    </div>
                                     <div class="row" v-for="(raw, index) in data.raw_material" :key="index">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -85,6 +87,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -161,6 +164,14 @@
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#material-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
             }
         },
     }

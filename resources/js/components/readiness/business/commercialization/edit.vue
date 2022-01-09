@@ -158,6 +158,7 @@
 
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -217,6 +218,11 @@
                                 }
                             });
                             this.$router.push({name: 'business-questions-index'});
+                            setTimeout(() => {
+                                var someTabTriggerEl = document.querySelector('#business-tab1');
+                                var tab = new bootstrap.Tab(someTabTriggerEl);
+                                tab.show();
+                            }, 1000);
                         }
                     })
                     .catch(error => {
@@ -224,6 +230,14 @@
                         KTUtil.btnRelease(formSubmitButton);
                     });
             },
+            goBack() {
+                this.$router.push({name: 'business-questions-index'});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#business-tab1');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
+            }
         },
     }
 </script>

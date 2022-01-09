@@ -41,7 +41,9 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">اطلاعات دیگر</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>اطلاعات دیگر</b><hr>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -65,6 +67,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -133,6 +136,14 @@
                         KTUtil.btnRelease(formSubmitButton);
                     });
             },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.data.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#information-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
+            }
         },
     }
 </script>

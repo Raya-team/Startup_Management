@@ -49,6 +49,7 @@ use App\Http\Controllers\user\Financial\Financial2\RepairController;
 use App\Http\Controllers\user\Financial\Financial2\TransportationCostController;
 use App\Http\Controllers\user\Financial\Financial2\WarrantyController;
 use App\Http\Controllers\user\JustificationPlan\JustificationPlanController;
+use App\Http\Controllers\user\other\MaterialController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
 use App\Http\Controllers\user\Readiness\ManufacturingController;
@@ -82,6 +83,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
 
     Route::resource('/team', TeamController::class);
     Route::resource('/products', ProductController::class);
+    Route::resource('/materials', MaterialController::class);
 
     Route::get('/initial-shares',InitialShareController::class)->name('initial');
     Route::resource('/agreements', AgreementController::class);

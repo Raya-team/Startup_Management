@@ -35,7 +35,7 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">شرکای کلیدی</h5>
+                                    <h5 class="text-dark font-weight-bold">شرکای کلیدی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">فعالیت های اصلی</h5>
+                                    <h5 class="text-dark font-weight-bold">فعالیت های اصلی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">منابع اصلی</h5>
+                                    <h5 class="text-dark font-weight-bold">منابع اصلی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">ساختار هزینه</h5>
+                                    <h5 class="text-dark font-weight-bold">ساختار هزینه <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -112,7 +112,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">ارزش پیشنهادی</h5>
+                                    <h5 class="text-dark font-weight-bold">ارزش پیشنهادی <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -132,7 +132,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">ارتباط با مشتریان</h5>
+                                    <h5 class="text-dark font-weight-bold">ارتباط با مشتریان <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">کانال توزیع</h5>
+                                    <h5 class="text-dark font-weight-bold">کانال توزیع <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -171,7 +171,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">بخش مشتریان</h5>
+                                    <h5 class="text-dark font-weight-bold">بخش مشتریان <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -189,7 +189,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <h5 class="text-dark font-weight-bold">جریان درآمد</h5>
+                                    <h5 class="text-dark font-weight-bold">جریان درآمد <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-12">

@@ -41,7 +41,7 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="fname">نام:
                                                     <span class="text-danger">*</span></label>
@@ -50,7 +50,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="lname">نام خانوادگی:
                                                     <span class="text-danger">*</span></label>
@@ -59,9 +59,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="major">رشته:
                                                     <span class="text-danger">*</span></label>
@@ -70,7 +68,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="age">سال تولد:
                                                     <span class="text-danger">*</span></label>
@@ -80,9 +80,7 @@
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('age')">{{errors.get('age') }}</div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="education">تحصیلات:
                                                     <span class="text-danger">*</span></label>
@@ -92,7 +90,7 @@
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('education_id')">{{ errors.get('education_id') }}</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group is-invalid">
                                                 <label for="kt_select2_3">مسئولیت:
                                                     <span class="text-danger">*</span></label>
@@ -105,7 +103,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="resume">سابقه عضویت در تیم(بر حسب سال):
                                                     <span class="text-danger">*</span></label>
@@ -115,7 +113,7 @@
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('resume')">{{errors.get('resume') }}</div>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="investment">سرمایه گذاری:
                                                     <span class="text-danger">*</span></label>
@@ -128,6 +126,9 @@
 
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <router-link :to="{ name: 'shareholders-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                             <!--end::Form-->

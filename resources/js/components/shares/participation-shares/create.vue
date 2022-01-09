@@ -55,21 +55,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             </div>
                             <!--begin::Form-->
                             <form class="form" id="kt_form" @submit.prevent="onSubmit">
                                 <div class="card-body" style="padding-top: 15px">
                                     <div id="kt_repeater_1">
                                         <div class="text-center">
-                                            <b style="font-size: initial;">تامین از موسسین و سرمایه گذاران قبلی</b><br><br><br>
+                                            <b style="font-size: initial;">تامین از موسسین و سرمایه گذاران قبلی</b><hr>
                                         </div>
                                         <transition-group name="slide">
                                             <div class="form-group row" v-for="(investor, index) in data.pre_investors" :key="index">
                                                 <div data-repeater-list="" class="col-lg-12">
                                                     <div data-repeater-item="" class="form-group row align-items-center">
                                                         <div class="col-md-4">
-                                                            <label>نام تامین کننده:</label>
+                                                            <label>نام تامین کننده: <span class="text-danger">*</span></label>
                                                             <select name="pre_supplier_name" class="form-control" v-model="investor.investor"
                                                                     :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investor`)}]">
                                                                 <option v-for="member in members" :value="member.id">{{ member.fname }} {{ member.lname }}</option>
@@ -78,7 +77,7 @@
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>میزان سرمایه گذاری:</label>
+                                                            <label>میزان سرمایه گذاری: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="pre_investment" v-model="investor.investment"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investment`)}]"/>
@@ -100,24 +99,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                     <div id="kt_repeater_2">
                                         <div class="text-center">
-                                            <b style="font-size: initial;">تامین از سرمایه گذاران جدید</b><br><br><br>
+                                            <b style="font-size: initial;">تامین از سرمایه گذاران جدید</b><hr>
                                         </div>
                                         <transition-group name="slide">
                                             <div class="form-group row" v-for="(investor, index) in data.new_investors" :key="index">
                                                 <div data-repeater-list="" class="col-lg-12">
                                                     <div data-repeater-item="" class="form-group row align-items-center">
                                                         <div class="col-md-4">
-                                                            <label>نام تامین کننده:</label>
+                                                            <label>نام تامین کننده: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="new_supplier_name" v-model="investor.supplier"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.supplier`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`new_investors.${index}.supplier`)" style="display: block;">{{ errors.get(`new_investors.${index}.supplier`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>میزان سرمایه گذاری:</label>
+                                                            <label>میزان سرمایه گذاری: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="new_investment"  v-model="investor.investment"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.investment`)}]"/>

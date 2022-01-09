@@ -395,7 +395,7 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(building, index) in data.laboratory_equipments" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح : <span data-v-55357ea2="" class="text-danger">*</span></h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control laboratory_equipments" v-model="building.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.description')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.description') }}</div>

@@ -39,21 +39,21 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <b style="font-size: initial;">تامین از سرمایه گذاران جدید</b><br><br><br>
+                                        <b style="font-size: initial;">تامین از سرمایه گذاران جدید</b><hr><br>
                                     </div>
                                     <transition-group name="slide">
                                         <div class="form-group row" v-for="(investor, index) in data.new_investors" :key="index">
                                             <div data-repeater-list="" class="col-lg-12">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label>نام تامین کننده:</label>
+                                                        <label>نام تامین کننده: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="new_supplier_name" v-model="investor.supplier"
                                                                :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.supplier`)}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`new_investors.${index}.supplier`)" style="display: block;">{{ errors.get(`new_investors.${index}.supplier`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>میزان سرمایه گذاری:</label>
+                                                        <label>میزان سرمایه گذاری: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="new_investment"  v-model="investor.investment"
                                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                :class="['form-control', {'is-invalid' : errors.has(`new_investors.${index}.investment`)}]"/>
@@ -77,6 +77,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <router-link :to="{ name: 'participation-shares-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                             <!--end::Form-->

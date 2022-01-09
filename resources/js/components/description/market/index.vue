@@ -207,7 +207,13 @@
 
 <script>
     export default {
-        name: "index"
+        name: "index",
+        mounted() {
+            var tabName = this.$router.currentRoute.params.tab;
+            var someTabTriggerEl = document.querySelector(tabName);
+            var tab = new bootstrap.Tab(someTabTriggerEl);
+            tab.show();
+        }
     }
 </script>
 

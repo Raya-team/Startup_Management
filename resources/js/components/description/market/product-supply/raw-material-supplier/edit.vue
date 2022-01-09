@@ -41,7 +41,7 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <div class="form-group row" v-for="(pro, index) in data.raw_material_suppliers" :key="index">
+                                    <div class="form-group row" v-for="(raw, index) in data.raw_material_suppliers" :key="index">
                                         <label class="col-lg-2 col-form-label text-right">تامین‌کننده مواد اولیه:</label>
                                         <div data-repeater-list="" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
@@ -65,6 +65,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -121,18 +122,16 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
-                            this.$router.push({name: 'description-market-index'});
-                            setTimeout(() => {
-                                var someTabTriggerEl = document.querySelector('#product-supply-chain-tab');
-                                var tab = new bootstrap.Tab(someTabTriggerEl);
-                                tab.show();
-                            }, 1000);
+                            this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-chain-tab'}});
                         }
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-chain-tab'}});
             }
         },
     }

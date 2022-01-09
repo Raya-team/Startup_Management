@@ -41,38 +41,41 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">نیروی انسانی مورد نیاز</h3><hr>
-                                        <div class="row" v-for="(man, index) in data.man_power" :key="index">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="powers_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="powers_number">تعداد:</label>
-                                                    <input type="text" class="form-control" id="powers_number" placeholder="تعداد" name="powers_number" v-model="man.number"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.number`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.number`)" style="display: block;">{{ errors.get(`man_power.${index}.number`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="powers_salary">حقوق ماهانه:</label>
-                                                    <input type="text" class="form-control" id="powers_salary" placeholder="حقوق ماهانه" name="powers_salary" v-model="man.salary"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.salary`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.salary`)" style="display: block;">{{ errors.get(`man_power.${index}.salary`) }}</div>
-                                                </div>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>نیروی انسانی مورد نیاز</b><hr>
+                                    </div>
+                                    <div class="row" v-for="(man, index) in data.man_power" :key="index">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="powers_description">شرح:</label>
+                                                <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="powers_number">تعداد:</label>
+                                                <input type="text" class="form-control" id="powers_number" placeholder="تعداد" name="powers_number" v-model="man.number"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.number`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.number`)" style="display: block;">{{ errors.get(`man_power.${index}.number`) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="powers_salary">حقوق ماهانه:</label>
+                                                <input type="text" class="form-control" id="powers_salary" placeholder="حقوق ماهانه" name="powers_salary" v-model="man.salary"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.salary`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.salary`)" style="display: block;">{{ errors.get(`man_power.${index}.salary`) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -146,6 +149,14 @@
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#man-power-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
             }
         },
     }

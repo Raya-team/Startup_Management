@@ -42,7 +42,9 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="card-body" style="padding-top: 0px">
-                                            <h3 style="color: red">سوالات تکمیلی</h3>
+                                            <div style="text-align: center;font-size: initial;">
+                                                <b>سوالات تکمیلی</b><hr>
+                                            </div>
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -120,7 +122,9 @@
                                     <div class="row">
                                         <div class="card-body" style="padding-top: 0px">
                                             <hr style="width: 80%;border-top: 1px solid rgb(8 0 255 / 21%);">
-                                            <h3 style="color: red">ارزش دارایی های نامشهود</h3>
+                                            <div style="text-align: center;font-size: initial;">
+                                                <b>ارزش دارایی های نامشهود</b><hr>
+                                            </div>
                                             <br>
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -139,6 +143,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <router-link :to="{ name: 'valuation-intangible-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                         </div>

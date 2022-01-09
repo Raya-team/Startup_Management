@@ -77,6 +77,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -131,18 +132,16 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
-                            this.$router.push({name: 'description-market-index'});
-                            setTimeout(() => {
-                                var someTabTriggerEl = document.querySelector('#product-supply-chain-tab');
-                                var tab = new bootstrap.Tab(someTabTriggerEl);
-                                tab.show();
-                            }, 1000);
+                            this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-chain-tab'}});
                         }
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-chain-tab'}});
             }
         },
     }

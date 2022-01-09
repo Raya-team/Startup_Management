@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsTo(ProductType::class);
     }
+
+    public function materials()
+    {
+        return $this->hasMany();
+    }
 }

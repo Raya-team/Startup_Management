@@ -39,7 +39,9 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <div v-if="this.$route.params.id > 1">
-                                        <h3 style="color: red">هزینه های توسعه</h3><hr>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>هزینه های توسعه</b><hr>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -62,7 +64,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">ظرفیت</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>ظرفیت</b><hr>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
@@ -106,7 +110,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">مواد اولیه و بسته بندی برای یک واحد محصول</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>مواد اولیه و بسته بندی برای یک واحد محصول</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(raw, index) in data.raw_material" :key="index">
                                             <div class="col-md-4">
@@ -159,7 +165,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">نیروی انسانی مورد نیاز</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>نیروی انسانی مورد نیاز</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(man, index) in data.man_power" :key="index">
                                             <div class="col-md-4">
@@ -200,7 +208,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">اجاره</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>اجاره</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(ren, index) in data.rent" :key="index">
                                             <div class="col-md-4">
@@ -241,7 +251,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">انرژی مصرفی</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>انرژی مصرفی</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(ener, index) in data.energy_consumption" :key="index">
                                             <div class="col-md-4">
@@ -293,7 +305,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه های R&D</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه های R&D</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(rd, index) in data.r_d" :key="index">
                                             <div class="col-md-4">
@@ -325,7 +339,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه های بازرگانی</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه های بازرگانی</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(busi, index) in data.business" :key="index">
                                             <div class="col-md-4">
@@ -357,7 +373,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه بیمه</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه بیمه</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(insu, index) in data.insurance" :key="index">
                                             <div class="col-md-4">
@@ -401,7 +419,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه تعمیر و نگهداری</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه تعمیر و نگهداری</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(rep, index) in data.repair" :key="index">
                                             <div class="col-md-4">
@@ -436,7 +456,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه حمل و نقل</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه حمل و نقل</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(tran, index) in data.transportation_cost" :key="index">
                                             <div class="col-md-4">
@@ -477,7 +499,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه گارانتی</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه گارانتی</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(warr, index) in data.warranty" :key="index">
                                             <div class="col-md-4">
@@ -518,7 +542,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">هزینه اقلام مصرفی</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>هزینه اقلام مصرفی</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(cons, index) in data.consumer_item" :key="index">
                                             <div class="col-md-4">
@@ -559,7 +585,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">درامد خدمات پس از فروش</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>درامد خدمات پس از فروش</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(after, index) in data.after_sale_service" :key="index">
                                             <div class="col-md-4">
@@ -600,7 +628,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">برونسپاری</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>برونسپاری</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(out, index) in data.outsourcing" :key="index">
                                             <div class="col-md-4">
@@ -641,7 +671,9 @@
                                                 <i class="la la-plus"></i>افزودن</a>
                                         </div>
                                     </div>
-                                    <h3 style="color: red">اطلاعات دیگر</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>اطلاعات دیگر</b><hr>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">

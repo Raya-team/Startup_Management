@@ -239,12 +239,17 @@
             this.Auth.check();
             axios.get('/api/business-questions')
                 .then(response => {
-                    console.log(response);
                     this.data = response.data;
                     this.progress = false;
                 })
-                .catch(error => {console.log(error);});
+                .catch();
         },
+        mounted() {
+            var tabName = this.$router.currentRoute.params.tab;
+            var someTabTriggerEl = document.querySelector(tabName);
+            var tab = new bootstrap.Tab(someTabTriggerEl);
+            tab.show();
+        }
     }
 </script>
 

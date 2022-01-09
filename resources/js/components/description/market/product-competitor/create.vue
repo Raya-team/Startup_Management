@@ -41,41 +41,43 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">رقبای محصول</h5><br>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>رقبای محصول</b><hr>
+                                    </div>
                                     <div id="kt_repeater_7">
                                         <transition-group name="slide">
                                             <div class="form-group row" v-for="(pro, index) in data.product_competitors" :key="index">
                                                 <div data-repeater-list="" class="col-lg-10">
                                                     <div data-repeater-item="" class="form-group row align-items-center">
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label>نام رقیب:</label>
                                                             <input type="text" class="form-control products" name="competitor_name" v-model="pro.name"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.name`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.name`)" style="display: block;">{{ errors.get(`product_competitors.${index}.name`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label>منطقه جغرافیایی:</label>
                                                             <input type="text" class="form-control products" name="competitors_region" v-model="pro.geographical_region"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.geographical_region`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.geographical_region`)" style="display: block;">{{ errors.get(`product_competitors.${index}.geographical_region`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label>سهم از بازار:</label>
                                                             <input type="text" class="form-control products" name="market_share" v-model="pro.market_share"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.market_share`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.market_share`)" style="display: block;">{{ errors.get(`product_competitors.${index}.market_share`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label>ویژگی رقابتی:</label>
                                                             <input type="text" class="form-control products" name="competitive_feature" v-model="pro.competitive_feature"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.competitive_feature`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.competitive_feature`)" style="display: block;">{{ errors.get(`product_competitors.${index}.competitive_feature`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label>نقطه ضعف:</label>
                                                             <input type="text" class="form-control products" name="weakness" v-model="pro.weakness"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.weakness`)}]"/>
@@ -102,6 +104,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -156,18 +159,16 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
-                            this.$router.push({name: 'description-market-index'});
-                            setTimeout(() => {
-                                var someTabTriggerEl = document.querySelector('#product-competitors-tab');
-                                var tab = new bootstrap.Tab(someTabTriggerEl);
-                                tab.show();
-                            }, 1000);
+                            this.$router.push({name: 'description-market-index', params: {tab : '#product-competitors-tab'}});
                         }
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({name: 'description-market-index', params: {tab : '#product-competitors-tab'}});
             }
         },
     }

@@ -42,7 +42,9 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده</h5><br>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>استانداردها، گواهی‌ها و افتخارات کسب شده</b><hr>
+                                    </div>
                                     <div v-for="(cer, index) in data.required_certificates" :key="index">
                                         <div data-repeater-list="product" class="col-lg-10">
                                             <div data-repeater-item="" class="align-items-center">
@@ -82,6 +84,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <router-link :to="{ name: 'description-technical-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                             <!--end::Form-->

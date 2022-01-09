@@ -41,38 +41,41 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">اجاره</h3><hr>
-                                        <div class="row" v-for="(ren, index) in data.rent" :key="index">
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label for="rents_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="rents_description" placeholder="شرح" name="rents_description" v-model="ren.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.description`)" style="display: block;">{{ errors.get(`rent.${index}.description`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="area">متراژ:</label>
-                                                    <input type="text" class="form-control" id="area" placeholder="متراژ" name="area" v-model="ren.area"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.area`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.area`)" style="display: block;">{{ errors.get(`rent.${index}.area`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="monthly_rent">اجاره ماهانه:</label>
-                                                    <input type="text" class="form-control" id="monthly_rent" placeholder="اجاره ماهانه" name="monthly_rent" v-model="ren.monthly_rent"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.monthly_rent`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.monthly_rent`)" style="display: block;">{{ errors.get(`rent.${index}.monthly_rent`) }}</div>
-                                                </div>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>اجاره</b><hr>
+                                    </div>
+                                    <div class="row" v-for="(ren, index) in data.rent" :key="index">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="rents_description">شرح:</label>
+                                                <input type="text" class="form-control" id="rents_description" placeholder="شرح" name="rents_description" v-model="ren.description"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.description`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.description`)" style="display: block;">{{ errors.get(`rent.${index}.description`) }}</div>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="area">متراژ:</label>
+                                                <input type="text" class="form-control" id="area" placeholder="متراژ" name="area" v-model="ren.area"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.area`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.area`)" style="display: block;">{{ errors.get(`rent.${index}.area`) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="monthly_rent">اجاره ماهانه:</label>
+                                                <input type="text" class="form-control" id="monthly_rent" placeholder="اجاره ماهانه" name="monthly_rent" v-model="ren.monthly_rent"
+                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                       :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.monthly_rent`)}]"/>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.monthly_rent`)" style="display: block;">{{ errors.get(`rent.${index}.monthly_rent`) }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -146,6 +149,14 @@
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#rent-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
             }
         },
     }

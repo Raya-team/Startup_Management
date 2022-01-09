@@ -94,6 +94,9 @@
                             </div>
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                <router-link :to="{ name: 'agreements-index' }">
+                                    <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                </router-link>
                             </div>
                         </form>
                         <!--end::Table-->

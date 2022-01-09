@@ -41,7 +41,9 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">بررسی عرضه و تقاضای محصول</h5><br>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>بررسی عرضه و تقاضای محصول</b><hr>
+                                    </div>
                                     <div class="form-group row" v-for="(pro, index) in data.product_supplies" :key="index">
                                         <div data-repeater-list="" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
@@ -89,6 +91,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -150,18 +153,16 @@
                                     confirmButton: "btn btn-primary"
                                 }
                             });
-                            this.$router.push({name: 'description-market-index'});
-                            setTimeout(() => {
-                                var someTabTriggerEl = document.querySelector('#product-supply-and-demands-tab');
-                                var tab = new bootstrap.Tab(someTabTriggerEl);
-                                tab.show();
-                            }, 1000);
+                            this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-and-demands-tab'}});
                         }
                     })
                     .catch(error => {
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({name: 'description-market-index', params: {tab : '#product-supply-and-demands-tab'}});
             }
         },
     }

@@ -87,8 +87,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="card-body" style="padding-top: 0px">
-                                        <h3 style="color: red;">محاسبه وزن متغیرها</h3>
-                                        <br>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>محاسبه وزن متغیرها</b><hr>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <div class="form-group">
@@ -185,8 +186,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h3 style="color: red;">سوالات</h3>
-                                        <br>
+                                        <div style="text-align: center;font-size: initial;">
+                                            <b>سوالات</b><hr>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

@@ -8,17 +8,21 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">محاسبه سهام</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <router-link :to="{name: 'financial1-index'}">
-                                    <a class="text-muted">مالی 1</a>
-                                </router-link>
+                                <a class="text-muted">سهام اولیه</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                ویرایش وسایل حمل و نقل
+                                <a class="text-muted">محاسبه</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                <a class="text-muted">سرمایه گذاران قبلی</a>
+                            </li>
+                            <li class="breadcrumb-item text-muted">
+                                افزودن
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -67,6 +71,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <router-link :to="{ name: 'calculations-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                             <!--end::Form-->

@@ -41,7 +41,9 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h3 style="color: red">انرژی مصرفی</h3><hr>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>انرژی مصرفی</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(ener, index) in data.energy_consumption" :key="index">
                                             <div class="col-md-4">
@@ -96,6 +98,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <button @click="goBack()" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -172,6 +175,14 @@
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });
+            },
+            goBack() {
+                this.$router.push({path: `/financial2/year/${this.data.year}`});
+                setTimeout(() => {
+                    var someTabTriggerEl = document.querySelector('#energy-tab');
+                    var tab = new bootstrap.Tab(someTabTriggerEl);
+                    tab.show();
+                }, 500);
             }
         },
     }

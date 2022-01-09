@@ -339,6 +339,7 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-success mr-2" id="kt_login_singin_form_submit_button">ویرایش</button>
+                                    <a @click="$router.go(-1)" type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</a>
                                 </div>
                             </form>
                         </div>
@@ -358,6 +359,7 @@
 
     export default {
         name: "create",
+
         data() {
             return {
                 types: [],
@@ -419,7 +421,7 @@
                     .then(response => {
                         if (response.status == 201){
                             Swal.fire({
-                                title: "اطلاعات با موفیت ثبت شد",
+                                title: "اطلاعات با موفیت ویرایش شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

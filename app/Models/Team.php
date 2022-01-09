@@ -26,6 +26,11 @@ class Team extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function materials()
+    {
+        return $this->hasMany(RawMaterialName::class);
+    }
+
     public function members()
     {
         return $this->hasMany(TeamMember::class);

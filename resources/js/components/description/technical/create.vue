@@ -116,7 +116,9 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده</h5><br>
+                                    <div style="text-align: center;font-size: initial;">
+                                        <b>استانداردها، گواهی‌ها و افتخارات کسب شده</b><hr>
+                                    </div>
                                     <transition-group name="slide">
                                         <div v-for="(cer, index) in data.required_certificates" :key="index">
                                             <div data-repeater-list="product" class="col-lg-10">

@@ -47,14 +47,14 @@
                                             <div data-repeater-list="" class="col-lg-12">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label>نام تامین کننده:</label>
+                                                        <label>نام تامین کننده: <span class="text-danger">*</span></label>
                                                         <select name="pre_supplier_name" class="form-control" v-model="investor.investor">
                                                             <option v-for="member in members" :value="member.id">{{ member.fname }} {{ member.lname }}</option>
                                                         </select>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>میزان سرمایه گذاری:</label>
+                                                        <label>میزان سرمایه گذاری: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="pre_investment" v-model="investor.investment"
                                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
                                                         <div class="d-md-none mb-2"></div>
@@ -76,6 +76,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary mr-2" id="kt_login_singin_form_submit_button">ثبت</button>
+                                    <router-link :to="{ name: 'participation-shares-index' }">
+                                        <button type="submit" style="float: left;" class="btn btn-danger mr-2">بازگشت</button>
+                                    </router-link>
                                 </div>
                             </form>
                             <!--end::Form-->
