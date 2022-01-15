@@ -302,6 +302,7 @@
                         <div class="bg-white h-65px"></div>
                         <div class="bg-light h-65px"></div>
                         <div class="bg-white h-65px"></div>
+                        <div class="bg-light h-65px"></div>
                     </div>
                     <!--end::Background Rows-->
                     <!--begin:Table-->
@@ -336,6 +337,10 @@
                                         <tr class="font-size-lg font-weight-bolder h-65px">
                                             <td class="align-middle text-center border-0">میزان استهلاک وسایل حمل و نقل</td>
                                             <td class="align-middle text-center border-0">{{ depreciation_rate_5 }} %</td>
+                                        </tr>
+                                        <tr class="font-size-lg font-weight-bolder h-65px">
+                                            <td class="align-middle text-center border-0">میزان استهلاک تجهیزات آزمایشگاهی</td>
+                                            <td class="align-middle text-center border-0">{{ depreciation_rate_6 }} %</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -380,6 +385,7 @@
                 depreciation_rate_3: '',
                 depreciation_rate_4: '',
                 depreciation_rate_5: '',
+                depreciation_rate_6: '',
                 Auth: new Auth()
             }
         },
@@ -404,6 +410,7 @@
                     this.depreciation_rate_3 = response.data.depreciation.question_3;
                     this.depreciation_rate_4 = response.data.depreciation.question_4;
                     this.depreciation_rate_5 = response.data.depreciation.question_5;
+                    this.depreciation_rate_6 = response.data.depreciation.question_6;
 
                 })
                 .catch(error => console.log(error));

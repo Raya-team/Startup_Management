@@ -26,7 +26,8 @@ class RawMaterialRequest extends FormRequest
     public function rules()
     {
         return [
-            'raw_material.*.description' =>['required', new Persian()],
+            'raw_material.*.product_name' =>['required'],
+            'raw_material.*.name' =>['required'],
             'raw_material.*.unit' => ['required', new Security()],
             'raw_material.*.unit_price' => ['required','numeric'],
             'raw_material.*.consumption' => ['required','numeric'],

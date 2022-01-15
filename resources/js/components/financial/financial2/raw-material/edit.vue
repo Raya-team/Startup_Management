@@ -45,13 +45,26 @@
                                         <b>مواد اولیه و بسته بندی برای یک واحد محصول</b><hr>
                                     </div>
                                     <div class="row" v-for="(raw, index) in data.raw_material" :key="index">
-                                        <div class="col-md-4">
+                                        <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="materials_description">شرح:
+                                                <label for="materials_unit">نام محصول:
                                                     <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="materials_description" placeholder="شرح" name="materials_description" v-model="raw.description"
-                                                       :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.description`)}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.description`)" style="display: block;">{{ errors.get(`raw_material.${index}.description`) }}</div>
+                                                <select name="materials_unit" class="form-control" v-model="raw.product_name"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.product_name`)}]">
+                                                    <option v-for="product in products" :value="product.id">{{ product.name }}</option>
+                                                </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.product_name`)" style="display: block;">{{ errors.get(`raw_material.${index}.product_name`) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="materials_unit">نام:
+                                                    <span class="text-danger">*</span></label>
+                                                <select name="materials_unit" class="form-control" v-model="raw.name"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.name`)}]">
+                                                    <option v-for="material in materials" :value="material.id">{{ material.name }}</option>
+                                                </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.name`)" style="display: block;">{{ errors.get(`raw_material.${index}.name`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -111,9 +124,11 @@
         data() {
             return {
                 units: [],
+                products: '',
+                materials: '',
                 year: '',
                 data: {
-                    raw_material: [{ description: '', unit: '', unit_price: '', total_price: '' }],
+                    raw_material: [{ name: '', product_name: '',consumption: '', unit: '', unit_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -124,7 +139,10 @@
                 .then(response => {
                     this.units = response.data.units;
                     this.year = response.data.raw_material.year;
-                    this.data.raw_material[0].description = response.data.raw_material.description;
+                    this.products = response.data.products;
+                    this.materials = response.data.materials;
+                    this.data.raw_material[0].product_name = response.data.raw_material.product_name;
+                    this.data.raw_material[0].name = response.data.raw_material.name;
                     this.data.raw_material[0].consumption = response.data.raw_material.consumption;
                     this.data.raw_material[0].unit = response.data.raw_material.unit;
                     this.data.raw_material[0].unit_price = response.data.raw_material.unit_price;
@@ -160,7 +178,7 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
+                        console.log(error.response.data);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

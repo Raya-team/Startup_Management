@@ -47,7 +47,8 @@
                                 <thead v-else>
                                 <tr class="bg-gray-100 text-center">
                                     <th>ردیف</th>
-                                    <th>شرح</th>
+                                    <th>نام محصول</th>
+                                    <th>نام</th>
                                     <th>میزان مصرف</th>
                                     <th>واحد</th>
                                     <th>قیمت واحد(تومان)</th>
@@ -61,7 +62,10 @@
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ rawmaterial.description }}</span>
+                                        <span class="text-dark-75">{{ rawmaterial.product_name.name }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-75">{{ rawmaterial.raw_material_name.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ rawmaterial.consumption }}</span>

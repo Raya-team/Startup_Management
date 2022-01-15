@@ -110,6 +110,7 @@
             <!--end::Container-->
         </div>
         <!--end::Entry-->
+        <materials></materials>
     </div>
 </template>
 

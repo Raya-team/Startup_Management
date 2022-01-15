@@ -18,4 +18,14 @@ class RawMaterial extends Model
     {
         return $this->belongsTo(UnitOfMeasurement::class,'unit');
     }
+
+    public function productName()
+    {
+        return $this->belongsTo(Product::class,'product_name');
+    }
+
+    public function rawMaterialName()
+    {
+        return $this->belongsTo(RawMaterialName::class, 'name');
+    }
 }

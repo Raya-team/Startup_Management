@@ -25,9 +25,8 @@ class WarrantyRequest extends FormRequest
     public function rules()
     {
         return [
-            'warranty.*.description' => ['required', new Persian()],
+            'warranty.*.product_name' => ['required'],
             'warranty.*.percent' => ['required','numeric'],
-            'warranty.*.total_cost' => ['required','numeric'],
         ];
     }
 }

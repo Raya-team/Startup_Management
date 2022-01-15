@@ -95,6 +95,13 @@ class IntangibleController extends Controller
         $intangible->question_4 = $request->question_4;
         $intangible->save();
 
+        $model = ValuationOfIntangibleAsset::where('team_id', $team_id)->first();
+        $model->valuation_model = $request->valuation_model;
+        if ($request->valuation_model == 3){
+            $model->value  = $request->value;
+        }
+        $model->save();
+
         return response(['success'], 201);
     }
 

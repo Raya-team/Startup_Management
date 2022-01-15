@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
 use App\Models\ManPower;
+use App\Models\ManPowerName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,8 @@ class ManPowerController extends Controller
     public function index($year)
     {
         $team = Auth::user()->team;
-        $man_power = ManPower::where('team_id', $team->id)->where('year', $year)->paginate(10);
+        $man_power = ManPower::with('manpowerName')
+            ->where('team_id', $team->id)->where('year', $year)->paginate(10);
         return response()->json($man_power);
     }
 
@@ -28,7 +30,13 @@ class ManPowerController extends Controller
      */
     public function create()
     {
-        //
+        $productions = ManPowerName::where('manpower_type', 1)->get();
+        $non_productions = ManPowerName::where('manpower_type', 0)->get();
+
+        return response()->json([
+            'productions' => $productions,
+            'non_productions' => $non_productions
+        ]);
     }
 
     /**
@@ -62,7 +70,13 @@ class ManPowerController extends Controller
     public function edit($id)
     {
         $man_power = ManPower::where('id', $id)->first();
-        return response()->json($man_power);
+        $productions = ManPowerName::where('manpower_type', 1)->get();
+        $non_productions = ManPowerName::where('manpower_type', 0)->get();
+        return response()->json([
+            'man_power' => $man_power,
+            'productions' => $productions,
+            'non_productions' => $non_productions
+        ]);
     }
 
     /**

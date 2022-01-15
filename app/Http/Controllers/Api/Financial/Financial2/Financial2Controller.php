@@ -15,11 +15,14 @@ use App\Models\Facility;
 use App\Models\Insurance;
 use App\Models\Land;
 use App\Models\ManPower;
+use App\Models\ManPowerName;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\OtherInformation;
 use App\Models\PlanYear;
 use App\Models\PreOperatingCost;
+use App\Models\Product;
 use App\Models\RawMaterial;
+use App\Models\RawMaterialName;
 use App\Models\RD;
 use App\Models\Rent;
 use App\Models\Repair;
@@ -83,9 +86,20 @@ class Financial2Controller extends Controller
             ->merge($preoperatingcosts);
 
         $units = UnitOfMeasurement::all();
+
+        $products = Product::where('team_id', $team_id)->get();
+        $materials = RawMaterialName::where('team_id', $team_id)->get();
+
+        $productions = ManPowerName::where('manpower_type', 1)->get();
+        $non_productions = ManPowerName::where('manpower_type', 0)->get();
+
         return response()->json([
             'descriptions' => $descriptions,
             'units' => $units,
+            'products' => $products,
+            'materials' => $materials,
+            'productions' => $productions,
+            'non_productions' => $non_productions
         ]);
     }
 

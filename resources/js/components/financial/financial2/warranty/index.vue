@@ -59,7 +59,7 @@
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ warranty.description }}</span>
+                                        <span class="text-dark-75">{{ warranty.product_name.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ warranty.percent }}</span>

@@ -42,7 +42,8 @@ class RawMaterialController extends Controller
         $rawMaterials = $request->raw_material;
         for ($i = 0; $i < sizeof($rawMaterials); $i++) {
             $rawMaterial = new RawMaterial();
-            $rawMaterial->description = $rawMaterials[$i]['description'];
+            $rawMaterial->product_name = $rawMaterials[$i]['product_name'];
+            $rawMaterial->name = $rawMaterials[$i]['name'];
             $rawMaterial->unit = $rawMaterials[$i]['unit'];
             $rawMaterial->unit_price = $rawMaterials[$i]['unit_price'];
             $rawMaterial->total_price = $rawMaterials[$i]['unit_price'] * $rawMaterials[$i]['consumption'];
@@ -87,7 +88,8 @@ class RawMaterialController extends Controller
     public function update(RawMaterialRequest $request, $id)
     {
         $rawMaterial = RawMaterial::findorfail($id);
-        $rawMaterial->description = $request['raw_material'][0]['description'];
+        $rawMaterial->product_name = $request['raw_material'][0]['product_name'];
+        $rawMaterial->name = $request['raw_material'][0]['name'];
         $rawMaterial->unit = $request['raw_material'][0]['unit'];
         $rawMaterial->unit_price = $request['raw_material'][0]['unit_price'];
         $rawMaterial->total_price = $request['raw_material'][0]['unit_price'] * $request['raw_material'][0]['consumption'];

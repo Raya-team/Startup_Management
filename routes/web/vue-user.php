@@ -42,6 +42,7 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::get('/rawmaterials/{year}/create', [\App\Http\Controllers\Api\Financial\Financial2\RawMaterialController::class, 'create']);
     Route::get('/rawmaterials/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\RawMaterialController::class, 'edit']);
     Route::get('/manpowers/{id}', [\App\Http\Controllers\Api\Financial\Financial2\ManPowerController::class, 'index']);
+    Route::get('/manpowers/{year}/create', [\App\Http\Controllers\Api\Financial\Financial2\ManPowerController::class, 'create']);
     Route::get('/manpowers/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\ManPowerController::class, 'edit']);
     Route::get('/rents/{id}', [\App\Http\Controllers\Api\Financial\Financial2\RentController::class, 'index']);
     Route::get('/rents/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\RentController::class, 'edit']);
@@ -61,6 +62,7 @@ Route::group(['middleware' =>['auth', 'auth.user'], 'prefix' => 'api'] , functio
     Route::get('/transportationcosts/{id}', [\App\Http\Controllers\Api\Financial\Financial2\TransportationCostController::class, 'index']);
     Route::get('/transportationcosts/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\TransportationCostController::class, 'edit']);
     Route::get('/warranties/{id}', [\App\Http\Controllers\Api\Financial\Financial2\WarrantyController::class, 'index']);
+    Route::get('/warranties/{year}/create', [\App\Http\Controllers\Api\Financial\Financial2\WarrantyController::class, 'create']);
     Route::get('/warranties/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\WarrantyController::class, 'edit']);
     Route::get('/consumeritems/{id}', [\App\Http\Controllers\Api\Financial\Financial2\ConsumerItemController::class, 'index']);
     Route::get('/consumeritems/{id}/edit', [\App\Http\Controllers\Api\Financial\Financial2\ConsumerItemController::class, 'edit']);

@@ -48,6 +48,8 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+Vue.component('Materials', require('./components/other/material/index').default);
+
 Vue.component('Basicinformation', require('./components/financial/financial1/basic-information/index').default);
 Vue.component('Lands', require('./components/financial/financial1/land/index.vue').default);
 // Vue.component('Buildings', require('./components/financial/financial1/building/index.vue').default);

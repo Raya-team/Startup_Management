@@ -43,7 +43,6 @@ class InsuranceController extends Controller
         for ($i = 0; $i < sizeof($insurances); $i++) {
             $insurance = new Insurance();
             $insurance->description = $insurances[$i]['description'];
-            $insurance->percent = $insurances[$i]['percent'];
             $insurance->total_cost = $insurances[$i]['total_cost'];
             $insurance->year = $request->year;
             $insurance->team_id = $team_id;
@@ -86,7 +85,6 @@ class InsuranceController extends Controller
     {
         $insurance = Insurance::findorfail($id);
         $insurance->description = $request['insurance'][0]['description'];
-        $insurance->percent = $request['insurance'][0]['percent'];
         $insurance->total_cost = $request['insurance'][0]['total_cost'];
         $insurance->save();
         return response(['success'], 201);

@@ -45,12 +45,28 @@
                                         <b>نیروی انسانی مورد نیاز</b><hr>
                                     </div>
                                     <div class="row" v-for="(man, index) in data.man_power" :key="index">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group">
-                                                <label for="powers_description">شرح:</label>
-                                                <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
-                                                       :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
+                                                <label for="materials_unit">نوع نیروی انسانی:
+                                                    <span class="text-danger">*</span></label>
+                                                <select @change="man.name = null" name="materials_unit" id="materials_unit" class="form-control" v-model.number="man.manpower_type"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.manpower_type`)}]">
+                                                    <option value="0">غیر تولیدی</option>
+                                                    <option value="1">تولیدی</option>
+                                                </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.manpower_type`)" style="display: block;">{{ errors.get(`man_power.${index}.manpower_type`) }}</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="materials_unit">نام:
+                                                    <span class="text-danger">*</span></label>
+                                                <select name="materials_unit" class="form-control" v-model="man.name"
+                                                        :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.name`)}]">
+                                                    <option v-if="man.manpower_type == 1" v-for="production in productions" :value="production.id">{{ production.name }}</option>
+                                                    <option v-if="man.manpower_type == 0" v-for="production in non_productions" :value="production.id">{{ production.name }}</option>
+                                                </select>
+                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.name`)" style="display: block;">{{ errors.get(`man_power.${index}.name`) }}</div>
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -99,8 +115,10 @@
         data() {
             return {
                 year: '',
+                productions: '',
+                non_productions: '',
                 data: {
-                    man_power: [{ description: '', number: '', salary: '', total_rights: '' }],
+                    man_power: [{ name: '', manpower_type: 0, number: '', salary: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -109,11 +127,13 @@
         created() {
             axios.get(`/api/manpowers/${this.$route.params.id}/edit`)
                 .then(response => {
-                    this.year = response.data.year;
-                    this.data.man_power[0].description = response.data.description;
-                    this.data.man_power[0].number = response.data.number;
-                    this.data.man_power[0].salary = response.data.salary;
-                    this.data.man_power[0].total_rights = response.data.total_rights;
+                    this.productions = response.data.productions;
+                    this.non_productions = response.data.non_productions;
+                    this.year = response.data.man_power.year;
+                    this.data.man_power[0].name = response.data.man_power.name;
+                    this.data.man_power[0].manpower_type = response.data.man_power.manpower_type;
+                    this.data.man_power[0].number = response.data.man_power.number;
+                    this.data.man_power[0].salary = response.data.man_power.salary;
                 })
                 .catch(error => {console.log(error);});
         },

@@ -47,7 +47,8 @@
                                 <thead v-else>
                                 <tr class="bg-gray-100 text-center">
                                     <th>ردیف</th>
-                                    <th>شرح</th>
+                                    <th>نوع نیروی انسانی</th>
+                                    <th>نام</th>
                                     <th>تعداد</th>
                                     <th>حقوق ماهانه(تومان)</th>
                                     <th>حقوق کل(تومان)</th>
@@ -60,7 +61,11 @@
                                         <span class="text-dark-75">{{ ++index }}</span>
                                     </td>
                                     <td>
-                                        <span class="text-dark-75">{{ manpower.description }}</span>
+                                        <span v-if="manpower.manpower_type" class="text-dark-75">تولیدی</span>
+                                        <span v-else class="text-dark-75">غیر تولیدی</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-75">{{ manpower.manpower_name.name }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ manpower.number }}</span>

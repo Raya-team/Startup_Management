@@ -41,6 +41,7 @@ class Financial1Request extends FormRequest
             'depreciation_rate_3' => ['required','numeric','max:100'],
             'depreciation_rate_4' => ['required','numeric','max:100'],
             'depreciation_rate_5' => ['required','numeric','max:100'],
+            'depreciation_rate_6' => ['required','numeric','max:100'],
             'type' => ['required', new Security()],
             'lands.*.description' => ['required', new Persian()],
             'lands.*.area' => ['required','numeric'],

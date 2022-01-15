@@ -103,6 +103,7 @@ class BasicInformationController extends Controller
         $depreciation->question_3 = $request->input('depreciation_rate_3');
         $depreciation->question_4 = $request->input('depreciation_rate_4');
         $depreciation->question_5 = $request->input('depreciation_rate_5');
+        $depreciation->question_6 = $request->input('depreciation_rate_6');
         $depreciation->save();
 
         $type = TypeOfLocation::with('Type')->where('team_id', $team_id)->first();

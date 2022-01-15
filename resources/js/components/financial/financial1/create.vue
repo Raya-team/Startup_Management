@@ -316,6 +316,23 @@
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('depreciation_rate_5')" style="display: block;">{{ errors.get('depreciation_rate_5') }}</div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="depreciation_rate_6">میزان استهلاک تجهیزات آزمایشگاهی :
+                                                        <span class="text-danger">*</span></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">
+                                                                درصد
+                                                            </span>
+                                                        </div>
+                                                        <input type="text" class="form-control" id="depreciation_rate_6" name="depreciation_rate_6" v-model.number="data.depreciation_rate_6"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has('depreciation_rate_6')}]"/>
+                                                    </div>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has('depreciation_rate_6')" style="display: block;">{{ errors.get('depreciation_rate_6') }}</div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -717,6 +734,7 @@
                     depreciation_rate_3: '',
                     depreciation_rate_4: '',
                     depreciation_rate_5: '',
+                    depreciation_rate_6: '',
                     type: '',
                     lands: [{ description: '', area: '', price: '' }],
                     laboratory_equipments: [{ description: '', number: '', dollar_unit_price: '', toman_unit_price: '' }],

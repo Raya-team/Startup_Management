@@ -25,7 +25,8 @@ class ManPowerRequest extends FormRequest
     public function rules()
     {
         return [
-            'man_power.*.description' => ['required', new Persian()],
+            'man_power.*.name' => ['required'],
+            'man_power.*.manpower_type' => ['required'],
             'man_power.*.number' => ['required','numeric'],
             'man_power.*.salary' => ['required','numeric'],
         ];

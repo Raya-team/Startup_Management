@@ -13,4 +13,9 @@ class ManPower extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function manpowerName()
+    {
+        return $this->belongsTo(ManPowerName::class,'name');
+    }
 }

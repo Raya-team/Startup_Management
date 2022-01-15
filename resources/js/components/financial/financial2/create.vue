@@ -115,13 +115,26 @@
                                     </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(raw, index) in data.raw_material" :key="index">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="materials_description">شرح:
+                                                    <label for="materials_unit">نام محصول:
                                                         <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="materials_description" placeholder="شرح" name="materials_description" v-model="raw.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.description`)" style="display: block;">{{ errors.get(`raw_material.${index}.description`) }}</div>
+                                                    <select name="materials_unit" class="form-control" v-model="raw.product_name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.product_name`)}]">
+                                                        <option v-for="product in products" :value="product.id">{{ product.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.product_name`)" style="display: block;">{{ errors.get(`raw_material.${index}.product_name`) }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="materials_unit">نام:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_unit" class="form-control" v-model="raw.name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.name`)}]">
+                                                        <option v-for="material in materials" :value="material.id">{{ material.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.name`)" style="display: block;">{{ errors.get(`raw_material.${index}.name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -170,12 +183,28 @@
                                     </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(man, index) in data.man_power" :key="index">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label for="powers_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
+                                                    <label for="materials_unit">نوع نیروی انسانی:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select @change="man.name = null" name="materials_unit" class="form-control" v-model.number="man.manpower_type"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.manpower_type`)}]">
+                                                        <option value="0">غیر تولیدی</option>
+                                                        <option value="1">تولیدی</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.manpower_type`)" style="display: block;">{{ errors.get(`man_power.${index}.manpower_type`) }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="materials_unit">نام:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_unit" class="form-control" v-model="man.name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.name`)}]">
+                                                        <option v-if="man.manpower_type == 1" v-for="production in productions" :value="production.id">{{ production.name }}</option>
+                                                        <option v-if="man.manpower_type == 0" v-for="production in non_productions" :value="production.id">{{ production.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.name`)" style="display: block;">{{ errors.get(`man_power.${index}.name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -196,7 +225,7 @@
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.salary`)" style="display: block;">{{ errors.get(`man_power.${index}.salary`) }}</div>
                                                 </div>
                                             </div>
-                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
                                                 <a @click="RemoveManPower(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -391,15 +420,6 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="insurances_percent">درصد</label>
-                                                    <input type="text" class="form-control" id="insurances_percent" placeholder="تعداد" name="insurances_percent" v-model="insu.percent"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.percent`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.percent`)" style="display: block;">{{ errors.get(`insurance.${index}.percent`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
                                                     <label for="insurances_total_cost">هزینه کل:</label>
                                                     <input type="text" class="form-control" id="insurances_total_cost" placeholder="هزینه کل" name="insurances_total_cost" v-model="insu.total_cost"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
@@ -506,10 +526,13 @@
                                         <div class="row" v-for="(warr, index) in data.warranty" :key="index">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="warranties_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="warranties_description" placeholder="شرح" name="warranties_description" v-model="warr.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.description`)" style="display: block;">{{ errors.get(`warranty.${index}.description`) }}</div>
+                                                    <label for="warr_product_name">نام محصول:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="warr_product_name" id="warr_product_name" class="form-control" v-model="warr.product_name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.product_name`)}]">
+                                                        <option v-for="product in products" :value="product.id">{{ product.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.product_name`)" style="display: block;">{{ errors.get(`warranty.${index}.product_name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -519,15 +542,6 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.percent`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.percent`)" style="display: block;">{{ errors.get(`warranty.${index}.percent`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="warranties_total_cost">هزینه کل:</label>
-                                                    <input type="text" class="form-control" id="warranties_total_cost" placeholder="هزینه کل" name="warranties_total_cost" v-model="warr.total_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.total_cost`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.total_cost`)" style="display: block;">{{ errors.get(`warranty.${index}.total_cost`) }}</div>
                                                 </div>
                                             </div>
                                             <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
@@ -721,25 +735,30 @@
             return {
                 units: '',
                 descriptions: '',
+                products: '',
+                materials: '',
+                productions: '',
+                non_productions: '',
                 data: {
                     year: this.$route.params.id,
                     development_cost: {},
                     capacity: {},
-                    raw_material: [{ description: '', unit: '', unit_price: '' }],
-                    man_power: [{ description: '', number: '', salary: '' }],
+                    raw_material: [{ name: '', product_name: '', consumption: '', unit: '', unit_price: '' }],
+                    man_power: [{ name: '', manpower_type: 0, number: '', salary: '' }],
                     rent: [{ description: '', area: '', monthly_rent: '' }],
                     energy_consumption: [{ description: '', unit: '', annual_consumption: '', unit_cost: '' }],
                     r_d: [{ description: '', annual_cost: '' }],
                     business: [{ description: '', annual_cost: '' }],
-                    insurance: [{ description: '', percent: '', total_cost: '' }],
+                    insurance: [{ description: '', total_cost: '' }],
                     repair: [{ description: '', percent: '' }],
                     transportation_cost: [{ description: '', number: '', unit_cost: '' }],
-                    warranty: [{ description: '', percent: '', total_cost: '' }],
+                    warranty: [{ product_name: '', percent: '' }],
                     consumer_item: [{ description: '', number: '', unit_cost: '' }],
                     after_sale_service: [{ description: '', number: '', unit_cost: '' }],
                     outsourcing: [{ description: '', number: '', unit_cost: '' }],
                     other_information: {},
                 },
+                test: '',
                 errors: new Errors(),
                 Auth: new Auth()
             }
@@ -750,6 +769,10 @@
                 .then(response => {
                     this.units = response.data.units;
                     this.descriptions = response.data.descriptions;
+                    this.products = response.data.products;
+                    this.materials = response.data.materials;
+                    this.productions = response.data.productions;
+                    this.non_productions = response.data.non_productions;
                 })
                 .catch(error => {console.log(error);});
         },
@@ -782,13 +805,13 @@
                     });
             },
             AddRawMaterial() {
-                this.data.raw_material.push({ description: '', unit: '', unit_price: '' });
+                this.data.raw_material.push({ name: '', product_name: '',consumption: '', unit: '', unit_price: '' });
             },
             RemoveRawMaterial(index) {
                 this.data.raw_material.splice(index, 1);
             },
             AddManPower() {
-                this.data.man_power.push({ description: '', number: '', salary: '' });
+                this.data.man_power.push({ name: '', manpower_type: 0, number: '', salary: '' });
             },
             RemoveManPower(index) {
                 this.data.man_power.splice(index, 1);
@@ -818,7 +841,7 @@
                 this.data.business.splice(index, 1);
             },
             AddInsurance() {
-                this.data.insurance.push({ description: '', percent: '', total_cost: '' });
+                this.data.insurance.push({ description: '', total_cost: '' });
             },
             RemoveInsurance(index) {
                 this.data.insurance.splice(index, 1);
@@ -836,7 +859,7 @@
                 this.data.transportation_cost.splice(index, 1);
             },
             AddWarranty() {
-                this.data.warranty.push({ description: '', percent: '', total_cost: '' });
+                this.data.warranty.push({ product_name: '', percent: '' });
             },
             RemoveWarranty(index) {
                 this.data.warranty.splice(index, 1);
