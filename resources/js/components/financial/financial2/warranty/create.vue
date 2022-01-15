@@ -48,10 +48,13 @@
                                         <div class="row" v-for="(warr, index) in data.warranty" :key="index">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="warranties_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="warranties_description" placeholder="شرح" name="warranties_description" v-model="warr.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.description`)" style="display: block;">{{ errors.get(`warranty.${index}.description`) }}</div>
+                                                    <label for="warr_product_name">نام محصول:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="warr_product_name" id="warr_product_name" class="form-control" v-model="warr.product_name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.product_name`)}]">
+                                                        <option v-for="product in products" :value="product.id">{{ product.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.product_name`)" style="display: block;">{{ errors.get(`warranty.${index}.product_name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -61,15 +64,6 @@
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.percent`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.percent`)" style="display: block;">{{ errors.get(`warranty.${index}.percent`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label for="warranties_total_cost">هزینه کل:</label>
-                                                    <input type="text" class="form-control" id="warranties_total_cost" placeholder="هزینه کل" name="warranties_total_cost" v-model="warr.total_cost"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.total_cost`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`warranty.${index}.total_cost`)" style="display: block;">{{ errors.get(`warranty.${index}.total_cost`) }}</div>
                                                 </div>
                                             </div>
                                             <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
@@ -110,17 +104,25 @@
         name: "create",
         data() {
             return {
+                products: '',
                 data: {
                     year: this.$route.params.year,
-                    warranty: [{ description: '', percent: '', total_cost: '' }],
+                    warranty: [{ product_name: '', percent: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
             }
         },
+        created() {
+            axios.get(`/api/warranties/${this.$route.params.year}/create`)
+                .then(response => {
+                    this.products = response.data.products;
+                })
+                .catch(error => {console.log(error);});
+        },
         methods: {
             AddWarranty() {
-                this.data.warranty.push({ description: '', percent: '', total_cost: '' });
+                this.data.warranty.push({ product_name: '', percent: '' });
             },
             RemoveWarranty(index) {
                 this.data.warranty.splice(index, 1);
@@ -132,6 +134,7 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, "لطفا صبر کنید", true);
                 axios.post('/warranties', this.data)
                     .then(response => {
+                        console.log(response.data);
                         if(response.data[0] == 'success'){
                             Swal.fire({
                                 title: "اطلاعات با موفقیت ثبت شد",
@@ -152,7 +155,7 @@
                         }
                     })
                     .catch(error => {
-                        console.log(error.response);
+                        console.log(error.response.data);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

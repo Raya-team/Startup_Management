@@ -25,4 +25,14 @@ class Product extends Model
     {
         return $this->hasMany();
     }
+
+    public function rawMaterials()
+    {
+        return $this->hasMany(RawMaterial::class);
+    }
+
+    public function warranty()
+    {
+        return $this->hasOne(RawMaterial::class);
+    }
 }

@@ -26,7 +26,6 @@ class InsuranceRequest extends FormRequest
     {
         return [
             'insurance.*.description' => ['required', new Persian()],
-            'insurance.*.percent' =>['required','numeric'],
             'insurance.*.total_cost' => ['required','numeric'],
         ];
     }

@@ -46,13 +46,26 @@
                                     </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(raw, index) in data.raw_material" :key="index">
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="materials_description">شرح:
+                                                    <label for="materials_unit">نام محصول:
                                                         <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="materials_description" placeholder="شرح" name="materials_description" v-model="raw.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.description`)" style="display: block;">{{ errors.get(`raw_material.${index}.description`) }}</div>
+                                                    <select name="materials_unit" class="form-control" v-model="raw.product_name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.product_name`)}]">
+                                                        <option v-for="product in products" :value="product.id">{{ product.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.product_name`)" style="display: block;">{{ errors.get(`raw_material.${index}.product_name`) }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="materials_unit">نام:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_unit" class="form-control" v-model="raw.name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.name`)}]">
+                                                        <option v-for="material in materials" :value="material.id">{{ material.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material.${index}.name`)" style="display: block;">{{ errors.get(`raw_material.${index}.name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -123,9 +136,11 @@
         data() {
             return {
                 units: [],
+                products: '',
+                materials: '',
                 data: {
                     year: this.$route.params.year,
-                    raw_material: [{ description: '', unit: '', unit_price: '', total_price: '' }],
+                    raw_material: [{ name: '', product_name: '',consumption: '', unit: '', unit_price: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -134,13 +149,15 @@
         created() {
             axios.get(`/api/rawmaterials/${this.$route.params.year}/create`)
                 .then(response => {
-                    this.units = response.data;
+                    this.units = response.data.units;
+                    this.products = response.data.products;
+                    this.materials = response.data.materials;
                 })
                 .catch(error => {console.log(error);});
         },
         methods: {
             AddRawMaterial() {
-                this.data.raw_material.push({ description: '', unit: '', unit_price: '', total_price: '' });
+                this.data.raw_material.push({ name: '', product_name: '',consumption: '', unit: '', unit_price: '' });
             },
             RemoveRawMaterial(index) {
                 this.data.raw_material.splice(index, 1);

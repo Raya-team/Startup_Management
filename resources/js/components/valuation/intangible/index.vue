@@ -131,8 +131,8 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr class="font-size-lg font-weight-bolder h-65px">
-                                                        <td class="align-middle text-center border-0">نرخ تنزیل مورد نظر چند درصد است</td>
-                                                        <td class="align-middle text-center border-0">{{ q.question_1 }} %</td>
+                                                        <td class="align-middle text-center border-0">{{ model }}</td>
+                                                        <td class="align-middle text-center border-0">{{ value }}</td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -162,6 +162,8 @@
             return {
                 team_id: null,
                 q: [],
+                model: '',
+                value: '',
                 Auth: new Auth()
             }
         },
@@ -171,6 +173,8 @@
                 .then(response => {
                     this.team_id = response.data.team_id;
                     this.q = response.data.questions;
+                    this.model = response.data.model.valuation_model.name;
+                    this.value = response.data.value;
                 })
                 .catch(error => console.log(error));
         },

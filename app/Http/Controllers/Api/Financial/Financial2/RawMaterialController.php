@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api\Financial\Financial2;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\RawMaterial;
+use App\Models\RawMaterialName;
 use App\Models\UnitOfMeasurement;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +20,8 @@ class RawMaterialController extends Controller
     public function index($year)
     {
         $team = Auth::user()->team;
-        $raw_material = RawMaterial::with('Unit')->where('team_id', $team->id)->where('year', $year)->paginate(10);
+        $raw_material = RawMaterial::with(['Unit', 'productName', 'rawMaterialName'])
+            ->where('team_id', $team->id)->where('year', $year)->paginate(10);
         return response()->json($raw_material);
     }
 
@@ -30,7 +33,14 @@ class RawMaterialController extends Controller
     public function create()
     {
         $units = UnitOfMeasurement::all();
-        return response()->json($units);
+        $team = Auth::user()->team;
+        $products = Product::where('team_id', $team->id)->get();
+        $materials = RawMaterialName::where('team_id', $team->id)->get();
+        return response()->json([
+            'units' => $units,
+            'products' => $products,
+            'materials' => $materials,
+        ]);
     }
 
     /**
@@ -63,11 +73,16 @@ class RawMaterialController extends Controller
      */
     public function edit($id)
     {
+        $team = Auth::user()->team;
         $units = UnitOfMeasurement::all();
         $raw_material = RawMaterial::where('id', $id)->first();
+        $products = Product::where('team_id', $team->id)->get();
+        $materials = RawMaterialName::where('team_id', $team->id)->get();
         return response()->json([
             'units' => $units,
             'raw_material' => $raw_material,
+            'products' => $products,
+            'materials' => $materials,
         ]);
     }
 

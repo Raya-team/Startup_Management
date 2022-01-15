@@ -134,7 +134,19 @@
                                                         <select name="office_owner" id="office_owner" class="form-control" v-model="data.valuation_model">
                                                             <option v-for="model in models" :value="model.id">{{ model.name }}</option>
                                                         </select>
-                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('office_owner')" style="display: block;">{{ errors.get('office_owner') }}</div>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('valuation_model')" style="display: block;">{{ errors.get('valuation_model') }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" v-if="data.valuation_model == 3">
+                                                    <div class="form-group">
+                                                        <label for="custom">میزان
+                                                            <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="custom" name="custom" v-model.number="data.value"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('value')}]"/>
+                                                        </div>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('value')" style="display: block;">{{ errors.get('value') }}</div>
                                                     </div>
                                                 </div>
                                             </div>

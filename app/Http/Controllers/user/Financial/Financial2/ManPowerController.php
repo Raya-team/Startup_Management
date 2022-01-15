@@ -27,7 +27,7 @@ class ManPowerController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.financial.financial2.index');
     }
 
     /**
@@ -42,7 +42,8 @@ class ManPowerController extends Controller
         $manPowers = $request->man_power;
         for ($i = 0; $i < sizeof($manPowers); $i++) {
             $manPower = new ManPower();
-            $manPower->description = $manPowers[$i]['description'];
+            $manPower->name = $manPowers[$i]['name'];
+            $manPower->manpower_type = $manPowers[$i]['manpower_type'];
             $manPower->number = $manPowers[$i]['number'];
             $manPower->salary = $manPowers[$i]['salary'];
             $manPower->total_rights = $manPowers[$i]['salary'] * $manPowers[$i]['number'] * 16;
@@ -86,7 +87,8 @@ class ManPowerController extends Controller
     public function update(ManPowerRequest $request, $id)
     {
         $manPower = ManPower::findorfail($id);
-        $manPower->description = $request['man_power'][0]['description'];
+        $manPower->name = $request['man_power'][0]['name'];
+        $manPower->manpower_type = $request['man_power'][0]['manpower_type'];
         $manPower->number = $request['man_power'][0]['number'];
         $manPower->salary = $request['man_power'][0]['salary'];
         $manPower->total_rights = $request['man_power'][0]['salary'] * $request['man_power'][0]['number'] * 16;

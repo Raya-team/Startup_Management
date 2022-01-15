@@ -46,12 +46,28 @@
                                     </div>
                                     <transition-group name="slide">
                                         <div class="row" v-for="(man, index) in data.man_power" :key="index">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
-                                                    <label for="powers_description">شرح:</label>
-                                                    <input type="text" class="form-control" id="powers_description" placeholder="شرح" name="powers_description" v-model="man.description"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.description`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.description`)" style="display: block;">{{ errors.get(`man_power.${index}.description`) }}</div>
+                                                    <label for="materials_unit">نوع نیروی انسانی:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select @change="man.name = null" name="materials_unit" id="materials_unit" class="form-control" v-model.number="man.manpower_type"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.manpower_type`)}]">
+                                                        <option value="0">غیر تولیدی</option>
+                                                        <option value="1">تولیدی</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.manpower_type`)" style="display: block;">{{ errors.get(`man_power.${index}.manpower_type`) }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="materials_unit">نام:
+                                                        <span class="text-danger">*</span></label>
+                                                    <select name="materials_unit" class="form-control" v-model="man.name"
+                                                            :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.name`)}]">
+                                                        <option v-if="man.manpower_type == 1" v-for="production in productions" :value="production.id">{{ production.name }}</option>
+                                                        <option v-if="man.manpower_type == 0" v-for="production in non_productions" :value="production.id">{{ production.name }}</option>
+                                                    </select>
+                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.name`)" style="display: block;">{{ errors.get(`man_power.${index}.name`) }}</div>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
@@ -72,7 +88,7 @@
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`man_power.${index}.salary`)" style="display: block;">{{ errors.get(`man_power.${index}.salary`) }}</div>
                                                 </div>
                                             </div>
-                                            <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
+                                            <div v-if="index != 0" class="col-md-1" style="margin-top: 28px">
                                                 <a @click="RemoveManPower(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                     <i class="la la-trash-o"></i>حذف</a>
                                             </div>
@@ -110,18 +126,27 @@
         name: "create",
         data() {
             return {
-                units: [],
+                productions: '',
+                non_productions: '',
                 data: {
                     year: this.$route.params.year,
-                    man_power: [{ description: '', number: '', salary: '', total_rights: '' }],
+                    man_power: [{ name: '', manpower_type: 0, number: '', salary: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
             }
         },
+        created() {
+            axios.get(`/api/manpowers/${this.$route.params.year}/create`)
+                .then(response => {
+                    this.productions = response.data.productions;
+                    this.non_productions = response.data.non_productions;
+                })
+                .catch(error => {console.log(error);});
+        },
         methods: {
             AddManPower() {
-                this.data.man_power.push({ description: '', number: '', salary: '', total_rights: '' });
+                this.data.man_power.push({ name: '', manpower_type: 0, number: '', salary: '' });
             },
             RemoveManPower(index) {
                 this.data.man_power.splice(index, 1);

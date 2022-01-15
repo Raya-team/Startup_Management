@@ -111,7 +111,8 @@ class Financial2Controller extends Controller
         $rawMaterials = $request->raw_material;
         for ($i = 0; $i < sizeof($rawMaterials); $i++) {
             $rawMaterial = new RawMaterial();
-            $rawMaterial->description = $rawMaterials[$i]['description'];
+            $rawMaterial->product_name = $rawMaterials[$i]['product_name'];
+            $rawMaterial->name = $rawMaterials[$i]['name'];
             $rawMaterial->unit = $rawMaterials[$i]['unit'];
             $rawMaterial->unit_price = $rawMaterials[$i]['unit_price'];
             $rawMaterial->total_price = $rawMaterials[$i]['unit_price'] * $rawMaterials[$i]['consumption'];
@@ -132,7 +133,8 @@ class Financial2Controller extends Controller
         $manPowers = $request->man_power;
         for ($i = 0; $i < sizeof($manPowers); $i++) {
             $manPower = new ManPower();
-            $manPower->description = $manPowers[$i]['description'];
+            $manPower->name = $manPowers[$i]['name'];
+            $manPower->manpower_type = $manPowers[$i]['manpower_type'];
             $manPower->number = $manPowers[$i]['number'];
             $manPower->salary = $manPowers[$i]['salary'];
             $manPower->total_rights = $manPowers[$i]['salary'] * $manPowers[$i]['number'] * 16;
@@ -230,7 +232,6 @@ class Financial2Controller extends Controller
         for ($i = 0; $i < sizeof($insurances); $i++) {
             $insurance = new Insurance();
             $insurance->description = $insurances[$i]['description'];
-            $insurance->percent = $insurances[$i]['percent'];
             $insurance->total_cost = $insurances[$i]['total_cost'];
             $insurance->year = $year;
             $insurance->team_id = $team->id;
@@ -303,9 +304,9 @@ class Financial2Controller extends Controller
         $warranties = $request->warranty;
         for ($i = 0; $i < sizeof($warranties); $i++) {
             $warranty = new Warranty();
-            $warranty->description = $warranties[$i]['description'];
+            $warranty->product_name = $warranties[$i]['product_name'];
             $warranty->percent = $warranties[$i]['percent'];
-            $warranty->total_cost = $warranties[$i]['total_cost'];
+            $warranty->total_cost =  $request->input('capacity.total_production') * $request->input('other_information.sale_price') * $warranties[$i]['percent'];
             $warranty->year = $year;
             $warranty->team_id = $team->id;
             $warranty->updated_at = null;

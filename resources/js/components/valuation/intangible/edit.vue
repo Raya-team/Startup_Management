@@ -131,12 +131,22 @@
                                                     <div class="form-group">
                                                         <label for="office_owner">مدل ارزش گذاری :
                                                             <span class="text-danger">*</span></label>
-                                                        <select name="office_owner" id="office_owner" class="form-control" :class="['form-control', {'is-invalid' : errors.has('office_owner')}]">
-                                                            <option value="1">1</option>
-                                                            <option value="1">2</option>
-                                                            <option value="1">3</option>
+                                                        <select name="office_owner" id="office_owner" class="form-control" v-model="data.valuation_model">
+                                                            <option v-for="model in models" :value="model.id">{{ model.name }}</option>
                                                         </select>
-                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('office_owner')" style="display: block;">{{ errors.get('office_owner') }}</div>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('valuation_model')" style="display: block;">{{ errors.get('valuation_model') }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2" v-if="data.valuation_model == 3">
+                                                    <div class="form-group">
+                                                        <label for="custom">میزان
+                                                            <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="custom" name="custom" v-model.number="data.value"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('value')}]"/>
+                                                        </div>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('value')" style="display: block;">{{ errors.get('value') }}</div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,8 +179,15 @@
         name: "edit",
         data() {
             return {
+                models: [],
                 data: {
-
+                    question_1: '',
+                    question_2: '',
+                    question_3: '',
+                    question_4: '',
+                    test: '',
+                    valuation_model: '',
+                    value: ''
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -180,7 +197,13 @@
             this.Auth.check();
             axios.get(`/api/valuation-intangible/${this.$route.params.id}/edit`)
                 .then(response => {
-                    this.data = response.data.questions;
+                    this.data.question_1 = response.data.questions.question_1;
+                    this.data.question_2 = response.data.questions.question_2;
+                    this.data.question_3 = response.data.questions.question_3;
+                    this.data.question_4 = response.data.questions.question_4;
+                    this.models = response.data.models;
+                    this.data.valuation_model = response.data.valuation_model.valuation_model;
+                    this.data.value = response.data.valuation_model.value;
                 })
                 .catch(error => console.log(error));
         },

@@ -18,4 +18,9 @@ class RawMaterialName extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function rawMaterial()
+    {
+        return $this->hasOne(RawMaterial::class);
+    }
 }

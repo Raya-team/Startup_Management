@@ -13,4 +13,9 @@ class Warranty extends Model
     {
         return $this->belongsTo(Team::class);
     }
+
+    public function productName()
+    {
+        return $this->belongsTo(Product::class,'product_name');
+    }
 }

@@ -59,15 +59,6 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="insurances_percent">درصد</label>
-                                                    <input type="text" class="form-control" id="insurances_percent" placeholder="تعداد" name="insurances_percent" v-model="insu.percent"
-                                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                           :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.percent`)}]"/>
-                                                    <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.percent`)" style="display: block;">{{ errors.get(`insurance.${index}.percent`) }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
                                                     <label for="insurances_total_cost">هزینه کل:</label>
                                                     <input type="text" class="form-control" id="insurances_total_cost" placeholder="هزینه کل" name="insurances_total_cost" v-model="insu.total_cost"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
@@ -116,7 +107,7 @@
                 descriptions: '',
                 data: {
                     year: this.$route.params.year,
-                    insurance: [{ description: '', percent: '', total_cost: '' }],
+                    insurance: [{ description: '', total_cost: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -132,7 +123,7 @@
         },
         methods: {
             AddInsurance() {
-                this.data.insurance.push({ description: '', percent: '', total_cost: '' });
+                this.data.insurance.push({ description: '', total_cost: '' });
             },
             RemoveInsurance(index) {
                 this.data.insurance.splice(index, 1);

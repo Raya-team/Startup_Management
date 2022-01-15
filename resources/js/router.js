@@ -16,6 +16,8 @@ import KeyEmployeesEdit from './components/team-member/key-employees/edit'
 import ProductsIndex from './components/other/product/index';
 import ProductsCreate from './components/other/product/create';
 import ProductsEdit from './components/other/product/edit';
+import MaterialsCreate from './components/other/material/create';
+import MaterialsEdit from './components/other/material/edit';
 
 import TeamIndex from './components/other/team/index';
 import TeamEdit from './components/other/team/edit';
@@ -203,6 +205,8 @@ const routes = [
     {path: '/products', name: 'products-index', component: ProductsIndex, meta: {title: 'محصولات'}},
     {path: '/products/create', name: 'products-create', component: ProductsCreate, meta: {title: 'ایجاد محصول'}},
     {path: '/products/:id/edit', name: 'products-edit', component: ProductsEdit, meta: {title: 'ویرایش محصول'}},
+    {path: '/materials/create', name: 'materials-create', component: MaterialsCreate, meta: {title: 'ایجاد مواد اولیه'}},
+    {path: '/materials/:id/edit', name: 'materials-edit', component: MaterialsEdit, meta: {title: 'ویرایش مواد اولیه'}},
     {path: '/team', name: 'team-index', component: TeamIndex, meta: {title: 'تیم'}},
     {path: '/team/:id/edit', name: 'team-edit', component: TeamEdit, meta: {title: 'ویرایش تیم'}},
 

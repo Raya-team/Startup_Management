@@ -58,15 +58,6 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="insurances_percent">درصد</label>
-                                                <input type="text" class="form-control" id="insurances_percent" placeholder="تعداد" name="insurances_percent" v-model="insu.percent"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                       :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.percent`)}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has(`insurance.${index}.percent`)" style="display: block;">{{ errors.get(`insurance.${index}.percent`) }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
                                                 <label for="insurances_total_cost">هزینه کل:</label>
                                                 <input type="text" class="form-control" id="insurances_total_cost" placeholder="هزینه کل" name="insurances_total_cost" v-model="insu.total_cost"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
@@ -104,7 +95,7 @@
                 year: '',
                 descriptions: '',
                 data: {
-                    insurance: [{ description: '', percent: '', total_cost: '' }],
+                    insurance: [{ description: '', total_cost: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -117,7 +108,6 @@
                     this.descriptions = response.data.descriptions;
                     this.year = response.data.insurance.year;
                     this.data.insurance[0].description = response.data.insurance.description;
-                    this.data.insurance[0].percent = response.data.insurance.percent;
                     this.data.insurance[0].total_cost = response.data.insurance.total_cost;
                 })
                 .catch(error => {console.log(error);});
