@@ -202,7 +202,5 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF']);
     Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index'])->name('preliminary-justification-plan.index');
     Route::get('/reporting/financial-calculations', [FinancialCalculationController::class, 'index'])->name('financial-calculations.index');
-
-
 });
 
