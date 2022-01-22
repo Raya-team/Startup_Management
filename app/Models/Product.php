@@ -23,12 +23,12 @@ class Product extends Model
 
     public function materials()
     {
-        return $this->hasMany();
+        return $this->hasMany(RawMaterialName::class);
     }
 
     public function rawMaterials()
     {
-        return $this->hasMany(RawMaterial::class);
+        return $this->hasMany(RawMaterial::class, 'product_name')->with(['rawMaterialName','Unit']);
     }
 
     public function warranty()

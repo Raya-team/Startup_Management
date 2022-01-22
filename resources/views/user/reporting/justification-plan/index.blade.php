@@ -1320,10 +1320,9 @@
                                                         <td>
                                                             @if(!$count_day)
                                                             @else
-                                                                <span class="text-dark-75">{{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }}</span>
+                                                                <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
                                                             @endif
                                                         </td>
-                                                    </tr>
                                                 @endfor
                                             @endif
                                             </tbody>
@@ -1336,7 +1335,7 @@
                                         @else
                                             با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
                                             به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
-                                            مبلغ ............... تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
+                                            مبلغ {{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_depreciation[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }} تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
                                         @endif
                                     </p>
                                 </div>
@@ -1349,6 +1348,81 @@
                                 <h4>20)برآورد هزینه‌های دوران بهره‌برداری:</h4><br>
                                 <h5>1_20)مواد اولیه و بسته‌بندی:</h5><br>
                                 <h6>1_1_20)مشخصات مواد اولیه برای یک واحد محصول:</h6><br>
+                                @foreach($products as $product)
+                                    @if(count($product->rawMaterials) >= 1)
+                                        <h6 style="text-align: center">{{$product->name}}</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح مواد مصرفی</th>
+                                                        <th>واحد</th>
+                                                        <th>قیمت واحد</th>
+                                                        <th>مقدار مصرف براي هرواحد محصول</th>
+                                                        <th>هزینه مصرف براي هرواحد محصول</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $total_price = 0;
+                                                    @endphp
+                                                    @foreach($product->rawMaterials as $material)
+
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $material->Unit->name }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $material->unit_price }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $material->consumption }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ ($material->consumption) * ($material->unit_price) }}</span>
+                                                            </td>
+                                                        </tr>
+                                                        @php
+                                                            $total_price += $material->total_price;
+                                                        @endphp
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع هزينه مواد اوليه و بسته‌بندی برای هر واحد محصول </b></span>
+                                                        </td>
+                                                        <td style="background-color: #c9c5c5">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td style="background-color: #c9c5c5">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td style="background-color: #c9c5c5">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ ($annual_capacities[0]->total_production) * ($total_price) }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @endif
+                                @endforeach
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h6>2_1_20)پیش‌ بینی هزینه مواد اولیه و بسته‌بندی سالیانه:</h6><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
                                     <!--begin::Table-->
@@ -1356,49 +1430,1239 @@
                                         <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                             <thead>
                                             <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7">شرح مواد مصرفی</th>
-                                                <th>واحد</th>
-                                                <th>قیمت واحد</th>
-                                                <th>مقدار مصرف براي هرواحد محصول</th>
-                                                <th>هزینه مصرف براي هرواحد محصول</th>
+                                                <th class="pl-7">نام محصول</th>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <th>سال{{$i}}</th>
+                                                @endfor
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($raw_materials as $raw_material)
+                                            @foreach($products as $product)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{$raw_material->description}}</span>
+                                                        <span class="text-dark-75">{{$product->name}}</span>
                                                     </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $raw_material->Unit->name }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $raw_material->unit_price }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $raw_material->consumption }}</span>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-dark-75">{{ ($raw_material->consumption) * ($raw_material->unit_price) }}</span>
-                                                    </td>
+                                                    @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                        <td>
+                                                            @if( isset($annual_capacities[$i-1]->total_production) )
+                                                                <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ( $product['rawMaterials']->where('year', $i)->sum('total_price' )) }}</span>
+                                                            @else
+                                                                <span class="text-dark-75">تعداد تولید واقعی محصول خودرا در سال {{$i}} وارد کنید.</span>
+                                                            @endif
+                                                        </td>
+                                                    @endfor
                                                 </tr>
                                             @endforeach
                                             <tr class="text-center">
                                                 <td>
-                                                    <span class="text-dark-75"><b>جمع هزينه مواد اوليه و بسته‌بندی برای هر واحد محصول </b></span>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
                                                 </td>
-                                                <td style="background-color: #c9c5c5">
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        @if( isset($annual_capacities[$i-1]->total_production) )
+                                                            <span class="text-dark-75">{{ ( ($annual_capacities[$i-1]->total_production) * ($annual_raw_material_price[$i-1] ) ) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75"></span>
+                                                        @endif
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>2_20)حقوق و دستمزد:</h5><br>
+                                <h6>1_2_20)نیروی‌های موردنیاز در سال‌های اجرای طرح:</h6><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                    <!--begin::Body-->
+                                    <div class="card-body pt-0 pb-3">
+                                        <!--begin::Table-->
+                                        <div class="table-responsive">
+                                            <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                <thead>
+                                                <tr class="bg-gray-100 text-center">
+                                                    <th class="pl-7">نوع نیروی انسانی</th>
+                                                    <th>شرح</th>
+                                                    <th>تعداد</th>
+                                                    <th>حقوق ماهیانه</th>
+                                                    <th>جمع کل حقوق</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @php
+                                                    $powers = $man_powers->where('year', $i);
+                                                @endphp
+                                                @foreach($powers as $power)
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            @if( ($power->manpower_type) == 1 )
+                                                                <span class="text-dark-75">تولیدی</span>
+                                                            @else
+                                                                <span class="text-dark-75">غیر تولیدی</span>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $power->manpowerName->name }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $power->number }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $power->salary }}</span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ ( ($power->number) * ($power->salary) * 16 ) + ( ($power->number) * ($power->salary) * 16 * (23/100) ) }}</span>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Body-->
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h6>2_2_20)هزینه‌ نیروی انسانی در سال‌های طرح:</h6><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">سال طرح</th>
+                                                <th>هزینه نیروی تولیدی</th>
+                                                <th>هزینه نیروی غیر تولیدی{{$i}}</th>
+                                                <th>جمع کل</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$i}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights')}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights')}}</span>
+                                                    </td>
+                                                    <td>
+                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->sum('total_rights')}}</span>
+                                                    </td>
+                                                </tr>
+                                            @endfor
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $man_powers->where('manpower_type', 1)->sum('total_rights') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $man_powers->where('manpower_type', 0)->sum('total_rights') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $man_powers->sum('total_rights') }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>3_20) برآورد هزینه‌های انرژی مصرفی:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($energy_consumption->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>واحد</th>
+                                                        <th>هزینه سالیانه</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $energies = $energy_consumption->where('year', $i);
+                                                    @endphp
+                                                    @foreach($energies as $energy)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $energy->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $energy->Unit->name }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $energy->annual_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td style="background-color: rgb(201, 197, 197);">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $energy_consumption->where('year', $i)->sum('annual_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>4_20)برآورد هزینه‌های تعمیر و نگهداری:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($repair->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>درصد</th>
+                                                        <th>هزینه کل</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $repairs = $repair->where('year', $i);
+                                                    @endphp
+                                                    @foreach($repairs as $rep)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rep->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rep->percent }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rep->total_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td style="background-color: rgb(201, 197, 197);">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $repair->where('year', $i)->sum('total_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>5_20)برآورد هزینه استهلاک:</h5><br>
+                                <h6>1_5_20)فرضیات محاسبه استهلاک:</h6><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح دارایی</th>
+                                                <th>ارزش اولیه دارایی</th>
+                                                <th>درصد استهلاک</th>
+                                                <th>ارزش اسقاط</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">مستغلات</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $lands }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_1 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_tenements[($plan_year->number_of_plan_year)-1] - $annual_dep_tenements[($plan_year->number_of_plan_year)-1] }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">ماشین‌آلات و تجهیزات فنی</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $equipment_and_machineries }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_2 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_machineries[($plan_year->number_of_plan_year)-1] - $annual_dep_equipment_and_machineries[($plan_year->number_of_plan_year)-1]  }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات آزمایشگاهی</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_laboratory_equipments }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_6 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_laboratory_equipments[($plan_year->number_of_plan_year)-1] - $annual_dep_laboratory_equipments[($plan_year->number_of_plan_year)-1] }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تاسیسات</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_facilities }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_4 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_facilities[($plan_year->number_of_plan_year)-1] - $annual_dep_facilities[($plan_year->number_of_plan_year)-1] }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات دفتری</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $office_equipment_and_supplise }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_3 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_office_equipment[($plan_year->number_of_plan_year)-1] - $annual_dep_office_equipment_and_supplise[($plan_year->number_of_plan_year)-1] }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">وسایل حمل و نقل</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_transportations }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $depreciation_rate->question_5 }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $annual_asset_value_transportations[($plan_year->number_of_plan_year)-1] - $annual_dep_transportations[($plan_year->number_of_plan_year)-1] }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: rgb(201, 197, 197);">
                                                     <span class="text-dark-75"></span>
                                                 </td>
-                                                <td style="background-color: #c9c5c5">
-                                                    <span class="text-dark-75"></span>
-                                                </td>
-                                                <td style="background-color: #c9c5c5">
+                                                <td style="background-color: rgb(201, 197, 197);">
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $raw_materials->sum('') }}</span>
+                                                    <span class="text-dark-75">{{ ( $annual_asset_value_tenements[($plan_year->number_of_plan_year)-1] - $annual_dep_tenements[($plan_year->number_of_plan_year)-1] ) + ( $annual_asset_value_machineries[($plan_year->number_of_plan_year)-1] - $annual_dep_equipment_and_machineries[($plan_year->number_of_plan_year)-1] ) + ( $annual_asset_value_laboratory_equipments[($plan_year->number_of_plan_year)-1] - $annual_dep_laboratory_equipments[($plan_year->number_of_plan_year)-1] ) + ( $annual_asset_value_facilities[($plan_year->number_of_plan_year)-1] - $annual_dep_facilities[($plan_year->number_of_plan_year)-1] ) + ( $annual_asset_value_office_equipment[($plan_year->number_of_plan_year)-1 ] - $annual_dep_office_equipment_and_supplise[($plan_year->number_of_plan_year)-1] ) + ( $annual_asset_value_transportations[($plan_year->number_of_plan_year)-1] - $annual_dep_transportations[($plan_year->number_of_plan_year)-1] ) }}</span>
                                                 </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h6>2_5_20)هزینه استهلاک:</h6><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th>شرح دارایی</th>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <th>هزینه استهلاک در سال{{$i}}طرح</th>
+                                                @endfor
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">مستغلات</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_tenements[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">ماشین‌آلات و تجهیزات فنی</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_equipment_and_machineries[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات آزمایشگاهی</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_laboratory_equipments[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تاسیسات</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_facilities[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات دفتری</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_office_equipment_and_supplise[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">وسایل حمل و نقل</span>
+                                                </td>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_dep_transportations[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_depreciation[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>6_20)برآورد هزینه اجاره:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($rent->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>اجاره ماهانه</th>
+                                                        <th>اجاره کل</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $rents_var = $rent->where('year', $i);
+                                                    @endphp
+                                                    @foreach($rents_var as $rent_var)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rent_var->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rent_var->monthly_rent }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $rent_var->total_rent }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td style="background-color: rgb(201, 197, 197);">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $rent->where('year', $i)->sum('total_rent') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>7_20)گارانتی:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($warranty->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>درصد از فروش</th>
+                                                        <th>هزینه سالیانه</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $warranties_var = $warranty->where('year', $i);
+                                                    @endphp
+                                                    @foreach($warranties_var as $warranty_var)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $warranty_var->productName->name }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $warranty_var->percent }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $warranty_var->total_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td style="background-color: rgb(201, 197, 197);">
+                                                            <span class="text-dark-75"></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $warranty->where('year', $i)->sum('total_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>8_20)بازرگانی:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($business->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>هزینه سالیانه</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $business_var = $business->where('year', $i);
+                                                    @endphp
+                                                    @foreach($business_var as $bus_var)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $bus_var->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $bus_var->annual_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $business->where('year', $i)->sum('annual_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>9_20)حمل و نقل:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($fin2_transportation->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>هزینه کل</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $transports = $fin2_transportation->where('year', $i);
+                                                    @endphp
+                                                    @foreach($transports as $transport)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $transport->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $transport->total_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $fin2_transportation->where('year', $i)->sum('total_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>10_20)بیمه:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($insurances->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>هزینه کل</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $insurance = $insurances->where('year', $i);
+                                                    @endphp
+                                                    @foreach($insurance as $insu)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $insu->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $insu->total_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $insurances->where('year', $i)->sum('total_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>11_20)اقلام مصرفی:</h5><br>
+                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @if(count($consumer_item->where('year', $i)) >= 1)
+                                        <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
+                                        <!--begin::Body-->
+                                        <div class="card-body pt-0 pb-3">
+                                            <!--begin::Table-->
+                                            <div class="table-responsive">
+                                                <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                                    <thead>
+                                                    <tr class="bg-gray-100 text-center">
+                                                        <th class="pl-7">شرح</th>
+                                                        <th>هزینه کل</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    @php
+                                                        $cons_item = $consumer_item->where('year', $i);
+                                                    @endphp
+                                                    @foreach($cons_item as $item)
+                                                        <tr class="text-center">
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $item->description }}</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="text-dark-75">{{ $item->total_cost }}</span>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <span class="text-dark-75"><b>جمع کل</b></span>
+                                                        </td>
+                                                        <td>
+                                                            <span class="text-dark-75">{{ $consumer_item->where('year', $i)->sum('total_cost') }}</span>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--end::Table-->
+                                        </div>
+                                        <!--end::Body-->
+                                    @else
+                                    @endif
+                                @endfor
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h5>12_20)بازپرداخت وام:</h5><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">میزان وام اخذ شده</th>
+                                                <th>سود</th>
+                                                <th>زمان بازپرداخت اصل تسهیلات</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fiscal->profit }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fiscal->reimbursement }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                                <br>
+                                <p>جزئیات هزینه‌های تولید در سال‌های مختلف را می‌توانید در گزارش مالی طرح ببینید.</p>
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h4>21)پیش‌بینی قیمت فروش محصولات:</h4><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7" rowspan="2">محصول/سال طرح</th>
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <th class="pl-7" colspan="2">سال {{$i}}</th>
+                                                @endfor
+                                            </tr>
+                                            <tr class="bg-gray-100 text-center">
+                                                @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                                    <th class="pl-7">تعداد</th>
+                                                    <th class="pl-7">قیمت</th>
+                                                @endfor
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($products as $product)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$product->name}}</span>
+                                                    </td>
+                                                    @for($i=1;$i <= $plan_year->number_of_plan_year;$i++)
+                                                        <td>
+                                                            @if( isset($annual_capacities[$i-1]->total_production) )
+                                                                <span class="text-dark-75">{{ $annual_capacities[$i-1]->total_production  }}</span>
+                                                            @else
+                                                                <span class="text-dark-75">-</span>
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if( isset($otherInformation[$i-1]->sale_price) )
+                                                                <span class="text-dark-75">{{ $otherInformation[$i-1]->sale_price }}</span>
+                                                            @else
+                                                                <span class="text-dark-75">-</span>
+                                                            @endif
+                                                        </td>
+                                                    @endfor
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h4>22)پیش‌بینی درآمد حاصل از فروش محصولات:</h4><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">محصول/سال طرح</th>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <th>سال{{$i}}</th>
+                                                @endfor
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($products as $product)
+                                                <tr class="text-center">
+                                                    <td>
+                                                        <span class="text-dark-75">{{$product->name}}</span>
+                                                    </td>
+                                                    @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                        <td>
+                                                            @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                                <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ( $otherInformation[$i-1]->sale_price) }}</span>
+                                                            @else
+                                                                <span class="text-dark-75">-</span>
+                                                            @endif
+                                                        </td>
+                                                    @endfor
+                                                </tr>
+                                            @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                            <span class="text-dark-75">{{  ( $annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">-</span>
+                                                        @endif
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h4>24)هزینه خالص سرمایه‌گذاری:</h4><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                <th class="pl-7">میزان(تومان)</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">مستغلات</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $lands }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">ماشین‌آلات و تجهیزات فنی</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $equipment_and_machineries }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات آزمایشگاه</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_laboratory_equipments }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تجهیزات اداری</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $office_equipment_and_supplise }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تاسیسات</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_facilities }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">وسایل نقلیه</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fin_transportations }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">هزینه‌های قبل از بهره‌برداری</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $pre_operating_cost }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">کل میزان سرمایه‌گذاری طرح</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">سرمایه مورد نیاز طرح</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) + ($valuation_cost) )  }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">مبلغ وام</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">خالص سرمایه‌گذاری</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ( ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) + ($valuation_cost) ) ) - ($fiscal->loan) }}</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!--end::Table-->
+                                </div>
+                                <!--end::Body-->
+                            </div>
+                            <!--end::table-->
+                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            <!--begin::table-->
+                            <div>
+                                <h4>25)جدول هزینه‌های سالیانه طرح:</h4><br>
+                                <!--begin::Body-->
+                                <div class="card-body pt-0 pb-3">
+                                    <!--begin::Table-->
+                                    <div class="table-responsive">
+                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
+                                            <thead>
+                                            <tr class="bg-gray-100 text-center">
+                                                <th class="pl-7">شرح</th>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <th class="pl-7">سال {{$i}} طرح</th>
+                                                @endfor
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">مواد اولیه و بسته‌بندی</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_raw_material_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">حقوق و دستمزد</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_man_powers_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">بازرگانی و فروش</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_business_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">برون سپاری</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_outsourcing_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">اقلام مصرفی</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_consumer_item_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">اجاره</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_rent_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">انرژی</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_energy_consumption_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تعمیر و نگهداری</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_repair_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">تحقیق و توسعه</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_rd_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">گارانتی و خدمات پس از فروش</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_warranty_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">حمل و نقل</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_fin2_transportation_price[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">استهلاک</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_depreciation[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">هزینه مالی</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_financial_expenses[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75">جمع کل</span>
+                                                </td>
+                                                @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
+                                                    <td>
+                                                        <span class="text-dark-75">{{ $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] }}</span>
+                                                    </td>
+                                                @endfor
                                             </tr>
                                             </tbody>
                                         </table>
