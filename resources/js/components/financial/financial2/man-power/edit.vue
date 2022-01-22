@@ -71,7 +71,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="powers_number">تعداد:</label>
+                                                <label for="powers_number">تعداد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="powers_number" placeholder="تعداد" name="powers_number" v-model="man.number"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.number`)}]"/>
@@ -80,7 +81,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="powers_salary">حقوق ماهانه:</label>
+                                                <label for="powers_salary">حقوق ماهانه:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="powers_salary" placeholder="حقوق ماهانه" name="powers_salary" v-model="man.salary"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`man_power.${index}.salary`)}]"/>

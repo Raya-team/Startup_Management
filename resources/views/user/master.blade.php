@@ -183,6 +183,9 @@
             <div class="d-flex align-items-center mt-5">
                 <div class="symbol symbol-100 mr-5">
                     <div class="symbol-label" style="background-image:url('{{ asset('assets/media/users/300_21.jpg') }}')"></div>
+                    {{--<span class="symbol symbol-lg-35 symbol-25 symbol-light-success">--}}
+                        {{--<span class="symbol-label">{{ substr(strtoupper(Auth::user()->username), 0, 1) }}</span>--}}
+                    {{--</span>--}}
                     <i class="symbol-badge bg-success"></i>
                 </div>
                 <div class="d-flex flex-column">

@@ -51,6 +51,7 @@ use App\Models\TechnologyQuestion;
 use App\Models\Transportation;
 use App\Models\TransportationCost;
 use App\Models\UncertaintyPredictionQuestion;
+use App\Models\ValuationCost;
 use App\Models\Warranty;
 use Illuminate\Support\Facades\Auth;
 
@@ -376,10 +377,39 @@ trait NPV
             ]);
         }
 //            return $Annual_DATA;
+
+        /* NPV */
         $NPV = 0;
         for ($j = 0 ; $j < count($Annual_DATA); $j++){
             $NPV += $Annual_DATA [$j][19];
         }
-        return round($NPV, 2);
+
+        /* درآمد محور */
+        $cost = ValuationCost::where('team_id', $team_id)->get()->sum('total_price');
+//        return $NPV;
+        switch (true) {
+            case $TRL >= 1 && $TRL <= 4:
+                $value = $cost;
+                break;
+            case $TRL == 5:
+                $value = ($cost * 0.07) + ($NPV * 0.03);
+                break;
+            case $TRL == 6:
+                $value = ($cost * 0.05) + ($NPV * 0.05);
+                break;
+            case $TRL == 7:
+                $value = ($cost * 0.04) + ($NPV * 0.06);
+                break;
+            case $TRL == 8:
+                $value = ($cost * 0.03) + ($NPV * 0.07);
+                break;
+            case $TRL == 9:
+                $value = ($cost * 0.02) + ($NPV * 0.08);
+                break;
+            default:
+                $value = 0;
+        }
+
+        return round($value, 2);
     }
 }

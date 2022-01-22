@@ -48,7 +48,8 @@
                                         <div class="row" v-for="(busi, index) in data.business" :key="index">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="businesses_description">شرح:</label>
+                                                    <label for="businesses_description">شرح:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="businesses_description" placeholder="شرح" name="businesses_description" v-model="busi.description"
                                                            :class="['form-control', {'is-invalid' : errors.has(`business.${index}.description`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`business.${index}.description`)" style="display: block;">{{ errors.get(`business.${index}.description`) }}</div>
@@ -56,7 +57,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="businesses_annual_cost">هزینه سالیانه:</label>
+                                                    <label for="businesses_annual_cost">هزینه سالیانه:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="businesses_annual_cost" placeholder="هزینه سالیانه" name="businesses_annual_cost" v-model="busi.annual_cost"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`business.${index}.annual_cost`)}]"/>

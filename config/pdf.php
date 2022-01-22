@@ -13,16 +13,18 @@
 	'pdf_a_auto'            => false,
 	'icc_profile_path'      => ''
 ];*/
-return [
+
+
+/*return [
     'mode'                  => 'utf-8',
-    'format'                => 'A4',
+    'format'                => 'A4',*/
 //    'pdf_a'                 => false,
 //    'pdf_a_auto'            => false,
 //    'isHtml5ParserEnabled' => true,
 //    'isemoteEnabled' => true,
     //'format' => 'A4-L',
     //'orientation' => 'L',
-    'default_font' => 'vazir',
+   /* 'default_font' => 'B Nazanin',
     'author'                => '',
     'subject'               => '',
     'keywords'              => '',
@@ -32,13 +34,39 @@ return [
 
     'font_path' => base_path('public/assets/plugins/global/shabnam-font/'),
     'font_data' => [
-        'shabnam' => [
-            'R'  => 'Shabnam.ttf',    // regular font
+        'Shabnam' => [
+            'R'  => 'Shabnam.ttf',    // regular font*/
             //'B'  => '',       // optional: bold font
             //'I'  => '',     // optional: italic font
             //'BI' => '', // optional: bold-italic font
-            'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
+     /*       'useOTL' => 0xFF,    // required for complicated langs like Persian, Arabic and Chinese
             'useKashida' => 75,  // required for complicated langs like Persian, Arabic and Chinese
+        ]
+    ]
+];*/
+
+
+
+return [
+    'mode'                  => 'utf-8',
+    'format'                => 'A4',
+    'author'                => '',
+    'subject'               => '',
+    'keywords'              => '',
+    'creator'               => '',
+    'display_mode'          => 'fullpage',
+    'tempDir'               => base_path('../temp/'),
+    'font_path' => base_path('public/assets/plugins/global/fonts/shabnam-font/Farsi-Digits/'),
+    'font_data' => [
+        'fa' => [
+            'R'  => 'Shabnam-FD.ttf',
+            'B'  => 'Shabnam-Bold-FD.ttf',
+            'useOTL' => 0xFF,
+            'useKashida' => 75,
+        ],
+        'en' => [
+            'R'  => 'Gothic/Century Gothic.ttf',
+            'B'  => 'Gothic/GOTHICB.ttf',
         ]
     ]
 ];

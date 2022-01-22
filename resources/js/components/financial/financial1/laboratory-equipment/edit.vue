@@ -46,20 +46,20 @@
                                             <div data-repeater-list="laboratory_equipments" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center" v-for="(building, index) in data.laboratory_equipments" :key="index">
                                                     <div class="col-md-3">
-                                                        <label><h5>شرح :</h5></label>
+                                                        <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                         <input type="text" class="form-control laboratory_equipments" v-model="building.description"
                                                                :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.description')}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.description')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.description') }}</div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label><h5>تعداد (دستگاه) :</h5></label>
+                                                        <label><h5>تعداد (دستگاه) : <span class="text-danger">*</span></h5></label>
                                                         <input type="text" class="form-control laboratory_equipments" v-model="building.number"
                                                                :class="['form-control', {'is-invalid' : errors.has('laboratory_equipments.' + index +'.number')}]"
                                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.number')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.number') }}</div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label><h5>قیمت واحد :</h5></label>
+                                                        <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text noselect">دلار</span>
@@ -71,7 +71,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label><h5>قیمت واحد :</h5></label>
+                                                        <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text noselect">تومان</span>

@@ -46,13 +46,13 @@
                                             <div data-repeater-list="transportations" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center" v-for="(transportation, index) in data.transportations" :key="index">
                                                     <div class="col-md-3">
-                                                        <label><h5>شرح :</h5></label>
+                                                        <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                         <input type="text" class="form-control transportations" v-model="transportation.description"
                                                                :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.description')}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.description')" style="display: block;">{{ errors.get('transportations.' + index +'.description') }}</div>
                                                     </div>
                                                     <div class="col-md-1">
-                                                        <label><h5>تعداد :</h5></label>
+                                                        <label><h5>تعداد : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <input type="text" class="form-control transportations" v-model="transportation.count"
                                                                    :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.count')}]"
@@ -61,7 +61,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <label><h5>قیمت واحد :</h5></label>
+                                                        <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text noselect">تومان</span>

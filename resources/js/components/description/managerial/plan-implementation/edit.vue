@@ -41,7 +41,8 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">پیش‌بینی برنامه زمان‌بندی اجرای طرح</h5><br>
+                                    <h5 class="text-dark font-weight-bold">پیش‌بینی برنامه زمان‌بندی اجرای طرح
+                                        <span class="text-danger">*</span></h5><br>
                                     <div class="form-group row" v-for="(plan, index) in data.plan_implementations" :key="index">
                                         <div data-repeater-list="product" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">

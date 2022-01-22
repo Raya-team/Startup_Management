@@ -47,7 +47,8 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="sale_price">قیمت فروش:</label>
+                                                <label for="sale_price">قیمت فروش:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="sale_price" placeholder="برحسب تومان" name="sale_price" v-model="data.sale_price"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has('sale_price')}]"/>
@@ -56,7 +57,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="tax_rate">میزان مالیات:</label>
+                                                <label for="tax_rate">میزان مالیات:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="tax_rate" placeholder="برحسب درصد" name="tax_rate" v-model="data.tax_rate"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has('tax_rate')}]"/>

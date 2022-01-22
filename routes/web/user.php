@@ -52,6 +52,7 @@ use App\Http\Controllers\user\JustificationPlan\JustificationPlanController;
 use App\Http\Controllers\user\other\MaterialController;
 use App\Http\Controllers\user\other\ProductController;
 use App\Http\Controllers\user\other\TeamController;
+use App\Http\Controllers\user\Profile\ProfileController;
 use App\Http\Controllers\user\Readiness\ManufacturingController;
 use App\Http\Controllers\user\Readiness\MarketController;
 use App\Http\Controllers\user\Readiness\TechnologyController;
@@ -201,6 +202,11 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::get('/reporting/justification-plan', [RepJustificationPlanController::class, 'index'])->name('justification-plan.index');
     Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF']);
     Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index'])->name('preliminary-justification-plan.index');
+    Route::get('/reporting/preliminary-justification-plan/pdf', [RepPreliminaryJustificationPlanController::class, 'exportPDF'])->name('preliminary-justification-plan.export');
     Route::get('/reporting/financial-calculations', [FinancialCalculationController::class, 'index'])->name('financial-calculations.index');
+    Route::get('/reporting/business-canvas', [\App\Http\Controllers\user\Reporting\BusinessCanvasController::class, 'index'])->name('business-canvas.index');
+    Route::get('/reporting/business-canvas/pdf', [\App\Http\Controllers\user\Reporting\BusinessCanvasController::class, 'exportPDF'])->name('business-canvas.export');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::PATCH('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
 

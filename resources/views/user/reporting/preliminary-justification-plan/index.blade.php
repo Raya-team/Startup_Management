@@ -22,6 +22,11 @@
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
+            <div class="d-flex align-items-center">
+                <!--begin::Button-->
+                <a href="{{ route('preliminary-justification-plan.export') }}" class="btn btn-light-danger font-weight-bold ml-2">PDF</a>
+                <!--end::Button-->
+            </div>
         </div>
     </div>
     <!--end::Subheader-->

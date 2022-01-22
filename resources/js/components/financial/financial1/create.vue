@@ -470,13 +470,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(equipmentandmachinery, index) in data.equipmentandmachineries" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control equipmentandmachineries" v-model="equipmentandmachinery.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('equipmentandmachineries.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.description')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label><h5>تعداد :</h5></label>
+                                                    <label><h5>تعداد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control equipmentandmachineries" v-model="equipmentandmachinery.count"
                                                                :class="['form-control', {'is-invalid' : errors.has('equipmentandmachineries.' + index +'.count')}]"
@@ -485,7 +485,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>
@@ -518,13 +518,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(officeequipmentandsupply, index) in data.officeequipmentandsupplies" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control officeequipmentandsupplies" v-model="officeequipmentandsupply.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('officeequipmentandsupplies.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('officeequipmentandsupplies.' + index +'.description')" style="display: block;">{{ errors.get('officeequipmentandsupplies.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label><h5>تعداد :</h5></label>
+                                                    <label><h5>تعداد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control officeequipmentandsupplies" v-model="officeequipmentandsupply.count"
                                                                :class="['form-control', {'is-invalid' : errors.has('officeequipmentandsupplies.' + index +'.count')}]"
@@ -533,7 +533,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>
@@ -566,13 +566,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(facility, index) in data.facilities" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control facilities" v-model="facility.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('facilities.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.description')" style="display: block;">{{ errors.get('facilities.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label><h5>تعداد :</h5></label>
+                                                    <label><h5>تعداد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control facilities" v-model="facility.count"
                                                                :class="['form-control', {'is-invalid' : errors.has('facilities.' + index +'.count')}]"
@@ -581,7 +581,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>
@@ -614,13 +614,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(transportation, index) in data.transportations" :key="index">
                                                 <div class="col-md-3">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control transportations" v-model="transportation.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.description')" style="display: block;">{{ errors.get('transportations.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <label><h5>تعداد :</h5></label>
+                                                    <label><h5>تعداد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <input type="text" class="form-control transportations" v-model="transportation.count"
                                                                :class="['form-control', {'is-invalid' : errors.has('transportations.' + index +'.count')}]"
@@ -629,7 +629,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت واحد :</h5></label>
+                                                    <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>
@@ -662,13 +662,13 @@
                                         <transition-group name="slide">
                                             <div data-repeater-item="" class="form-group row align-items-center" v-for="(preoperatingcost, index) in data.preoperatingcosts" :key="index">
                                                 <div class="col-md-5">
-                                                    <label><h5>شرح :</h5></label>
+                                                    <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                     <input type="text" class="form-control preoperatingcosts" v-model="preoperatingcost.description"
                                                            :class="['form-control', {'is-invalid' : errors.has('preoperatingcosts.' + index +'.description')}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has('preoperatingcosts.' + index +'.description')" style="display: block;">{{ errors.get('preoperatingcosts.' + index +'.description') }}</div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label><h5>قیمت کل :</h5></label>
+                                                    <label><h5>قیمت کل : <span class="text-danger">*</span></h5></label>
                                                     <div class="input-group">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text noselect">تومان</span>

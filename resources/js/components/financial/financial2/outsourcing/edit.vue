@@ -47,7 +47,8 @@
                                     <div class="row" v-for="(out, index) in data.outsourcing" :key="index">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="outsourcing_description">شرح:</label>
+                                                <label for="outsourcing_description">شرح:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="outsourcing_description" placeholder="شرح" name="outsourcing_description" v-model="out.description"
                                                        :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.description`)}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has(`outsourcing.${index}.description`)" style="display: block;">{{ errors.get(`outsourcing.${index}.description`) }}</div>
@@ -55,7 +56,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="outsourcing_number">تعداد:</label>
+                                                <label for="outsourcing_number">تعداد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="outsourcing_number" placeholder="تعداد" name="outsourcing_number" v-model="out.number"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.number`)}]"/>
@@ -64,7 +66,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="outsourcing_unit_cost">هزینه واحد:</label>
+                                                <label for="outsourcing_unit_cost">هزینه واحد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="outsourcing_unit_cost" placeholder="هزینه واحد" name="outsourcing_unit_cost" v-model="out.unit_cost"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`outsourcing.${index}.unit_cost`)}]"/>

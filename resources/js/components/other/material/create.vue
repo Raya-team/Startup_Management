@@ -50,7 +50,8 @@
                                                 <transition-group name="slide">
                                                     <div data-repeater-item="" class="form-group row align-items-center" v-for="(mat, index) in data.material" :key="index">
                                                         <div class="col-md-4">
-                                                            <label><h5>نام محصول:</h5></label>
+                                                            <label><h5>نام محصول:
+                                                                <span class="text-danger">*</span></h5></label>
                                                             <select name="product_name" class="form-control" v-model="mat.product_name" :class="['form-control', {'is-invalid' : errors.has(type_error[index])}]">
                                                                 <option v-for="product in products" :value="product.id">{{ product.name }}</option>
                                                             </select>
@@ -58,7 +59,8 @@
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label><h5>نام:</h5></label>
+                                                            <label><h5>نام:
+                                                                <span class="text-danger">*</span></h5></label>
                                                             <input type="text" class="form-control materials" name="name" v-model="mat.name" :class="['form-control', {'is-invalid' : errors.has(name_error[index])}]" required />
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(name_error[index])" style="display: block;">{{ errors.get(name_error[index]) }}</div>
                                                             <div class="d-md-none mb-2"></div>

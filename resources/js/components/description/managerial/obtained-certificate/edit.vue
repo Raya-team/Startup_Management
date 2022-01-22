@@ -41,7 +41,8 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده</h5><br>
+                                    <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده
+                                        <span class="text-danger">*</span></h5><br>
                                     <div class="form-group row" v-for="(cer, index) in data.obtained_certificate" :key="index">
                                         <div data-repeater-list="product" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">

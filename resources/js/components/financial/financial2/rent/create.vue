@@ -48,7 +48,8 @@
                                         <div class="row" v-for="(ren, index) in data.rent" :key="index">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="rents_description">شرح:</label>
+                                                    <label for="rents_description">شرح:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="rents_description" placeholder="شرح" name="rents_description" v-model="ren.description"
                                                            :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.description`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`rent.${index}.description`)" style="display: block;">{{ errors.get(`rent.${index}.description`) }}</div>
@@ -56,7 +57,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="area">متراژ:</label>
+                                                    <label for="area">متراژ:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="area" placeholder="متراژ" name="area" v-model="ren.area"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.area`)}]"/>
@@ -65,7 +67,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="monthly_rent">اجاره ماهانه:</label>
+                                                    <label for="monthly_rent">اجاره ماهانه:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="monthly_rent" placeholder="اجاره ماهانه" name="monthly_rent" v-model="ren.monthly_rent"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`rent.${index}.monthly_rent`)}]"/>

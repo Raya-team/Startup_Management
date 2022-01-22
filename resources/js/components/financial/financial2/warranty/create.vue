@@ -59,7 +59,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="warranties_percent">درصد از فروش:</label>
+                                                    <label for="warranties_percent">درصد از فروش:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="warranties_percent" placeholder="درصد از فروش" name="warranties_percent" v-model="warr.percent"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`warranty.${index}.percent`)}]"/>

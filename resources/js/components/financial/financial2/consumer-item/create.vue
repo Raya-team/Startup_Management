@@ -48,7 +48,8 @@
                                         <div class="row" v-for="(cons, index) in data.consumer_item" :key="index">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="consumer_description">شرح:</label>
+                                                    <label for="consumer_description">شرح:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="consumer_description" placeholder="شرح" name="consumer_description" v-model="cons.description"
                                                            :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.description`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`consumer_item.${index}.description`)" style="display: block;">{{ errors.get(`consumer_item.${index}.description`) }}</div>
@@ -56,7 +57,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="consumer_number">تعداد:</label>
+                                                    <label for="consumer_number">تعداد:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="consumer_number" placeholder="تعداد" name="consumer_number" v-model="cons.number"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.number`)}]"/>
@@ -65,7 +67,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="consumer_unit_cost">هزینه واحد:</label>
+                                                    <label for="consumer_unit_cost">هزینه واحد:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="consumer_unit_cost" placeholder="هزینه واحد" name="consumer_unit_cost" v-model="cons.unit_cost"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`consumer_item.${index}.unit_cost`)}]"/>

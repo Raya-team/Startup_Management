@@ -51,7 +51,8 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-4">
                                                         <div class="form-group">
-                                                            <label for="description">شرح:</label>
+                                                            <label for="description">شرح:
+                                                                <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" id="description" name="description" placeholder="شرح" v-model="cer.description"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.description`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`required_certificates.${index}.description`)" style="display: block;">{{ errors.get(`required_certificates.${index}.description`) }}</div>
@@ -59,7 +60,8 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label for="acquisition_year">اخذ شده؟</label>
+                                                            <label for="acquisition_year">اخذ شده؟
+                                                                <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" id="acquisition_year" name="acquisition_year" placeholder="سال اخذ" v-model.number="cer.received"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.received`)}]"/>
@@ -68,7 +70,8 @@
                                                     </div>
                                                     <div class="col-md-3">
                                                         <div class="form-group">
-                                                            <label for="type">نوع:</label>
+                                                            <label for="type">نوع:
+                                                                <span class="text-danger">*</span></label>
                                                             <select name="type" class="form-control" id="type" v-model="cer.type"
                                                                     :class="['form-control', {'is-invalid' : errors.has(`required_certificates.${index}.type`)}]">
                                                                 <option value="1">اجباری</option>

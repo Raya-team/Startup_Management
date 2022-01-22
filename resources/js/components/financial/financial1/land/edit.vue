@@ -46,13 +46,13 @@
                                             <div data-repeater-list="lands" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center" v-for="(land, index) in data.lands" :key="index">
                                                     <div class="col-md-3">
-                                                        <label><h5>شرح :</h5></label>
+                                                        <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                         <input type="text" class="form-control lands" v-model="land.description"
                                                                :class="['form-control', {'is-invalid' : errors.has('lands.' + index +'.description')}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.description')" style="display: block;">{{ errors.get('lands.' + index +'.description') }}</div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label><h5>متراژ :</h5></label>
+                                                        <label><h5>متراژ : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text noselect">متر مربع</span>
@@ -64,7 +64,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <label><h5>قیمت کل :</h5></label>
+                                                        <label><h5>قیمت کل : <span class="text-danger">*</span></h5></label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text noselect">تومان</span>

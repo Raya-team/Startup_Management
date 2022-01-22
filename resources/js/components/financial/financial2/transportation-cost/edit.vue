@@ -47,7 +47,8 @@
                                     <div class="row" v-for="(tran, index) in data.transportation_cost" :key="index">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="transportation_description">شرح:</label>
+                                                <label for="transportation_description">شرح:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="transportation_description" placeholder="شرح" name="transportation_description" v-model="tran.description"
                                                        :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.description`)}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has(`transportation_cost.${index}.description`)" style="display: block;">{{ errors.get(`transportation_cost.${index}.description`) }}</div>
@@ -55,7 +56,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="transportation_number">تعداد:</label>
+                                                <label for="transportation_number">تعداد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="transportation_number" placeholder="تعداد" name="transportation_number"  v-model="tran.number"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.number`)}]"/>
@@ -64,7 +66,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="transportation_unit_cost">هزینه واحد:</label>
+                                                <label for="transportation_unit_cost">هزینه واحد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="transportation_unit_cost" placeholder="هزینه واحد" name="transportation_unit_cost" v-model="tran.unit_cost"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`transportation_cost.${index}.unit_cost`)}]"/>

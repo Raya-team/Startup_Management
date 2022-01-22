@@ -59,7 +59,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="repairs_percent">درصد</label>
+                                                    <label for="repairs_percent">درصد:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="repairs_percent" placeholder="تعداد" name="repairs_percent" v-model="rep.percent"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`repair.${index}.percent`)}]"/>

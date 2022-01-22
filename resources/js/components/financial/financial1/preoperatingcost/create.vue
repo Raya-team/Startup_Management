@@ -47,13 +47,13 @@
                                                 <transition-group name="slide">
                                                     <div data-repeater-item="" class="form-group row align-items-center" v-for="(preoperatingcost, index) in data.preoperatingcosts" :key="index">
                                                         <div class="col-md-5">
-                                                            <label><h5>شرح :</h5></label>
+                                                            <label><h5>شرح : <span class="text-danger">*</span></h5></label>
                                                             <input type="text" class="form-control preoperatingcosts" v-model="preoperatingcost.description"
                                                                    :class="['form-control', {'is-invalid' : errors.has('preoperatingcosts.' + index +'.description')}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has('preoperatingcosts.' + index +'.description')" style="display: block;">{{ errors.get('preoperatingcosts.' + index +'.description') }}</div>
                                                         </div>
                                                         <div class="col-md-5">
-                                                            <label><h5>قیمت کل :</h5></label>
+                                                            <label><h5>قیمت کل : <span class="text-danger">*</span></h5></label>
                                                             <div class="input-group">
                                                                 <div class="input-group-prepend">
                                                                     <span class="input-group-text noselect">تومان</span>

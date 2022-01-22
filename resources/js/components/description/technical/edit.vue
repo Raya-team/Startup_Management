@@ -37,7 +37,8 @@
                         <div class="card card-custom gutter-b example example-compact">
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
-                                <div class="card-body"><h5 class="text-dark font-weight-bold">معرفی محصول</h5><br>
+                                <div class="card-body"><h5 class="text-dark font-weight-bold">معرفی محصول
+                                    <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -50,7 +51,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">مشخصات فنی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">مشخصات فنی
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -63,7 +65,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">مبانی علمی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">مبانی علمی
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -76,7 +79,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">ویژگی‌های فنی محصول</h5><br>
+                                    <h5 class="text-dark font-weight-bold">ویژگی‌های فنی محصول
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -89,7 +93,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">شرایط و نوبت کاری</h5><br>
+                                    <h5 class="text-dark font-weight-bold">شرایط و نوبت کاری
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -102,7 +107,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">برنامه تولید</h5><br>
+                                    <h5 class="text-dark font-weight-bold">برنامه تولید
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">

@@ -48,7 +48,6 @@
                                 <tr class="bg-gray-100 text-center">
                                     <th>ردیف</th>
                                     <th>شرح</th>
-                                    <th>درصد</th>
                                     <th>هزینه کل(تومان)</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -60,9 +59,6 @@
                                     </td>
                                     <td>
                                         <span class="text-dark-75">{{ insurance.description }}</span>
-                                    </td>
-                                    <td>
-                                        <span class="text-dark-750">{{ insurance.percent }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ insurance.total_cost }}</span>

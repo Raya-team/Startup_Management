@@ -69,7 +69,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="materials_consumption">میزان مصرف:</label>
+                                                <label for="materials_consumption">میزان مصرف:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="materials_consumption" placeholder="میزان مصرف" name="materials_consumption"v-model="raw.consumption"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.consumption`)}]"/>
@@ -89,7 +90,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
-                                                <label for="materials_unit_price">قیمت واحد:</label>
+                                                <label for="materials_unit_price">قیمت واحد:
+                                                    <span class="text-danger">*</span></label>
                                                 <input type="text" class="form-control" id="materials_unit_price" placeholder="قیمت واحد" name="materials_unit_price" v-model="raw.unit_price"
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has(`raw_material.${index}.unit_price`)}]"/>

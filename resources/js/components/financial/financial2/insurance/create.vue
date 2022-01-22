@@ -59,7 +59,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label for="insurances_total_cost">هزینه کل:</label>
+                                                    <label for="insurances_total_cost">هزینه کل:
+                                                        <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control" id="insurances_total_cost" placeholder="هزینه کل" name="insurances_total_cost" v-model="insu.total_cost"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`insurance.${index}.total_cost`)}]"/>

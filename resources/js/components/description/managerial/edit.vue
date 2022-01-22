@@ -38,7 +38,8 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">درباره تیم/شرکت</h5><br>
+                                    <h5 class="text-dark font-weight-bold">درباره تیم/شرکت
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -51,7 +52,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">چشم انداز تیم/شرکت</h5><br>
+                                    <h5 class="text-dark font-weight-bold">چشم انداز تیم/شرکت
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -64,7 +66,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">ماموریت تیم/شرکت</h5><br>
+                                    <h5 class="text-dark font-weight-bold">ماموریت تیم/شرکت
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -77,7 +80,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">شایستگی های کلیدی تیم/شرکت</h5><br>
+                                    <h5 class="text-dark font-weight-bold">شایستگی های کلیدی تیم/شرکت
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -90,7 +94,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">اهداف</h5><br>
+                                    <h5 class="text-dark font-weight-bold">اهداف
+                                        <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
@@ -103,7 +108,8 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">بیان مساله</h5>
+                                    <h5 class="text-dark font-weight-bold">بیان مساله
+                                        <span class="text-danger">*</span></h5>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12">
