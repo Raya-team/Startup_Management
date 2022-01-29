@@ -48,21 +48,21 @@
                                         <div data-repeater-list="" class="col-lg-12">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-12">
-                                                    <label>شرح:</label>
+                                                    <label>شرح: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
                                                            :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.description`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.description`)" style="display: block;">{{ errors.get(`threats.${index}.description`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>وزن:</label>
+                                                    <label>وزن: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
                                                            :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.weight`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.weight`)" style="display: block;">{{ errors.get(`threats.${index}.weight`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>امتیاز:</label>
+                                                    <label>امتیاز: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
                                                            :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.score`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.score`)" style="display: block;">{{ errors.get(`threats.${index}.score`) }}</div>

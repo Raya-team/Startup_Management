@@ -123,7 +123,7 @@
                     .then(response => {
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات زمین با موفقیت ویرایش شد",
+                                title: "اطلاعات با موفقیت ویرایش شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

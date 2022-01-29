@@ -47,14 +47,14 @@
                                             <div data-repeater-list="" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label>نام:</label>
+                                                        <label>نام: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="producers_name" v-model="pro.name"
                                                                :class="['form-control', {'is-invalid' : errors.has(`producers.${index}.name`)}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`producers.${index}.name`)" style="display: block;">{{ errors.get(`producers.${index}.name`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>منطقه جغرافیایی:</label>
+                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="producers_region" v-model="pro.geographical_region"
                                                                :class="['form-control', {'is-invalid' : errors.has(`producers.${index}.geographical_region`)}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`producers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`producers.${index}.geographical_region`) }}</div>

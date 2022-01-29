@@ -179,7 +179,7 @@
                 axios.put(`/shareholders/${this.$route.params.id}`, this.data)
                     .then(response => {
                         Swal.fire({
-                            title: "اطلاعات سهامدار با موفقیت ویرایش شد",
+                            title: "اطلاعات با موفقیت ویرایش شد",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "باشد",

@@ -366,7 +366,7 @@
                     axios.post('/calculations', this.data)
                         .then(response => {
                             Swal.fire({
-                                title: "اطلاعات با موفیت ثبت شد",
+                                title: "اطلاعات با موفقیت ثبت شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

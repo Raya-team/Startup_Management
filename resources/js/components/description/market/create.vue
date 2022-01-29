@@ -149,7 +149,7 @@
                                             <!--begin: Wizard Step 1-->
                                             <div class="pb-5" data-wizard-type="step-content" data-wizard-state="current">
                                                 <div class="card-body">
-                                                    <h5 class="text-dark font-weight-bold">معرفی محصول</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">معرفی محصول <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -162,7 +162,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">ویژگی های محصول</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">ویژگی های محصول <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -175,7 +175,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">مزیت های رقابتی محصول</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">مزیت های رقابتی محصول <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -188,7 +188,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">تجزیه و تحلیل موقعیت</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">تجزیه و تحلیل موقعیت <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -201,7 +201,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">استراتژی قیمت گذاری محصول</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">استراتژی قیمت گذاری محصول <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -214,7 +214,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">استراتژی بازاریابی محصول</h5>
+                                                    <h5 class="text-dark font-weight-bold">استراتژی بازاریابی محصول <span class="text-danger">*</span></h5>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -227,7 +227,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">وضعیت بازار</h5>
+                                                    <h5 class="text-dark font-weight-bold">وضعیت بازار <span class="text-danger">*</span></h5>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -240,7 +240,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">بازار هدف</h5>
+                                                    <h5 class="text-dark font-weight-bold">بازار هدف <span class="text-danger">*</span></h5>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -253,7 +253,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">پیش‌بینی آینده بازار</h5>
+                                                    <h5 class="text-dark font-weight-bold">پیش‌بینی آینده بازار <span class="text-danger">*</span></h5>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -276,7 +276,7 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-3">
-                                                                        <label>سال:</label>
+                                                                        <label>سال: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="year" v-model="pro.year"
                                                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.year`)}]"/>
@@ -284,28 +284,28 @@
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>تقاضای کل:</label>
+                                                                        <label>تقاضای کل: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="general_request" v-model="pro.general_request"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.general_request`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.general_request`)" style="display: block;">{{ errors.get(`product_supplies.${index}.general_request`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>تولید داخل:</label>
+                                                                        <label>تولید داخل: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="domestic_production" v-model="pro.domestic_production"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.domestic_production`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.domestic_production`)" style="display: block;">{{ errors.get(`product_supplies.${index}.domestic_production`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>واردات:</label>
+                                                                        <label>واردات: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="importation" v-model="pro.importation"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.importation`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.importation`)" style="display: block;">{{ errors.get(`product_supplies.${index}.importation`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>واحد:</label>
+                                                                        <label>واحد: <span class="text-danger">*</span></label>
                                                                         <select name="unit" class="form-control" v-model="pro.unit_id"
                                                                                 :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.unit_id`)}]">
                                                                             <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>
@@ -338,35 +338,35 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-4">
-                                                                        <label>ویژگی مشتری:</label>
+                                                                        <label>ویژگی مشتری: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="customer_features" v-model="pro.customer_features"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.customer_features`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.customer_features`)" style="display: block;">{{ errors.get(`product_customers.${index}.customer_features`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>مشتریان گروه اول:</label>
+                                                                        <label>مشتریان گروه اول: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="first_group_customers" v-model="pro.first_group_customers"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.first_group_customers`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.first_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.first_group_customers`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>مشتریان گروه دوم:</label>
+                                                                        <label>مشتریان گروه دوم: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="second_group_customers" v-model="pro.second_group_customers"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.second_group_customers`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.second_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.second_group_customers`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>مشتریان گروه سوم:</label>
+                                                                        <label>مشتریان گروه سوم: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="third_group_customers" v-model="pro.third_group_customers"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.third_group_customers`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.third_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.third_group_customers`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>مشتریان گروه چهارم:</label>
+                                                                        <label>مشتریان گروه چهارم: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="fourth_group_customers" v-model="pro.fourth_group_customers"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_customers.${index}.fourth_group_customers`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_customers.${index}.fourth_group_customers`)" style="display: block;">{{ errors.get(`product_customers.${index}.fourth_group_customers`) }}</div>
@@ -398,14 +398,14 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-4">
-                                                                        <label>نام:</label>
+                                                                        <label>نام: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.name`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.name`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.name`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.geographical_region`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.geographical_region`) }}</div>
@@ -434,14 +434,14 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-4">
-                                                                        <label>نام:</label>
+                                                                        <label>نام: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="producers_name" v-model="pro.name"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`producers.${index}.name`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`producers.${index}.name`)" style="display: block;">{{ errors.get(`producers.${index}.name`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="producers_region" v-model="pro.geographical_region"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`producers.${index}.geographical_region`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`producers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`producers.${index}.geographical_region`) }}</div>
@@ -470,14 +470,14 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-4">
-                                                                        <label>نام:</label>
+                                                                        <label>نام: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="suppliers_name" v-model="supp.name"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`suppliers.${index}.name`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`suppliers.${index}.name`)" style="display: block;">{{ errors.get(`suppliers.${index}.name`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="suppliers_region" v-model="supp.geographical_region"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`suppliers.${index}.geographical_region`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`suppliers.${index}.geographical_region`) }}</div>
@@ -506,14 +506,14 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-4">
-                                                                        <label>نام:</label>
+                                                                        <label>نام: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="retails_name" v-model="ret.name"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`retails.${index}.name`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`retails.${index}.name`)" style="display: block;">{{ errors.get(`retails.${index}.name`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="retails_region" v-model="ret.geographical_region"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`retails.${index}.geographical_region`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`retails.${index}.geographical_region`)" style="display: block;">{{ errors.get(`retails.${index}.geographical_region`) }}</div>
@@ -539,7 +539,7 @@
                                             <!--begin: Wizard Step 5-->
                                             <div class="pb-5" data-wizard-type="step-content">
                                                 <div class="card-body">
-                                                    <h5 class="text-dark font-weight-bold">اقتصادی</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">اقتصادی <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -552,7 +552,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">اجتماعی</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">اجتماعی <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -565,7 +565,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">سیاسی</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">سیاسی <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -578,7 +578,7 @@
                                                     </div>
                                                     <!--end::Group-->
                                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                                    <h5 class="text-dark font-weight-bold">محیط زیستی</h5><br>
+                                                    <h5 class="text-dark font-weight-bold">محیط زیستی <span class="text-danger">*</span></h5><br>
                                                     <!--begin::Group-->
                                                     <div class="form-group row">
                                                         <div class="col-xl-12 col-lg-12">
@@ -601,35 +601,35 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-5">
-                                                                        <label>نام رقیب:</label>
+                                                                        <label>نام رقیب: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="competitor_name" v-model="pro.name"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.name`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.name`)" style="display: block;">{{ errors.get(`product_competitors.${index}.name`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>منطقه جغرافیایی:</label>
+                                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="competitors_region" v-model="pro.geographical_region"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.geographical_region`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.geographical_region`)" style="display: block;">{{ errors.get(`product_competitors.${index}.geographical_region`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>سهم از بازار:</label>
+                                                                        <label>سهم از بازار: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="market_share" v-model="pro.market_share"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.market_share`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.market_share`)" style="display: block;">{{ errors.get(`product_competitors.${index}.market_share`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>ویژگی رقابتی:</label>
+                                                                        <label>ویژگی رقابتی: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="competitive_feature" v-model="pro.competitive_feature"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.competitive_feature`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.competitive_feature`)" style="display: block;">{{ errors.get(`product_competitors.${index}.competitive_feature`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>نقطه ضعف:</label>
+                                                                        <label>نقطه ضعف: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="weakness" v-model="pro.weakness"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.weakness`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.weakness`)" style="display: block;">{{ errors.get(`product_competitors.${index}.weakness`) }}</div>
@@ -662,21 +662,21 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-12">
-                                                                        <label>شرح:</label>
+                                                                        <label>شرح: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.description`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.description`)" style="display: block;">{{ errors.get(`strengths.${index}.description`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>وزن:</label>
+                                                                        <label>وزن: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.weight`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.weight`)" style="display: block;">{{ errors.get(`strengths.${index}.weight`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>امتیاز:</label>
+                                                                        <label>امتیاز: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`strengths.${index}.score`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`strengths.${index}.score`)" style="display: block;">{{ errors.get(`strengths.${index}.score`) }}</div>
@@ -707,21 +707,21 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-12">
-                                                                        <label>شرح:</label>
+                                                                        <label>شرح: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`weak_points.${index}.description`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`weak_points.${index}.description`)" style="display: block;">{{ errors.get(`weak_points.${index}.description`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>وزن:</label>
+                                                                        <label>وزن: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`weak_points.${index}.weight`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`weak_points.${index}.weight`)" style="display: block;">{{ errors.get(`weak_points.${index}.weight`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>امتیاز:</label>
+                                                                        <label>امتیاز: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`weak_points.${index}.score`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`weak_points.${index}.score`)" style="display: block;">{{ errors.get(`weak_points.${index}.score`) }}</div>
@@ -752,21 +752,21 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-12">
-                                                                        <label>شرح:</label>
+                                                                        <label>شرح: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`opportunity_points.${index}.description`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`opportunity_points.${index}.description`)" style="display: block;">{{ errors.get(`opportunity_points.${index}.description`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>وزن:</label>
+                                                                        <label>وزن: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`opportunity_points.${index}.weight`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`opportunity_points.${index}.weight`)" style="display: block;">{{ errors.get(`opportunity_points.${index}.weight`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>امتیاز:</label>
+                                                                        <label>امتیاز: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`opportunity_points.${index}.score`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`opportunity_points.${index}.score`)" style="display: block;">{{ errors.get(`opportunity_points.${index}.score`) }}</div>
@@ -797,21 +797,21 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-12">
-                                                                        <label>شرح:</label>
+                                                                        <label>شرح: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_description" v-model="data.description"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.description`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.description`)" style="display: block;">{{ errors.get(`threats.${index}.description`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>وزن:</label>
+                                                                        <label>وزن: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_weight" v-model="data.weight"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.weight`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.weight`)" style="display: block;">{{ errors.get(`threats.${index}.weight`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <label>امتیاز:</label>
+                                                                        <label>امتیاز: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_Score" v-model="data.score"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`threats.${index}.score`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`threats.${index}.score`)" style="display: block;">{{ errors.get(`threats.${index}.score`) }}</div>
@@ -842,14 +842,14 @@
                                                             <div data-repeater-list="" class="col-lg-10">
                                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                                     <div class="col-md-5">
-                                                                        <label>عنوان محصول:</label>
+                                                                        <label>عنوان محصول: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_description" v-model="pro.product_title"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`alternative_products.${index}.product_title`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`alternative_products.${index}.product_title`)" style="display: block;">{{ errors.get(`alternative_products.${index}.product_title`) }}</div>
                                                                         <div class="d-md-none mb-2"></div>
                                                                     </div>
                                                                     <div class="col-md-5">
-                                                                        <label>توضیحات:</label>
+                                                                        <label>توضیحات: <span class="text-danger">*</span></label>
                                                                         <input type="text" class="form-control products" name="strengths_weight" v-model="pro.description"
                                                                                :class="['form-control', {'is-invalid' : errors.has(`alternative_products.${index}.description`)}]"/>
                                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`alternative_products.${index}.description`)" style="display: block;">{{ errors.get(`alternative_products.${index}.description`) }}</div>

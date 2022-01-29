@@ -178,7 +178,7 @@
                 axios.post('/key-employees', this.data)
                     .then(response => {
                         Swal.fire({
-                            title: "کارمند با موفیت ایجاد شد",
+                            title: "اطلاعات با موفقیت ثبت شد",
                             icon: "success",
                             buttonsStyling: false,
                             showConfirmButton: false,

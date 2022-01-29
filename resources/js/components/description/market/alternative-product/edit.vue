@@ -48,14 +48,14 @@
                                         <div data-repeater-list="" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-5">
-                                                    <label>عنوان محصول:</label>
+                                                    <label>عنوان محصول: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="strengths_description" v-model="pro.product_title"
                                                            :class="['form-control', {'is-invalid' : errors.has(`alternative_products.${index}.product_title`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`alternative_products.${index}.product_title`)" style="display: block;">{{ errors.get(`alternative_products.${index}.product_title`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <label>توضیحات:</label>
+                                                    <label>توضیحات: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="strengths_weight" v-model="pro.description"
                                                            :class="['form-control', {'is-invalid' : errors.has(`alternative_products.${index}.description`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`alternative_products.${index}.description`)" style="display: block;">{{ errors.get(`alternative_products.${index}.description`) }}</div>

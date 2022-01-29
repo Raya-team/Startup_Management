@@ -187,7 +187,7 @@
                 axios.post('/shareholders', this.data)
                     .then(response => {
                         Swal.fire({
-                            title: "سهامدار با موفیت ایجاد شد",
+                            title: "اطلاعات با موفقیت ثبت شد",
                             icon: "success",
                             buttonsStyling: false,
                             showConfirmButton: false,

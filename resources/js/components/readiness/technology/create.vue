@@ -425,7 +425,7 @@
                     .then(response => {
                         if (response.status == 201){
                             Swal.fire({
-                                title: "طلاعات با موفقیت ثبت شد.",
+                                title: "اطلاعات با موفقیت ثبت شد.",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

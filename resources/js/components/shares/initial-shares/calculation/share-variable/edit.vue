@@ -195,7 +195,7 @@
                             console.log(response);
                             if (response.status == 201) {
                                 Swal.fire({
-                                    title: "اطلاعات موفقیت ویرایش شد",
+                                    title: "اطلاعات با موفقیت ویرایش شد",
                                     icon: "success",
                                     buttonsStyling: false,
                                     showConfirmButton: false,

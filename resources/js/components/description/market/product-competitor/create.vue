@@ -50,35 +50,35 @@
                                                 <div data-repeater-list="" class="col-lg-10">
                                                     <div data-repeater-item="" class="form-group row align-items-center">
                                                         <div class="col-md-4">
-                                                            <label>نام رقیب:</label>
+                                                            <label>نام رقیب: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="competitor_name" v-model="pro.name"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.name`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.name`)" style="display: block;">{{ errors.get(`product_competitors.${index}.name`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>منطقه جغرافیایی:</label>
+                                                            <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="competitors_region" v-model="pro.geographical_region"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.geographical_region`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.geographical_region`)" style="display: block;">{{ errors.get(`product_competitors.${index}.geographical_region`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>سهم از بازار:</label>
+                                                            <label>سهم از بازار: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="market_share" v-model="pro.market_share"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.market_share`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.market_share`)" style="display: block;">{{ errors.get(`product_competitors.${index}.market_share`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>ویژگی رقابتی:</label>
+                                                            <label>ویژگی رقابتی: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="competitive_feature" v-model="pro.competitive_feature"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.competitive_feature`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.competitive_feature`)" style="display: block;">{{ errors.get(`product_competitors.${index}.competitive_feature`) }}</div>
                                                             <div class="d-md-none mb-2"></div>
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <label>نقطه ضعف:</label>
+                                                            <label>نقطه ضعف: <span class="text-danger">*</span></label>
                                                             <input type="text" class="form-control products" name="weakness" v-model="pro.weakness"
                                                                    :class="['form-control', {'is-invalid' : errors.has(`product_competitors.${index}.weakness`)}]"/>
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has(`product_competitors.${index}.weakness`)" style="display: block;">{{ errors.get(`product_competitors.${index}.weakness`) }}</div>

@@ -178,7 +178,7 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
-                    title: "از حذف مورد اطمینان دارید؟",
+                    title: "آیا میخواهید حذف شود؟",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonText: "بله، حذف شود",

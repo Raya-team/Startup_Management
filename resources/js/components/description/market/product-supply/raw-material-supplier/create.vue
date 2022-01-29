@@ -47,14 +47,14 @@
                                             <div data-repeater-list="" class="col-lg-10">
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label>نام:</label>
+                                                        <label>نام: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="material_suppliers_name" v-model="raw.name"
                                                                :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.name`)}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.name`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.name`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <label>منطقه جغرافیایی:</label>
+                                                        <label>منطقه جغرافیایی: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="material_suppliers_region" v-model="raw.geographical_region"
                                                                :class="['form-control', {'is-invalid' : errors.has(`raw_material_suppliers.${index}.geographical_region`)}]"/>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has(`raw_material_suppliers.${index}.geographical_region`)" style="display: block;">{{ errors.get(`raw_material_suppliers.${index}.geographical_region`) }}</div>

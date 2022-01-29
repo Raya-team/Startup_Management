@@ -118,7 +118,7 @@
                     .then(response => {
                         if(response.data[0] == 'success'){
                             Swal.fire({
-                                title: "اطلاعات تجهیزات با موفقیت ثبت شد",
+                                title: "اطلاعات با موفقیت ثبت شد",
                                 icon: "success",
                                 buttonsStyling: false,
                                 showConfirmButton: false,

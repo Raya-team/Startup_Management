@@ -174,7 +174,7 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
-                    title: "از حذف این فایل اطمینان دارید؟",
+                    title: "آیا میخواهید حذف شود؟",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonText: "بله، حذف شود",
@@ -187,7 +187,7 @@
                                     var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
-                                        title: "عملیات حذف با موفقیت انجام شد",
+                                        title: "حذف با موفقیت انجام شد",
                                         icon: "success",
                                         showConfirmButton: false,
                                         timer: 3000,

@@ -217,7 +217,7 @@
                 KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses);
 
                 Swal.fire({
-                    title: "از حذف این کارمند اطمینان دارید؟",
+                    title: "آیا می خواهید حذف شود؟",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonText: "بله، حذف شود",
@@ -230,7 +230,7 @@
                                     var table = document.getElementById(`del_${id}`);
                                     table.remove();
                                     Swal.fire({
-                                        title: "کارمند با موفقیت حذف شد",
+                                        title: "حذف با موفقیت انجام شد",
                                         icon: "success",
                                         showConfirmButton: false,
                                         timer: 3000,

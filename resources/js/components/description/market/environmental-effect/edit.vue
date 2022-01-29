@@ -41,7 +41,7 @@
                             <!--begin::Form-->
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
-                                    <h5 class="text-dark font-weight-bold">اقتصادی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">اقتصادی <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
@@ -54,7 +54,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">اجتماعی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">اجتماعی <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
@@ -67,7 +67,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">سیاسی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">سیاسی <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">
@@ -80,7 +80,7 @@
                                     </div>
                                     <!--end::Group-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                                    <h5 class="text-dark font-weight-bold">محیط زیستی</h5><br>
+                                    <h5 class="text-dark font-weight-bold">محیط زیستی <span class="text-danger">*</span></h5><br>
                                     <!--begin::Group-->
                                     <div class="form-group row">
                                         <div class="col-xl-12 col-lg-12">

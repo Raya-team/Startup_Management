@@ -41,19 +41,19 @@
     <tr>
         <td rowspan="2">
             <h1>بخش مشتریان</h1><br>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->customer_section }}</p>
         </td>
         <td>
             <h1>ارتباط با مشتریان</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->communication_with_clients }}</p>
         </td>
         <td rowspan="2">
             <h1>ارزش پیشنهادی</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->suggested_value }}</p>
         </td>
         <td>
-            <h1>فعالیت های کلیدی</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <h1>فعالیت های اصلی</h1>
+            <p>{{ $canvas->main_activities }}</p>
         </td>
         <td rowspan="2">
             <h1>شرکای کلیدی</h1>
@@ -62,22 +62,22 @@
     </tr>
     <tr>
         <td>
-            <h1>کانال های ارتباطی</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <h1>کانال توزیع</h1>
+            <p>{{ $canvas->distribution_channels }}</p>
         </td>
         <td>
             <h1>منابع اصلی</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->main_sources }}</p>
         </td>
     </tr>
     <tr>
         <td colspan="3">
             <h1>جریان درآمد</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->income_flow }}</p>
         </td>
         <td colspan="2">
             <h1>ساختار هزینه</h1>
-            <p>{{ $canvas->key_partners }}</p>
+            <p>{{ $canvas->cost_structure }}</p>
         </td>
     </tr>
 </table>

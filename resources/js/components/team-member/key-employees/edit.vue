@@ -171,7 +171,7 @@
                 axios.put(`/key-employees/${this.$route.params.id}`, this.data)
                     .then(response => {
                         Swal.fire({
-                            title: "اطلاعات کارمند با موفقیت ویرایش شد",
+                            title: "اطلاعات با موفقیت ویرایش شد",
                             icon: "success",
                             buttonsStyling: false,
                             confirmButtonText: "باشد",

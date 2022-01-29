@@ -468,7 +468,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            <a  href="{{ route('description-technical.index') }}" class="menu-link">
+                            <a  href="{{ route('business-canvas.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>

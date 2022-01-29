@@ -48,7 +48,7 @@
                                         <div data-repeater-list="" class="col-lg-10">
                                             <div data-repeater-item="" class="form-group row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label>سال:</label>
+                                                    <label>سال: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="year" v-model="pro.year"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.year`)}]"/>
@@ -56,28 +56,28 @@
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <label>تقاضای کل:</label>
+                                                    <label>تقاضای کل: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="general_request" v-model="pro.general_request"
                                                            :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.general_request`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.general_request`)" style="display: block;">{{ errors.get(`product_supplies.${index}.general_request`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>تولید داخل:</label>
+                                                    <label>تولید داخل: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="domestic_production" v-model="pro.domestic_production"
                                                            :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.domestic_production`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.domestic_production`)" style="display: block;">{{ errors.get(`product_supplies.${index}.domestic_production`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>واردات:</label>
+                                                    <label>واردات: <span class="text-danger">*</span></label>
                                                     <input type="text" class="form-control products" name="importation" v-model="pro.importation"
                                                            :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.importation`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`product_supplies.${index}.importation`)" style="display: block;">{{ errors.get(`product_supplies.${index}.importation`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <label>واحد:</label>
+                                                    <label>واحد: <span class="text-danger">*</span></label>
                                                     <select name="unit" class="form-control" v-model="pro.unit_id"
                                                             :class="['form-control', {'is-invalid' : errors.has(`product_supplies.${index}.unit_id`)}]">
                                                         <option v-for="unit in units" :value="unit.id">{{ unit.name }}</option>

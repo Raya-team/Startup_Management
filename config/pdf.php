@@ -57,6 +57,8 @@ return [
     'display_mode'          => 'fullpage',
     'tempDir'               => base_path('../temp/'),
     'font_path' => base_path('public/assets/plugins/global/fonts/shabnam-font/Farsi-Digits/'),
+    // در هاست از آدرس زیر استفاده شود
+//    'font_path' => base_path('../public_html/app/assets/plugins/global/fonts/shabnam-font/Farsi-Digits/'),
     'font_data' => [
         'fa' => [
             'R'  => 'Shabnam-FD.ttf',
