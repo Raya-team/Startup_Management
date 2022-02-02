@@ -16,7 +16,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Head-->
 <head><base href="../../../">
     <meta charset="utf-8" />
-    <title>Error Page - 6 | Keenthemes</title>
+    <title>خطا</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="canonical" href="https://keenthemes.com/metronic" />

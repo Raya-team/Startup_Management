@@ -75,73 +75,94 @@ class FinancialCalculationController extends Controller
         $TRL = 0;
         $techno_questions = TechnologyQuestion::where('team_id', $team_id)->first();
 
-        if ($techno_questions->q31 || $techno_questions->q32 || $techno_questions->q33 || $techno_questions->q34 || $techno_questions->q35){
-            $TRL = 9;
-        }elseif ($techno_questions->q27 || $techno_questions->q28 || $techno_questions->q29 || $techno_questions->q30){
-            $TRL = 8;
-        }elseif ($techno_questions->q23 || $techno_questions->q24 || $techno_questions->q25 || $techno_questions->q26){
-            $TRL = 7;
-        }elseif ($techno_questions->q19 || $techno_questions->q20 || $techno_questions->q21 || $techno_questions->q22){
-            $TRL = 6;
+        if (isset($techno_questions)){
+            if ($techno_questions->q31 || $techno_questions->q32 || $techno_questions->q33 || $techno_questions->q34 || $techno_questions->q35){
+                $TRL = 9;
+            }elseif ($techno_questions->q27 || $techno_questions->q28 || $techno_questions->q29 || $techno_questions->q30){
+                $TRL = 8;
+            }elseif ($techno_questions->q23 || $techno_questions->q24 || $techno_questions->q25 || $techno_questions->q26){
+                $TRL = 7;
+            }elseif ($techno_questions->q19 || $techno_questions->q20 || $techno_questions->q21 || $techno_questions->q22){
+                $TRL = 6;
+            }
+            elseif ($techno_questions->q15 || $techno_questions->q16 || $techno_questions->q17 || $techno_questions->q18){
+                $TRL = 5;
+            }elseif ($techno_questions->q10 || $techno_questions->q11 || $techno_questions->q12 ||  $techno_questions->q13 ||  $techno_questions->q14){
+                $TRL = 4;
+            }elseif ($techno_questions->q7 || $techno_questions->q8 || $techno_questions->q9){
+                $TRL = 3;
+            }elseif ($techno_questions->q4 || $techno_questions->q5 || $techno_questions->q6){
+                $TRL = 2;
+            }elseif ($techno_questions->q1 || $techno_questions->q2 || $techno_questions->q3){
+                $TRL = 1;
+            }
+        }else{
+            $value = 'لطفا بخش تکنولوژی سطح آمادگی را تکمیل کنید';
+            return view('user.reporting.financial-calculation.Error', compact('value'));
         }
-        elseif ($techno_questions->q15 || $techno_questions->q16 || $techno_questions->q17 || $techno_questions->q18){
-            $TRL = 5;
-        }elseif ($techno_questions->q10 || $techno_questions->q11 || $techno_questions->q12 ||  $techno_questions->q13 ||  $techno_questions->q14){
-            $TRL = 4;
-        }elseif ($techno_questions->q7 || $techno_questions->q8 || $techno_questions->q9){
-            $TRL = 3;
-        }elseif ($techno_questions->q4 || $techno_questions->q5 || $techno_questions->q6){
-            $TRL = 2;
-        }elseif ($techno_questions->q1 || $techno_questions->q2 || $techno_questions->q3){
-            $TRL = 1;
-        }
+
 
         /* mRL */
         $mRL = 0;
         $ManufacturingQuestion = ManufacturingQuestion::where('team_id', $team_id)->first();
-        if ($ManufacturingQuestion->q24 || $ManufacturingQuestion->q25 || $ManufacturingQuestion->q26 || $ManufacturingQuestion->q27 || $ManufacturingQuestion->q28 || $ManufacturingQuestion->q29 && $ManufacturingQuestion->q30){
-            $mRL = 10;
-        }elseif ($ManufacturingQuestion->q20 || $ManufacturingQuestion->q21 || $ManufacturingQuestion->q22 || $ManufacturingQuestion->q23){
-            $mRL = 9;
-        }elseif ($ManufacturingQuestion->q14 || $ManufacturingQuestion->q15 || $ManufacturingQuestion->q16 || $ManufacturingQuestion->q17 || $ManufacturingQuestion->q18 || $ManufacturingQuestion->q19){
-            $mRL = 8;
-        }elseif ($ManufacturingQuestion->q13){
-            $mRL = 7;
-        }elseif ($ManufacturingQuestion->q9 || $ManufacturingQuestion->q10 || $ManufacturingQuestion->q11 || $ManufacturingQuestion->q12){
-            $mRL = 6;
-        }elseif ($ManufacturingQuestion->q6 || $ManufacturingQuestion->q7 || $ManufacturingQuestion->q8){
-            $mRL = 5;
-        }elseif ($ManufacturingQuestion->q1 || $ManufacturingQuestion->q2 || $ManufacturingQuestion->q3 || $ManufacturingQuestion->q4 || $ManufacturingQuestion->q5){
-            $mRL = 4;
+        if (isset($ManufacturingQuestion)){
+            if ($ManufacturingQuestion->q24 || $ManufacturingQuestion->q25 || $ManufacturingQuestion->q26 || $ManufacturingQuestion->q27 || $ManufacturingQuestion->q28 || $ManufacturingQuestion->q29 && $ManufacturingQuestion->q30){
+                $mRL = 10;
+            }elseif ($ManufacturingQuestion->q20 || $ManufacturingQuestion->q21 || $ManufacturingQuestion->q22 || $ManufacturingQuestion->q23){
+                $mRL = 9;
+            }elseif ($ManufacturingQuestion->q14 || $ManufacturingQuestion->q15 || $ManufacturingQuestion->q16 || $ManufacturingQuestion->q17 || $ManufacturingQuestion->q18 || $ManufacturingQuestion->q19){
+                $mRL = 8;
+            }elseif ($ManufacturingQuestion->q13){
+                $mRL = 7;
+            }elseif ($ManufacturingQuestion->q9 || $ManufacturingQuestion->q10 || $ManufacturingQuestion->q11 || $ManufacturingQuestion->q12){
+                $mRL = 6;
+            }elseif ($ManufacturingQuestion->q6 || $ManufacturingQuestion->q7 || $ManufacturingQuestion->q8){
+                $mRL = 5;
+            }elseif ($ManufacturingQuestion->q1 || $ManufacturingQuestion->q2 || $ManufacturingQuestion->q3 || $ManufacturingQuestion->q4 || $ManufacturingQuestion->q5){
+                $mRL = 4;
+            }
+        }else{
+            $value = 'لطفا بخش تولید را تکمیل کنید';
+            return view('user.reporting.financial-calculation.Error', compact('value'));
         }
 
         /* MRL */
         $MRL = 0;
         $MarketQuestion = MarketQuestion::where('team_id', $team_id)->first();
-        if ($MarketQuestion->q9){
-            $MRL = 9;
-        }elseif ($MarketQuestion->q8){
-            $MRL = 8;
-        }elseif ($MarketQuestion->q7){
-            $MRL = 7;
-        }elseif ($MarketQuestion->q6){
-            $MRL = 6;
-        }elseif ($MarketQuestion->q5){
-            $MRL = 5;
-        }elseif ($MarketQuestion->q4){
-            $MRL = 4;
-        }elseif ($MarketQuestion->q3){
-            $MRL = 3;}
-        elseif ($MarketQuestion->q2){
-            $MRL = 2;
-        }elseif ($MarketQuestion->q1){
-            $MRL = 1;
+        if (isset($MarketQuestion)){
+            if ($MarketQuestion->q9){
+                $MRL = 9;
+            }elseif ($MarketQuestion->q8){
+                $MRL = 8;
+            }elseif ($MarketQuestion->q7){
+                $MRL = 7;
+            }elseif ($MarketQuestion->q6){
+                $MRL = 6;
+            }elseif ($MarketQuestion->q5){
+                $MRL = 5;
+            }elseif ($MarketQuestion->q4){
+                $MRL = 4;
+            }elseif ($MarketQuestion->q3){
+                $MRL = 3;}
+            elseif ($MarketQuestion->q2){
+                $MRL = 2;
+            }elseif ($MarketQuestion->q1){
+                $MRL = 1;
+            }
+        }else{
+            $value = 'لطفا بخش بازار را تکمیل کنید';
+            return view('user.reporting.financial-calculation.Error', compact('value'));
         }
 
         /* BRL */
         $cal_Commercialization = 0;
         $Commercialization = CommercializationQuestion::where('team_id', $team_id)->first();
-        if ($Commercialization->q10){$cal_Commercialization = 10;}elseif($Commercialization->q9){$cal_Commercialization = 9;}elseif($Commercialization->q8){$cal_Commercialization = 8;}elseif($Commercialization->q7){$cal_Commercialization = 7;}elseif($Commercialization->q6){$cal_Commercialization = 6;}elseif($Commercialization->q5){$cal_Commercialization = 5;}elseif($Commercialization->q4){$cal_Commercialization = 4;}elseif($Commercialization->q3){$cal_Commercialization = 3;}elseif($Commercialization->q2){$cal_Commercialization = 2;}elseif($Commercialization->q1){$cal_Commercialization = 1;}
+        if (isset($Commercialization)){
+            if ($Commercialization->q10){$cal_Commercialization = 10;}elseif($Commercialization->q9){$cal_Commercialization = 9;}elseif($Commercialization->q8){$cal_Commercialization = 8;}elseif($Commercialization->q7){$cal_Commercialization = 7;}elseif($Commercialization->q6){$cal_Commercialization = 6;}elseif($Commercialization->q5){$cal_Commercialization = 5;}elseif($Commercialization->q4){$cal_Commercialization = 4;}elseif($Commercialization->q3){$cal_Commercialization = 3;}elseif($Commercialization->q2){$cal_Commercialization = 2;}elseif($Commercialization->q1){$cal_Commercialization = 1;}
+        }else{
+            $value = 'لطفا بخش کسب و کار را تکمیل کنید';
+            return view('user.reporting.financial-calculation.Error', compact('value'));
+        }
 
         $cal_PublicManagement = 0;
         $PublicManagement = PublicManagementQuestion::where('team_id', $team_id)->first();

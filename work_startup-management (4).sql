@@ -80,9 +80,54 @@ INSERT INTO `responsibilities` (`id`, `name`, `nickname`) VALUES
 (6, 'Consultant', 'مشاور');
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `types`
 --
 
+INSERT INTO `types` (`id`, `type`) VALUES
+(1, 'ساخت'),
+(2, 'خرید'),
+(3, 'اجاره');
+
+--
+-- Dumping data for table `unit_of_measurements`
+--
+
+INSERT INTO `unit_of_measurements` (`id`, `name`) VALUES
+(1, 'کیلو گرم'),
+(2, 'گرم'),
+(3, 'لیتر'),
+(4, 'میلی لیتر');
+
+--
+-- Dumping data for table `man_power_names`
+--
+
+INSERT INTO `man_power_names` (`id`, `name`, `manpower_type`, `created_at`, `updated_at`) VALUES
+(1, 'نیروی تولیدی ساده', 1, NULL, NULL),
+(2, 'نیروی تولیدی متخصص', 1, NULL, NULL),
+(3, 'نیروی کنترل کیفی', 1, NULL, NULL),
+(4, 'مدیر فنی', 1, NULL, NULL),
+(5, 'مدیر عامل', 0, NULL, NULL),
+(6, 'مدیر بازرگانی', 0, NULL, NULL),
+(7, 'مدیر مالی', 0, NULL, NULL),
+(8, 'مدیر اداری', 0, NULL, NULL),
+(9, 'کارشناس', 0, NULL, NULL),
+(10, 'بازاریاب', 0, NULL, NULL),
+(11, 'مدیر تحقیق و توسعه', 0, NULL, NULL),
+(12, 'حسابدار', 0, NULL, NULL),
+(13, 'کارپرداز', 0, NULL, NULL),
+(14, 'نگهبان', 0, NULL, NULL),
+(15, 'کارشناس تحقیق و توسعه', 0, NULL, NULL),
+(16, 'مشاور', 0, NULL, NULL);
+
+--
+-- Dumping data for table `valuation_models`
+--
+
+INSERT INTO `valuation_models` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'هزینه محور', NULL, NULL),
+(2, 'درآمد محور', NULL, NULL),
+(3, 'دستی', NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
