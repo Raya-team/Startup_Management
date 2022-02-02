@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Building;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
+use App\Models\Fiscal;
+use App\Models\LaboratoryEquipment;
 use App\Models\Land;
 use App\Models\OfficeEquipmentAndSupply;
 use App\Models\ParticipationNewInvestor;
@@ -13,10 +15,15 @@ use App\Models\ParticipationPreInvestor;
 use App\Models\PreOperatingCost;
 use App\Models\TeamMember;
 use App\Models\Transportation;
+use App\Models\ValuationCost;
+use App\Models\ValuationFacility;
+use App\Models\ValuationLaboratoryEquipment;
 use App\Models\ValuationMachinery;
 use App\Models\ValuationOfficeSupply;
 use App\Models\ValuationOtherAsset;
+use App\Models\ValuationPreOperationCost;
 use App\Models\ValuationTenement;
+use App\Models\ValuationTransportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,19 +33,29 @@ class ParticipationShareController extends Controller
     {
 
         $team_id = Auth::user()->team_id;
+        //اطلاعات مالی یک
+        $fiscal = Fiscal::where('team_id', $team_id)->first();
         $lands = Land::where('team_id', $team_id)->sum('price');
-        $buildings = Building::where('team_id', $team_id)->sum('price');
         $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->sum('total_price');
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->sum('total_price');
         $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->sum('total_price');
         $facilities = Facility::where('team_id', $team_id)->sum('total_price');
         $transportations = Transportation::where('team_id', $team_id)->sum('total_price');
         $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
-        $financial_total_price = array_sum([$lands,$buildings,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
+        $financial_total_price = array_sum([$lands,$laboratory_equipments,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
+        //ارزش گذاری مشهود
         $tenements = ValuationTenement::where('team_id', $team_id)->sum('total_price');
+        $facilities = ValuationFacility::where('team_id', $team_id)->sum('total_price');
         $machineries = ValuationMachinery::where('team_id', $team_id)->sum('total_price');
+        $laboratory_equipments = ValuationLaboratoryEquipment::where('team_id', $team_id)->sum('total_price');
         $offices = ValuationOfficeSupply::where('team_id', $team_id)->sum('total_price');
-        $others = ValuationOtherAsset::where('team_id', $team_id)->sum('total_price');
-        $valuation_total_price = array_sum([$tenements,$machineries,$offices,$others]);
+        $transportations = ValuationTransportation::where('team_id', $team_id)->sum('total_price');
+        $pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->sum('total_price');
+        //ارزش دانش فنی
+        $valuation_cost = ValuationCost::where('team_id', $team_id)->sum('total_price');
+        $valuation_total_price = array_sum([$tenements,$facilities,$machineries,$laboratory_equipments,$offices,$transportations,$pre_operation_costs,$valuation_cost]);
+        //خالص سرمایه گذاری
+        $net_investment = ($financial_total_price) - ($valuation_total_price + $fiscal->loan);
 
         $pre_investors = ParticipationPreInvestor::with('investor')->where('team_id', $team_id)->get();
         $arr1=[];
@@ -51,7 +68,7 @@ class ParticipationShareController extends Controller
             foreach ($responsibilities as $responsibility){
                 array_push($response_name, $responsibility['nickname']);
             }
-            $investment =  ($collect['investment']/100000)*100;
+            $investment =  ($collect['investment']/$net_investment)*100;
             array_push($arr1, [$full_name, $response_name, round($investment, 2)]);
         }
 
@@ -60,7 +77,7 @@ class ParticipationShareController extends Controller
         {
             $collect = collect($new_investor);
             $name = $collect['supplier'];
-            $investment =  ($collect['investment']/100000)*100;
+            $investment =  ($collect['investment']/$net_investment)*100;
             array_push($arr1, [$name,['سرمایه گذار'], round($investment, 2)]);
         }
         return response()->json([
@@ -74,19 +91,26 @@ class ParticipationShareController extends Controller
     {
         $team_id = Auth::user()->team_id;
         $members = TeamMember::where('team_id', $team_id)->get();
+        //اطلاعات مالی یک
         $lands = Land::where('team_id', $team_id)->sum('price');
-        $buildings = Building::where('team_id', $team_id)->sum('price');
         $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->sum('total_price');
+        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->sum('total_price');
         $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->sum('total_price');
         $facilities = Facility::where('team_id', $team_id)->sum('total_price');
         $transportations = Transportation::where('team_id', $team_id)->sum('total_price');
         $preoperatingcosts = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
-        $financial_total_price = array_sum([$lands,$buildings,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
+        $financial_total_price = array_sum([$lands,$laboratory_equipments,$equipmentandmachineries,$officeequipmentandsupplies,$facilities,$transportations,$preoperatingcosts]);
+        //ارزش گذاری مشهود
         $tenements = ValuationTenement::where('team_id', $team_id)->sum('total_price');
+        $facilities = ValuationFacility::where('team_id', $team_id)->sum('total_price');
         $machineries = ValuationMachinery::where('team_id', $team_id)->sum('total_price');
+        $laboratory_equipments = ValuationLaboratoryEquipment::where('team_id', $team_id)->sum('total_price');
         $offices = ValuationOfficeSupply::where('team_id', $team_id)->sum('total_price');
-        $others = ValuationOtherAsset::where('team_id', $team_id)->sum('total_price');
-        $valuation_total_price = array_sum([$tenements,$machineries,$offices,$others]);
+        $transportations = ValuationTransportation::where('team_id', $team_id)->sum('total_price');
+        $pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->sum('total_price');
+        //ارزش دانش فنی
+        $valuation_cost = ValuationCost::where('team_id', $team_id)->sum('total_price');
+        $valuation_total_price = array_sum([$tenements,$facilities,$machineries,$laboratory_equipments,$offices,$transportations,$pre_operation_costs,$valuation_cost]);
 
         return response()->json([
             'members' => $members,
