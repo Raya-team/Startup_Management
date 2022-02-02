@@ -22,6 +22,11 @@
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
+            <div class="d-flex align-items-center">
+                <!--begin::Button-->
+                <a href="{{ route('financial-calculations.export') }}" target="_blank" class="btn btn-light-danger font-weight-bold ml-2">PDF</a>
+                <!--end::Button-->
+            </div>
         </div>
     </div>
     <!--end::Subheader-->
@@ -207,40 +212,6 @@
                                                 <td class="pl-7">{{ $value }}</td>
                                                 <td class="bg-gray-100 pl-7">میزان آورده مشهود فناور</td>
                                                 <td class="pl-7">{{ ( ( ( ( $lands_price + $laboratory_equipments_price + $equipments_price + $office_equipments_price + $facilities_price + $transportations_price ) + ( $preoperating_price )  + ( round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_depreciation[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) - ( $fiscal->loan ) ) ) - ( $total_investment ) ) - ( $value ) }}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!--end::Table-->
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::table-->
-                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
-                            <!--begin::table-->
-                            <div>
-                                <h4 style="text-align: center">نتایج طرح:</h4><br>
-                                <!--begin::Body-->
-                                <div class="card-body pt-0 pb-3">
-                                    <!--begin::Table-->
-                                    <div class="table-responsive">
-                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                            <tbody>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">نرخ بازده داخلی</td>
-                                                <td class="pl-7"></td>
-                                                <td class="bg-gray-100 pl-7">مدت زمان سرمایه در گردش</td>
-                                                <td class="pl-7"></td>
-                                                <td class="bg-gray-100 pl-7">ارزش خالص کنونی </td>
-                                                <td class="pl-7"></td>
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">نرخ بازده تعدیل شده</td>
-                                                <td class="pl-7"></td>
-                                                <td class="bg-gray-100 pl-7">شاخص سوددهی</td>
-                                                <td class="pl-7"></td>
-                                                <td class="bg-gray-100 pl-7">نرخ بازده سرمایه‌گذاری</td>
-                                                <td class="pl-7"></td>
                                             </tr>
                                             </tbody>
                                         </table>
@@ -2503,7 +2474,7 @@
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
                             <div>
-                                <h5>اصل تسهیلات بانکی</h5><br>
+                                <h5 style="text-align: center">اصل تسهیلات بانکی</h5><br>
                                 <!--begin::Body-->
                                 <div class="card-body pt-0 pb-3">
                                     <!--begin::Table-->
@@ -2660,7 +2631,7 @@
                                         <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                             <thead>
                                             <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7" colspan="2">سال</th>
+                                                <th class="pl-7">سال</th>
                                                 <th class="pl-7">محصول</th>
                                                 <th class="pl-7">ضریب تعدیل</th>
                                                 <th class="pl-7">هزینه مشترک</th>
@@ -2671,14 +2642,11 @@
                                             </thead>
                                             <tbody>
                                             @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
-                                                <tr>
-                                                    <td rowspan="4"><b>سال {{$i}} طرح</b></td>
-                                                </tr>
-                                                @foreach($products as $product)
+                                                @foreach($products as $key => $product)
                                                     <tr class="text-center">
-                                                        <td>
-                                                            <span class="text-dark-75"></span>
-                                                        </td>
+                                                        @if($key == 0)
+                                                            <td rowspan="{{ count($products) }}"><b>سال {{$i}} طرح</b></td>
+                                                        @endif
                                                         <td>
                                                             <span class="text-dark-75">{{ $product->name }}</span>
                                                         </td>
@@ -2866,7 +2834,6 @@
                     <!--end::Card-->
                 </div>
             </div>
-
         </div>
     </div>
     <!--end::Entry-->

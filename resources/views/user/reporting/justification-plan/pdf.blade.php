@@ -2449,7 +2449,7 @@
                                 <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                     <thead>
                                     <tr class="bg-gray-100 text-center">
-                                        <th class="pl-7" colspan="2">سال</th>
+                                        <th class="pl-7">سال</th>
                                         <th class="pl-7">محصول</th>
                                         <th class="pl-7">ضریب تعدیل</th>
                                         <th class="pl-7">هزینه مشترک</th>
@@ -2460,14 +2460,11 @@
                                     </thead>
                                     <tbody>
                                     @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
-                                        <tr>
-                                            <td rowspan="4"><b>سال {{$i}} طرح</b></td>
-                                        </tr>
-                                        @foreach($products as $product)
+                                        @foreach($products as $key => $product)
                                             <tr class="text-center">
-                                                <td>
-                                                    <span class="text-dark-75"></span>
-                                                </td>
+                                                @if($key == 0)
+                                                    <td rowspan="{{ count($products) }}"><b>سال {{$i}} طرح</b></td>
+                                                @endif
                                                 <td>
                                                     <span class="text-dark-75">{{ $product->name }}</span>
                                                 </td>

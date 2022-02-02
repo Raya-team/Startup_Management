@@ -252,7 +252,12 @@ trait NPV
         for ($i = 1; $i <= $year; $i++){
             /* تعداد محصول */
             $capacity = Capacity::where('team_id', $team_id)->where('year', $i)->first();
-            $number_of_product = $capacity->total_production;
+            if (isset($capacity->total_production)){
+                $number_of_product = $capacity->total_production;
+            }else{
+                return 'لطفا جدول ظرفیت اطلاعات مالی 2 در هر سال را پر کنید.';
+            }
+
             /* قیمت */
             $other_information = OtherInformation::where('team_id', $team_id)->where('year', $i)->first();
             $price = $other_information->sale_price;
@@ -317,7 +322,7 @@ trait NPV
                 array_push($annual_dep_facilities, $dep_facilities);
                 array_push($annual_dep_transportations, $dep_transportations);
                 array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
-                
+
                 array_push($annual_asset_value_tenements, $total_tenements);
                 array_push($annual_asset_value_machineries, $total_equipment_and_machineries);
                 array_push($annual_asset_value_office_equipment, $total_office_equipment_and_supplise);
@@ -377,7 +382,7 @@ trait NPV
         /* NPV */
         $NPV = 0;
         for ($j = 0 ; $j < count($Annual_DATA); $j++){
-            $NPV += $Annual_DATA [$j][19];
+            $NPV += $Annual_DATA [$j][17];
         }
 
         /* درآمد محور */
