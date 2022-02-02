@@ -233,16 +233,24 @@ class FinancialCalculationController extends Controller
         //ارزش دارایی های نامشهود
         $value = 0;
         $model = ValuationOfIntangibleAsset::with('valuationModel')->where('team_id', $team_id)->first();
-        if ($model->valuationModel->name == 'هزینه محور'){
-            $value = ValuationCost::where('team_id', $team_id)->get()->sum('total_price');
-        }elseif($model->valuationModel->name == 'دستی'){
-            $value = $model->value;
-        }elseif ($model->valuationModel->name == 'درآمد محور'){
-            $value = $this->NPV();
-            if (is_string($value)){
-                return view('user.reporting.financial-calculation.Error', compact('value'));
+        if(isset($model->valuationModel))
+        {
+            if ($model->valuationModel->name == 'هزینه محور'){
+                $value = ValuationCost::where('team_id', $team_id)->get()->sum('total_price');
+            }elseif($model->valuationModel->name == 'دستی'){
+                $value = $model->value;
+            }elseif ($model->valuationModel->name == 'درآمد محور'){
+                $value = $this->NPV();
+                if (is_string($value)){
+                    return view('user.reporting.financial-calculation.Error', compact('value'));
+                }
             }
         }
+        else{
+            $value = 'لطفا ارزش گذاری نامشهود را تکمیل کنید';
+            return view('user.reporting.financial-calculation.Error', compact('value'));
+        }
+
         //ارزش گذاری مشهود
         $tenements = ValuationTenement::where('team_id', $team_id)->sum('total_price');
         $val_facilities = ValuationFacility::where('team_id', $team_id)->sum('total_price');
