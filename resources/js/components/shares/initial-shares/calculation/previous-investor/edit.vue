@@ -47,21 +47,21 @@
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"><h4>ویرایش حمل و نقل:</h4></label>
-                                            <div data-repeater-list="previousinvestors" class="col-lg-10">
-                                                <div data-repeater-item="" class="form-group row align-items-center" v-for="(previousinvestor, index) in data.previousinvestors" :key="index">
+                                            <div data-repeater-list="previous_investors" class="col-lg-10">
+                                                <div data-repeater-item="" class="form-group row align-items-center" v-for="(previousinvestor, index) in data.previous_investors" :key="index">
                                                     <div class="col-md-6">
                                                         <label><h5>نام و نام خانوادگی :</h5></label>
-                                                        <input type="text" class="form-control previousinvestors" v-model="previousinvestor.name"
-                                                               :class="['form-control', {'is-invalid' : errors.has('previousinvestors.' + index +'.name')}]"/>
-                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('previousinvestors.' + index +'.name')" style="display: block;">{{ errors.get('previousinvestors.' + index +'.name') }}</div>
+                                                        <input type="text" class="form-control previous_investors" v-model="previousinvestor.name"
+                                                               :class="['form-control', {'is-invalid' : errors.has('previous_investors.' + index +'.name')}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('previous_investors.' + index +'.name')" style="display: block;">{{ errors.get('previous_investors.' + index +'.name') }}</div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label><h5>درصد :</h5></label>
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control previousinvestors" v-model="previousinvestor.percent"
-                                                                   :class="['form-control', {'is-invalid' : errors.has('previousinvestors.' + index +'.percent')}]"
+                                                            <input type="text" class="form-control previous_investors" v-model="previousinvestor.percent"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('previous_investors.' + index +'.percent')}]"
                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('previousinvestors.' + index +'.percent')" style="display: block;">{{ errors.get('previousinvestors.' + index +'.percent') }}</div>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('previous_investors.' + index +'.percent')" style="display: block;">{{ errors.get('previous_investors.' + index +'.percent') }}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -97,7 +97,7 @@
         data() {
             return {
                 data: {
-                    previousinvestors: [{ name: '', percent: '' }],
+                    previous_investors: [{ name: '', percent: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -107,8 +107,8 @@
             this.Auth.check();
             axios.get(`/api/previousinvestors/${this.$route.params.id}/edit`)
                 .then(response => {
-                    this.data.previousinvestors[0].name = response.data.previousinvestors.name;
-                    this.data.previousinvestors[0].percent = response.data.previousinvestors.percent;
+                    this.data.previous_investors[0].name = response.data.previousinvestors.name;
+                    this.data.previous_investors[0].percent = response.data.previousinvestors.percent;
                 })
                 .catch(error => console.log(error));
         },

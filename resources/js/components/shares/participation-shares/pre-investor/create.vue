@@ -39,7 +39,7 @@
                             <form class="form" novalidate="novalidate" id="kt_login_signup_form" @submit.prevent="onSubmit">
                                 <div class="card-body">
                                     <div class="text-center">
-                                        <b style="font-size: initial;">تامین از سرمایه گذاران جدید</b>
+                                        <b style="font-size: initial;">تامین از موسسین و سرمایه گذاران قبلی</b>
                                         <hr><br>
                                     </div>
                                     <transition-group name="slide">
@@ -48,15 +48,19 @@
                                                 <div data-repeater-item="" class="form-group row align-items-center">
                                                     <div class="col-md-4">
                                                         <label>نام تامین کننده: <span class="text-danger">*</span></label>
-                                                        <select name="pre_supplier_name" class="form-control" v-model="investor.investor">
+                                                        <select name="pre_supplier_name" class="form-control" v-model="investor.investor"
+                                                                :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investor`)}]">
                                                             <option v-for="member in members" :value="member.id">{{ member.fname }} {{ member.lname }}</option>
                                                         </select>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`pre_investors.${index}.investor`)" style="display: block;">{{ errors.get(`pre_investors.${index}.investor`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label>میزان سرمایه گذاری: <span class="text-danger">*</span></label>
                                                         <input type="text" class="form-control products" name="pre_investment" v-model="investor.investment"
-                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                                                               :class="['form-control', {'is-invalid' : errors.has(`pre_investors.${index}.investment`)}]"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has(`pre_investors.${index}.investment`)" style="display: block;">{{ errors.get(`pre_investors.${index}.investment`) }}</div>
                                                         <div class="d-md-none mb-2"></div>
                                                     </div>
                                                     <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">

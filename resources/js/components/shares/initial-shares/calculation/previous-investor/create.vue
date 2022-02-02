@@ -47,22 +47,22 @@
                                     <div id="kt_repeater_1">
                                         <div class="form-group row">
                                             <label class="col-lg-2 col-form-label text-right"><h4>افزودن سهامدار قبلی:</h4></label>
-                                            <div data-repeater-list="previousinvestors" class="col-lg-10">
+                                            <div data-repeater-list="previous_investors" class="col-lg-10">
                                                 <transition-group name="slide">
-                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(previousinvestor, index) in data.previousinvestors" :key="index">
+                                                    <div data-repeater-item="" class="form-group row align-items-center" v-for="(previousinvestor, index) in data.previous_investors" :key="index">
                                                         <div class="col-md-5">
                                                             <label><h5>نام و نام خانوادگی :</h5></label>
-                                                            <input type="text" class="form-control previousinvestors" v-model="previousinvestor.name"
-                                                                   :class="['form-control', {'is-invalid' : errors.has('previousinvestors.' + index +'.name')}]"/>
-                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('previousinvestors.' + index +'.name')" style="display: block;">{{ errors.get('previousinvestors.' + index +'.name') }}</div>
+                                                            <input type="text" class="form-control previous_investors" v-model="previousinvestor.name"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('previous_investors.' + index +'.name')}]"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('previous_investors.' + index +'.name')" style="display: block;">{{ errors.get('previous_investors.' + index +'.name') }}</div>
                                                         </div>
                                                         <div class="col-md-5">
                                                             <label><h5>درصد :</h5></label>
                                                             <div class="input-group">
-                                                                <input type="text" class="form-control previousinvestors" v-model="previousinvestor.percent"
-                                                                       :class="['form-control', {'is-invalid' : errors.has('previousinvestors.' + index +'.percent')}]"
+                                                                <input type="text" class="form-control previous_investors" v-model="previousinvestor.percent"
+                                                                       :class="['form-control', {'is-invalid' : errors.has('previous_investors.' + index +'.percent')}]"
                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
-                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('previousinvestors.' + index +'.percent')" style="display: block;">{{ errors.get('previousinvestors.' + index +'.percent') }}</div>
+                                                                <div class="invalid-feedback is-invalid" v-if="errors.has('previous_investors.' + index +'.percent')" style="display: block;">{{ errors.get('previous_investors.' + index +'.percent') }}</div>
                                                             </div>
                                                         </div>
                                                         <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
@@ -110,7 +110,7 @@
         data() {
             return {
                 data: {
-                    previousinvestors: [{ name: '', percent: '' }],
+                    previous_investors: [{ name: '', percent: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -118,10 +118,10 @@
         },
         methods: {
             AddField() {
-                this.data.previousinvestors.push({ name: '', percent: '' });
+                this.data.previous_investors.push({ name: '', percent: '' });
             },
             RemoveField(index) {
-                this.data.previousinvestors.splice(index, 1);
+                this.data.previous_investors.splice(index, 1);
             },
             onSubmit() {
                 this.Auth.check();
@@ -145,6 +145,7 @@
                         }
                     })
                     .catch(error => {
+                        console.log(error.response);
                         this.errors.record(error.response.data.errors);
                         KTUtil.btnRelease(formSubmitButton);
                     });

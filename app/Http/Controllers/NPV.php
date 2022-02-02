@@ -213,40 +213,24 @@ trait NPV
 
         /* سال صفر (اطلاعات مالی1) */
         /* مستغلات */
-        $tenements = Land::where('team_id', $team_id)->get()->sum('price');
+        $total_tenements = Land::where('team_id', $team_id)->get()->sum('price');
         /* تجهیزات فنی */
-        $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
+        $total_equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
         /* تجهیزات آزمایشگاهی */
-        $laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
+        $total_laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
         /* تاسیسات */
-        $facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
+        $total_facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
         /* وسایل حمل و نقل */
-        $transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
+        $total_transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
         /* تجهیزات دفتری */
-        $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
+        $total_office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
         /* هزینه قبل بهره‌برداری */
-        $pre_operating_cost = PreOperatingCost::where('team_id', $team_id)->get()->sum('total_price');
+        $total_pre_operating_cost = PreOperatingCost::where('team_id', $team_id)->get()->sum('total_price');
         /* میزان وام دریافتی */
         $loan = $fiscal->loan;
-        /* خالص سرمایه گذاری */
-        $net_investment = ($tenements + $equipment_and_machineries + $laboratory_equipments + $facilities + $transportations + $office_equipment_and_supplise + $pre_operating_cost) - $loan;
-
 
         /* نرخ تنزیل */
         $discount_rate = round($inflation + $percentage_of_risk, 2);
-
-        $zero_year = [];
-        array_push($zero_year, [
-            'محل اجرای طرح', $tenements,
-            'تجهیزات فنی', $equipment_and_machineries,
-            'تجهیزات آزمایشگاهی', $laboratory_equipments,
-            'تاسیسات', $facilities,
-            'وسایل حمل و نقل', $transportations,
-            'تجهیزات دفتری', $office_equipment_and_supplise,
-            'هزینه قبل بهره‌برداری', $pre_operating_cost,
-            'میزان وام دریافتی', $loan,
-            'خالص سرمایه گذاری', $net_investment,
-        ]);
 
         /* محسابه NPV هر سال به تفکیک */
         $annual_dep_tenements = [];
@@ -255,6 +239,12 @@ trait NPV
         $annual_dep_facilities = [];
         $annual_dep_transportations = [];
         $annual_dep_laboratory_equipments = [];
+        $annual_asset_value_tenements = [];
+        $annual_asset_value_machineries = [];
+        $annual_asset_value_office_equipment = [];
+        $annual_asset_value_facilities = [];
+        $annual_asset_value_transportations = [];
+        $annual_asset_value_laboratory_equipments = [];
         $year = PlanYear::where('team_id', $team_id)->first()->number_of_plan_year;
 
 
@@ -302,13 +292,6 @@ trait NPV
             /* سود ناخالص */
             $gross_profit = $the_outcome_of_selling - $cost_of;
 
-            /* مالیات */
-            if ($gross_profit < 0){
-                $taxation = 0;
-            } else {
-                $taxation = round($gross_profit * $other_information->tax_rate, 2);
-            }
-
             /* سود پس از کسر مالیات */
             $profit_after_tax = round($gross_profit - ($gross_profit * $other_information->tax_rate), 2);
 
@@ -321,12 +304,12 @@ trait NPV
 
             /* هزینه استهلاک */
             if ($i == 1){
-                $dep_tenements = $tenements * ($depreciation_rate->question_1 / 100);
-                $dep_equipment_and_machineries = $equipment_and_machineries * ($depreciation_rate->question_2 / 100);
-                $dep_office_equipment_and_supplise = $office_equipment_and_supplise * ($depreciation_rate->question_3 / 100);
-                $dep_facilities = $facilities * ($depreciation_rate->question_4 / 100);
-                $dep_transportations = $transportations * ($depreciation_rate->question_5 / 100);
-                $dep_laboratory_equipments = $laboratory_equipments * ($depreciation_rate->question_6 / 100);
+                $dep_tenements = $total_tenements * ($depreciation_rate->question_1 / 100);
+                $dep_equipment_and_machineries = $total_equipment_and_machineries * ($depreciation_rate->question_2 / 100);
+                $dep_office_equipment_and_supplise = $total_office_equipment_and_supplise * ($depreciation_rate->question_3 / 100);
+                $dep_facilities = $total_facilities * ($depreciation_rate->question_4 / 100);
+                $dep_transportations = $total_transportations * ($depreciation_rate->question_5 / 100);
+                $dep_laboratory_equipments = $total_laboratory_equipments * ($depreciation_rate->question_6 / 100);
 
                 array_push($annual_dep_tenements, $dep_tenements);
                 array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
@@ -334,15 +317,22 @@ trait NPV
                 array_push($annual_dep_facilities, $dep_facilities);
                 array_push($annual_dep_transportations, $dep_transportations);
                 array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
+                
+                array_push($annual_asset_value_tenements, $total_tenements);
+                array_push($annual_asset_value_machineries, $total_equipment_and_machineries);
+                array_push($annual_asset_value_office_equipment, $total_office_equipment_and_supplise);
+                array_push($annual_asset_value_facilities, $total_facilities);
+                array_push($annual_asset_value_transportations, $total_transportations);
+                array_push($annual_asset_value_laboratory_equipments, $total_laboratory_equipments);
 
                 $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
             }else{
-                $dep_tenements = ($tenements - $annual_dep_tenements[$i-2]) * ($depreciation_rate->question_1 / 100);
-                $dep_equipment_and_machineries = ($equipment_and_machineries - $annual_dep_equipment_and_machineries[$i-2]) * ($depreciation_rate->question_2 / 100);
-                $dep_office_equipment_and_supplise = ($office_equipment_and_supplise - $annual_dep_office_equipment_and_supplise[$i-2]) * ($depreciation_rate->question_3 / 100);
-                $dep_facilities = ($facilities - $annual_dep_facilities[$i-2]) * ($depreciation_rate->question_4 / 100);
-                $dep_transportations = ($transportations - $annual_dep_transportations[$i-2]) * ($depreciation_rate->question_5 / 100);
-                $dep_laboratory_equipments = ($laboratory_equipments - $annual_dep_laboratory_equipments[$i-2]) * ($depreciation_rate->question_6 / 100);
+                $dep_tenements = ($annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]) * ($depreciation_rate->question_1 / 100);
+                $dep_equipment_and_machineries = ($annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]) * ($depreciation_rate->question_2 / 100);
+                $dep_office_equipment_and_supplise = ($annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]) * ($depreciation_rate->question_3 / 100);
+                $dep_facilities = ($annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]) * ($depreciation_rate->question_4 / 100);
+                $dep_transportations = ($annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]) * ($depreciation_rate->question_5 / 100);
+                $dep_laboratory_equipments = ($annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]) * ($depreciation_rate->question_6 / 100);
 
                 array_push($annual_dep_tenements, $dep_tenements);
                 array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
@@ -350,6 +340,13 @@ trait NPV
                 array_push($annual_dep_facilities, $dep_facilities);
                 array_push($annual_dep_transportations, $dep_transportations);
                 array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
+
+                array_push($annual_asset_value_tenements, $annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]);
+                array_push($annual_asset_value_machineries, $annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]);
+                array_push($annual_asset_value_office_equipment, $annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]);
+                array_push($annual_asset_value_facilities, $annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]);
+                array_push($annual_asset_value_transportations, $annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]);
+                array_push($annual_asset_value_laboratory_equipments, $annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]);
 
                 $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
             }
@@ -367,7 +364,6 @@ trait NPV
                 'درآمد حاصل از فروش' , $the_outcome_of_selling,
                 'بهای تمام شده' , $cost_of,
                 'سود ناخالص' , $gross_profit,
-                'مالیات' , $taxation,
                 'سود پس از کسر مالیات' , $profit_after_tax,
                 'بازپرداخت اصل تسهیلات' , $repayment_of_the_original_facility,
                 'هزینه استهلاک' , $depreciation,

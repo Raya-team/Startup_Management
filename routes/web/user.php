@@ -200,7 +200,7 @@ Route::group(['middleware' =>['auth', 'auth.user']] , function (){
     Route::resource('/alternative-products', AlternativeProductController::class);
 
     Route::get('/reporting/justification-plan', [RepJustificationPlanController::class, 'index'])->name('justification-plan.index');
-    Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF']);
+    Route::get('/reporting/justification-plan/pdf', [RepJustificationPlanController::class, 'exportPDF'])->name('justification-plan.export');
     Route::get('/reporting/preliminary-justification-plan', [RepPreliminaryJustificationPlanController::class, 'index'])->name('preliminary-justification-plan.index');
     Route::get('/reporting/preliminary-justification-plan/pdf', [RepPreliminaryJustificationPlanController::class, 'exportPDF'])->name('preliminary-justification-plan.export');
     Route::get('/reporting/financial-calculations', [FinancialCalculationController::class, 'index'])->name('financial-calculations.index');

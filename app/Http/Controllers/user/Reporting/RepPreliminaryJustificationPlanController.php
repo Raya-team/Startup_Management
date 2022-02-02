@@ -46,17 +46,15 @@ class RepPreliminaryJustificationPlanController extends Controller
 
         $pdf = PDF::loadView('user.reporting.preliminary-justification-plan.pdf', compact('team','registered_team','business_manager','business_questions','previous_investors','shareholders','key_employees','justification_plan'), [],
             [
-                'title' => 'مدل بوم کسب و کار',
-                'format' => 'A4-L',
+                'title' => 'طرح توجیهی مقدماتی',
+                'format' => 'A4',
                 'display_mode' => 'fullpage',
-//                'orientation' => 'L',
-//                'default_font_size' => '500',
             ]);
-        $fileName = Carbon::now()->timestamp . '-justification-plan' . '.pdf';
+        $fileName = Carbon::now()->timestamp . '-preliminary-justification-plan' . '.pdf';
 
         return $pdf->download($fileName);
 
 
-        return view('user.reporting.preliminary-justification-plan.pdf',compact('team','registered_team','business_manager','business_questions','previous_investors','shareholders','key_employees','justification_plan'));
+//        return view('user.reporting.preliminary-justification-plan.pdf',compact('team','registered_team','business_manager','business_questions','previous_investors','shareholders','key_employees','justification_plan'));
     }
 }

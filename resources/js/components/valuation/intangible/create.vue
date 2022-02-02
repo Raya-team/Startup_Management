@@ -131,7 +131,8 @@
                                                     <div class="form-group">
                                                         <label for="office_owner">مدل ارزش گذاری :
                                                             <span class="text-danger">*</span></label>
-                                                        <select name="office_owner" id="office_owner" class="form-control" v-model="data.valuation_model">
+                                                        <select name="office_owner" id="office_owner" class="form-control" v-model="data.valuation_model"
+                                                                :class="['form-control', {'is-invalid' : errors.has('valuation_model')}]">
                                                             <option v-for="model in models" :value="model.id">{{ model.name }}</option>
                                                         </select>
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('valuation_model')" style="display: block;">{{ errors.get('valuation_model') }}</div>

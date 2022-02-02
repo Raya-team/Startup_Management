@@ -59,6 +59,10 @@
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`new_investors.${index}.investment`)" style="display: block;">{{ errors.get(`new_investors.${index}.investment`) }}</div>
                                                     <div class="d-md-none mb-2"></div>
                                                 </div>
+                                                <div v-if="index != 0" class="col-md-4" style="padding-top: 23px">
+                                                    <a @click="RemoveNewInvestors(index)" href="javascript:;" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
+                                                        <i class="la la-trash-o"></i>حذف</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

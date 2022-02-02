@@ -21,20 +21,20 @@ class BusinessCanvasController extends Controller
     public function exportPDF()
     {
         $team_id = Auth::user()->team_id;
-        $canvas = BusinessCanvas::where('team_id', $team_id)->first();
+//        $canvas = BusinessCanvas::where('team_id', $team_id)->first();
+        $business_canvas = BusinessCanvas::where('team_id', $team_id)->first();
 
-        $pdf = PDF::loadView('user.reporting.business-canvas.pdf', compact('canvas'), [],
+        $pdf = PDF::loadView('user.reporting.business-canvas.pdf', compact('business_canvas'), [],
             [
                 'title' => 'مدل بوم کسب و کار',
-                'format' => 'A4-L',
+                'format' => 'A4',
                 'display_mode' => 'fullpage',
-                'orientation' => 'L',
-                'default_font_size' => '1000',
+//                'orientation' => 'L',
             ]);
-        $fileName = Carbon::now()->timestamp . '-justification-plan' . '.pdf';
+        $fileName = Carbon::now()->timestamp . '-business-canvas' . '.pdf';
 
         return $pdf->download($fileName);
 
-        return view('user.reporting.business-canvas.pdf', compact('canvas'));
+//        return view('user.reporting.business-canvas.pdf', compact('canvas'));
     }
 }

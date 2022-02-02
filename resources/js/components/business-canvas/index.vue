@@ -44,7 +44,7 @@
                                 <h3 class="card-title">شرکای کلیدی</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.key_partners }}</p>
+                                <p>{{ data.key_partners }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -58,7 +58,7 @@
                                 <h3 class="card-title">فعالیت های اصلی</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.main_activities }}</p>
+                                <p>{{ data.main_activities }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -72,7 +72,7 @@
                                 <h3 class="card-title">منابع اصلی</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.main_sources }}</p>
+                                <p>{{ data.main_sources }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -86,7 +86,7 @@
                                 <h3 class="card-title">ساختار هزینه</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.cost_structure }}</p>
+                                <p>{{ data.cost_structure }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -100,7 +100,7 @@
                                 <h3 class="card-title">ارزش پیشنهادی</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.suggested_value }}</p>
+                                <p>{{ data.suggested_value }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -114,7 +114,7 @@
                                 <h3 class="card-title">ارتباط با مشتریان</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.communication_with_clients }}</p>
+                                <p>{{ data.communication_with_clients }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -128,7 +128,7 @@
                                 <h3 class="card-title">کانال توزیع</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.distribution_channels }}</p>
+                                <p>{{ data.distribution_channels }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -142,7 +142,7 @@
                                 <h3 class="card-title">بخش مشتریان</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.customer_section }}</p>
+                                <p>{{ data.customer_section }}</p>
                             </div>
                         </div>
                         <!--end::Card-->
@@ -156,7 +156,7 @@
                                 <h3 class="card-title">جریان درآمد</h3>
                             </div>
                             <div class="card-body">
-                                <p style="white-space: pre">{{ data.income_flow }}</p>
+                                <p>{{ data.income_flow }}</p>
                             </div>
                         </div>
                         <!--end::Card-->

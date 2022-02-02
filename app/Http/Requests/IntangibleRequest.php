@@ -23,11 +23,23 @@ class IntangibleRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'question_1' => ['numeric'],
-            'question_2' => ['required', 'numeric'],
-            'question_3' => ['required', 'numeric'],
-            'question_4' => ['required', 'numeric'],
-        ];
+        if ($this->request->get('valuation_model') == 3) {
+            return [
+                'question_1' => ['required', 'numeric'],
+                'question_2' => ['required', 'numeric'],
+                'question_3' => ['required', 'numeric'],
+                'question_4' => ['required', 'numeric'],
+                'valuation_model' => ['required'],
+                'value' => ['required', 'numeric']
+            ];
+        }else{
+            return [
+                'question_1' => ['required', 'numeric'],
+                'question_2' => ['required', 'numeric'],
+                'question_3' => ['required', 'numeric'],
+                'question_4' => ['required', 'numeric'],
+                'valuation_model' => ['required'],
+            ];
+        }
     }
 }

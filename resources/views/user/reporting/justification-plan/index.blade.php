@@ -22,6 +22,11 @@
                 <!--end::Page Heading-->
             </div>
             <!--end::Info-->
+            <div class="d-flex align-items-center">
+                <!--begin::Button-->
+                <a href="{{ route('justification-plan.export') }}" target="_blank" class="btn btn-light-danger font-weight-bold ml-2">PDF</a>
+                <!--end::Button-->
+            </div>
         </div>
     </div>
     <!--end::Subheader-->
@@ -848,7 +853,7 @@
                             <p>
                                 @if(!$plan_year)
                                 @else
-                                    در این طرح عمر فناوری {{$plan_year->number_of_plan_year}} ساله در نظر گرفته شده است و نرخ تورم سالیانه  {{$fiscal->inflation}}درصد می‌باشد. لازم به ذکر است قیمت روز دلار {{$fiscal->dollar}} تومان بوده و وامی {{$fiscal->loan}} تومانی با سود {{$fiscal->profit}} درصد و بازپرداخت {{$fiscal->reimbursement}} ماهانه درنظر گرفته شده است. با توجه به برآورد ریسک {{($technology_risk_level + $manufacturing_risk_level + $market_risk_level + $business_risk_level)/4}} محاسبه شده در سامانه و میزان تورم، نرخ تنزیل {{(($technology_risk_level + $manufacturing_risk_level + $market_risk_level + $business_risk_level)/4) + ($fiscal->inflation) }} در نظر گرفته می‌شود.
+                                    در این طرح عمر فناوری {{$plan_year->number_of_plan_year}} ساله در نظر گرفته شده است و نرخ تورم سالیانه  {{$fiscal->inflation}}درصد می‌باشد. لازم به ذکر است قیمت روز دلار {{$fiscal->dollar}} تومان بوده و وامی {{$fiscal->loan}} تومانی با سود {{$fiscal->profit}} درصد و بازپرداخت {{$fiscal->reimbursement}} ماهانه درنظر گرفته شده است. با توجه به برآورد ریسک {{($technology_risk_level + $manufacturing_risk_level + $market_risk_level + $business_risk_level)/4}} محاسبه شده در سامانه و میزان تورم، نرخ تنزیل {{ $percentage_of_risk + $fiscal->inflation }} در نظر گرفته می‌شود.
                                 @endif
                             </p>
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
@@ -2444,7 +2449,7 @@
                                         <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                             <thead>
                                             <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7" colspan="2">سال</th>
+                                                <th class="pl-7">سال</th>
                                                 <th class="pl-7">محصول</th>
                                                 <th class="pl-7">ضریب تعدیل</th>
                                                 <th class="pl-7">هزینه مشترک</th>
@@ -2455,14 +2460,11 @@
                                             </thead>
                                             <tbody>
                                             @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
-                                                <tr>
-                                                    <td rowspan="4"><b>سال {{$i}} طرح</b></td>
-                                                </tr>
-                                                @foreach($products as $product)
+                                                @foreach($products as $key => $product)
                                                     <tr class="text-center">
-                                                        <td>
-                                                            <span class="text-dark-75"></span>
-                                                        </td>
+                                                        @if($key == 0)
+                                                            <td rowspan="{{ count($products) }}"><b>سال {{$i}} طرح</b></td>
+                                                        @endif
                                                         <td>
                                                             <span class="text-dark-75">{{ $product->name }}</span>
                                                         </td>
@@ -2928,7 +2930,6 @@
                     <!--end::Card-->
                 </div>
             </div>
-            <a class="btn btn-primary" href="{{ URL::to('/reporting/justification-plan/pdf') }}">Export to PDF</a>
         </div>
     </div>
     <!--end::Entry-->

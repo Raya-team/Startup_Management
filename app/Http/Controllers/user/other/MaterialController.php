@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user\other;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RawMaterialNameRequest;
 use App\Models\RawMaterialName;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -35,14 +36,15 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RawMaterialNameRequest $request)
     {
+        $team_id = Auth::user()->team_id;
         $materials = $request->material;
         for ($i = 0; $i < sizeof($materials); $i++) {
             $material = new RawMaterialName();
             $material->name = $materials[$i]['name'];
-            $material->team_id = Auth::user()->team_id;
             $material->product_name = $materials[$i]['product_name'];
+            $material->team_id = $team_id;
             $material->updated_at = null;
             $material->save();
         }
@@ -78,7 +80,7 @@ class MaterialController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RawMaterialNameRequest $request, $id)
     {
         $material = RawMaterialName::findorfail($id);
         $material->name = $request->material[0]['name'];

@@ -38,7 +38,7 @@ class PreviousInvestorController extends Controller
      */
     public function store(PreviousInvestorRequest $request)
     {
-        $previousinvestors = $request->previousinvestors;
+        $previousinvestors = $request->previous_investors;
         for ($i = 0; $i < sizeof($previousinvestors); $i++) {
             $previousinvestor = new PreviousInvestor();
             $previousinvestor->name = $previousinvestors[$i]['name'];
@@ -86,8 +86,8 @@ class PreviousInvestorController extends Controller
      */
     public function update(PreviousInvestorRequest $request, PreviousInvestor $previousinvestor)
     {
-        $previousinvestor->name = $request['previousinvestors'][0]['name'];
-        $previousinvestor->percent = $request['previousinvestors'][0]['percent'];
+        $previousinvestor->name = $request['previous_investors'][0]['name'];
+        $previousinvestor->percent = $request['previous_investors'][0]['percent'];
         $previousinvestor->team_id = Auth::user()->team_id;
         $previousinvestor->save();
         return response(['success'], 201);
