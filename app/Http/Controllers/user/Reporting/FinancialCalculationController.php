@@ -97,7 +97,7 @@ class FinancialCalculationController extends Controller
                 $TRL = 1;
             }
         }else{
-            $value = 'لطفا بخش تکنولوژی سطح آمادگی را تکمیل کنید';
+            $value = 'لطفا بخش فناوری سطح آمادگی را تکمیل کنید';
             return view('user.reporting.financial-calculation.Error', compact('value'));
         }
 

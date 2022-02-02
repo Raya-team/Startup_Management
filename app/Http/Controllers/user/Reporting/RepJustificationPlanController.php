@@ -338,107 +338,115 @@ class RepJustificationPlanController extends Controller
         $annual_asset_value_transportations = [];
         $annual_asset_value_laboratory_equipments = [];
 
-        for($i=1;$i<=$plan_year->number_of_plan_year;$i++)
+        if(isset($plan_year->number_of_plan_year))
         {
-            $capacities = Capacity::where('team_id', $team_id)->where('year',$i)->first('total_production');
-            array_push($annual_capacities,$capacities);
+            for($i=1;$i<=$plan_year->number_of_plan_year;$i++)
+            {
+                $capacities = Capacity::where('team_id', $team_id)->where('year',$i)->first('total_production');
+                array_push($annual_capacities,$capacities);
 
-            $raw_material_price = $raw_material->where('year', $i)->sum('total_price');
-            array_push($annual_raw_material_price,$raw_material_price);
+                $raw_material_price = $raw_material->where('year', $i)->sum('total_price');
+                array_push($annual_raw_material_price,$raw_material_price);
 
-            $man_powers_price = $man_powers->where('year', $i)->sum('total_rights');
-            array_push($annual_man_powers_price,$man_powers_price);
+                $man_powers_price = $man_powers->where('year', $i)->sum('total_rights');
+                array_push($annual_man_powers_price,$man_powers_price);
 
-            $business_price = $business->where('year', $i)->sum('annual_cost');
-            array_push($annual_business_price,$business_price);
+                $business_price = $business->where('year', $i)->sum('annual_cost');
+                array_push($annual_business_price,$business_price);
 
-            $outsourcing_price = $outsourcing->where('year', $i)->sum('total_cost');
-            array_push($annual_outsourcing_price,$outsourcing_price);
+                $outsourcing_price = $outsourcing->where('year', $i)->sum('total_cost');
+                array_push($annual_outsourcing_price,$outsourcing_price);
 
-            $consumer_item_price = $consumer_item->where('year', $i)->sum('total_cost');
-            array_push($annual_consumer_item_price,$consumer_item_price);
+                $consumer_item_price = $consumer_item->where('year', $i)->sum('total_cost');
+                array_push($annual_consumer_item_price,$consumer_item_price);
 
-            $rent_price = $rent->where('year', $i)->sum('total_rent');
-            array_push($annual_rent_price,$rent_price);
+                $rent_price = $rent->where('year', $i)->sum('total_rent');
+                array_push($annual_rent_price,$rent_price);
 
-            $energy_consumption_price = $energy_consumption->where('year', $i)->sum('annual_cost');
-            array_push($annual_energy_consumption_price,$energy_consumption_price);
+                $energy_consumption_price = $energy_consumption->where('year', $i)->sum('annual_cost');
+                array_push($annual_energy_consumption_price,$energy_consumption_price);
 
-            $repair_price = $repair->where('year', $i)->sum('total_cost');
-            array_push($annual_repair_price,$repair_price);
+                $repair_price = $repair->where('year', $i)->sum('total_cost');
+                array_push($annual_repair_price,$repair_price);
 
-            $rd_price = $rd->where('year', $i)->sum('annual_cost');
-            array_push($annual_rd_price,$rd_price);
+                $rd_price = $rd->where('year', $i)->sum('annual_cost');
+                array_push($annual_rd_price,$rd_price);
 
-            $warranty_price = $warranty->where('year', $i)->sum('total_cost');
-            array_push($annual_warranty_price,$warranty_price);
+                $warranty_price = $warranty->where('year', $i)->sum('total_cost');
+                array_push($annual_warranty_price,$warranty_price);
 
-            $fin2_transportation_price = $fin2_transportation->where('year', $i)->sum('total_cost');
-            array_push($annual_fin2_transportation_price,$fin2_transportation_price);
+                $fin2_transportation_price = $fin2_transportation->where('year', $i)->sum('total_cost');
+                array_push($annual_fin2_transportation_price,$fin2_transportation_price);
 
-            $after_sale_service_price = $after_sale_service->where('year', $i)->sum('total_cost');
-            array_push($annual_after_sale_service,$after_sale_service_price);
+                $after_sale_service_price = $after_sale_service->where('year', $i)->sum('total_cost');
+                array_push($annual_after_sale_service,$after_sale_service_price);
 
-            if($i <= $fiscal->reimbursement)
-            { $financial_expenses = ($fiscal->loan) * ( ($fiscal->profit) / 100 ); }
-            else
-            { $financial_expenses = 0; }
-            array_push($annual_financial_expenses,$financial_expenses);
-            /* هزینه استهلاک */
-            if ($i == 1){
-                $dep_tenements = $lands * ($depreciation_rate->question_1 / 100);
-                array_push($annual_dep_tenements, $dep_tenements);
-                array_push($annual_asset_value_tenements, $lands);
+                if($i <= $fiscal->reimbursement)
+                { $financial_expenses = ($fiscal->loan) * ( ($fiscal->profit) / 100 ); }
+                else
+                { $financial_expenses = 0; }
+                array_push($annual_financial_expenses,$financial_expenses);
+                /* هزینه استهلاک */
+                if ($i == 1){
+                    $dep_tenements = $lands * ($depreciation_rate->question_1 / 100);
+                    array_push($annual_dep_tenements, $dep_tenements);
+                    array_push($annual_asset_value_tenements, $lands);
 
-                $dep_equipment_and_machineries = $equipment_and_machineries * ($depreciation_rate->question_2 / 100);
-                array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
-                array_push($annual_asset_value_machineries, $equipment_and_machineries);
+                    $dep_equipment_and_machineries = $equipment_and_machineries * ($depreciation_rate->question_2 / 100);
+                    array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
+                    array_push($annual_asset_value_machineries, $equipment_and_machineries);
 
-                $dep_office_equipment_and_supplise = $office_equipment_and_supplise * ($depreciation_rate->question_3 / 100);
-                array_push($annual_dep_office_equipment_and_supplise, $dep_office_equipment_and_supplise);
-                array_push($annual_asset_value_office_equipment, $office_equipment_and_supplise);
+                    $dep_office_equipment_and_supplise = $office_equipment_and_supplise * ($depreciation_rate->question_3 / 100);
+                    array_push($annual_dep_office_equipment_and_supplise, $dep_office_equipment_and_supplise);
+                    array_push($annual_asset_value_office_equipment, $office_equipment_and_supplise);
 
-                $dep_facilities = $fin_facilities * ($depreciation_rate->question_4 / 100);
-                array_push($annual_dep_facilities, $dep_facilities);
-                array_push($annual_asset_value_facilities, $fin_facilities);
+                    $dep_facilities = $fin_facilities * ($depreciation_rate->question_4 / 100);
+                    array_push($annual_dep_facilities, $dep_facilities);
+                    array_push($annual_asset_value_facilities, $fin_facilities);
 
-                $dep_transportations = $fin_transportations * ($depreciation_rate->question_5 / 100);
-                array_push($annual_dep_transportations, $dep_transportations);
-                array_push($annual_asset_value_transportations, $fin_transportations);
+                    $dep_transportations = $fin_transportations * ($depreciation_rate->question_5 / 100);
+                    array_push($annual_dep_transportations, $dep_transportations);
+                    array_push($annual_asset_value_transportations, $fin_transportations);
 
-                $dep_laboratory_equipments = $fin_laboratory_equipments * ($depreciation_rate->question_6 / 100);
-                array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
-                array_push($annual_asset_value_laboratory_equipments, $fin_laboratory_equipments);
+                    $dep_laboratory_equipments = $fin_laboratory_equipments * ($depreciation_rate->question_6 / 100);
+                    array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
+                    array_push($annual_asset_value_laboratory_equipments, $fin_laboratory_equipments);
 
-                $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
-            }else{
-                $dep_tenements = ($annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]) * ($depreciation_rate->question_1 / 100);
-                array_push($annual_dep_tenements, $dep_tenements);
-                array_push($annual_asset_value_tenements, $annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]);
+                    $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
+                }else{
+                    $dep_tenements = ($annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]) * ($depreciation_rate->question_1 / 100);
+                    array_push($annual_dep_tenements, $dep_tenements);
+                    array_push($annual_asset_value_tenements, $annual_asset_value_tenements[$i-2] - $annual_dep_tenements[$i-2]);
 
-                $dep_equipment_and_machineries = ($annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]) * ($depreciation_rate->question_2 / 100);
-                array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
-                array_push($annual_asset_value_machineries, $annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]);
+                    $dep_equipment_and_machineries = ($annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]) * ($depreciation_rate->question_2 / 100);
+                    array_push($annual_dep_equipment_and_machineries, $dep_equipment_and_machineries);
+                    array_push($annual_asset_value_machineries, $annual_asset_value_machineries[$i-2] - $annual_dep_equipment_and_machineries[$i-2]);
 
-                $dep_office_equipment_and_supplise = ($annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]) * ($depreciation_rate->question_3 / 100);
-                array_push($annual_dep_office_equipment_and_supplise, $dep_office_equipment_and_supplise);
-                array_push($annual_asset_value_office_equipment, $annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]);
+                    $dep_office_equipment_and_supplise = ($annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]) * ($depreciation_rate->question_3 / 100);
+                    array_push($annual_dep_office_equipment_and_supplise, $dep_office_equipment_and_supplise);
+                    array_push($annual_asset_value_office_equipment, $annual_asset_value_office_equipment[$i-2] - $annual_dep_office_equipment_and_supplise[$i-2]);
 
-                $dep_facilities = ($annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]) * ($depreciation_rate->question_4 / 100);
-                array_push($annual_dep_facilities, $dep_facilities);
-                array_push($annual_asset_value_facilities, $annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]);
+                    $dep_facilities = ($annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]) * ($depreciation_rate->question_4 / 100);
+                    array_push($annual_dep_facilities, $dep_facilities);
+                    array_push($annual_asset_value_facilities, $annual_asset_value_facilities[$i-2] - $annual_dep_facilities[$i-2]);
 
-                $dep_transportations = ($annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]) * ($depreciation_rate->question_5 / 100);
-                array_push($annual_dep_transportations, $dep_transportations);
-                array_push($annual_asset_value_transportations, $annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]);
+                    $dep_transportations = ($annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]) * ($depreciation_rate->question_5 / 100);
+                    array_push($annual_dep_transportations, $dep_transportations);
+                    array_push($annual_asset_value_transportations, $annual_asset_value_transportations[$i-2] - $annual_dep_transportations[$i-2]);
 
-                $dep_laboratory_equipments = ($annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]) * ($depreciation_rate->question_6 / 100);
-                array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
-                array_push($annual_asset_value_laboratory_equipments, $annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]);
+                    $dep_laboratory_equipments = ($annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]) * ($depreciation_rate->question_6 / 100);
+                    array_push($annual_dep_laboratory_equipments, $dep_laboratory_equipments);
+                    array_push($annual_asset_value_laboratory_equipments, $annual_asset_value_laboratory_equipments[$i-2] - $annual_dep_laboratory_equipments[$i-2]);
 
-                $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
+                    $depreciation = round($dep_tenements + $dep_equipment_and_machineries + $dep_office_equipment_and_supplise + $dep_facilities + $dep_transportations + $dep_laboratory_equipments, 2);
+                }
+                array_push($annual_depreciation, $depreciation);
             }
-            array_push($annual_depreciation, $depreciation);
+
+        }
+        else{
+            $value = 'لطفا تعداد سال های طرح در بخش مالی 1 را تکمیل کنید.';
+            return view('user.reporting.justification-plan.Error', compact('value'));
         }
         return view('user.reporting.justification-plan.index',compact('team','registered_team','shareholders','key_employees','managerial','technicals','products','required_certificates','markets','supply_and_demand','product_customers','product_competitors','alternative_products','environmental_effects','strengths','weakPoints','opportunityPoints','threats','plan_implementation','tenements','facilities','machineries','laboratory_equipments','offices','transportations','pre_operation_costs','plan_year','fiscal','count_day','annual_capacities','annual_depreciation','annual_financial_expenses','fin_facilities','fin_laboratory_equipments','fin_transportations','raw_material','annual_raw_material_price','man_powers','annual_man_powers_price','business','annual_business_price','outsourcing','annual_outsourcing_price','consumer_item','annual_consumer_item_price','rent','annual_rent_price','repair','annual_repair_price','rd','annual_rd_price','warranty','annual_warranty_price','fin2_transportation','annual_fin2_transportation_price','energy_consumption','annual_energy_consumption_price','insurances','otherInformation','lands','equipment_and_machineries','fin_laboratory_equipments','fin_facilities','fin_transportations','office_equipment_and_supplise','depreciation_rate','annual_asset_value_tenements','annual_asset_value_machineries','annual_asset_value_office_equipment','annual_asset_value_facilities','annual_asset_value_transportations','annual_asset_value_laboratory_equipments','annual_dep_tenements','annual_dep_equipment_and_machineries','annual_dep_office_equipment_and_supplise','annual_dep_facilities','annual_dep_transportations','annual_dep_laboratory_equipments','pre_operating_cost','valuation_cost','annual_after_sale_service','TRL','MRL','mRL','BRL','technology_risk_level','manufacturing_risk_level','market_risk_level','business_risk_level','percentage_of_risk'));
     }
