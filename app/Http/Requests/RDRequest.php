@@ -25,7 +25,7 @@ class RDRequest extends FormRequest
     public function rules()
     {
         return [
-            'r_d.*.description' => ['required', new Persian()],
+            'r_d.*.description' => ['required'],
             'r_d.*.annual_cost' => ['required','numeric'],
         ];
     }

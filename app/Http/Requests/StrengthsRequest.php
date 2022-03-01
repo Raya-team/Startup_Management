@@ -25,7 +25,7 @@ class StrengthsRequest extends FormRequest
     public function rules()
     {
         return [
-            'strengths.*.description' => ['required',new Persian()],
+            'strengths.*.description' => ['required'],
             'strengths.*.weight' => ['required','numeric'],
             'strengths.*.score' => ['required'],
         ];

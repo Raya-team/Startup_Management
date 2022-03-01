@@ -30,6 +30,10 @@ class BusinessController extends Controller
      */
     public function index()
     {
+        $commercialization_question = CommercializationQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (!isset($commercialization_question)){
+            return redirect()->route('business-questions.create');
+        }
         return view('user.readiness.index');
     }
 
@@ -40,6 +44,10 @@ class BusinessController extends Controller
      */
     public function create()
     {
+        $commercialization_question = CommercializationQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (isset($commercialization_question)){
+            return redirect()->route('business-questions.index');
+        }
         return view('user.readiness.index');
     }
 

@@ -26,7 +26,7 @@ class RetailRequest extends FormRequest
     public function rules()
     {
         return [
-            'retails.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'retails.*.name' => ['required', 'min:3', 'max:16'],
             'retails.*.geographical_region' => ['required',new Security()],
         ];
     }

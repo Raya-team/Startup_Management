@@ -9,22 +9,42 @@ use App\Models\ValuationFacility;
 use App\Models\ValuationLaboratoryEquipment;
 use App\Models\ValuationMachinery;
 use App\Models\ValuationOfficeSupply;
-use App\Models\ValuationOtherAsset;
 use App\Models\ValuationPreOperationCost;
 use App\Models\ValuationTenement;
 use App\Models\ValuationTransportation;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class TangibleController extends Controller
 {
     public function index()
     {
+        $team_id = Auth::user()->team_id;
+        $valuation_tenement = ValuationTenement::where('team_id', $team_id)->first();
+        $valuation_laboratory_equipments = ValuationLaboratoryEquipment::where('team_id', $team_id)->first();
+        $valuation_machineries = ValuationMachinery::where('team_id', $team_id)->first();
+        $valuation_office_supplies = ValuationOfficeSupply::where('team_id', $team_id)->first();
+        $valuation_facilities = ValuationFacility::where('team_id', $team_id)->first();
+        $valuation_transportations = ValuationTransportation::where('team_id', $team_id)->first();
+        $valuation_pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->first();
+        if (!isset($valuation_tenement) || !isset($valuation_laboratory_equipments) || !isset($valuation_machineries) || !isset($valuation_office_supplies) || !isset($valuation_facilities) || !isset($valuation_transportations) || !isset($valuation_pre_operation_costs)){
+            return redirect()->route('valuation-tangible.create');
+        }
         return view('user.valuation.tangible.index');
     }
 
     public function create()
     {
+        $team_id = Auth::user()->team_id;
+        $valuation_tenement = ValuationTenement::where('team_id', $team_id)->first();
+        $valuation_laboratory_equipments = ValuationLaboratoryEquipment::where('team_id', $team_id)->first();
+        $valuation_machineries = ValuationMachinery::where('team_id', $team_id)->first();
+        $valuation_office_supplies = ValuationOfficeSupply::where('team_id', $team_id)->first();
+        $valuation_facilities = ValuationFacility::where('team_id', $team_id)->first();
+        $valuation_transportations = ValuationTransportation::where('team_id', $team_id)->first();
+        $valuation_pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->first();
+        if (isset($valuation_tenement) || isset($valuation_laboratory_equipments) || isset($valuation_machineries) || isset($valuation_office_supplies) || isset($valuation_facilities) || isset($valuation_transportations) || isset($valuation_pre_operation_costs)){
+            return redirect()->route('valuation-tangible.index');
+        }
         return view('user.valuation.tangible.index');
     }
 

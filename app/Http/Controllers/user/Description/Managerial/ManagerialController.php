@@ -15,11 +15,19 @@ class ManagerialController extends Controller
 {
     public function index()
     {
+        $managerial = Managerial::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($managerial)){
+            return redirect()->route('description-managerial.create');
+        }
         return view('user.description.managerial.index');
     }
 
     public function create()
     {
+        $managerial = Managerial::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($managerial)){
+            return redirect()->route('description-managerial.index');
+        }
         return view('user.description.managerial.index');
     }
 

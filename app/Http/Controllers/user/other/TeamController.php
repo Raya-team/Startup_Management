@@ -65,7 +65,7 @@ class TeamController extends Controller
         $team->email = $request->input('email');
         $team->address = $request->input('address');
         $team->phone_number = $request->input('phone_number');
-        $team->landline = $request->input('land_line');
+        $team->landline = $request->input('landline');
         $team->save();
         return response(['success'], 201);
     }
@@ -77,7 +77,7 @@ class TeamController extends Controller
     protected function TeamValidation(Request $request, $id)
     {
         $request->validate([
-            'name' => ['required', 'min:3', 'max:32', Rule::unique('teams')->ignore($id), new Persian()],
+            'name' => ['required', 'min:3', 'max:32', Rule::unique('teams')->ignore($id)],
             'project_name' => ['required', 'min:3', 'max:32', new Security()],
             'status' => ['required', new Security()],
             'email' => ['required', 'email', 'max:255', Rule::unique('teams')->ignore($id),],

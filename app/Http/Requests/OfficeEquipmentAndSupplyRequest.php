@@ -25,7 +25,7 @@ class OfficeEquipmentAndSupplyRequest extends FormRequest
     public function rules()
     {
         return [
-            'officeequipmentandsupplies.*.description' => ['required', new Persian()],
+            'officeequipmentandsupplies.*.description' => ['required'],
             'officeequipmentandsupplies.*.count' => ['required','numeric'],
             'officeequipmentandsupplies.*.unit_price' => ['required','numeric'],
         ];

@@ -75,7 +75,7 @@ class CapacityController extends Controller
         $Capacity->nominal_capacity = $request->input('nominal_capacity');
         $Capacity->unit = $request->input('unit');
         $Capacity->percent = $request->input('percent');
-        $Capacity->total_production = $request->input('total_production');
+        $Capacity->total_production = $request->input('nominal_capacity') * ($request->input('percent') / 100);
         $Capacity->save();
         return response(['success'], 201);
     }

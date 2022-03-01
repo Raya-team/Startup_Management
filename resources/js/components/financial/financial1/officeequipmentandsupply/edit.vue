@@ -14,7 +14,7 @@
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
                                 <router-link :to="{name: 'financial1-index'}">
-                                    <a class="text-muted">مالی 1</a>
+                                    <a class="text-muted">اطلاعات مالی سال صفر</a>
                                 </router-link>
                             </li>
                             <li class="breadcrumb-item text-muted">

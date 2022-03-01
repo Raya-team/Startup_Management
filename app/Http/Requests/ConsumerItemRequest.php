@@ -25,7 +25,7 @@ class ConsumerItemRequest extends FormRequest
     public function rules()
     {
         return [
-            'consumer_item.*.description' => ['required', new Persian()],
+            'consumer_item.*.description' => ['required'],
             'consumer_item.*.number' => ['required','numeric'],
             'consumer_item.*.unit_cost' => ['required','numeric'],
         ];

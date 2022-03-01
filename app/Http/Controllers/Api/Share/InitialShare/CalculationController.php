@@ -14,10 +14,6 @@ class CalculationController extends Controller
 {
     public function index()
     {
-
-
-
-
         $team_id = Auth::user()->team_id;
         $variables = ShareVariable::where('team_id' , $team_id)->first();
         $questions = ShareQuestion::with('members')->get();
@@ -67,7 +63,8 @@ class CalculationController extends Controller
 
     public function create()
     {
-        $shareholders = TeamMember::all();
+        $team_id = Auth::user()->team_id;
+        $shareholders = TeamMember::where('team_id', $team_id)->get();
         return response()->json($shareholders);
     }
 

@@ -26,13 +26,13 @@ class TechnicalRequest extends FormRequest
     public function rules()
     {
         return [
-            'technical.product_introduction' => ['required',new Persian()],
-            'technical.technical_specifications' => ['required',new Persian()],
-            'technical.scientific_principles' => ['required',new Persian()],
-            'technical.technical_features_product' => ['required',new Persian()],
-            'technical.terms_and_conditions_of_work' => ['required',new Persian()],
-            'technical.production_schedule' => ['required',new Persian()],
-            'required_certificates.*.description' => ['required',new Persian()],
+            'technical.product_introduction' => ['required'],
+            'technical.technical_specifications' => ['required'],
+            'technical.scientific_principles' => ['required'],
+            'technical.technical_features_product' => ['required'],
+            'technical.terms_and_conditions_of_work' => ['required'],
+            'technical.production_schedule' => ['required'],
+            'required_certificates.*.description' => ['required'],
             'required_certificates.*.received' => ['required',new Security()],
             'required_certificates.*.type' => ['required',new Security()],
         ];

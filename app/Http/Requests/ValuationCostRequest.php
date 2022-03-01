@@ -25,7 +25,7 @@ class ValuationCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'costs.*.description' => ['required', new Persian()],
+            'costs.*.description' => ['required'],
             'costs.*.total_price' => ['required', 'numeric']
         ];
     }

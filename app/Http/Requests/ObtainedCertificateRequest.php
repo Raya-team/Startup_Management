@@ -25,9 +25,9 @@ class ObtainedCertificateRequest extends FormRequest
     public function rules()
     {
         return [
-            'obtained_certificate.*.description' => ['required',new Persian()],
+            'obtained_certificate.*.description' => ['required'],
             'obtained_certificate.*.acquisition_year' => ['required','numeric'],
-            'obtained_certificate.*.comment' => ['required',new Persian()],
+            'obtained_certificate.*.comment' => ['required'],
         ];
     }
 }

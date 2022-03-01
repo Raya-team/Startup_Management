@@ -28,7 +28,6 @@ class CapacityRequest extends FormRequest
             'nominal_capacity' => ['required','numeric'],
             'unit' => ['required', new Security()],
             'percent' => ['required','numeric'],
-            'total_production' => ['required','numeric'],
         ];
     }
 
@@ -38,7 +37,6 @@ class CapacityRequest extends FormRequest
             'nominal_capacity' => 'ظرفیت اسمی',
             'unit' => 'واحد',
             'percent' => 'درصد',
-            'total_production' => 'تعداد تولید واقعی',
         ];
     }
 }

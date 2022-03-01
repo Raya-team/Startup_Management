@@ -25,7 +25,7 @@ class AfterSaleServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'after_sale_service.*.description' => ['required', new Persian()],
+            'after_sale_service.*.description' => ['required'],
             'after_sale_service.*.number' => ['required','numeric'],
             'after_sale_service.*.unit_cost' => ['required','numeric'],
         ];

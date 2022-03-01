@@ -25,7 +25,7 @@ class PreviousInvestorRequest extends FormRequest
     public function rules()
     {
         return [
-            'previous_investors.*.name' => ['required' , 'min:3', 'max:32', new Persian()],
+            'previous_investors.*.name' => ['required' , 'min:3', 'max:32'],
             'previous_investors.*.percent' => ['required' , 'numeric', 'max:100'],
         ];
     }

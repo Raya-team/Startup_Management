@@ -14,11 +14,11 @@
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
                                 <!--<router-link :to="{name: 'initial-shares-index'}">-->
-                                <a class="text-muted">اطلاعات مالی 1</a>
+                                <a class="text-muted">اطلاعات مالی سال صفر</a>
                                 <!--</router-link>-->
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <a href="#" class="text-muted">اطلاعات اولیه</a>
+                                <a href="#" class="text-muted">مدت زمان مورد نیاز برای سرمایه در گردش</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->

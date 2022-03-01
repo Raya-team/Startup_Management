@@ -26,7 +26,7 @@ class RawMaterialNameRequest extends FormRequest
     public function rules()
     {
         return [
-            'material.*.name' => ['required', new Persian()],
+            'material.*.name' => ['required'],
             'material.*.product_name' => ['required', new Security()],
         ];
     }

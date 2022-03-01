@@ -28,6 +28,10 @@ class Financial1Controller extends Controller
      */
     public function index()
     {
+        $PlanYear = PlanYear::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($PlanYear)){
+            return redirect()->route('financial1.create');
+        }
         return view('user.financial.financial1.index');
     }
 
@@ -38,6 +42,10 @@ class Financial1Controller extends Controller
      */
     public function create()
     {
+        $PlanYear = PlanYear::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($PlanYear)){
+            return redirect()->route('financial1.index');
+        }
         return view('user.financial.financial1.index');
     }
 

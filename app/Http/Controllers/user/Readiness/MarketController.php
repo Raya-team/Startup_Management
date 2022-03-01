@@ -17,6 +17,10 @@ class MarketController extends Controller
      */
     public function index()
     {
+        $market_question = MarketQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (!isset($market_question)){
+            return redirect()->route('market-questions.create');
+        }
         return view('user.readiness.index');
     }
 
@@ -27,6 +31,10 @@ class MarketController extends Controller
      */
     public function create()
     {
+        $market_question = MarketQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (isset($market_question)){
+            return redirect()->route('market-questions.index');
+        }
         return view('user.readiness.index');
     }
 

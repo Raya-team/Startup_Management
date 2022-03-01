@@ -16,11 +16,19 @@ class JustificationPlanController extends Controller
 {
     public function index()
     {
+        $business_manager = BusinessManager::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($business_manager)){
+            return redirect()->route('justificationplan.create');
+        }
         return view('user.justification-plan.index');
     }
 
     public function create()
     {
+        $business_manager = BusinessManager::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($business_manager)){
+            return redirect()->route('justificationplan.index');
+        }
         return view('user.justification-plan.index');
     }
 

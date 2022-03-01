@@ -25,8 +25,8 @@ class RepairRequest extends FormRequest
     public function rules()
     {
         return [
-            'repair.*.description' => ['required', new Persian()],
-            'repair.*.percent' => ['required','numeric'],
+            'repair.*.description' => ['required'],
+            'repair.*.percent' => ['required','numeric', 'max:100'],
         ];
     }
 }

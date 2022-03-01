@@ -25,7 +25,7 @@ class OpportunityPointRequest extends FormRequest
     public function rules()
     {
         return [
-            'opportunity_points.*.description' => ['required',new Persian()],
+            'opportunity_points.*.description' => ['required'],
             'opportunity_points.*.weight' => ['required','numeric'],
             'opportunity_points.*.score' => ['required','numeric'],
         ];

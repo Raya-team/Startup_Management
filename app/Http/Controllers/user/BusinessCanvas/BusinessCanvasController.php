@@ -13,11 +13,18 @@ class BusinessCanvasController extends Controller
     public function index()
     {
         $business_canvas = BusinessCanvas::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($business_canvas)){
+            return redirect()->route('businesscanvas.create');
+        }
         return view('user.business-canvas.index',compact('business_canvas'));
     }
 
     public function create()
     {
+        $business_canvas = BusinessCanvas::where('team_id',Auth::user()->team_id)->first();
+        if (isset($business_canvas)){
+            return redirect()->route('businesscanvas.index');
+        }
         return view('user.business-canvas.index');
     }
 

@@ -25,12 +25,12 @@ class ManagerialEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'managerial.about_team' => ['required',new Persian()],
-            'managerial.vision' => ['required',new Persian()],
-            'managerial.mission' => ['required',new Persian()],
-            'managerial.key_competencies' => ['required',new Persian()],
-            'managerial.targets' => ['required',new Persian()],
-            'managerial.problem_statement' => ['required',new Persian()],
+            'managerial.about_team' => ['required'],
+            'managerial.vision' => ['required'],
+            'managerial.mission' => ['required'],
+            'managerial.key_competencies' => ['required'],
+            'managerial.targets' => ['required'],
+            'managerial.problem_statement' => ['required'],
         ];
     }
 }

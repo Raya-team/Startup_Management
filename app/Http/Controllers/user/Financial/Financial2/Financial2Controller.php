@@ -96,7 +96,7 @@ class Financial2Controller extends Controller
         $capacity->nominal_capacity = $request->input('capacity.nominal_capacity');
         $capacity->unit = $request->input('capacity.unit');
         $capacity->percent = $request->input('capacity.percent');
-        $capacity->total_production = $request->input('capacity.total_production');
+        $capacity->total_production = $request->input('capacity.nominal_capacity') * ($request->input('capacity.percent')/100);
         $capacity->year = $year;
         $capacity->team_id = $team->id;
         $capacity->save();

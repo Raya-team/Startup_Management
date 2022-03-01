@@ -26,11 +26,19 @@ class ParticipationShareController extends Controller
 {
     public function index()
     {
+        $participation_pre_investor = ParticipationPreInvestor::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($participation_pre_investor)){
+            return redirect()->route('participation-shares.create');
+        }
         return view('user.shares.participation-shares.index');
     }
 
     public function create()
     {
+        $participation_pre_investor = ParticipationPreInvestor::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($participation_pre_investor)){
+            return redirect()->route('participation-shares.index');
+        }
         return view('user.shares.participation-shares.index');
     }
 

@@ -4,6 +4,12 @@ namespace App\Http\Controllers\user\Valuation\Intangible;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\IntangibleRequest;
+use App\Models\Capacity;
+use App\Models\CommercializationQuestion;
+use App\Models\ManufacturingQuestion;
+use App\Models\MarketQuestion;
+use App\Models\PlanYear;
+use App\Models\TechnologyQuestion;
 use App\Models\ValuationAdditionalQuestion;
 use App\Models\ValuationOfIntangibleAsset;
 use Illuminate\Http\Request;
@@ -18,6 +24,10 @@ class IntangibleController extends Controller
      */
     public function index()
     {
+        $valuation_additional_question = ValuationAdditionalQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (!isset($valuation_additional_question)){
+            return redirect()->route('valuation-intangible.create');
+        }
         return view('user.valuation.intangible.index');
     }
 
@@ -28,6 +38,44 @@ class IntangibleController extends Controller
      */
     public function create()
     {
+        $team_id = Auth::user()->team_id;
+        $techno_questions = TechnologyQuestion::where('team_id', $team_id)->first();
+        $ManufacturingQuestion = ManufacturingQuestion::where('team_id', $team_id)->first();
+        $MarketQuestion = MarketQuestion::where('team_id', $team_id)->first();
+        $Commercialization = CommercializationQuestion::where('team_id', $team_id)->first();
+        $year = PlanYear::where('team_id', $team_id)->first();
+        if (!isset($techno_questions)){
+            $value = 'لطفا بخش فناوری سطح آمادگی را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }elseif (!isset($ManufacturingQuestion)){
+            $value = 'لطفا بخش تولید را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }elseif (!isset($MarketQuestion)){
+            $value = 'لطفا بخش بازار را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }elseif (!isset($Commercialization)){
+            $value = 'لطفا بخش کسب و کار را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }elseif (!isset($year)){
+            $value = 'لطفا تعداد سال طرح در بخش اطلاعات مالی 1 را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }elseif (!isset($year)){
+            $value = 'لطفا تعداد سال طرح در بخش اطلاعات مالی 1 را تکمیل کنید';
+            return view('user.valuation.intangible.Error', compact('value'));
+        }
+        for ($i = 1; $i <= $year->number_of_plan_year; $i++){
+            $capacity = Capacity::where('team_id', $team_id)->where('year', $i)->first();
+            if (!isset($capacity->total_production)){
+                $value = 'لطفا جدول ظرفیت در بخش اطلاعات مالی 2 در هر سال را تکمیل کنید';
+                return view('user.valuation.intangible.Error', compact('value'));
+            }
+        }
+
+        $valuation_additional_question = ValuationAdditionalQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (isset($valuation_additional_question)){
+            return redirect()->route('valuation-intangible.index');
+        }
+
         return view('user.valuation.intangible.index');
     }
 

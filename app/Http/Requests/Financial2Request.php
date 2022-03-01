@@ -27,13 +27,12 @@ class Financial2Request extends FormRequest
     {
         if($this->request->get('year') > 1){
             return [
-                'development_cost.description' => ['required', new Persian()],
+                'development_cost.description' => ['required'],
                 'development_cost.total_cost' => ['required','numeric'],
 
                 'capacity.nominal_capacity' => ['required','numeric'],
                 'capacity.unit' => ['required', new Security()],
                 'capacity.percent' => ['required','numeric'],
-                'capacity.total_production' => ['required','numeric'],
 
                 'raw_material.*.product_name' =>['required'],
                 'raw_material.*.name' =>['required'],
@@ -46,43 +45,43 @@ class Financial2Request extends FormRequest
                 'man_power.*.number' => ['required','numeric'],
                 'man_power.*.salary' => ['required','numeric'],
 
-                'rent.*.description' => ['required', new Persian()],
+                'rent.*.description' => ['required'],
                 'rent.*.area' => ['required','numeric'],
                 'rent.*.monthly_rent' => ['required','numeric'],
 
-                'energy_consumption.*.description' => ['required', new Persian()],
+                'energy_consumption.*.description' => ['required'],
                 'energy_consumption.*.unit' => ['required', new Security()],
                 'energy_consumption.*.annual_consumption' => ['required','numeric'],
                 'energy_consumption.*.unit_cost' =>['required','numeric'],
 
-                'r_d.*.description' => ['required', new Persian()],
+                'r_d.*.description' => ['required'],
                 'r_d.*.annual_cost' => ['required','numeric'],
 
-                'business.*.description' => ['required', new Persian()],
+                'business.*.description' => ['required'],
                 'business.*.annual_cost' => ['required','numeric'],
 
-                'insurance.*.description' => ['required', new Persian()],
+                'insurance.*.description' => ['required'],
                 'insurance.*.total_cost' => ['required','numeric'],
 
-                'repair.*.description' => ['required', new Persian()],
-                'repair.*.percent' => ['required','numeric'],
+                'repair.*.description' => ['required'],
+                'repair.*.percent' => ['required','numeric', 'max:100'],
 
-                'transportation_cost.*.description' => ['required', new Persian()],
+                'transportation_cost.*.description' => ['required'],
                 'transportation_cost.*.number' => ['required','numeric'],
                 'transportation_cost.*.unit_cost' => ['required','numeric'],
 
                 'warranty.*.product_name' => ['required'],
-                'warranty.*.percent' => ['required','numeric'],
+                'warranty.*.percent' => ['required','numeric', 'max:100'],
 
-                'consumer_item.*.description' => ['required', new Persian()],
+                'consumer_item.*.description' => ['required'],
                 'consumer_item.*.number' => ['required','numeric'],
                 'consumer_item.*.unit_cost' => ['required','numeric'],
 
-                'after_sale_service.*.description' => ['required', new Persian()],
+                'after_sale_service.*.description' => ['required'],
                 'after_sale_service.*.number' => ['required','numeric'],
                 'after_sale_service.*.unit_cost' => ['required','numeric'],
 
-                'outsourcing.*.description' => ['required', new Persian()],
+                'outsourcing.*.description' => ['required'],
                 'outsourcing.*.number' => ['required','numeric'],
                 'outsourcing.*.unit_cost' => ['required','numeric'],
 
@@ -94,7 +93,6 @@ class Financial2Request extends FormRequest
                 'capacity.nominal_capacity' => ['required','numeric'],
                 'capacity.unit' => ['required', new Security()],
                 'capacity.percent' => ['required','numeric'],
-                'capacity.total_production' => ['required','numeric'],
 
                 'raw_material.*.product_name' =>['required'],
                 'raw_material.*.name' =>['required'],
@@ -107,43 +105,43 @@ class Financial2Request extends FormRequest
                 'man_power.*.number' => ['required','numeric'],
                 'man_power.*.salary' => ['required','numeric'],
 
-                'rent.*.description' => ['required', new Persian()],
+                'rent.*.description' => ['required'],
                 'rent.*.area' => ['required','numeric'],
                 'rent.*.monthly_rent' => ['required','numeric'],
 
-                'energy_consumption.*.description' => ['required', new Persian()],
+                'energy_consumption.*.description' => ['required'],
                 'energy_consumption.*.unit' => ['required', new Security()],
                 'energy_consumption.*.annual_consumption' => ['required','numeric'],
                 'energy_consumption.*.unit_cost' =>['required','numeric'],
 
-                'r_d.*.description' => ['required', new Persian()],
+                'r_d.*.description' => ['required'],
                 'r_d.*.annual_cost' => ['required','numeric'],
 
-                'business.*.description' => ['required', new Persian()],
+                'business.*.description' => ['required'],
                 'business.*.annual_cost' => ['required','numeric'],
 
-                'insurance.*.description' => ['required', new Persian()],
+                'insurance.*.description' => ['required'],
                 'insurance.*.total_cost' => ['required','numeric'],
 
-                'repair.*.description' => ['required', new Persian()],
-                'repair.*.percent' => ['required','numeric'],
+                'repair.*.description' => ['required'],
+                'repair.*.percent' => ['required','numeric', 'max:100'],
 
-                'transportation_cost.*.description' => ['required', new Persian()],
+                'transportation_cost.*.description' => ['required'],
                 'transportation_cost.*.number' => ['required','numeric'],
                 'transportation_cost.*.unit_cost' => ['required','numeric'],
 
                 'warranty.*.product_name' => ['required'],
-                'warranty.*.percent' => ['required','numeric'],
+                'warranty.*.percent' => ['required','numeric', 'max:100'],
 
-                'consumer_item.*.description' => ['required', new Persian()],
+                'consumer_item.*.description' => ['required'],
                 'consumer_item.*.number' => ['required','numeric'],
                 'consumer_item.*.unit_cost' => ['required','numeric'],
 
-                'after_sale_service.*.description' => ['required', new Persian()],
+                'after_sale_service.*.description' => ['required'],
                 'after_sale_service.*.number' => ['required','numeric'],
                 'after_sale_service.*.unit_cost' => ['required','numeric'],
 
-                'outsourcing.*.description' => ['required', new Persian()],
+                'outsourcing.*.description' => ['required'],
                 'outsourcing.*.number' => ['required','numeric'],
                 'outsourcing.*.unit_cost' => ['required','numeric'],
 

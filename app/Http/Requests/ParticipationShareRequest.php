@@ -28,7 +28,7 @@ class ParticipationShareRequest extends FormRequest
         return [
             'pre_investors.*.investor' => ['required', new Security()],
             'pre_investors.*.investment' => ['required', 'numeric'],
-            'new_investors.*.supplier' => ['required', 'min:3', 'max:16', new Persian()],
+            'new_investors.*.supplier' => ['required', 'min:3', 'max:16'],
             'new_investors.*.investment' => ['required', 'numeric'],
         ];
     }

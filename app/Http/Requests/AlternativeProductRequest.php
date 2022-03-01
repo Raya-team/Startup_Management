@@ -25,8 +25,8 @@ class AlternativeProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'alternative_products.*.product_title' => ['required', 'min:3', 'max:32', new Persian()],
-            'alternative_products.*.description' => ['required',new Persian()],
+            'alternative_products.*.product_title' => ['required', 'min:3', 'max:32'],
+            'alternative_products.*.description' => ['required'],
         ];
     }
 }

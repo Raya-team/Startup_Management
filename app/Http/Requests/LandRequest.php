@@ -25,7 +25,7 @@ class LandRequest extends FormRequest
     public function rules()
     {
         return [
-            'lands.*.description' => ['required', new Persian()],
+            'lands.*.description' => ['required'],
             'lands.*.area' => ['required','numeric'],
             'lands.*.price' => ['required','numeric'],
         ];

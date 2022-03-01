@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a href="/financial2" class="text-muted">اطلاعات مالی دو</a>
+                                <a href="/financial2" class="text-muted">اطلاعات مالی سال‌های بهره‌برداری</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 <a href="#" class="text-muted">اطلاعات دیگر</a>

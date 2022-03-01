@@ -25,7 +25,7 @@ class ThreatsRequest extends FormRequest
     public function rules()
     {
         return [
-            'threats.*.description' => ['required',new Persian()],
+            'threats.*.description' => ['required'],
             'threats.*.weight' => ['required','numeric'],
             'threats.*.score' => ['required','numeric'],
         ];

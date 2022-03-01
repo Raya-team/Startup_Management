@@ -26,7 +26,7 @@ class RequiredCertificateRequest extends FormRequest
     public function rules()
     {
         return [
-            'required_certificates.*.description' => ['required',new Persian()],
+            'required_certificates.*.description' => ['required'],
             'required_certificates.*.received' => ['required',new Security()],
             'required_certificates.*.type' => ['required',new Security()],
         ];

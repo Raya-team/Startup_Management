@@ -14,7 +14,7 @@
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
                                 <div class="text-muted">
-                                    <a class="text-muted">مالی 1</a>
+                                    <a class="text-muted">اطلاعات مالی سال صفر</a>
                                 </div>
                             </li>
                         </ul>
@@ -35,7 +35,7 @@
                     <div class="card card-custom gutter-b">
                         <div class="card-header">
                             <div class="card-title">
-                                <h3 class="card-label">اطلاعات مالی 1</h3>
+                                <h3 class="card-label">اطلاعات مالی سال صفر</h3>
                             </div>
                         </div>
                         <div class="card-body">
@@ -51,7 +51,7 @@
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-chat-1"></i>
                                                 </span>
-                                                        <span class="nav-text">اطلاعات اولیه</span>
+                                                        <span class="nav-text">مدت زمان مورد نیاز برای سرمایه در گردش</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item mb-2">

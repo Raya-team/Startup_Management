@@ -25,10 +25,10 @@ class EnvironmentalEffectRequest extends FormRequest
     public function rules()
     {
         return [
-            'environmental_effect.economical' => ['required',new Persian()],
-            'environmental_effect.social' => ['required',new Persian()],
-            'environmental_effect.political' => ['required',new Persian()],
-            'environmental_effect.environmental' => ['required',new Persian()],
+            'environmental_effect.economical' => ['required'],
+            'environmental_effect.social' => ['required'],
+            'environmental_effect.political' => ['required'],
+            'environmental_effect.environmental' => ['required'],
         ];
     }
 }

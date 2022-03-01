@@ -8,12 +8,12 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی 2</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a class="text-muted">مالی 2</a>
+                                <a class="text-muted">اطلاعات مالی سال‌های بهره‌برداری</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 هزینه تعمیر و نگهداری
@@ -61,7 +61,7 @@
                                                 <div class="form-group">
                                                     <label for="repairs_percent">درصد:
                                                         <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="repairs_percent" placeholder="تعداد" name="repairs_percent" v-model="rep.percent"
+                                                    <input type="text" class="form-control" id="repairs_percent" placeholder="درصد" name="repairs_percent" v-model="rep.percent"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`repair.${index}.percent`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`repair.${index}.percent`)" style="display: block;">{{ errors.get(`repair.${index}.percent`) }}</div>

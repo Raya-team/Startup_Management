@@ -25,7 +25,7 @@ class InsuranceRequest extends FormRequest
     public function rules()
     {
         return [
-            'insurance.*.description' => ['required', new Persian()],
+            'insurance.*.description' => ['required'],
             'insurance.*.total_cost' => ['required','numeric'],
         ];
     }

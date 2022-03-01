@@ -8,7 +8,7 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی 2</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی سال‌های بهره‌برداری</h5>
                         <!--end::Page Title-->
                     </div>
                     <!--end::Page Heading-->

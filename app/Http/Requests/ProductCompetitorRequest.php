@@ -26,7 +26,7 @@ class ProductCompetitorRequest extends FormRequest
     public function rules()
     {
         return [
-            'product_competitors.*.name' =>['required', 'min:3', 'max:16', new Persian()],
+            'product_competitors.*.name' =>['required', 'min:3', 'max:16'],
             'product_competitors.*.geographical_region' => ['required',new Security()],
             'product_competitors.*.market_share' => ['required',new Security()],
             'product_competitors.*.competitive_feature' => ['required',new Security()],

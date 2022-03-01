@@ -25,7 +25,7 @@ class TransportationRequest extends FormRequest
     public function rules()
     {
         return [
-            'transportations.*.description' => ['required', new Persian()],
+            'transportations.*.description' => ['required'],
             'transportations.*.count' => ['required','numeric'],
             'transportations.*.unit_price' => ['required','numeric'],
         ];

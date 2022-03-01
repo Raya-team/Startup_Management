@@ -238,125 +238,101 @@
             <!--end::Entry-->
         </div>
         <div class="card-body pt-0 pb-3">
-            <div class="card card-custom gutter-b">
-                <!--begin::Invoice Body-->
-                <div class="position-relative">
-                    <!--begin::Background Rows-->
-                    <div class="bgi-size-cover bgi-position-center bgi-no-repeat h-65px" style="background-image: url(assets/media/svg/shapes/abstract-7.svg);"></div>
-                    <div>
-                        <div class="bg-white h-65px"></div>
-                        <div class="bg-light h-65px"></div>
-                        <div class="bg-white h-65px"></div>
-                        <div class="bg-light h-65px"></div>
-                    </div>
-                    <!--end::Background Rows-->
-                    <!--begin:Table-->
-                    <div class="container position-absolute top-0 left-0 right-0">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr class="font-weight-boldest text-white h-65px">
-                                            <td class="align-middle font-size-h4 text-center pl-0 border-0">سوالات</td>
-                                            <td class="align-middle font-size-h4 text-center border-0">تعداد روز</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">تعداد روزی که طول می کشد مواد اولیه خریداری شود</td>
-                                            <td class="align-middle text-center border-0">{{ number_of_day_1 }} روز</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">تعداد روزی که طول می کشد مواد اولیه تبدیل به محصول شود</td>
-                                            <td class="align-middle text-center border-0">{{ number_of_day_2 }} روز</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">تعداد روزی که طول می کشد محصول به فروش برسد</td>
-                                            <td class="align-middle text-center border-0">{{ number_of_day_3 }} روز</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">تعداد روزی که طول می کشد مطالبات فروش محصول وصول شود</td>
-                                            <td class="align-middle text-center border-0">{{ number_of_day_4 }} روز</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--end:Table-->
-                </div>
-                <!--end::Invoice Body-->
+            <!--begin::Table-->
+            <div class="table-responsive">
+                <table class="table table-head-custom table-vertical-center" id="myTable">
+                    <thead>
+                    <tr class="bg-gray-100">
+                        <th class="text-center">سوالات</th>
+                        <th class="text-center">تعداد روز</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="background-color: #fdff9338" class="text-center">
+                        <td>
+                            <span class="text-dark-75">تعداد روزی که طول می کشد مواد اولیه خریداری شود	</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75">{{ number_of_day_1 }} روز</span>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td><span class="text-dark-75">تعداد روزی که طول می کشد مواد اولیه تبدیل به محصول شود</span></td>
+                        <td><span class="text-dark-75">{{ number_of_day_2 }} روز</span></td>
+                    </tr>
+                    <tr style="background-color: #fdff9338" class="text-center">
+                        <td>
+                            <span class="text-dark-75">تعداد روزی که طول می کشد محصول به فروش برسد</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75">{{ number_of_day_3 }} روز</span>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td><span class="text-dark-75">تعداد روزی که طول می کشد مطالبات فروش محصول وصول شود</span></td>
+                        <td><span class="text-dark-75">{{ number_of_day_4 }} روز</span></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+            <!--end::Table-->
         </div>
         <div class="card-body pt-0 pb-3">
-            <div class="card card-custom gutter-b">
-                <!--begin::Invoice Body-->
-                <div class="position-relative">
-                    <!--begin::Background Rows-->
-                    <div class="bgi-size-cover bgi-position-center bgi-no-repeat h-65px" style="background-image: url(assets/media/svg/shapes/abstract-10.svg);"></div>
-                    <div>
-                        <div class="bg-white h-65px"></div>
-                        <div class="bg-light h-65px"></div>
-                        <div class="bg-white h-65px"></div>
-                        <div class="bg-light h-65px"></div>
-                        <div class="bg-white h-65px"></div>
-                        <div class="bg-light h-65px"></div>
-                    </div>
-                    <!--end::Background Rows-->
-                    <!--begin:Table-->
-                    <div class="container position-absolute top-0 left-0 right-0">
-                        <div class="row justify-content-center">
-                            <div class="col-md-12">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                        <tr class="font-weight-boldest text-white h-65px">
-                                            <td class="align-middle font-size-h4 text-center pl-0 border-0">عنوان</td>
-                                            <td class="align-middle font-size-h4 text-center border-0">میزان</td>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک مستغلات</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_1 }} %</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک ماشین آلات و تجهیزات فنی</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_2 }} %</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک تجهیزات دفتری</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_3 }} %</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک تاسیسات</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_4 }} %</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک وسایل حمل و نقل</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_5 }} %</td>
-                                        </tr>
-                                        <tr class="font-size-lg font-weight-bolder h-65px">
-                                            <td class="align-middle text-center border-0">میزان استهلاک تجهیزات آزمایشگاهی</td>
-                                            <td class="align-middle text-center border-0">{{ depreciation_rate_6 }} %</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex flex-center pt-5" id="kt_sticky_toolbar_chat_toggler_2" data-placement="right">
-                        <router-link :to="{name: 'basic-information-edit', params: { id: team_id }}">
-                            <a class="btn btn-success font-weight-bolder font-size-sm py-3 px-14">ویرایش اطلاعات</a>
-                        </router-link>
-                    </div>
-                    <!--end:Table-->
-                </div>
-                <!--end::Invoice Body-->
+            <!--begin::Table-->
+            <div class="table-responsive">
+                <table class="table table-head-custom table-vertical-center" id="myTable">
+                    <thead>
+                    <tr class="bg-gray-100">
+                        <th class="text-center">عنوان	</th>
+                        <th class="text-center">میزان</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr style="background-color: #fdff9338" class="text-center">
+                        <td>
+                            <span class="text-dark-75">میزان استهلاک مستغلات</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75">{{ depreciation_rate_1 }} %</span>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td><span class="text-dark-75">میزان استهلاک ماشین آلات و تجهیزات فنی</span></td>
+                        <td><span class="text-dark-75">{{ depreciation_rate_2 }} %</span></td>
+                    </tr>
+                    <tr style="background-color: #fdff9338" class="text-center">
+                        <td>
+                            <span class="text-dark-75">میزان استهلاک تجهیزات دفتری</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75">{{ depreciation_rate_3 }} %</span>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td><span class="text-dark-75">میزان استهلاک تاسیسات</span></td>
+                        <td><span class="text-dark-75">{{ depreciation_rate_4 }} %</span></td>
+                    </tr>
+                    <tr style="background-color: #fdff9338" class="text-center">
+                        <td>
+                            <span class="text-dark-75">میزان استهلاک وسایل حمل و نقل</span>
+                        </td>
+                        <td>
+                            <span class="text-dark-75">{{ depreciation_rate_5 }} %</span>
+                        </td>
+                    </tr>
+                    <tr class="text-center">
+                        <td><span class="text-dark-75">میزان استهلاک تجهیزات آزمایشگاهی</span></td>
+                        <td><span class="text-dark-75">{{ depreciation_rate_6 }} %</span></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
+            <!--end::Table-->
+        </div>
+        <div class="d-flex flex-center pt-5" id="kt_sticky_toolbar_chat_toggler_2" data-placement="right">
+            <router-link :to="{name: 'basic-information-edit', params: { id: team_id }}">
+                <a class="btn btn-success font-weight-bolder font-size-sm py-3 px-14">ویرایش اطلاعات</a>
+            </router-link>
         </div>
     </div>
 </template>

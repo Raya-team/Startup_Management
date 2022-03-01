@@ -26,7 +26,7 @@ class WarrantyRequest extends FormRequest
     {
         return [
             'warranty.*.product_name' => ['required'],
-            'warranty.*.percent' => ['required','numeric'],
+            'warranty.*.percent' => ['required','numeric', 'max:100'],
         ];
     }
 }

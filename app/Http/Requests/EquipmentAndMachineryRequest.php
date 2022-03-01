@@ -25,7 +25,7 @@ class EquipmentAndMachineryRequest extends FormRequest
     public function rules()
     {
         return [
-            'equipmentandmachineries.*.description' => ['required', new Persian()],
+            'equipmentandmachineries.*.description' => ['required'],
             'equipmentandmachineries.*.count' => ['required','numeric'],
             'equipmentandmachineries.*.unit_price' => ['required','numeric'],
         ];

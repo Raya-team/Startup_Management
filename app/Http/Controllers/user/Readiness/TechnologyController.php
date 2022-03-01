@@ -17,6 +17,10 @@ class TechnologyController extends Controller
      */
     public function index()
     {
+        $technology_question = TechnologyQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (!isset($technology_question)){
+            return redirect()->route('technology-questions.create');
+        }
         return view('user.readiness.technology.index');
     }
 
@@ -27,6 +31,10 @@ class TechnologyController extends Controller
      */
     public function create()
     {
+        $technology_question = TechnologyQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (isset($technology_question)){
+            return redirect()->route('technology-questions.index');
+        }
         return view('user.readiness.technology.index');
     }
 

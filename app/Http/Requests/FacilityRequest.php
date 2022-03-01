@@ -25,7 +25,7 @@ class FacilityRequest extends FormRequest
     public function rules()
     {
         return [
-            'facilities.*.description' => ['required', new Persian()],
+            'facilities.*.description' => ['required'],
             'facilities.*.count' => ['required','numeric'],
             'facilities.*.unit_price' => ['required','numeric'],
         ];

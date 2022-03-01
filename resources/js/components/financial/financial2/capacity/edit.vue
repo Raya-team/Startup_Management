@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a href="/financial2" class="text-muted">اطلاعات مالی دو</a>
+                                <a href="/financial2" class="text-muted">اطلاعات مالی سال‌های بهره‌برداری</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 <a href="#" class="text-muted">ظرفیت</a>
@@ -74,16 +74,6 @@
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has('percent')}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('percent')" style="display: block;">{{ errors.get('percent') }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="total_production">تعداد تولید واقعی:
-                                                    <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="total_production" placeholder="تعداد تولید واقعی" name="total_production" v-model="data.total_production"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                       :class="['form-control', {'is-invalid' : errors.has('total_production')}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has('total_production')" style="display: block;">{{ errors.get('total_production') }}</div>
                                             </div>
                                         </div>
                                     </div>

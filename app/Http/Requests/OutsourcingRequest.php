@@ -25,7 +25,7 @@ class OutsourcingRequest extends FormRequest
     public function rules()
     {
         return [
-            'outsourcing.*.description' => ['required', new Persian()],
+            'outsourcing.*.description' => ['required'],
             'outsourcing.*.number' => ['required','numeric'],
             'outsourcing.*.unit_cost' => ['required','numeric'],
         ];

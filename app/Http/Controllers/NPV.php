@@ -245,17 +245,18 @@ trait NPV
         $annual_asset_value_facilities = [];
         $annual_asset_value_transportations = [];
         $annual_asset_value_laboratory_equipments = [];
-        $year = PlanYear::where('team_id', $team_id)->first()->number_of_plan_year;
-
-
+        $year = PlanYear::where('team_id', $team_id)->first();
+        if (!isset($year)){
+            return 'لطفا اطلاعات مالی 1 را تکمیل کنید.';
+        }
         $Annual_DATA = [];
-        for ($i = 1; $i <= $year; $i++){
+        for ($i = 1; $i <= $year->number_of_plan_year; $i++){
             /* تعداد محصول */
             $capacity = Capacity::where('team_id', $team_id)->where('year', $i)->first();
             if (isset($capacity->total_production)){
                 $number_of_product = $capacity->total_production;
             }else{
-                return 'لطفا جدول ظرفیت اطلاعات مالی 2 در هر سال را پر کنید.';
+                return 'لطفا جدول ظرفیت اطلاعات مالی 2 در هر سال را تکمیل کنید.';
             }
 
             /* قیمت */
@@ -301,7 +302,7 @@ trait NPV
             $profit_after_tax = round($gross_profit - ($gross_profit * $other_information->tax_rate), 2);
 
             /* بازپرداخت اصل تسهیلات */
-            if ($year == $i){
+            if ($year->number_of_plan_year == $i){
                 $repayment_of_the_original_facility = $loan;
             }else{
                 $repayment_of_the_original_facility = 0;
@@ -377,7 +378,6 @@ trait NPV
                 'NPV' , $Annual_NPV,
             ]);
         }
-//            return $Annual_DATA;
 
         /* NPV */
         $NPV = 0;
@@ -387,7 +387,7 @@ trait NPV
 
         /* درآمد محور */
         $cost = ValuationCost::where('team_id', $team_id)->get()->sum('total_price');
-//        return $NPV;
+
         switch (true) {
             case $TRL >= 1 && $TRL <= 4:
                 $value = $cost;

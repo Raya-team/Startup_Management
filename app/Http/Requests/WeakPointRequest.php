@@ -25,7 +25,7 @@ class WeakPointRequest extends FormRequest
     public function rules()
     {
         return [
-            'weak_points.*.description' => ['required',new Persian()],
+            'weak_points.*.description' => ['required'],
             'weak_points.*.weight' => ['required','numeric'],
             'weak_points.*.score' => ['required','numeric'],
         ];

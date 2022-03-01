@@ -8,12 +8,12 @@
                     <!--begin::Page Heading-->
                     <div class="d-flex align-items-baseline flex-wrap mr-5">
                         <!--begin::Page Title-->
-                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی 2</h5>
+                        <h5 class="text-dark font-weight-bold my-1 mr-5">اطلاعات مالی</h5>
                         <!--end::Page Title-->
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a class="text-muted">مالی 2</a>
+                                <a class="text-muted">اطلاعات مالی سال‌های بهره‌برداری</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 اجاره

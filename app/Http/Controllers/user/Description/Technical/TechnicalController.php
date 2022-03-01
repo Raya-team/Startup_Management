@@ -14,11 +14,19 @@ class TechnicalController extends Controller
 {
     public function index()
     {
+        $technical = Technical::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($technical)){
+            return redirect()->route('description-technical.create');
+        }
         return view('user.description.technical.index');
     }
 
     public function create()
     {
+        $technical = Technical::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($technical)){
+            return redirect()->route('description-technical.index');
+        }
        return view('user.description.technical.index');
     }
 

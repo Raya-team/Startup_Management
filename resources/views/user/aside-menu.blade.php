@@ -52,11 +52,6 @@
                 </div>
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                @php
-                    use App\Models\BusinessCanvas;
-                    $business_canvas = BusinessCanvas::where('team_id',Auth::user()->team_id)->first();
-                @endphp
-                @if(isset($business_canvas))
                     <a href="{{route('businesscanvas.index')}}" class="menu-link menu-toggle">
                         <span class="svg-icon menu-icon">
                             <!--begin::Svg Icon | path:../assets/media/svg/icons/Shopping/Barcode-read.svg-->
@@ -71,29 +66,9 @@
                         </span>
                         <span class="menu-text">بوم کسب و کار</span>
                     </a>
-                @else
-                    <a href="{{route('businesscanvas.create')}}" class="menu-link menu-toggle">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:../assets/media/svg/icons/Shopping/Barcode-read.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <rect fill="#000000" opacity="0.3" x="4" y="4" width="8" height="16" />
-                                    <path d="M6,18 L9,18 C9.66666667,18.1143819 10,18.4477153 10,19 C10,19.5522847 9.66666667,19.8856181 9,20 L4,20 L4,15 C4,14.3333333 4.33333333,14 5,14 C5.66666667,14 6,14.3333333 6,15 L6,18 Z M18,18 L18,15 C18.1143819,14.3333333 18.4477153,14 19,14 C19.5522847,14 19.8856181,14.3333333 20,15 L20,20 L15,20 C14.3333333,20 14,19.6666667 14,19 C14,18.3333333 14.3333333,18 15,18 L18,18 Z M18,6 L15,6 C14.3333333,5.88561808 14,5.55228475 14,5 C14,4.44771525 14.3333333,4.11438192 15,4 L20,4 L20,9 C20,9.66666667 19.6666667,10 19,10 C18.3333333,10 18,9.66666667 18,9 L18,6 Z M6,6 L6,9 C5.88561808,9.66666667 5.55228475,10 5,10 C4.44771525,10 4.11438192,9.66666667 4,9 L4,4 L9,4 C9.66666667,4 10,4.33333333 10,5 C10,5.66666667 9.66666667,6 9,6 L6,6 Z" fill="#000000" fill-rule="nonzero" />
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">بوم کسب و کار</span>
-                    </a>
-                @endif
             </li>
             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                @php
-                    use App\Models\BusinessManager;
-                    $business_manager = BusinessManager::where('team_id' , Auth::user()->team_id)->first();
-                @endphp
-                <a @if(isset($business_manager)) href="{{ route('justificationplan.index') }}" @else href="{{ route('justificationplan.create') }}" @endif class="menu-link menu-toggle">
+                <a href="{{ route('justificationplan.index') }}" class="menu-link menu-toggle">
                     <span class="svg-icon menu-icon">
                         <!--begin::Svg Icon | path:../assets/media/svg/icons/Design/Bucket.svg-->
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -136,11 +111,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\ParticipationPreInvestor;
-                                $participation_pre_investor = ParticipationPreInvestor::where('team_id' , Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($participation_pre_investor)) href="{{ route('participation-shares.index') }}" @else href="{{ route('participation-shares.create') }}" @endif class="menu-link">
+                            <a href="{{ route('participation-shares.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -170,15 +141,11 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\Land;
-                                $lands = Land::where('team_id' , Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($lands)) href="{{ route('financial1.index') }}" @else href="{{ route('financial1.create') }}" @endif class="menu-link">
+                            <a href="{{ route('financial1.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">اطلاعات مالی یک</span>
+                                <span class="menu-text">اطلاعات مالی سال صفر</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
@@ -186,7 +153,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">اطلاعات مالی دو</span>
+                                <span class="menu-text">اطلاعات مالی سال‌های بهره‌برداری</span>
                             </a>
                         </li>
                     </ul>
@@ -222,23 +189,15 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\ValuationTenement;
-                                $valuation_tenement = ValuationTenement::where('team_id', Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($valuation_tenement)) href="{{ route('valuation-tangible.index') }}" @else href="{{ route('valuation-tangible.create') }}" @endif class="menu-link">
+                            <a href="{{ route('valuation-tangible.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
                                 <span class="menu-text">مشهود</span>
                             </a>
                         </li>
-                        @php
-                            use App\Models\ValuationAdditionalQuestion;
-                            $valuation_additional_question = ValuationAdditionalQuestion::where('team_id', Auth::user()->team_id)->first();
-                        @endphp
                         <li class="menu-item" aria-haspopup="true">
-                            <a @if(isset($valuation_additional_question)) href="{{ route('valuation-intangible.index') }}" @else href="{{ route('valuation-intangible.create') }}" @endif  class="menu-link">
+                            <a href="{{ route('valuation-intangible.index') }}"  class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -269,11 +228,7 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\TechnologyQuestion;
-                                $technology_question = TechnologyQuestion::where('team_id', Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($technology_question)) href="{{ route('technology-questions.index') }}" @else href="{{ route('technology-questions.create') }}" @endif class="menu-link">
+                            <a href="{{ route('technology-questions.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -281,23 +236,15 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\ManufacturingQuestion;
-                                $manufacturing_question = ManufacturingQuestion::where('team_id', Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($manufacturing_question)) href="{{ route('manufacturing-questions.index') }}" @else href="{{ route('manufacturing-questions.create') }}" @endif class="menu-link">
+                            <a href="{{ route('manufacturing-questions.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
                                 <span class="menu-text">تولید</span>
                             </a>
                         </li>
-                        @php
-                            use App\Models\MarketQuestion;
-                            $market_question = MarketQuestion::where('team_id', Auth::user()->team_id)->first();
-                        @endphp
                         <li class="menu-item" aria-haspopup="true">
-                            <a @if(isset($market_question)) href="{{ route('market-questions.index') }}" @else href="{{ route('market-questions.create') }}" @endif  class="menu-link">
+                            <a href="{{ route('market-questions.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -305,11 +252,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\CommercializationQuestion;
-                                $commercialization_question = CommercializationQuestion::where('team_id', Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($commercialization_question)) href="{{ route('business-questions.index') }}" @else href="{{ route('business-questions.create') }}" @endif  class="menu-link">
+                            <a href="{{ route('business-questions.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -339,11 +282,7 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\Managerial;
-                                $managerial = Managerial::where('team_id' , Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($managerial)) href="{{ route('description-managerial.index') }}" @else href="{{ route('description-managerial.create') }}" @endif class="menu-link">
+                            <a href="{{ route('description-managerial.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -351,11 +290,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\Market;
-                                $market = Market::where('team_id' , Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($market)) href="{{ route('description-market.index') }}" @else href="{{ route('description-market.create') }}" @endif class="menu-link">
+                            <a href="{{ route('description-market.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -363,11 +298,7 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
-                            @php
-                                use App\Models\Technical;
-                                $technical = Technical::where('team_id' , Auth::user()->team_id)->first();
-                            @endphp
-                            <a @if(isset($technical)) href="{{ route('description-technical.index') }}" @else href="{{ route('description-technical.create') }}" @endif class="menu-link">
+                            <a href="{{ route('description-technical.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
@@ -418,7 +349,7 @@
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">محصولات</span>
+                                <span class="menu-text">محصولات و لیست مواد اولیه</span>
                             </a>
                         </li>
                     </ul>

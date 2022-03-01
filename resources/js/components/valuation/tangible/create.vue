@@ -104,7 +104,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationTenement(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -195,7 +195,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationLaboratoryEquipment(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -268,7 +268,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationMachinerie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -341,7 +341,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationOfficeSupplie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -414,7 +414,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationFacilitie(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -487,7 +487,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div  class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveValuationTransportation(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -549,7 +549,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
+                                                <div  class="col-md-2" style="margin-top: 28px">
                                                     <a @click="RemoveValuationPreOperationCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>

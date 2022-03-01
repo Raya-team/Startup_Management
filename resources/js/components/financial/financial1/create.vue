@@ -14,11 +14,11 @@
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
                                 <!--<router-link :to="{name: 'initial-shares-index'}">-->
-                                <a class="text-muted">اطلاعات مالی 1</a>
+                                <a class="text-muted">اطلاعات مالی سال صفر</a>
                                 <!--</router-link>-->
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <a href="#" class="text-muted">اطلاعات اولیه</a>
+                                <a class="text-muted">ایجاد</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->
@@ -390,7 +390,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('lands.' + index +'.price')" style="display: block;">{{ errors.get('lands.' + index +'.price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveLand(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -448,7 +448,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('laboratory_equipments.' + index +'.toman_unit_price')" style="display: block;">{{ errors.get('laboratory_equipments.' + index +'.toman_unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveLaboratoryEquipment(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -496,7 +496,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.unit_price')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveEquipmentAndMachinery(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -544,7 +544,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('officeequipmentandsupplies.' + index +'.unit_price')" style="display: block;">{{ errors.get('officeequipmentandsupplies.' + index +'.unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveOfficeEquipmentAndSupply(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -592,7 +592,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('facilities.' + index +'.unit_price')" style="display: block;">{{ errors.get('facilities.' + index +'.unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveFacility(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -640,7 +640,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('transportations.' + index +'.unit_price')" style="display: block;">{{ errors.get('transportations.' + index +'.unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-3" style="margin-top: 28px">
+                                                <div   class="col-md-3" style="margin-top: 28px">
                                                     <a @click="RemoveTransportation(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -679,7 +679,7 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('preoperatingcosts.' + index +'.total_price')" style="display: block;">{{ errors.get('preoperatingcosts.' + index +'.total_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div v-if="index != 0" class="col-md-2" style="margin-top: 28px">
+                                                <div   class="col-md-2" style="margin-top: 28px">
                                                     <a @click="RemovePreOperatingCost(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>

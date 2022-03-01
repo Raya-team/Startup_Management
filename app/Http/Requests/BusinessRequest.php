@@ -25,7 +25,7 @@ class BusinessRequest extends FormRequest
     public function rules()
     {
         return [
-            'business.*.description' => ['required', new Persian()],
+            'business.*.description' => ['required'],
             'business.*.annual_cost' => ['required','numeric'],
         ];
     }

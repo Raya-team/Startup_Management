@@ -26,7 +26,7 @@ class ProducerRequest extends FormRequest
     public function rules()
     {
         return [
-            'producers.*.name' => ['required', 'min:3', 'max:16', new Persian()],
+            'producers.*.name' => ['required', 'min:3', 'max:16'],
             'producers.*.geographical_region' => ['required',new Security()],
         ];
     }

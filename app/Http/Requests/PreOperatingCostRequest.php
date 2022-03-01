@@ -25,7 +25,7 @@ class PreOperatingCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'preoperatingcosts.*.description' => ['required', new Persian()],
+            'preoperatingcosts.*.description' => ['required'],
             'preoperatingcosts.*.total_price' => ['required','numeric'],
         ];
     }

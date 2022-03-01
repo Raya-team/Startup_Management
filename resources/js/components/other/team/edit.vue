@@ -65,7 +65,7 @@
                                                     <span class="text-danger">*</span></label>
                                                 <select name="status" v-model="data.team.status" id="status" class="form-control" :class="['form-control', {'is-invalid' : errors.has('status')}]" >
                                                     <option value="1">بله</option>
-                                                    <option value="2">خیر</option>
+                                                    <option value="0">خیر</option>
                                                 </select>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('status')" style="display: block;">{{ errors.get('status') }}</div>
                                             </div>

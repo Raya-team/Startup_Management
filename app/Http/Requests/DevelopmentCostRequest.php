@@ -25,7 +25,7 @@ class DevelopmentCostRequest extends FormRequest
     public function rules()
     {
         return [
-            'description' => ['required', new Persian()],
+            'description' => ['required'],
             'total_cost' => ['required','numeric'],
         ];
     }

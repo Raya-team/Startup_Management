@@ -25,15 +25,15 @@ class DesMarketEditRequest extends FormRequest
     public function rules()
     {
         return [
-            'market.product_introduction' => ['required',new Persian()],
-            'market.product_features' => ['required',new Persian()],
-            'market.product_competitive_advantages' => ['required',new Persian()],
-            'market.position_analysis' => ['required',new Persian()],
-            'market.product_pricing_strategy' => ['required',new Persian()],
-            'market.product_marketing_strategy' => ['required',new Persian()],
-            'market.market_status' => ['required',new Persian()],
-            'market.target_market' => ['required',new Persian()],
-            'market.forecast_the_future_of_the_market' => ['required',new Persian()],
+            'market.product_introduction' => ['required'],
+            'market.product_features' => ['required'],
+            'market.product_competitive_advantages' => ['required'],
+            'market.position_analysis' => ['required'],
+            'market.product_pricing_strategy' => ['required'],
+            'market.product_marketing_strategy' => ['required'],
+            'market.market_status' => ['required'],
+            'market.target_market' => ['required'],
+            'market.forecast_the_future_of_the_market' => ['required'],
         ];
     }
 }

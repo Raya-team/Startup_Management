@@ -27,11 +27,19 @@ class DesMarketController extends Controller
 {
     public function index()
     {
+        $market = Market::where('team_id' , Auth::user()->team_id)->first();
+        if (!isset($market)){
+            return redirect()->route('description-market.create');
+        }
         return view('user.description.market.index');
     }
 
     public function create()
     {
+        $market = Market::where('team_id' , Auth::user()->team_id)->first();
+        if (isset($market)){
+            return redirect()->route('description-market.index');
+        }
         return view('user.description.market.index');
     }
 

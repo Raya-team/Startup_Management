@@ -26,9 +26,9 @@ class KeyEmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'fname' => ['required', 'min:3', 'max:16', new Persian()],
-            'lname' => ['required', 'min:3', 'max:16', new Persian()],
-            'major' => ['required', 'max:32', new Persian()],
+            'fname' => ['required', 'min:3', 'max:16'],
+            'lname' => ['required', 'min:3', 'max:16'],
+            'major' => ['required', 'max:32'],
             'age' => ['required', new Security()],
             'responsibility' => ['required'],
             'education_id' => ['required', new Security()],

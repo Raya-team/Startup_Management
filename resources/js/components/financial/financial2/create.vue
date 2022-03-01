@@ -13,7 +13,7 @@
                         <!--begin::Breadcrumb-->
                         <ul class="breadcrumb breadcrumb-transparent breadcrumb-dot font-weight-bold p-0 my-2 font-size-sm">
                             <li class="breadcrumb-item text-muted">
-                                <a href="/financial2" class="text-muted">اطلاعات مالی دو</a>
+                                <a href="/financial2" class="text-muted">اطلاعات مالی سال‌های بهره‌برداری</a>
                             </li>
                             <li class="breadcrumb-item text-muted">
                                 <a href="#" class="text-muted">افزودن</a>
@@ -97,16 +97,6 @@
                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                        :class="['form-control', {'is-invalid' : errors.has('capacity.percent')}]"/>
                                                 <div class="invalid-feedback is-invalid" v-if="errors.has('capacity.percent')" style="display: block;">{{ errors.get('capacity.percent') }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label for="total_production">تعداد تولید واقعی:
-                                                    <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" id="total_production" placeholder="تعداد تولید واقعی" name="total_production" v-model="data.capacity.total_production"
-                                                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-                                                       :class="['form-control', {'is-invalid' : errors.has('capacity.total_production')}]"/>
-                                                <div class="invalid-feedback is-invalid" v-if="errors.has('capacity.total_production')" style="display: block;">{{ errors.get('capacity.total_production') }}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -474,7 +464,7 @@
                                                 <div class="form-group">
                                                     <label for="repairs_percent">درصد:
                                                         <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" id="repairs_percent" placeholder="تعداد" name="repairs_percent" v-model="rep.percent"
+                                                    <input type="text" class="form-control" id="repairs_percent" placeholder="درصد" name="repairs_percent" v-model="rep.percent"
                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                                                            :class="['form-control', {'is-invalid' : errors.has(`repair.${index}.percent`)}]"/>
                                                     <div class="invalid-feedback is-invalid" v-if="errors.has(`repair.${index}.percent`)" style="display: block;">{{ errors.get(`repair.${index}.percent`) }}</div>

@@ -25,7 +25,7 @@ class RentRequest extends FormRequest
     public function rules()
     {
         return [
-            'rent.*.description' => ['required', new Persian()],
+            'rent.*.description' => ['required'],
             'rent.*.area' => ['required','numeric'],
             'rent.*.monthly_rent' => ['required','numeric'],
         ];

@@ -17,6 +17,10 @@ class ManufacturingController extends Controller
      */
     public function index()
     {
+        $manufacturing_question = ManufacturingQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (!isset($manufacturing_question)){
+            return redirect()->route('manufacturing-questions.create');
+        }
         return view('user.readiness.index');
     }
 
@@ -27,6 +31,10 @@ class ManufacturingController extends Controller
      */
     public function create()
     {
+        $manufacturing_question = ManufacturingQuestion::where('team_id', Auth::user()->team_id)->first();
+        if (isset($manufacturing_question)){
+            return redirect()->route('manufacturing-questions.index');
+        }
         return view('user.readiness.index');
     }
 

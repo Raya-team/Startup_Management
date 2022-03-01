@@ -26,7 +26,7 @@ class EnergyConsumptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'energy_consumption.*.description' => ['required', new Persian()],
+            'energy_consumption.*.description' => ['required'],
             'energy_consumption.*.unit' => ['required', new Security()],
             'energy_consumption.*.annual_consumption' => ['required','numeric'],
             'energy_consumption.*.unit_cost' =>['required','numeric'],

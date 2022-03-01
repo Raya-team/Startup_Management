@@ -27,7 +27,7 @@ class CalculationRequest extends FormRequest
     {
         if ($this->request->get('has_previous')){
             return [
-                'previous_investors.*.name' => ['required' , 'min:3', 'max:32', new Persian()],
+                'previous_investors.*.name' => ['required' , 'min:3', 'max:32'],
                 'previous_investors.*.percent' => ['required' , 'numeric', 'max:100'],
                 'idea' => ['required' , 'numeric', 'max:100'],
                 'finance' => ['required' , 'numeric', 'max:100'],
@@ -38,15 +38,15 @@ class CalculationRequest extends FormRequest
                 'management' => ['required' , 'numeric', 'max:100'],
                 'sale' => ['required' , 'numeric', 'max:100'],
                 'full_time' => ['required' , 'numeric', 'max:100'],
-                'Q1' => ['required', new Security()],
-                'Q2' => ['required', new Security()],
-                'Q3' => ['required', new Security()],
-                'Q4' => ['required', new Security()],
-                'Q5' => ['required', new Security()],
-                'Q6' => ['required', new Security()],
-                'Q7' => ['required', new Security()],
-                'Q8' => ['required', new Security()],
-                'Q9' => ['required', new Security()],
+                'Q1' => ['required'],
+                'Q2' => ['required'],
+                'Q3' => ['required'],
+                'Q4' => ['required'],
+                'Q5' => ['required'],
+                'Q6' => ['required'],
+                'Q7' => ['required'],
+                'Q8' => ['required'],
+                'Q9' => ['required'],
             ];
         } else {
             return [
@@ -59,15 +59,15 @@ class CalculationRequest extends FormRequest
                 'management' => ['required' , 'numeric', 'max:100'],
                 'sale' => ['required' , 'numeric', 'max:100'],
                 'full_time' => ['required' , 'numeric', 'max:100'],
-                'Q1' => ['required', new Security()],
-                'Q2' => ['required', new Security()],
-                'Q3' => ['required', new Security()],
-                'Q4' => ['required', new Security()],
-                'Q5' => ['required', new Security()],
-                'Q6' => ['required', new Security()],
-                'Q7' => ['required', new Security()],
-                'Q8' => ['required', new Security()],
-                'Q9' => ['required', new Security()],
+                'Q1' => ['required'],
+                'Q2' => ['required'],
+                'Q3' => ['required'],
+                'Q4' => ['required'],
+                'Q5' => ['required'],
+                'Q6' => ['required'],
+                'Q7' => ['required'],
+                'Q8' => ['required'],
+                'Q9' => ['required'],
             ];
         }
     }

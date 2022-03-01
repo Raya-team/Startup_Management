@@ -25,7 +25,7 @@ class ParticipationNewInvestorRequest extends FormRequest
     public function rules()
     {
         return [
-            'new_investors.*.supplier' => ['required', 'min:3', 'max:16', new Persian()],
+            'new_investors.*.supplier' => ['required', 'min:3', 'max:16'],
             'new_investors.*.investment' => ['required', 'numeric'],
         ];
     }
