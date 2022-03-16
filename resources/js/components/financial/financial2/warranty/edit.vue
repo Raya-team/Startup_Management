@@ -96,7 +96,7 @@
                 year: '',
                 product: '',
                 data: {
-                    warranty: [{ product_name: '', percent: '' }],
+                    warranty: [{ product_name: '', percent: '' , year:''}],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -108,7 +108,8 @@
                     this.year = response.data.warranty.year;
                     this.products = response.data.products;
                     this.data.warranty[0].product_name = response.data.warranty.product_name;
-                    this.data.warranty[0].total_cost = response.data.warranty.total_cost;
+                    this.data.warranty[0].percent = response.data.warranty.percent;
+                    this.data.warranty[0].year = response.data.warranty.year;
                 })
                 .catch(error => {console.log(error);});
         },

@@ -90,8 +90,8 @@ class WarrantyController extends Controller
     {
         $team_id = Auth::user()->team_id;
         $warranty = Warranty::findorfail($id);
-        $capacity = Capacity::where('team_id', $team_id, 'year')->where($request['warranty'][0]['year'])->first();
-        $other_information = OtherInformation::where('team_id', $team_id, 'year')->where($request['warranty'][0]['year'])->first();
+        $capacity = Capacity::where('team_id', $team_id)->where('year', $request['warranty'][0]['year'])->first();
+        $other_information = OtherInformation::where('team_id', $team_id)->where('year', $request['warranty'][0]['year'])->first();
         $warranty->product_name = $request['warranty'][0]['product_name'];
         $warranty->percent = $request['warranty'][0]['percent'];
         $warranty->total_cost = $capacity->total_production * $other_information->sale_price * $request['warranty'][0]['percent'];
