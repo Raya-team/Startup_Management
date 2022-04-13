@@ -1414,7 +1414,7 @@
                                                         $total_price = 0;
                                                     @endphp
                                                     @foreach($product->rawMaterials as $material)
-
+                                                        @if($material->year == 1)
                                                         <tr class="text-center">
                                                             <td>
                                                                 <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
@@ -1435,6 +1435,7 @@
                                                         @php
                                                             $total_price += $material->total_price;
                                                         @endphp
+                                                        @endif
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -1450,7 +1451,7 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ ($annual_capacities[0]->total_production) * ($total_price) }}</span>
+                                                            <span class="text-dark-75">{{  $total_price }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -1563,7 +1564,7 @@
                                                             <span class="text-dark-75">{{ $power->salary }}</span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ ( ($power->number) * ($power->salary) * 16 ) + ( ($power->number) * ($power->salary) * 16 * (23/100) ) }}</span>
+                                                            <span class="text-dark-75">{{ ( ($power->number) * ($power->salary) * 16 ) + ( ($power->number) * ($power->salary) * 12 * (23/100) ) }}</span>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -2813,7 +2814,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) }}</span>
+                                                            <span class="text-dark-75">{{  $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2851,7 +2852,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
+                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate /100) * ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif

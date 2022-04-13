@@ -89,7 +89,7 @@ class AfterSaleServiceController extends Controller
         $afterSaleService->description = $request['after_sale_service'][0]['description'];
         $afterSaleService->number = $request['after_sale_service'][0]['number'];
         $afterSaleService->unit_cost = $request['after_sale_service'][0]['unit_cost'];
-        $afterSaleService->total_cost = $request['after_sale_service'][0]['unit_cost'] * $request['after_sale_service'][0]['unit_cost'];
+        $afterSaleService->total_cost = $request['after_sale_service'][0]['unit_cost'] * $request['after_sale_service'][0]['number'];
         $afterSaleService->save();
         return response(['success'], 201);
     }
