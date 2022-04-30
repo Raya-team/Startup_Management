@@ -280,7 +280,11 @@ trait NPV
 
             /* قیمت */
             $other_information = OtherInformation::where('team_id', $team_id)->where('year', $i)->first();
-            $price = $other_information->sale_price;
+            if (isset($other_information->sale_price)) {
+                $price = $other_information->sale_price;
+            }else{
+                return '...';
+            }
             /* مجموع قیمت کل درآمد خدمات پس از فروش */
             $total_after_sales_services = AfterSaleService::where('team_id', $team_id)->where('year', $i)->get()->sum('total_cost');
             /* درآمد حاصل از فروش */
