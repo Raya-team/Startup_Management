@@ -271,6 +271,7 @@ class RepJustificationPlanController extends Controller
         $plan_implementation = PlanImplementation::where('team_id', $team_id)->get();
         //ارزش گذاری مشهود
         $tenements = ValuationTenement::with(['Description','Owner'])->where('team_id', $team_id)->get();
+//        return $tenements;
         $facilities = ValuationFacility::with(['Description','Owner'])->where('team_id', $team_id)->get();
         $machineries = ValuationMachinery::with(['Description','Owner'])->where('team_id', $team_id)->get();
         $laboratory_equipments = ValuationLaboratoryEquipment::with(['Description','Owner'])->where('team_id', $team_id)->get();
@@ -285,12 +286,19 @@ class RepJustificationPlanController extends Controller
         $count_day = CountDay::where('team_id', $team_id)->first();
         $depreciation_rate = DepreciationRate::where('team_id', $team_id)->first();
         $lands = Land::where('team_id', $team_id)->get()->sum('price');
+        $rep_lands = Land::with('tenement')->where('team_id', $team_id)->get();
         $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
+        $rep_equipment_and_machineries = EquipmentAndMachinery::with('machinery')->where('team_id', $team_id)->get();
         $fin_laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
+        $rep_fin_laboratory_equipments = LaboratoryEquipment::with('laboratoryEquipment')->where('team_id', $team_id)->get();
         $fin_facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
+        $rep_fin_facilities = Facility::with('facility')->where('team_id', $team_id)->get();
         $fin_transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
+        $rep_fin_transportations = Transportation::with('transportation')->where('team_id', $team_id)->get();
         $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
+        $rep_office_equipment_and_supplise = OfficeEquipmentAndSupply::with('officeSupply')->where('team_id', $team_id)->get();
         $pre_operating_cost = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
+        $rep_pre_operating_cost = PreOperatingCost::with('preOperationCost')->where('team_id', $team_id)->get();
         //اطلاعات مالی دو
         $raw_material = RawMaterial::where('team_id', $team_id)->get();
         $man_powers = ManPower::with('manpowerName')->where('team_id', $team_id)->get();
@@ -448,7 +456,7 @@ class RepJustificationPlanController extends Controller
             $value = 'لطفا تعداد سال های طرح در بخش مالی 1 را تکمیل کنید.';
             return view('user.reporting.justification-plan.Error', compact('value'));
         }
-        return view('user.reporting.justification-plan.index',compact('team','registered_team','shareholders','key_employees','managerial','technicals','products','required_certificates','markets','supply_and_demand','product_customers','product_competitors','alternative_products','environmental_effects','strengths','weakPoints','opportunityPoints','threats','plan_implementation','tenements','facilities','machineries','laboratory_equipments','offices','transportations','pre_operation_costs','plan_year','fiscal','count_day','annual_capacities','annual_depreciation','annual_financial_expenses','fin_facilities','fin_laboratory_equipments','fin_transportations','raw_material','annual_raw_material_price','man_powers','annual_man_powers_price','business','annual_business_price','outsourcing','annual_outsourcing_price','consumer_item','annual_consumer_item_price','rent','annual_rent_price','repair','annual_repair_price','rd','annual_rd_price','warranty','annual_warranty_price','fin2_transportation','annual_fin2_transportation_price','energy_consumption','annual_energy_consumption_price','insurances','otherInformation','lands','equipment_and_machineries','fin_laboratory_equipments','fin_facilities','fin_transportations','office_equipment_and_supplise','depreciation_rate','annual_asset_value_tenements','annual_asset_value_machineries','annual_asset_value_office_equipment','annual_asset_value_facilities','annual_asset_value_transportations','annual_asset_value_laboratory_equipments','annual_dep_tenements','annual_dep_equipment_and_machineries','annual_dep_office_equipment_and_supplise','annual_dep_facilities','annual_dep_transportations','annual_dep_laboratory_equipments','pre_operating_cost','valuation_cost','annual_after_sale_service','TRL','MRL','mRL','BRL','technology_risk_level','manufacturing_risk_level','market_risk_level','business_risk_level','percentage_of_risk'));
+        return view('user.reporting.justification-plan.index',compact('team','registered_team','shareholders','key_employees','managerial','technicals','products','required_certificates','markets','supply_and_demand','product_customers','product_competitors','alternative_products','environmental_effects','strengths','weakPoints','opportunityPoints','threats','plan_implementation','tenements','facilities','machineries','laboratory_equipments','offices','transportations','pre_operation_costs','plan_year','fiscal','count_day','annual_capacities','annual_depreciation','annual_financial_expenses','fin_facilities','fin_laboratory_equipments','fin_transportations','raw_material','annual_raw_material_price','man_powers','annual_man_powers_price','business','annual_business_price','outsourcing','annual_outsourcing_price','consumer_item','annual_consumer_item_price','rent','annual_rent_price','repair','annual_repair_price','rd','annual_rd_price','warranty','annual_warranty_price','fin2_transportation','annual_fin2_transportation_price','energy_consumption','annual_energy_consumption_price','insurances','otherInformation','lands','equipment_and_machineries','fin_laboratory_equipments','fin_facilities','fin_transportations','office_equipment_and_supplise','depreciation_rate','annual_asset_value_tenements','annual_asset_value_machineries','annual_asset_value_office_equipment','annual_asset_value_facilities','annual_asset_value_transportations','annual_asset_value_laboratory_equipments','annual_dep_tenements','annual_dep_equipment_and_machineries','annual_dep_office_equipment_and_supplise','annual_dep_facilities','annual_dep_transportations','annual_dep_laboratory_equipments','pre_operating_cost','valuation_cost','annual_after_sale_service','TRL','MRL','mRL','BRL','technology_risk_level','manufacturing_risk_level','market_risk_level','business_risk_level','percentage_of_risk','rep_lands','rep_fin_facilities','rep_equipment_and_machineries','rep_fin_laboratory_equipments','rep_office_equipment_and_supplise','rep_fin_transportations','rep_pre_operating_cost'));
     }
 
     public function exportPDF()

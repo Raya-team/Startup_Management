@@ -16,6 +16,6 @@ class Land extends Model
 
     public function tenement()
     {
-        return $this->hasOne(ValuationTenement::class);
+        return $this->hasOne(ValuationTenement::class, 'description');
     }
 }

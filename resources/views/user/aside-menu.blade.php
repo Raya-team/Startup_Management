@@ -375,11 +375,11 @@
                     <i class="menu-arrow"></i>
                     <ul class="menu-subnav">
                         <li class="menu-item" aria-haspopup="true">
-                            <a  href="{{ route('justification-plan.index') }}" class="menu-link">
+                            <a  href="{{ route('business-canvas.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">طرح توجیهی</span>
+                                <span class="menu-text">بوم مدل کسب و کار</span>
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
@@ -391,19 +391,19 @@
                             </a>
                         </li>
                         <li class="menu-item" aria-haspopup="true">
+                            <a  href="{{ route('justification-plan.index') }}" class="menu-link">
+                                <i class="menu-bullet menu-bullet-dot">
+                                    <span></span>
+                                </i>
+                                <span class="menu-text">طرح توجیهی</span>
+                            </a>
+                        </li>
+                        <li class="menu-item" aria-haspopup="true">
                             <a href="{{ route('financial-calculations.index') }}" class="menu-link">
                                 <i class="menu-bullet menu-bullet-dot">
                                     <span></span>
                                 </i>
-                                <span class="menu-text">مالی</span>
-                            </a>
-                        </li>
-                        <li class="menu-item" aria-haspopup="true">
-                            <a  href="{{ route('business-canvas.index') }}" class="menu-link">
-                                <i class="menu-bullet menu-bullet-dot">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text">بوم مدل کسب و کار</span>
+                                <span class="menu-text">گزارش مالی</span>
                             </a>
                         </li>
                     </ul>

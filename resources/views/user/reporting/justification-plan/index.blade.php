@@ -242,7 +242,7 @@
                                 @else($manufacturing_risk_level >= 50 && $manufacturing_risk_level <= 100)
                                     این سطح از ریسک زیاد است.
                                 @endif
-                               <br><br>
+                                <br><br>
                                 ریسک کسب و کار:از آنجایی که سطح آمادگی کسب و کار(BRL)طرح در سطح {{$BRL}} می‌باشد سطح ریسک کسب و کار طرح {{$business_risk_level}} برآورد می‌شود.
                                 @if($business_risk_level >= 0 && $business_risk_level <= 30)
                                     این سطح از ریسک کم است.
@@ -876,25 +876,50 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($tenements as $tenement)
+                                            @foreach($rep_lands as $rep_land)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{$tenement->Description->description}}</span>
+                                                        <span class="text-dark-75">{{$rep_land->description}}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$tenement->Description->area}}</span>
+                                                        <span class="text-dark-75">{{$rep_land->area}}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$tenement->total_price}}</span>
+                                                        @if( isset($rep_land->tenement->total_price) )
+                                                            <span class="text-dark-75">{{$rep_land->tenement->total_price}}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{($tenement->Description->price)-($tenement->total_price)}}</span>
+                                                        @if( isset($rep_land->tenement->total_price) )
+                                                            <span class="text-dark-75">{{ ($rep_land->price)-($rep_land->tenement->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{( $rep_land->price)- 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$tenement->Description->price}}</span>
+                                                        <span class="text-dark-75">{{$rep_land->price}}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span class="text-dark-75"><b>جمع کل</b></span>
+                                                </td>
+                                                <td style="background-color: #c9c5c5">
+                                                    <span class="text-dark-75"></span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $rep_lands->sum('tenement.total_price') }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ ($rep_lands->sum('price')) - ($rep_lands->sum('tenement.total_price')) }}</span>
+                                                </td>
+                                                <td>
+                                                    <span class="text-dark-75">{{ $rep_lands->sum('price') }}</span>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -922,22 +947,30 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($facilities as $facility)
+                                            @foreach($rep_fin_facilities as $rep_fin_facility)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $facility->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $rep_fin_facility->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $facility->Description->count }}</span>
+                                                        <span class="text-dark-75">{{ $rep_fin_facility->count }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $facility->total_price }}</span>
+                                                        @if( isset( $rep_fin_facility->facility->total_price) )
+                                                            <span class="text-dark-75">{{ $rep_fin_facility->facility->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{($facility->Description->total_price) - ($facility->total_price) }}</span>
+                                                        @if( isset( $rep_fin_facility->facility->total_price) )
+                                                            <span class="text-dark-75">{{($rep_fin_facility->total_price) - ($rep_fin_facility->facility->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{($rep_fin_facilitytotal_price) - 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $facility->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $rep_fin_facility->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -949,13 +982,13 @@
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $facilities->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_facilities->sum('facility.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($facilities->sum('Description.total_price')) - ($facilities->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_fin_facilities->sum('total_price')) - ($rep_fin_facilities->sum('facility.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $facilities->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_facilities->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -985,22 +1018,30 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($machineries as $machinery)
+                                            @foreach($rep_equipment_and_machineries as $rep_equipment)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $machinery->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $rep_equipment->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $machinery->Description->count }}</span>
+                                                        <span class="text-dark-75">{{ $rep_equipment->count }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $machinery->total_price }}</span>
+                                                        @if( isset( $rep_equipment->machinery->total_price) )
+                                                            <span class="text-dark-75">{{ $rep_equipment->machinery->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{($machinery->Description->total_price) - ($machinery->total_price) }}</span>
+                                                        @if( isset( $rep_equipment->machinery->total_price) )
+                                                            <span class="text-dark-75">{{ ($rep_equipment->total_price) - ($rep_equipment->machinery->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ ($rep_equipment->total_price) - 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $machinery->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $rep_equipment->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -1012,13 +1053,13 @@
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $machineries->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_equipment_and_machineries->sum('machinery.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($machineries->sum('Description.total_price')) - ($machineries->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_equipment_and_machineries->sum('total_price')) - ($rep_equipment_and_machineries->sum('machinery.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $machineries->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_equipment_and_machineries->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1050,28 +1091,36 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($laboratory_equipments as $laboratory_equipment)
+                                            @foreach($rep_fin_laboratory_equipments as $laboratory_equ)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $laboratory_equ->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->number }}</span>
+                                                        <span class="text-dark-75">{{ $laboratory_equ->number }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->dollar_unit_price }}</span>
+                                                        <span class="text-dark-75">{{ $laboratory_equ->dollar_unit_price }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->toman_unit_price }}</span>
+                                                        <span class="text-dark-75">{{ $laboratory_equ->toman_unit_price }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->total_price }}</span>
+                                                        @if( isset( $laboratory_equ->laboratory_equipment->total_price) )
+                                                            <span class="text-dark-75">{{ $laboratory_equ->laboratory_equipment->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ ($laboratory_equipment->Description->total_price) - ($laboratory_equipment->total_price) }}</span>
+                                                        @if( isset( $laboratory_equ->laboratory_equipment->total_price) )
+                                                            <span class="text-dark-75">{{ ($laboratory_equ->total_price) - ($laboratory_equ->laboratory_equipment->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $laboratory_equipment->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $laboratory_equ->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -1089,13 +1138,13 @@
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $laboratory_equipments->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_laboratory_equipments->sum('laboratory_equipment.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($laboratory_equipments->sum('Description.total_price')) - ($laboratory_equipments->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_fin_laboratory_equipments->sum('total_price')) - ($rep_fin_laboratory_equipments->sum('laboratory_equipment.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $laboratory_equipments->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_laboratory_equipments->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1125,22 +1174,30 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($offices as $office)
+                                            @foreach($rep_office_equipment_and_supplise as $rep_office)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $office->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $rep_office->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $office->Description->count }}</span>
+                                                        <span class="text-dark-75">{{ $rep_office->count }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $office->total_price }}</span>
+                                                        @if( isset( $rep_office->office_supply->total_price) )
+                                                            <span class="text-dark-75">{{ $rep_office->office_supply->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ ($office->Description->total_price) - ($office->total_price) }}</span>
+                                                        @if( isset( $rep_office->office_supply->total_price) )
+                                                            <span class="text-dark-75">{{ ($rep_office->total_price) - ($rep_office->office_supply->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ ($rep_office->total_price) - 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $office->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $rep_office->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -1152,13 +1209,13 @@
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $offices->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_office_equipment_and_supplise->sum('office_supply.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($offices->sum('Description.total_price')) - ($offices->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_office_equipment_and_supplise->sum('total_price')) - ($rep_office_equipment_and_supplise->sum('office_supply.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $offices->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_office_equipment_and_supplise->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1188,22 +1245,30 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($transportations as $transportation)
+                                            @foreach($rep_fin_transportations as $trans)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $transportation->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $trans->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $transportation->Description->count }}</span>
+                                                        <span class="text-dark-75">{{ $trans->count }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $transportation->total_price }}</span>
+                                                        @if( isset( $trans->transportation->total_price) )
+                                                            <span class="text-dark-75">{{ $trans->transportation->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ ($transportation->Description->total_price) - ($transportation->total_price) }}</span>
+                                                        @if( isset( $trans->transportation->total_price) )
+                                                            <span class="text-dark-75">{{ ($trans->total_price) - ($trans->transportation->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ ($trans->total_price) }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $transportation->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $trans->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -1215,13 +1280,13 @@
                                                     <span class="text-dark-75"></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $transportations->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_transportations->sum('transportation.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($transportations->sum('Description.total_price')) - ($transportations->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_fin_transportations->sum('total_price')) - ($rep_fin_transportations->sum('transportation.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $transportations->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_fin_transportations->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1250,19 +1315,27 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach($pre_operation_costs as $pre_operation_cost)
+                                            @foreach($rep_pre_operating_cost as $rep_pre_operating)
                                                 <tr class="text-center">
                                                     <td>
-                                                        <span class="text-dark-75">{{ $pre_operation_cost->Description->description }}</span>
+                                                        <span class="text-dark-75">{{ $rep_pre_operating->description }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $pre_operation_cost->total_price }}</span>
+                                                        @if( isset( $rep_pre_operating->pre_operation_cost->total_price) )
+                                                            <span class="text-dark-75">{{ $rep_pre_operating->pre_operation_cost->total_price }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ 0 }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ ($pre_operation_cost->Description->total_price) - ($pre_operation_cost->total_price) }}</span>
+                                                        @if( isset( $rep_pre_operating->pre_operation_cost->total_price) )
+                                                            <span class="text-dark-75">{{ ($rep_pre_operating->total_price) - ($rep_pre_operating->pre_operation_cost->total_price) }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">{{ ($rep_pre_operating->total_price) }}</span>
+                                                        @endif
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{ $pre_operation_cost->Description->total_price }}</span>
+                                                        <span class="text-dark-75">{{ $rep_pre_operating->total_price }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -1271,13 +1344,13 @@
                                                     <span class="text-dark-75"><b>جمع کل</b></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $pre_operation_costs->sum('total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_pre_operating_cost->sum('pre_operation_cost.total_price') }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($pre_operation_costs->sum('Description.total_price')) - ($pre_operation_costs->sum('total_price')) }}</span>
+                                                    <span class="text-dark-75">{{ ($rep_pre_operating_cost->sum('total_price')) - ($rep_pre_operating_cost->sum('pre_operation_cost.total_price')) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $pre_operation_costs->sum('Description.total_price') }}</span>
+                                                    <span class="text-dark-75">{{ $rep_pre_operating_cost->sum('total_price') }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1364,7 +1437,7 @@
                                                         <td>
                                                             @if(!$count_day)
                                                             @else
-                                                                <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
+                                                                <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
                                                             @endif
                                                         </td>
                                                 @endfor
@@ -1379,7 +1452,7 @@
                                         @else
                                             با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
                                             به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
-                                            مبلغ {{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_depreciation[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }} تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
+                                            مبلغ {{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }} تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
                                         @endif
                                     </p>
                                 </div>
@@ -1415,26 +1488,26 @@
                                                     @endphp
                                                     @foreach($product->rawMaterials as $material)
                                                         @if($material->year == 1)
-                                                        <tr class="text-center">
-                                                            <td>
-                                                                <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->Unit->name }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->unit_price }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->consumption }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ ($material->consumption) * ($material->unit_price) }}</span>
-                                                            </td>
-                                                        </tr>
-                                                        @php
-                                                            $total_price += $material->total_price;
-                                                        @endphp
+                                                            <tr class="text-center">
+                                                                <td>
+                                                                    <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->Unit->name }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->unit_price }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->consumption }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ ($material->consumption) * ($material->unit_price) }}</span>
+                                                                </td>
+                                                            </tr>
+                                                            @php
+                                                                $total_price += $material->total_price;
+                                                            @endphp
                                                         @endif
                                                     @endforeach
                                                     <tr class="text-center">
@@ -1590,7 +1663,7 @@
                                             <tr class="bg-gray-100 text-center">
                                                 <th class="pl-7">سال طرح</th>
                                                 <th>هزینه نیروی تولیدی</th>
-                                                <th>هزینه نیروی غیر تولیدی{{$i}}</th>
+                                                <th>هزینه نیروی غیر تولیدی</th>
                                                 <th>جمع کل</th>
                                             </tr>
                                             </thead>
@@ -1601,13 +1674,13 @@
                                                         <span class="text-dark-75">{{$i}}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights')}}</span>
+                                                        <span class="text-dark-75">{{ ( ($man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights'))  ) +  ( ($man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights')}}</span>
+                                                        <span class="text-dark-75">{{ ( ($man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights'))  ) +  ( ($man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                     </td>
                                                     <td>
-                                                        <span class="text-dark-75">{{$man_powers->where('year', $i)->sum('total_rights')}}</span>
+                                                        <span class="text-dark-75">{{ ( ($man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights'))  ) +  ( ($man_powers->where('year', $i)->where('manpower_type', 1)->sum('total_rights')) * (12/16) * (23/100) ) + ( ($man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights'))  ) +  ( ($man_powers->where('year', $i)->where('manpower_type', 0)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                     </td>
                                                 </tr>
                                             @endfor
@@ -1616,13 +1689,13 @@
                                                     <span class="text-dark-75"><b>جمع کل</b></span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $man_powers->where('manpower_type', 1)->sum('total_rights') }}</span>
+                                                    <span class="text-dark-75">{{ ( ($man_powers->where('manpower_type', 1)->sum('total_rights'))  ) +  ( ($man_powers->where('manpower_type', 1)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $man_powers->where('manpower_type', 0)->sum('total_rights') }}</span>
+                                                    <span class="text-dark-75">{{ ( ($man_powers->where('manpower_type', 0)->sum('total_rights'))  ) +  ( ($man_powers->where('manpower_type', 0)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $man_powers->sum('total_rights') }}</span>
+                                                    <span class="text-dark-75">{{ ( ($man_powers->where('manpower_type', 1)->sum('total_rights'))  ) +  ( ($man_powers->where('manpower_type', 1)->sum('total_rights')) * (12/16) * (23/100) ) + ( ($man_powers->where('manpower_type', 0)->sum('total_rights'))  ) +  ( ($man_powers->where('manpower_type', 0)->sum('total_rights')) * (12/16) * (23/100) ) }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -1696,6 +1769,9 @@
                             <div>
                                 <h5>4_20)برآورد هزینه‌های تعمیر و نگهداری:</h5><br>
                                 @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @php
+                                        $test = [];
+                                    @endphp
                                     @if(count($repair->where('year', $i)) >= 1)
                                         <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
                                         <!--begin::Body-->
@@ -1723,9 +1799,19 @@
                                                                 <span class="text-dark-75">{{ $rep->percent }}</span>
                                                             </td>
                                                             <td>
-                                                                <span class="text-dark-75">{{ $rep->total_cost }}</span>
+                                                                @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                                    <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($rep->percent/100) }}</span>
+                                                                @else
+                                                                    <span class="text-dark-75">-</span>
+                                                                @endif
                                                             </td>
                                                         </tr>
+                                                        @php
+                                                            if(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                              { array_push($test,($annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($rep->percent/100) ); }
+                                                            else
+                                                              {array_push($test, 0);}
+                                                        @endphp
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -1735,7 +1821,15 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ $repair->where('year', $i)->sum('total_cost') }}</span>
+                                                            @php
+                                                                $sum=0;
+                                                            @endphp
+                                                            @for($j=0; $j< count($test); $j++)
+                                                                @php
+                                                                    $sum+=$test[$j];
+                                                                @endphp
+                                                            @endfor
+                                                            <span class="text-dark-75">{{ $sum }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -2033,6 +2127,9 @@
                             <div>
                                 <h5>7_20)گارانتی:</h5><br>
                                 @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @php
+                                        $arr = [];
+                                    @endphp
                                     @if(count($warranty->where('year', $i)) >= 1)
                                         <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
                                         <!--begin::Body-->
@@ -2060,9 +2157,19 @@
                                                                 <span class="text-dark-75">{{ $warranty_var->percent }}</span>
                                                             </td>
                                                             <td>
-                                                                <span class="text-dark-75">{{ $warranty_var->total_cost }}</span>
+                                                                @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                                    <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($warranty_var->percent/100) }}</span>
+                                                                @else
+                                                                    <span class="text-dark-75">-</span>
+                                                                @endif
                                                             </td>
                                                         </tr>
+                                                        @php
+                                                            if(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                              { array_push($arr,($annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($warranty_var->percent/100) ); }
+                                                            else
+                                                              {array_push($arr, 0);}
+                                                        @endphp
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -2072,7 +2179,15 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ $warranty->where('year', $i)->sum('total_cost') }}</span>
+                                                            @php
+                                                                $total=0;
+                                                            @endphp
+                                                            @for($j=0; $j< count($arr); $j++)
+                                                                @php
+                                                                    $total+=$arr[$j];
+                                                                @endphp
+                                                            @endfor
+                                                            <span class="text-dark-75">{{ $total }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -2585,10 +2700,24 @@
                                             </tr>
                                             <tr class="text-center">
                                                 <td>
+                                                    <span class="text-dark-75">سرمایه در گردش مورد نیاز سال اول</span>
+                                                </td>
+                                                <td>
+                                                    @if(!$count_day)
+                                                    @else
+                                                        <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                            <tr class="text-center">
+                                                <td>
                                                     <span class="text-dark-75">کل میزان سرمایه‌گذاری طرح</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ $lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost }}</span>
+                                                    @if(!$count_day)
+                                                    @else
+                                                        <span class="text-dark-75">{{ $lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost + round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) }}</span>
+                                                    @endif
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
@@ -2596,7 +2725,7 @@
                                                     <span class="text-dark-75">سرمایه مورد نیاز طرح</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) + ($valuation_cost) )  }}</span>
+                                                    <span class="text-dark-75">{{ ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) )  }}</span>
                                                 </td>
                                             </tr>
                                             <tr class="text-center">
@@ -2612,7 +2741,7 @@
                                                     <span class="text-dark-75">خالص سرمایه‌گذاری</span>
                                                 </td>
                                                 <td>
-                                                    <span class="text-dark-75">{{ ( ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) + ($valuation_cost) ) ) - ($fiscal->loan) }}</span>
+                                                    <span class="text-dark-75">{{ ( ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) ) ) - ($fiscal->loan) }}</span>
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -2814,7 +2943,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{  $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price) }}</span>
+                                                            <span class="text-dark-75">{{  $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2838,7 +2967,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) }}</span>
+                                                            <span class="text-dark-75">{{ ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2852,7 +2981,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate /100) * ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
+                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2866,7 +2995,8 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )  ) - ( ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) }}</span>
+
+                                                            <span class="text-dark-75">{{ ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2879,7 +3009,11 @@
                                                 </td>
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
-                                                        <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                        @if( $i==$fiscal->reimbursement)
+                                                            <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">0</span>
+                                                        @endif
                                                     </td>
                                                 @endfor
                                             </tr>
@@ -2909,8 +3043,10 @@
                                                 </td>
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
-                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )  ) - ( ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i-1] ) }}</span>
+                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) && $i==$fiscal->reimbursement )
+                                                            <span class="text-dark-75">{{  ( ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i-1] ) }}</span>
+                                                        @elseif(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) && $i!=$fiscal->reimbursement )
+                                                            <span class="text-dark-75">{{  ( ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) + ( $annual_depreciation[$i-1] ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif

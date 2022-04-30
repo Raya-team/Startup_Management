@@ -16,6 +16,6 @@ class EquipmentAndMachinery extends Model
 
     public function machinery()
     {
-        return $this->hasOne(ValuationMachinery::class);
+        return $this->hasOne(ValuationMachinery::class,'description');
     }
 }

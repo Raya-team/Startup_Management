@@ -16,6 +16,6 @@ class Facility extends Model
 
     public function facility()
     {
-        return $this->hasOne(ValuationFacility::class);
+        return $this->hasOne(ValuationFacility::class,'description');
     }
 }

@@ -16,6 +16,6 @@ class PreOperatingCost extends Model
 
     public function preOperationCost()
     {
-        return $this->hasOne(ValuationPreOperationCost::class);
+        return $this->hasOne(ValuationPreOperationCost::class,'description');
     }
 }

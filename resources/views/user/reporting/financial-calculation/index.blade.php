@@ -415,134 +415,138 @@
                                 <!--end::Body-->
                             </div>
                             <!--end::table-->
-                            <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                            {{--<hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">--}}
                             <!--begin::table-->
-                            <div>
-                                <h4 style="text-align: center">جریان های نقدینگی</h4><br>
-                                <!--begin::Body-->
-                                <div class="card-body pt-0 pb-3">
-                                    <!--begin::Table-->
-                                    <div class="table-responsive">
-                                        <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
-                                            <thead>
-                                            <tr class="bg-gray-100 text-center">
-                                                <th class="pl-7">عنوان</th>
-                                                @for($i=1;$i<=$plan_year->number_of_plan_year;$i++)
-                                                    <th>سال{{$i}}</th>
-                                                @endfor
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">درآمد حاصل از فروش</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if(isset($annual_otherInformation_price[$i]) && isset($annual_capacities[$i]->total_production) && isset($annual_after_sale_service_price[$i]))
-                                                            <span class="text-dark-75">{{( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i])}}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">بهای تمام شده کالا فروش رفته</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if(isset($annual_capacities[$i]->total_production))
-                                                            <span class="text-dark-75">{{ ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) }}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">سود و زیان ناخالص</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if(isset($annual_otherInformation_price[$i]) && isset($annual_capacities[$i]->total_production) && isset($annual_after_sale_service_price[$i]) && isset($annual_capacities[$i]->total_production))
-                                                            <span class="text-dark-75">{{ ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) }}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">مالیات</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if( isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) )
-                                                            <span class="text-dark-75">{{ ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) }}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">سود پس از کسر مالیات</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate))
-                                                            <span class="text-dark-75">{{ ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) }}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">بازپرداخت اصل تسهیلات</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if( $i == ($plan_year->number_of_plan_year)-1 )
-                                                            <span class="text-dark-75">{{$fiscal->loan}}</span>
-                                                        @else
-                                                            <span class="text-dark-75">0</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">هزینه استهلاک</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        <span class="text-dark-75">{{ $annual_depreciation[$i] }}</span>
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">درآمد غیر عملیاتی</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        <span class="text-dark-75">0</span>
-                                                    </td>
-                                                @endfor
-                                            </tr>
-                                            <tr class="text-center">
-                                                <td class="bg-gray-100 pl-7">جریان نقدینگی</td>
-                                                @for($i = 0; $i < $plan_year->number_of_plan_year; $i++)
-                                                    <td>
-                                                        @if(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) && $i==0 )
-                                                            <span class="text-dark-75">{{ ( ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i] ) - (  ( round(  ( ( ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] + $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) ) - ( $annual_rd_price[$i] ) }}</span>
-                                                        @elseif(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) && $i!=0 )
-                                                            <span class="text-dark-75">{{ ( ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i] ) - (  ( round(  ( ( ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] + $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) - ( round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) ) - ( $annual_rd_price[$i] ) }}</span>
-                                                        @else
-                                                            <span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>
-                                                        @endif
-                                                    </td>
-                                                @endfor
-                                            </tr>
+                            {{--<div>--}}
+                                {{--<h4 style="text-align: center">جریان های نقدینگی</h4><br>--}}
+                                {{--<!--begin::Body-->--}}
+                                {{--<div class="card-body pt-0 pb-3">--}}
+                                    {{--<!--begin::Table-->--}}
+                                    {{--<div class="table-responsive">--}}
+                                        {{--<table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">--}}
+                                            {{--<thead>--}}
+                                            {{--<tr class="bg-gray-100 text-center">--}}
+                                                {{--<th class="pl-7">عنوان</th>--}}
+                                                {{--@for($i=1;$i<=$plan_year->number_of_plan_year;$i++)--}}
+                                                    {{--<th>سال{{$i}}</th>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--</thead>--}}
+                                            {{--<tbody>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">درآمد حاصل از فروش</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if(isset($annual_otherInformation_price[$i]) && isset($annual_capacities[$i]->total_production) && isset($annual_after_sale_service_price[$i]))--}}
+                                                            {{--<span class="text-dark-75">{{( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i])}}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">بهای تمام شده کالا فروش رفته</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if(isset($annual_capacities[$i]->total_production))--}}
+                                                            {{--<span class="text-dark-75">{{ ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) }}</span>--}}
+                                                            {{--<span class="text-dark-75">{{ $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] +  $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] }}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">سود و زیان ناخالص</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if(isset($annual_otherInformation_price[$i]) && isset($annual_capacities[$i]->total_production) && isset($annual_after_sale_service_price[$i]) && isset($annual_capacities[$i]->total_production))--}}
+{{--                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($annual_otherInformation_price[$i-1]) )--}}
+                                                            {{--<span class="text-dark-75">{{ ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) }}</span>--}}
+                                                            {{--<span class="text-dark-75">{{ ( $annual_after_sale_service_price[$i] + ( $annual_capacities[$i]->total_production * $annual_otherInformation_price[$i] ) ) - ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] +  $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] ) }}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی در جدول ظرفیت را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">مالیات</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if( isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) )--}}
+                                                            {{--<span class="text-dark-75">{{ ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) }}</span>--}}
+                                                            {{--<span class="text-dark-75">{{ ($otherInformation[$i]->tax_rate /100) * ( ( $annual_otherInformation_price[$i] + ( $annual_capacities[$i]->total_production * $annual_otherInformation_price[$i] ) ) - ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] +  $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] ) ) }}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">سود پس از کسر مالیات</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate))--}}
+                                                            {{--<span class="text-dark-75">{{ ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) }}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">بازپرداخت اصل تسهیلات</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if( $i == ($plan_year->number_of_plan_year)-1 )--}}
+                                                            {{--<span class="text-dark-75">{{$fiscal->loan}}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">0</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">هزینه استهلاک</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--<span class="text-dark-75">{{ $annual_depreciation[$i] }}</span>--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">درآمد غیر عملیاتی</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--<span class="text-dark-75">0</span>--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
+                                            {{--<tr class="text-center">--}}
+                                                {{--<td class="bg-gray-100 pl-7">جریان نقدینگی</td>--}}
+                                                {{--@for($i = 0; $i < $plan_year->number_of_plan_year; $i++)--}}
+                                                    {{--<td>--}}
+                                                        {{--@if(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) && $i==0 )--}}
+                                                            {{--<span class="text-dark-75">{{ ( ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i] ) - (  ( round(  ( ( ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] + $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) ) - ( $annual_rd_price[$i] ) }}</span>--}}
+                                                        {{--@elseif(isset($annual_capacities[$i]->total_production) && isset($otherInformation[$i]->tax_rate) && $i!=0 )--}}
+                                                            {{--<span class="text-dark-75">{{ ( ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) - ( ( ($otherInformation[$i]->tax_rate)/100 ) * ( ( ( ($annual_otherInformation_price[$i])*($annual_capacities[$i]->total_production) ) + ($annual_after_sale_service_price[$i]) - ( ( ($annual_raw_material_price[$i])*($annual_capacities[$i]->total_production)) + ($annual_man_powers_price[$i]) + ($annual_rent_price[$i]) + ($annual_energy_consumption_price[$i]) + ($annual_repair_price[$i]) + ($annual_fin2_transportation_price[$i]) + ($annual_depreciation[$i]) + ($annual_outsourcing_price[$i]) + ($annual_business_price[$i]) + ($annual_rd_price[$i]) + ($annual_insurances_price[$i]) + ($annual_warranty_price[$i]) + ($annual_financial_expenses[$i]) ) ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i] ) - (  ( round(  ( ( ( $annual_raw_material_price[$i] + $annual_man_powers_price[$i] + $annual_business_price[$i] + $annual_outsourcing_price[$i] + $annual_consumer_item_price[$i] + $annual_rent_price[$i] + $annual_energy_consumption_price[$i] + $annual_repair_price[$i] + $annual_rd_price[$i] + $annual_warranty_price[$i] + $annual_fin2_transportation_price[$i] + $annual_depreciation[$i] + $annual_financial_expenses[$i] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) - ( round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 ) ) ) - ( $annual_rd_price[$i] ) }}</span>--}}
+                                                        {{--@else--}}
+                                                            {{--<span class="text-dark-75">ابتدا تعداد تولید واقعی و نرخ مالیات را پر کنید.</span>--}}
+                                                        {{--@endif--}}
+                                                    {{--</td>--}}
+                                                {{--@endfor--}}
+                                            {{--</tr>--}}
 
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!--end::Table-->
-                                </div>
-                                <!--end::Body-->
-                            </div>
+                                            {{--</tbody>--}}
+                                        {{--</table>--}}
+                                    {{--</div>--}}
+                                    {{--<!--end::Table-->--}}
+                                {{--</div>--}}
+                                {{--<!--end::Body-->--}}
+                            {{--</div>--}}
                             <!--end::table-->
                             <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                             <!--begin::table-->
@@ -1292,7 +1296,7 @@
                                                         <td>
                                                             @if(!$count_day)
                                                             @else
-                                                                <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
+                                                                <span class="text-dark-75">{{ round(  ( ( ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] + $annual_fin2_transportation_price[$i-1] + $annual_financial_expenses[$i-1] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }}</span>
                                                             @endif
                                                         </td>
                                                 @endfor
@@ -1307,7 +1311,7 @@
                                         @else
                                             با توجه به سیکل خرید مواد اولیه، تولید، فروش و وصول مطالبات که {{($count_day->question_1) + ($count_day->question_2) + ($count_day->question_3) + ($count_day->question_4)}} روزه پیش‌ بینی می‌گردد
                                             به اندازه {{ round( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) }} ماه از هزینه‌های تولید را که
-                                            مبلغ {{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_depreciation[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }} تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
+                                            مبلغ {{ round(  ( ( ( $annual_raw_material_price[0] + $annual_man_powers_price[0] + $annual_business_price[0] + $annual_outsourcing_price[0] + $annual_consumer_item_price[0] + $annual_rent_price[0] + $annual_energy_consumption_price[0] + $annual_repair_price[0] + $annual_rd_price[0] + $annual_warranty_price[0] + $annual_fin2_transportation_price[0] + $annual_financial_expenses[0] )/12 ) * ( ($count_day->question_1 + $count_day->question_2 + $count_day->question_3 + $count_day->question_4)/30 ) ),2 )   }} تومان می‌شود به عنوان سرمایه در گردش در نظر گرفته می‌شود.
                                         @endif
                                     </p>
                                 </div>
@@ -1434,7 +1438,7 @@
                                                             <span class="text-dark-75">{{ $power->salary }}</span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ ( ($power->number) * ($power->salary) * 16 ) + ( ($power->number) * ($power->salary) * 16 * (23/100) ) }}</span>
+                                                            <span class="text-dark-75">{{ ( ($power->number) * ($power->salary) * 16 ) + ( ($power->number) * ($power->salary) * 12 * (23/100) ) }}</span>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -1531,27 +1535,28 @@
                                                         $total_price = 0;
                                                     @endphp
                                                     @foreach($product->rawMaterials as $material)
-
-                                                        <tr class="text-center">
-                                                            <td>
-                                                                <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->Unit->name }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->unit_price }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ $material->consumption }}</span>
-                                                            </td>
-                                                            <td>
-                                                                <span class="text-dark-75">{{ ($material->consumption) * ($material->unit_price) }}</span>
-                                                            </td>
-                                                        </tr>
-                                                        @php
-                                                            $total_price += $material->total_price;
-                                                        @endphp
+                                                        @if($material->year == 1)
+                                                            <tr class="text-center">
+                                                                <td>
+                                                                    <span class="text-dark-75">{{$material->rawMaterialName->name}}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->Unit->name }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->unit_price }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ $material->consumption }}</span>
+                                                                </td>
+                                                                <td>
+                                                                    <span class="text-dark-75">{{ ($material->consumption) * ($material->unit_price) }}</span>
+                                                                </td>
+                                                            </tr>
+                                                            @php
+                                                                $total_price += $material->total_price;
+                                                            @endphp
+                                                        @endif
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -1567,7 +1572,7 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ ($annual_capacities[0]->total_production) * ($total_price) }}</span>
+                                                            <span class="text-dark-75">{{  $total_price }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -1789,6 +1794,9 @@
                             <div>
                                 <h5>تعمیر و نگهداری</h5><br>
                                 @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @php
+                                        $test = [];
+                                    @endphp
                                     @if(count($repair->where('year', $i)) >= 1)
                                         <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
                                         <!--begin::Body-->
@@ -1816,9 +1824,19 @@
                                                                 <span class="text-dark-75">{{ $rep->percent }}</span>
                                                             </td>
                                                             <td>
-                                                                <span class="text-dark-75">{{ $rep->total_cost }}</span>
+                                                                @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                                    <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($rep->percent/100) }}</span>
+                                                                @else
+                                                                    <span class="text-dark-75">-</span>
+                                                                @endif
                                                             </td>
                                                         </tr>
+                                                        @php
+                                                            if(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                              { array_push($test,($annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($rep->percent/100) ); }
+                                                            else
+                                                              {array_push($test, 0);}
+                                                        @endphp
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -1828,7 +1846,15 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ $repair->where('year', $i)->sum('total_cost') }}</span>
+                                                            @php
+                                                                $sum=0;
+                                                            @endphp
+                                                            @for($j=0; $j< count($test); $j++)
+                                                                @php
+                                                                    $sum+=$test[$j];
+                                                                @endphp
+                                                            @endfor
+                                                            <span class="text-dark-75">{{ $sum }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -1905,6 +1931,9 @@
                             <div>
                                 <h5>گارانتی:</h5><br>
                                 @for($i=1; $i<=$plan_year->number_of_plan_year; $i++)
+                                    @php
+                                        $arr = [];
+                                    @endphp
                                     @if(count($warranty->where('year', $i)) >= 1)
                                         <h6 style="text-align: center;">سال {{$i}} طرح</h6><br>
                                         <!--begin::Body-->
@@ -1932,9 +1961,19 @@
                                                                 <span class="text-dark-75">{{ $warranty_var->percent }}</span>
                                                             </td>
                                                             <td>
-                                                                <span class="text-dark-75">{{ $warranty_var->total_cost }}</span>
+                                                                @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                                    <span class="text-dark-75">{{ ( $annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($warranty_var->percent/100) }}</span>
+                                                                @else
+                                                                    <span class="text-dark-75">-</span>
+                                                                @endif
                                                             </td>
                                                         </tr>
+                                                        @php
+                                                            if(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
+                                                              { array_push($arr,($annual_capacities[$i-1]->total_production ) * ($otherInformation[$i-1]->sale_price) * (count($products)) * ($warranty_var->percent/100) ); }
+                                                            else
+                                                              {array_push($arr, 0);}
+                                                        @endphp
                                                     @endforeach
                                                     <tr class="text-center">
                                                         <td>
@@ -1944,7 +1983,15 @@
                                                             <span class="text-dark-75"></span>
                                                         </td>
                                                         <td>
-                                                            <span class="text-dark-75">{{ $warranty->where('year', $i)->sum('total_cost') }}</span>
+                                                            @php
+                                                                $total=0;
+                                                            @endphp
+                                                            @for($j=0; $j< count($arr); $j++)
+                                                                @php
+                                                                    $total+=$arr[$j];
+                                                                @endphp
+                                                            @endfor
+                                                            <span class="text-dark-75">{{ $total }}</span>
                                                         </td>
                                                     </tr>
                                                     </tbody>
@@ -2717,7 +2764,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) }}</span>
+                                                            <span class="text-dark-75">{{  $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2741,7 +2788,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) }}</span>
+                                                            <span class="text-dark-75">{{ ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2755,7 +2802,7 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
+                                                            <span class="text-dark-75">{{ ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2769,7 +2816,8 @@
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
                                                         @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )  ) - ( ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) }}</span>
+
+                                                            <span class="text-dark-75">{{ ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif
@@ -2782,7 +2830,11 @@
                                                 </td>
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
-                                                        <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                        @if( $i==$fiscal->reimbursement)
+                                                            <span class="text-dark-75">{{ $fiscal->loan }}</span>
+                                                        @else
+                                                            <span class="text-dark-75">0</span>
+                                                        @endif
                                                     </td>
                                                 @endfor
                                             </tr>
@@ -2812,8 +2864,10 @@
                                                 </td>
                                                 @for($i=1;$i<=$plan_year->number_of_plan_year ;$i++)
                                                     <td>
-                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) )
-                                                            <span class="text-dark-75">{{ ( ( ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] )  ) - ( ($otherInformation[$i-1]->tax_rate) * ( ( ( $annual_after_sale_service_price[$i-1] + $annual_capacities[$i-1]->total_production ) * ( ($otherInformation[$i-1]->sale_price)) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i-1] ) }}</span>
+                                                        @if( isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) && $i==$fiscal->reimbursement )
+                                                            <span class="text-dark-75">{{  ( ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) - ( $fiscal->loan ) + ( $annual_depreciation[$i-1] ) }}</span>
+                                                        @elseif(isset($annual_capacities[$i-1]->total_production) && isset($otherInformation[$i-1]->sale_price) && $i!=$fiscal->reimbursement )
+                                                            <span class="text-dark-75">{{  ( ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) - ( ($otherInformation[$i-1]->tax_rate /100) * ( ( $annual_after_sale_service_price[$i-1] + ( $annual_capacities[$i-1]->total_production * $otherInformation[$i-1]->sale_price ) ) - ( $annual_raw_material_price[$i-1] + $annual_man_powers_price[$i-1] + $annual_business_price[$i-1] + $annual_outsourcing_price[$i-1] + $annual_consumer_item_price[$i-1] + $annual_rent_price[$i-1] + $annual_energy_consumption_price[$i-1] + $annual_repair_price[$i-1] + $annual_rd_price[$i-1] + $annual_warranty_price[$i-1] +  $annual_fin2_transportation_price[$i-1] + $annual_depreciation[$i-1] + $annual_financial_expenses[$i-1] ) ) ) ) + ( $annual_depreciation[$i-1] ) }}</span>
                                                         @else
                                                             <span class="text-dark-75">-</span>
                                                         @endif

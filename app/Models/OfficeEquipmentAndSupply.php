@@ -16,6 +16,6 @@ class OfficeEquipmentAndSupply extends Model
 
     public function officeSupply()
     {
-        return $this->hasOne(ValuationOfficeSupply::class);
+        return $this->hasOne(ValuationOfficeSupply::class,'description');
     }
 }

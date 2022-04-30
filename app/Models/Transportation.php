@@ -16,6 +16,6 @@ class Transportation extends Model
 
     public function transportation()
     {
-        return $this->hasOne(ValuationTransportation::class);
+        return $this->hasOne(ValuationTransportation::class,'description');
     }
 }

@@ -18,6 +18,6 @@ class LaboratoryEquipment extends Model
 
     public function laboratoryEquipment()
     {
-        return $this->hasOne(ValuationLaboratoryEquipment::class);
+        return $this->hasOne(ValuationLaboratoryEquipment::class,'description');
     }
 }
