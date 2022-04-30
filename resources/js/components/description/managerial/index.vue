@@ -129,13 +129,13 @@
                         <!--end::Card-->
                     </div>
                 </div>
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-lg-12">
-                        <!--begin::Card-->
+                        &lt;!&ndash;begin::Card&ndash;&gt;
                         <div class="card card-custom gutter-b example example-compact">
-                            <!--begin::table-->
+                            &lt;!&ndash;begin::table&ndash;&gt;
                             <div class="card card-custom gutter-b">
-                                <!--begin::Header-->
+                                &lt;!&ndash;begin::Header&ndash;&gt;
                                 <div class="card-header border-0 py-5">
                                     <h3 class="card-title align-items-start flex-column">
                                         <span class="card-label font-weight-bolder text-dark">لیست استانداردها، گواهی‌ها و افتخارات کسب شده</span>
@@ -152,7 +152,7 @@
                                         <router-link :to="{ name: 'description-obtainedcertificates-create'}">
                                             <a class="btn btn-primary font-weight-bolder">
                                             <span class="svg-icon svg-icon-md">
-                                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                                                &lt;!&ndash;begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg&ndash;&gt;
                                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <polygon points="0 0 24 0 24 24 0 24"/>
@@ -160,16 +160,16 @@
                                                         <path d="M0.00065168429,20.1992055 C0.388258525,15.4265159 4.26191235,13 8.98334134,13 C13.7712164,13 17.7048837,15.2931929 17.9979143,20.2 C18.0095879,20.3954741 17.9979143,21 17.2466999,21 C13.541124,21 8.03472472,21 0.727502227,21 C0.476712155,21 -0.0204617505,20.45918 0.00065168429,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                                                     </g>
                                                 </svg>
-                                                <!--end::Svg Icon-->
+                                                &lt;!&ndash;end::Svg Icon&ndash;&gt;
                                             </span>افزودن
                                             </a>
                                         </router-link>
                                     </div>
                                 </div>
-                                <!--end::Header-->
-                                <!--begin::Body-->
+                                &lt;!&ndash;end::Header&ndash;&gt;
+                                &lt;!&ndash;begin::Body&ndash;&gt;
                                 <div class="card-body pt-0 pb-3">
-                                    <!--begin::Table-->
+                                    &lt;!&ndash;begin::Table&ndash;&gt;
                                     <div class="table-responsive">
                                         <table class="table table-head-custom table-head-bg table-vertical-center table-borderless" id="myTable">
                                             <div class="d-flex align-items-center" v-if="progress">
@@ -246,15 +246,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--end::Table-->
+                                    &lt;!&ndash;end::Table&ndash;&gt;
                                 </div>
-                                <!--end::Body-->
+                                &lt;!&ndash;end::Body&ndash;&gt;
                             </div>
-                            <!--end::table-->
+                            &lt;!&ndash;end::table&ndash;&gt;
                         </div>
-                        <!--end::Card-->
+                        &lt;!&ndash;end::Card&ndash;&gt;
                     </div>
-                </div>
+                </div>-->
                 <div class="row">
                     <div class="col-lg-12">
                         <!--begin::Card-->

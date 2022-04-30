@@ -51,7 +51,7 @@
                                                 <span class="nav-icon">
                                                     <i class="flaticon2-chat-1"></i>
                                                 </span>
-                                                        <span class="nav-text">مدت زمان مورد نیاز برای سرمایه در گردش</span>
+                                                        <span class="nav-text">مفروضات طرح</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item mb-2">

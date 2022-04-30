@@ -59,14 +59,21 @@ class JustificationPlanController extends Controller
         abort(404);
     }
 
-    public function update(JustificationPlanRequest $request, $id)
+    public function update(JustificationPlanRequest $request, $id, RegisteredTeam $new_regiter)
     {
         $team = Auth::user()->team;
-        if ($team->status) {
+        $CheckRegisteredTeam = RegisteredTeam::find($request->input('registered_team.id'));
+        if ($team->status && $CheckRegisteredTeam) {
             $registeredTeam = RegisteredTeam::findorfail($request->input('registered_team.id'));
             $registeredTeam->registration_number = $request->input('registered_team.registration_number');
             $registeredTeam->registration_date = $request->input('registered_team.registration_date');
             $registeredTeam->save();
+        }elseif ($team->status){
+            $new_regiter->registration_number = $request->input('registered_team.registration_number');
+            $new_regiter->registration_date = $request->input('registered_team.registration_date');
+            $new_regiter->team_id = $team->id;
+            $new_regiter->updated_at = null;
+            $new_regiter->save();
         }
 
         $businessManager = BusinessManager::findorfail($request->input('business_manager.id'));

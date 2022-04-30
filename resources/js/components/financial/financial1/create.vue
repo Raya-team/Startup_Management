@@ -496,7 +496,19 @@
                                                         <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.unit_price')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.unit_price') }}</div>
                                                     </div>
                                                 </div>
-                                                <div   class="col-md-3" style="margin-top: 28px">
+                                                <div class="col-md-3">
+                                                    <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text noselect">دلار</span>
+                                                        </div>
+                                                        <input type="text" class="form-control equipmentandmachineries" v-model="equipmentandmachinery.dollar"
+                                                               :class="['form-control', {'is-invalid' : errors.has('equipmentandmachineries.' + index +'.dollar')}]"
+                                                               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                        <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.dollar')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.dollar') }}</div>
+                                                    </div>
+                                                </div>
+                                                <div   class="col-md-1" style="margin-top: 28px">
                                                     <a @click="RemoveEquipmentAndMachinery(index)" data-repeater-delete="" class="btn btn-sm font-weight-bolder btn-light-danger">
                                                         <i class="la la-trash-o"></i>حذف</a>
                                                 </div>
@@ -738,7 +750,7 @@
                     type: '',
                     lands: [{ description: '', area: '', price: '' }],
                     laboratory_equipments: [{ description: '', number: '', dollar_unit_price: '', toman_unit_price: '' }],
-                    equipmentandmachineries: [{ description: '', count: '', unit_price: '' }],
+                    equipmentandmachineries: [{ description: '', count: '', unit_price: '', dollar: '' }],
                     officeequipmentandsupplies: [{ description: '', count: '', unit_price: '' }],
                     facilities: [{ description: '', count: '', unit_price: '' }],
                     transportations: [{ description: '', count: '', unit_price: '' }],
@@ -770,7 +782,7 @@
                 this.data.laboratory_equipments.splice(index, 1);
             },
             AddEquipmentAndMachinery() {
-                this.data.equipmentandmachineries.push({ description: '', count: '', unit_price: ''});
+                this.data.equipmentandmachineries.push({ description: '', count: '', unit_price: '', dollar: ''});
             },
             RemoveEquipmentAndMachinery(index) {
                 this.data.equipmentandmachineries.splice(index, 1);

@@ -375,7 +375,7 @@
                 team: '',
                 shareholders: '',
                 data: {
-                    registered_team: {},
+                    registered_team: {registration_number: '', registration_date: ''},
                     business_manager: {},
                     business_question: {},
                     justification_plan: {}
@@ -390,7 +390,13 @@
                 .then(response => {
                     this.team = response.data.team;
                     this.shareholders = response.data.shareholders;
-                    this.data.registered_team = response.data.registered_team;
+                    if (response.data.registered_team == null){
+                        this.data.registered_team.registration_number = response.data.registered_team;
+                        this.data.registered_team.registration_date = response.data.registered_team;
+                    } else {
+                        this.data.registered_team.registration_number = response.data.registered_team.registration_number;
+                        this.data.registered_team.registration_date = response.data.registered_team.registration_date;
+                    }
                     this.data.business_manager = response.data.business_manager;
                     this.data.business_question = response.data.business_question;
                     this.data.justification_plan = response.data.justification_plan;

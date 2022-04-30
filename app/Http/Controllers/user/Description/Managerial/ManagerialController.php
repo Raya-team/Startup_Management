@@ -35,7 +35,7 @@ class ManagerialController extends Controller
     {
         $team_id = Auth::user()->team_id;
         $this->Managerial($request, $managerial, $team_id);
-        $this->ObtainedCertificate($request, $team_id);
+//        $this->ObtainedCertificate($request, $team_id);
         $this->PlanImplementations($request, $team_id);
         return response(['success'], 201);
     }

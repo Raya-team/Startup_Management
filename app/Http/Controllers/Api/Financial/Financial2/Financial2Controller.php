@@ -71,7 +71,7 @@ class Financial2Controller extends Controller
     public function create()
     {
         $team_id = Auth::user()->team_id;
-        $land = collect(Land::where('team_id', $team_id)->get('description'));
+        /*$land = collect(Land::where('team_id', $team_id)->get('description'));
         $equipmentandmachineries = EquipmentAndMachinery::where('team_id', $team_id)->get('description');
         $officeequipmentandsupplies = OfficeEquipmentAndSupply::where('team_id', $team_id)->get('description');
         $facilities = Facility::where('team_id', $team_id)->get('description');
@@ -83,7 +83,31 @@ class Financial2Controller extends Controller
             ->merge($officeequipmentandsupplies)
             ->merge($facilities)
             ->merge($transportations)
-            ->merge($preoperatingcosts);
+            ->merge($preoperatingcosts);*/
+
+
+        $descriptions = [];
+
+        $description1 = new Des();
+        $description2 = new Des();
+        $description3 = new Des();
+        $description4 = new Des();
+        $description5 = new Des();
+        $description6 = new Des();
+
+        $description1->description = 'مستغلات';
+        $description2->description = 'تجهیزات و ماشین آلات فنی';
+        $description3->description = 'تجهیزات و لوازم دفتری';
+        $description4->description = 'تاسیسات';
+        $description5->description = 'وسایل حمل و نقل';
+        $description6->description = 'تجهیزات آزمایشگاهی';
+
+        array_push($descriptions, $description1);
+        array_push($descriptions, $description2);
+        array_push($descriptions, $description3);
+        array_push($descriptions, $description4);
+        array_push($descriptions, $description5);
+        array_push($descriptions, $description6);
 
         $units = UnitOfMeasurement::all();
 

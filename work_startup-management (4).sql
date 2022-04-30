@@ -96,7 +96,12 @@ INSERT INTO `unit_of_measurements` (`id`, `name`) VALUES
 (1, 'کیلو گرم'),
 (2, 'گرم'),
 (3, 'لیتر'),
-(4, 'میلی لیتر');
+(4, 'عدد'),
+(5, 'متر'),
+(6, 'تن'),
+(7, 'مترمکعب'),
+(8, 'گیگابایت'),
+(9, 'کیلووات بر ساعت');
 
 --
 -- Dumping data for table `man_power_names`
@@ -118,7 +123,8 @@ INSERT INTO `man_power_names` (`id`, `name`, `manpower_type`, `created_at`, `upd
 (13, 'کارپرداز', 0, NULL, NULL),
 (14, 'نگهبان', 0, NULL, NULL),
 (15, 'کارشناس تحقیق و توسعه', 0, NULL, NULL),
-(16, 'مشاور', 0, NULL, NULL);
+(16, 'مشاور', 0, NULL, NULL),
+(17, 'خدمات', 0, NULL, NULL);
 
 --
 -- Dumping data for table `valuation_models`

@@ -72,6 +72,18 @@
                                                             <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.unit_price')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.unit_price') }}</div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-md-2">
+                                                        <label><h5>قیمت واحد : <span class="text-danger">*</span></h5></label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text noselect">دلار</span>
+                                                            </div>
+                                                            <input type="text" class="form-control equipmentandmachineries" v-model="equipmentandmachinery.dollar"
+                                                                   :class="['form-control', {'is-invalid' : errors.has('equipmentandmachineries.' + index +'.dollar')}]"
+                                                                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"/>
+                                                            <div class="invalid-feedback is-invalid" v-if="errors.has('equipmentandmachineries.' + index +'.dollar')" style="display: block;">{{ errors.get('equipmentandmachineries.' + index +'.dollar') }}</div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +115,7 @@
         data() {
             return {
                 data: {
-                    equipmentandmachineries: [{ description: '', count: '', unit_price: ''}],
+                    equipmentandmachineries: [{ description: '', count: '', unit_price: '', dollar: '' }],
                 },
                 errors: new Errors(),
                 Auth: new Auth()
@@ -116,6 +128,7 @@
                     this.data.equipmentandmachineries[0].description = response.data.equipmentandmachineries.description;
                     this.data.equipmentandmachineries[0].count = response.data.equipmentandmachineries.count;
                     this.data.equipmentandmachineries[0].unit_price = response.data.equipmentandmachineries.unit_price;
+                    this.data.equipmentandmachineries[0].dollar = response.data.equipmentandmachineries.dollar;
                 })
                 .catch(error => console.log(error));
         },

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\user\BusinessCanvas\BusinessCanvasController;
+use App\Http\Controllers\user\Dashboard\DashboardController;
 use App\Http\Controllers\user\Description\Managerial\ManagerialController;
 use App\Http\Controllers\user\Description\Managerial\ObtainedCertificateController;
 use App\Http\Controllers\user\Description\Managerial\PlanImplementationController;
@@ -76,9 +77,11 @@ use App\Http\Controllers\user\Valuation\Tangible\TangibleController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' =>['auth', 'auth.user']] , function (){
+
     Route::get('/user/dashboard', function (){
         return view('user.master');
     });
+    Route::get('/user/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::resource('/shareholders',ShareholderController::class);
     Route::resource('/key-employees', KeyEmployeeController::class);

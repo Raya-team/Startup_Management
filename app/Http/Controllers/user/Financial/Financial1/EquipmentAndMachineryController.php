@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\EquipmentAndMachineryRequest;
 use App\Models\EquipmentAndMachinery;
 use App\Models\Facility;
+use App\Models\Fiscal;
 use App\Models\LaboratoryEquipment;
 use App\Models\Land;
 use App\Models\OfficeEquipmentAndSupply;
@@ -45,13 +46,15 @@ class EquipmentAndMachineryController extends Controller
     public function store(EquipmentAndMachineryRequest $request)
     {
         $team_id = Auth::user()->team_id;
+        $fiscal = Fiscal::where('team_id', $team_id)->first();
         $equipmentandmachineries = $request->equipmentandmachineries;
         for ($i = 0; $i < sizeof($equipmentandmachineries); $i++) {
             $equipmentandmachinery = new EquipmentAndMachinery();
             $equipmentandmachinery->description = $equipmentandmachineries[$i]['description'];
             $equipmentandmachinery->count = $equipmentandmachineries[$i]['count'];
             $equipmentandmachinery->unit_price = $equipmentandmachineries[$i]['unit_price'];
-            $equipmentandmachinery->total_price = $equipmentandmachineries[$i]['unit_price'] * $equipmentandmachineries[$i]['count'];
+            $equipmentandmachinery->dollar = $equipmentandmachineries[$i]['dollar'];
+            $equipmentandmachinery->total_price = (($equipmentandmachineries[$i]['dollar'] * $fiscal->dollar) + $equipmentandmachineries[$i]['unit_price']) * $equipmentandmachineries[$i]['count'];
             $equipmentandmachinery->team_id = $team_id;
             $equipmentandmachinery->updated_at = null;
             $equipmentandmachinery->save();
@@ -117,13 +120,15 @@ class EquipmentAndMachineryController extends Controller
      */
     public function update(EquipmentAndMachineryRequest $request, EquipmentAndMachinery $equipmentandmachinery)
     {
+        $team_id = Auth::user()->team_id;
+        $fiscal = Fiscal::where('team_id', $team_id)->first();
         $equipmentandmachinery->description = $request['equipmentandmachineries'][0]['description'];
         $equipmentandmachinery->count = $request['equipmentandmachineries'][0]['count'];
         $equipmentandmachinery->unit_price = $request['equipmentandmachineries'][0]['unit_price'];
-        $equipmentandmachinery->total_price = $request['equipmentandmachineries'][0]['unit_price'] * $request['equipmentandmachineries'][0]['count'];
+        $equipmentandmachinery->dollar = $request['equipmentandmachineries'][0]['dollar'];
+        $equipmentandmachinery->total_price = (($request['equipmentandmachineries'][0]['dollar'] * $fiscal->dollar) + $request['equipmentandmachineries'][0]['unit_price']) * $request['equipmentandmachineries'][0]['count'];
         $equipmentandmachinery->save();
 
-        $team_id = Auth::user()->team_id;
 
         $sum_tenements = Land::where('team_id', $team_id)->get()->sum('price');
         /* تجهیزات و ماشین آلات فنی */

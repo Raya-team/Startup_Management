@@ -18,7 +18,7 @@
                                 <!--</router-link>-->
                             </li>
                             <li class="breadcrumb-item text-muted">
-                                <a href="#" class="text-muted">مدت زمان مورد نیاز برای سرمایه در گردش</a>
+                                <a href="#" class="text-muted">مفروضات طرح</a>
                             </li>
                         </ul>
                         <!--end::Breadcrumb-->

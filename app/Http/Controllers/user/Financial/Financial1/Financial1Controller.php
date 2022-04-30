@@ -226,7 +226,7 @@ class Financial1Controller extends Controller
             $laboratory_equipment->number = $laboratory_equipments[$i]['number'];
             $laboratory_equipment->dollar_unit_price = $laboratory_equipments[$i]['dollar_unit_price'];
             $laboratory_equipment->toman_unit_price = $laboratory_equipments[$i]['toman_unit_price'];
-            $laboratory_equipment->total_price = $laboratory_equipments[$i]['toman_unit_price'] * $laboratory_equipments[$i]['number'];
+            $laboratory_equipment->total_price = ($laboratory_equipments[$i]['dollar_unit_price'] * $request->input('dollar')) + $laboratory_equipments[$i]['toman_unit_price'];
             $laboratory_equipment->team_id = $team_id;
             $laboratory_equipment->updated_at = null;
             $laboratory_equipment->save();
@@ -302,7 +302,8 @@ class Financial1Controller extends Controller
             $equipmentandmachinery->description = $equipmentandmachineries[$i]['description'];
             $equipmentandmachinery->count = $equipmentandmachineries[$i]['count'];
             $equipmentandmachinery->unit_price = $equipmentandmachineries[$i]['unit_price'];
-            $equipmentandmachinery->total_price = $equipmentandmachineries[$i]['unit_price'] * $equipmentandmachineries[$i]['count'];
+            $equipmentandmachinery->dollar = $equipmentandmachineries[$i]['dollar'];
+            $equipmentandmachinery->total_price = (($equipmentandmachineries[$i]['dollar'] * $request->input('dollar')) + $equipmentandmachineries[$i]['unit_price']) * $equipmentandmachineries[$i]['count'];
             $equipmentandmachinery->team_id = $team_id;
             $equipmentandmachinery->updated_at = null;
             $equipmentandmachinery->save();

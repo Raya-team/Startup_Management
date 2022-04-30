@@ -120,7 +120,7 @@
                                         </div>
                                     </div>
                                     <!--end::Group-->
-                                    <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
+                                    <!--<hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                     <h5 class="text-dark font-weight-bold">استانداردها، گواهی‌ها و افتخارات کسب شده
                                         <span class="text-danger">*</span></h5><br>
                                     <transition-group name="slide">
@@ -154,7 +154,7 @@
                                     <div class="col-md-2">
                                         <a @click="AddObtainedCertificate" href="javascript:;" data-repeater-create="" class="btn btn-sm font-weight-bolder btn-light-primary">
                                             <i class="la la-plus"></i>افزودن</a>
-                                    </div>
+                                    </div>-->
                                     <hr data-v-00f88864="" style="width: 80%; border-top: 1px solid rgba(8, 0, 255, 0.21);">
                                     <h5 class="text-dark font-weight-bold">پیش‌بینی برنامه زمان‌بندی اجرای طرح
                                         <span class="text-danger">*</span></h5><br>

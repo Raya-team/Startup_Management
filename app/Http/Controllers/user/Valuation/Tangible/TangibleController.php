@@ -26,7 +26,7 @@ class TangibleController extends Controller
         $valuation_facilities = ValuationFacility::where('team_id', $team_id)->first();
         $valuation_transportations = ValuationTransportation::where('team_id', $team_id)->first();
         $valuation_pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->first();
-        if (!isset($valuation_tenement) || !isset($valuation_laboratory_equipments) || !isset($valuation_machineries) || !isset($valuation_office_supplies) || !isset($valuation_facilities) || !isset($valuation_transportations) || !isset($valuation_pre_operation_costs)){
+        if (!isset($valuation_tenement) && !isset($valuation_laboratory_equipments) && !isset($valuation_machineries) && !isset($valuation_office_supplies) && !isset($valuation_facilities) && !isset($valuation_transportations) && !isset($valuation_pre_operation_costs)){
             return redirect()->route('valuation-tangible.create');
         }
         return view('user.valuation.tangible.index');
@@ -42,7 +42,7 @@ class TangibleController extends Controller
         $valuation_facilities = ValuationFacility::where('team_id', $team_id)->first();
         $valuation_transportations = ValuationTransportation::where('team_id', $team_id)->first();
         $valuation_pre_operation_costs = ValuationPreOperationCost::where('team_id', $team_id)->first();
-        if (isset($valuation_tenement) || isset($valuation_laboratory_equipments) || isset($valuation_machineries) || isset($valuation_office_supplies) || isset($valuation_facilities) || isset($valuation_transportations) || isset($valuation_pre_operation_costs)){
+        if (isset($valuation_tenement) && isset($valuation_laboratory_equipments) && isset($valuation_machineries) && isset($valuation_office_supplies) && isset($valuation_facilities) && isset($valuation_transportations) && isset($valuation_pre_operation_costs)){
             return redirect()->route('valuation-tangible.index');
         }
         return view('user.valuation.tangible.index');

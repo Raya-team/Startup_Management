@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user\other;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamRequest;
+use App\Models\RegisteredTeam;
 use App\Models\Team;
 use App\Models\User;
 use App\Rules\Persian;
@@ -67,6 +68,12 @@ class TeamController extends Controller
         $team->phone_number = $request->input('phone_number');
         $team->landline = $request->input('landline');
         $team->save();
+        if (!$request->input('status'))
+        {
+            $registered_team = RegisteredTeam::where('team_id', $id)->first();
+            $registered_team->delete();
+        }
+
         return response(['success'], 201);
     }
 

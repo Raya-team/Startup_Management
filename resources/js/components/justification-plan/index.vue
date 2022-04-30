@@ -67,10 +67,12 @@
                                                 <span class="text-dark-75">{{ team.name }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-dark-75">{{ registered_team.registration_number }}</span>
+                                                <span class="text-dark-75" v-if="registered_team == null">-</span>
+                                                <span class="text-dark-75" v-else>{{ registered_team.registration_number }}</span>
                                             </td>
                                             <td>
-                                                <span class="text-dark-75">{{ registered_team.registration_date }}</span>
+                                                <span class="text-dark-75" v-if="registered_team == null">-</span>
+                                                <span class="text-dark-75" v-else>{{ registered_team.registration_date }}</span>
                                             </td>
                                             <td>
                                                 <span class="text-dark-750"></span>
