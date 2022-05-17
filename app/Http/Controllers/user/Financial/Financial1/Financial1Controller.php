@@ -226,7 +226,7 @@ class Financial1Controller extends Controller
             $laboratory_equipment->number = $laboratory_equipments[$i]['number'];
             $laboratory_equipment->dollar_unit_price = $laboratory_equipments[$i]['dollar_unit_price'];
             $laboratory_equipment->toman_unit_price = $laboratory_equipments[$i]['toman_unit_price'];
-            $laboratory_equipment->total_price = ($laboratory_equipments[$i]['dollar_unit_price'] * $request->input('dollar')) + $laboratory_equipments[$i]['toman_unit_price'];
+            $laboratory_equipment->total_price = (($laboratory_equipments[$i]['dollar_unit_price'] * $request->input('dollar')) + $laboratory_equipments[$i]['toman_unit_price']) * $laboratory_equipments[$i]['number'];
             $laboratory_equipment->team_id = $team_id;
             $laboratory_equipment->updated_at = null;
             $laboratory_equipment->save();

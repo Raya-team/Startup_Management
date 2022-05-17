@@ -243,7 +243,7 @@
                 <table class="table table-head-custom table-vertical-center" id="myTable">
                     <thead>
                     <tr class="bg-gray-100">
-                        <th class="text-center">سوالات</th>
+                        <th class="text-center">مدت زمان مورد نیاز برای سرمایه در گردش</th>
                         <th class="text-center">تعداد روز</th>
                     </tr>
                     </thead>

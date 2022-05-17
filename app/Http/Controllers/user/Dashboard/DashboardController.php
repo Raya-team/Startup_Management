@@ -9,19 +9,33 @@ use App\Models\CommercializationQuestion;
 use App\Models\CompetitivePositionQuestion;
 use App\Models\CustomerCommitmentQuestion;
 use App\Models\CustomerRecognitionQuestion;
+use App\Models\EquipmentAndMachinery;
+use App\Models\Facility;
 use App\Models\FunctionalManagementQuestion;
 use App\Models\IntellectualPropertyManagementQuestion;
+use App\Models\LaboratoryEquipment;
+use App\Models\Land;
 use App\Models\LiquidityAndAccessToCapitalQuestion;
 use App\Models\ManufacturingQuestion;
 use App\Models\MarketQuestion;
+use App\Models\OfficeEquipmentAndSupply;
 use App\Models\PlanYear;
+use App\Models\PreOperatingCost;
 use App\Models\PublicManagementQuestion;
 use App\Models\RuleQuestion;
 use App\Models\SaleAndTechnicalSupportQuestion;
 use App\Models\SaleForecastQuestion;
 use App\Models\SupplyChainQuestion;
 use App\Models\TechnologyQuestion;
+use App\Models\Transportation;
 use App\Models\UncertaintyPredictionQuestion;
+use App\Models\ValuationFacility;
+use App\Models\ValuationLaboratoryEquipment;
+use App\Models\ValuationMachinery;
+use App\Models\ValuationOfficeSupply;
+use App\Models\ValuationPreOperationCost;
+use App\Models\ValuationTenement;
+use App\Models\ValuationTransportation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -191,6 +205,21 @@ class DashboardController extends Controller
 
         $NPV = $this->NPV();
 
-        return view('user.dashboard.index', compact(['TRL', 'mRL', 'MRL', 'BRL', 'plan_life', 'NPV']));
+        $lands = Land::where('team_id', $team_id)->get()->sum('price');
+        $equipment_and_machineries = EquipmentAndMachinery::where('team_id', $team_id)->get()->sum('total_price');
+        $fin_laboratory_equipments = LaboratoryEquipment::where('team_id', $team_id)->get()->sum('total_price');
+        $fin_facilities = Facility::where('team_id', $team_id)->get()->sum('total_price');
+        $fin_transportations = Transportation::where('team_id', $team_id)->get()->sum('total_price');
+        $office_equipment_and_supplise = OfficeEquipmentAndSupply::where('team_id', $team_id)->get()->sum('total_price');
+        $pre_operating_cost = PreOperatingCost::where('team_id', $team_id)->sum('total_price');
+        $tenements = ValuationTenement::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $facilities = ValuationFacility::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $machineries = ValuationMachinery::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $laboratory_equipments = ValuationLaboratoryEquipment::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $offices = ValuationOfficeSupply::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $transportations = ValuationTransportation::with(['Description','Owner'])->where('team_id', $team_id)->get();
+        $pre_operation_costs = ValuationPreOperationCost::with(['Description','Owner'])->where('team_id', $team_id)->get();
+
+        return view('user.dashboard.index', compact(['TRL', 'mRL', 'MRL', 'BRL', 'plan_life', 'NPV', 'lands', 'equipment_and_machineries', 'fin_laboratory_equipments', 'fin_facilities', 'fin_transportations', 'office_equipment_and_supplise', 'pre_operating_cost', 'tenements', 'facilities', 'machineries', 'laboratory_equipments', 'offices', 'transportations', 'pre_operation_costs']));
     }
 }
