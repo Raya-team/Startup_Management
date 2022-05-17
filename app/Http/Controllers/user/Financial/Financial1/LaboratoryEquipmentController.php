@@ -38,7 +38,7 @@ class LaboratoryEquipmentController extends Controller
             $laboratory_equipment->number = $laboratory_equipments[$i]['number'];
             $laboratory_equipment->dollar_unit_price = $laboratory_equipments[$i]['dollar_unit_price'];
             $laboratory_equipment->toman_unit_price = $laboratory_equipments[$i]['toman_unit_price'];
-            $laboratory_equipment->total_price = ($laboratory_equipments[$i]['dollar_unit_price'] * $fiscal->dollar) + $laboratory_equipments[$i]['toman_unit_price'];
+            $laboratory_equipment->total_price = (($laboratory_equipments[$i]['dollar_unit_price'] * $fiscal->dollar) + $laboratory_equipments[$i]['toman_unit_price']) * $laboratory_equipments[$i]['number'];
             $laboratory_equipment->team_id = $team_id;
             $laboratory_equipment->updated_at = null;
             $laboratory_equipment->save();
@@ -91,7 +91,7 @@ class LaboratoryEquipmentController extends Controller
         $laboratory_equipment->number = $request['laboratory_equipments'][0]['number'];
         $laboratory_equipment->dollar_unit_price = $request['laboratory_equipments'][0]['dollar_unit_price'];
         $laboratory_equipment->toman_unit_price = $request['laboratory_equipments'][0]['toman_unit_price'];
-        $laboratory_equipment->total_price = ($request['laboratory_equipments'][0]['dollar_unit_price'] * $fiscal->dollar) + $request['laboratory_equipments'][0]['toman_unit_price'];
+        $laboratory_equipment->total_price = (($request['laboratory_equipments'][0]['dollar_unit_price'] * $fiscal->dollar) + $request['laboratory_equipments'][0]['toman_unit_price']) * $request['laboratory_equipments'][0]['number'];
         $laboratory_equipment->save();
 
         $sum_tenements = Land::where('team_id', $team_id)->get()->sum('price');

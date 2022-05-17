@@ -53,7 +53,7 @@
                                     </tr>
                                     <tr>
                                         <td>سرمایه مورد نیاز</td>
-                                        <td>... تومان</td>
+                                        <td>{{ ($lands + $equipment_and_machineries + $fin_laboratory_equipments + $fin_facilities + $fin_transportations + $office_equipment_and_supplise + $pre_operating_cost) - ( ($tenements->sum('total_price')) + ($facilities->sum('total_price')) + ($machineries->sum('total_price')) + ($laboratory_equipments->sum('total_price')) + ($offices->sum('total_price')) + ($transportations->sum('total_price')) + ($pre_operation_costs->sum('total_price')) )  }} تومان</td>
                                     </tr>
                                     <tr>
                                         <td>عمر طرح</td>

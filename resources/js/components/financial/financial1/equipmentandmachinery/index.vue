@@ -50,6 +50,7 @@
                                     <th>شرح</th>
                                     <th>تعداد</th>
                                     <th>قیمت واحد (تومان)</th>
+                                    <th>قیمت واحد (دلار)</th>
                                     <th>قیمت کل (تومان)</th>
                                     <th>عملیات</th>
                                 </tr>
@@ -67,6 +68,9 @@
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ equipmentandmachinery.unit_price }}</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-dark-750">{{ equipmentandmachinery.dollar }}</span>
                                     </td>
                                     <td>
                                         <span class="text-dark-750">{{ equipmentandmachinery.total_price }}</span>
