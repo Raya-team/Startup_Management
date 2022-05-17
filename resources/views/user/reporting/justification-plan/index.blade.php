@@ -966,7 +966,7 @@
                                                         @if( isset( $rep_fin_facility->facility->total_price) )
                                                             <span class="text-dark-75">{{($rep_fin_facility->total_price) - ($rep_fin_facility->facility->total_price) }}</span>
                                                         @else
-                                                            <span class="text-dark-75">{{($rep_fin_facilitytotal_price) - 0 }}</span>
+                                                            <span class="text-dark-75">{{($rep_fin_facility->total_price) - 0 }}</span>
                                                         @endif
                                                     </td>
                                                     <td>

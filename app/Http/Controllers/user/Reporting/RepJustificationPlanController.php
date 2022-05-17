@@ -271,7 +271,6 @@ class RepJustificationPlanController extends Controller
         $plan_implementation = PlanImplementation::where('team_id', $team_id)->get();
         //ارزش گذاری مشهود
         $tenements = ValuationTenement::with(['Description','Owner'])->where('team_id', $team_id)->get();
-//        return $tenements;
         $facilities = ValuationFacility::with(['Description','Owner'])->where('team_id', $team_id)->get();
         $machineries = ValuationMachinery::with(['Description','Owner'])->where('team_id', $team_id)->get();
         $laboratory_equipments = ValuationLaboratoryEquipment::with(['Description','Owner'])->where('team_id', $team_id)->get();
